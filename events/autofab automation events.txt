@@ -1,0 +1,949 @@
+namespace = autofab_automation
+
+event = {
+	id = autofab_automation.0
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		log = "Autofab Automation is active"
+		if = {
+			limit = {
+				has_global_flag = autofab_logging
+			}
+			log = "Autofab Automation is active log locked"
+		}
+		every_country = {
+			limit = {
+				can_use_autofab = yes
+			}
+			random_list = {
+				10 = {
+					country_event = { id = autofab_automation.1000 days = 1 }
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation 1 day delay for [This.GetName]"
+					}
+				}
+				10 = {
+					country_event = { id = autofab_automation.1000 days = 91 }
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation 91 day delay for [This.GetName]"
+					}
+				}
+				10 = {
+					country_event = { id = autofab_automation.1000 days = 181 }
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation 181 day delay for [This.GetName]"
+					}
+				}
+				10 = {
+					country_event = { id = autofab_automation.1000 days = 271 }
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation 271 day delay for [This.GetName]"
+					}
+				}
+			}
+		}
+	}
+	after = {
+	}
+}
+
+country_event = {
+	id = autofab_automation.1000
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		set_variable = { which = autofab_auto_planets value = 0 }
+		set_variable = { which = autofab_planet_count value = 0 }
+		every_owned_planet = {
+			limit = {
+				NOT = {
+					has_planet_flag = factory_expanding
+				}
+				OR = {
+					owner = {
+						is_ai = yes
+					}
+					automation_active = yes
+				}
+				can_expand_factory = yes
+			}
+			PREV = {
+				change_variable = { which = autofab_auto_planets value = 1 }
+			}
+		}
+		every_owned_planet = {
+			PREV = {
+				change_variable = { which = autofab_planet_count value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = autofab_logging
+			}
+			log = "[This.autofab_auto_planets] planet(s) with automation for [This.GetName]"
+		}
+		
+	}
+	
+	#Automation Get Income Count
+	after = {
+		if = {
+			limit = {
+				any_owned_planet = {
+					automation_active = yes
+				}
+			}
+			set_variable = { which = autofabs_busy value = 0 }
+			change_variable = { which = autofabs_busy value = autofab_districts_building }
+			change_variable = { which = autofabs_busy value = autofab_districts_queued }
+			subtract_variable = { which = autofabs_busy value = autofabs }
+			if = {
+				limit = {
+					check_variable = { which = autofabs_busy value < 0 }
+				}
+				multiply_variable = { which = autofabs_busy value = -1 }
+			}
+			export_to_autofab_variables = yes
+			country_resources_ratio_calc = yes
+			autofab_automation_variables_calc = yes
+			reset_autofab_automation_cycle = yes
+			country_event = { id = autofab_automation.1001 days = 1 }
+			if = {
+				limit = {
+					has_global_flag = autofab_logging
+				}
+				log = "Autofab Automation Energy Ratio [This.autofab_energy_ratio] for [This.GetName]."
+				log = "Autofab Automation Minerals Ratio [This.autofab_minerals_ratio] for [This.GetName]."
+				log = "Autofab Automation Food Ratio [This.autofab_food_ratio] for [This.GetName]."
+				log = "Autofab Automation ConGoods Ratio [This.autofab_consumer_goods_ratio] for [This.GetName]."
+				log = "Autofab Automation Motes Ratio [This.autofab_volatile_motes_ratio] for [This.GetName]."
+				log = "Autofab Automation Gases Ratio [This.autofab_exotic_gases_ratio] for [This.GetName]."
+				log = "Autofab Automation Crystals Ratio [This.autofab_rare_crystals_ratio] for [This.GetName]."
+			}
+		}
+	}
+}
+
+#Automation add to planet queues based on income, taking into account production and upkeep of queued modules
+country_event = {
+	id = autofab_automation.1001
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = { #Autofab construction
+			limit = {
+				OR = {
+					has_country_flag = autofab_always_expand
+					check_variable = { which = autofab_districts_available value < 10 }
+					check_variable = { which = autofab_energy_avail value < 10 }
+					check_variable = { which = autofab_food_avail value < 10 }
+					check_variable = { which = autofab_minerals_avail value < 10 }
+					check_variable = { which = autofab_foundry_available value < 10 }
+					check_variable = { which = autofab_factory_available value < 10 }
+					check_variable = { which = autofab_motes_available value < 10 }
+					check_variable = { which = autofab_gases_available value < 10 }
+					check_variable = { which = autofab_crystals_available value < 10 }
+				}
+				any_owned_planet = {
+					can_build_autofab = yes
+					can_afford_automation_autofab = yes				
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = autofab_logging
+				}
+				log = "Autofab Automation Autofab Construction for [This.GetName]."
+			}
+			if = {
+				limit = {
+					has_country_flag = autofab_always_expand
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Autofab wants to queue Always Planet for [This.GetName]."
+				}
+				random_owned_planet = {
+					limit = {
+						can_build_autofab = yes
+						can_afford_automation_autofab = yes
+					}
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation Autofab queued on Always Planet [This.GetName] for [PREV.GetName]."
+					}
+					change_variable = { which = autofab_queue value = 1 }
+					set_planet_flag = automation_queued_this_cycle
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { which = autofab_districts_available value < 10 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Autofab wants to queue More Space Planet for [This.GetName]."
+				}
+				random_owned_planet = {
+					limit = {
+						can_build_autofab = yes
+						can_afford_automation_autofab = yes
+					}
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation Autofab queued on More Space Planet [This.GetName] for [PREV.GetName]."
+					}
+					change_variable = { which = autofab_queue value = 1 }
+					set_planet_flag = automation_queued_this_cycle
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { which = autofab_energy_avail value < 10 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Autofab wants to queue Energy Planet for [This.GetName]."
+				}
+				random_owned_planet = {
+					limit = {
+						can_build_autofab = yes
+						can_afford_automation_autofab = yes
+						is_energy_colony = yes
+					}
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation Autofab queued on Energy Planet [This.GetName] for [PREV.GetName]."
+					}
+					change_variable = { which = autofab_queue value = 1 }
+					set_planet_flag = automation_queued_this_cycle
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { which = autofab_food_avail value < 10 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Autofab wants to queue Farm Planet for [This.GetName]."
+				}
+				random_owned_planet = {
+					limit = {
+						can_build_autofab = yes
+						can_afford_automation_autofab = yes
+						is_farming_colony = yes
+					}
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation Autofab queued on Farm Planet [This.GetName] for [PREV.GetName]."
+					}
+					change_variable = { which = autofab_queue value = 1 }
+					set_planet_flag = automation_queued_this_cycle
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { which = autofab_minerals_avail value < 10 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Autofab wants to queue Mining Planet for [This.GetName]."
+				}
+				random_owned_planet = {
+					limit = {
+						can_build_autofab = yes
+						can_afford_automation_autofab = yes
+						is_mining_colony = yes
+					}
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation Autofab queued on Mining Planet [This.GetName] for [PREV.GetName]."
+					}
+					change_variable = { which = autofab_queue value = 1 }
+					set_planet_flag = automation_queued_this_cycle
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = { which = autofab_foundry_available value < 10 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Autofab wants to queue Foundry Planet for [This.GetName]."
+				}
+				random_owned_planet = {
+					limit = {
+						can_build_autofab = yes
+						can_afford_automation_autofab = yes
+						is_alloys_colony = yes
+					}
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation Autofab queued on Foundry Planet [This.GetName] for [PREV.GetName]."
+					}
+					change_variable = { which = autofab_queue value = 1 }
+					set_planet_flag = automation_queued_this_cycle
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = {
+							has_ethic = ethic_gestalt_consciousness
+						}
+						has_civic = civic_machine_servitor
+					}
+					check_variable = { which = autofab_factory_available value < 10 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Autofab wants to queue Factory Planet for [This.GetName]."
+				}
+				random_owned_planet = {
+					limit = {
+						can_build_autofab = yes
+						can_afford_automation_autofab = yes
+						is_congood_colony = yes
+					}
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation Autofab queued on Factory Planet [This.GetName] for [PREV.GetName]."
+					}
+					change_variable = { which = autofab_queue value = 1 }
+					set_planet_flag = automation_queued_this_cycle
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						check_variable = { which = autofab_motes_available value < 10 }
+						check_variable = { which = autofab_gases_available value < 10 }
+						check_variable = { which = autofab_crystals_available value < 10 }
+					}
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Autofab wants to queue Refinery Planet for [This.GetName]."
+				}
+				random_owned_planet = {
+					limit = {
+						can_build_autofab = yes
+						can_afford_automation_autofab = yes
+						is_refinery_colony = yes
+					}
+					if = {
+						limit = {
+							has_global_flag = autofab_logging
+						}
+						log = "Autofab Automation Autofab queued on Refinery Planet [This.GetName] for [PREV.GetName]."
+					}
+					change_variable = { which = autofab_queue value = 1 }
+					set_planet_flag = automation_queued_this_cycle
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = autofab_auto_planets value > 0 }
+					check_variable = { which = autofab_done_today value < 6 }
+				}
+				change_variable = { which = autofab_done_today value = 1 }
+				change_variable = { which = autofab_done_cycle value = 1 }
+				country_event = { id = autofab_automation.1001 days = -1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { which = autofab_auto_planets value > 0 }
+				}
+				country_event = { id = autofab_automation.1001 days = 1 }
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = autofab_auto_planets value > 0 }
+				any_owned_planet = {
+					automation_active = yes
+					check_variable = { which = autofab_districts_available value > 0 }
+				}
+			}
+			change_variable = { which = autofab_auto_planets value = -1 }
+			
+			if = { #Energy
+				limit = {
+					NOT = { check_variable = { which = factory_energy_mult value > 0 } }
+					check_variable = { which = autofab_energy_ratio value < factory_energy_mult }
+					check_variable = { which = autofab_energy_avail value > 0 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Energy Target for [This.GetName]."
+				}
+				if = { #Prioritize a planet that is a Generator World first.
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							has_energy_available = yes
+							is_energy_colony = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							has_energy_available = yes
+							is_energy_colony = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation Energy queued on Energy Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_energy_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+				else_if = {
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							has_energy_available = yes
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							has_energy_available = yes
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation Energy queued on Fallback Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_energy_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+			}
+			else_if = { #Strategic Resources
+				limit = {
+					AND = {
+						NOT = { check_variable = { which = factory_motes_mult value > 0 } }
+						NOT = { check_variable = { which = factory_gases_mult value > 0 } }
+						NOT = { check_variable = { which = factory_crystals_mult value > 0 } }
+					}
+					OR = {
+						check_variable = { which = autofab_volatile_motes_ratio value < factory_motes_mult }
+						check_variable = { which = autofab_exotic_gases_ratio value < factory_gases_mult }
+						check_variable = { which = autofab_rare_crystals_ratio value < factory_crystals_mult }
+					}
+					check_variable = { which = autofab_districts_available value > 0 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation SRs Target for [This.GetName]."
+				}
+				if = { #Prioritize building Extractors first
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							check_variable = { which = autofab_extractor_avail value > 0 }
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							check_variable = { which = autofab_extractor_avail value > 0 }
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation Extractor queued on [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_extractor_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+				else_if = { #Prioritize a planet that is a Refinery World first.
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							is_refinery_colony = yes
+						}
+					}
+					if = {
+						limit = {
+							NOT = { check_variable = { which = factory_motes_mult value > 0 } }
+							check_variable = { which = autofab_volatile_motes_ratio value < factory_motes_mult }
+						}
+						random_owned_planet = {
+							limit = {
+								automation_active = yes
+								check_variable = { which = autofab_districts_available value > 0 }
+								is_refinery_colony = yes
+							}
+							if = {
+								limit = {
+									has_global_flag = autofab_logging
+								}
+								log = "Autofab Automation Motes queued on Refinery Colony [This.GetName] for [PREV.GetName]."
+							}
+							change_variable = { which = autofab_motes_queue value = 1 }
+							set_planet_flag = automation_queued_this_cycle
+						}
+					}
+					else_if = {
+						limit = {
+							NOT = { check_variable = { which = factory_gases_mult value > 0 } }
+							check_variable = { which = autofab_exotic_gases_ratio value < factory_gases_mult }
+						}
+						random_owned_planet = {
+							limit = {
+								automation_active = yes
+								check_variable = { which = autofab_districts_available value > 0 }
+								is_refinery_colony = yes
+							}
+							if = {
+								limit = {
+									has_global_flag = autofab_logging
+								}
+								log = "Autofab Automation Gases queued on Refinery Colony [This.GetName] for [PREV.GetName]."
+							}
+							change_variable = { which = autofab_gases_queue value = 1 }
+							set_planet_flag = automation_queued_this_cycle
+						}
+					}
+					else_if = {
+						limit = {
+							NOT = { check_variable = { which = factory_crystals_mult value > 0 } }
+							check_variable = { which = autofab_rare_crystals_ratio value < factory_crystals_mult }
+						}
+						random_owned_planet = {
+							limit = {
+								automation_active = yes
+								check_variable = { which = autofab_districts_available value > 0 }
+								is_refinery_colony = yes
+							}
+							if = {
+								limit = {
+									has_global_flag = autofab_logging
+								}
+								log = "Autofab Automation Crystals queued on Refinery Colony [This.GetName] for [PREV.GetName]."
+							}
+							change_variable = { which = autofab_crystals_queue value = 1 }
+							set_planet_flag = automation_queued_this_cycle
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							can_build_fallback_planet = yes
+						}
+					}
+					if = {
+						limit = { check_variable = { which = autofab_volatile_motes_ratio value < factory_motes_mult } }
+						random_owned_planet = {
+							limit = {
+								automation_active = yes
+								check_variable = { which = autofab_districts_available value > 0 }
+								can_build_fallback_planet = yes
+							}
+							if = {
+								limit = {
+									has_global_flag = autofab_logging
+								}
+								log = "Autofab Automation Motes queued on Fallback Colony [This.GetName] for [PREV.GetName]."
+							}
+							change_variable = { which = autofab_motes_queue value = 1 }
+							set_planet_flag = automation_queued_this_cycle
+						}
+					}
+					else_if = {
+						limit = { check_variable = { which = autofab_exotic_gases_ratio value < factory_gases_mult } }
+						random_owned_planet = {
+							limit = {
+								automation_active = yes
+								check_variable = { which = autofab_districts_available value > 0 }
+								can_build_fallback_planet = yes
+							}
+							if = {
+								limit = {
+									has_global_flag = autofab_logging
+								}
+								log = "Autofab Automation Gases queued on Fallback Colony [This.GetName] for [PREV.GetName]."
+							}
+							change_variable = { which = autofab_gases_queue value = 1 }
+							set_planet_flag = automation_queued_this_cycle
+						}
+					}
+					else_if = {
+						limit = { check_variable = { which = autofab_rare_crystals_ratio value < factory_crystals_mult } }
+						random_owned_planet = {
+							limit = {
+								automation_active = yes
+								check_variable = { which = autofab_districts_available value > 0 }
+								can_build_fallback_planet = yes
+							}
+							if = {
+								limit = {
+									has_global_flag = autofab_logging
+								}
+								log = "Autofab Automation Crystals queued on Fallback Colony [This.GetName] for [PREV.GetName]."
+							}
+							change_variable = { which = autofab_crystals_queue value = 1 }
+							set_planet_flag = automation_queued_this_cycle
+						}
+					}
+				}
+			}
+			else_if = { #Food
+				limit = {
+					NOT = { check_variable = { which = factory_food_mult value > 0 } }
+					country_uses_food = yes
+					check_variable = { which = autofab_food_ratio value < factory_food_mult }
+					check_variable = { which = autofab_food_avail value > 0 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Food Target for [This.GetName]."
+				}
+				if = { #Prioritize a planet that is a Farming World first.
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							has_food_available = yes
+							is_farming_colony = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							has_food_available = yes
+							is_farming_colony = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation Food queued on Food Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_food_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+				else_if = {
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							has_food_available = yes
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							has_food_available = yes
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation Food queued on Fallback Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_food_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+			}
+			else_if = { #Consumer Goods
+				limit = {
+					NOT = { check_variable = { which = factory_consumer_goods_mult value > 0 } }
+					country_uses_consumer_goods = yes
+					check_variable = { which = autofab_consumer_goods_ratio value < factory_consumer_goods_mult }
+					check_variable = { which = autofab_minerals_tracking value > 10 }
+					check_variable = { which = autofab_factory_available value > 0 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation ConGoods Target for [This.GetName]."
+				}
+				if = { #Prioritize a planet that is a Factory World first.
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							is_congood_colony = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							is_congood_colony = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation ConGoods queued on ConGoods Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_congoods_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+				else_if = {
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation ConGoods queued on Fallback Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_congoods_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+			}
+			else_if = { #Minerals
+				limit = {
+					NOT = { check_variable = { which = factory_minerals_mult value > 0 } }
+					check_variable = { which = autofab_minerals_ratio value < factory_minerals_mult }
+					check_variable = { which = autofab_energy_tracking value < 0 }
+					check_variable = { which = autofab_minerals_avail value > 0 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Minerals Target for [This.GetName]."
+				}
+				if = { #Prioritize a planet that is a Mining World first.
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							is_mining_colony = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							has_minerals_available = yes
+							is_mining_colony = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation Minerals queued on Minerals Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_mineral_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+				else_if = {
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							has_minerals_available = yes
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							has_minerals_available = yes
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation Minerals queued on Fallback Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_mineral_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+			}
+			else_if = { #Alloys
+				limit = {
+					check_variable = { which = autofab_minerals_tracking value > 0 }
+					check_variable = { which = autofab_energy_tracking value > 0 }
+					check_variable = { which = autofab_foundry_available value > 0 }
+				}
+				if = {
+					limit = {
+						has_global_flag = autofab_logging
+					}
+					log = "Autofab Automation Alloys for [This.GetName]."
+				}
+				if = { #Prioritize a planet that is a Foundry World first.
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							is_alloys_colony = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							is_alloys_colony = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation Alloys queued on Alloys Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_alloys_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+				else_if = {
+					limit = {
+						any_owned_planet = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							automation_active = yes
+							check_variable = { which = autofab_districts_available value > 0 }
+							can_build_fallback_planet = yes
+							can_afford_automation_district = yes
+						}
+						if = {
+							limit = {
+								has_global_flag = autofab_logging
+							}
+							log = "Autofab Automation Alloys queued on Fallback Colony [This.GetName] for [PREV.GetName]."
+						}
+						change_variable = { which = autofab_alloys_queue value = 1 }
+						set_planet_flag = automation_queued_this_cycle
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { which = autofab_auto_planets value > 0 }
+					check_variable = { which = autofab_done_today value < 6 }
+				}
+				change_variable = { which = autofab_done_today value = 1 }
+				change_variable = { which = autofab_done_cycle value = 1 }
+				country_event = { id = autofab_automation.1001 days = -1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { which = autofab_auto_planets value > 0 }
+				}
+				country_event = { id = autofab_automation.1001 days = 1 }
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					has_global_flag = autofab_logging
+				}
+				log = "Autofab Automation Planets queued this cycle [This.autofab_done_cycle] for [This.GetName]."
+			}
+			fire_on_action = { on_action = autofab_apply_queue } #Immediately attempt to apply the queue after automation is fully calced.
+		}
+	}
+}

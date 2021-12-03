@@ -1,0 +1,25 @@
+export_trigger_value_to_variable = {
+				trigger = num_districts
+				parameters = { type = district_industrial }
+				variable = realdev_industry
+			}
+			export_trigger_value_to_variable = {
+				trigger = num_districts
+				parameters = { type = district_rw_industrial }
+				variable = realdev_industry
+			}
+			export_trigger_value_to_variable = {
+				trigger = num_districts
+				parameters = { type = district_hab_industrial }
+				variable = realdev_industry
+			}
+			export_trigger_value_to_variable = {
+				trigger = num_districts
+				parameters = { type = district_arcology_arms_industry }
+				variable = realdev_industry
+			}
+			export_trigger_value_to_variable = {
+				trigger = num_districts
+				parameters = { type = district_arcology_civilian_industry }
+				variable = realdev_industry
+			}

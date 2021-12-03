@@ -1,0 +1,198 @@
+reset_autofab_automation_cycle = {
+	set_variable = { which = autofab_done_today value = 0 }
+	set_variable = { which = autofab_done_cycle value = 0 }
+	every_owned_planet = {
+		remove_planet_flag = automation_queued_this_cycle
+	}
+}
+
+autofab_floor_automation_variables = {
+	if = {
+		limit = {
+			check_variable = { which = factory_energy_mult value < 0 }
+		}
+		set_variable = { which = factory_energy_mult value = 0 }
+	}
+	if = {
+		limit = {
+			check_variable = { which = factory_minerals_mult value < 0 }
+		}
+		set_variable = { which = factory_minerals_mult value = 0 }
+	}
+	if = {
+		limit = {
+			check_variable = { which = factory_food_mult value < 0 }
+		}
+		set_variable = { which = factory_food_mult value = 0 }
+	}
+	if = {
+		limit = {
+			check_variable = { which = factory_consumer_goods_mult value < 0 }
+		}
+		set_variable = { which = factory_consumer_goods_mult value = 0 }
+	}
+	if = {
+		limit = {
+			check_variable = { which = factory_motes_mult value < 0 }
+		}
+		set_variable = { which = factory_motes_mult value = 0 }
+	}
+	if = {
+		limit = {
+			check_variable = { which = factory_gases_mult value < 0 }
+		}
+		set_variable = { which = factory_gases_mult value = 0 }
+	}
+	if = {
+		limit = {
+			check_variable = { which = factory_crystals_mult value < 0 }
+		}
+		set_variable = { which = factory_crystals_mult value = 0 }
+	}
+	if = {
+		limit = {
+			check_variable = { which = factory_energy_stockpile_min value < 0 }
+		}
+		set_variable = { which = factory_energy_stockpile_min value = 0 }
+	}
+	if = {
+		limit = {
+			check_variable = { which = factory_minerals_stockpile_min value < 0 }
+		}
+		set_variable = { which = factory_minerals_stockpile_min value = 0 }
+	}
+	if = {
+		limit = {
+			check_variable = { which = factory_alloys_stockpile_min value < 0 }
+		}
+		set_variable = { which = factory_alloys_stockpile_min value = 0 }
+	}
+}
+
+autofab_automation_variables_calc = {
+	country_resources_ratio_calc = yes
+	subtract_variable = { which = autofab_energy_tracking value = factory_energy_stockpile_min }
+	subtract_variable = { which = autofab_minerals_tracking value = factory_minerals_stockpile_min }
+	subtract_variable = { which = autofab_alloys_tracking value = factory_alloys_stockpile_min }
+
+}
+
+export_to_autofab_variables = {
+	export_resource_income_to_variable = { resource = energy variable = autofab_energy_tracking }
+	export_resource_income_to_variable = { resource = minerals variable = autofab_minerals_tracking }
+	export_resource_income_to_variable = { resource = food variable = autofab_food_tracking }
+	export_resource_income_to_variable = { resource = consumer_goods variable = autofab_consumer_goods_tracking }
+	export_resource_income_to_variable = { resource = alloys variable = autofab_alloys_tracking }
+	export_resource_income_to_variable = { resource = volatile_motes variable = autofab_volatile_motes_tracking }
+	export_resource_income_to_variable = { resource = exotic_gases variable = autofab_exotic_gases_tracking }
+	export_resource_income_to_variable = { resource = rare_crystals variable = autofab_rare_crystals_tracking }
+	
+	
+	set_variable = { which = autofab_energy_ratio value = autofab_energy_tracking }
+	set_variable = { which = autofab_minerals_ratio value = autofab_minerals_tracking }
+	set_variable = { which = autofab_food_ratio value = autofab_food_tracking }
+	set_variable = { which = autofab_consumer_goods_ratio value = autofab_consumer_goods_tracking }
+	set_variable = { which = autofab_volatile_motes_ratio value = autofab_volatile_motes_tracking }
+	set_variable = { which = autofab_exotic_gases_ratio value = autofab_exotic_gases_tracking }
+	set_variable = { which = autofab_rare_crystals_ratio value = autofab_rare_crystals_tracking }
+}
+
+country_resources_ratio_calc = {
+	country_energy_check = yes
+	country_minerals_check = yes
+	country_food_check = yes
+	country_consumer_goods_check = yes
+	country_motes_check = yes
+	country_gases_check = yes
+	country_crystals_check = yes
+}
+
+country_energy_check = {
+	divide_variable = { which = autofab_energy_ratio value = autofab_planet_count }
+}
+country_minerals_check = {
+	divide_variable = { which = autofab_minerals_ratio value = autofab_planet_count }
+}
+country_food_check = {
+	divide_variable = { which = autofab_food_ratio value = autofab_planet_count }
+}
+country_consumer_goods_check = {
+	divide_variable = { which = autofab_consumer_goods_ratio value = autofab_planet_count }
+}
+country_motes_check = {
+	divide_variable = { which = autofab_volatile_motes_ratio value = autofab_planet_count }
+}
+country_gases_check = {
+	divide_variable = { which = autofab_exotic_gases_ratio value = autofab_planet_count }
+}
+country_crystals_check = {
+	divide_variable = { which = autofab_rare_crystals_ratio value = autofab_planet_count }
+}
+
+
+autofab_account_energy_module = {
+	if = {
+		limit = {
+			uses_district_set = standard
+		}
+		owner = {
+			add_resource = {
+				energy = @Negdistrictcost
+			}
+			add_resource = {
+				minerals = @Negdistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			uses_district_set = habitat
+		}
+		owner = {
+			add_resource = {
+				energy = @Neghabdistrictcost
+			}
+			add_resource = {
+				minerals = @Neghabdistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			uses_district_set = city_world
+		}
+		owner = {
+			add_resource = {
+				energy = @Negcitydistrictcost
+			}
+			add_resource = {
+				minerals = @Negcitydistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			uses_district_set = ring_world
+		}
+		owner = {
+			add_resource = {
+				energy = @Negringdistrictcost
+			}
+			add_resource = {
+				minerals = @Negringdistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
+}

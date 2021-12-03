@@ -1,0 +1,324 @@
+has_autofab_mod = {
+	always = no
+}
+
+can_use_autofab = {
+	NOT = { has_global_flag = no_autofab }
+	OR = {
+		has_origin = origin_autofab
+		has_ascension_perk = ap_autofab
+		has_autofab_civic = yes
+		has_global_flag = autofab_for_all
+	}
+}
+
+has_autofab_civic = {
+	OR = {
+		has_valid_civic = civic_autofab
+		has_valid_civic = civic_autofab_machine
+		has_valid_civic = civic_autofab_hive
+		has_valid_civic = civic_autofab_megacorp
+	}
+}
+
+can_build_autofab = { #Planet Scope
+	OR = {
+		has_planet_flag = factory_autofab_construction_on
+		AND = {
+			owner = {
+				has_country_flag = factory_autofab_construction_on
+			}
+			NOT = { has_planet_flag = factory_autofab_construction_off }
+		}
+	}
+	NOT = {
+		has_planet_flag = has_autofab
+		has_planet_flag = building_autofab
+	}
+	has_supported_district_set = yes
+	can_afford_autofab = yes
+}
+
+can_expand_factory = {
+	free_district_slots > 0
+	has_autofab = yes
+	NOT = { has_planet_flag = factory_expanding }
+	can_afford_module = yes
+}
+
+has_autofab = {
+	OR = {
+		has_deposit = autofab
+		has_planet_flag = has_autofab
+	}
+}
+
+can_queue_factory = {
+	NOT = { automation_active = yes }
+}
+
+has_supported_district_set = {
+	OR = {
+		##Vanilla District Sets
+		uses_district_set = standard
+		uses_district_set = habitat
+		uses_district_set = city_world
+		uses_district_set = hive_world
+		uses_district_set = machine_world
+		uses_district_set = ring_world
+		uses_district_set = shattered_ring_world
+		
+		##Gigas District Sets
+		uses_district_set = giga_birch
+		uses_district_set = acot_giga_void_sphere
+		#uses_district_set = giga_alderson
+		#uses_district_set = giga_alderson_ecu
+		#uses_district_set = giga_alderson_hive
+		#uses_district_set = giga_alderson_machine
+		#uses_district_set = giga_alderson_pc
+		#uses_district_set = giga_habitat
+	}
+}
+
+uses_base_district_set = {
+	OR = {
+		uses_district_set = standard
+		uses_district_set = hive_world
+		uses_district_set = machine_world
+		uses_district_set = shattered_ring_world
+		uses_district_set = giga_birch
+		uses_district_set = acot_giga_void_sphere
+	}
+}
+uses_habitat_district_set = {
+	OR = {
+		uses_district_set = habitat
+	}
+}
+uses_city_district_set = {
+	OR = {
+		uses_district_set = city_world
+	}
+}
+uses_ringworld_district_set = {
+	OR = {
+		uses_district_set = ring_world
+	}
+}
+uses_infinite_space_district_set = {
+	OR = {
+		uses_district_set = giga_birch
+		uses_district_set = acot_giga_void_sphere
+	}
+}
+
+has_vanilla_swap_candidate = {
+	has_autofab = yes
+	OR = {
+		##Vanilla Districts
+		has_district = district_generator
+		has_district = district_generator_uncapped
+		has_district = district_rw_generator
+		has_district = district_hab_energy
+		has_district = district_farming
+		has_district = district_farming_uncapped
+		has_district = district_rw_farming
+		has_district = district_mining
+		has_district = district_mining_uncapped
+		has_district = district_hab_mining
+		has_district = district_industrial
+		has_district = district_rw_industrial
+		has_district = district_hab_industrial
+		has_district = district_arcology_arms_industry
+		has_district = district_arcology_civilian_industry
+		
+		##Gigas Districts
+	}
+}
+
+has_energy_available = {
+	OR = {
+		uses_district_set = giga_birch
+		AND = {	
+			uses_district_set = standard
+			num_free_districts = { type = district_generator value > 0 }
+		}
+		AND = {
+			OR = {
+				uses_district_set = hive_world
+				uses_district_set = machine_world
+				uses_district_set = ring_world
+			}
+			free_district_slots > 0
+		}
+		AND = {
+			uses_district_set = habitat
+			OR = {
+				has_planet_flag = energy_habitat
+				AND = {
+					exists = from
+					from = { is_gestalt = yes }
+				}
+			}
+			free_district_slots > 0
+		}
+	}
+}
+has_minerals_available = {
+	OR = {
+		uses_district_set = giga_birch
+		AND = {	
+			uses_district_set = standard
+			num_free_districts = { type = district_mining value > 0 }
+		}
+		AND = {
+			uses_district_set = hive_world
+			uses_district_set = machine_world
+			free_district_slots > 0
+		}
+		AND = {
+			uses_district_set = habitat
+			has_planet_flag = mining_habitat
+			free_district_slots > 0
+		}
+	}
+}
+has_food_available = {
+	OR = {
+		uses_district_set = giga_birch
+		AND = {	
+			uses_district_set = standard
+			num_free_districts = { type = district_farming value > 0 }
+		}
+		AND = {
+			OR = {
+				uses_district_set = hive_world
+				uses_district_set = ring_world
+			}
+			free_district_slots > 0
+		}
+	}
+}
+
+has_rare_resource_deposit = {
+	OR = {
+		has_deposit = d_crystalline_caverns
+		has_deposit = d_crystal_forest
+		has_deposit = d_crystal_reef
+		has_deposit = d_bubbling_swamp
+		has_deposit = d_fuming_bog
+		has_deposit = d_dust_desert
+		has_deposit = d_dust_caverns
+		has_deposit = d_hab_mote_1
+		has_deposit = d_hab_mote_2
+		has_deposit = d_hab_mote_3
+		has_deposit = d_hab_mote_4
+		has_deposit = d_hab_mote_5
+		has_deposit = d_hab_crystal_1
+		has_deposit = d_hab_crystal_2
+		has_deposit = d_hab_crystal_3
+		has_deposit = d_hab_crystal_4
+		has_deposit = d_hab_crystal_5
+		has_deposit = d_hab_gas_1
+		has_deposit = d_hab_gas_2
+		has_deposit = d_hab_gas_3
+		has_deposit = d_hab_gas_4
+		has_deposit = d_hab_gas_5
+		has_deposit = d_industrial_sector
+	}
+}
+
+has_energy_factory = {
+	OR = {
+		has_deposit = autofab_power
+	}
+}
+has_minerals_factory = {
+	OR = {
+		has_deposit = autofab_mine
+	}
+}
+has_food_factory = {
+	OR = {
+		has_deposit = autofab_farm
+	}
+}
+has_alloys_factory = {
+	OR = {
+		has_deposit = autofab_foundry
+	}
+}
+has_congoods_factory = {
+	OR = {
+		has_deposit = autofab_factory
+	}
+}
+has_motes_factory = {
+	has_deposit = autofab_motes_refinery
+}
+has_gases_factory = {
+	has_deposit = autofab_gases_refinery
+}
+has_crystals_factory = {
+	has_deposit = autofab_crystals_refinery
+}
+
+
+is_energy_colony = {
+	OR = {
+		has_designation = col_generator
+		has_designation = col_habitat_energy
+		has_designation = col_ring_generator
+		has_designation = col_rural_gestalt
+		has_designation = col_rural
+		has_designation = col_mac
+		has_designation = col_hiv
+	}
+}
+
+is_mining_colony = {
+	OR = {
+		has_designation = col_mining
+		has_designation = col_habitat_mining
+		has_designation = col_rural_gestalt
+		has_designation = col_rural
+		has_designation = col_mac
+		has_designation = col_hiv
+	}
+}
+
+is_farming_colony = {
+	OR = {
+		has_designation = col_farming
+		has_designation = col_ring_farming
+		has_designation = col_rural_gestalt
+		has_designation = col_rural
+		has_designation = col_hiv
+	}
+}
+
+is_alloys_colony = {
+	OR = {
+		has_designation = col_foundry
+		has_designation = col_habitat_foundry
+		has_designation = col_ecu_foundry
+		has_designation = col_mac_foundry
+		has_designation = col_hiv_foundry
+	}
+}
+
+is_congood_colony = {
+	OR = {
+		has_designation = col_factory
+		has_designation = col_habitat_factory
+		has_designation = col_ecu_factory
+		has_designation = col_mac_factory
+	}
+}
+
+is_refinery_colony = {
+	OR = {
+		has_designation = col_refinery
+		has_designation = col_habitat_refinery
+	}
+}

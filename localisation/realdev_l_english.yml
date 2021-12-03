@@ -1,0 +1,73 @@
+﻿l_english:
+ 
+ #Modifiers
+    realdev_planet_speed:0 "Realistic Planet Build Speed"
+    realdev_ship_speed:0 "Realistic Ship Build Speed"
+    realdev_mega_speed:0 "Realistic Mega Build Speed"
+    realdev_planet_assembly:0 "Realistic Assembly Speed"
+    
+    mod_district_realdev_industry_max: "Industrial Production"
+    mod_district_realdev_industry_cap_max: "Industrial Production Capacity"
+ 
+ #Buildings and Jobs
+     building_infrastructure_construction:0 "Equipment Factory"
+     building_infrastructure_construction_desc:0 "A collection of Factories, Equipment, and Infrastructure dedicated to construction and manufacturing."
+     job_realdev_foreman:0 "Foreman"
+     job_realdev_foreman_plural:0 "Foremen"
+     job_realdev_foreman_desc:0 "A manager of construction. Increases Industrial Production Capacity."
+     mod_job_realdev_foreman_add:0 "Foreman"
+     job_realdev_foreman_gestalt:0 "Construction Drone"
+     job_realdev_foreman_gestalt_plural:0 "Construction Drones"
+     job_realdev_foreman_gestalt_desc:0 "A manager of construction. Increases Production Capacity."
+     mod_job_realdev_foreman_gestalt_add:0 "Construction Drone"
+ 
+ #UI stuffs
+     realdev_menu.10.name: "[This.GetName] Industry Controls"
+     REALDEV_PLANET_MENU: ""
+     realdev_ratio_maxxed: "This ratio is already maxed in that direction."
+     
+     realdev_current_indcap_title: "Current"
+     realdev_indcap_title: "Industrial Production"
+     realdev_max_ind_cap_title: "Capacity"
+     
+     realdev_planet_speed_title: "Current"
+     realdev_planet_ratio_title: "Planet/Country Industrial Production"
+     realdev_country_speed_title: "Current"
+     
+     realdev_build_speed_title: "Current"
+     realdev_build_ratio_title: "Build Speed/Assembly"
+     realdev_assembly_speed_title: "Current"
+     
+     realdev_assembly_display: "[This.realdev_assembly_speed_display]%"
+     realdev_build_speed_display: "[This.realdev_planet_build_speed_display]%"
+     
+     realdev_planet_build_speed_display: "[This.realdev_industry_speed_display]"
+     realdev_country_build_speed_display: "[This.realdev_country_industry]"
+     
+     realdev_current_indcap_display: "[This.realdev_industry_display]"
+     realdev_max_ind_cap_display: "[This.realdev_industry_cap_display]"
+     
+     
+     realdev_country_ship_speed_title: "Current"
+     realdev_country_ship_ratio_title: "Ship/Space Construction Build Speed"
+     realdev_country_space_const_speed_title: "Current"
+     
+     realdev_country_ship_speed_display: "[This.realdev_ship_build_speed_display]%"
+     realdev_country_space_construction_display: "[This.realdev_space_build_speed_display]"
+     
+     realdev_minor_colonies_speed_title: "Current"
+     realdev_space_construction_ratio_title: "Minor Colonies/Megastructures Build Speed"
+     realdev_megastructure_speed_title: "Current"
+     
+     realdev_minor_colonies_display: "[This.realdev_minor_colony_speed_display]%"
+     realdev_mega_build_speed_display: "[This.realdev_mega_build_speed_display]%"
+     
+     realdev_country_indcap_title: "Current"
+     realdev_total_ind_cap_title: "Total"
+     
+     realdev_country_indcap_display: "[This.realdev_country_industry_display]"
+     realdev_total_ind_cap_display: "[This.realdev_industry_display]"
+     
+ #Variables
+    realdev_industry_country_ratio: "Planet/Country Split"
+    realdev_industry_construction_ratio: "Construction/Assembly Split"

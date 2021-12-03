@@ -1,0 +1,167 @@
+has_queue = {
+	OR = {
+		NOT = { check_variable = { which = autofab_queue value = 0 } }
+		NOT = { check_variable = { which = autofab_energy_queue value = 0 } }
+		NOT = { check_variable = { which = autofab_mineral_queue value = 0 } }
+		NOT = { check_variable = { which = autofab_food_queue value = 0 } }
+		NOT = { check_variable = { which = autofab_alloys_queue value = 0 } }
+		NOT = { check_variable = { which = autofab_congoods_queue value = 0 } }
+		NOT = { check_variable = { which = autofab_motes_queue value = 0 } }
+		NOT = { check_variable = { which = autofab_gases_queue value = 0 } }
+		NOT = { check_variable = { which = autofab_crystals_queue value = 0 } }
+		NOT = { check_variable = { which = autofab_extractor_queue value = 0 } }
+	}
+}
+
+#Country Scope
+can_build_fallback = {
+	OR = {
+		AND = {
+			has_country_flag = factory_fallback
+			any_owned_planet = {
+				NOT = {
+					has_planet_flag = factory_fallback_off
+					has_planet_flag = factory_fallback
+				}
+				can_expand_factory = yes
+			}
+		}
+		any_owned_planet = {
+			has_planet_flag = factory_fallback
+			can_expand_factory = yes
+		}
+	}
+}
+
+#Planet Scope
+can_build_fallback_planet = {
+	OR = {
+		AND = {
+			owner = {
+				has_country_flag = factory_fallback
+			}
+			NOT = {	has_planet_flag = factory_fallback_off }
+		}
+		has_planet_flag = factory_fallback
+	}
+}
+
+#Planet Scope
+can_afford_autofab = {
+	owner = {
+		resource_stockpile_compare = {
+			resource = alloys
+			value >= @autofaballoycost
+		}
+	}
+	OR = {
+		AND = {
+			uses_base_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @districtcost
+				}
+				resource_stockpile_compare = {
+					resource = energy
+					value >= @districtcost
+				}
+			}
+		}
+		AND = {
+			uses_habitat_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @habdistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = energy
+					value >= @habdistrictcost
+				}
+			}
+		}
+		AND = {
+			uses_city_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @citydistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = energy
+					value >= @citydistrictcost
+				}
+			}
+		}
+		AND = {
+			uses_ringworld_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @ringdistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = energy
+					value >= @ringdistrictcost
+				}
+			}
+		}
+	}
+}
+can_afford_module = {
+	OR = {
+		AND = {
+			uses_base_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @districtcost
+				}
+				resource_stockpile_compare = {
+					resource = alloys
+					value >= @factoryalloycost
+				}
+			}
+		}
+		AND = {
+			uses_habitat_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @habdistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = alloys
+					value >= @factoryalloycost
+				}
+			}
+		}
+		AND = {
+			uses_city_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @citydistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = alloys
+					value >= @factoryalloycost
+				}
+			}
+		}
+		AND = {
+			uses_ringworld_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @ringdistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = alloys
+					value >= @factoryalloycost
+				}
+			}
+		}
+	}
+}

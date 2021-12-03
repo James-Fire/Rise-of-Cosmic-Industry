@@ -1,0 +1,377 @@
+Shuffled around Ethic-based Living standards so that Fanatic ethics are considered first.
+
+Fixed starting with no Factory Farms.
+
+Localised the factory documenting edict.
+
+Made the factory documenting edict have better Order of Operations.
+
+_________________________
+
+Fixed farms being counted twice for the Documenting.
+
+Fixed empires that should not have Factory Industry on game start getting it.
+
+Hive Minds and Machine Empires now properly have less pops, just as normal empires do. Also added all Metallurgists to the kill group.
+
+_________________________
+
+Fixed Vanilla swapping happening on planets with no Factory.
+
+Added a check to factory automation for buildong Consumer Goods so it won't if you don't need it.
+
+Improvements to Automation logic to fully consider upkeep requirements.
+
+Fixed automation not using alloys...
+
+_________________________
+
+Fixed Factory Conversion not converting the first farm.
+
+Added a picture to the Advisor Events.
+
+Changed the localisation for the last events option from Next to Close, to properly reflect what it does.
+
+Properly limited AI stuff to the AI.
+
+Removed the space between 'Next' and '.' in the Advisor event options.
+
+Attempted a clearer sentence for Vanilla Swapping in the Advisor.
+
+Added a fallback option for the AI and new planets. If they don't have enough resources when it initially checks to build a new Factory, it will check again in a year, and keep doing so until the Factory is built.
+
+_________________________
+
+Added descriptions to the decisions.
+
+_________________________
+
+Added images for Strategic Resource Factory deposits.
+
+Fixed errors relating to events that are not supposed to show up.
+
+Decisions now don't show up as unlocked by techs if you don't have the origin.
+
+_________________________
+
+Automation operates under the same limitations you have, only being allowed 1 extractor per planet.
+
+_________________________
+
+Farms, mines, and power plants are no longer allowed to stay on planets that can't have them.
+
+The Factory Extractor now works on Habitat Strategic Resource Deposits.
+
+Habitat mining and energy districts now have a factory deposit for them.
+
+Foundry and Factory deposits now produce/consume double on Ecumenopolis.
+
+Using the decision to convert all existing infrastructure now properly tracks what it converted.
+
+Fixed Non Automatic Factory AI getting the factory.
+
+_________________________
+
+Localised the habitat deposits...
+
+Fixed a check for habitats.
+
+Removed habitable_structure checks, since they are no longer needed.
+
+_________________________
+
+Included checks for if the empire uses food and CGs.
+
+Allowed usage on Hive and Machine Worlds.
+
+Included support for the Industrial Sector deposit on Relic Worlds.
+
+A betharian deposit on the planet now increases the Factory energy output by 25%, and +4.
+
+_________________________
+
+Included another check for if the empire uses food/CGs. Apparently 1 wasn't enough.
+
+_________________________
+
+Fixed an omission regarding the Relic World rare resource deposit.
+
+_________________________
+
+Fixed Swapping not working for Machine and Hive worlds.
+
+Added an event triggered 2 days after game start to reset my stuff so that mods that reroll deposits day 1 don't fuck everything up for 6 months. (Looking at you, Planetary Diversity.)
+
+_________________________
+
+Readded the starting planet stuff.
+
+Appeared to have fixed the deposits missing bug.
+
+Fixed the Document Factory edict doing nothing.
+
+Removed some resource income checks from building mines that shouldn't have been there.
+
+Fixed the SR manufacturing Factories, and the Extractor not taking into account the energy upkeep on the buildings they replace.
+
+Doubled the time it takes to build the intial factory.
+
+_________________________
+
+Replaced the existing Edicts and Decisions with Custom UI, making the factory far easier to control.
+
+Added Queue functionality, so you can queue up several constructions.
+
+Added Fallback functionality, so you can choose whether the Automation and Queue will only buid on the correct planets, or simply prefer them.
+
+Rolled the Document Factory Edict into the new custom UI for controlling the Factory.
+
+Changed the Advisor over to a custom UI, allowing far simpler navigation of topics. The content of the advisor has also been overhauled, due to how you manage the factory being overhauled.
+
+All factory functions can now be controlled from the single Country UI, accessed by the Factory Terminal edict. It can also be accessed from planet specific Factory Terminals.
+
+The factory terminals show how many factory deposits are in the empire/on the planet, and include how many are queued to build, and how many are currently being built.
+
+Added a check for vanilla swapping, so it doesn't convert buildings if there are no district slots left.
+
+Converted separate deposits for Habitats into triggered modifiers on the normal deposits.
+
+Factory module costs now follow the district costs of the planet they are being built on. No longer will Ecu factories cost just as much as a factory on a normal planet.
+
+The initial Autofab deposit now costs the same as building a normal factory module. This results in a 50% increase in cost.
+
+Retooling has been redone so it works with the new queue system.
+
+Added more triggered modifiers to cancel out OP technician modifiers that are inherited.
+
+Added a button to open the Country Factory Terminal in the bottom left of the screen.
+
+Included triggers to prepare for allowing anyone to use the factory, leaving the origin to have a head start on it.
+
+The Planet UI includes an option to block the primary Autofab being built by Automation or the Queue on that planet.
+
+The Country UI has an option to block the primary Autofab from being built by Automation or the Queue.
+
+Included support for ringworld districts. The Factory is allowed to have Generator Modules on Ringworlds, regardless of who owns it.
+
+Added an AP to allow those without the Origin to use the factory.
+
+The Vanilla Forge and Factory buildings now also apply their production increases to the Autofab Forge and Factory Modules, as they would to the Industrial District.
+
+The vanilla Processing Buildings (Energy Grid, Mineral Purification, Food Processing) grant extra production to Factory Modules, as they would to normal districts.
+
+Changed Factory and Forge Modules to normal district cost, instead of building cost.
+
+The Factory is now afffected by the vanilla Subsidy Edicts.
+
+We have a new Workshop Image, and new Origin Icon, and a New Origin Image.
+
+Replaced raw effect dump on menu buttons with a layman's tooltip.
+
+Fixed Vanilla Swapping to work with 3.0 stuff. It also costs alloys now, as building them directly would.
+
+Added a button to both planet and Country UIs to immediately trigger Vanilla Swapping on all existing stuff.
+
+Disabled Automation until I can properly implement it in 3.0.
+
+Included support for Dynamic Mod Menu. It is now a required item.
+
+_________________________
+
+Buffed how much bonus production the AP gives for Origin users, up to 40%. (This is additive with other modifiers, so it might not be as good as you think.)
+
+Changed the AP to require another AP being selected already.
+
+Fixed the DMM implementation to properly open the terminal.
+
+Fixed text in the advisor saying you use a decision to build the Factory.
+
+Added Factory Costs and times to the advisor, under Factory Queue.
+
+Fixed Vanilla Swapping button messing stuff up.
+
+Added tooltips to Vanilla Swap button.
+
+Fixed the Autofab Construction option in the planet terminal blocking buttons when it is on.
+
+Fixed Planet queue not being able to build the Factory.
+
+Fixed counting of districts, so that ones being built count against available districts.
+
+_________________________
+
+Fixed a minor error in Vanilla Swapping script.
+
+Actually fixed planets being unable to build the Factory themselves.
+
+Cleaned up the error log some.
+
+_________________________
+
+Upped the minimum size for your home planet to 25, since vanilla upped normal planet sizes.
+
+Fixed loc for the AP to properly say what it actually gives.
+
+Fixed district space counting breaking stuff because Stellaris has a fit.
+
+_________________________
+
+Fixed overlap for some portraits in my UIs.
+
+Fixed an error in the Order of Operations that caused some weird things to happen.
+
+_________________________
+
+Fixed motes and gases being swapped in which thing they build.
+
+Made closing the Country Terminal attempt to apply the Queue immediately, if it hasn't been done in the past 30 days.
+
+Fixed available Basic districts calc on planets that use the uncapped version. Or on planets that use something else, like Ringworlds.
+
+Fixed a typo in my variable name.
+
+Made Betharian power bonus require the betharian tech.
+
+Fixed button triggers so you can Minus from the Queue value.
+
+Increased the construction time of the Factory, and the Factory Modules, to 3 years and 480 days, respectively.
+
+Added a button to each UI to refresh it.
+
+Gave machine empires their proper bonus base production.
+
+Updated production to account for vanilla buildings giving bonus production rather than extra jobs.
+
+Updated production values for ringworlds, as their districts have been changed.
+
+Fixed Foundry Modules not increasing production on Ringworlds.
+
+Hives get their bonus production from having more jobs now, at the cost of housing.
+
+Included support for the Machine civic for more minerals from miners.
+
+_________________________
+
+Split planet queue from the country queue, so that closing the planet terminal can properly attempt a queue application.
+
+_________________________
+
+Fixed motes checking for food availability.
+
+_________________________
+
+Fixed the Origin not affecting Bio Pop Assembly.
+
+_________________________
+
+Fixed the Ringworld Energy Module taking Exotic Gases instead of Rare Crystals, because Paradox.
+
+Converted the Factory Module deposits to provide resources directly instead of adding production to the Autofab. Except for the Extractor. It's a PITA.
+
+Automation has been enabled, with a new Automation Settings window that contains options specific to Automation.
+
+Rewrote the Automation section of the advisor to be in line with the new functionality.
+
+Added checks to Queue functionality for Automation stuff.
+
+Fixed vanilla swapping working on newly-built stuff even after you turn it off.
+
+Fixed vanilla swapping working through the button to trigger it after your turn it off.
+
+Fixed the Immediate Swap button being able to be clicked if vanilla swapping is off, and it would thus do nothing.
+
+Made all Autofab Modules cost an Admin cap. Test to see if this helps balance.
+
+Moved the Betharian bonus effect to the Extractor Module. It is also now +1 energy per Generator Module, and +25% energy from all Generator Modules, per betharian deposit, up to 3.
+
+_________________________
+
+Fixed the AP not doing stuff it needs to. This will not fix existing games, you can do that by typing into the console `effect autofab_game_start = yes` with nothing selected.
+
+_________________________
+
+Changed documenting the Factory to respect Fallback settings.
+
+Changed Alloys, Congoods, Motes, Gases, and Crystals to be their own tracking variable, instead of just using Available Districts, so they can respect Fallback.
+
+Changed Automation building logic for Autofab to use the new tracking variables on everything.
+
+Automation now ignores resources if their Production Target is 0(Except Alloys, because you can't set a target for it).
+
+Added a whole bunch of logging to my Automation scripts, so hopefully I might actually be able to diagnose what's actually happening sometimes.
+
+_________________________
+
+Added a check to automation so it doesn't queue multiple modules on the same planet in the same Automation Cycle.
+
+You can now queue Autofab Modules after the Autofab is queued. They will start building after the Autofab is built.
+
+Fixed being able to remove from the queue when the queue is 0 for some modules.
+
+Added a tooltip to the Gray planet buttons about how those settings default to the country settings.
+
+Fixed some wonkiness with the Planet Terminal.
+
+_________________________
+
+Fixed Functional Architecture and Constructobot civics not providing the upkeep reduction they should.
+
+Added a civic that gives you the Autofab on your capital, and the ability to build more. It does not replace any pops with Modules. Instead of Pop growth maluses, it gives job output maluses.
+
+Having both the Origin and Civic gives -10% upkeep.
+
+The bonus production from the AP is now ties to having both the Origin/civic and AP.
+
+The civic works with all non-special planet origins.
+
+The civic works with the Resource Consolidation origin.
+
+The civic works with the Remnants origin.
+
+The civic works with the Life-Seeded origin.
+
+The civic works with the Void Dweller origin.
+
+Fixed some construction projects using the wrong cost.
+
+The factory works with Gigas Birch world.
+
+The civic works with the Gigas Birch World origin.
+
+Fixed a logic issue in determining whether the Autofab can be built.
+
+_________________________
+
+The Factory now works with the Shattered Ring Origin.
+
+The Factory now works with the Catalytic Processing civic.
+
+There is now a tradition dealing with the factory available to everyone that can use the factory.
+
+The civic now has an icon for each empire type.
+
+There is now an event on game start asking you if you want everyone to have the factory.
+
+_________________________
+
+The Autofab is now affected by the Automation tradition finisher.
+
+Fixed modules being built instantly.
+
+_________________________
+
+Fixed using the wrong tradition trigger, that led to such things as Gestalts getting +2 TV on their modules.
+
+Fixed the Autofab not providing the -10% upkeep if you have the origin and the civic.
+
+Buffed the civic to give +20% factory production overall.
+
+Buffed the civic to only give a 30% production malus.
+
+Buffed the civic to provide 1 of each basic resource module.
+
+Fixed issues with habitats deciding they don't like their deposits.
+
+_________________________
+
+Included compat for my upcoming Orbital Infrastructure mod.

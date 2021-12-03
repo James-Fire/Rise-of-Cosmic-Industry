@@ -1,0 +1,23 @@
+Included a game start event with options to disable the individual components, and other options for each component.*
+
+Did something to Void Dwellers*
+
+Did something for origins which start with an extra building*
+
+Added a Megacorp Civic: Construction Company. This increases how much Industrial Production you get from trade value for each empire you have met.*
+
+Made the Unyielding Tradition apply to the Orbital Defense Districts.*
+
+Orbital Infra now takes into account the changing of planet size from various things.*
+
+Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp.*
+
+Added 2 upgrades to the Equipment Factory.*
+
+Capped Industrial Production on any 1 object to +/- 2 million, to avoid overflow.*
+
+Added the ability to shift the Planet/Country Industrial production ratio to greater than 1, so planets can take Industrial Production from the Country.*
+
+Fixed the Autofab Factory module giving CG production to the Autofab.
+
+Replaced +/- 10 buttons with a rainbow squirrel, pending actual art.

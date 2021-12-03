@@ -1,0 +1,63 @@
+namespace = realdev_menu
+
+country_event = { ###Country Terminal
+	id = realdev_menu.1
+	title = "realdev_menu.1.name"
+	desc = "realdev_menu.1.desc"
+	diplomatic = yes
+	custom_gui = "realdev_country_window"
+	is_triggered_only = yes
+	
+	picture_event_data = {
+		portrait = ROOT.ruler
+		room = ethic_spaceship_room
+	}
+	
+	immediate = {
+	}
+	
+	# Confirm
+	option = {
+		name = "realdev_menu.1.refresh"
+		#custom_tooltip = "realdev_menu.1.refresh.tooltip"
+		custom_gui = "realdev_country_menu_YEET"
+		country_event = { id = realdev_menu.1 }
+	}
+	option = {
+		name = "realdev_menu.1.confirm"
+		#custom_tooltip = "realdev_menu.1.confirm.tooltip"
+		custom_gui = "realdev_country_menu_YEET"
+		default_hide_option = yes
+	}
+	
+	after = {
+		#fire_on_action = { on_action = realdev_apply_queue }
+	}
+}
+
+planet_event = { ###Planet Terminal
+	id = realdev_menu.10
+	title = "realdev_menu.10.name"
+	desc = "realdev_menu.10.desc"
+	diplomatic = yes
+	custom_gui = "realdev_planet_window"
+	is_triggered_only = yes
+	
+	
+	picture_event_data = {
+		portrait = ROOT.owner.ruler
+		room = ethic_spaceship_room
+	}
+	
+	# Confirm
+	# Confirm
+	option = {
+		name = "realdev_menu.1.confirm"
+		#custom_tooltip = "realdev_menu.1.confirm.tooltip"
+		custom_gui = "realdev_planet_menu_confirm"
+	}
+	
+	after = {
+		#fire_on_action = { on_action = realdev_apply_planet_queue scopes = { from = owner } }
+	}
+}

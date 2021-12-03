@@ -1,0 +1,27 @@
+ap_autofab = {
+	potential = {
+		NOT = { has_global_flag = no_autofab }
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_1"
+			num_ascension_perks > 0
+		}
+	}
+
+	on_enabled = {
+		custom_tooltip = "can_use_autofab"
+		hidden_effect = {
+			autofab_game_start = yes
+		}
+	}
+
+	modifier = {
+		#planet_autofab_produces_mult = 0.1
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

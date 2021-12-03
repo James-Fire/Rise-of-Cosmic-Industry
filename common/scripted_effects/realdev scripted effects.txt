@@ -1,0 +1,14 @@
+reset_realdev_variables = {
+	set_variable = { which = realdev_shipyard_count value = 0 }
+	set_variable = { which = realdev_industry value = 0 }
+	set_variable = { which = realdev_country_industry value = 0 }
+	set_variable = { which = realdev_trade_value value = 0 }
+	set_variable = { which = realdev_country_build_speed value = 0 }
+	set_variable = { which = realdev_planet_build_speed value = 0 }
+	set_variable = { which = realdev_shipyard_bonus value = 0 }
+	set_variable = { which = realdev_industry value = 0 }
+	set_variable = { which = realdev_industry_cap value = 0 }
+	set_variable = { which = realdev_industry_cap_rulers value = 0 }
+	set_variable = { which = realdev_industry_cap_foreman value = 0 }
+	set_variable = { which = realdev_leader_level value = 0 }
+}

@@ -1,0 +1,42 @@
+[url=https://discord.gg/fdqys7WcuS][img]https://i.imgur.com/daBft2H.png[/img][/url]
+
+Industry in Stellaris is simple, and abstracted to the point of not making much sense. Not only that, but critical methods of industry that should be utilized by space-faring empires are missing entirely. I've set out to fix this, by introducing new mechanics, with the intention of being as compatible as possible.
+
+[img]https://i.imgur.com/jOg9Tu3.png[/img]
+
+Rise of Cosmic Industry is composed of 4 main components; Orbital Infrastructure, Realistic Development, Factory Automation, and Space Exploitation. Each component focuses on industry of a specific type. If you do not want them, they can be disabled through a game-start menu.
+
+Orbital Infrastructure focuses on the implementation of Orbital Districts on planets, opening up more options for planetary development.
+
+Realistic Development overhauls how things are built, using a Labour-like system using Industrial Capacity, so that 2 planets don't build twice as fast as 1 for some reason.
+
+Factory Automation implements Automated Factories, for making resources without pops.
+
+Space Exploitation is an expansion to Space Mining, allowing you to exploit celestial bodies more thoroughly.
+
+[img]https://imgur.com/cLvn8UX[/img]
+
+Orbital Infrastructure introduces new Orbital Districts, a Space Elevator building with 3 levels, 3 techs for the Elevator levels, and a new Orbital Infrastructure modifier to cap the Orbital districts using custom math. These Orbital Districts, instead of providing jobs (For the most part), instead provide additional producation to their matching job. This is to minimize lag caused by requiring more pops.
+
+
+Realistic Development introduces Industrial Capacity, a mechanic designed to represent the might of your empire's labour and industrial force. Through this mechanic, it incentivizes building up planets to produce more Industrial Capacity to build with. Industrial Capacity also has a limit, through Industrial Capacity Maximum. The Industrial Capacity of a planet cannot go higher than this Maximum, so that you are required to expand not just industry, but also supporting infrastructure to utilize it.
+
+Industrial Capacity is a 1:1 ratio of increasing the build speed of affected projects. RealDev manages the Build Speed of Megastructure, Minor Colonies(From Space Exploitation), Ships, Planets/Decisions and Assembly. Adds an upgradable build that provides 20 Industrial Capacity per level, plus 1 Foreman Job per level, which provides 20 Industrial Capacity Maximum.
+
+
+Factory Automation implements the Automatic Factory, and a Civic, AP, and Origin that allows you to build the Automatic Factory modules. These 3 items have interactions if you take more than one, in addition to their normal effects. The Automatic Factory modules produce resources without pops, requiring only space, and fairly large amounts of energy. Also available is a game-start event to allow you to have everyone have access to the Factory.
+
+
+Space Exploitation allows you to build Minor Colonies on planets in systems with a normal colonized planet, which extract more resources, and can be built on to provide more resources.
+
+
+[h3]Credits[/h3]
+Thanks to Hive for the thumbnail. You can find them [url=https://steamcommunity.com/id/thomasstone/]here[/url], and their repository  [url=https://drive.google.com/drive/folders/1eGGG4HfWPESbWm7wOYfmhPQa7MoNTM1S?usp=sharing]here[/url]
+
+[url=https://discord.gg/UFyMvwZ][img]https://i.imgur.com/4Und3QN.png[/img][/url]
+
+Support James
+
+[url=https://www.patreon.com/user?u=6831316][img]https://i.imgur.com/H7KEFJ7.png[/img][/url]
+
+[url=https://ko-fi.com/jamesfire][img]https://i.imgur.com/j5EnFli.png[/img][/url]

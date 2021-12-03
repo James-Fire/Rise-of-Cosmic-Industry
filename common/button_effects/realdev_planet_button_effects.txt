@@ -1,0 +1,454 @@
+realdev_blank = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { }
+}
+
+#Build Speed/Assembly ratio Slider
+realdev_build_ratio_increase_build_speed = {
+	potential = { always = yes }
+	allow = {
+		custom_tooltip = {
+			fail_text = realdev_ratio_maxxed
+			check_variable = { which = realdev_industry_construction_ratio value < 1 }
+		}
+	}
+	effect = { change_variable = { which = realdev_industry_construction_ratio value = 0.05 } }
+}
+realdev_build_ratio_increase_assembly = {
+	potential = { always = yes }
+	allow = {
+		custom_tooltip = {
+			fail_text = realdev_ratio_maxxed
+			check_variable = { which = realdev_industry_construction_ratio value > 0 }
+		}
+	}
+	effect = { change_variable = { which = realdev_industry_construction_ratio value = -0.05 } }
+}
+
+realdev_build_ratio_bar_1_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.05 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.05 } }
+}
+realdev_build_ratio_bar_2_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.1 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.1 } }
+}
+realdev_build_ratio_bar_3_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.15 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.15 } }
+}
+realdev_build_ratio_bar_4_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.2 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.2 } }
+}
+realdev_build_ratio_bar_5_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.25 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.25 } }
+}
+realdev_build_ratio_bar_6_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.3 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.3 } }
+}
+realdev_build_ratio_bar_7_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.35 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.35 } }
+}
+realdev_build_ratio_bar_8_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.4 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.4 } }
+}
+realdev_build_ratio_bar_9_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.45 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.45 } }
+}
+realdev_build_ratio_bar_10_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.5 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.5 } }
+}
+realdev_build_ratio_bar_11_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.55 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.55 } }
+}
+realdev_build_ratio_bar_12_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.6 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.6 } }
+}
+realdev_build_ratio_bar_13_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.65 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.65 } }
+}
+realdev_build_ratio_bar_14_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.7 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.7 } }
+}
+realdev_build_ratio_bar_15_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.75 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.75 } }
+}
+realdev_build_ratio_bar_16_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.8 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.8 } }
+}
+realdev_build_ratio_bar_17_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.85 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.85 } }
+}
+realdev_build_ratio_bar_18_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.9 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.9 } }
+}
+realdev_build_ratio_bar_19_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.95 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.95 } }
+}
+realdev_build_ratio_bar_20_build = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value >= 1 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 1 } }
+}
+
+realdev_build_ratio_bar_1_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.05 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.05 } }
+}
+realdev_build_ratio_bar_2_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.1 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.1 } }
+}
+realdev_build_ratio_bar_3_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.15 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.15 } }
+}
+realdev_build_ratio_bar_4_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.2 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.2 } }
+}
+realdev_build_ratio_bar_5_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.25 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.25 } }
+}
+realdev_build_ratio_bar_6_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.3 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.3 } }
+}
+realdev_build_ratio_bar_7_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.35 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.35 } }
+}
+realdev_build_ratio_bar_8_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.4 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.4 } }
+}
+realdev_build_ratio_bar_9_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.45 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.45 } }
+}
+realdev_build_ratio_bar_10_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.5 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.5 } }
+}
+realdev_build_ratio_bar_11_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.55 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.55 } }
+}
+realdev_build_ratio_bar_12_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.6 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.6 } }
+}
+realdev_build_ratio_bar_13_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.65 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.65 } }
+}
+realdev_build_ratio_bar_14_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.7 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.7 } }
+}
+realdev_build_ratio_bar_15_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.75 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.75 } }
+}
+realdev_build_ratio_bar_16_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.8 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.8 } }
+}
+realdev_build_ratio_bar_17_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.85 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.85 } }
+}
+realdev_build_ratio_bar_18_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.9 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.9 } }
+}
+realdev_build_ratio_bar_19_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 0.95 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 0.95 } }
+}
+realdev_build_ratio_bar_20_assembly = {
+    potential = { check_variable = { which = realdev_industry_construction_ratio value <= 1 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_construction_ratio value = 1 } }
+}
+
+
+#Planet/Country slider
+realdev_planet_ratio_increase_planet = {
+	potential = { always = yes }
+	allow = {
+		custom_tooltip = {
+			fail_text = realdev_ratio_maxxed
+			check_variable = { which = realdev_industry_planet_ratio value < 1 }
+		}
+	}
+	effect = { change_variable = { which = realdev_industry_planet_ratio value = 0.05 } }
+}
+realdev_planet_ratio_increase_country = {
+	potential = { always = yes }
+	allow = {
+		custom_tooltip = {
+			fail_text = realdev_ratio_maxxed
+			check_variable = { which = realdev_industry_planet_ratio value > 0 }
+		}
+	}
+	effect = { change_variable = { which = realdev_industry_planet_ratio value = -0.05 } }
+}
+
+realdev_planet_ratio_bar_1_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.05 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.05 } }
+}
+realdev_planet_ratio_bar_2_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.1 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.1 } }
+}
+realdev_planet_ratio_bar_3_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.15 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.15 } }
+}
+realdev_planet_ratio_bar_4_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.2 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.2 } }
+}
+realdev_planet_ratio_bar_5_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.25 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.25 } }
+}
+realdev_planet_ratio_bar_6_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.3 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.3 } }
+}
+realdev_planet_ratio_bar_7_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.35 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.35 } }
+}
+realdev_planet_ratio_bar_8_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.4 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.4 } }
+}
+realdev_planet_ratio_bar_9_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.45 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.45 } }
+}
+realdev_planet_ratio_bar_10_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.5 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.5 } }
+}
+realdev_planet_ratio_bar_11_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.55 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.55 } }
+}
+realdev_planet_ratio_bar_12_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.6 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.6 } }
+}
+realdev_planet_ratio_bar_13_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.65 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.65 } }
+}
+realdev_planet_ratio_bar_14_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.7 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.7 } }
+}
+realdev_planet_ratio_bar_15_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.75 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.75 } }
+}
+realdev_planet_ratio_bar_16_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.8 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.8 } }
+}
+realdev_planet_ratio_bar_17_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.85 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.85 } }
+}
+realdev_planet_ratio_bar_18_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.9 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.9 } }
+}
+realdev_planet_ratio_bar_19_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 0.95 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.95 } }
+}
+realdev_planet_ratio_bar_20_planet = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value >= 1 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 1 } }
+}
+
+realdev_planet_ratio_bar_1_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.05 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.05 } }
+}
+realdev_planet_ratio_bar_2_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.1 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.1 } }
+}
+realdev_planet_ratio_bar_3_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.15 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.15 } }
+}
+realdev_planet_ratio_bar_4_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.2 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.2 } }
+}
+realdev_planet_ratio_bar_5_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.25 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.25 } }
+}
+realdev_planet_ratio_bar_6_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.3 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.3 } }
+}
+realdev_planet_ratio_bar_7_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.35 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.35 } }
+}
+realdev_planet_ratio_bar_8_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.4 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.4 } }
+}
+realdev_planet_ratio_bar_9_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.45 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.45 } }
+}
+realdev_planet_ratio_bar_10_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.5 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.5 } }
+}
+realdev_planet_ratio_bar_11_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.55 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.55 } }
+}
+realdev_planet_ratio_bar_12_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.6 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.6 } }
+}
+realdev_planet_ratio_bar_13_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.65 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.65 } }
+}
+realdev_planet_ratio_bar_14_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.7 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.7 } }
+}
+realdev_planet_ratio_bar_15_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.75 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.75 } }
+}
+realdev_planet_ratio_bar_16_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.8 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.8 } }
+}
+realdev_planet_ratio_bar_17_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.85 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.85 } }
+}
+realdev_planet_ratio_bar_18_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.9 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.9 } }
+}
+realdev_planet_ratio_bar_19_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 0.95 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 0.95 } }
+}
+realdev_planet_ratio_bar_20_country = {
+    potential = { check_variable = { which = realdev_industry_planet_ratio value <= 1 } }
+    allow = { hidden_trigger = { always = yes } }
+    effect = { set_variable = { which = realdev_industry_planet_ratio value = 1 } }
+}

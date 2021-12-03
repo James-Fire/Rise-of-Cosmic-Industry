@@ -1,0 +1,13 @@
+#Country Scope, no predefined scopes
+autofab_apply_queue = {
+	events = {
+		autofab_queue.1
+	}
+}
+#Planet Scope
+#from = owner
+autofab_apply_planet_queue = {
+	events = {
+		autofab_queue.8
+	}
+}

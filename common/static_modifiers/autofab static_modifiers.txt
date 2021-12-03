@@ -1,0 +1,5 @@
+factory_expansion = {
+
+	icon = "gfx/interface/icons/planet_modifiers/factory_expansion.dds"
+	icon_frame = 1
+}

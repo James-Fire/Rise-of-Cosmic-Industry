@@ -1,0 +1,56 @@
+autofab_manage = {
+	icon = "GFX_edict_type_policy"
+	length = 0
+	resources = {
+		category = campaigns
+		cost = {
+		}
+	}
+
+	modifier = {
+	}
+	
+	potential = {
+		can_use_autofab = yes
+	}
+	
+	effect = {
+		country_event = { id = autofab_menu.1 }
+		hidden_effect = {
+			factory_reset_all_country_flags = yes
+			document_factory_country = yes
+			factory_set_default_queue = yes
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}	
+}
+
+realdev_manage = {
+	icon = "GFX_edict_type_policy"
+	length = 0
+	resources = {
+		category = campaigns
+		cost = {
+		}
+	}
+
+	modifier = {
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	effect = {
+		country_event = { id = realdev_menu.1 }
+		hidden_effect = {
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}	
+}

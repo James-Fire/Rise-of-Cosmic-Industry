@@ -1,0 +1,312 @@
+@fake_jobs = 500
+
+building_space_elevator = {
+	base_buildtime = 210
+	base_cap_amount = 1
+
+	category = pop_assembly
+	
+	prerequisites = {
+		"tech_space_anchor"
+	}
+
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			owner = { is_ai = no }
+			num_pops >= 10
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= 100
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = 100
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	planet_modifier = {
+		district_orbital_platform_cap_max = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_ai = yes
+				is_regular_empire = yes
+			}
+			NOT = { has_active_building = building_space_elevator }
+		}
+		modifier = {
+			job_fake_orbital_add = @fake_jobs
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_ai = yes
+				is_gestalt = yes
+			}
+			NOT = { has_active_building = building_space_elevator }
+		}
+		modifier = {
+			job_fake_orbital_gestalt_add = @fake_jobs
+		}
+	}
+
+	upgrades = {
+		"building_space_elevator_2"
+	}
+	
+	on_built = {
+		log = "[Owner.GetName] built T1 Elevator on [This.GetName]"
+		set_infrastructure_amount = yes
+		set_planet_flag = has_orbital_infrastructure
+		owner = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				add_resource = {
+					alloys = -100
+				}
+			}
+		}
+	}
+
+	ai_resource_production = {
+		alloys = 100
+		energy = 100
+		food = 100
+		minerals = 100
+		trigger = {
+			always = yes
+		}
+	}
+}
+building_space_elevator_2 = {
+	base_buildtime = 270
+	can_build = no
+
+	category = pop_assembly
+
+	prerequisites = {
+		"tech_space_elevator"
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			owner = { is_ai = no }
+			num_pops >= 20
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= 200
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = 200
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	planet_modifier = {
+		district_orbital_platform_cap_max = 3
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_ai = yes
+				is_regular_empire = yes
+			}
+			NOT = { has_active_building = building_space_elevator_2 }
+		}
+		modifier = {
+			job_fake_orbital_add = @fake_jobs
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_ai = yes
+				is_gestalt = yes
+			}
+			NOT = { has_active_building = building_space_elevator_2 }
+		}
+		modifier = {
+			job_fake_orbital_gestalt_add = @fake_jobs
+		}
+	}
+
+	upgrades = {
+		"building_space_elevator_3"
+	}
+	
+	on_built = {
+		log = "[Owner.GetName] built T2 Elevator on [This.GetName]"
+		owner = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				add_resource = {
+					alloys = -200
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 2000
+	}
+
+	ai_resource_production = {
+		alloys = 200
+		energy = 200
+		food = 200
+		minerals = 200
+		trigger = {
+			always = yes
+		}
+	}
+}
+building_space_elevator_3 = {
+	base_buildtime = 360
+	can_build = no
+
+	category = pop_assembly
+
+	prerequisites = {
+		"tech_space_complex"
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			owner = { is_ai = no }
+			num_pops >= 25
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= 300
+					}
+					PREV = { planet_size > 11 }
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = 300
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	planet_modifier = {
+		district_orbital_platform_cap_max = 5
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_ai = yes
+				is_regular_empire = yes
+			}
+			NOT = { has_active_building = building_space_elevator_3 }
+		}
+		modifier = {
+			job_fake_orbital_add = @fake_jobs
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_ai = yes
+				is_gestalt = yes
+			}
+			NOT = { has_active_building = building_space_elevator_3 }
+		}
+		modifier = {
+			job_fake_orbital_gestalt_add = @fake_jobs
+		}
+	}
+
+	upgrades = {
+	}
+	
+	on_built = {
+		log = "[Owner.GetName] built T3 Elevator on [This.GetName]"
+		owner = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				add_resource = {
+					alloys = -300
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 2000
+	}
+
+	ai_resource_production = {
+		alloys = 1000
+		energy = 1000
+		food = 1000
+		minerals = 1000
+		trigger = {
+			always = yes
+		}
+	}
+}

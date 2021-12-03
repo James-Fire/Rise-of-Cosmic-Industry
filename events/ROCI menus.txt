@@ -1,0 +1,101 @@
+namespace = roci_menu
+
+event = {
+	id = roci_menu.0
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = roci_has_host }
+	}
+
+	immediate = {
+		ordered_country = {
+			limit = { is_country_type = default is_ai = no }
+			position = 0
+			#order_by = <variable>/trigger:<trigger>
+			set_global_flag = roci_has_host
+			set_country_flag = roci_host
+			log = "ROCI on game start mark host [This.GetRealName]"
+			#country_event = { id = roci_menu.1 }
+		}
+	}
+}
+
+country_event = {
+	id = roci_menu.1
+	title = "roci_menu.1.name"
+	desc = "roci_menu.1.desc"
+	#diplomatic = yes
+	#custom_gui = "roci_country_window"
+	is_triggered_only = yes
+	hide_window = yes
+	
+	#trigger = { has_country_flag = roci_host }
+	
+	immediate = {
+		log = "ROCI on game start with host [This.GetRealName]"
+	}
+	
+	# Confirm
+	option = {
+		name = "roci_menu.1.refresh"
+		#custom_tooltip = "roci_menu.1.refresh.tooltip"
+		#custom_gui = "realdev_country_menu_YEET"
+		country_event = { id = roci_menu.1 }
+	}
+	option = {
+		name = "roci_menu.1.confirm"
+		#custom_tooltip = "roci_menu.1.confirm.tooltip"
+		#custom_gui = "realdev_country_menu_YEET"
+		#default_hide_option = yes
+	}
+	
+	after = {
+		if = { #Do Autofab Game start stuff if it's allowed.
+			limit = {
+				NOT = { has_global_flag = no_autofab }
+			}
+			every_country = {
+				limit = {
+					can_use_autofab = yes
+				}
+				log = "ROCI trigger autofab on game start for [This.GetRealName]"
+				country_event = { id = autofab.10 }
+			}
+		}
+		if = { #Do Exploit Game start stuff if it's allowed.
+			limit = {
+				NOT = { has_global_flag = no_exploit }
+			}
+			every_country = {
+				limit = {
+					is_country_type = default
+				}
+				log = "ROCI trigger exploit on game start for [This.GetRealName]"
+				country_event = { id = spaceexploit.37 }
+			}
+		}
+		if = { #Do Orbital Game start stuff if it's allowed.
+			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
+			}
+			every_country = {
+				limit = {
+					is_country_type = default
+				}
+				log = "ROCI trigger orbital on game start for [This.GetRealName]"
+				country_event = { id = orbitalinfra.1000 }
+			}
+		}
+		if = { #Do Realdev Game start stuff if it's allowed.
+			limit = {
+				NOT = { has_global_flag = no_realdev }
+			}
+			every_country = {
+				log = "ROCI trigger realdev on game start for [This.GetRealName]"
+				country_event = { id = realdev.0 }
+			}
+		}
+	}
+}

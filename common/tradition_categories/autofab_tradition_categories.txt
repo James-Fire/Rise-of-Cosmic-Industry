@@ -1,0 +1,21 @@
+tradition_autofab = {
+	tree_template = "tree_2_2_1"
+	adoption_bonus = "tr_autofab_adopt"
+	finish_bonus = "tr_autofab_finish"
+	traditions = {
+		"tr_autofab_infrastructure_support"
+		"tr_autofab_environmental_studies"
+		"tr_autofab_commercial_connections"
+		"tr_autofab_pride"
+		"tr_autofab_optimization"
+	}
+
+	potential = {
+		NOT = { has_global_flag = no_autofab }
+		can_use_autofab = yes
+	}
+
+	ai_weight = {
+		factor = 20
+	}
+}

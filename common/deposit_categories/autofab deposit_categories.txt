@@ -1,0 +1,3 @@
+deposit_cat_alloys = { }
+deposit_cat_consumer_goods = {}
+deposit_cat_rare_resources = {}

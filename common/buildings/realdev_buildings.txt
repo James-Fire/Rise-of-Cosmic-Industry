@@ -1,0 +1,139 @@
+building_infrastructure_construction = {
+	base_buildtime = 180
+
+	category = pop_assembly
+
+	potential = {
+		NOT = { has_global_flag = no_realdev }
+		exists = owner
+		OR = {
+			owner = { is_ai = no }
+			free_building_slots > 0
+		}
+	}
+
+	allow = {
+		hidden_trigger = {
+			OR = {
+				owner = { is_ai = no }
+				AND = {
+					num_buildings = { type = building_infrastructure_construction value = 0 }
+					check_variable = { which = realdev_planet_build_speed value < -50 }
+				}
+				AND = {
+					num_buildings = { type = any value >= 4 }
+					num_buildings = { type = building_infrastructure_construction value <= 1 }
+					check_variable = { which = realdev_planet_build_speed value < -30 }
+				}
+				AND = {
+					num_buildings = { type = any value >= 6 }
+					num_buildings = { type = building_infrastructure_construction value <= 2 }
+					check_variable = { which = realdev_planet_build_speed value < -10 }
+				}
+				AND = {
+					num_buildings = { type = any value >= 8 }
+					num_buildings = { type = building_infrastructure_construction value <= 3 }
+					check_variable = { which = realdev_planet_build_speed value < 10 }
+				}
+			}
+		}
+	}
+
+	destroy_trigger = {
+	}
+
+	planet_modifier = {
+		district_realdev_industry_max = 20
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_advanced_metallurgy_1
+			}
+		}
+		modifier = {
+			district_realdev_industry_max = 0.05
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_advanced_metallurgy_2
+			}
+		}
+		modifier = {
+			district_realdev_industry_max = 0.05
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_consumer_good_refinement_1
+			}
+		}
+		modifier = {
+			district_realdev_industry_max = 0.05
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_consumer_good_refinement_2
+			}
+		}
+		modifier = {
+			district_realdev_industry_max = 0.05
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_realdev_foreman_add = 1
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_realdev_foreman_gestalt_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 250
+		}
+		upkeep = {
+			energy = 5
+		}
+		upkeep = {
+			trigger = {
+				country_uses_consumer_goods = yes
+			}
+			consumer_goods = 5
+		}
+		upkeep = {
+			trigger = {
+				country_uses_consumer_goods = no
+			}
+			minerals = 12
+		}
+	}
+}

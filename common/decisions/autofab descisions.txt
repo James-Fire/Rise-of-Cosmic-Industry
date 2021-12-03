@@ -1,0 +1,59 @@
+decision_manage_autofab = {
+	owned_planets_only = yes
+	#sound = event_administrative_work
+	icon = decision_autofab
+	
+	resources = {
+		category = planet_districts
+		cost = {
+		}	
+	}
+	
+	potential = {
+		exists = owner
+		owner = {
+			can_use_autofab = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = "Manage the Automatic Factory"
+		hidden_effect = {
+			document_factory_planet = yes
+			factory_reset_all_planet_flags = yes
+			factory_set_default_queue_planet = yes
+		}
+		planet_event = { id = autofab_menu.10 }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_manage_realdev = {
+	owned_planets_only = yes
+	#sound = event_administrative_work
+	icon = decision_autofab
+	
+	resources = {
+		category = planet_districts
+		cost = {
+		}	
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_realdev }
+	}
+
+	effect = {
+		custom_tooltip = "Manage Industrial Production"
+		hidden_effect = {
+		}
+		planet_event = { id = realdev_menu.10 }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

@@ -1,0 +1,700 @@
+guiTypes = {
+	containerWindowType = {
+		name = "autofab_automation_menu_confirm"
+		position = { x= 0 y= 0 }
+		size = { width = 35 height = 35 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_half_menu_button_bg" 
+			position = { x= -15 y= 393 }
+			font = "cg_16b"
+			text = "OPTION_TEXT"
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_menu_column1"
+		position = { x = 0 y = 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_100" 
+			position = { x= 250 y= 24 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_menu_column2"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_10" 
+			position = { x= 310 y= -200 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_menu_column3"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_1" 
+			position = { x= 370 y= -424 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_menu_column4"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_1_neg" 
+			position = { x= 472 y= -648 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_menu_column5"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_10_neg" 
+			position = { x= 532 y = -872 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_menu_column6"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_100_neg" 
+			position = { x= 592 y = -1096 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_stockpile_column1"
+		position = { x = 0 y = 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_100" 
+			position = { x= 250 y= -1064 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_stockpile_column2"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_10" 
+			position = { x= 310 y= -1160 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_stockpile_column3"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_1" 
+			position = { x= 370 y= -1256 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_stockpile_column4"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_1_neg" 
+			position = { x= 472 y= -1352 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_stockpile_column5"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_10_neg" 
+			position = { x= 532 y = -1448 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_stockpile_column6"
+		position = { x= 0 y= 0 }
+		size = { width = 32 height = 32 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_autofab_100_neg" 
+			position = { x= 592 y = -1544 }
+			font = "cg_16b"
+			text = ""
+		}
+	}
+	containerWindowType = {
+		name = "autofab_automation_menu_YEET"
+		position = { x=0 y=0 }
+		size = { width = 0 height = 0 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_half_menu_button_bg" 
+			position = { x=-15 y=20000 }
+			font = "cg_16b"
+			text = "OPTION_TEXT"
+		}
+	}
+
+	containerWindowType = {
+		name = "autofab_automation_window"
+		orientation = center
+		origo = center
+		moveable = yes
+		size = { width = 680 height = 540 }	
+		containerWindowType = {
+			name = "portrait"
+			position = { x = -95 y = 110}
+			size = { width = 314 height = 400 }
+			clipping = yes
+			ButtonType = {
+				name = "black_frame"
+				spriteType = "GFX_autofab_portrait_bg"
+				position = { x = 95 y = -90 }
+				alwaysTransparent = yes
+			}
+			iconType = {
+				name = "portrait"
+				spriteType = "GFX_portrait_character"
+				position = { x = 0 y = 15 }
+				scale = 0.70
+				alwaysTransparent = yes
+			}
+			iconType = {
+				name = "city_frame"
+				spriteType = "GFX_diplomacy_portrait_frame_curator"
+				position = { x = -6 y = -5000 }
+				alwaysTransparent = yes
+			}
+		}
+		containerWindowType = {
+			name = "factory_dongs_contain"
+			position = { x = 0 y = 0 }
+			size = { width = 410 height = 102 }
+			orientation = upper_left
+			ButtonType = {#Gear Dongs
+				name = "gearwrench_dongs"
+				spriteType = "GFX_horflip_empty_dongs_anim"
+				position = { x = -23 y = 30 }
+				alwaysTransparent = yes
+			}
+			ButtonType = {
+				name = "gear_dong"
+				spriteType = "GFX_dong_gear_anim"
+				position = { x = 78 y = 58 }
+				alwaysTransparent = yes
+			}
+			ButtonType = {#Gear Dongs
+				name = "gearwrench_dongs_2"
+				spriteType = "GFX_horverflip_empty_dongs_anim"
+				position = { x = -25 y = 450 }
+				alwaysTransparent = yes
+			}
+			ButtonType = {
+				name = "gear_dong_2"
+				spriteType = "GFX_dong_gear_anim"
+				position = { x = 76 y = 472 }
+				alwaysTransparent = yes
+			}
+		}
+		iconType = {#Hexagon fade in
+			name = "hex_bg"
+			spriteType = "GFX_hex_bg_curator"
+			position = { x = -10 y = -14 }
+			alwaysTransparent = yes
+		}
+		containerWindowType = { #Event Title
+			name = "EVENT_DIPLO"
+			position = { x = 20 y = 5 }
+			size = { width=563 height=280 }
+			moveable = no
+			
+			instantTextBoxType={
+				name = "action_title"
+				font = "malgun_goth_24"
+				position = { x = -5 y = 0 }
+				maxWidth = 520
+				alwaysTransparent = yes
+			}
+			instantTextBoxType={
+				name = "action_desc"
+				font = "malgun_goth_24"
+				position = { x = 490 y = 0 }
+				maxWidth = 500
+				maxHeight = 180
+				Orientation = "UPPER_LEFT"
+				format = center
+				alwaysTransparent = yes
+				text_color_code = "H"
+			}
+			listboxType = {
+				name = "option_list"
+				position = { x = 0 y = 0 }
+				size = { x=1000 y=3000 }
+				spacing = 1
+				scrollbartype = "standardlistbox_slider"
+				borderSize = { x = 0 y = 0 }
+				Orientation = "UPPER_LEFT"
+			}
+		}
+		containerWindowType = {
+			name = "factory_mult_setting_contain"
+			position = { x = 213 y = 7 }
+			size = { width = 610 height = 102 }
+			orientation = upper_left
+
+			effectButtonType = {
+				name = "factory_automation_settings"
+				position = { x = 20 y = 105 }
+				size = { x = 470 y = -65 }
+				no_clicksound = yes
+				alwaysTransparent = yes
+				font = "large_title_font_28"
+				text = "factory_automation_settings"
+				effect = "blank_effect"
+			}
+
+			effectButtonType = {
+				name = "factory_energy_icons"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 0 y = 0 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_energy_icons"
+				effect = "blank_effect"
+			}
+			effectButtonType = {
+				name = "factory_minerals_icons"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 0 y = 32 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_minerals_icons"
+				effect = "blank_effect"
+			}
+			effectButtonType = {
+				name = "factory_food_icons"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 0 y = 64 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_food_icons"
+				effect = "blank_effect"
+			}
+			effectButtonType = {
+				name = "factory_consumer_goods_icons"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 0 y = 96 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_consumer_goods_icons"
+				effect = "blank_effect"
+			}
+			effectButtonType = {
+				name = "factory_motes_icons"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 0 y = 128 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_motes_icons"
+				effect = "blank_effect"
+			}
+			effectButtonType = {
+				name = "factory_gases_icons"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 0 y = 160 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_gases_icons"
+				effect = "blank_effect"
+			}
+			effectButtonType = {
+				name = "factory_crystals_icons"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 0 y = 192 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_crystals_icons"
+				effect = "blank_effect"
+			}
+		}
+		containerWindowType = {
+			name = "factory_stockpile_contain"
+			position = { x = 217 y = 264 }
+			size = { width = 500 height = 102 }
+			orientation = upper_left
+
+			effectButtonType = {
+				name = "factory_stockpile"
+				position = { x = 20 y = 62 }
+				size = { x = 470 y = 20 }
+				no_clicksound = yes
+				alwaysTransparent = yes
+				font = "large_title_font_28"
+				text = "factory_stockpile"
+				effect = "blank_effect"
+			}
+
+			effectButtonType = {
+				name = "factory_energy_stockpile"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 10 y = 0 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_energy_stockpile"
+				effect = "blank_effect"
+			}
+			effectButtonType = {
+				name = "factory_mineral_stockpile"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 10 y = 32 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_mineral_stockpile"
+				effect = "blank_effect"
+			}
+			effectButtonType = {
+				name = "factory_alloy_stockpile"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				position = { x = 10 y = 64 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_alloy_stockpile"
+				effect = "blank_effect"
+			}
+		}
+		containerWindowType = {
+			name = "factory_automation_options_contain"
+			position = { x = 228 y = 440 }
+			size = { width = 410 height = 102 }
+			orientation = upper_left
+
+			effectButtonType = {
+				name = "factory_automation_options"
+				position = { x = 145 y = -80 }
+				no_clicksound = yes
+				alwaysTransparent = yes
+				font = "large_title_font_28"
+				text = "factory_options"
+				effect = "blank_effect"
+			}
+		
+			effectButtonType = {
+				name = "factory_expansion_always"
+				spriteType = "GFX_extend_menu_button"
+				position = { x = 0 y = 40 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_expansion_always"
+				effect = "factory_expansion_always"
+			}
+			effectButtonType = {
+				name = "factory_expansion_space"
+				spriteType = "GFX_extend_menu_button"
+				position = { x = 0 y = 40 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "factory_expansion_space"
+				effect = "factory_expansion_space"
+			}
+				effectButtonType = { name = "factory_expansion_swap" spriteType = "GFX_autofab_menu_swap" position = { x = 5 y = 45 } clicksound = interface effect = "factory_expansion_swap" }
+		}
+		background = {
+			name = "background"
+			quadTextureSprite ="GFX_tile_large_bg_curator" 
+		}
+
+		instantTextBoxType = { #Window Title
+			name = "FACTORY_AUTOMATION_MANAGE"
+			font = "malgun_goth_24"
+			text = "FACTORY_AUTOMATION_MANAGE"
+			position = { x = 525 y = 15 }
+			maxWidth = 543
+			maxHeight = 22
+			fixedSize = yes
+			alwaysTransparent = yes
+		}
+		iconType = { #Title Underline
+			name = "empire_header_line"
+			quadTextureSprite = "GFX_line_long_curator"
+			position = { x = 6 y = 22 }
+			alwaysTransparent = yes
+		}
+		
+		effectButtonType = {#Yeet
+			name = "alien_message_background"
+			size = { x = 735 y = 120 }
+			position = { x = 225 y = 20000 }
+			spriteType = "GFX_tiles_dark_area_cut_8"
+			alwaysTransparent = yes
+			effect = "blank_effect"
+		}
+		instantTextBoxType = {
+			name = "alien_message"
+			font = "cg_16b"
+			position = { x = 450 y = 100 }
+			maxWidth = 50
+			maxHeight = 360
+			format = left
+			scrollbartype = "standardtext_slider"
+		}
+		buttonType = {
+			name = "focus_button"
+			position = { x = -80 y = 12 }
+			orientation = "UPPER_RIGHT"
+			spriteType = "GFX_fleetview_focus"
+			buttonFont = "cg_16b"
+			shortcut = "q"
+		}
+		
+		buttonType = {
+			name = "close"
+			quadTextureSprite = "GFX_main_close_button_curator"
+			position = { x= -45 y = 16 }
+			Orientation = "UPPER_RIGHT"
+			shortcut = "ESCAPE"
+			clicksound = "back_click"
+		}
+
+		buttonType = {
+			name = "confirm_button"
+			quadTextureSprite = "GFX_standard_button_142_34_button"
+			position = { x= -175 y = 564  }
+			Orientation = "UPPER_RIGHT"
+			font = "cg_16b"
+			text = "MESSAGE_OK"
+			clicksound = "confirmation"
+		}
+
+
+		### PORTRAIT ###
+		containerWindowType = {
+			name = "portrait_background"
+			position = { x = 0 y = 200 }
+			size = { width = 964 height = 350 }
+			clipping = yes
+			iconType = {
+				name = "event_picture"
+				spriteType = "GFX_diplomacy_portrait_frame"
+				position = { x = -6 y = -5 }
+			}
+			iconType = {
+				name = "portrait"
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_portrait_character"
+			}	
+		}
+		
+		iconType = {#Hide this thing.
+			name = "empire_info_bg"
+			spriteType = "GFX_diplomacy_dark_fade_bg"
+			position = { x = 33 y = 20000 }
+			alwaysTransparent = yes
+		}
+		instantTextBoxType={#Hide this thing.
+			name = "empire_name"
+			font = "malgun_goth_24"
+			text = "Kammarian Galactic Concordat"
+			position = { x = 45 y = 20000 }
+			maxWidth = 450
+			maxHeight = 16
+			format = LEFT
+			text_color_code = "E"
+			fixedsize = yes
+		}
+		instantTextBoxType={#Hide this thing.
+			name = "empire_government_type"
+			font = "cg_16b"
+			text = "Autocracy"
+			position = { x = 45 y = 20000	}
+			maxWidth = 250
+			maxHeight = 16
+			format = LEFT
+			fixedsize = yes
+			text_color_code = "Y"
+		}
+		instantTextBoxType={#Hide this thing.
+			name = "empire_personality_type"
+			font = "cg_16b"
+			text = "Despicable Neutrals"
+			position = { x = 45 y = 20000	}
+			maxWidth = 250
+			maxHeight = 16
+			format = LEFT
+			fixedsize = yes
+		}
+		OverlappingElementsBoxType = {#Hide this thing.
+			name = "empire_ethics_icons"
+			position = { x = 45 y = 20000 }
+			size = { x = 240 y = 30 }
+			spacing = 2.0
+			format = left
+		}
+		buttonType = {#Hide this thing.
+			name = "empire_flag"
+			quadTextureSprite = "GFX_empire_flag_128_curator"
+			position = { x = 25 y = 20000 }
+			orientation = UPPER_LEFT
+		}
+		containerWindowType = {#Hide this thing
+			name = "leader_details"
+			position = { x = 25 y = 20000 }
+			containerWindowType = {
+				name = "empire_traits_box"
+				position = { x = 0 y = -5 }
+				size = { width = 210 height = 75 }
+
+				background = {
+					name = "ethics_bg"
+					spriteType = "GFX_tiles_dark_area_cut_8"
+				}
+			}
+			instantTextBoxType = {
+				name = "empire_traits_label"
+				position = { x = 214 y = 37 }
+				font = "cg_16b"
+				maxWidth = 230
+				maxHeight = 20
+				fixedSize = yes
+				format = left
+				#text_color_code = "E"
+				text = "RULER_TRAITS"
+				alwaysTransparent = yes
+			}
+			overlappingElementsBoxType = {
+				name = "leader_traits"
+				position = { x = 215 y = 55 }
+				size = { x = 125 y = 330 }
+			}
+			instantTextBoxType = {
+				name = "leader_name"
+				position = { x = 10 y = 0 }
+				font = "cg_16b"
+				maxWidth = 330
+				maxHeight = 20
+				fixedSize = yes
+				format = left
+				text = "Leader Name"
+				text_color_code = "E"
+			}
+			instantTextBoxType = {
+				name = "leader_species"
+				position = { x = 10 y = 18 }
+				font = "cg_16b"
+				maxWidth = 330
+				maxHeight = 20
+				fixedSize = yes
+				text = "Leader Species"
+				format = left
+			}
+		}
+		containerWindowType = {#Hide this thing.
+			name = "opinion_window"
+			position = { x = 27 y = 20000 }
+			size = { width = 94 height = 30 }
+			background = {# Use this for tooltip area, picture comes from somewhere else
+				name = "opinion_bg"
+				spriteType = "GFX_tiled_window_transparent"
+			}
+			iconType = {
+				name = "their_opinion_icon"
+				spriteType = "GFX_diplomacy_opinion"
+				position = { x = 7 y = 4 }
+				alwaysTransparent = yes
+			}
+			instantTextBoxType = {
+				name = "their_opinion"
+				font = "cg_16b"
+				maxWidth = 40
+				position = { x = 40 y = 7 }
+				format = left
+				text = "100"
+				alwaysTransparent = yes
+			}
+		}
+	}
+}
