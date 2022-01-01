@@ -1,0 +1,488 @@
+guiTypes = {
+	containerWindowType = {
+		name = "roci_country_menu_confirm"
+		position = { x= 0 y= 0 }
+		size = { width = 35 height = 35 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_half_menu_button_bg" 
+			position = { x= 289 y= 260 }
+			font = "cg_16b"
+			text = "OPTION_TEXT"
+		}
+	}
+	containerWindowType = {
+		name = "roci_country_menu_YEET"
+		position = { x=0 y=0 }
+		size = { width = 0 height = 0 }
+		moveable = no
+		
+		buttonType = {
+			name = "option_button"
+			quadTextureSprite = "GFX_half_menu_button_bg" 
+			position = { x=-15 y=20000 }
+			font = "cg_16b"
+			text = "OPTION_TEXT"
+		}
+	}
+
+	containerWindowType = {
+		name = "roci_country_window"
+		orientation = center
+		origo = center
+		moveable = yes
+		size = { width = 845 height = 310 }
+		containerWindowType = {
+			name = "portrait"
+			position = { x = -95 y = 11000 } #Yeet
+			size = { width = 314 height = 400 }
+			clipping = yes
+			ButtonType = {
+				name = "black_frame"
+				spriteType = "GFX_portrait_character"
+				position = { x = 95 y = -90 }
+				alwaysTransparent = yes
+			}
+			iconType = {
+				name = "portrait"
+				spriteType = "GFX_portrait_character"
+				position = { x = 0 y = 15 }
+				scale = 0.70
+				alwaysTransparent = yes
+			}
+			iconType = {
+				name = "city_frame"
+				spriteType = "GFX_diplomacy_portrait_frame_curator"
+				position = { x = -6 y = -5000 }
+				alwaysTransparent = yes
+			}
+		}
+		iconType = {#Hexagon fade in
+			name = "hex_bg"
+			spriteType = "GFX_hex_bg_curator"
+			position = { x = -10 y = -14 }
+			alwaysTransparent = yes
+		}
+		containerWindowType = { #Event Title
+			name = "EVENT_DIPLO"
+			position = { x = 20 y = 5 }
+			size = { width=563 height=280 }
+			moveable = no
+			
+			instantTextBoxType={
+				name = "action_title"
+				font = "malgun_goth_24"
+				position = { x = -5 y = 0 }
+				maxWidth = 520
+				alwaysTransparent = yes
+			}
+			instantTextBoxType={
+				name = "action_desc"
+				font = "malgun_goth_24"
+				position = { x = 490 y = 0 }
+				maxWidth = 500
+				maxHeight = 180
+				Orientation = "UPPER_LEFT"
+				format = center
+				alwaysTransparent = yes
+				text_color_code = "H"
+			}
+			listboxType = {
+				name = "option_list"
+				position = { x = 0 y = 0 }
+				size = { x=1000 y=3000 }
+				spacing = 1
+				scrollbartype = "standardlistbox_slider"
+				borderSize = { x = 0 y = 0 }
+				Orientation = "UPPER_LEFT"
+			}
+		}
+		
+		containerWindowType = {
+			name = "roci_game_start_options_contain"
+			position = { x = 5 y = 0 }
+			size = { width=563 height=280 }
+			
+			#Dongs
+			iconType = {
+				name = "roci_settings_bg"
+				spriteType = "GFX_roci_settings_off"
+				position = { x = -10 y = -10000 }
+				alwaysTransparent = yes
+				scale = 0.65
+			}
+			ButtonType = {
+				name = "roci_settings"
+				spriteType = "GFX_roci_settings"
+				position = { x = 18 y = 3800 }
+				alwaysTransparent = yes
+			}
+			effectButtonType = {
+				name = "roci_settings_anim"
+				spriteType = "GFX_roci_settings_anim"
+				position = { x = -10 y = -10000 }
+				alwaysTransparent = yes
+				#scale = 0.65
+			}
+			
+			#Settings
+			effectButtonType = {
+				name = "roci_autofab"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 0 y = 40 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "roci_autofab"
+				effect = "blank_effect"
+			}
+				effectButtonType = { name = "roci_autofab_on" spriteType = "GFX_giga_menu_enabled" position = { x = 175 y = 45 } clicksound = interface effect = "roci_autofab_on" }
+				effectButtonType = { name = "roci_autofab_off" spriteType = "GFX_giga_menu_disabled" position = { x = 175 y = 45 } clicksound = interface effect = "roci_autofab_off" }
+			effectButtonType = {
+				name = "roci_autofab_everyone"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 210 y = 40 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "roci_autofab_everyone"
+				effect = "roci_autofab"
+			}
+				effectButtonType = { name = "roci_autofab_everyone_on" spriteType = "GFX_giga_menu_enabled" position = { x = 385 y = 45 } clicksound = interface effect = "roci_autofab_everyone_on" }
+				effectButtonType = { name = "roci_autofab_everyone_off" spriteType = "GFX_giga_menu_disabled" position = { x = 385 y = 45 } clicksound = interface effect = "roci_autofab_everyone_off" }
+				
+			effectButtonType = {
+				name = "roci_exploit"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 0 y = 75 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "roci_exploit"
+				effect = "blank_effect"
+			}
+				effectButtonType = { name = "roci_exploit_on" spriteType = "GFX_giga_menu_enabled" position = { x = 175 y = 80 } clicksound = interface effect = "roci_exploit_on" }
+				effectButtonType = { name = "roci_exploit_off" spriteType = "GFX_giga_menu_disabled" position = { x = 175 y = 80 } clicksound = interface effect = "roci_exploit_off" }
+				
+			effectButtonType = {
+				name = "exploit_ai"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 210 y = 75 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "exploit_ai"
+				effect = "exploit_ai"
+			}
+				effectButtonType = { name = "exploit_ai_off" spriteType = "GFX_giga_menu_disabled" position = { x = 385 y = 80 } clicksound = interface effect = "exploit_ai_off" }
+				effectButtonType = { name = "exploit_ai_on" spriteType = "GFX_giga_menu_enabled" position = { x = 385 y = 80 } clicksound = interface effect = "exploit_ai_on" }
+			
+			effectButtonType = {
+				name = "exploit_speed_manual"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 420 y = 75 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "exploit_speed_manual"
+				effect = "exploit_speed_manual"
+			}
+			effectButtonType = {
+				name = "exploit_speed_difficulty"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 420 y = 75 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "exploit_speed_difficulty"
+				effect = "exploit_speed_difficulty"
+			}
+				effectButtonType = { name = "exploit_speed" spriteType = "GFX_exploit_menu_swap" position = { x = 595 y = 80 } clicksound = interface effect = "exploit_speed" }
+			
+			effectButtonType = {
+				name = "exploit_ai_speed"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 630 y = 75 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "exploit_ai_speed"
+				effect = "exploit_ai_speed"
+			}
+				effectButtonType = { name = "exploit_speed_increase" spriteType = "GFX_exploit_menu_plus" position = { x = 749 y = 80 } clicksound = interface effect = "exploit_speed_increase" }
+				effectButtonType = { name = "exploit_ai_speed_neg_5" spriteType = "GFX_exploit_menu_5_neg" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_neg_5" }
+				effectButtonType = { name = "exploit_ai_speed_neg_4" spriteType = "GFX_exploit_menu_4_neg" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_neg_4" }
+				effectButtonType = { name = "exploit_ai_speed_neg_3" spriteType = "GFX_exploit_menu_3_neg" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_neg_3" }
+				effectButtonType = { name = "exploit_ai_speed_neg_2" spriteType = "GFX_exploit_menu_2_neg" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_neg_2" }
+				effectButtonType = { name = "exploit_ai_speed_neg_1" spriteType = "GFX_exploit_menu_1_neg" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_neg_1" }
+				effectButtonType = { name = "exploit_ai_speed_null" spriteType = "GFX_exploit_menu_null" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_null" }
+				effectButtonType = { name = "exploit_ai_speed_1" spriteType = "GFX_giga_menu_1" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_1" }
+				effectButtonType = { name = "exploit_ai_speed_2" spriteType = "GFX_giga_menu_2" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_2" }
+				effectButtonType = { name = "exploit_ai_speed_3" spriteType = "GFX_giga_menu_3" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_3" }
+				effectButtonType = { name = "exploit_ai_speed_4" spriteType = "GFX_exploit_menu_4" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_4" }
+				effectButtonType = { name = "exploit_ai_speed_5" spriteType = "GFX_exploit_menu_5" position = { x = 777 y = 80 } clicksound = interface effect = "exploit_ai_speed_5" }
+				effectButtonType = { name = "exploit_speed_decrease" spriteType = "GFX_exploit_menu_minus" position = { x = 805 y = 80 } clicksound = interface effect = "exploit_speed_decrease" }
+				
+			effectButtonType = {
+				name = "roci_orbital"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 0 y = 110 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "roci_orbital"
+				effect = "blank_effect"
+			}
+				effectButtonType = { name = "roci_orbital_on" spriteType = "GFX_giga_menu_enabled" position = { x = 175 y = 115 } clicksound = interface effect = "roci_orbital_on" }
+				effectButtonType = { name = "roci_orbital_off" spriteType = "GFX_giga_menu_disabled" position = { x = 175 y = 115 } clicksound = interface effect = "roci_orbital_off" }
+				
+			effectButtonType = {
+				name = "roci_realdev"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 0 y = 145 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "roci_realdev"
+				effect = "blank_effect"
+			}
+				effectButtonType = { name = "roci_realdev_on" spriteType = "GFX_giga_menu_enabled" position = { x = 175 y = 150 } clicksound = interface effect = "roci_realdev_on" }
+				effectButtonType = { name = "roci_realdev_off" spriteType = "GFX_giga_menu_disabled" position = { x = 175 y = 150 } clicksound = interface effect = "roci_realdev_off" }
+				
+				
+				effectButtonType = { name = "roci_realdev_build_adjustment_none" spriteType = "GFX_half_menu_button_bg" position = { x = 210 y = 145 } borderSize = { x = 10 y = 0 } format = left font = "cg_16b" text = "roci_realdev_build_adjustment_none" clicksound = interface effect = "roci_realdev_build_adjustment_none" }
+				effectButtonType = { name = "roci_realdev_build_adjustment_small" spriteType = "GFX_half_menu_button_bg" position = { x = 210 y = 145 } borderSize = { x = 10 y = 0 } format = left font = "cg_16b" text = "roci_realdev_build_adjustment_small" clicksound = interface effect = "roci_realdev_build_adjustment_small" }
+				effectButtonType = { name = "roci_realdev_build_adjustment_medium" spriteType = "GFX_half_menu_button_bg" position = { x = 210 y = 145 } borderSize = { x = 10 y = 0 } format = left font = "cg_16b" text = "roci_realdev_build_adjustment_medium" clicksound = interface effect = "roci_realdev_build_adjustment_medium" }
+				effectButtonType = { name = "roci_realdev_build_adjustment_large" spriteType = "GFX_half_menu_button_bg" position = { x = 210 y = 145 } borderSize = { x = 10 y = 0 } format = left font = "cg_16b" text = "roci_realdev_build_adjustment_large" clicksound = interface effect = "roci_realdev_build_adjustment_large" }
+				effectButtonType = { name = "roci_realdev_build_adjustment_full" spriteType = "GFX_half_menu_button_bg" position = { x = 210 y = 145 } borderSize = { x = 10 y = 0 } format = left font = "cg_16b" text = "roci_realdev_build_adjustment_full" clicksound = interface effect = "roci_realdev_build_adjustment_full" }
+				
+				effectButtonType = { name = "roci_realdev_build_adjustment_swap" spriteType = "GFX_autofab_menu_swap" position = { x = 385 y = 150 } clicksound = interface effect = "roci_realdev_build_adjustment_swap" }
+		
+		}
+		
+		background = {
+			name = "background"
+			quadTextureSprite ="GFX_tile_large_bg_curator" 
+		}
+
+		instantTextBoxType = { #Window Title
+			name = "roci_country_MENU"
+			font = "malgun_goth_24"
+			text = "roci_country_MENU"
+			position = { x = 525 y = 1005 } #Yeet
+			maxWidth = 543
+			maxHeight = 22
+			fixedSize = yes
+			alwaysTransparent = yes
+		}
+		iconType = { #Title Underline
+			name = "empire_header_line"
+			quadTextureSprite = "GFX_line_long_curator"
+			position = { x = 6 y = 22 }
+			alwaysTransparent = yes
+		}
+		
+		effectButtonType = {#Yeet
+			name = "alien_message_background"
+			size = { x = 735 y = 120 }
+			position = { x = 225 y = 20000 }
+			spriteType = "GFX_tiles_dark_area_cut_8"
+			alwaysTransparent = yes
+			effect = "blank_effect"
+		}
+		instantTextBoxType = {
+			name = "alien_message"
+			font = "cg_16b"
+			position = { x = 450 y = 4000 }
+			maxWidth = 50
+			maxHeight = 360
+			format = left
+			scrollbartype = "standardtext_slider"
+		}
+		buttonType = {
+			name = "focus_button"
+			position = { x = -80 y = 12 }
+			orientation = "UPPER_RIGHT"
+			spriteType = "GFX_fleetview_focus"
+			buttonFont = "cg_16b"
+			shortcut = "q"
+		}
+		
+		buttonType = {
+			name = "close"
+			quadTextureSprite = "GFX_main_close_button_curator"
+			position = { x= -45 y = 16 }
+			Orientation = "UPPER_RIGHT"
+			shortcut = "ESCAPE"
+			clicksound = "back_click"
+		}
+
+		buttonType = {
+			name = "confirm_button"
+			quadTextureSprite = "GFX_standard_button_142_34_button"
+			position = { x= -175 y = 564  }
+			Orientation = "UPPER_RIGHT"
+			font = "cg_16b"
+			text = "MESSAGE_OK"
+			clicksound = "confirmation"
+		}
+
+
+		### PORTRAIT ###
+		containerWindowType = {
+			name = "portrait_background"
+			position = { x = 0 y = 200 }
+			size = { width = 964 height = 350 }
+			clipping = yes
+			iconType = {
+				name = "event_picture"
+				spriteType = "GFX_diplomacy_portrait_frame"
+				position = { x = -6 y = -5 }
+			}
+			iconType = {
+				name = "portrait"
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_portrait_character"
+			}	
+		}
+		
+		iconType = {#Hide this thing.
+			name = "empire_info_bg"
+			spriteType = "GFX_diplomacy_dark_fade_bg"
+			position = { x = 33 y = 20000 }
+			alwaysTransparent = yes
+		}
+		instantTextBoxType={#Hide this thing.
+			name = "empire_name"
+			font = "malgun_goth_24"
+			text = "Kammarian Galactic Concordat"
+			position = { x = 45 y = 20000 }
+			maxWidth = 450
+			maxHeight = 16
+			format = LEFT
+			text_color_code = "E"
+			fixedsize = yes
+		}
+		instantTextBoxType={#Hide this thing.
+			name = "empire_government_type"
+			font = "cg_16b"
+			text = "Autocracy"
+			position = { x = 45 y = 20000	}
+			maxWidth = 250
+			maxHeight = 16
+			format = LEFT
+			fixedsize = yes
+			text_color_code = "Y"
+		}
+		instantTextBoxType={#Hide this thing.
+			name = "empire_personality_type"
+			font = "cg_16b"
+			text = "Despicable Neutrals"
+			position = { x = 45 y = 20000	}
+			maxWidth = 250
+			maxHeight = 16
+			format = LEFT
+			fixedsize = yes
+		}
+		OverlappingElementsBoxType = {#Hide this thing.
+			name = "empire_ethics_icons"
+			position = { x = 45 y = 20000 }
+			size = { x = 240 y = 30 }
+			spacing = 2.0
+			format = left
+		}
+		buttonType = {#Hide this thing.
+			name = "empire_flag"
+			quadTextureSprite = "GFX_empire_flag_128_curator"
+			position = { x = 25 y = 20000 }
+			orientation = UPPER_LEFT
+		}
+		containerWindowType = {#Hide this thing
+			name = "leader_details"
+			position = { x = 25 y = 20000 }
+			containerWindowType = {
+				name = "empire_traits_box"
+				position = { x = 0 y = -5 }
+				size = { width = 210 height = 75 }
+
+				background = {
+					name = "ethics_bg"
+					spriteType = "GFX_tiles_dark_area_cut_8"
+				}
+			}
+			instantTextBoxType = {
+				name = "empire_traits_label"
+				position = { x = 214 y = 37 }
+				font = "cg_16b"
+				maxWidth = 230
+				maxHeight = 20
+				fixedSize = yes
+				format = left
+				#text_color_code = "E"
+				text = "RULER_TRAITS"
+				alwaysTransparent = yes
+			}
+			overlappingElementsBoxType = {
+				name = "leader_traits"
+				position = { x = 215 y = 55 }
+				size = { x = 125 y = 330 }
+			}
+			instantTextBoxType = {
+				name = "leader_name"
+				position = { x = 10 y = 0 }
+				font = "cg_16b"
+				maxWidth = 330
+				maxHeight = 20
+				fixedSize = yes
+				format = left
+				text = "Leader Name"
+				text_color_code = "E"
+			}
+			instantTextBoxType = {
+				name = "leader_species"
+				position = { x = 10 y = 18 }
+				font = "cg_16b"
+				maxWidth = 330
+				maxHeight = 20
+				fixedSize = yes
+				text = "Leader Species"
+				format = left
+			}
+		}
+		containerWindowType = {#Hide this thing.
+			name = "opinion_window"
+			position = { x = 27 y = 20000 }
+			size = { width = 94 height = 30 }
+			background = {# Use this for tooltip area, picture comes from somewhere else
+				name = "opinion_bg"
+				spriteType = "GFX_tiled_window_transparent"
+			}
+			iconType = {
+				name = "their_opinion_icon"
+				spriteType = "GFX_diplomacy_opinion"
+				position = { x = 7 y = 4 }
+				alwaysTransparent = yes
+			}
+			instantTextBoxType = {
+				name = "their_opinion"
+				font = "cg_16b"
+				maxWidth = 40
+				position = { x = 40 y = 7 }
+				format = left
+				text = "100"
+				alwaysTransparent = yes
+			}
+		}
+	}
+}

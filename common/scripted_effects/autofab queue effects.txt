@@ -160,74 +160,67 @@ autofab_time_loop = {
 		limit = {
 			check_variable = { which = autofab_construction_time value > 0 }
 		}
+		set_variable = { which = autofab_build_speed value = 0 }
+		export_modifier_to_variable = { modifier = planet_colony_development_speed_mult variable = autofab_build_speed }
+		change_variable = { which = autofab_build_speed value = 1 }
 		if = {
 			limit = {
-				check_variable = { which = autofab_construction_time value >= 600 }
+				check_variable = { which = autofab_construction_time value >= 30 }
 			}
-			change_variable = { which = autofab_construction_time value = -600 }
-			planet_event = { id = autofab_queue.4 days = 600 }
+			set_variable = { which = autofab_construction_progress value = 30 }
+			multiply_variable = { which = autofab_construction_progress value = autofab_build_speed }
+			round_variable = autofab_construction_progress
+			subtract_variable = { which = autofab_construction_time value = autofab_construction_progress }
+			planet_event = { id = autofab_queue.4 days = 30 }
 		}
 		else_if = {
 			limit = {
-				check_variable = { which = autofab_construction_time value >= 300 }
+				check_variable = { which = autofab_construction_time value >= 15 }
 			}
-			change_variable = { which = autofab_construction_time value = -300 }
-			planet_event = { id = autofab_queue.4 days = 300 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { which = autofab_construction_time value >= 150 }
-			}
-			change_variable = { which = autofab_construction_time value = -150 }
-			planet_event = { id = autofab_queue.4 days = 150 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { which = autofab_construction_time value >= 80 }
-			}
-			change_variable = { which = autofab_construction_time value = -80 }
-			planet_event = { id = autofab_queue.4 days = 80 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { which = autofab_construction_time value >= 40 }
-			}
-			change_variable = { which = autofab_construction_time value = -40 }
-			planet_event = { id = autofab_queue.4 days = 40 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { which = autofab_construction_time value >= 20 }
-			}
-			change_variable = { which = autofab_construction_time value = -20 }
-			planet_event = { id = autofab_queue.4 days = 20 }
+			set_variable = { which = autofab_construction_progress value = 15 }
+			multiply_variable = { which = autofab_construction_progress value = autofab_build_speed }
+			round_variable = autofab_construction_progress
+			subtract_variable = { which = autofab_construction_time value = autofab_construction_progress }
+			planet_event = { id = autofab_queue.4 days = 15 }
 		}
 		else_if = {
 			limit = {
 				check_variable = { which = autofab_construction_time value >= 10 }
 			}
-			change_variable = { which = autofab_construction_time value = -10 }
+			set_variable = { which = autofab_construction_progress value = 10 }
+			multiply_variable = { which = autofab_construction_progress value = autofab_build_speed }
+			round_variable = autofab_construction_progress
+			subtract_variable = { which = autofab_construction_time value = autofab_construction_progress }
 			planet_event = { id = autofab_queue.4 days = 10 }
 		}
 		else_if = {
 			limit = {
 				check_variable = { which = autofab_construction_time value >= 5 }
 			}
-			change_variable = { which = autofab_construction_time value = -5 }
+			set_variable = { which = autofab_construction_progress value = 5 }
+			multiply_variable = { which = autofab_construction_progress value = autofab_build_speed }
+			round_variable = autofab_construction_progress
+			subtract_variable = { which = autofab_construction_time value = autofab_construction_progress }
 			planet_event = { id = autofab_queue.4 days = 5 }
 		}
 		else_if = {
 			limit = {
-				check_variable = { which = autofab_construction_time value >= 2 }
+				check_variable = { which = autofab_construction_time value >= 3 }
 			}
-			change_variable = { which = autofab_construction_time value = -2 }
+			set_variable = { which = autofab_construction_progress value = 3 }
+			multiply_variable = { which = autofab_construction_progress value = autofab_build_speed }
+			round_variable = autofab_construction_progress
+			subtract_variable = { which = autofab_construction_time value = autofab_construction_progress }
 			planet_event = { id = autofab_queue.4 days = 2 }
 		}
 		else_if = {
 			limit = {
 				check_variable = { which = autofab_construction_time value >= 1 }
 			}
-			change_variable = { which = autofab_construction_time value = -1 }
+			set_variable = { which = autofab_construction_progress value = 1 }
+			multiply_variable = { which = autofab_construction_progress value = autofab_build_speed }
+			round_variable = autofab_construction_progress
+			subtract_variable = { which = autofab_construction_time value = autofab_construction_progress }
 			planet_event = { id = autofab_queue.4 days = 1 }
 		}
 	}
@@ -248,12 +241,11 @@ start_autofab = {
 		pay_for_autofab = yes
 		set_planet_flag = factory_expanding
 		set_planet_flag = building_autofab
-		add_modifier = { modifier = factory_expansion days = 1 time_multiplier = autofab_construction_time }
+		add_modifier = { modifier = factory_expansion }
 		autofab_time_loop = yes
 	}
 }
 autofab_time_set = {
-	set_variable = { which = autofab_build_speed value = 0 }
 	set_variable = { which = autofab_construction_time value = @autofab_construction_time }
 	if = {
 		limit = {
@@ -261,20 +253,16 @@ autofab_time_set = {
 		}
 		divide_variable = { which = autofab_construction_time value = 2 }
 	}
-	export_modifier_to_variable = { modifier = planet_colony_development_speed_mult variable = autofab_build_speed }
-	change_variable = { which = autofab_build_speed value = 1 }
-	divide_variable = { which = autofab_construction_time value = autofab_build_speed }
-	round_variable = autofab_construction_time
 }
 add_autofab = {
 	add_deposit = autofab
 	set_planet_flag = has_autofab
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = building_autofab
 }
 
 autofab_module_time_set = {
-	set_variable = { which = autofab_module_build_speed value = 0 }
 	set_variable = { which = autofab_module_construction_time value = @factory_construction_time }
 	if = {
 		limit = {
@@ -282,11 +270,7 @@ autofab_module_time_set = {
 		}
 		divide_variable = { which = autofab_module_construction_time value = 2 }
 	}
-	export_modifier_to_variable = { modifier = planet_building_build_speed_mult variable = autofab_module_build_speed }
-	change_variable = { which = autofab_module_build_speed value = 1 }
-	divide_variable = { which = autofab_module_construction_time value = autofab_module_build_speed }
-	round_variable = autofab_module_construction_time
-	add_modifier = { modifier = factory_expansion days = 1 time_multiplier = autofab_module_construction_time  }
+	add_modifier = { modifier = factory_expansion }
 }
 
 autofab_module_time_loop = {
@@ -294,67 +278,67 @@ autofab_module_time_loop = {
 		limit = {
 			check_variable = { which = autofab_module_construction_time value > 0 }
 		}
+		set_variable = { which = autofab_module_build_speed value = 0 }
+		export_modifier_to_variable = { modifier = planet_building_build_speed_mult variable = autofab_module_build_speed }
+		change_variable = { which = autofab_module_build_speed value = 1 }
 		if = {
 			limit = {
-				check_variable = { which = autofab_module_construction_time value >= 300 }
+				check_variable = { which = autofab_module_construction_time value >= 30 }
 			}
-			change_variable = { which = autofab_module_construction_time value = -300 }
-			planet_event = { id = $module_event_1$ days = 300 }
+			set_variable = { which = autofab_module_construction_progress value = 30 }
+			multiply_variable = { which = autofab_module_construction_progress value = autofab_module_build_speed }
+			round_variable = autofab_module_construction_progress
+			subtract_variable = { which = autofab_module_construction_time value = autofab_module_construction_progress }
+			planet_event = { id = $module_event_1$ days = 30 }
 		}
 		else_if = {
 			limit = {
-				check_variable = { which = autofab_module_construction_time value >= 150 }
+				check_variable = { which = autofab_module_construction_time value >= 15 }
 			}
-			change_variable = { which = autofab_module_construction_time value = -150 }
-			planet_event = { id = $module_event_1$ days = 150 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { which = autofab_module_construction_time value >= 80 }
-			}
-			change_variable = { which = autofab_module_construction_time value = -80 }
-			planet_event = { id = $module_event_1$ days = 80 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { which = autofab_module_construction_time value >= 40 }
-			}
-			change_variable = { which = autofab_module_construction_time value = -40 }
-			planet_event = { id = $module_event_1$ days = 40 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { which = autofab_module_construction_time value >= 20 }
-			}
-			change_variable = { which = autofab_module_construction_time value = -20 }
-			planet_event = { id = $module_event_1$ days = 20 }
+			set_variable = { which = autofab_module_construction_progress value = 15 }
+			multiply_variable = { which = autofab_module_construction_progress value = autofab_module_build_speed }
+			round_variable = autofab_module_construction_progress
+			subtract_variable = { which = autofab_module_construction_time value = autofab_module_construction_progress }
+			planet_event = { id = $module_event_1$ days = 15 }
 		}
 		else_if = {
 			limit = {
 				check_variable = { which = autofab_module_construction_time value >= 10 }
 			}
-			change_variable = { which = autofab_module_construction_time value = -10 }
+			set_variable = { which = autofab_module_construction_progress value = 10 }
+			multiply_variable = { which = autofab_module_construction_progress value = autofab_module_build_speed }
+			round_variable = autofab_module_construction_progress
+			subtract_variable = { which = autofab_module_construction_time value = autofab_module_construction_progress }
 			planet_event = { id = $module_event_1$ days = 10 }
 		}
 		else_if = {
 			limit = {
 				check_variable = { which = autofab_module_construction_time value >= 5 }
 			}
-			change_variable = { which = autofab_module_construction_time value = -5 }
+			set_variable = { which = autofab_module_construction_progress value = 5 }
+			multiply_variable = { which = autofab_module_construction_progress value = autofab_module_build_speed }
+			round_variable = autofab_module_construction_progress
+			subtract_variable = { which = autofab_module_construction_time value = autofab_module_construction_progress }
 			planet_event = { id = $module_event_1$ days = 5 }
 		}
 		else_if = {
 			limit = {
-				check_variable = { which = autofab_module_construction_time value >= 2 }
+				check_variable = { which = autofab_module_construction_time value >= 3 }
 			}
-			change_variable = { which = autofab_module_construction_time value = -2 }
+			set_variable = { which = autofab_module_construction_progress value = 3 }
+			multiply_variable = { which = autofab_module_construction_progress value = autofab_module_build_speed }
+			round_variable = autofab_module_construction_progress
+			subtract_variable = { which = autofab_module_construction_time value = autofab_module_construction_progress }
 			planet_event = { id = $module_event_1$ days = 2 }
 		}
 		else_if = {
 			limit = {
 				check_variable = { which = autofab_module_construction_time value >= 1 }
 			}
-			change_variable = { which = autofab_module_construction_time value = -1 }
+			set_variable = { which = autofab_module_construction_progress value = 1 }
+			multiply_variable = { which = autofab_module_construction_progress value = autofab_module_build_speed }
+			round_variable = autofab_module_construction_progress
+			subtract_variable = { which = autofab_module_construction_time value = autofab_module_construction_progress }
 			planet_event = { id = $module_event_1$ days = 1 }
 		}
 	}
@@ -388,6 +372,7 @@ add_autofab_power = {
 	add_deposit = autofab_power
 	change_variable = { which = autofab_power value = 1 }
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_building_generator
 	if = {
 		limit = {
@@ -421,6 +406,7 @@ add_autofab_mine = {
 	add_deposit = autofab_mine
 	change_variable = { which = autofab_mine value = 1 }
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_building_mine
 	if = {
 		limit = {
@@ -455,6 +441,7 @@ add_autofab_farm = {
 	add_deposit = autofab_farm
 	change_variable = { which = autofab_farm value = 1 }
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_building_farm
 	if = {
 		limit = {
@@ -487,6 +474,7 @@ start_autofab_foundry = {
 }
 add_autofab_foundry = {
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	add_deposit = autofab_foundry
 	change_variable = { which = autofab_foundry value = 1 }
 	remove_planet_flag = factory_building_foundry
@@ -521,6 +509,7 @@ start_autofab_factory = {
 }
 add_autofab_factory = {
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_building_factory
 	add_deposit = autofab_factory
 	change_variable = { which = autofab_factory value = 1 }
@@ -555,6 +544,7 @@ start_autofab_chemical = {
 }
 add_autofab_chemical = {
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_building_chemical
 	add_deposit = autofab_motes_refinery
 	change_variable = { which = autofab_chemical value = 1 }
@@ -589,6 +579,7 @@ start_autofab_refinery = {
 }
 add_autofab_refinery = {
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_building_refinery
 	add_deposit = autofab_gases_refinery
 	change_variable = { which = autofab_refinery value = 1 }
@@ -623,6 +614,7 @@ start_autofab_translucer = {
 }
 add_autofab_translucer = {
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_building_translucer
 	add_deposit = autofab_crystals_refinery
 	change_variable = { which = autofab_translucer value = 1 }
@@ -658,6 +650,7 @@ add_autofab_extractor = {
 	pay_for_district = yes
 	add_deposit = autofab_refinery_extractor
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_building_extractor
 	set_planet_flag = has_autofab_extractor
 	if = {
@@ -686,6 +679,7 @@ retool_autofab_power = {
 	remove_deposit = autofab_power
 	change_variable = { which = autofab_power value = -1 }
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_retooling_generator
 	retooling_bonus = yes
 }
@@ -700,6 +694,7 @@ retool_autofab_mine = {
 	remove_deposit = autofab_mine
 	change_variable = { which = autofab_mine value = -1 }
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_retooling_mine
 	retooling_bonus = yes
 }
@@ -714,6 +709,7 @@ retool_autofab_farm = {
 	remove_deposit = autofab_farm
 	change_variable = { which = autofab_farm value = -1 }
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_retooling_farm
 	retooling_bonus = yes
 }
@@ -728,6 +724,7 @@ retool_autofab_foundry = {
 	remove_deposit = autofab_foundry
 	change_variable = { which = autofab_foundry value = -1 }
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_retooling_foundry
 	retooling_bonus = yes
 }
@@ -742,6 +739,7 @@ retool_autofab_factory = {
 	remove_deposit = autofab_factory
 	change_variable = { which = autofab_factory value = -1 }
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_retooling_factory
 	retooling_bonus = yes
 }
@@ -754,6 +752,7 @@ start_autofab_refinery_retool = {
 }
 retool_autofab_refinery = {
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_retooling_refinery
 	remove_deposit = autofab_gases_refinery
 	change_variable = { which = autofab_refinery value = -1 }
@@ -768,6 +767,7 @@ start_autofab_chemical_retool = {
 }
 retool_autofab_chemical = {
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_retooling_chemical
 	remove_deposit = autofab_motes_refinery
 	change_variable = { which = autofab_chemical value = -1 }
@@ -782,6 +782,7 @@ start_autofab_translucer_retool = {
 }
 retool_autofab_translucer = {
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = factory_retooling_translucer
 	remove_deposit = autofab_crystals_refinery
 	change_variable = { which = autofab_translucer value = -1 }
@@ -797,6 +798,7 @@ start_autofab_extractor_retool = {
 retool_autofab_extractor = {
 	remove_deposit = autofab_refinery_extractor
 	remove_planet_flag = factory_expanding
+	remove_modifier = factory_expansion
 	remove_planet_flag = has_autofab_extractor
 	remove_planet_flag = factory_retooling_extractor
 	retooling_bonus = yes

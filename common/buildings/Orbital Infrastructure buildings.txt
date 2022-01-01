@@ -30,7 +30,7 @@ building_space_elevator = {
 	}
 
 	resources = {
-		category = planet_buildings
+		category = planet_elevator
 		cost = {
 			minerals = 500
 		}
@@ -41,12 +41,18 @@ building_space_elevator = {
 			alloys = 100
 		}
 		upkeep = {
-			energy = 10
+			energy = 1
+		}
+		upkeep = {
+			energy = 0.5
+			alloys = 0.5
+			multiplier = orbital_infrastructure
 		}
 	}
 
 	planet_modifier = {
 		district_orbital_platform_cap_max = 1
+		planet_max_buildings_add = 1
 	}
 	
 	triggered_planet_modifier = {
@@ -134,7 +140,7 @@ building_space_elevator_2 = {
 	}
 
 	resources = {
-		category = planet_buildings
+		category = planet_elevator
 		cost = {
 			trigger = {
 				owner = { is_ai = no }
@@ -142,12 +148,13 @@ building_space_elevator_2 = {
 			alloys = 200
 		}
 		upkeep = {
-			energy = 10
+			energy = 2
 		}
 	}
 
 	planet_modifier = {
 		district_orbital_platform_cap_max = 3
+		planet_max_buildings_add = 1
 	}
 	
 	triggered_planet_modifier = {
@@ -238,7 +245,7 @@ building_space_elevator_3 = {
 	}
 
 	resources = {
-		category = planet_buildings
+		category = planet_elevator
 		cost = {
 			trigger = {
 				owner = { is_ai = no }
@@ -246,12 +253,13 @@ building_space_elevator_3 = {
 			alloys = 300
 		}
 		upkeep = {
-			energy = 10
+			energy = 4
 		}
 	}
 
 	planet_modifier = {
 		district_orbital_platform_cap_max = 5
+		planet_max_buildings_add = 1
 	}
 	
 	triggered_planet_modifier = {

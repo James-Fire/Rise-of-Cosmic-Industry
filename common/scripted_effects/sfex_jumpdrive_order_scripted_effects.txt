@@ -1,0 +1,7049 @@
+sfex_jumpdrive_order_export_planets_in_system_distance_to_centre_point = {
+	if = {
+		limit = {
+			NOT = {
+				exists = event_target:sfex_event_target_solar_system_centre_point
+			}
+		}
+		random_system_planet = {
+			limit = {
+				is_primary_star = yes
+			}
+			save_event_target_as = sfex_event_target_solar_system_centre_point
+		}
+	}
+	if = {
+		limit = {
+			exists = event_target:sfex_event_target_solar_system_centre_point
+		}
+		every_system_planet = {
+			sfex_jumpdrive_order_measure_point_distance_to_centre_point = yes
+		}
+	}
+	else = {
+		log = "sfex_jumpdrive_order_export_distance_to_centre_point: is_primary_star does not exist."
+	}
+}
+
+sfex_jumpdrive_order_measure_point_distance_to_centre_point = {
+	if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 0
+				max_distance <= 1
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 0
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 1
+				max_distance <= 2
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 2
+				max_distance <= 3
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 2
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 3
+				max_distance <= 4
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 3
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 4
+				max_distance <= 5
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 4
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 5
+				max_distance <= 6
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 5
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 6
+				max_distance <= 7
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 6
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 7
+				max_distance <= 8
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 7
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 8
+				max_distance <= 9
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 8
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 9
+				max_distance <= 10
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 9
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 10
+				max_distance <= 11
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 10
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 11
+				max_distance <= 12
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 11
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 12
+				max_distance <= 13
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 12
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 13
+				max_distance <= 14
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 13
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 14
+				max_distance <= 15
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 14
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 15
+				max_distance <= 16
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 15
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 16
+				max_distance <= 17
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 16
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 17
+				max_distance <= 18
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 17
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 18
+				max_distance <= 19
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 18
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 19
+				max_distance <= 20
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 19
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 20
+				max_distance <= 21
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 20
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 21
+				max_distance <= 22
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 21
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 22
+				max_distance <= 23
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 22
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 23
+				max_distance <= 24
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 23
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 24
+				max_distance <= 25
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 24
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 25
+				max_distance <= 26
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 25
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 26
+				max_distance <= 27
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 26
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 27
+				max_distance <= 28
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 27
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 28
+				max_distance <= 29
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 28
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 29
+				max_distance <= 30
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 29
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 30
+				max_distance <= 31
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 30
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 31
+				max_distance <= 32
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 31
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 32
+				max_distance <= 33
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 32
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 33
+				max_distance <= 34
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 33
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 34
+				max_distance <= 35
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 34
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 35
+				max_distance <= 36
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 35
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 36
+				max_distance <= 37
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 36
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 37
+				max_distance <= 38
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 37
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 38
+				max_distance <= 39
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 38
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 39
+				max_distance <= 40
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 39
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 40
+				max_distance <= 41
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 40
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 41
+				max_distance <= 42
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 41
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 42
+				max_distance <= 43
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 42
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 43
+				max_distance <= 44
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 43
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 44
+				max_distance <= 45
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 44
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 45
+				max_distance <= 46
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 45
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 46
+				max_distance <= 47
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 46
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 47
+				max_distance <= 48
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 47
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 48
+				max_distance <= 49
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 48
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 49
+				max_distance <= 50
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 49
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 50
+				max_distance <= 51
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 50
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 51
+				max_distance <= 52
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 51
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 52
+				max_distance <= 53
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 52
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 53
+				max_distance <= 54
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 53
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 54
+				max_distance <= 55
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 54
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 55
+				max_distance <= 56
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 55
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 56
+				max_distance <= 57
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 56
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 57
+				max_distance <= 58
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 57
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 58
+				max_distance <= 59
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 58
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 59
+				max_distance <= 60
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 59
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 60
+				max_distance <= 61
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 60
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 61
+				max_distance <= 62
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 61
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 62
+				max_distance <= 63
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 62
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 63
+				max_distance <= 64
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 63
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 64
+				max_distance <= 65
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 64
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 65
+				max_distance <= 66
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 65
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 66
+				max_distance <= 67
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 66
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 67
+				max_distance <= 68
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 67
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 68
+				max_distance <= 69
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 68
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 69
+				max_distance <= 70
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 69
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 70
+				max_distance <= 71
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 70
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 71
+				max_distance <= 72
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 71
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 72
+				max_distance <= 73
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 72
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 73
+				max_distance <= 74
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 73
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 74
+				max_distance <= 75
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 74
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 75
+				max_distance <= 76
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 75
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 76
+				max_distance <= 77
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 76
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 77
+				max_distance <= 78
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 77
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 78
+				max_distance <= 79
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 78
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 79
+				max_distance <= 80
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 79
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 80
+				max_distance <= 81
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 80
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 81
+				max_distance <= 82
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 81
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 82
+				max_distance <= 83
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 82
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 83
+				max_distance <= 84
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 83
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 84
+				max_distance <= 85
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 84
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 85
+				max_distance <= 86
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 85
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 86
+				max_distance <= 87
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 86
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 87
+				max_distance <= 88
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 87
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 88
+				max_distance <= 89
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 88
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 89
+				max_distance <= 90
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 89
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 90
+				max_distance <= 91
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 90
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 91
+				max_distance <= 92
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 91
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 92
+				max_distance <= 93
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 92
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 93
+				max_distance <= 94
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 93
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 94
+				max_distance <= 95
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 94
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 95
+				max_distance <= 96
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 95
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 96
+				max_distance <= 97
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 96
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 97
+				max_distance <= 98
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 97
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 98
+				max_distance <= 99
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 98
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 99
+				max_distance <= 100
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 99
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 100
+				max_distance <= 101
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 100
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 101
+				max_distance <= 102
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 101
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 102
+				max_distance <= 103
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 102
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 103
+				max_distance <= 104
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 103
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 104
+				max_distance <= 105
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 104
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 105
+				max_distance <= 106
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 105
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 106
+				max_distance <= 107
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 106
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 107
+				max_distance <= 108
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 107
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 108
+				max_distance <= 109
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 108
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 109
+				max_distance <= 110
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 109
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 110
+				max_distance <= 111
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 110
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 111
+				max_distance <= 112
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 111
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 112
+				max_distance <= 113
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 112
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 113
+				max_distance <= 114
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 113
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 114
+				max_distance <= 115
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 114
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 115
+				max_distance <= 116
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 115
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 116
+				max_distance <= 117
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 116
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 117
+				max_distance <= 118
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 117
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 118
+				max_distance <= 119
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 118
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 119
+				max_distance <= 120
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 119
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 120
+				max_distance <= 121
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 120
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 121
+				max_distance <= 122
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 121
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 122
+				max_distance <= 123
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 122
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 123
+				max_distance <= 124
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 123
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 124
+				max_distance <= 125
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 124
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 125
+				max_distance <= 126
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 125
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 126
+				max_distance <= 127
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 126
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 127
+				max_distance <= 128
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 127
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 128
+				max_distance <= 129
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 128
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 129
+				max_distance <= 130
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 129
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 130
+				max_distance <= 131
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 130
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 131
+				max_distance <= 132
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 131
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 132
+				max_distance <= 133
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 132
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 133
+				max_distance <= 134
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 133
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 134
+				max_distance <= 135
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 134
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 135
+				max_distance <= 136
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 135
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 136
+				max_distance <= 137
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 136
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 137
+				max_distance <= 138
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 137
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 138
+				max_distance <= 139
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 138
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 139
+				max_distance <= 140
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 139
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 140
+				max_distance <= 141
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 140
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 141
+				max_distance <= 142
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 141
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 142
+				max_distance <= 143
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 142
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 143
+				max_distance <= 144
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 143
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 144
+				max_distance <= 145
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 144
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 145
+				max_distance <= 146
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 145
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 146
+				max_distance <= 147
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 146
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 147
+				max_distance <= 148
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 147
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 148
+				max_distance <= 149
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 148
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 149
+				max_distance <= 150
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 149
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 150
+				max_distance <= 151
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 150
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 151
+				max_distance <= 152
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 151
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 152
+				max_distance <= 153
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 152
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 153
+				max_distance <= 154
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 153
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 154
+				max_distance <= 155
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 154
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 155
+				max_distance <= 156
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 155
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 156
+				max_distance <= 157
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 156
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 157
+				max_distance <= 158
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 157
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 158
+				max_distance <= 159
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 158
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 159
+				max_distance <= 160
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 159
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 160
+				max_distance <= 161
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 160
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 161
+				max_distance <= 162
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 161
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 162
+				max_distance <= 163
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 162
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 163
+				max_distance <= 164
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 163
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 164
+				max_distance <= 165
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 164
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 165
+				max_distance <= 166
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 165
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 166
+				max_distance <= 167
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 166
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 167
+				max_distance <= 168
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 167
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 168
+				max_distance <= 169
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 168
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 169
+				max_distance <= 170
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 169
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 170
+				max_distance <= 171
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 170
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 171
+				max_distance <= 172
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 171
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 172
+				max_distance <= 173
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 172
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 173
+				max_distance <= 174
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 173
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 174
+				max_distance <= 175
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 174
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 175
+				max_distance <= 176
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 175
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 176
+				max_distance <= 177
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 176
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 177
+				max_distance <= 178
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 177
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 178
+				max_distance <= 179
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 178
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 179
+				max_distance <= 180
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 179
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 180
+				max_distance <= 181
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 180
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 181
+				max_distance <= 182
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 181
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 182
+				max_distance <= 183
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 182
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 183
+				max_distance <= 184
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 183
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 184
+				max_distance <= 185
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 184
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 185
+				max_distance <= 186
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 185
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 186
+				max_distance <= 187
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 186
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 187
+				max_distance <= 188
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 187
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 188
+				max_distance <= 189
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 188
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 189
+				max_distance <= 190
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 189
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 190
+				max_distance <= 191
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 190
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 191
+				max_distance <= 192
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 191
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 192
+				max_distance <= 193
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 192
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 193
+				max_distance <= 194
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 193
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 194
+				max_distance <= 195
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 194
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 195
+				max_distance <= 196
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 195
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 196
+				max_distance <= 197
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 196
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 197
+				max_distance <= 198
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 197
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 198
+				max_distance <= 199
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 198
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 199
+				max_distance <= 200
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 199
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 200
+				max_distance <= 201
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 200
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 201
+				max_distance <= 202
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 201
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 202
+				max_distance <= 203
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 202
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 203
+				max_distance <= 204
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 203
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 204
+				max_distance <= 205
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 204
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 205
+				max_distance <= 206
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 205
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 206
+				max_distance <= 207
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 206
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 207
+				max_distance <= 208
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 207
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 208
+				max_distance <= 209
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 208
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 209
+				max_distance <= 210
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 209
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 210
+				max_distance <= 211
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 210
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 211
+				max_distance <= 212
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 211
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 212
+				max_distance <= 213
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 212
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 213
+				max_distance <= 214
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 213
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 214
+				max_distance <= 215
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 214
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 215
+				max_distance <= 216
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 215
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 216
+				max_distance <= 217
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 216
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 217
+				max_distance <= 218
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 217
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 218
+				max_distance <= 219
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 218
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 219
+				max_distance <= 220
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 219
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 220
+				max_distance <= 221
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 220
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 221
+				max_distance <= 222
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 221
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 222
+				max_distance <= 223
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 222
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 223
+				max_distance <= 224
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 223
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 224
+				max_distance <= 225
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 224
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 225
+				max_distance <= 226
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 225
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 226
+				max_distance <= 227
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 226
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 227
+				max_distance <= 228
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 227
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 228
+				max_distance <= 229
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 228
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 229
+				max_distance <= 230
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 229
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 230
+				max_distance <= 231
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 230
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 231
+				max_distance <= 232
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 231
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 232
+				max_distance <= 233
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 232
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 233
+				max_distance <= 234
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 233
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 234
+				max_distance <= 235
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 234
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 235
+				max_distance <= 236
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 235
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 236
+				max_distance <= 237
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 236
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 237
+				max_distance <= 238
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 237
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 238
+				max_distance <= 239
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 238
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 239
+				max_distance <= 240
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 239
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 240
+				max_distance <= 241
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 240
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 241
+				max_distance <= 242
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 241
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 242
+				max_distance <= 243
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 242
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 243
+				max_distance <= 244
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 243
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 244
+				max_distance <= 245
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 244
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 245
+				max_distance <= 246
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 245
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 246
+				max_distance <= 247
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 246
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 247
+				max_distance <= 248
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 247
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 248
+				max_distance <= 249
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 248
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 249
+				max_distance <= 250
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 249
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 250
+				max_distance <= 251
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 250
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 251
+				max_distance <= 252
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 251
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 252
+				max_distance <= 253
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 252
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 253
+				max_distance <= 254
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 253
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 254
+				max_distance <= 255
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 254
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 255
+				max_distance <= 256
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 255
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 256
+				max_distance <= 257
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 256
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 257
+				max_distance <= 258
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 257
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 258
+				max_distance <= 259
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 258
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 259
+				max_distance <= 260
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 259
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 260
+				max_distance <= 261
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 260
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 261
+				max_distance <= 262
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 261
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 262
+				max_distance <= 263
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 262
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 263
+				max_distance <= 264
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 263
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 264
+				max_distance <= 265
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 264
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 265
+				max_distance <= 266
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 265
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 266
+				max_distance <= 267
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 266
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 267
+				max_distance <= 268
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 267
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 268
+				max_distance <= 269
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 268
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 269
+				max_distance <= 270
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 269
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 270
+				max_distance <= 271
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 270
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 271
+				max_distance <= 272
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 271
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 272
+				max_distance <= 273
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 272
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 273
+				max_distance <= 274
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 273
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 274
+				max_distance <= 275
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 274
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 275
+				max_distance <= 276
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 275
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 276
+				max_distance <= 277
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 276
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 277
+				max_distance <= 278
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 277
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 278
+				max_distance <= 279
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 278
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 279
+				max_distance <= 280
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 279
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 280
+				max_distance <= 281
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 280
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 281
+				max_distance <= 282
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 281
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 282
+				max_distance <= 283
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 282
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 283
+				max_distance <= 284
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 283
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 284
+				max_distance <= 285
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 284
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 285
+				max_distance <= 286
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 285
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 286
+				max_distance <= 287
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 286
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 287
+				max_distance <= 288
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 287
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 288
+				max_distance <= 289
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 288
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 289
+				max_distance <= 290
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 289
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 290
+				max_distance <= 291
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 290
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 291
+				max_distance <= 292
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 291
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 292
+				max_distance <= 293
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 292
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 293
+				max_distance <= 294
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 293
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 294
+				max_distance <= 295
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 294
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 295
+				max_distance <= 296
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 295
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 296
+				max_distance <= 297
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 296
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 297
+				max_distance <= 298
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 297
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 298
+				max_distance <= 299
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 298
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 299
+				max_distance <= 300
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 299
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 300
+				max_distance <= 301
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 300
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 301
+				max_distance <= 302
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 301
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 302
+				max_distance <= 303
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 302
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 303
+				max_distance <= 304
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 303
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 304
+				max_distance <= 305
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 304
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 305
+				max_distance <= 306
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 305
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 306
+				max_distance <= 307
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 306
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 307
+				max_distance <= 308
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 307
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 308
+				max_distance <= 309
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 308
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 309
+				max_distance <= 310
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 309
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 310
+				max_distance <= 311
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 310
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 311
+				max_distance <= 312
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 311
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 312
+				max_distance <= 313
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 312
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 313
+				max_distance <= 314
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 313
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 314
+				max_distance <= 315
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 314
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 315
+				max_distance <= 316
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 315
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 316
+				max_distance <= 317
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 316
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 317
+				max_distance <= 318
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 317
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 318
+				max_distance <= 319
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 318
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 319
+				max_distance <= 320
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 319
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 320
+				max_distance <= 321
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 320
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 321
+				max_distance <= 322
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 321
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 322
+				max_distance <= 323
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 322
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 323
+				max_distance <= 324
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 323
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 324
+				max_distance <= 325
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 324
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 325
+				max_distance <= 326
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 325
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 326
+				max_distance <= 327
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 326
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 327
+				max_distance <= 328
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 327
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 328
+				max_distance <= 329
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 328
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 329
+				max_distance <= 330
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 329
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 330
+				max_distance <= 331
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 330
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 331
+				max_distance <= 332
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 331
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 332
+				max_distance <= 333
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 332
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 333
+				max_distance <= 334
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 333
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 334
+				max_distance <= 335
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 334
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 335
+				max_distance <= 336
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 335
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 336
+				max_distance <= 337
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 336
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 337
+				max_distance <= 338
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 337
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 338
+				max_distance <= 339
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 338
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 339
+				max_distance <= 340
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 339
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 340
+				max_distance <= 341
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 340
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 341
+				max_distance <= 342
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 341
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 342
+				max_distance <= 343
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 342
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 343
+				max_distance <= 344
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 343
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 344
+				max_distance <= 345
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 344
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 345
+				max_distance <= 346
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 345
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 346
+				max_distance <= 347
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 346
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 347
+				max_distance <= 348
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 347
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 348
+				max_distance <= 349
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 348
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 349
+				max_distance <= 350
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 349
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 350
+				max_distance <= 351
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 350
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 351
+				max_distance <= 352
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 351
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 352
+				max_distance <= 353
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 352
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 353
+				max_distance <= 354
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 353
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 354
+				max_distance <= 355
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 354
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 355
+				max_distance <= 356
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 355
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 356
+				max_distance <= 357
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 356
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 357
+				max_distance <= 358
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 357
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 358
+				max_distance <= 359
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 358
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 359
+				max_distance <= 360
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 359
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 360
+				max_distance <= 361
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 360
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 361
+				max_distance <= 362
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 361
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 362
+				max_distance <= 363
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 362
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 363
+				max_distance <= 364
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 363
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 364
+				max_distance <= 365
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 364
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 365
+				max_distance <= 366
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 365
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 366
+				max_distance <= 367
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 366
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 367
+				max_distance <= 368
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 367
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 368
+				max_distance <= 369
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 368
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 369
+				max_distance <= 370
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 369
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 370
+				max_distance <= 371
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 370
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 371
+				max_distance <= 372
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 371
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 372
+				max_distance <= 373
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 372
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 373
+				max_distance <= 374
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 373
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 374
+				max_distance <= 375
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 374
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 375
+				max_distance <= 376
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 375
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 376
+				max_distance <= 377
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 376
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 377
+				max_distance <= 378
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 377
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 378
+				max_distance <= 379
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 378
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 379
+				max_distance <= 380
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 379
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 380
+				max_distance <= 381
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 380
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 381
+				max_distance <= 382
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 381
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 382
+				max_distance <= 383
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 382
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 383
+				max_distance <= 384
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 383
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 384
+				max_distance <= 385
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 384
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 385
+				max_distance <= 386
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 385
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 386
+				max_distance <= 387
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 386
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 387
+				max_distance <= 388
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 387
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 388
+				max_distance <= 389
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 388
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 389
+				max_distance <= 390
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 389
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 390
+				max_distance <= 391
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 390
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 391
+				max_distance <= 392
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 391
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 392
+				max_distance <= 393
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 392
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 393
+				max_distance <= 394
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 393
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 394
+				max_distance <= 395
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 394
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 395
+				max_distance <= 396
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 395
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 396
+				max_distance <= 397
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 396
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 397
+				max_distance <= 398
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 397
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 398
+				max_distance <= 399
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 398
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 399
+				max_distance <= 400
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 399
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 400
+				max_distance <= 401
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 400
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 401
+				max_distance <= 402
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 401
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 402
+				max_distance <= 403
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 402
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 403
+				max_distance <= 404
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 403
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 404
+				max_distance <= 405
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 404
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 405
+				max_distance <= 406
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 405
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 406
+				max_distance <= 407
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 406
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 407
+				max_distance <= 408
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 407
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 408
+				max_distance <= 409
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 408
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 409
+				max_distance <= 410
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 409
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 410
+				max_distance <= 411
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 410
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 411
+				max_distance <= 412
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 411
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 412
+				max_distance <= 413
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 412
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 413
+				max_distance <= 414
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 413
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 414
+				max_distance <= 415
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 414
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 415
+				max_distance <= 416
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 415
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 416
+				max_distance <= 417
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 416
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 417
+				max_distance <= 418
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 417
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 418
+				max_distance <= 419
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 418
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 419
+				max_distance <= 420
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 419
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 420
+				max_distance <= 421
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 420
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 421
+				max_distance <= 422
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 421
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 422
+				max_distance <= 423
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 422
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 423
+				max_distance <= 424
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 423
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 424
+				max_distance <= 425
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 424
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 425
+				max_distance <= 426
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 425
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 426
+				max_distance <= 427
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 426
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 427
+				max_distance <= 428
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 427
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 428
+				max_distance <= 429
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 428
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 429
+				max_distance <= 430
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 429
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 430
+				max_distance <= 431
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 430
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 431
+				max_distance <= 432
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 431
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 432
+				max_distance <= 433
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 432
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 433
+				max_distance <= 434
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 433
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 434
+				max_distance <= 435
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 434
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 435
+				max_distance <= 436
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 435
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 436
+				max_distance <= 437
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 436
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 437
+				max_distance <= 438
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 437
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 438
+				max_distance <= 439
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 438
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 439
+				max_distance <= 440
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 439
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 440
+				max_distance <= 441
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 440
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 441
+				max_distance <= 442
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 441
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 442
+				max_distance <= 443
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 442
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 443
+				max_distance <= 444
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 443
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 444
+				max_distance <= 445
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 444
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 445
+				max_distance <= 446
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 445
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 446
+				max_distance <= 447
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 446
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 447
+				max_distance <= 448
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 447
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 448
+				max_distance <= 449
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 448
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 449
+				max_distance <= 450
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 449
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 450
+				max_distance <= 451
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 450
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 451
+				max_distance <= 452
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 451
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 452
+				max_distance <= 453
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 452
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 453
+				max_distance <= 454
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 453
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 454
+				max_distance <= 455
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 454
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 455
+				max_distance <= 456
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 455
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 456
+				max_distance <= 457
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 456
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 457
+				max_distance <= 458
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 457
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 458
+				max_distance <= 459
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 458
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 459
+				max_distance <= 460
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 459
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 460
+				max_distance <= 461
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 460
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 461
+				max_distance <= 462
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 461
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 462
+				max_distance <= 463
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 462
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 463
+				max_distance <= 464
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 463
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 464
+				max_distance <= 465
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 464
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 465
+				max_distance <= 466
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 465
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 466
+				max_distance <= 467
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 466
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 467
+				max_distance <= 468
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 467
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 468
+				max_distance <= 469
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 468
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 469
+				max_distance <= 470
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 469
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 470
+				max_distance <= 471
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 470
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 471
+				max_distance <= 472
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 471
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 472
+				max_distance <= 473
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 472
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 473
+				max_distance <= 474
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 473
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 474
+				max_distance <= 475
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 474
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 475
+				max_distance <= 476
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 475
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 476
+				max_distance <= 477
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 476
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 477
+				max_distance <= 478
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 477
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 478
+				max_distance <= 479
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 478
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 479
+				max_distance <= 480
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 479
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 480
+				max_distance <= 481
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 480
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 481
+				max_distance <= 482
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 481
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 482
+				max_distance <= 483
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 482
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 483
+				max_distance <= 484
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 483
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 484
+				max_distance <= 485
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 484
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 485
+				max_distance <= 486
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 485
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 486
+				max_distance <= 487
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 486
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 487
+				max_distance <= 488
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 487
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 488
+				max_distance <= 489
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 488
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 489
+				max_distance <= 490
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 489
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 490
+				max_distance <= 491
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 490
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 491
+				max_distance <= 492
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 491
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 492
+				max_distance <= 493
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 492
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 493
+				max_distance <= 494
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 493
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 494
+				max_distance <= 495
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 494
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 495
+				max_distance <= 496
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 495
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 496
+				max_distance <= 497
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 496
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 497
+				max_distance <= 498
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 497
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 498
+				max_distance <= 499
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 498
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 499
+				max_distance <= 500
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 499
+		}
+	}
+	else_if = {
+		limit = {
+			distance = {
+				source = event_target:sfex_event_target_solar_system_centre_point
+				min_distance >= 500
+				max_distance <= 501
+				same_solar_system = yes
+			}
+		}
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 500
+		}
+	}
+	else = {
+		set_variable = {
+			which = sfex_jumpdrive_order_var_distance_measured
+			value = 501
+		}
+	}
+}

@@ -1,11 +1,11 @@
 on_game_start = {
 	events = {
-		roci_menu.0
+		roci_menu.1
 	}
 }
 
 on_press_begin = {
 	events = {
-		roci_menu.1
+		#roci_menu.2
 	}
 }

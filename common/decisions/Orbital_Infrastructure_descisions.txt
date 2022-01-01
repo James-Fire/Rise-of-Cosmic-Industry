@@ -1,3 +1,37 @@
+decision_toggle_platform_districts = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_habitat
+	
+	resources = {
+		category = planet_districts
+		cost = {
+		}
+	}
+	
+	potential = {
+		owner = { is_ai = no }
+		has_oi_space_elevator = yes
+	}
+
+	effect = {
+		custom_tooltip = toggle_platform_districts
+		if = {
+			limit = {
+				has_planet_flag = orbitalinfra_district_hide
+			}
+			remove_planet_flag = orbitalinfra_district_hide
+		}
+		else = {
+			set_planet_flag = orbitalinfra_district_hide
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
 decision_add_to_orbital_platform = {
 	owned_planets_only = yes
 	sound = event_administrative_work
@@ -19,6 +53,7 @@ decision_add_to_orbital_platform = {
 	}
 	
 	potential = {
+		always = no
 		has_space_elevator_support = yes
 		check_variable = { which = orbital_infrastructure_space value > 0 }
 		OR = {
@@ -50,9 +85,10 @@ decision_add_to_orbital_platform = {
 
 	effect = {
 		log = "[Owner.GetName] built an orbital platform on [This.GetName]"
-		custom_tooltip = "Add to an Orbital Platform"
+		#custom_tooltip = "Add to an Orbital Platform"
 		add_deposit = orbital_platform
 		change_variable = { which = orbital_infrastructure_space value = -1 }
+		change_variable = { which = orbitalinfra_platforms value = 1 }
 		hidden_effect = {
 			owner = {
 				if = {
@@ -88,36 +124,3 @@ decision_add_to_orbital_platform = {
 	}
 }
 
-decision_toggle_platform_districts = {
-	owned_planets_only = yes
-	sound = event_administrative_work
-	icon = decision_habitat
-	
-	resources = {
-		category = planet_districts
-		cost = {
-		}
-	}
-	
-	potential = {
-		owner = { is_ai = no }
-		has_oi_space_elevator = yes
-	}
-
-	effect = {
-		custom_tooltip = toggle_platform_districts
-		if = {
-			limit = {
-				has_planet_flag = orbitalinfra_district_hide
-			}
-			remove_planet_flag = orbitalinfra_district_hide
-		}
-		else = {
-			set_planet_flag = orbitalinfra_district_hide
-		}
-	}
-	
-	ai_weight = {
-		weight = 0
-	}
-}

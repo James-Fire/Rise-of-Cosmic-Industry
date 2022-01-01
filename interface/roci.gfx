@@ -1,0 +1,24 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_roci_settings_anim"
+		texturefile = "gfx/interface/menu_ui/roci_settings.dds" #The base image. Defines the size of the sprite.
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/roci_settings.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/interface/menu_ui/roci_settings.dds" #The image to animate.
+			animationrotation = 0.0
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "pulsing"  #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = { name = "GFX_roci_settings"						texturefile = "gfx/interface/menu_ui/roci_settings.dds" }
+	spriteType = { name = "GFX_roci_settings_off"					texturefile = "gfx/interface/menu_ui/roci_settings_off.dds" }
+}

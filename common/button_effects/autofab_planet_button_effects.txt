@@ -67,7 +67,7 @@ factory_vanilla_swapping_fire_planet = {
 	}
 }
 planet_factory_vanilla_swapping_off = {
-	potential = { has_planet_flag = factory_vanilla_swapping }
+	potential = { has_planet_flag = autofab_ignore_vanilla }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_planet_flag = autofab_ignore_vanilla }
 }
@@ -80,7 +80,7 @@ planet_factory_vanilla_swapping_country = {
 	}
 }
 planet_factory_vanilla_swapping_on = {
-	potential = { has_planet_flag = autofab_ignore_vanilla }
+	potential = { has_planet_flag = factory_vanilla_swapping }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_planet_flag = factory_vanilla_swapping set_planet_flag = autofab_ignore_vanilla }
 }

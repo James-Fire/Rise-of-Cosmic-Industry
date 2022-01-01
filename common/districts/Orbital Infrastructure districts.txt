@@ -6,6 +6,9 @@
 
 @platform_district_build_time = 180
 
+@Elevator_upkeep = 0.5
+@Elevator_upkeep_mult = 0.01
+
 district_realdev_industry = {
 	base_buildtime = @platform_district_build_time
 	
@@ -67,10 +70,6 @@ district_orbital_platform_city = {
 	
 	allow = {
 		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
-		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
@@ -98,213 +97,15 @@ district_orbital_platform_city = {
 		cost = {
 			minerals = @platform_minerals
 		}
-		upkeep = {
-			energy = @platform_energy_upkeep
-			alloys = @platform_alloy_upkeep
-		}
 	}
 	
 	planet_modifier = {
-		planet_housing_add = 5
 		planet_max_districts_add = 1
 		planet_max_buildings_add = 1
 		district_orbital_platform_cap_max = -1
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-			}
-		}
-		modifier = {
-			job_clerk_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_public_works }
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_technology = tech_housing_1
-			}
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_technology = tech_housing_2
-				NOT = { has_valid_civic = civic_agrarian_idyll }
-			}
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-		}
-		modifier = {
-			job_clerk_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { 
-				OR = {
-					is_hive_empire = yes
-					is_machine_empire = yes
-				}
-			}
-		}
-		modifier = {
-			job_maintenance_drone_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_extended_hives }
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_optimized_nexus }
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	
-	
-	
-	triggered_planet_modifier = {
-		potential = {
-			is_special_planet = yes
-		}
-		modifier = {
-			planet_housing_add = 5
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			is_special_planet = yes
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-			}
-		}
-		modifier = {
-			job_clerk_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			is_special_planet = yes
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_public_works }
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			is_special_planet = yes
-			exists = owner
-			owner = {
-				has_technology = tech_housing_1
-			}
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			is_special_planet = yes
-			exists = owner
-			owner = {
-				has_technology = tech_housing_2
-				NOT = { has_valid_civic = civic_agrarian_idyll }
-			}
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			is_special_planet = yes
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-		}
-		modifier = {
-			job_clerk_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			is_special_planet = yes
-			exists = owner
-			owner = { 
-				OR = {
-					is_hive_empire = yes
-					is_machine_empire = yes
-				}
-			}
-		}
-		modifier = {
-			job_maintenance_drone_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			is_special_planet = yes
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_extended_hives }
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			is_special_planet = yes
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_optimized_nexus }
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-	
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_clerk_effect_desc
+		planet_housing_mult = 0.05
+		planet_amenities_mult = 0.05
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
 	ai_weight = {
@@ -314,7 +115,19 @@ district_orbital_platform_city = {
 			free_jobs > 0 
 		}
 	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
 }
+
 district_orbital_platform_industrial = {
 	base_buildtime = @platform_district_build_time
 	is_capped_by_modifier = no
@@ -334,10 +147,6 @@ district_orbital_platform_industrial = {
 	
 	allow = {
 		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
-		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
@@ -365,15 +174,12 @@ district_orbital_platform_industrial = {
 		cost = {
 			minerals = @platform_minerals
 		}
-		upkeep = {
-			energy = @platform_energy_upkeep
-			alloys = @platform_alloy_upkeep
-		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 
 	# Designation Job Changes
@@ -386,6 +192,7 @@ district_orbital_platform_industrial = {
 			exists = owner
 			owner = {
 				is_catalytic_empire = no
+				country_uses_consumer_goods = yes
 			}
 		}
 		modifier = {
@@ -408,6 +215,7 @@ district_orbital_platform_industrial = {
 			exists = owner
 			owner = {
 				is_catalytic_empire = yes
+				country_uses_consumer_goods = yes
 			}
 		}
 		modifier = {
@@ -423,10 +231,13 @@ district_orbital_platform_industrial = {
 	}
 	triggered_planet_modifier = {
 		potential = {
-			has_designation = col_foundry
 			exists = owner
 			owner = {
 				is_catalytic_empire = no
+			}
+			OR = {
+				has_designation = col_foundry
+				owner = { country_uses_consumer_goods = no }
 			}
 		}
 		modifier = {
@@ -439,10 +250,13 @@ district_orbital_platform_industrial = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_designation = col_foundry
 			exists = owner
 			owner = {
 				is_catalytic_empire = yes
+			}
+			OR = {
+				has_designation = col_foundry
+				owner = { country_uses_consumer_goods = no }
 			}
 		}
 		modifier = {
@@ -494,6 +308,17 @@ district_orbital_platform_industrial = {
 			free_jobs > 0 
 		}
 	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
 }
 district_orbital_platform_research = {
 	base_buildtime = @platform_district_build_time
@@ -513,10 +338,6 @@ district_orbital_platform_research = {
 	}
 	
 	allow = {
-		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
 		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
@@ -545,10 +366,6 @@ district_orbital_platform_research = {
 		cost = {
 			minerals = @platform_minerals
 		}
-		upkeep = {
-			energy = @platform_energy_upkeep
-			alloys = @platform_alloy_upkeep
-		}
 	}
 	
 	planet_modifier = {
@@ -557,15 +374,15 @@ district_orbital_platform_research = {
 		planet_researchers_physics_research_produces_add = 1
 		planet_researchers_society_research_produces_add = 1
 		planet_researchers_engineering_research_produces_add = 1
-		
 		planet_researchers_energy_upkeep_add = 1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = {
-				country_uses_consumer_goods = yes
+				is_regular_empire = yes
 			}
 		}
 		modifier = {
@@ -577,7 +394,7 @@ district_orbital_platform_research = {
 		potential = {
 			exists = owner
 			owner = {
-				country_uses_consumer_goods = no
+				is_regular_empire = no
 			}
 		}
 		modifier = {
@@ -601,6 +418,17 @@ district_orbital_platform_research = {
 			free_jobs > 0 
 		}
 	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
 }
 
 district_orbital_platform_refinery = {
@@ -621,10 +449,6 @@ district_orbital_platform_refinery = {
 	}
 	
 	allow = {
-		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
 		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
@@ -652,10 +476,6 @@ district_orbital_platform_refinery = {
 		}
 		cost = {
 			minerals = @platform_minerals
-		}
-		upkeep = {
-			energy = @platform_energy_upkeep
-			alloys = @platform_alloy_upkeep
 		}
 	}
 	
@@ -680,6 +500,7 @@ district_orbital_platform_refinery = {
 		planet_autofab_crystals_rare_crystals_produces_add = 2
 		planet_autofab_crystals_minerals_upkeep_add = 10
 		planet_autofab_crystals_energy_upkeep_add = 2
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
 	ai_resource_production = {
@@ -697,6 +518,17 @@ district_orbital_platform_refinery = {
 			factor = 0
 			free_jobs > 0 
 		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
 	}
 }
 
@@ -718,10 +550,6 @@ district_orbital_platform_shipyard = {
 	}
 	
 	allow = {
-		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
 		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
@@ -750,15 +578,12 @@ district_orbital_platform_shipyard = {
 		cost = {
 			minerals = @platform_minerals
 		}
-		upkeep = {
-			energy = @platform_energy_upkeep
-			alloys = @platform_alloy_upkeep
-		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
 	ai_weight = {
@@ -774,6 +599,17 @@ district_orbital_platform_shipyard = {
 		trigger = {
 			always = yes
 		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
 	}
 }
 
@@ -795,10 +631,6 @@ district_orbital_platform_military = {
 	}
 	
 	allow = {
-		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
 		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
@@ -905,6 +737,7 @@ district_orbital_platform_military = {
 	planet_modifier = {
 		planet_max_districts_add = 1
 		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
 	ai_weight = {
@@ -920,6 +753,17 @@ district_orbital_platform_military = {
 		trigger = {
 			always = yes
 		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
 	}
 }
 
@@ -950,10 +794,6 @@ district_orbital_platform_solar_array = {
 	
 	allow = {
 		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
-		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
@@ -981,9 +821,6 @@ district_orbital_platform_solar_array = {
 		cost = {
 			minerals = @platform_minerals
 		}
-		upkeep = {
-			alloys = @platform_alloy_upkeep
-		}
 	}
 	
 	planet_modifier = {
@@ -991,6 +828,7 @@ district_orbital_platform_solar_array = {
 		district_orbital_platform_cap_max = -1
 		planet_technician_energy_produces_add = 1
 		planet_autofab_generator_energy_produces_add = 2
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 
 	ai_resource_production = {
@@ -998,6 +836,17 @@ district_orbital_platform_solar_array = {
 		trigger = {
 			always = yes
 		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
 	}
 }
 
@@ -1024,10 +873,6 @@ district_orbital_platform_commercial = {
 	
 	allow = {
 		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
-		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
@@ -1055,70 +900,15 @@ district_orbital_platform_commercial = {
 		cost = {
 			minerals = @platform_minerals
 		}
-		upkeep = {
-			alloys = @platform_alloy_upkeep
-		}
 	}
 	
 	planet_modifier = {
 		planet_housing_add = 2
 		planet_max_districts_add = 1
 		district_orbital_platform_cap_max = -1
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-		}
-		modifier = {
-			job_clerk_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = no }
-		}
-		modifier = {
-			job_clerk_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_manager_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_mercantile_commercial_enterprise
-			}
-		}
-		modifier = {
-			job_merchant_add = 1
-		}
-	}
-
-	triggered_desc = {
-		text = job_clerk_effect_desc
-	}
-	triggered_desc = {
-		text = job_merchant_effect_desc
-		trigger = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_mercantile_commercial_enterprise
-			}
-		}
+		trade_value_mult = 0.05
+		planet_amenities_mult = 0.05
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
 	ai_resource_production = {
@@ -1126,6 +916,17 @@ district_orbital_platform_commercial = {
 		trigger = {
 			always = yes
 		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
 	}
 }
 
@@ -1145,10 +946,23 @@ district_orbital_platform_mining = {
 		}
 		has_oi_space_elevator = yes
 		OR = {
+			has_modifier = extensive_moon_system
+			has_modifier = asteroid_belt
 			AND = {
-				is_moon = yes
-				planet = {
-					uninhabitable_regular_planet = yes
+				OR = {
+					is_moon = yes
+					is_planet_class = pc_habitat
+				}
+				orbit = {
+					OR = {
+						uninhabitable_regular_planet = yes
+						AND = {
+							has_moon = yes
+							any_moon = {
+								uninhabitable_regular_planet = yes
+							}
+						}
+					}
 				}
 			}
 			AND = {
@@ -1159,17 +973,17 @@ district_orbital_platform_mining = {
 			}
 			solar_system = {
 				any_system_planet = {
-					is_asteroid = yes
+					OR = {
+						is_asteroid = yes
+						is_planet_class = pc_shattered
+						is_planet_class = pc_shattered_2
+					}
 				}
 			}
 		}
 	}
 	
 	allow = {
-		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
 		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
@@ -1198,10 +1012,6 @@ district_orbital_platform_mining = {
 		cost = {
 			minerals = @platform_minerals
 		}
-		upkeep = {
-			energy = @platform_energy_upkeep
-			alloys = @platform_alloy_upkeep
-		}
 	}
 	
 	planet_modifier = {
@@ -1211,6 +1021,7 @@ district_orbital_platform_mining = {
 		planet_miners_energy_upkeep_add = 1
 		planet_autofab_mine_minerals_produces_add = 4
 		planet_autofab_mine_energy_upkeep_add = 2
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
 	ai_resource_production = {
@@ -1218,6 +1029,17 @@ district_orbital_platform_mining = {
 		trigger = {
 			always = yes
 		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
 	}
 }
 
@@ -1240,10 +1062,6 @@ district_orbital_platform_farming = {
 	
 	allow = {
 		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
-		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
@@ -1271,10 +1089,6 @@ district_orbital_platform_farming = {
 		cost = {
 			minerals = @platform_minerals
 		}
-		upkeep = {
-			energy = @platform_energy_upkeep
-			alloys = @platform_alloy_upkeep
-		}
 	}
 	
 	planet_modifier = {
@@ -1284,6 +1098,7 @@ district_orbital_platform_farming = {
 		planet_farmers_energy_upkeep_add = 1
 		planet_autofab_farm_food_produces_add = 4
 		planet_autofab_farm_energy_upkeep_add = 2
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 
 	ai_resource_production = {
@@ -1291,5 +1106,16 @@ district_orbital_platform_farming = {
 		trigger = {
 			always = yes
 		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
 	}
 }

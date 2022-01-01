@@ -486,6 +486,7 @@ planet_event = {
 	immediate = {
 		if = {
 			limit = {
+				NOT = { has_global_flag = no_autofab }
 				exists = owner
 				owner = {
 					can_use_autofab = yes
@@ -796,6 +797,7 @@ event = {
 	immediate = {
 		every_country = {
 			limit = {
+				NOT = { has_global_flag = no_autofab }
 				can_use_autofab = yes
 			}
 			every_owned_planet = {
@@ -814,7 +816,12 @@ planet_event = {
 	hide_window = yes
 	
 	immediate = {
-		reset_factory_part_1 = yes
+		if = {
+			limit = {
+				NOT = { has_global_flag = no_autofab }
+			}
+			reset_factory_part_1 = yes
+		}
 	}
 	
 	after = {

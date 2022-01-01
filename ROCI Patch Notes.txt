@@ -1,23 +1,91 @@
-Included a game start event with options to disable the individual components, and other options for each component.*
+Added a Megacorp Civic: Construction Company. This increases how much Industrial Production you get from trade value for each empire you have met.*
+
+Added some Default Realdev settings for planets based on a collection of Development Milestones.*
+
+Added a collection of Realdev Default Settings that can be set in the Country UI, and can optionally be used by planets instead of setting them in the Planet UI.*
+
+Implemented a "Simple Mode" setting that changes various facets of Realistic Development to be easier to manage.*
 
 Did something to Void Dwellers*
 
-Did something for origins which start with an extra building*
-
-Added a Megacorp Civic: Construction Company. This increases how much Industrial Production you get from trade value for each empire you have met.*
-
-Made the Unyielding Tradition apply to the Orbital Defense Districts.*
-
-Orbital Infra now takes into account the changing of planet size from various things.*
-
-Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp.*
-
-Added 2 upgrades to the Equipment Factory.*
-
 Capped Industrial Production on any 1 object to +/- 2 million, to avoid overflow.*
 
-Added the ability to shift the Planet/Country Industrial production ratio to greater than 1, so planets can take Industrial Production from the Country.*
+Fixed Orbital District not providing the correct bonus production to Factory Modules on some planet types.*
 
-Fixed the Autofab Factory module giving CG production to the Autofab.
+Overhauled Factory Modules to use a Variable Multipler system for determining production.*
 
-Replaced +/- 10 buttons with a rainbow squirrel, pending actual art.
+Orbital Districts now affect the Variable Multiplier system instead of applying output modifiers for Autofab.*
+
+Habitats now use the Planet Size of the planet they are orbiting for calculating Orbital Infrastructure Cap.*
+
+Added a Target mode for Industrial Production on planets, wherein they try to get a certain amount, either taking what they need from the country, or sending excess to the country.*
+
+Fixed the Orbital Platforms from the district having seizures.*
+
+Fixed Gigas Ruined Ships blocking Minor Colonies.*
+
+Added a second colour to the Country Assistance slider in the realdev planet UI to show how much of the country stockpile is being used.*
+
+Changed Assembly to have a per cap based on how many Roboticist (Or equivalent) jobs exist.*
+
+If Assembly is given more IP than it can use with the cap, extra is sent to the country.*
+
+Changed it so when a planet is not building anything, Industrial Production will be sent to Assembly.*
+
+Changed it so when a planet can't assemble any pops, it won't send IP to assembly, regardless of the ratio. Note this is not "Not assembling pops" but rather "Can't assemble pops".*
+
+Added a thing in the realdev planet UI to let you use IP to increase job production instead of boosting assembly.*
+
+Temporarily changed Orbital Shipyards to give Ship IP if Realdev is active, a country modifier to ship build speed if not.*
+
+Added bling to the ROCI game start settings menu.*
+
+Fixed realdev giving IP to minor colonies when exploit is disabled.*
+
+Added a [?] button to each UI, that contains a tooltip providing some explanation of how that window works.*
+
+Added a tooltip to each module button in the game start settings menu, that says how to interact with the module.*
+
+Merged the Exploit and Autofab Minimum Stockpile menus. They now use the same one.*
+
+Added a tooltip to the Minimum Stockpile title explaining what it means, and when it applies.*
+
+Added breakdowns of the sources of Industrial Production and Capacity in the Planet UI, as well as tooltips for these new buttons explaining how they work.*
+
+Added a collection of buttons to the realdev planet UI that breaks down the sources of Industrial Production. These buttons have tooltips explaining the formula for each.*
+
+Added a collection of buttons to the realdev planet UI that breaks down the sources of Industrial Production Capacity. These buttons have tooltips explaining the formula for each.*
+
+Added support for Production Revolution's Manpower to Realdev. Manpower is now treated as pops for the purposes of IP generation.*
+
+Added a "Space Colonizer" Origin that deals with Minor Colonies.*
+
+Merged pulse events properly, to reduce performance impact.*
+
+Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp. And a variant for Criminal Corps.*
+
+Added 2 upgrades to the Equipment Factory. Capital Planets now start with T2.*
+
+Made unused IP in the Country Stockpile be distributed to country uses.*
+
+
+
+
+
+
+
+
+
+
+
+Fixed Starting Minor Colonies having more construction than they should be able to support.*
+
+Added a Progress fraction to the Factory Expanding planetary modifier, in an attempt to replace the countdown it previously had.*
+
+Halved the bonus research from the Orbital Research District.*
+
+Orbital Districts now also add a 0.1 alloy upkeep cost per job they affect. Those that don't affect jobs (Housing, Commercial) instead do 0.05 alloys per pop on the planet.*
+
+Added a Preset Empire for the Autofab Origin.*
+
+Added a Preset Empire for the Space Colonizer Origin.*

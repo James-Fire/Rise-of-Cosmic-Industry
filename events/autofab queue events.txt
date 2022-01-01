@@ -8,6 +8,7 @@ event = {
 	immediate = {
 		every_country = {
 			limit = {
+				NOT = { has_global_flag = no_autofab }
 				#is_ai = no
 				can_use_autofab = yes
 				OR = {

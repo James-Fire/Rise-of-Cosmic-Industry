@@ -177,6 +177,8 @@
      mod_planet_autofab_crystals_rare_crystals_produces_add: "Factory Translucer Rare Crystals Production"
      mod_planet_autofab_crystals_minerals_upkeep_add: "Factory Translucer Mineral Upkeep"
      mod_planet_autofab_crystals_energy_upkeep_add: "Factory Translucer Energy Upkeep"
+     
+     mod_planet_autofab_foundry_food_upkeep_add: "Factory Foundry Food Upkeep"
  
     #Traditions
      tradition_autofab: "Automation"
@@ -206,7 +208,7 @@
      tr_autofab_optimization_delayed: "Optimizing the input/output of the Factory can save large amounts of resources, and increase production."
     #Deposits
      autofab:0 "Automatic Factory"
-     autofab_desc:0 "This planet's Automated factory, and all its production, is tracked here."
+     autofab_desc:0 "This planet's Automated Factory. Allows building Factory Modules."
      autofab_refinery_extractor:0 "Factory Extractor"
      autofab_refinery_extractor_desc:0 "The Factory extracts rare resources from the planet in this area."
      autofab_power:0 "Factory Generator"

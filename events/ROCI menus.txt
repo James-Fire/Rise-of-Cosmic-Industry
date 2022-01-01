@@ -1,7 +1,7 @@
 namespace = roci_menu
 
 event = {
-	id = roci_menu.0
+	id = roci_menu.1
 	is_triggered_only = yes
 	hide_window = yes
 	
@@ -10,26 +10,33 @@ event = {
 	}
 
 	immediate = {
+		#Game Start flags
+		set_global_flag = roci_realdev_build_adjustment_medium_flag
+		set_global_flag = exploit_speed_difficulty
+		
+		every_country = {
+			set_variable = { which = roci_country_order value = 1 }
+		}
 		ordered_country = {
 			limit = { is_country_type = default is_ai = no }
 			position = 0
-			#order_by = <variable>/trigger:<trigger>
+			order_by = roci_country_order
 			set_global_flag = roci_has_host
 			set_country_flag = roci_host
 			log = "ROCI on game start mark host [This.GetRealName]"
-			#country_event = { id = roci_menu.1 }
+			country_event = { id = roci_menu.2 }
 		}
 	}
 }
 
 country_event = {
-	id = roci_menu.1
-	title = "roci_menu.1.name"
-	desc = "roci_menu.1.desc"
-	#diplomatic = yes
-	#custom_gui = "roci_country_window"
+	id = roci_menu.2
+	title = "roci_menu.2.name"
+	desc = "roci_menu.2.desc"
+	diplomatic = yes
+	custom_gui = "roci_country_window"
 	is_triggered_only = yes
-	hide_window = yes
+	#hide_window = yes
 	
 	#trigger = { has_country_flag = roci_host }
 	
@@ -39,62 +46,190 @@ country_event = {
 	
 	# Confirm
 	option = {
-		name = "roci_menu.1.refresh"
-		#custom_tooltip = "roci_menu.1.refresh.tooltip"
-		#custom_gui = "realdev_country_menu_YEET"
-		country_event = { id = roci_menu.1 }
+		name = "roci_menu.2.refresh"
+		custom_tooltip = "roci_menu.1.refresh.tooltip"
+		custom_gui = "realdev_country_menu_YEET"
+		#country_event = { id = roci_menu.1 }
 	}
 	option = {
-		name = "roci_menu.1.confirm"
+		name = "roci_menu.2.confirm"
 		#custom_tooltip = "roci_menu.1.confirm.tooltip"
-		#custom_gui = "realdev_country_menu_YEET"
+		custom_gui = "roci_country_menu_confirm"
 		#default_hide_option = yes
 	}
 	
 	after = {
-		if = { #Do Autofab Game start stuff if it's allowed.
-			limit = {
-				NOT = { has_global_flag = no_autofab }
-			}
-			every_country = {
+		hidden_effect = {
+			if = { #Do Autofab Game start stuff if it's allowed.
 				limit = {
-					can_use_autofab = yes
+					NOT = { has_global_flag = no_autofab }
 				}
-				log = "ROCI trigger autofab on game start for [This.GetRealName]"
-				country_event = { id = autofab.10 }
+				every_country = {
+					limit = {
+						starts_with_autofab = yes
+						NOT = { is_country_type = primitive }
+					}
+					log = "ROCI trigger autofab on game start for [This.GetRealName]"
+					country_event = { id = autofab.10 }
+				}
 			}
-		}
-		if = { #Do Exploit Game start stuff if it's allowed.
-			limit = {
-				NOT = { has_global_flag = no_exploit }
+			else = { #Gotta remove all empires that used an origin or civic that isn't allowed.
+				every_country = {
+					limit = { has_origin = origin_autofab }
+					set_origin = origin_default
+					capital_scope = {
+						clear_blockers = yes
+						clear_deposits = yes
+						generate_start_deposits_and_blockers = yes
+					}
+				}
+				every_country = {
+					limit = {
+						OR = {
+							has_valid_civic = civic_autofab
+							has_valid_civic = civic_autofab_machine
+							has_valid_civic = civic_autofab_hive
+							has_valid_civic = civic_autofab_megacorp
+						}
+					}
+					force_remove_civic = civic_autofab
+					force_remove_civic = civic_autofab_machine
+					force_remove_civic = civic_autofab_hive
+					force_remove_civic = civic_autofab_megacorp
+					capital_scope = {
+						clear_blockers = yes
+						clear_deposits = yes
+						generate_start_deposits_and_blockers = yes
+					}
+					if = {
+						limit = {
+							is_regular_empire = yes
+						}
+						if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_mining_guilds }
+							}
+							force_add_civic = civic_mining_guilds
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_functional_architecture }
+							}
+							force_add_civic = civic_functional_architecture
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_byzantine_bureaucracy }
+							}
+							force_add_civic = civic_byzantine_bureaucracy
+						}
+					}
+					else_if = {
+						limit = {
+							is_hive_empire = yes
+						}
+						if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_hive_subspace_ephapse }
+							}
+							force_add_civic = civic_hive_subspace_ephapse
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_hive_natural_neural_network }
+							}
+							force_add_civic = civic_hive_natural_neural_network
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_hive_divided_attention }
+							}
+							force_add_civic = civic_hive_divided_attention
+						}
+					}
+					else_if = {
+						limit = {
+							is_machine_empire = yes
+						}
+						if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_machine_builder }
+							}
+							force_add_civic = civic_machine_builder
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_machine_factory_overclock }
+							}
+							force_add_civic = civic_machine_factory_overclock
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_machine_rockbreakers }
+							}
+							force_add_civic = civic_machine_rockbreakers
+						}
+					}
+					else_if = {
+						limit = {
+							is_megacorp = yes
+						}
+						if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_naval_contractors }
+							}
+							force_add_civic = civic_naval_contractors
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_trading_posts }
+							}
+							force_add_civic = civic_trading_posts
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_private_prospectors }
+							}
+							force_add_civic = civic_private_prospectors
+						}
+					}
+				}
 			}
-			every_country = {
+			if = { #Do Exploit Game start stuff if it's allowed.
 				limit = {
-					is_country_type = default
+					NOT = { has_global_flag = no_exploit }
 				}
-				log = "ROCI trigger exploit on game start for [This.GetRealName]"
-				country_event = { id = spaceexploit.37 }
+				every_country = {
+					limit = {
+						is_country_type = default
+					}
+					log = "ROCI trigger exploit on game start for [This.GetRealName]"
+					country_event = { id = spaceexploit.37 }
+				}
 			}
-		}
-		if = { #Do Orbital Game start stuff if it's allowed.
-			limit = {
-				NOT = { has_global_flag = no_orbital_infra }
-			}
-			every_country = {
+			if = { #Do Orbital Game start stuff if it's allowed.
 				limit = {
-					is_country_type = default
+					NOT = { has_global_flag = no_orbital_infra }
 				}
-				log = "ROCI trigger orbital on game start for [This.GetRealName]"
-				country_event = { id = orbitalinfra.1000 }
+				every_country = {
+					limit = {
+						is_country_type = default
+					}
+					log = "ROCI trigger orbital on game start for [This.GetRealName]"
+					country_event = { id = orbitalinfra.1000 }
+				}
 			}
-		}
-		if = { #Do Realdev Game start stuff if it's allowed.
-			limit = {
-				NOT = { has_global_flag = no_realdev }
-			}
-			every_country = {
-				log = "ROCI trigger realdev on game start for [This.GetRealName]"
-				country_event = { id = realdev.0 }
+			if = { #Do Realdev Game start stuff if it's allowed.
+				limit = {
+					NOT = { has_global_flag = no_realdev }
+				}
+				every_country = {
+					limit = {
+						NOT = { is_country_type = primitive }
+					}
+					log = "ROCI trigger realdev on game start for [This.GetRealName]"
+					country_event = { id = realdev.0 }
+				}
 			}
 		}
 	}

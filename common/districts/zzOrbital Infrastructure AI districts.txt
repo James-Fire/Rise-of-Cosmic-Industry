@@ -8,290 +8,6 @@
 
 @fake_jobs = 20
 
-district_orbital_expansion = {
-	base_buildtime = @platform_district_build_time
-	is_capped_by_modifier = no
-	
-	show_on_uncolonized = {
-		always = no
-	}
-	
-	potential = {
-		NOT = { has_global_flag = no_orbital_infra }
-		has_space_elevator_support = yes
-		check_variable = { which = orbital_infrastructure_space value > 0 }
-		OR = {
-			AND = {
-				has_active_building = building_space_elevator
-				count_deposits = { type = orbital_platform count < 9 }
-			}
-			AND = {
-				has_active_building = building_space_elevator_2
-				count_deposits = { type = orbital_platform count < 22 }
-			}
-			AND = {
-				has_active_building = building_space_elevator_3
-			}
-		}
-		check_modifier_value = { modifier = district_orbital_platform_cap_max value < 4 }
-		owner = {
-			is_ai = yes
-			resource_stockpile_compare = {
-				resource = alloys
-				value >= 150
-			}
-		}
-	}
-	
-	allow = {
-	}
-	
-	planet_modifier = {
-	}
-	
-	resources = {
-		category = planet_districts
-		cost = {
-			energy = 150
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_regular_empire = yes
-			}
-		}
-		modifier = {
-			job_foundry_add = @fake_jobs
-			job_technician_add = @fake_jobs
-			job_miner_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_hive_empire = yes
-			}
-		}
-		modifier = {
-			job_alloy_drone_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_machine_empire = yes
-			}
-		}
-		modifier = {
-			job_fabricator_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_regular_empire = yes
-				free_district_slots < 3
-			}
-		}
-		modifier = {
-			job_foundry_add = @fake_jobs
-			job_technician_add = @fake_jobs
-			job_miner_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_hive_empire = yes
-				free_district_slots < 3
-			}
-		}
-		modifier = {
-			job_alloy_drone_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_machine_empire = yes
-				free_district_slots < 3
-			}
-		}
-		modifier = {
-			job_fabricator_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_regular_empire = yes
-				free_district_slots < 2
-			}
-		}
-		modifier = {
-			job_foundry_add = @fake_jobs
-			job_technician_add = @fake_jobs
-			job_miner_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_hive_empire = yes
-				free_district_slots < 2
-			}
-		}
-		modifier = {
-			job_alloy_drone_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_machine_empire = yes
-				free_district_slots < 2
-			}
-		}
-		modifier = {
-			job_fabricator_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_regular_empire = yes
-				check_modifier_value = { modifier = district_orbital_platform_cap_max value < 2 }
-			}
-		}
-		modifier = {
-			job_foundry_add = @fake_jobs
-			job_technician_add = @fake_jobs
-			job_miner_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_hive_empire = yes
-				check_modifier_value = { modifier = district_orbital_platform_cap_max value < 2 }
-			}
-		}
-		modifier = {
-			job_alloy_drone_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_machine_empire = yes
-				check_modifier_value = { modifier = district_orbital_platform_cap_max value < 2 }
-			}
-		}
-		modifier = {
-			job_fabricator_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_regular_empire = yes
-				check_modifier_value = { modifier = district_orbital_platform_cap_max value < 3 }
-			}
-		}
-		modifier = {
-			job_foundry_add = @fake_jobs
-			job_technician_add = @fake_jobs
-			job_miner_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_hive_empire = yes
-				check_modifier_value = { modifier = district_orbital_platform_cap_max value < 3 }
-			}
-		}
-		modifier = {
-			job_alloy_drone_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			owner = {
-				is_ai = yes
-				is_machine_empire = yes
-				check_modifier_value = { modifier = district_orbital_platform_cap_max value < 3 }
-			}
-		}
-		modifier = {
-			job_fabricator_add = @fake_jobs
-			job_technician_drone_add = @fake_jobs
-			job_mining_drone_add = @fake_jobs
-		}
-	}
-	
-	prerequisites = {
-	}
-	
-	ai_weight = {
-		weight = 1000
-		modifier = {
-			factor = 100
-			free_district_slots < 3
-		}
-		modifier = {
-			factor = 100
-			free_district_slots < 2
-		}
-		modifier = {
-			factor = 100
-			check_modifier_value = { modifier = district_orbital_platform_cap_max value < 2 }
-		}
-		modifier = {
-			factor = 100
-			check_modifier_value = { modifier = district_orbital_platform_cap_max value < 3 }
-		}
-	}
-}
-
 district_orbital_platform_shipyard_ai = {
 	base_buildtime = @platform_district_build_time
 	is_capped_by_modifier = no
@@ -313,10 +29,6 @@ district_orbital_platform_shipyard_ai = {
 	}
 	
 	allow = {
-		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
 		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
@@ -458,10 +170,6 @@ district_orbital_platform_military_ai = {
 	
 	allow = {
 		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
-		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
@@ -597,10 +305,6 @@ district_orbital_platform_industrial_ai = {
 	
 	allow = {
 		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
-		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
@@ -702,10 +406,6 @@ district_orbital_platform_research_ai = {
 	
 	allow = {
 		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
-		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
@@ -791,10 +491,6 @@ district_orbital_platform_refinery_ai = {
 	}
 	
 	allow = {
-		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
 		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
@@ -896,10 +592,6 @@ district_orbital_platform_solar_array_ai = {
 	}
 	
 	allow = {
-		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
 		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
@@ -1009,10 +701,6 @@ district_orbital_platform_mining_ai = {
 	
 	allow = {
 		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
-		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
@@ -1098,10 +786,6 @@ district_orbital_platform_farming_ai = {
 	}
 	
 	allow = {
-		custom_tooltip = {
-			fail_text = "not_enough_orbital_space"
-			has_oi_space = yes
-		}
 		custom_tooltip = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes

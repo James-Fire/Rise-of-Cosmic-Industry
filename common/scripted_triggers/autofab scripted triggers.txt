@@ -11,6 +11,13 @@ can_use_autofab = {
 		has_global_flag = autofab_for_all
 	}
 }
+starts_with_autofab = {
+	NOT = { has_global_flag = no_autofab }
+	OR = {
+		has_origin = origin_autofab
+		has_autofab_civic = yes
+	}
+}
 
 has_autofab_civic = {
 	OR = {

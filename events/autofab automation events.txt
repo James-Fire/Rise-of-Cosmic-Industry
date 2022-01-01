@@ -15,6 +15,7 @@ event = {
 		}
 		every_country = {
 			limit = {
+				NOT = { has_global_flag = no_autofab }
 				can_use_autofab = yes
 			}
 			random_list = {

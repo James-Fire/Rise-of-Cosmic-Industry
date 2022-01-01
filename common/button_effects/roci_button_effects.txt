@@ -1,0 +1,419 @@
+roci_autofab_on = {
+	potential = { NOT = { has_global_flag = no_autofab } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { set_global_flag = no_autofab }
+}
+roci_autofab_off = {
+	potential = { has_global_flag = no_autofab }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { remove_global_flag = no_autofab }
+}
+roci_autofab = {
+	potential = { NOT = { has_global_flag = no_autofab } }
+	allow = { has_global_flag = autofab_for_all }
+	effect = { 
+		custom_tooltip = "roci_autofab_everyone_desc"
+	}
+}
+roci_autofab_everyone_on = {
+	potential = { NOT = { has_global_flag = no_autofab } has_global_flag = autofab_for_all }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "roci_autofab_everyone_desc"
+		remove_global_flag = autofab_for_all
+	}
+}
+roci_autofab_everyone_off = {
+	potential = { NOT = { has_global_flag = no_autofab } NOT = { has_global_flag = autofab_for_all } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "roci_autofab_everyone_desc"
+		set_global_flag = autofab_for_all
+	}
+}
+
+roci_exploit_on = {
+	potential = { NOT = { has_global_flag = no_exploit } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { set_global_flag = no_exploit }
+}
+roci_exploit_off = {
+	potential = { has_global_flag = no_exploit }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { remove_global_flag = no_exploit }
+}
+
+exploit_ai_speed = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "Manual_Speed_desc"
+	}
+}
+exploit_speed_increase = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_1
+			}
+			remove_global_flag = exploit_ai_speed_1
+			set_global_flag = exploit_ai_speed_2
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_2
+			}
+			remove_global_flag = exploit_ai_speed_2
+			set_global_flag = exploit_ai_speed_3
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_3
+			}
+			remove_global_flag = exploit_ai_speed_3
+			set_global_flag = exploit_ai_speed_4
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_4
+			}
+			remove_global_flag = exploit_ai_speed_4
+			set_global_flag = exploit_ai_speed_5
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_5
+			}
+			remove_global_flag = exploit_ai_speed_5
+			set_global_flag = exploit_ai_speed_5_neg
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_5_neg
+			}
+			remove_global_flag = exploit_ai_speed_5_neg
+			set_global_flag = exploit_ai_speed_4_neg
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_4_neg
+			}
+			remove_global_flag = exploit_ai_speed_4_neg
+			set_global_flag = exploit_ai_speed_3_neg
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_3_neg
+			}
+			remove_global_flag = exploit_ai_speed_3_neg
+			set_global_flag = exploit_ai_speed_2_neg
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_2_neg
+			}
+			remove_global_flag = exploit_ai_speed_2_neg
+			set_global_flag = exploit_ai_speed_1_neg
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_1_neg
+			}
+			remove_global_flag = exploit_ai_speed_1_neg
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					has_global_flag = exploit_ai_speed_1_neg
+					has_global_flag = exploit_ai_speed_2_neg
+					has_global_flag = exploit_ai_speed_3_neg
+					has_global_flag = exploit_ai_speed_4_neg
+					has_global_flag = exploit_ai_speed_5_neg
+					has_global_flag = exploit_ai_speed_5
+					has_global_flag = exploit_ai_speed_4
+					has_global_flag = exploit_ai_speed_3
+					has_global_flag = exploit_ai_speed_2
+					has_global_flag = exploit_ai_speed_1
+				}
+			}
+			set_global_flag = exploit_ai_speed_1
+		}
+	}
+}
+exploit_speed_decrease = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_1
+			}
+			remove_global_flag = exploit_ai_speed_1
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_2
+			}
+			remove_global_flag = exploit_ai_speed_2
+			set_global_flag = exploit_ai_speed_1
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_3
+			}
+			remove_global_flag = exploit_ai_speed_3
+			set_global_flag = exploit_ai_speed_2
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_4
+			}
+			remove_global_flag = exploit_ai_speed_4
+			set_global_flag = exploit_ai_speed_3
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_5
+			}
+			remove_global_flag = exploit_ai_speed_5
+			set_global_flag = exploit_ai_speed_4
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_5_neg
+			}
+			remove_global_flag = exploit_ai_speed_5_neg
+			set_global_flag = exploit_ai_speed_5
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_4_neg
+			}
+			remove_global_flag = exploit_ai_speed_4_neg
+			set_global_flag = exploit_ai_speed_5_neg
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_3_neg
+			}
+			remove_global_flag = exploit_ai_speed_3_neg
+			set_global_flag = exploit_ai_speed_4_neg
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_2_neg
+			}
+			remove_global_flag = exploit_ai_speed_2_neg
+			set_global_flag = exploit_ai_speed_3_neg
+		}
+		else_if = {
+			limit = {
+				has_global_flag = exploit_ai_speed_1_neg
+			}
+			remove_global_flag = exploit_ai_speed_1_neg
+			set_global_flag = exploit_ai_speed_2_neg
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					has_global_flag = exploit_ai_speed_1_neg
+					has_global_flag = exploit_ai_speed_2_neg
+					has_global_flag = exploit_ai_speed_3_neg
+					has_global_flag = exploit_ai_speed_4_neg
+					has_global_flag = exploit_ai_speed_5_neg
+					has_global_flag = exploit_ai_speed_5
+					has_global_flag = exploit_ai_speed_4
+					has_global_flag = exploit_ai_speed_3
+					has_global_flag = exploit_ai_speed_2
+					has_global_flag = exploit_ai_speed_1
+				}
+			}
+			set_global_flag = exploit_ai_speed_1_neg
+		}
+	}
+}
+exploit_ai_speed_1 = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_1 }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+exploit_ai_speed_2 = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_2 }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+exploit_ai_speed_3 = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_3 }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+exploit_ai_speed_4 = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_4 }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+exploit_ai_speed_5 = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_5 }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+
+exploit_ai_speed_null = {
+	potential = {
+		NOT = { has_global_flag = no_exploit }
+		NOT = { has_global_flag = exploit_ai_off }
+		has_global_flag = exploit_speed_manual 
+		NOT = {
+			has_global_flag = exploit_ai_speed_1_neg
+			has_global_flag = exploit_ai_speed_2_neg
+			has_global_flag = exploit_ai_speed_3_neg
+			has_global_flag = exploit_ai_speed_4_neg
+			has_global_flag = exploit_ai_speed_5_neg
+			has_global_flag = exploit_ai_speed_5
+			has_global_flag = exploit_ai_speed_4
+			has_global_flag = exploit_ai_speed_3
+			has_global_flag = exploit_ai_speed_2
+			has_global_flag = exploit_ai_speed_1
+		}
+		has_country_flag = exploit_options_1
+	}
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+
+exploit_ai_speed_neg_1 = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_1_neg }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+exploit_ai_speed_neg_2 = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_2_neg }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+exploit_ai_speed_neg_3 = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_3_neg }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+exploit_ai_speed_neg_4 = {
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_4_neg }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+exploit_ai_speed_neg_5 = {
+	potential = { NOT = { has_global_flag = no_exploit } OT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_5_neg }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+	}
+}
+
+roci_orbital_on = {
+	potential = { NOT = { has_global_flag = no_orbital_infra } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { set_global_flag = no_orbital_infra }
+}
+roci_orbital_off = {
+	potential = { has_global_flag = no_orbital_infra }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { remove_global_flag = no_orbital_infra }
+}
+
+roci_realdev_on = {
+	potential = { NOT = { has_global_flag = no_realdev } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { set_global_flag = no_realdev }
+}
+roci_realdev_off = {
+	potential = { has_global_flag = no_realdev }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { remove_global_flag = no_realdev }
+}
+roci_realdev_build_adjustment = {
+	potential = { NOT = { has_global_flag = no_realdev } always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { 
+		custom_tooltip = "roci_realdev_build_adjustment_desc"
+	}
+}
+roci_realdev_build_adjustment_swap = {
+	potential = { NOT = { has_global_flag = no_realdev } always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "roci_realdev_build_adjustment_swap_desc"
+		hidden_effect = {
+			if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_none_flag
+				}
+				remove_global_flag = roci_realdev_build_adjustment_none_flag
+				set_global_flag = roci_realdev_build_adjustment_small_flag
+			}
+			else_if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_small_flag
+				}
+				remove_global_flag = roci_realdev_build_adjustment_small_flag
+				set_global_flag = roci_realdev_build_adjustment_medium_flag
+			}
+			else_if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_medium_flag
+				}
+				remove_global_flag = roci_realdev_build_adjustment_medium_flag
+				set_global_flag = roci_realdev_build_adjustment_large_flag
+			}
+			else_if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_large_flag
+				}
+				remove_global_flag = roci_realdev_build_adjustment_large_flag
+				set_global_flag = roci_realdev_build_adjustment_full_flag
+			}
+			else_if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_full_flag
+				}
+				remove_global_flag = roci_realdev_build_adjustment_full_flag
+				set_global_flag = roci_realdev_build_adjustment_none_flag
+			}
+		}
+	}
+}
+roci_realdev_build_adjustment_none = {
+	potential = { NOT = { has_global_flag = no_realdev } has_global_flag = roci_realdev_build_adjustment_none_flag }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_realdev_build_adjustment_none_desc" }
+}
+roci_realdev_build_adjustment_small = {
+	potential = { NOT = { has_global_flag = no_realdev } has_global_flag = roci_realdev_build_adjustment_small_flag }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_realdev_build_adjustment_small_desc" }
+}
+roci_realdev_build_adjustment_medium = {
+	potential = { NOT = { has_global_flag = no_realdev } has_global_flag = roci_realdev_build_adjustment_medium_flag }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_realdev_build_adjustment_medium_desc" }
+}
+roci_realdev_build_adjustment_large = {
+	potential = { NOT = { has_global_flag = no_realdev } has_global_flag = roci_realdev_build_adjustment_large_flag }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_realdev_build_adjustment_large_desc" }
+}
+roci_realdev_build_adjustment_full = {
+	potential = { NOT = { has_global_flag = no_realdev } has_global_flag = roci_realdev_build_adjustment_full_flag }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_realdev_build_adjustment_full_desc" }
+}

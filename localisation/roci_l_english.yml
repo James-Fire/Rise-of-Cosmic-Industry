@@ -1,0 +1,21 @@
+﻿l_english: 
+ #UI stuffs
+    roci_menu.2.name: "Rise Of Cosmic Industry Settings"
+ 
+    roci_autofab: "Automatic Factory"
+    roci_autofab_everyone: "Factory For All"
+    roci_autofab_everyone_desc: "This setting allows you to make the Factory available to everyone, regardless of Origin, Civic, or AP. The Origin and Civic still start with some built, this setting does not."
+    roci_exploit: "Space Exploitaiton"
+    roci_orbital: "Orbital Infrastructure"
+    roci_realdev: "Realistic Development"
+    roci_realdev_build_adjustment_swap_desc: "This setting controls the strength of the Planet Build Speed and Assembly adjustment. A higher adjustment will lead to longer games, as it takes longer to build up."
+    roci_realdev_build_adjustment_none: "Adjustment: None"
+    roci_realdev_build_adjustment_none_desc: "There is no adjustment provided. Any Industrial Production allocated to Planet Build Speed or Assembly is extra."
+    roci_realdev_build_adjustment_small: "Adjustment: Small"
+    roci_realdev_build_adjustment_small_desc: "There is a -25% adjustment provided. Planet Build Speed and Assembly have a flat -25% malus, requiring somewhat realistic amounts of Industrial Production."
+    roci_realdev_build_adjustment_medium: "Adjustment: Medium"
+    roci_realdev_build_adjustment_medium_desc: "There is a -50% adjustment provided. Planet Build Speed and Assembly have a flat -50% malus, requiring more realistic amounts of Industrial Production."
+    roci_realdev_build_adjustment_large: "Adjustment: Large"
+    roci_realdev_build_adjustment_large_desc: "There is a -75% adjustment provided. Planet Build Speed and Assembly have a flat -75% malus, requiring close to realistic amounts of Industrial Production."
+    roci_realdev_build_adjustment_full: "Adjustment: Full"
+    roci_realdev_build_adjustment_full_desc: "There is a -100% adjustment provided. Planet Build Speed and Assembly have a flat -100% malus, requiring fully realistic amounts of Industrial Production."

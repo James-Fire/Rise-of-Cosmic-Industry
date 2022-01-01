@@ -63,7 +63,7 @@
      district_orbital_platform_refinery_ai_desc: ""
      district_orbital_platform_refinery_ai_plural: "Refinery Platforms"
      district_orbital_platform_shipyard_ai: "Orbital Shipyard"
-     district_orbital_platform_shipyard_ai_desc: "Provides the following to the Starbase in the system: \n -5% Ship Build Time up to -50% \n +10% Ship Build Speed"
+     district_orbital_platform_shipyard_ai_desc: "Provides the following to the Starbase in the system, through a Starbase Building: \n -5% Ship Build Time up to -50% \n +10% Ship Build Speed"
      district_orbital_platform_shipyard_ai_plural: "Orbital Shipyards"
      district_orbital_platform_military_ai: "Orbital Defense Platform"
      district_orbital_platform_military_ai_desc: "Provides 1 platform per Starbase Tech researched to this planet. Citadel gives an Ion Cannon instead if you have Apocalypse. Costs 200 alloys and 5 alloys upkeep per Starbase Tech."
@@ -85,9 +85,9 @@
      
  #Buildings
     building_space_elevator: "Space Elevator Anchor"
-    building_space_elevator_desc: "A simple elevator into orbit. Limits total Orbital Infrastructure to 10."
+    building_space_elevator_desc: "A simple elevator into orbit. Limits total Orbital Infrastructure to 10, even if the Planet Limit of (Planet Size*Planet Size*0.1) would be higher."
     building_space_elevator_2: "Space Elevator"
-    building_space_elevator_2_desc: "A Space Elevator surrounded by warehouses and terminals for ease of transportation. Limits total Orbital Infrastructure to 25."
+    building_space_elevator_2_desc: "A Space Elevator surrounded by warehouses and terminals for ease of transportation. Limits total Orbital Infrastructure to 25, even if the Planet Limit of (Planet Size*Planet Size*0.1) would be higher."
     building_space_elevator_3: "Space Elevator Complex"
     building_space_elevator_3_desc: "A massive logistical complex for transferring goods and people to or from orbit. Limits Orbital Infrastructure based on Planet Size*Planet Size*0.1."
     sm_orbital_shipyard_link:0 "Orbital Shipyards Link"
@@ -115,3 +115,18 @@
     mod_planet_researchers_consumer_goods_upkeep_add: "£consumer_goods£ §Y$consumer_goods$§! Upkeep of £job_researcher£ $job_researcher_plural$"
     mod_planet_researchers_energy_upkeep_add: "£energy£ §Y$energy$§! Upkeep of £job_researcher£ $job_researcher_plural$"
     mod_planet_researchers_minerals_upkeep_add: "£minerals£ §Y$minerals$§! Upkeep of £job_researcher£ $job_researcher_plural$"
+    
+    mod_planet_elevator_energy_upkeep_add: "Space Elevator £energy£ §Y$energy$§! Upkeep"
+    mod_planet_elevator_alloys_upkeep_add: "Space Elevator £alloys£ §Y$alloys$§! Upkeep"
+    mod_planet_elevator_upkeep_mult: "Space Elevator Upkeep"
+    
+    planet_elevator: "Space Elevator"
+    
+    job_fake_orbital:0 ""
+    job_fake_orbital_plural:0 ""
+    job_fake_orbital_desc:0 ""
+    mod_job_fake_orbital_add:0 ""
+    job_fake_orbital_gestalt:0 ""
+    job_fake_orbital_gestalt_plural:0 ""
+    job_fake_orbital_gestalt_desc:0 ""
+    mod_job_fake_orbital_gestalt_add:0 ""

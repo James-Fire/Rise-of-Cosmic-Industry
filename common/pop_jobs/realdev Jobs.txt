@@ -75,11 +75,10 @@ realdev_foreman_gestalt = {
 		is_being_assimilated = no
 	}
 
-	possible = {
-		drone_job_check_trigger = yes
-	}
+	possible_precalc = can_fill_drone_job
 	
 	planet_modifier = {
+		district_realdev_industry_cap_max = 20
 	}
 	
 	country_modifier = {

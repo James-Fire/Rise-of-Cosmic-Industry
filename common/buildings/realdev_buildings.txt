@@ -18,22 +18,22 @@ building_infrastructure_construction = {
 				owner = { is_ai = no }
 				AND = {
 					num_buildings = { type = building_infrastructure_construction value = 0 }
-					check_variable = { which = realdev_planet_build_speed value < -50 }
+					check_variable = { which = realdev_industry value < 100 }
 				}
 				AND = {
 					num_buildings = { type = any value >= 4 }
 					num_buildings = { type = building_infrastructure_construction value <= 1 }
-					check_variable = { which = realdev_planet_build_speed value < -30 }
+					check_variable = { which = realdev_industry value < 120 }
 				}
 				AND = {
 					num_buildings = { type = any value >= 6 }
 					num_buildings = { type = building_infrastructure_construction value <= 2 }
-					check_variable = { which = realdev_planet_build_speed value < -10 }
+					check_variable = { which = realdev_industry value < 140 }
 				}
 				AND = {
 					num_buildings = { type = any value >= 8 }
 					num_buildings = { type = building_infrastructure_construction value <= 3 }
-					check_variable = { which = realdev_planet_build_speed value < 10 }
+					check_variable = { which = realdev_industry value < 160 }
 				}
 			}
 		}
@@ -54,7 +54,7 @@ building_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 0.05
+			district_realdev_industry_max = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -65,7 +65,7 @@ building_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 0.05
+			district_realdev_industry_max = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -76,7 +76,7 @@ building_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 0.05
+			district_realdev_industry_max = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -87,7 +87,7 @@ building_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 0.05
+			district_realdev_industry_max = 5
 		}
 	}
 	
@@ -125,15 +125,34 @@ building_infrastructure_construction = {
 		}
 		upkeep = {
 			trigger = {
-				country_uses_consumer_goods = yes
+				owner = {
+					country_uses_consumer_goods = yes
+				}
 			}
 			consumer_goods = 5
 		}
 		upkeep = {
 			trigger = {
-				country_uses_consumer_goods = no
+				owner = {
+					country_uses_consumer_goods = no
+				}
 			}
 			minerals = 12
 		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_realdev_foreman_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_realdev_foreman_gestalt_effect_desc
 	}
 }

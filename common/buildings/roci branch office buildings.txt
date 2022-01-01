@@ -1,0 +1,75 @@
+building_corporate_construction = {
+	#icon = "building_tiberium_spike"
+	base_buildtime = 480
+	
+	branch_office_building = yes
+	
+	potential = {
+		always = no
+		has_branch_office = yes
+		branch_office_owner = { 
+			is_criminal_syndicate = no
+		}
+	}
+	
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 300
+		}
+		produces = {
+		}
+		upkeep = {
+			alloys = 1
+			energy = 4
+		}
+	}
+	
+	planet_modifier = {
+		district_realdev_industry_max = 10
+	}
+
+	
+	
+	ai_weight = {
+		weight = 1
+	}
+}
+
+building_corporate_construction_criminal = {
+	#icon = "building_tiberium_spike"
+	base_buildtime = 480
+	
+	branch_office_building = yes
+	
+	potential = {
+		always = no
+		has_branch_office = yes
+		branch_office_owner = { 
+			is_criminal_syndicate = no
+		}
+	}
+	
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 300
+		}
+		produces = {
+		}
+		upkeep = {
+			alloys = 1
+			energy = 4
+		}
+	}
+	
+	planet_modifier = {
+		district_realdev_industry_max = 10
+	}
+
+	
+	
+	ai_weight = {
+		weight = 1
+	}
+}

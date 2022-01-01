@@ -9,34 +9,26 @@ country_event = {
 		log = "orbital game start for [This.GetName]"
 		if = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				is_country_type = default
 			}
 			set_variable = { which = orbitalinfra_military_platforms value = 2 }
 			set_variable = { which = orbitalinfra_military_ion_cannons value = 0 }
 			capital_scope = {
-				if = {
-					limit = {
-						NOT = { is_artificial = yes }
-					}
-					#log = "Orbital Infrastructure on [This.GetName] for [PREV.GetName]"
-					set_infrastructure_amount = yes
-					set_planet_flag = has_orbital_infrastructure
-					add_building = building_space_elevator_2
-					set_variable = { which = orbital_infrastructure value = 1 }
-					add_district = district_orbital_platform_city
-					remove_district = district_city
-					while = {
-						count = 10
-						add_deposit = orbital_platform
-					}
-					add_district = district_orbital_platform_industrial
-					add_district = district_orbital_platform_industrial
-					add_district = district_orbital_platform_research
-					add_district = district_orbital_platform_solar_array
-					add_district = district_orbital_platform_solar_array
-					add_district = district_orbital_platform_mining
-					update_oi_district_counts = yes
-				}
+				#log = "Orbital Infrastructure on [This.GetName] for [PREV.GetName]"
+				set_infrastructure_amount = yes
+				set_planet_flag = has_orbital_infrastructure
+				add_building = building_space_elevator_2
+				set_variable = { which = orbital_infrastructure value = 7 }
+				add_district = district_orbital_platform_city
+				remove_district = district_city
+				add_district = district_orbital_platform_industrial
+				add_district = district_orbital_platform_industrial
+				add_district = district_orbital_platform_research
+				add_district = district_orbital_platform_solar_array
+				add_district = district_orbital_platform_solar_array
+				add_district = district_orbital_platform_mining
+				update_oi_district_counts = yes
 			}
 		}
 	}
@@ -51,6 +43,7 @@ country_event = {
 		#log = "OrbitalInfra tech increased"
 		if = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				OR = {
 					last_increased_tech = tech_starbase_3
 					last_increased_tech = tech_starbase_4
@@ -66,6 +59,7 @@ country_event = {
 		}
 		else_if = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				OR = {
 					last_increased_tech = tech_starbase_5
 				}
@@ -88,6 +82,7 @@ country_event = {
 		}
 		else_if = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				OR = {
 					last_increased_tech = tech_habitat_1
 					last_increased_tech = tech_habitat_2
@@ -112,7 +107,34 @@ planet_event = {
 		log = "OrbitalInfra district changed"
 		if = {
 			limit = {
-				#always = no
+				OR = {
+					last_district_changed = district_orbital_platform_research
+					last_district_changed = district_orbital_platform_research_ai
+					last_district_changed = district_orbital_platform_industrial
+					last_district_changed = district_orbital_platform_industrial_ai
+					last_district_changed = district_orbital_platform_city
+					last_district_changed = district_orbital_platform_refinery
+					last_district_changed = district_orbital_platform_refinery_ai
+					last_district_changed = district_orbital_platform_farming
+					last_district_changed = district_orbital_platform_farming_ai
+					last_district_changed = district_orbital_platform_mining
+					last_district_changed = district_orbital_platform_mining_ai
+					last_district_changed = district_orbital_platform_commercial
+					last_district_changed = district_orbital_platform_solar_array
+					last_district_changed = district_orbital_platform_solar_array_ai
+					last_district_changed = district_orbital_platform_shipyard
+					last_district_changed = district_orbital_platform_shipyard_ai
+					last_district_changed = district_orbital_platform_military
+					last_district_changed = district_orbital_platform_military_ai
+				}
+			}
+		}
+		else = {
+			
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				owner = { is_ai = yes }
 				has_oi_space = yes
 				has_space_elevator_support = yes
@@ -120,23 +142,6 @@ planet_event = {
 			log = "AI Orbital district Swap on [This.GetName]"
 			switch = {
 				trigger = last_district_changed
-				district_orbital_expansion = {
-					remove_district = district_orbital_expansion
-					add_deposit = orbital_platform
-					change_variable = { which = orbital_infrastructure_space value = -1 }
-					hidden_effect = {
-						owner = {
-							if = {
-								limit = {
-									is_ai = yes
-								}
-								add_resource = {
-									alloys = -150
-								}
-							}
-						}
-					}
-				}
 				district_generator = {
 					if = {
 						limit = {
@@ -457,6 +462,7 @@ event = {
 	immediate = {
 		every_country = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				check_variable = { which = orbital_infra_ai_alloy_debt value > 0 }
 			}
 			ai_orbital_pay_alloy_debt = yes
@@ -471,6 +477,7 @@ event = {
 	immediate = {
 		every_country = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				is_ai = yes
 			}
 			every_owned_planet = {
@@ -486,11 +493,11 @@ event = {
 						OR = {
 							AND = {
 								has_active_building = building_space_elevator
-								count_deposits = { type = orbital_platform count < 9 }
+								check_variable = { which = orbital_infrastructure value < 9 }
 							}
 							AND = {
 								has_active_building = building_space_elevator_2
-								count_deposits = { type = orbital_platform count < 22 }
+								check_variable = { which = orbital_infrastructure value < 24 }
 							}
 							AND = {
 								has_active_building = building_space_elevator_3
@@ -508,7 +515,6 @@ event = {
 						}
 					
 					}
-					add_deposit = orbital_platform
 					change_variable = { which = orbital_infrastructure_space value = -1 }
 					owner = {
 						add_resource = {
@@ -661,6 +667,7 @@ country_event = {
 		FROMFROM = {
 			if = {
 				limit = {
+					NOT = { has_global_flag = no_orbital_infra }
 					has_fleet_flag = orbital_infra_defense
 				}
 				solar_system = {
@@ -676,6 +683,7 @@ country_event = {
 		FROMFROMFROM = {
 			if = {
 				limit = {
+					NOT = { has_global_flag = no_orbital_infra }
 					has_fleet_flag = orbital_infra_defense
 				}
 				solar_system = {
@@ -698,6 +706,7 @@ planet_event = {
 	immediate = {
 		if = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				NOT = { solar_system = { any_fleet_in_system = { owner = { is_hostile = prevprevprev.owner } } } }
 			}
 			oi_update_platforms = yes
@@ -715,6 +724,7 @@ planet_event = {
 	immediate = {
 		if = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				owner = { is_ai = yes }
 			}
 			if = {
@@ -844,6 +854,7 @@ country_event = {
 	immediate = {
 		every_owned_fleet = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				has_fleet_flag = orbital_infra_defense
 			}
 			destroy_fleet = {
@@ -864,6 +875,7 @@ event = {
 	immediate = {
 		every_country = {
 			limit = {
+				NOT = { has_global_flag = no_orbital_infra }
 				is_country_type = default
 			}
 			if = {

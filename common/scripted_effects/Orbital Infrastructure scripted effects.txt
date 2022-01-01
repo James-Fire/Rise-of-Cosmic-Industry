@@ -5,6 +5,7 @@ set_infrastructure_amount = {
 		}
 		set_variable = { which = orbital_infrastructure_space value = 0 }
 	}
+	set_variable = { which = orbitalinfra_platforms value = 0 }
 	set_variable = { which = orbital_infrastructure_planet_size value = trigger:planet_size }
 	multiply_variable = { which = orbital_infrastructure_planet_size value = trigger:planet_size }
 	multiply_variable = { which = orbital_infrastructure_planet_size value = 0.1 }
@@ -213,6 +214,13 @@ oi_update_platforms = {
 	set_variable = { which = orbitalinfra_military_ion_cannons value = owner.orbitalinfra_military_ion_cannons }
 	multiply_variable = { which = orbitalinfra_military_platforms value = orbitalinfra_military }
 	multiply_variable = { which = orbitalinfra_military_ion_cannons value = orbitalinfra_military }
+	if = {
+		limit = {
+			owner = { has_active_tradition = tr_unyielding_finish }
+		}
+		multiply_variable = { which = orbitalinfra_military_platforms value = 1.5 }
+		multiply_variable = { which = orbitalinfra_military_ion_cannons value = 1.5 }
+	}
 	if = {
 		limit = {
 			NOT = { solar_system = { any_fleet_in_system = { has_fleet_flag = orbital_infra_defense@prevprev } } }
