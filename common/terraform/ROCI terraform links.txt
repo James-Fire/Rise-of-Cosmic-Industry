@@ -1,0 +1,272 @@
+
+
+terraform_link = {
+	from = "pc_barren"
+	to = "pc_barren"
+	
+	
+	duration = 1
+	
+	resources = {
+		category = terraforming
+		cost = {
+			energy = 1
+		}
+	}
+
+	potential = {
+		always = yes
+	}
+	
+	condition = {
+		always = no
+	}
+	
+	effect = {
+		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+terraform_link = {
+	from = "pc_barren_cold"
+	to = "pc_barren"
+	
+	
+	duration = 1
+	
+	resources = {
+		category = terraforming
+		cost = {
+			energy = 1
+		}
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	condition = {
+		always = no
+	}
+	
+	effect = {
+		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+terraform_link = {
+	from = "pc_molten"
+	to = "pc_barren"
+	
+	
+	duration = 1
+	
+	resources = {
+		category = terraforming
+		cost = {
+			energy = 1
+		}
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	condition = {
+		always = no
+	}
+	
+	effect = {
+		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+terraform_link = {
+	from = "pc_frozen"
+	to = "pc_barren"
+	
+	
+	duration = 1
+	
+	resources = {
+		category = terraforming
+		cost = {
+			energy = 1
+		}
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	condition = {
+		always = no
+	}
+	
+	effect = {
+		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+terraform_link = {
+	from = "pc_toxic"
+	to = "pc_barren"
+	
+	
+	duration = 1
+	
+	resources = {
+		category = terraforming
+		cost = {
+			energy = 1
+		}
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	condition = {
+		always = no
+	}
+	
+	effect = {
+		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+terraform_link = {
+	from = "pc_asteroid"
+	to = "pc_barren"
+	
+	
+	duration = 1
+	
+	resources = {
+		category = terraforming
+		cost = {
+			energy = 1
+		}
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	condition = {
+		always = no
+	}
+	
+	effect = {
+		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+terraform_link = {
+	from = "pc_ice_asteroid"
+	to = "pc_barren"
+	
+	
+	duration = 1
+	
+	resources = {
+		category = terraforming
+		cost = {
+			energy = 1
+		}
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	condition = {
+		always = no
+	}
+	
+	effect = {
+		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+terraform_link = {
+	from = "pc_crystal_asteroid"
+	to = "pc_barren"
+	
+	
+	duration = 1
+	
+	resources = {
+		category = terraforming
+		cost = {
+			energy = 1
+		}
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	condition = {
+		always = no
+	}
+	
+	effect = {
+		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+terraform_link = {
+	from = "pc_gas_giant"
+	to = "pc_barren"
+	
+	
+	duration = 1
+	
+	resources = {
+		category = terraforming
+		cost = {
+			energy = 1
+		}
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	condition = {
+		always = no
+	}
+	
+	effect = {
+		
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

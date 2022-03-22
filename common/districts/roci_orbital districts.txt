@@ -1,0 +1,1339 @@
+@platform_alloys = 200
+@platform_minerals = 100
+
+
+
+@platform_energy_upkeep = 3
+@platform_alloy_upkeep = 1
+
+@platform_district_build_time = 180
+
+@Elevator_upkeep = 0.5
+@Elevator_upkeep_mult = 0.02
+
+district_realdev_industry = {
+	base_buildtime = @platform_district_build_time
+	
+	show_on_uncolonized = {
+		always = no
+	}
+	resources = {
+		category = planet_districts
+	}
+	potential = {
+		always = no
+	}
+}
+district_realdev_industry_cap = {
+	base_buildtime = @platform_district_build_time
+	
+	show_on_uncolonized = {
+		always = no
+	}
+	resources = {
+		category = planet_districts
+	}
+	potential = {
+		always = no
+	}
+}
+
+district_orbital_platform_cap = {
+	base_buildtime = @platform_district_build_time
+	
+	show_on_uncolonized = {
+		always = no
+		has_oi_space_elevator = yes
+	}
+	resources = {
+		category = planet_districts
+	}
+	potential = {
+		always = no
+		has_oi_space_elevator = yes
+	}
+}
+district_orbital_platform_city = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		has_oi_space_elevator = yes
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_city
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		planet_max_buildings_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_housing_mult = 0.05
+		planet_amenities_mult = 0.05
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_jobs > 0 
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
+}
+
+district_orbital_platform_industrial = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		has_oi_space_elevator = yes
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_industrial
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+	}
+
+	# Designation Job Changes
+	triggered_planet_modifier = {
+		potential = {
+			NOR = {
+				has_designation = col_foundry
+				has_designation = col_factory
+				has_designation = col_ecu_foundry
+				has_designation = col_ecu_factory
+			}
+			exists = owner
+			owner = {
+				is_catalytic_empire = no
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_metallurgists_alloys_produces_add = 0.25
+			planet_metallurgists_minerals_upkeep_add = 0.5
+			planet_artisans_consumer_goods_produces_add = 0.5
+			planet_artisans_minerals_upkeep_add = 0.5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_global_flag = no_autofab }
+			NOR = {
+				has_designation = col_foundry
+				has_designation = col_factory
+				has_designation = col_ecu_foundry
+				has_designation = col_ecu_factory
+			}
+			exists = owner
+			owner = {
+				is_catalytic_empire = no
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_autofab_foundry_alloys_produces_add = 0.5
+			planet_autofab_foundry_minerals_upkeep_add = 1
+			planet_autofab_factory_consumer_goods_produces_add = 1
+			planet_autofab_factory_minerals_upkeep_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOR = {
+				has_designation = col_foundry
+				has_designation = col_factory
+				has_designation = col_ecu_foundry
+				has_designation = col_ecu_factory
+			}
+			exists = owner
+			owner = {
+				is_catalytic_empire = yes
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_metallurgists_alloys_produces_add = 0.25
+			planet_metallurgists_food_upkeep_add = 0.75
+			planet_artisans_consumer_goods_produces_add = 0.5
+			planet_artisans_minerals_upkeep_add = 0.5
+			planet_autofab_foundry_alloys_produces_add = 0.5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_global_flag = no_autofab }
+			NOR = {
+				has_designation = col_foundry
+				has_designation = col_factory
+				has_designation = col_ecu_foundry
+				has_designation = col_ecu_factory
+			}
+			exists = owner
+			owner = {
+				is_catalytic_empire = yes
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_autofab_foundry_alloys_produces_add = 0.5
+			planet_autofab_foundry_food_upkeep_add = 1.5
+			planet_autofab_factory_consumer_goods_produces_add = 1
+			planet_autofab_factory_minerals_upkeep_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_catalytic_empire = no
+			}
+			OR = {
+				has_designation = col_foundry
+				has_designation = col_ecu_foundry
+				owner = { is_regular_empire = no }
+			}
+		}
+		modifier = {
+			planet_metallurgists_alloys_produces_add = 0.5
+			planet_metallurgists_minerals_upkeep_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_global_flag = no_autofab }
+			exists = owner
+			owner = {
+				is_catalytic_empire = no
+			}
+			OR = {
+				has_designation = col_foundry
+				has_designation = col_ecu_foundry
+				owner = { is_regular_empire = no }
+			}
+		}
+		modifier = {
+			planet_autofab_foundry_alloys_produces_add = 1
+			planet_autofab_foundry_minerals_upkeep_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_catalytic_empire = yes
+			}
+			OR = {
+				has_designation = col_foundry
+				has_designation = col_ecu_foundry
+				owner = { is_regular_empire = no }
+			}
+		}
+		modifier = {
+			planet_metallurgists_alloys_produces_add = 0.5
+			planet_metallurgists_food_upkeep_add = 1.5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_global_flag = no_autofab }
+			exists = owner
+			owner = {
+				is_catalytic_empire = yes
+			}
+			OR = {
+				has_designation = col_foundry
+				has_designation = col_ecu_foundry
+				owner = { is_regular_empire = no }
+			}
+		}
+		modifier = {
+			planet_autofab_foundry_alloys_produces_add = 1
+			planet_autofab_foundry_food_upkeep_add = 3
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			OR = {
+				has_designation = col_factory
+				has_designation = col_mac_factory
+				has_designation = col_ecu_factory
+			}
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_artisans_consumer_goods_produces_add = 1
+			planet_artisans_minerals_upkeep_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_global_flag = no_autofab }
+			OR = {
+				has_designation = col_factory
+				has_designation = col_mac_factory
+				has_designation = col_ecu_factory
+			}
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_autofab_factory_consumer_goods_produces_add = 2
+			planet_autofab_factory_minerals_upkeep_add = 2
+		}
+	}
+
+	ai_resource_production = {
+		alloys = 10
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		consumer_goods = 10
+		trigger = {
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_jobs > 0 
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
+}
+district_orbital_platform_research = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_research
+		}
+		has_oi_space_elevator = yes
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_researchers_physics_research_produces_add = 0.5
+		planet_researchers_society_research_produces_add = 0.5
+		planet_researchers_engineering_research_produces_add = 0.5
+		planet_researchers_energy_upkeep_add = 0.5
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_researchers_consumer_goods_upkeep_add = 0.25
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = no
+			}
+		}
+		modifier = {
+			planet_researchers_minerals_upkeep_add = 0.5
+		}
+	}
+	
+	ai_resource_production = {
+		physics_research = 10
+		society_research = 10
+		engineering_research = 10
+		trigger = {
+			always = yes
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_jobs > 0 
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
+}
+
+district_orbital_platform_refinery = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_refinery
+		}
+		has_oi_space_elevator = yes
+		owner = {
+			OR = {
+				has_technology = tech_exotic_gases
+				has_technology = tech_volatile_motes
+				has_technology = tech_rare_crystals
+			}
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_chemists_volatile_motes_produces_add = 1
+		planet_chemists_minerals_upkeep_add = 5
+		planet_chemists_energy_upkeep_add = 1
+		planet_refiners_exotic_gases_produces_add = 1
+		planet_refiners_minerals_upkeep_add = 5
+		planet_refiners_energy_upkeep_add = 1
+		planet_translucers_rare_crystals_produces_add = 1
+		planet_translucers_minerals_upkeep_add = 5
+		planet_translucers_energy_upkeep_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_global_flag = no_autofab }
+		}
+		modifier = {
+			planet_autofab_motes_volatile_motes_produces_add = 2
+			planet_autofab_motes_minerals_upkeep_add = 10
+			planet_autofab_motes_energy_upkeep_add = 2
+			planet_autofab_gases_exotic_gases_produces_add = 2
+			planet_autofab_gases_minerals_upkeep_add = 10
+			planet_autofab_gases_energy_upkeep_add = 2
+			planet_autofab_crystals_rare_crystals_produces_add = 2
+			planet_autofab_crystals_minerals_upkeep_add = 10
+			planet_autofab_crystals_energy_upkeep_add = 2
+		}
+	}
+	
+	ai_resource_production = {
+		volatile_motes = 10
+		exotic_gases = 10
+		rare_crystals = 10
+		trigger = {
+			always = yes
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_jobs > 0 
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
+}
+
+district_orbital_platform_shipyard = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_shipyard
+		}
+		has_oi_space_elevator = yes
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_jobs > 0 
+		}
+	}
+
+	ai_resource_production = {
+		alloys = 10
+		trigger = {
+			always = yes
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
+	}
+}
+
+district_orbital_platform_military = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_military
+		}
+		has_oi_space_elevator = yes
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		OR = {
+			num_districts = { type = district_orbital_platform_military value < 11 }
+			owner = { is_ai = no }
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					has_technology = tech_starbase_5
+					has_technology = tech_starbase_4
+					has_technology = tech_starbase_3
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= 1100
+					}
+				}
+				AND = {
+					NOT = { has_technology = tech_starbase_5 }
+					has_technology = tech_starbase_4
+					has_technology = tech_starbase_3
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= 900
+					}
+				}
+				AND = {
+					NOT = { has_technology = tech_starbase_5 }
+					NOT = { has_technology = tech_starbase_4 }
+					has_technology = tech_starbase_3
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= 700
+					}
+				}
+				AND = {
+					NOT = { has_technology = tech_starbase_5 }
+					NOT = { has_technology = tech_starbase_4 }
+					NOT = { has_technology = tech_starbase_3 }
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= 500
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = 400
+		}
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = 100
+			multiplier = orbital_infrastructure
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+		upkeep = {
+			energy = @platform_energy_upkeep
+			alloys = 12
+		}
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+				owner = { has_technology = tech_starbase_3 }
+			}
+			alloys = 200
+		}
+		upkeep = {
+			trigger = {
+				owner = { has_technology = tech_starbase_3 }
+			}
+			alloys = 5
+		}
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+				owner = { has_technology = tech_starbase_4 }
+			}
+			alloys = 200
+		}
+		upkeep = {
+			trigger = {
+				owner = { has_technology = tech_starbase_4 }
+			}
+			alloys = 5
+		}
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+				owner = { has_technology = tech_starbase_5 }
+			}
+			alloys = 200
+		}
+		upkeep = {
+			trigger = {
+				owner = { has_technology = tech_starbase_5 }
+			}
+			alloys = 5
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_jobs > 0 
+		}
+	}
+
+	ai_resource_production = {
+		alloys = 10
+		trigger = {
+			always = yes
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
+	}
+}
+
+district_orbital_platform_solar_array = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_solar_array
+		}
+		has_oi_space_elevator = yes
+		solar_system = {
+			NOR = {
+				is_star_class = sc_black_hole
+				is_star_class = sc_neutron_star
+				is_star_class = sc_pulsar
+				is_star_class = sc_t
+			}
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_technician_energy_produces_add = 0.5
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_global_flag = no_autofab }
+		}
+		modifier = {
+			planet_autofab_generator_energy_produces_add = 1
+		}
+	}
+
+	ai_resource_production = {
+		energy = 10
+		trigger = {
+			always = yes
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
+}
+
+district_orbital_platform_commercial = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_commercial
+		}
+		has_oi_space_elevator = yes
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 2
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		trade_value_mult = 0.05
+		planet_amenities_mult = 0.05
+	}
+	
+	ai_resource_production = {
+		energy = 10
+		trigger = {
+			always = yes
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
+}
+
+district_orbital_platform_mining = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_mining
+		}
+		has_oi_space_elevator = yes
+		OR = {
+			has_modifier = extensive_moon_system
+			has_modifier = asteroid_belt
+			has_planet_flag = mining_habitat
+			AND = {
+				OR = {
+					is_moon = yes
+					is_planet_class = pc_habitat
+				}
+				orbit = {
+					OR = {
+						uninhabitable_regular_planet = yes
+						AND = {
+							has_moon = yes
+							any_moon = {
+								uninhabitable_regular_planet = yes
+							}
+						}
+					}
+				}
+			}
+			AND = {
+				has_moon = yes
+				any_moon = {
+					uninhabitable_regular_planet = yes
+				}
+			}
+			solar_system = {
+				any_system_planet = {
+					OR = {
+						is_asteroid = yes
+						is_planet_class = pc_shattered
+						is_planet_class = pc_shattered_2
+					}
+				}
+			}
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_miners_minerals_produces_add = 1
+		planet_miners_energy_upkeep_add = 0.5
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_global_flag = no_autofab }
+		}
+		modifier = {
+			planet_autofab_mine_minerals_produces_add = 2
+			planet_autofab_mine_energy_upkeep_add = 1
+		}
+	}
+	
+	ai_resource_production = {
+		minerals = 10
+		trigger = {
+			always = yes
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
+}
+
+district_orbital_platform_farming = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		has_oi_space_elevator = yes
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_farming
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_farmers_food_produces_add = 1
+		planet_farmers_energy_upkeep_add = 0.5
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_global_flag = no_autofab }
+		}
+		modifier = {
+			planet_autofab_farm_food_produces_add = 2
+			planet_autofab_farm_energy_upkeep_add = 1
+		}
+	}
+
+	ai_resource_production = {
+		food = 10
+		trigger = {
+			always = yes
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
+}
+
+district_orbital_platform_admin = {
+	base_buildtime = @platform_district_build_time
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		has_oi_space_elevator = yes
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_orbital_infra }
+		has_oi_space_elevator = yes
+		OR = {
+			NOT = { has_planet_flag = orbitalinfra_district_hide }
+			has_district = district_orbital_platform_admin
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "space_elevator_does_not_support"
+			has_space_elevator_support = yes
+		}
+		owner = {
+			OR = {
+				is_ai = no
+				AND = {
+					resource_stockpile_compare = {
+						resource = alloys
+						value >= @platform_alloys
+					}
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			trigger = {
+				owner = { is_ai = no }
+			}
+			alloys = @platform_alloys
+		}
+		cost = {
+			minerals = @platform_minerals
+		}
+	}
+	
+	planet_modifier = {
+		planet_max_districts_add = 1
+		district_orbital_platform_cap_max = -1
+		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_administrators_unity_produces_add = 1
+		planet_administrators_energy_upkeep_add = 0.5
+	}
+
+	ai_resource_production = {
+		unity = 10
+		trigger = {
+			always = yes
+		}
+	}
+	on_queued = {
+		add_deposit = orbital_platform_neg
+	}
+	
+	on_unqueued = {
+		remove_deposit = orbital_platform_neg
+	}
+	
+	on_built = {
+		remove_deposit = orbital_platform_neg
+	}
+}

@@ -12,6 +12,18 @@ planet_elevator = {
 	}
 }
 
+#Trade Categories
+
+planet_kiyo_mod_trader = { }
+
+campaign_kiyo_mod_trade = {
+	use_for_ai_budget = yes
+	parent = campaigns
+	generate_add_modifiers = {
+		upkeep
+	}
+}
+
 #Autofab Categories
 planet_autofab = {
 	parent = planet_technician

@@ -1,0 +1,10 @@
+ship_behavior = {
+	name = "kiyo_mod_trade_evade"
+	preferred_attack_range = 110
+	formation_distance = 105
+	return_to_formation_distance = 120
+	collision_awareness = 0.5
+	attack_move_pattern = flee
+	passive_move_pattern = charge
+	desc = "kiyo_mod_trade_evade_desc"
+}

@@ -1,0 +1,103 @@
+d_kiyo_mod_trade = {
+	is_for_colonizable = yes
+	category = planet_kiyo_mod_trader
+	
+	icon = d_building
+	
+	# trade_value (trade value)
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_1 } modifier = { trade_value_add = 1 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_2 } modifier = { trade_value_add = 2 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_4 } modifier = { trade_value_add = 4 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_8 } modifier = { trade_value_add = 8 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_16 } modifier = { trade_value_add = 16 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_32 } modifier = { trade_value_add = 32 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_64 } modifier = { trade_value_add = 64 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_128 } modifier = { trade_value_add = 128 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_256 } modifier = { trade_value_add = 256 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_512 } modifier = { trade_value_add = 512 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_1024 } modifier = { trade_value_add = 1024 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_2048 } modifier = { trade_value_add = 2048 } }
+	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_4096 } modifier = { trade_value_add = 4096 } }
+	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_8192 } modifier = { trade_value_add = 8192 } }
+	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_16384 } modifier = { trade_value_add = 16384 } }
+	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_32768 } modifier = { trade_value_add = 32768 } }
+	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_65536 } modifier = { trade_value_add = 65536 } }
+	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_131072 } modifier = { trade_value_add = 131072 } }
+	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_262144 } modifier = { trade_value_add = 262144 } }
+	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_524288 } modifier = { trade_value_add = 524288 } }
+	
+	resources = {
+		category = planet_kiyo_mod_trader
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_energy value > 0 }
+			}
+			energy = 1
+			multiplier = kiyo_trade_energy
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_minerals value > 0 }
+			}
+			minerals = 1
+			multiplier = kiyo_trade_minerals
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_food value > 0 }
+			}
+			food = 1
+			multiplier = kiyo_trade_food
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_alloys value > 0 }
+			}
+			alloys	= 1
+			multiplier = kiyo_trade_alloys
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_consumer_goods value > 0 }
+			}
+			consumer_goods = 1
+			multiplier = kiyo_trade_consumer_goods
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_minerals value > 0 }
+			}
+			physics_research = 1
+			multiplier = kiyo_trade_physics_research
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_society_research value > 0 }
+			}
+			society_research = 1
+			multiplier = kiyo_trade_society_research
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_engineering_research value > 0 }
+			}
+			engineering_research = 1
+			multiplier = kiyo_trade_engineering_research
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_unity value > 0 }
+			}
+			unity = 1
+			multiplier = kiyo_trade_unity
+		}
+	}
+	
+	#planet_modifier = { job_kiyo_mod_trader_add = 1 }
+
+	potential = { can_have_habitable_deposits = yes }
+
+	drop_weight = {
+		weight = 0
+	}
+}

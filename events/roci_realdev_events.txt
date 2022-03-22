@@ -1,0 +1,1425 @@
+namespace = realdev
+
+country_event = {
+	id = realdev.0
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				OR = {
+					leader_class = ruler
+					AND = {
+						leader_class = governor
+						sector = {
+							exists = this
+						}
+					}
+				}
+			}
+			#Governor
+			if = {
+				limit = {
+					leader_class = governor
+					sector = {
+						exists = this
+					}
+				}
+				export_trigger_value_to_variable = {
+					trigger = has_level
+					variable = realdev_leader_level
+				}
+				multiply_variable = { which = realdev_leader_level value = 2 }
+				set_variable = { which = realdev_industry value = 0 }
+				set_variable = { which = realdev_industry_cap value = 0 }
+				set_variable = { which = realdev_ship_build_speed value = 0 }
+				if = {
+					limit = {
+						has_trait = leader_trait_architectural_interest
+					}
+					change_variable = { which = realdev_industry value = 20 }
+				}
+				if = {
+					limit = {
+						has_trait = leader_trait_bureaucrat
+					}
+					change_variable = { which = realdev_industry_cap value = 20 }
+				}
+				if = {
+					limit = {
+						has_trait = leader_trait_retired_fleet_officer
+					}
+					change_variable = { which = realdev_ship_build_speed value = 10 }
+				}
+			}
+			#Ruler
+			else_if = {
+				limit = {
+					leader_class = ruler
+				}
+				export_trigger_value_to_variable = {
+					trigger = has_level
+					variable = realdev_leader_level
+				}
+				divide_variable = { which = realdev_leader_level value = 2 }
+				ceiling_variable = realdev_leader_level
+				set_variable = { which = realdev_industry value = 0 }
+				set_variable = { which = realdev_ship_build_speed value = 0 }
+				if = {
+					limit = {
+						has_ruler_trait = trait_ruler_architectural_sense
+					}
+					change_variable = { which = realdev_industry value = 10 }
+				}
+				if = {
+					limit = {
+						has_ruler_trait = trait_ruler_industrialist
+					}
+					change_variable = { which = realdev_industry value = 10 }
+				}
+				if = {
+					limit = {
+						has_ruler_trait = trait_ruler_military_pioneer
+					}
+					change_variable = { which = realdev_ship_build_speed value = 10 }
+				}
+				if = {
+					limit = {
+						has_ruler_trait = trait_ruler_warlike
+					}
+					change_variable = { which = realdev_ship_build_speed value = 10 }
+				}
+				if = {
+					limit = {
+						has_ruler_trait = leader_trait_fleet_organizer
+					}
+					change_variable = { which = realdev_ship_build_speed value = 10 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = realdev_variables_set }
+			}
+			set_variable = { which = realdev_industry_shipyard_ratio value = 0.8 }
+			set_variable = { which = realdev_industry_country_stockpile value = 0.1 }
+			set_variable = { which = realdev_industry_space_ratio value = 1 }
+			set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
+			set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+			set_country_flag = realdev_variables_set
+			add_modifier = { modifier = realdev_no_build_cap }
+		}
+		every_owned_planet = {
+			if = {
+				limit = {
+					NOT = { has_planet_flag = realdev_variables_set }
+				}
+				set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
+				set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
+				set_variable = { which = realdev_take_ratio value = 0 }
+				set_variable = { which = realdev_assembly_cap value = 200 }
+				set_planet_flag = realdev_variables_set
+			}
+			reset_realdev_variables = yes
+			#Add the building on game start
+			add_building = building_roci_infrastructure_construction_2
+			#Start of game stuff to immediately apply the modifiers
+			planet_event = { id = realdev.1 }
+			planet_event = { id = realdev.2 }
+			planet_event = { id = realdev.3 }
+		}
+		
+		#Country start of game stuff after planets have figured out their stuff.
+		country_event = { id = realdev.4 }
+		every_owned_planet = {
+			planet_event = { id = realdev.11 }
+		}
+		country_event = { id = realdev.5 }
+		
+		every_owned_planet = {
+			if = {
+				limit = {
+					NOT = { has_planet_flag = realdev_variables_set }
+				}
+				set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
+				set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
+				set_planet_flag = realdev_variables_set
+			}
+			reset_realdev_variables = yes
+		
+			planet_event = { id = realdev.1 days = 1 random = 7 }
+			planet_event = { id = realdev.2 days = 9 random = 7 }
+			planet_event = { id = realdev.3 days = 16 random = 7 }
+			planet_event = { id = realdev.11 days = 24 random = 4 }
+		}
+		country_event = { id = realdev.4 days = 29 }
+	}
+}
+
+country_event = { #Monthly Country event
+	id = realdev.100
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		#NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = no_realdev }
+			}
+			country_event = { id = realdev.5 }
+			if = {
+				limit = {
+					NOT = { has_country_flag = realdev_variables_set }
+				}
+				set_variable = { which = realdev_industry_shipyard_ratio value = 0.8 }
+				set_variable = { which = realdev_industry_space_ratio value = 1 }
+				set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
+				set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+				set_country_flag = realdev_variables_set
+			}
+			reset_realdev_variables = yes
+			every_owned_planet = {
+				limit = {
+					exists = this
+				}
+				if = {
+					limit = {
+						NOT = { has_planet_flag = realdev_variables_set }
+					}
+					set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
+					set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
+					set_planet_flag = realdev_variables_set
+				}
+				reset_realdev_variables = yes
+
+				planet_event = { id = realdev.1 days = 1 random = 7 }
+				planet_event = { id = realdev.2 days = 9 random = 7 }
+				planet_event = { id = realdev.3 days = 16 random = 7 }
+				planet_event = { id = realdev.11 days = 24 random = 4 }
+			}
+			country_event = { id = realdev.4 days = 29 }
+		}
+	}
+}
+
+planet_event = {
+	id = realdev.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		
+		#Include Building Production
+		export_modifier_to_variable = { modifier = district_realdev_industry_max variable = realdev_building }
+		
+		set_variable = { which = realdev_building_cap value = 0 }
+		
+		#Include a bonus for capital planets
+		if = {
+			limit = {
+				is_capital = yes
+			}
+			change_variable = { which = realdev_building value = 20 }
+			change_variable = { which = realdev_building_cap value = 20 }
+		}
+		#Include base capacity based on Capital Buildings
+		if = {
+			limit = {
+				has_fully_upgraded_capital = yes
+			}
+			change_variable = { which = realdev_building value = 30 }
+			change_variable = { which = realdev_building_cap value = 30 }
+		}
+		else_if = {
+			limit = {
+				has_major_upgraded_capital = yes
+			}
+			change_variable = { which = realdev_building value = 20 }
+			change_variable = { which = realdev_building_cap value = 20 }
+		
+		}
+		else_if = {
+			limit = {
+				has_upgraded_capital = yes
+			}
+			change_variable = { which = realdev_building value = 10 }
+			change_variable = { which = realdev_building_cap value = 10 }
+		
+		}
+		else = {
+			change_variable = { which = realdev_building value = 5 }
+			change_variable = { which = realdev_building_cap value = 5 }
+		}
+		
+		change_variable = { which = realdev_industry value = realdev_building }
+		change_variable = { which = realdev_industry_cap value = realdev_building_cap }
+		
+		#Count Pops
+		if = {
+			limit = {
+				NOT = { has_global_flag = realdev_ignore_pops }
+			}
+			set_variable = { which = realdev_pops value = trigger:num_pops }
+			set_variable = { which = realdev_industry_pops value = realdev_pops }
+			set_variable = { which = realdev_industry_pops_cap value = realdev_pops }
+			change_variable = { which = realdev_industry_pops_cap value = realdev_pops }
+			if = {
+				limit = {
+					owner = { has_technology = tech_powered_exoskeletons }
+				}
+				change_variable = { which = realdev_industry_pops value = realdev_pops }
+				change_variable = { which = realdev_industry_pops_cap value = realdev_pops }
+			}
+			if = {
+				limit = {
+					owner = { has_technology = tech_mega_assembly }
+				}
+				change_variable = { which = realdev_industry_pops value = realdev_pops }
+				change_variable = { which = realdev_industry_pops_cap value = realdev_pops }
+			}
+			every_owned_pop = {
+				limit = {
+					OR = {
+						has_trait = trait_mechanical
+						has_trait = trait_syncretic_proles
+						has_trait = trait_presapient_proles
+						has_trait = trait_nerve_stapled
+						has_trait = trait_robot_efficient_processors
+						has_trait = trait_latent_psionic
+						has_trait = trait_psionic
+						has_trait = trait_cybernetic
+						has_trait = trait_robust
+						has_trait = trait_erudite
+						has_trait = trait_enigmatic_intelligence
+						is_enslaved = yes
+					}
+				}
+				#Count pops that are slaves
+				if = {
+					limit = {
+						is_enslaved = yes
+					}
+					PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+				}
+				
+				#Count pops that have obvious traits.
+				switch = {
+					trigger = has_trait
+					trait_mechanical = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
+						if = {
+							limit = {
+								owner = { has_technology = tech_droid_workers }
+							}
+							PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+							PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
+						}
+						if = {
+							limit = {
+								owner = { has_technology = tech_synthetic_workers }
+							}
+							PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+							PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
+						}
+					}
+					trait_syncretic_proles = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+					}
+					trait_presapient_proles = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+					}
+					trait_nerve_stapled = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+					}
+					trait_robot_efficient_processors = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
+					}
+					trait_latent_psionic = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
+					}
+					trait_psionic = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 3 } }
+						PREV = { change_variable = { which = realdev_industry_pops_cap value = 6 } }
+					}
+					trait_cybernetic = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
+					}
+					trait_robust = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
+						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
+					}
+					trait_erudite = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 3 } }
+						PREV = { change_variable = { which = realdev_industry_pops_cap value = 6 } }
+					}
+					trait_enigmatic_intelligence = {
+						PREV = { change_variable = { which = realdev_industry_pops value = 2 } }
+						PREV = { change_variable = { which = realdev_industry_pops_cap value = 4 } }
+					}
+				}
+			}
+			
+			#Count Gestalt Maintenance Jobs - They can count as pops because I don't feel like making antrade_value category
+			export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = maintenance_drone } variable = realdev_maintenance_drones }
+			change_variable = { which = realdev_industry_pops value = realdev_maintenance_drones }
+			
+			change_variable = { which = realdev_industry value = realdev_industry_pops }
+			change_variable = { which = realdev_industry_cap value = realdev_industry_pops_cap }
+		}
+		
+		#Count Industrial Jobs
+		if = {
+			limit = {
+				always = no #Gonna try using resource production
+			}
+			export_modifier_to_variable = { modifier = job_artisan_add variable = realdev_artisan }
+			export_modifier_to_variable = { modifier = job_artificer_add variable = realdev_artificer }
+			export_modifier_to_variable = { modifier = job_artisan_drone_add variable = realdev_artisan_drone }
+			export_modifier_to_variable = { modifier = job_foundry_add variable = realdev_foundry }
+			export_modifier_to_variable = { modifier = job_alloy_drone_add variable = realdev_alloy_drone }
+			export_modifier_to_variable = { modifier = job_fabricator_add variable = realdev_fabricator }
+			export_modifier_to_variable = { modifier = job_catalytic_technician_add variable = realdev_catalytic }
+			export_modifier_to_variable = { modifier = job_catalytic_drone_add variable = realdev_catalytic_drone }
+			
+			change_variable = { which = realdev_industry value = realdev_artisan }
+			change_variable = { which = realdev_industry value = realdev_artificer }
+			change_variable = { which = realdev_industry value = realdev_artisan_drone }
+			change_variable = { which = realdev_industry value = realdev_foundry }
+			change_variable = { which = realdev_industry value = realdev_alloy_drone }
+			change_variable = { which = realdev_industry value = realdev_fabricator }
+			change_variable = { which = realdev_industry value = realdev_catalytic }
+			change_variable = { which = realdev_industry value = realdev_catalytic_drone }
+		}
+	}
+}
+
+#First event for planet math
+planet_event = {
+	id = realdev.2
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		#Math with resource outputs
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = { resource = alloys type = produces }
+			variable = realdev_alloy_production
+		}
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = { resource = consumer_goods type = produces }
+			variable = realdev_congoods_production
+		}
+		#Include Minor Colony Stuff
+		if = {
+			limit = {
+				is_hosting_exploit = yes
+			}
+			solar_system = {
+				every_system_planet = {
+					limit = {
+						has_modifier = colonized_planet
+					}
+					export_trigger_value_to_variable = {
+						trigger = planet_resource_compare
+						parameters = { resource = alloys type = produces }
+						variable = realdev_alloy_production
+					}
+					PREVPREVPREV = { change_variable = { which = realdev_alloy_production value = prevprevprev.realdev_alloy_production } }
+				}
+			}
+		}
+		divide_variable = { which = realdev_alloy_production value = 3 }
+		divide_variable = { which = realdev_congoods_production value = 6 }
+		ceiling_variable = realdev_alloy_production
+		ceiling_variable = realdev_congoods_production
+		change_variable = { which = realdev_industry value = realdev_alloy_production }
+		change_variable = { which = realdev_industry value = realdev_congoods_production }
+		
+		#Count Administrator Jobs (And Swaps)
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = head_researcher } variable = realdev_head_researcher }
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = politician } variable = realdev_administrator }
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = noble } variable = realdev_noble }
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = executive } variable = realdev_executive }
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = merchant } variable = realdev_merchant }
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = high_priest } variable = realdev_high_priest }
+		
+		
+		change_variable = { which = realdev_industry_cap_rulers value = realdev_head_researcher }
+		change_variable = { which = realdev_industry_cap_rulers value = realdev_administrator }
+		change_variable = { which = realdev_industry_cap_rulers value = realdev_noble }
+		change_variable = { which = realdev_industry_cap_rulers value = realdev_executive }
+		change_variable = { which = realdev_industry_cap_rulers value = realdev_merchant }
+		change_variable = { which = realdev_industry_cap_rulers value = realdev_high_priest }
+		
+		multiply_variable = { which = realdev_industry_cap_rulers value = 10 }
+		
+		export_modifier_to_variable = { modifier = district_realdev_industry_cap_max variable = realdev_industry_cap_foreman }
+		
+		change_variable = { which = realdev_industry_cap_rulers value = realdev_industry_cap_foreman }
+		change_variable = { which = realdev_industry_cap value = realdev_industry_cap_rulers }
+		
+		#Count Roboticist Jobs (And Equivalents)
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = roboticist } variable = realdev_roboticist }
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = spawning_drone } variable = realdev_spawning_drone }
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = replicator } variable = realdev_replicator }
+
+		change_variable = { which = realdev_assembly_cap_jobs value = realdev_roboticist }
+		change_variable = { which = realdev_assembly_cap_jobs value = realdev_spawning_drone }
+		change_variable = { which = realdev_assembly_cap_jobs value = realdev_replicator }
+		
+		#Include Factory Production
+		if = {
+			limit = {
+				has_autofab = yes
+			}
+			set_variable = { which = realdev_autofab_modules value = autofab_modules }
+			multiply_variable = { which = realdev_autofab_modules value = 2 }
+			change_variable = { which = realdev_industry value = realdev_autofab_modules }
+		}
+
+		#Export number of branch office equipment buildings, if any exist.
+		if = {
+			limit = {
+				has_branch_office = yes
+			}
+			set_variable = { which = realdev_megacorp_factories value = 0 }
+			export_trigger_value_to_variable = { trigger = num_buildings parameters = { type = building_corporate_construction } variable = realdev_megacorp_factories }
+			multiply_variable = { which = realdev_megacorp_factories value = 10 }
+		}
+	}
+}
+
+#Second event for planet math
+planet_event = {
+	id = realdev.3
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		#Include bonuses from Capital Bonus techs
+		set_variable = { which = realdev_industry_multiplier_bonus value = 100 }
+		set_variable = { which = realdev_industry_multiplier_bonus_2 value = 1 }
+		if = {
+			limit = {
+				owner = { has_technology = tech_capital_productivity_1 }
+				has_upgraded_capital = yes
+			}
+			change_variable = { which = realdev_industry_multiplier_bonus value = 0.1 }
+		}
+		if = {
+			limit = {
+				owner = { has_technology = tech_capital_productivity_2 }
+				has_major_upgraded_capital = yes
+			}
+			change_variable = { which = realdev_industry_multiplier_bonus value = 0.2 }
+		}
+		if = {
+			limit = {
+				owner = { has_technology = tech_capital_productivity_3 }
+				has_fully_upgraded_capital = yes
+			}
+			change_variable = { which = realdev_industry_multiplier_bonus value = 0.3 }
+		}
+
+		#Pull bonuses from Governor and Ruler
+		if = {
+			limit = {
+				exists = sector
+			}
+			change_variable = { which = realdev_leader_level value = sector.leader.realdev_leader_level }
+			change_variable = { which = realdev_industry value = sector.leader.realdev_industry }
+		}
+		change_variable = { which = realdev_leader_level value = owner.leader.realdev_leader_level }
+		change_variable = { which = realdev_industry value = owner.leader.realdev_industry }
+		change_variable = { which = realdev_industry_multiplier_bonus value = realdev_leader_level }
+		
+		#Include Amenities Bonus
+		export_trigger_value_to_variable = { trigger = free_amenities variable = realdev_amenities }
+		if = {
+			limit = {
+				check_variable = { which = realdev_amenities value > 100 }
+			}
+			set_variable = { which = realdev_amenities value = 100 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = realdev_amenities value < -100 }
+			}
+			set_variable = { which = realdev_amenities value = -100 }
+		}
+		divide_variable = { which = realdev_amenities value = 100 }
+		change_variable = { which = realdev_industry_multiplier_bonus_2 value = realdev_amenities }
+		
+		#Include Bonus from orbiting Construction Ships
+		if = {
+			limit = {
+				count_fleet_in_orbit = {
+					count >= 0
+					limit = { any_owned_ship = { is_ship_size = constructor } }
+				}
+			}
+			set_variable = { which = realdev_construction_ship_industry value = 25 }
+			set_variable = { which = realdev_construction_ship_industry_cap value = 25 }
+			change_variable = { which = realdev_industry value = realdev_construction_ship_industry }
+			change_variable = { which = realdev_industry_cap value = realdev_construction_ship_industry_cap }
+		}
+		else = {
+			set_variable = { which = realdev_construction_ship_industry value = 0 }
+		}
+		
+		#Apply Multiplier Bonuses
+		divide_variable = { which = realdev_industry_multiplier_bonus value = 100 }
+		multiply_variable = { which = realdev_industry value = realdev_industry_multiplier_bonus }
+		multiply_variable = { which = realdev_industry_cap value = realdev_industry_multiplier_bonus }
+		multiply_variable = { which = realdev_industry value = realdev_industry_multiplier_bonus_2 }
+		multiply_variable = { which = realdev_industry_cap value = realdev_industry_multiplier_bonus_2 }
+		
+		#Cap Industrial Capacity
+		multiply_variable = { which = realdev_industry_cap value = 2 } #Double the cap. It's being split 4 ways.
+		ceiling_variable = realdev_industry
+		if = {
+			limit = {
+				check_variable = { which = realdev_industry value > realdev_industry_cap }
+			}
+			set_variable = { which = realdev_industry_capped value = realdev_industry_cap }
+		}
+		else = {
+			set_variable = { which = realdev_industry_capped value = realdev_industry }
+		}
+		#Split industrial capacity between planet and country or take if needed
+		set_variable = { which = realdev_industry_speed value = realdev_industry_capped }
+		multiply_variable = { which = realdev_industry_speed value = realdev_industry_planet_ratio }
+		
+		set_variable = { which = realdev_industry_country_ratio value = 1 }
+		subtract_variable = { which = realdev_industry_country_ratio value = realdev_industry_planet_ratio }
+		
+		set_variable = { which = realdev_country_industry value = realdev_industry_capped }
+		multiply_variable = { which = realdev_country_industry value = realdev_industry_country_ratio }
+		ceiling_variable = realdev_industry_speed
+		ceiling_variable = realdev_country_industry
+		
+		#Split Planet industrial capacity between assembly and construction, if this planet doesn't use Empire Assistance, then give build speed that isn't being used to country.
+		if = {
+			limit = {
+				NOT = { has_planet_flag = realdev_planet_take }
+			}
+			if = {
+				limit = {
+					has_building_construction = no
+					NOT = { has_planet_flag = factory_expanding }
+				}
+				if = {
+					limit = {
+						OR = {
+							can_pops_assemble_on_planet = yes
+							has_planet_flag = realdev_production_instead
+						}
+					}
+					set_variable = { which = realdev_assembly_speed value = realdev_industry_speed }
+					
+					round_variable = realdev_assembly_speed
+					
+					if = {
+						limit = {
+							check_variable = { which = realdev_assembly_speed value > realdev_assembly_cap }
+						}
+						subtract_variable = { which = realdev_assembly_speed value = realdev_assembly_cap }
+						change_variable = { which = realdev_country_industry value = realdev_assembly_speed }
+						set_variable = { which = realdev_assembly_speed value = realdev_assembly_cap }
+					}
+				}
+				else = {
+					change_variable = { which = realdev_country_industry value = realdev_planet_build_speed }
+					set_variable = { which = realdev_planet_build_speed value = 0 }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						OR = {
+							can_pops_assemble_on_planet = yes
+							has_planet_flag = realdev_production_instead
+						}
+					}
+					set_variable = { which = realdev_planet_build_speed value = realdev_industry_speed }
+					multiply_variable = { which = realdev_planet_build_speed value = realdev_industry_construction_ratio }
+					
+					set_variable = { which = realdev_industry_assembly_ratio value = 1 }
+					subtract_variable = { which = realdev_industry_assembly_ratio value = realdev_industry_construction_ratio }
+					
+					set_variable = { which = realdev_assembly_speed value = realdev_industry_speed }
+					multiply_variable = { which = realdev_assembly_speed value = realdev_industry_assembly_ratio }
+					
+					round_variable = realdev_planet_build_speed
+					round_variable = realdev_assembly_speed
+					
+					if = {
+						limit = {
+							check_variable = { which = realdev_assembly_speed value > realdev_assembly_cap }
+						}
+						subtract_variable = { which = realdev_assembly_speed value = realdev_assembly_cap }
+						change_variable = { which = realdev_country_industry value = realdev_assembly_speed }
+						set_variable = { which = realdev_assembly_speed value = realdev_assembly_cap }
+					}
+				}
+				else = {
+					set_variable = { which = realdev_planet_build_speed value = realdev_industry_speed }
+					multiply_variable = { which = realdev_planet_build_speed value = realdev_industry_construction_ratio }
+					
+					set_variable = { which = realdev_industry_assembly_ratio value = 1 }
+					subtract_variable = { which = realdev_industry_assembly_ratio value = realdev_industry_construction_ratio }
+					
+					set_variable = { which = realdev_assembly_speed value = realdev_industry_speed }
+					multiply_variable = { which = realdev_assembly_speed value = realdev_industry_assembly_ratio }
+					
+					round_variable = realdev_planet_build_speed
+					round_variable = realdev_assembly_speed
+					
+					change_variable = { which = realdev_country_industry value = realdev_assembly_speed }
+					set_variable = { which = realdev_assembly_speed value = 0 }
+				}
+			}
+		}
+	}
+}
+
+#Event for country math
+country_event = {
+	id = realdev.4
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		set_variable = { which = orbitalinfra_shipyard value = 0 }
+		
+		#Pull build speed dedicated to the country from all planets
+		every_owned_planet = {
+			limit = {
+				OR = {
+					is_occupied_flag = no
+					has_orbital_bombardment = no
+				}
+			}
+			set_variable = { which = realdev_country_industry_display value = realdev_country_industry }
+			PREV = {
+				change_variable = { which = realdev_country_industry value = prev.realdev_country_industry }
+				change_variable = { which = orbitalinfra_shipyard value = prev.orbitalinfra_shipyard }
+			}
+		}
+		#Count Shipyards - Can't do this yet. Need exporting modifier in starbase scope.
+		#every_owned_ship = {
+		#	limit = {
+		#		NOT = { has_global_flag = realdev_shipyard_build_ignore }
+		#		OR = {
+		#			is_ship_size = starbase_outpost
+		#			is_ship_size = starbase_starport
+		#			is_ship_size = starbase_starhold
+		#			is_ship_size = starbase_starfortress
+		#			is_ship_size = starbase_citadel
+		#		}
+		#	}
+		#	export_modifier_to_variable = { modifier = starbase_shipyard_capacity_add variable = realdev_shipyard_count }
+		#}
+		
+		#Megacorp Branch Offices - commented out pending actual implementation
+		#set_variable = { which = realdev_megacorp_factories value = 0 }
+		#if = {
+		#	limit = {
+		#		is_megacorp = yes
+		#	}
+		#	every_country = {
+		#		limit = {
+		#			has_commercial_pact = PREV
+		#		}
+		#		every_owned_planet = {
+		#			limit = {
+		#				has_branch_office = PREVPREV
+		#			}
+		#			PREVPREV = { change_variable = { which = realdev_megacorp_factories value = PREVPREV.realdev_megacorp_factories } }
+		#		}
+		#	}
+		#}
+		#change_variable = { which = realdev_country_industry value = realdev_megacorp_factories }
+
+
+		#Count collected trade value for use.
+		set_variable = { which = realdev_trade_value_shared value = 0 }
+		
+		every_system_within_border = {
+			limit = {
+				has_system_trade_value > 0
+			}
+			export_trigger_value_to_variable = { trigger = has_collected_system_trade_value variable = realdev_trade_value }
+			PREV = { change_variable = { which = realdev_trade_value value = prev.realdev_trade_value } }
+		}
+
+		#Megacorp Construction Company Civic
+		if = {
+			limit = {
+				is_megacorp = yes
+				has_valid_civic = civic_construction_company
+			}
+			every_country = {
+				limit = {
+					is_country_type = default
+					has_commercial_pact = prev
+				}
+				PREV = { change_variable = { which = realdev_trade_value_shared value = prev.realdev_trade_value } }
+			}
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					is_megacorp = yes
+					has_valid_civic = civic_construction_company
+					has_commercial_pact = prev
+				}
+			}
+			every_country = {
+				limit = {
+					is_megacorp = yes
+					has_valid_civic = civic_construction_company
+					has_commercial_pact = prev
+				}
+				PREV = { change_variable = { which = realdev_trade_value_shared value = prev.realdev_trade_value } }
+			}
+		}
+		
+		
+		divide_variable = { which = realdev_trade_value value = 20 }
+		divide_variable = { which = realdev_trade_value_shared value = 40 }
+		ceiling_variable = realdev_trade_value
+		ceiling_variable = realdev_trade_value_shared
+		
+		change_variable = { which = realdev_country_industry value = realdev_trade_value }
+		change_variable = { which = realdev_country_industry value = realdev_trade_value_shared }
+		
+		#Count shipyard modules, and Orbital Infrastructure Shipyards
+		every_owned_starbase = {
+			limit = {
+				has_starbase_module = shipyard
+			}
+			export_trigger_value_to_variable = {
+				trigger = count_starbase_modules
+				parameters = { type = shipyard }
+				variable = realdev_shipyard_count
+			}
+			if = {
+				limit = {
+					has_starbase_building = orbital_shipyard_link
+				}
+				change_variable = { which = realdev_shipyard_count value = orbitalinfra_shipyard }
+			}
+			PREV = { change_variable = { which = realdev_shipyard_count value = prev.realdev_shipyard_count } }
+		}
+		change_variable = { which = realdev_shipyard_bonus value = realdev_shipyard_count }
+		multiply_variable = { which = realdev_shipyard_bonus value = 5 }		
+		
+		#Split country build speed between stockpile and usage
+		set_variable = { which = realdev_country_stockpile value = realdev_country_industry }
+		multiply_variable = { which = realdev_country_stockpile value = realdev_industry_country_stockpile }
+		
+		set_variable = { which = realdev_industry_stockpile_ratio value = 1 }
+		subtract_variable = { which = realdev_industry_stockpile_ratio value = realdev_industry_country_stockpile }
+		
+		set_variable = { which = realdev_usage_industry value = realdev_country_industry }
+		multiply_variable = { which = realdev_usage_industry value = realdev_industry_stockpile_ratio }
+		
+		ceiling_variable = realdev_country_stockpile
+		ceiling_variable = realdev_usage_industry
+		
+		set_variable = { which = realdev_country_stockpile_display value = realdev_country_stockpile }
+		set_variable = { which = realdev_usage_industry_display value = realdev_usage_industry }
+		
+		
+		#Split country build speed between shipyards and space construction
+		set_variable = { which = realdev_ship_build_speed value = realdev_usage_industry }
+		multiply_variable = { which = realdev_ship_build_speed value = realdev_industry_shipyard_ratio }
+		
+		set_variable = { which = realdev_industry_space_construction_ratio value = 1 }
+		subtract_variable = { which = realdev_industry_space_construction_ratio value = realdev_industry_shipyard_ratio }
+		
+		set_variable = { which = realdev_space_build_speed value = realdev_usage_industry }
+		multiply_variable = { which = realdev_space_build_speed value = realdev_industry_space_construction_ratio }
+		
+		
+		#Split space construction build speed between Minor Colonies and Megastructures, if exploit is active, and if there are actually Minor Colonies building
+		if = {
+			limit = {
+				check_variable = { which = realdev_building_megas value > 0 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = exploit_minor_colonies_building value > 0 }
+					NOT = { has_global_flag = no_exploit }
+				}
+			
+				set_variable = { which = realdev_minor_colony_speed value = realdev_space_build_speed }
+				multiply_variable = { which = realdev_minor_colony_speed value = realdev_industry_space_ratio }
+				divide_variable = { which = realdev_minor_colony_speed value = exploit_minor_colonies_building }
+				
+				set_variable = { which = realdev_industry_megastructure_ratio value = 1 }
+				subtract_variable = { which = realdev_industry_megastructure_ratio value = realdev_industry_space_ratio }
+				
+				set_variable = { which = realdev_mega_build_speed value = realdev_space_build_speed }
+				multiply_variable = { which = realdev_mega_build_speed value = realdev_industry_megastructure_ratio }
+				divide_variable = { which = realdev_mega_build_speed value = realdev_building_megas }
+			}
+			else = {
+				set_variable = { which = realdev_mega_build_speed value = realdev_space_build_speed }
+				divide_variable = { which = realdev_mega_build_speed value = realdev_building_megas }
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = exploit_minor_colonies_building value > 0 }
+				}
+			
+				set_variable = { which = realdev_minor_colony_speed value = realdev_space_build_speed }
+				multiply_variable = { which = realdev_minor_colony_speed value = realdev_industry_space_ratio }
+				divide_variable = { which = realdev_minor_colony_speed value = exploit_minor_colonies_building }
+				
+				set_variable = { which = realdev_industry_megastructure_ratio value = 1 }
+				subtract_variable = { which = realdev_industry_megastructure_ratio value = realdev_industry_space_ratio }
+				
+				set_variable = { which = realdev_mega_build_speed value = realdev_space_build_speed }
+				multiply_variable = { which = realdev_mega_build_speed value = realdev_industry_megastructure_ratio }
+				change_variable = { which = realdev_ship_build_speed value = realdev_mega_build_speed }
+				set_variable = { which = realdev_mega_build_speed value = 0 }
+			}
+			else = {
+				change_variable = { which = realdev_ship_build_speed value = realdev_space_build_speed }
+			}
+		}
+		
+		#Pull bonuses from Sector Governors, and Ruler
+		every_owned_leader = { 
+			limit = { 
+				leader_class = governor
+			}
+			PREV = { change_variable = { which = realdev_ship_build_speed value = prev.realdev_ship_build_speed } }
+		}
+		leader = {
+			PREV = { change_variable = { which = realdev_ship_build_speed value = prev.realdev_ship_build_speed } }
+		}
+		
+		#Pull Bonuses for Orbital Shipyards
+		multiply_variable = { which = orbitalinfra_shipyard value = 10 }
+		change_variable = { which = realdev_ship_build_speed value = orbitalinfra_shipyard }
+		
+		
+		#Include Ship speed bonuses based on techs
+		change_variable = { which = realdev_ship_build_speed value = realdev_ship_build_speed_tech_bonus }
+		
+		#Cap Ships build speed, transfer extra over to Megas if it is used.
+		change_variable = { which = realdev_ship_build_speed value = realdev_shipyard_bonus }
+		divide_variable = { which = realdev_ship_build_speed value = realdev_shipyard_count }
+		if = {
+			limit = {
+				check_variable = { which = realdev_ship_build_speed value > realdev_ship_build_cap }
+			}
+			change_variable = { which = realdev_mega_build_speed value = realdev_ship_build_speed }
+			subtract_variable = { which = realdev_mega_build_speed value = realdev_ship_build_cap }
+			change_variable = { which = realdev_ship_build_speed value = realdev_ship_build_cap }
+		}
+	}	
+}
+
+#Event to place the all modifiers at the start of the month. Math is done before, so as to not interfere with Start of Month stuff.
+country_event = {
+	id = realdev.5
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		set_variable = { which = realdev_industry_display value = 0 }
+		every_owned_planet = {
+			#Set display variables
+			set_variable = { which = realdev_planet_build_speed_display value = realdev_planet_build_speed }
+			set_variable = { which = realdev_assembly_speed_display value = realdev_assembly_speed }
+			set_variable = { which = realdev_industry_cap_display value = realdev_industry_cap }
+			set_variable = { which = realdev_industry_speed_display value = realdev_industry_speed }
+			set_variable = { which = realdev_industry_display value = realdev_industry }
+			PREV = { change_variable = { which = realdev_industry_display value = prev.realdev_industry_display } }
+			
+			set_variable = { which = realdev_alloy_production_display value = realdev_alloy_production }
+			set_variable = { which = realdev_congoods_production_display value = realdev_congoods_production }
+			
+			set_variable = { which = realdev_building_display value = realdev_building }
+			set_variable = { which = realdev_building_cap_display value = realdev_building_cap }
+		
+			set_variable = { which = realdev_industry_pops_display value = realdev_industry_pops }
+			set_variable = { which = realdev_industry_pops_cap_display value = realdev_industry_pops_cap }
+			set_variable = { which = realdev_industry_cap_rulers_display value = realdev_industry_cap_rulers }
+			
+			set_variable = { which = realdev_industry_multiplier_bonus_display value = realdev_industry_multiplier_bonus }
+			set_variable = { which = realdev_industry_multiplier_bonus_2_display value = realdev_industry_multiplier_bonus_2 }
+			
+			multiply_variable = { which = realdev_industry_multiplier_bonus_display value = 100 }
+			subtract_variable = { which = realdev_industry_multiplier_bonus_display value = 100 }
+			multiply_variable = { which = realdev_industry_multiplier_bonus_2_display value = 100 }
+			subtract_variable = { which = realdev_industry_multiplier_bonus_2_display value = 100 }
+			
+			set_variable = { which = realdev_construction_ship_industry_display value = realdev_construction_ship_industry }
+			
+			#Include adjustment
+			if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_none_flag
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_small_flag
+				}
+				change_variable = { which = realdev_planet_build_speed value = -25 }
+				if = {
+					limit = {
+						NOT = { has_planet_flag = realdev_production_instead }
+					}
+					change_variable = { which = realdev_assembly_speed value = -25 }
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_medium_flag
+				}
+				change_variable = { which = realdev_planet_build_speed value = -50 }
+				if = {
+					limit = {
+						NOT = { has_planet_flag = realdev_production_instead }
+					}
+					change_variable = { which = realdev_assembly_speed value = -50 }
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_large_flag
+				}
+				change_variable = { which = realdev_planet_build_speed value = -75 }
+				if = {
+					limit = {
+						NOT = { has_planet_flag = realdev_production_instead }
+					}
+					change_variable = { which = realdev_assembly_speed value = -75 }
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = roci_realdev_build_adjustment_full_flag
+				}
+				change_variable = { which = realdev_planet_build_speed value = -100 }
+				if = {
+					limit = {
+						NOT = { has_planet_flag = realdev_production_instead }
+					}
+					change_variable = { which = realdev_assembly_speed value = -100 }
+				}
+			}
+		
+			#Apply planet build speed modifiers
+			add_modifier = {
+				modifier = realdev_planet_speed
+				multiplier = realdev_planet_build_speed
+				days = 30
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = realdev_ignore_assembly }
+				}
+				if = {
+					limit = {
+						NOT = { has_planet_flag = realdev_production_instead }
+					}
+					add_modifier = {
+						modifier = realdev_planet_assembly
+						multiplier = realdev_assembly_speed
+						days = 30
+					}
+				}
+				else = {
+					add_modifier = {
+						modifier = realdev_planet_job_output
+						multiplier = realdev_assembly_speed
+						days = 30
+					}
+				}
+			}
+		}
+		
+		#Apply modifiers
+		
+		round_variable = realdev_ship_build_speed
+		round_variable = realdev_minor_colony_speed
+		round_variable = realdev_mega_build_speed
+		
+		set_variable = { which = realdev_country_industry_display value = realdev_country_industry }
+		set_variable = { which = realdev_ship_build_speed_display value = realdev_ship_build_speed }
+		set_variable = { which = realdev_space_build_speed_display value = realdev_space_build_speed }
+		set_variable = { which = realdev_minor_colony_speed_display value = realdev_minor_colony_speed }
+		divide_variable = { which = realdev_minor_colony_speed value = 100 }
+		set_variable = { which = realdev_mega_build_speed_display value = realdev_mega_build_speed }
+		
+		#Include -100 to eliminate the base build speed.
+		change_variable = { which = realdev_ship_build_speed value = -100 }
+		change_variable = { which = realdev_mega_build_speed value = -100 }
+		#change_variable = { which = realdev_minor_colony_speed value = -100 }
+		
+		if = {
+			limit = {
+				NOT = { has_global_flag = realdev_shipyard_build_ignore }
+			}
+			add_modifier = {
+				modifier = realdev_ship_speed
+				multiplier = realdev_ship_build_speed
+				days = 30
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = realdev_megastructure_build_ignore }
+			}
+			add_modifier = {
+				modifier = realdev_mega_speed
+				multiplier = realdev_mega_build_speed
+				days = 30
+			}
+		}
+	}
+}
+
+#Event to handle leaders leveling up, so I'm not doing it every month
+country_event = {
+	id = realdev.6
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+		exists = from
+	}
+	
+	immediate = {
+		FROM = {
+			#Governor
+			if = {
+				limit = {
+					leader_class = governor
+					sector = {
+						exists = this
+					}
+				}
+				export_trigger_value_to_variable = {
+					trigger = has_level
+					variable = realdev_leader_level
+				}
+				multiply_variable = { which = realdev_leader_level value = 2 }
+				set_variable = { which = realdev_industry value = 0 }
+				set_variable = { which = realdev_industry_cap value = 0 }
+				set_variable = { which = realdev_ship_build_speed value = 0 }
+				if = {
+					limit = {
+						has_trait = leader_trait_architectural_interest
+					}
+					change_variable = { which = realdev_industry value = 20 }
+				}
+				if = {
+					limit = {
+						has_trait = leader_trait_bureaucrat
+					}
+					change_variable = { which = realdev_industry_cap value = 20 }
+				}
+				if = {
+					limit = {
+						has_trait = leader_trait_retired_fleet_officer
+					}
+					change_variable = { which = realdev_ship_build_speed value = 10 }
+				}
+			}
+			#Ruler
+			else_if = {
+				limit = {
+					leader_class = ruler
+				}
+				export_trigger_value_to_variable = {
+					trigger = has_level
+					variable = realdev_leader_level
+				}
+				divide_variable = { which = realdev_leader_level value = 2 }
+				ceiling_variable = realdev_leader_level
+				set_variable = { which = realdev_industry value = 0 }
+				set_variable = { which = realdev_ship_build_speed value = 0 }
+				if = {
+					limit = {
+						has_ruler_trait = trait_ruler_architectural_sense
+					}
+					change_variable = { which = realdev_industry value = 10 }
+				}
+				if = {
+					limit = {
+						has_ruler_trait = trait_ruler_industrialist
+					}
+					change_variable = { which = realdev_industry value = 10 }
+				}
+				if = {
+					limit = {
+						has_ruler_trait = trait_ruler_military_pioneer
+					}
+					change_variable = { which = realdev_ship_build_speed value = 10 }
+				}
+				if = {
+					limit = {
+						has_ruler_trait = trait_ruler_warlike
+					}
+					change_variable = { which = realdev_ship_build_speed value = 10 }
+				}
+				if = {
+					limit = {
+						has_ruler_trait = leader_trait_fleet_organizer
+					}
+					change_variable = { which = realdev_ship_build_speed value = 10 }
+				}
+			}
+		}
+	}
+}
+
+#Event to handle leaders being newly-assigned
+leader_event = {
+	id = realdev.7
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+		exists = this
+		leader_class = governor
+	}
+	
+	immediate = {
+		export_trigger_value_to_variable = {
+			trigger = has_level
+			variable = realdev_leader_level
+		}
+		multiply_variable = { which = realdev_leader_level value = 2 }
+		if = {
+			limit = {
+				has_trait = leader_trait_architectural_interest
+			}
+			change_variable = { which = realdev_industry value = 20 }
+		}
+		if = {
+			limit = {
+				has_trait = leader_trait_bureaucrat
+			}
+			change_variable = { which = realdev_industry_cap value = 20 }
+		}
+	}
+}
+
+#Event to increase ship speed cap based on techs researched
+country_event = {
+	id = realdev.8
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = no_realdev }
+			}
+			if = {
+				limit = {
+					last_increased_tech = tech_destroyers
+				}
+				change_variable = { which = realdev_ship_build_cap value = 10 }
+				change_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+			}
+			else_if = {
+				limit = {
+					last_increased_tech = tech_cruisers
+				}
+				change_variable = { which = realdev_ship_build_cap value = 10 }
+				change_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+			}
+			else_if = {
+				limit = {
+					last_increased_tech = tech_battleships
+				}
+				change_variable = { which = realdev_ship_build_cap value = 10 }
+				change_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+			}
+			else_if = {
+				limit = {
+					last_increased_tech = tech_titans
+				}
+				change_variable = { which = realdev_ship_build_cap value = 10 }
+				change_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+			}
+			else_if = {
+				limit = {
+					last_increased_tech = tech_juggernaut
+				}
+				change_variable = { which = realdev_ship_build_cap value = 20 }
+				change_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+			}
+			else_if = {
+				limit = {
+					last_increased_tech = tech_interstellar_fleet_traditions
+				}
+				change_variable = { which = realdev_ship_build_cap value = 20 }
+			}
+			else_if = {
+				limit = {
+					last_increased_tech = tech_refit_standards
+				}
+				change_variable = { which = realdev_ship_build_cap value = 20 }
+			}
+		}
+	}
+}
+
+#Events to handle the upgrading megastructure count
+country_event = {
+	id = realdev.9
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		change_variable = { which = realdev_upgrading_megas value = 1 }
+	}
+}
+country_event = {
+	id = realdev.91
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		change_variable = { which = realdev_upgrading_megas value = -1 }
+	}
+}
+
+country_event = {
+	id = realdev.92
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		set_variable = { which = realdev_building_megas value = 0 }
+		every_owned_fleet = {
+			limit = {
+				is_constructing = megastructure
+			}
+			PREV = { change_variable = { which = realdev_building_megas value = 1 } }
+		}
+		change_variable = { which = realdev_building_megas value = realdev_upgrading_megas }
+	}
+}
+
+planet_event = {
+	id = realdev.11
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				has_planet_flag = realdev_planet_take
+			}
+			#Cap Industrial Capacity
+			ceiling_variable = realdev_industry
+			if = {
+				limit = {
+					check_variable = { which = realdev_industry value > realdev_industry_cap }
+				}
+				set_variable = { which = realdev_industry_capped value = realdev_industry_cap }
+			}
+			else = {
+				set_variable = { which = realdev_industry_capped value = realdev_industry }
+			}
+			#Split industrial capacity between planet and country or take if needed
+			set_variable = { which = realdev_planet_stockpile value = owner.realdev_country_stockpile }
+			multiply_variable = { which = realdev_planet_stockpile value = realdev_take_ratio }
+			set_variable = { which = realdev_planet_stockpile_display value = realdev_planet_stockpile }
+			
+			owner = { subtract_variable = { which = realdev_country_stockpile value = PREV.realdev_planet_stockpile } }
+			change_variable = { which = realdev_industry_speed value = realdev_planet_stockpile }
+			
+			
+			round_variable = realdev_industry_speed
+			
+			#Split Planet industrial capacity between assembly and construction
+			if = {
+				limit = {
+					OR = {
+						has_building_construction = yes
+						has_planet_flag = factory_expanding
+					}
+				}
+				set_variable = { which = realdev_planet_build_speed value = realdev_industry_speed }
+				multiply_variable = { which = realdev_planet_build_speed value = realdev_industry_construction_ratio }
+				
+				set_variable = { which = realdev_industry_assembly_ratio value = 1 }
+				subtract_variable = { which = realdev_industry_assembly_ratio value = realdev_industry_construction_ratio }
+				
+				set_variable = { which = realdev_assembly_speed value = realdev_industry_speed }
+				multiply_variable = { which = realdev_assembly_speed value = realdev_industry_assembly_ratio }
+				
+				round_variable = realdev_planet_build_speed
+				round_variable = realdev_assembly_speed
+			}
+		}
+	}	
+}

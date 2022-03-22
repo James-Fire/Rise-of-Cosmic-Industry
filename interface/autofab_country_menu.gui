@@ -77,7 +77,17 @@ guiTypes = {
             alwaysTransparent = yes
             position = { x = 220 y = 55 }
         }
-		
+		effectButtonType = {
+			name = "autofab_country_tooltip"
+			spriteType = "GFX_roci_tooltip"
+			position = { x = 625 y = 20 }
+			format = left
+			no_clicksound = yes
+			borderSize = { x = 10 y = 0 }
+			font = "cg_16b"
+			text = "blank"
+			effect = "autofab_country_tooltip"
+		}
 		containerWindowType = {
 			name = "factory_dongs_contain"
 			position = { x = 0 y = 0 }

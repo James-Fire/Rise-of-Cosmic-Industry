@@ -1,0 +1,13 @@
+#Variable Localization#
+
+defined_text = {
+	name = Get0TradeRoutes
+	text = {
+		trigger = { NOT = { any_owned_planet = { prev = { any_owned_fleet = { has_fleet_flag = kiyo_trade_start@PREVPREV } } } } }
+		localization_key = kiyo_mod_trade_zero
+	}
+	text = {
+		trigger = { any_owned_planet = { prev = { any_owned_fleet = { has_fleet_flag = kiyo_trade_start@PREVPREV } } } }
+		localization_key = kiyo_mod_trade_noinfo
+	}
+}

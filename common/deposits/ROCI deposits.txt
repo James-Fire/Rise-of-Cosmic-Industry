@@ -1,0 +1,14 @@
+roci_cheat_deposit = {
+	station = shipclass_mining_station
+	is_for_colonizable = no
+	
+	resources = {
+		category = planet_deposits
+	}
+	planet_modifier = {
+		planet_max_districts_add = 1
+	}
+	
+	potential = { always = no }
+	drop_weight = { weight = 0 }
+}

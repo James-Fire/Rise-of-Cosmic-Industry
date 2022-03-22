@@ -1,3 +1,14 @@
+roci_settings_tooltip = {
+	potential = { }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_settings_desc" }
+}
+
+roci_autofab = {
+	potential = { }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_autofab_desc" }
+}
 roci_autofab_on = {
 	potential = { NOT = { has_global_flag = no_autofab } }
 	allow = { hidden_trigger = { always = yes } }
@@ -8,7 +19,7 @@ roci_autofab_off = {
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_global_flag = no_autofab }
 }
-roci_autofab = {
+roci_autofab_everyone = {
 	potential = { NOT = { has_global_flag = no_autofab } }
 	allow = { has_global_flag = autofab_for_all }
 	effect = { 
@@ -32,6 +43,11 @@ roci_autofab_everyone_off = {
 	}
 }
 
+roci_exploit = {
+	potential = { }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_exploit_desc" }
+}
 roci_exploit_on = {
 	potential = { NOT = { has_global_flag = no_exploit } }
 	allow = { hidden_trigger = { always = yes } }
@@ -314,12 +330,17 @@ exploit_ai_speed_neg_4 = {
 	}
 }
 exploit_ai_speed_neg_5 = {
-	potential = { NOT = { has_global_flag = no_exploit } OT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_5_neg }
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = exploit_ai_off } has_global_flag = exploit_speed_manual has_global_flag = exploit_ai_speed_5_neg }
 	allow = { hidden_trigger = { always = yes } }
 	effect = {
 	}
 }
 
+roci_orbital = {
+	potential = { }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_orbital_desc" }
+}
 roci_orbital_on = {
 	potential = { NOT = { has_global_flag = no_orbital_infra } }
 	allow = { hidden_trigger = { always = yes } }
@@ -331,6 +352,11 @@ roci_orbital_off = {
 	effect = { remove_global_flag = no_orbital_infra }
 }
 
+roci_realdev = {
+	potential = { }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_realdev_desc" }
+}
 roci_realdev_on = {
 	potential = { NOT = { has_global_flag = no_realdev } }
 	allow = { hidden_trigger = { always = yes } }
@@ -416,4 +442,38 @@ roci_realdev_build_adjustment_full = {
 	potential = { NOT = { has_global_flag = no_realdev } has_global_flag = roci_realdev_build_adjustment_full_flag }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { custom_tooltip = "roci_realdev_build_adjustment_full_desc" }
+}
+
+
+roci_fe_buildings = {
+	potential = { }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_fe_buildings_desc" }
+}
+roci_fe_buildings_on = {
+	potential = { NOT = { has_global_flag = no_fe_buildings } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { set_global_flag = no_fe_buildings }
+}
+roci_fe_buildings_off = {
+	potential = { has_global_flag = no_fe_buildings }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { remove_global_flag = no_fe_buildings }
+}
+
+
+roci_trade_routes = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_trade_routes_desc" }
+}
+roci_trade_routes_on = {
+	potential = { NOT = { has_global_flag = no_trade_routes } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { set_global_flag = no_trade_routes }
+}
+roci_trade_routes_off = {
+	potential = { has_global_flag = no_trade_routes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { remove_global_flag = no_trade_routes }
 }

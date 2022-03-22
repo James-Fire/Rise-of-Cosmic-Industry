@@ -1,0 +1,21 @@
+utility_component_template = {
+	key = "COMBAT_COMPUTER_KIYO_MOD_TRADE_EVADE_DEFAULT"
+	size = small
+	icon = "GFX_ship_part_computer_default"
+	icon_frame = 1
+	power = -5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 0
+		}
+	}
+	ship_behavior = "kiyo_mod_trade_evade"
+	
+	size_restriction = {kiyo_trade}
+	component_set = "combat_computers"
+	
+	ai_weight = {
+		weight = 10
+	}
+}

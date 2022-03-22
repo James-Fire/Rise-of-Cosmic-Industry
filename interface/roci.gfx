@@ -1,4 +1,6 @@
 spriteTypes = {
+	spriteType = { name = "GFX_roci_tooltip"					texturefile = "gfx/interface/menu_ui/roci_tooltip.dds" }
+
 	spriteType = {
 		name = "GFX_roci_settings_anim"
 		texturefile = "gfx/interface/menu_ui/roci_settings.dds" #The base image. Defines the size of the sprite.

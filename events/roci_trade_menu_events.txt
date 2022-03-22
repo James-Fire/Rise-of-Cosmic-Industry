@@ -1,0 +1,521 @@
+namespace = kiyo_trade_manual_event
+
+# Adding a Trade Route
+fleet_event = {
+	id = kiyo_trade_manual_event.0
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { NOT = { has_global_flag = no_trade_routes } }
+	
+	immediate = {
+		event_target:kiyo_trade_orbit = { solar_system = { save_event_target_as = kiyo_trade_system } }
+		owner = {
+			create_message = {
+				type = EVENT_MESSAGE_TYPE
+				localization = kiyo_trade_manual_event.0.desc
+				target = root
+				days = 30
+				variable = {
+					type = name
+					localization = FLEET
+					scope = root
+				}
+				variable = {
+					type = name
+					localization = PLANET
+					scope = event_target:kiyo_trade_orbit
+				}
+				variable = {
+					type = name
+					localization = SOLAR_SYSTEM
+					scope = event_target:kiyo_trade_system
+				}
+			}
+		}
+	}
+}
+
+# Gateway event to event below this one
+country_event = {
+	id = kiyo_trade_manual_event.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { NOT = { has_global_flag = no_trade_routes } }
+	
+	immediate = {
+		every_owned_fleet = {
+			limit = {
+				any_owned_ship = { is_ship_size = kiyo_trade }
+				if = { limit = { exists = event_target:kiyo_trade_cargo_fleet_1 } NOT = { is_same_value = event_target:kiyo_trade_cargo_fleet_1 } }
+				if = { limit = { exists = event_target:kiyo_trade_cargo_fleet_2 } NOT = { is_same_value = event_target:kiyo_trade_cargo_fleet_2 } }
+				if = { limit = { exists = event_target:kiyo_trade_cargo_fleet_3 } NOT = { is_same_value = event_target:kiyo_trade_cargo_fleet_3 } }
+				if = { limit = { exists = event_target:kiyo_trade_cargo_fleet_4 } NOT = { is_same_value = event_target:kiyo_trade_cargo_fleet_4 } }
+				if = { limit = { exists = event_target:kiyo_trade_cargo_fleet_5 } NOT = { is_same_value = event_target:kiyo_trade_cargo_fleet_5 } }
+				if = { limit = { exists = event_target:kiyo_trade_cargo_fleet_6 } NOT = { is_same_value = event_target:kiyo_trade_cargo_fleet_6 } }
+				if = { limit = { exists = event_target:kiyo_trade_cargo_fleet_7 } NOT = { is_same_value = event_target:kiyo_trade_cargo_fleet_7 } }
+				if = { limit = { exists = event_target:kiyo_trade_cargo_fleet_8 } NOT = { is_same_value = event_target:kiyo_trade_cargo_fleet_8 } }
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < prev.kiyo_trade_max_cargo_ships_per_fleet } has_fleet_flag = kiyo_event_trade_expired_cargo
+					}
+				}
+				if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_1 } } save_event_target_as = kiyo_trade_cargo_fleet_1 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_2 } } save_event_target_as = kiyo_trade_cargo_fleet_2 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_3 } } save_event_target_as = kiyo_trade_cargo_fleet_3 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_4 } } save_event_target_as = kiyo_trade_cargo_fleet_4 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_5 } } save_event_target_as = kiyo_trade_cargo_fleet_5 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_6 } } save_event_target_as = kiyo_trade_cargo_fleet_6 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_7 } } save_event_target_as = kiyo_trade_cargo_fleet_7 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_8 } } save_event_target_as = kiyo_trade_cargo_fleet_8 }
+				else = { log = "[PrevPrev.GetName] has too many cargo fleets with non-maxed cargo ship numbers or there is a problem." }
+			}
+		}
+		
+		country_event = { id = kiyo_trade_manual_event.11 }
+	}
+	
+}
+
+# Choose which trade route to increase number of cargo ships by 1
+country_event = {
+	id = kiyo_trade_manual_event.11
+	title = kiyo_trade_manual_event.11.title
+	desc = kiyo_trade_manual_event.11.desc
+	picture = GFX_evt_galactic_market
+	location = root
+	is_triggered_only = yes
+	
+	trigger = { NOT = { has_global_flag = no_trade_routes } exists = event_target:kiyo_trade_cargo_fleet_1 }
+	
+	immediate = {
+		set_country_flag = kiyo_trade_add_cargo_window
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.11.a
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_1 }
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			event_target:kiyo_trade_cargo_fleet_1 = {
+				kiyo_trade_manual_event_11 = yes
+				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			}
+			remove_country_flag = kiyo_trade_add_cargo_window
+		}
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.11.b
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_2 }
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			event_target:kiyo_trade_cargo_fleet_2 = {
+				kiyo_trade_manual_event_11 = yes
+				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			}
+			remove_country_flag = kiyo_trade_add_cargo_window
+		}
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.11.c
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_3 }
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			event_target:kiyo_trade_cargo_fleet_3 = {
+				kiyo_trade_manual_event_11 = yes
+				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			}
+			remove_country_flag = kiyo_trade_add_cargo_window
+		}
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.11.d
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_4 }
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			event_target:kiyo_trade_cargo_fleet_4 = {
+				kiyo_trade_manual_event_11 = yes
+				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			}
+			remove_country_flag = kiyo_trade_add_cargo_window
+		}
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.11.e
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_5 }
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			event_target:kiyo_trade_cargo_fleet_5 = {
+				kiyo_trade_manual_event_11 = yes
+				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			}
+			remove_country_flag = kiyo_trade_add_cargo_window
+		}
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.11.f
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_6 }
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			event_target:kiyo_trade_cargo_fleet_6 = {
+				kiyo_trade_manual_event_11 = yes
+				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			}
+			remove_country_flag = kiyo_trade_add_cargo_window
+		}
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.11.g
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_7 }
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			event_target:kiyo_trade_cargo_fleet_7 = {
+				kiyo_trade_manual_event_11 = yes
+				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			}
+			remove_country_flag = kiyo_trade_add_cargo_window
+		}
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.11.h
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_8 }
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			event_target:kiyo_trade_cargo_fleet_8 = {
+				kiyo_trade_manual_event_11 = yes
+				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			}
+			remove_country_flag = kiyo_trade_add_cargo_window
+		}
+	}
+	
+	option = {
+		name = NOTIME
+		ai_chance = { factor = 0 }
+		
+		owner = {
+			add_resource = {
+				energy = 750
+				consumer_goods = 750
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = kiyo_trade_add_cargo_window }
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 750
+				}
+				resource_stockpile_compare = {
+					resource = consumer_goods
+					value >= 750
+				}
+			}
+			add_resource = {
+				energy = -750
+			}
+			add_resource = {
+				consumer_goods = -750
+			}
+			country_event = { id = kiyo_trade_manual_event.11 }
+		}
+		remove_country_flag = kiyo_trade_add_cargo_window
+	}
+	
+}
+
+# Check Trade Route values
+country_event = {
+	id = kiyo_trade_manual_event.2
+	title = kiyo_trade_manual_event.2.title
+	desc = kiyo_trade_manual_event.2.desc
+	picture = GFX_evt_galactic_market
+	is_triggered_only = yes
+	
+	trigger = { NOT = { has_global_flag = no_trade_routes } }
+	
+	immediate = {
+		# Reset vars
+		set_variable = { which = kiyo_trade_minerals value = 0 }
+		set_variable = { which = kiyo_trade_energy value = 0 }
+		set_variable = { which = kiyo_trade_food value = 0 }
+		set_variable = { which = kiyo_trade_unity value = 0 }
+		set_variable = { which = kiyo_trade_consumer_goods value = 0 }
+		set_variable = { which = kiyo_trade_alloys value = 0 }
+		set_variable = { which = kiyo_trade_physics_research value = 0 }
+		set_variable = { which = kiyo_trade_society_research value = 0 }
+		set_variable = { which = kiyo_trade_engineering_research value = 0 }
+		set_variable = { which = kiyo_trade_trade_value value = 0 }
+	
+		set_variable = { which = kiyo_trade_minerals_start value = 0 }
+		set_variable = { which = kiyo_trade_energy_start value = 0 }
+		set_variable = { which = kiyo_trade_food_start value = 0 }
+		set_variable = { which = kiyo_trade_unity_start value = 0 }
+		set_variable = { which = kiyo_trade_consumer_goods_start value = 0 }
+		set_variable = { which = kiyo_trade_alloys_start value = 0 }
+		set_variable = { which = kiyo_trade_physics_research_start value = 0 }
+		set_variable = { which = kiyo_trade_society_research_start value = 0 }
+		set_variable = { which = kiyo_trade_engineering_research_start value = 0 }
+		set_variable = { which = kiyo_trade_trade_value_start value = 0 }
+		
+		set_variable = { which = kiyo_trade_minerals_end value = 0 }
+		set_variable = { which = kiyo_trade_energy_end value = 0 }
+		set_variable = { which = kiyo_trade_food_end value = 0 }
+		set_variable = { which = kiyo_trade_unity_end value = 0 }
+		set_variable = { which = kiyo_trade_consumer_goods_end value = 0 }
+		set_variable = { which = kiyo_trade_alloys_end value = 0 }
+		set_variable = { which = kiyo_trade_physics_research_end value = 0 }
+		set_variable = { which = kiyo_trade_society_research_end value = 0 }
+		set_variable = { which = kiyo_trade_engineering_research_end value = 0 }
+		set_variable = { which = kiyo_trade_trade_value_end value = 0 }
+		
+		every_owned_planet = {
+			limit = {
+				has_trade_route = yes
+			}
+			PREV = {
+				change_variable = { which = kiyo_trade_minerals_start value = prev.kiyo_trade_minerals_start }
+				change_variable = { which = kiyo_trade_energy_start value = prev.kiyo_trade_energy_start }
+				change_variable = { which = kiyo_trade_food_start value = prev.kiyo_trade_food_start }
+				change_variable = { which = kiyo_trade_unity_start value = prev.kiyo_trade_unity_start }
+				change_variable = { which = kiyo_trade_consumer_goods_start value = prev.kiyo_trade_consumer_goods_start }
+				change_variable = { which = kiyo_trade_alloys_start value = prev.kiyo_trade_alloys_start }
+				change_variable = { which = kiyo_trade_physics_research_start value = prev.kiyo_trade_physics_research_start }
+				change_variable = { which = kiyo_trade_society_research_start value = prev.kiyo_trade_society_research_start }
+				change_variable = { which = kiyo_trade_engineering_research_start value = prev.kiyo_trade_engineering_research_start }
+				change_variable = { which = kiyo_trade_trade_value_start value = prev.kiyo_trade_trade_value_start }
+			}
+			PREV = {
+				change_variable = { which = kiyo_trade_minerals_end value = prev.kiyo_trade_minerals_end }
+				change_variable = { which = kiyo_trade_energy_end value = prev.kiyo_trade_energy_end }
+				change_variable = { which = kiyo_trade_food_end value = prev.kiyo_trade_food_end }
+				change_variable = { which = kiyo_trade_unity_end value = prev.kiyo_trade_unity_end }
+				change_variable = { which = kiyo_trade_consumer_goods_end value = prev.kiyo_trade_consumer_goods_end }
+				change_variable = { which = kiyo_trade_alloys_end value = prev.kiyo_trade_alloys_end }
+				change_variable = { which = kiyo_trade_physics_research_end value = prev.kiyo_trade_physics_research_end }
+				change_variable = { which = kiyo_trade_society_research_end value = prev.kiyo_trade_society_research_end }
+				change_variable = { which = kiyo_trade_engineering_research_end value = prev.kiyo_trade_engineering_research_end }
+				change_variable = { which = kiyo_trade_trade_value_end value = prev.kiyo_trade_trade_value_end }
+			}
+		}
+		
+		#Save trade fleets as event targets for reference in buttons
+		every_owned_fleet = { limit = { NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo } has_fleet_flag = kiyo_trade_has_trade_route }
+			if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_1 } } save_event_target_as = kiyo_trade_cargo_fleet_1 }
+			else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_2 } } save_event_target_as = kiyo_trade_cargo_fleet_2 }
+			else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_3 } } save_event_target_as = kiyo_trade_cargo_fleet_3 }
+			else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_4 } } save_event_target_as = kiyo_trade_cargo_fleet_4 }
+			else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_5 } } save_event_target_as = kiyo_trade_cargo_fleet_5 }
+			else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_6 } } save_event_target_as = kiyo_trade_cargo_fleet_6 }
+			else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_7 } } save_event_target_as = kiyo_trade_cargo_fleet_7 }
+			else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_8 } } save_event_target_as = kiyo_trade_cargo_fleet_8 }
+			else = { log = "[PrevPrev.GetName] has too many cargo fleets or there is a problem." }
+		}
+		
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.2.a
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_1 }
+		
+		hidden_effect = { event_target:kiyo_trade_cargo_fleet_1 = { fleet_event = { id = kiyo_trade_manual_event.21 } } }
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.2.b
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_2 }
+		
+		hidden_effect = { event_target:kiyo_trade_cargo_fleet_2 = { fleet_event = { id = kiyo_trade_manual_event.21 } } }
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.2.c
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_3 }
+		
+		hidden_effect = { event_target:kiyo_trade_cargo_fleet_3 = { fleet_event = { id = kiyo_trade_manual_event.21 } } }
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.2.d
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_4 }
+		
+		hidden_effect = { event_target:kiyo_trade_cargo_fleet_4 = { fleet_event = { id = kiyo_trade_manual_event.21 } } }
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.2.e
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_5 }
+		
+		hidden_effect = { event_target:kiyo_trade_cargo_fleet_5 = { fleet_event = { id = kiyo_trade_manual_event.21 } } }
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.2.f
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_6 }
+		
+		hidden_effect = { event_target:kiyo_trade_cargo_fleet_6 = { fleet_event = { id = kiyo_trade_manual_event.21 } } }
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.2.g
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_7 }
+		
+		hidden_effect = { event_target:kiyo_trade_cargo_fleet_7 = { fleet_event = { id = kiyo_trade_manual_event.21 } } }
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.2.h
+		trigger = { exists = event_target:kiyo_trade_cargo_fleet_8 }
+		
+		hidden_effect = { event_target:kiyo_trade_cargo_fleet_8 = { fleet_event = { id = kiyo_trade_manual_event.21 } } }
+	}
+	# Max trade routes is 8. Check this number in "kiyo_mod_trade_triggered_events.txt" for verification. Add more options if there's more.
+	
+	option = {
+		name = kiyo_trade_manual_event.2.trade_value
+		trigger = {
+			any_country = {
+				NOT = { is_same_value = prev }
+				any_owned_fleet = {
+					any_owned_ship = { is_ship_size = kiyo_trade }
+					prevprev = {
+						any_owned_planet = {
+							prevprev = { has_fleet_flag = kiyo_trade_end@PREV }
+						}
+					}
+				}
+			}
+		}
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					NOT = { is_same_value = prev }
+					any_owned_fleet = {
+						any_owned_ship = { is_ship_size = kiyo_trade }
+						prevprev = {
+							any_owned_planet = {
+								prevprev = { has_fleet_flag = kiyo_trade_end@PREV }
+							}
+						}
+					}
+				}
+				save_event_target_as = kiyo_trade_trade_value_empire
+				prev = { country_event = { id = kiyo_trade_manual_event.22 } }
+			}
+			remove_country_flag = kiyo_trade_check_window
+		}
+	}
+	
+	option = {
+		name = kiyo_trade_manual_event.2.cancel
+		
+		hidden_effect = { remove_country_flag = kiyo_trade_check_window }
+	}
+	
+}
+
+fleet_event = {
+	id = kiyo_trade_manual_event.21
+	title = kiyo_trade_manual_event.21.title
+	desc = kiyo_trade_manual_event.2.info
+	picture = GFX_evt_galactic_market
+	is_triggered_only = yes
+	
+	trigger = { NOT = { has_global_flag = no_trade_routes } }
+	
+	immediate = {
+		owner = {
+			#Get the Imported resource values
+			change_variable = { which = kiyo_trade_minerals_start value = prev.kiyo_trade_minerals_start }
+			change_variable = { which = kiyo_trade_energy_start value = prev.kiyo_trade_energy_start }
+			change_variable = { which = kiyo_trade_food_start value = prev.kiyo_trade_food_start }
+			change_variable = { which = kiyo_trade_unity_start value = prev.kiyo_trade_unity_start }
+			change_variable = { which = kiyo_trade_consumer_goods_start value = prev.kiyo_trade_consumer_goods_start }
+			change_variable = { which = kiyo_trade_alloys_start value = prev.kiyo_trade_alloys_start }
+			change_variable = { which = kiyo_trade_physics_research_start value = prev.kiyo_trade_physics_research_start }
+			change_variable = { which = kiyo_trade_society_research_start value = prev.kiyo_trade_society_research_start }
+			change_variable = { which = kiyo_trade_engineering_research_start value = prev.kiyo_trade_engineering_research_start }
+			change_variable = { which = kiyo_trade_trade_value_start value = prev.kiyo_trade_trade_value_start }
+			
+			#Get the Exported resource values
+			change_variable = { which = kiyo_trade_minerals_end value = prev.kiyo_trade_minerals_end }
+			change_variable = { which = kiyo_trade_energy_end value = prev.kiyo_trade_energy_end }
+			change_variable = { which = kiyo_trade_food_end value = prev.kiyo_trade_food_end }
+			change_variable = { which = kiyo_trade_unity_end value = prev.kiyo_trade_unity_end }
+			change_variable = { which = kiyo_trade_consumer_goods_end value = prev.kiyo_trade_consumer_goods_end }
+			change_variable = { which = kiyo_trade_alloys_end value = prev.kiyo_trade_alloys_end }
+			change_variable = { which = kiyo_trade_physics_research_end value = prev.kiyo_trade_physics_research_end }
+			change_variable = { which = kiyo_trade_society_research_end value = prev.kiyo_trade_society_research_end }
+			change_variable = { which = kiyo_trade_engineering_research_end value = prev.kiyo_trade_engineering_research_end }
+			change_variable = { which = kiyo_trade_trade_value_end value = prev.kiyo_trade_trade_value_end }
+		}
+	}
+	
+	option = {
+		name = OK
+		
+		hidden_effect = { owner = { remove_country_flag = kiyo_trade_check_window } }
+	}
+}
+
+country_event = {
+	id = kiyo_trade_manual_event.22
+	title = kiyo_trade_manual_event.22.title
+	desc = kiyo_trade_manual_event.22.desc
+	picture = GFX_evt_galactic_market
+	is_triggered_only = yes
+	
+	trigger = { NOT = { has_global_flag = no_trade_routes } }
+	
+	immediate = {
+		event_target:kiyo_trade_trade_value_empire = {
+			every_owned_fleet = {
+				limit = {
+					any_owned_ship = { is_ship_size = kiyo_trade }
+					has_fleet_flag = kiyo_trade_has_trade_route
+					root = {
+						any_owned_planet = {
+							prevprev = { has_fleet_flag = kiyo_trade_end@PREV }
+						}
+					}
+				}
+				if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_trade_value_1 } } save_event_target_as = kiyo_trade_cargo_fleet_trade_value_1 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_trade_value_2 } } save_event_target_as = kiyo_trade_cargo_fleet_trade_value_2 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_trade_value_3 } } save_event_target_as = kiyo_trade_cargo_fleet_trade_value_3 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_trade_value_4 } } save_event_target_as = kiyo_trade_cargo_fleet_trade_value_4 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_trade_value_5 } } save_event_target_as = kiyo_trade_cargo_fleet_trade_value_5 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_trade_value_6 } } save_event_target_as = kiyo_trade_cargo_fleet_trade_value_6 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_trade_value_7 } } save_event_target_as = kiyo_trade_cargo_fleet_trade_value_7 }
+				else_if = { limit = { NOT = { exists = event_target:kiyo_trade_cargo_fleet_trade_value_8 } } save_event_target_as = kiyo_trade_cargo_fleet_trade_value_8 }
+				else = { log = "[PrevPrev.GetName] has too many cargo fleets or there is a problem." }
+			}
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}

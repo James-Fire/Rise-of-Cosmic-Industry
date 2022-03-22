@@ -1,0 +1,354 @@
+namespace = roci_menu
+
+event = {
+	id = roci_menu.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = roci_has_host }
+	}
+
+	immediate = {
+		#Game Start flags
+		set_global_flag = roci_realdev_build_adjustment_medium_flag
+		set_global_flag = exploit_speed_difficulty
+		
+		every_country = {
+			set_variable = { which = roci_country_order value = 1 }
+		}
+		ordered_country = {
+			limit = { is_country_type = default is_ai = no }
+			position = 0
+			order_by = roci_country_order
+			set_global_flag = roci_has_host
+			set_country_flag = roci_host
+			log = "ROCI on game start mark host [This.GetRealName]"
+			country_event = { id = roci_menu.2 }
+		}
+	}
+}
+
+country_event = {
+	id = roci_menu.2
+	title = "roci_menu.2.name"
+	desc = "roci_menu.2.desc"
+	diplomatic = yes
+	custom_gui = "roci_country_window"
+	is_triggered_only = yes
+	#hide_window = yes
+	
+	#trigger = { has_country_flag = roci_host }
+	
+	immediate = {
+		log = "ROCI on game start with host [This.GetRealName]"
+	}
+	
+	# Confirm
+	option = {
+		name = "roci_menu.2.confirm"
+		#custom_tooltip = "roci_menu.1.confirm.tooltip"
+		custom_gui = "roci_country_menu_confirm"
+		#default_hide_option = yes
+	}
+	
+	after = {
+		hidden_effect = {
+			if = { #Do Trade Route Game start stuff if it's allowed.
+				limit = {
+					NOT = { has_global_flag = no_trade_routes }
+				}
+				every_country = {
+					limit = {
+						is_country_type = default
+					}
+					set_variable = { which = kiyo_trade_num_trade_routes value = 0 }
+					set_variable = { which = kiyo_trade_max_trade_routes value = 4 }
+					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 4 }
+					set_country_flag = kiyo_trade_has_base_values
+				}
+			}
+			if = { #Do Exploit Game start stuff if it's allowed.
+				limit = {
+					NOT = { has_global_flag = no_exploit }
+				}
+				every_country = {
+					limit = {
+						is_country_type = default
+					}
+					log = "ROCI trigger exploit on game start for [This.GetRealName]"
+					country_event = { id = spaceexploit.37 }
+				}
+			}
+			if = { #Do Orbital Game start stuff if it's allowed.
+				limit = {
+					NOT = { has_global_flag = no_orbital_infra }
+				}
+				every_country = {
+					limit = {
+						is_country_type = default
+					}
+					log = "ROCI trigger orbital on game start for [This.GetRealName]"
+					country_event = { id = orbitalinfra.1000 }
+				}
+			}
+			if = { #Do Realdev Game start stuff if it's allowed.
+				limit = {
+					NOT = { has_global_flag = no_realdev }
+				}
+				every_country = {
+					limit = {
+						NOT = { is_country_type = primitive }
+					}
+					log = "ROCI trigger realdev on game start for [This.GetRealName]"
+					country_event = { id = realdev.0 }
+				}
+			}
+			if = { #Do Autofab Game start stuff if it's allowed.
+				limit = {
+					NOT = { has_global_flag = no_autofab }
+				}
+				every_country = {
+					limit = {
+						starts_with_autofab = yes
+						NOT = { is_country_type = primitive }
+					}
+					log = "ROCI trigger autofab on game start for [This.GetRealName]"
+					country_event = { id = autofab.10 }
+				}
+			}
+			else = { #Gotta remove all empires that used an origin or civic that isn't allowed.
+				every_country = {
+					limit = { has_origin = origin_autofab }
+					set_origin = origin_default
+					capital_scope = {
+						clear_blockers = yes
+						clear_deposits = yes
+						generate_start_deposits_and_blockers = yes
+					}
+				}
+				every_country = {
+					limit = {
+						OR = {
+							has_valid_civic = civic_autofab
+							has_valid_civic = civic_autofab_machine
+							has_valid_civic = civic_autofab_hive
+							has_valid_civic = civic_autofab_megacorp
+						}
+					}
+					force_remove_civic = civic_autofab
+					force_remove_civic = civic_autofab_machine
+					force_remove_civic = civic_autofab_hive
+					force_remove_civic = civic_autofab_megacorp
+					capital_scope = {
+						clear_blockers = yes
+						clear_deposits = yes
+						generate_start_deposits_and_blockers = yes
+					}
+					if = {
+						limit = {
+							is_regular_empire = yes
+						}
+						if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_mining_guilds }
+							}
+							force_add_civic = civic_mining_guilds
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_functional_architecture }
+							}
+							force_add_civic = civic_functional_architecture
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_byzantine_bureaucracy }
+							}
+							force_add_civic = civic_byzantine_bureaucracy
+						}
+					}
+					else_if = {
+						limit = {
+							is_hive_empire = yes
+						}
+						if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_hive_subspace_ephapse }
+							}
+							force_add_civic = civic_hive_subspace_ephapse
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_hive_natural_neural_network }
+							}
+							force_add_civic = civic_hive_natural_neural_network
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_hive_divided_attention }
+							}
+							force_add_civic = civic_hive_divided_attention
+						}
+					}
+					else_if = {
+						limit = {
+							is_machine_empire = yes
+						}
+						if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_machine_builder }
+							}
+							force_add_civic = civic_machine_builder
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_machine_factory_overclock }
+							}
+							force_add_civic = civic_machine_factory_overclock
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_machine_rockbreakers }
+							}
+							force_add_civic = civic_machine_rockbreakers
+						}
+					}
+					else_if = {
+						limit = {
+							is_megacorp = yes
+						}
+						if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_naval_contractors }
+							}
+							force_add_civic = civic_naval_contractors
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_trading_posts }
+							}
+							force_add_civic = civic_trading_posts
+						}
+						else_if = {
+							limit = {
+								NOT = {	has_valid_civic = civic_private_prospectors }
+							}
+							force_add_civic = civic_private_prospectors
+						}
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					OR = {
+						NOT = { has_global_flag = no_autofab }
+						NOT = { has_global_flag = no_exploit }
+					}
+				}
+				every_owned_planet = {
+					limit = {
+						OR = {
+							has_autofab = yes
+							is_hosting_exploit = yes
+						}
+					}
+					while = {
+						count = 5
+						add_deposit = roci_cheat_deposit
+					}
+					while = {
+						limit = {
+							num_districts = { type = district_roci_sprawl value > value:roci_district_sprawl }
+						}
+						remove_district = district_roci_sprawl
+					}
+					while = {
+						limit = {
+							num_districts = { type = district_roci_sprawl value < value:roci_district_sprawl }
+						}
+						add_district = district_roci_sprawl
+					}
+					every_deposit = {
+						limit = {
+							is_deposit_type = roci_cheat_deposit
+						}
+						remove_deposit = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+#Cheat event for testing purposes. Triggers itself every month to fill resource storages.
+country_event = {
+	id = roci_menu.30
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		country_event = { id = roci_menu.30 days = 30 }
+		add_resource = {
+			energy = 5000
+			alloys = 5000
+			minerals = 5000
+			food = 5000
+			consumer_goods = 5000
+			volatile_motes = 5000
+			exotic_gases = 5000
+			rare_crystals = 5000
+		}
+	}
+}
+
+#Yearly event to correct any discrepancies in Sprawl District count on all owned planets.
+country_event = {
+	id = roci_menu.40
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		
+	}
+	
+	immediate = {
+		every_owned_planet = {
+			limit = {
+				OR = {
+					has_autofab = yes
+					is_hosting_exploit = yes
+				}
+			}
+			planet_event = { id = roci_menu.41 days = 1 random = 10 }
+		}
+	}
+}
+#On_action event to handle Sprawl Districts when it is needed.
+planet_event = {
+	id = roci_menu.41
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		OR = {
+			has_autofab = yes
+			is_hosting_exploit = yes
+		}
+	}
+	
+	immediate = {
+		while = {
+			limit = {
+				num_districts = { type = district_roci_sprawl value > value:roci_district_sprawl }
+			}
+			remove_district = district_roci_sprawl
+		}
+		while = {
+			limit = {
+				num_districts = { type = district_roci_sprawl value < value:roci_district_sprawl }
+			}
+			add_district = district_roci_sprawl
+		}
+	}
+}

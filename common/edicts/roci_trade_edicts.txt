@@ -1,0 +1,100 @@
+kiyo_trade_check = {
+	length = 0
+	resources = { category = edicts cost = {} }
+	effect = { hidden_effect = { country_event = { id = kiyo_trade_manual_event.2 } set_country_flag = kiyo_trade_check_window } }
+	
+	potential = {
+		NOT = { has_global_flag = no_trade_routes }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = kiyo_trade_check_has_trade_route
+			OR = {
+				owner = {
+					any_owned_fleet = {
+						NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo } has_fleet_flag = kiyo_trade_has_trade_route
+						any_owned_ship = { is_ship_size = kiyo_trade }
+					}
+				}
+				any_country = {
+					NOT = { is_country = prev.owner }
+					any_owned_fleet = {
+						NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo } has_fleet_flag = kiyo_trade_has_trade_route
+						any_owned_ship = { is_ship_size = kiyo_trade }
+						prevprev.owner = {
+							any_owned_planet = {
+								prevprev = { has_fleet_flag = kiyo_trade_end@PREV }
+							}
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "kiyo_trade_check_window_open"
+			NOT = { has_country_flag = kiyo_trade_check_window }
+		}
+	}
+	
+	ai_weight = { weight = 0 }	
+}
+
+# Add more cargo ships to trade route
+kiyo_trade_add_ships_to_trade_route = {
+	length = 0
+	resources = {
+		category = campaign_kiyo_mod_trade
+		cost = {
+			#trigger = { owner = { is_ai = no } }
+			energy = 750
+			consumer_goods = 750
+		}
+		#cost = {
+		#	trigger = { owner = { is_ai = yes } }
+		#	energy = 500
+		#	minerals = 1000
+		#}
+	}
+	effect = {
+		hidden_effect = {
+			country_event = { id = kiyo_trade_manual_event.1 }
+		}
+	}
+	
+	potential = {
+		NOT = { has_global_flag = no_trade_routes }
+		any_owned_fleet = { has_fleet_flag = kiyo_trade_has_trade_route }
+		has_technology = tech_space_trading
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = edict_kiyo_trade_add_ships_to_trade_route_any_fleet_has_room
+			any_owned_planet = {
+				prev = {
+					any_owned_fleet = {
+						has_fleet_flag = kiyo_trade_start@PREVPREV
+						any_owned_ship = { is_ship_size = kiyo_trade }
+						OR = {
+							check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < prev.kiyo_trade_max_cargo_ships_per_fleet }
+							has_fleet_flag = kiyo_event_trade_expired_cargo
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = edict_kiyo_trade_add_ships_to_trade_route_has_window
+			owner = { NOT = { has_country_flag = kiyo_trade_add_cargo_window } }
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			factor = 0
+			owner = { is_at_war = yes }
+		}
+	}
+}

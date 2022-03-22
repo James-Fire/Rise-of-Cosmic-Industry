@@ -1,0 +1,27 @@
+kiyo_trade_cargo_fleet_2 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 2
+}
+kiyo_trade_cargo_fleet_3 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 4
+}
+kiyo_trade_cargo_fleet_4 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 6
+}
+kiyo_trade_cargo_fleet_5 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 8
+}
+kiyo_trade_cargo_fleet_6 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 10
+}
+kiyo_trade_cargo_fleet_7 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 12
+}
+kiyo_trade_cargo_fleet_8 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 14
+}
+kiyo_trade_cargo_fleet_9 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 16
+}
+kiyo_trade_cargo_fleet_10 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 18
+}

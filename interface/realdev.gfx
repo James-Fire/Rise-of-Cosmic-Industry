@@ -1,41 +1,41 @@
 spriteTypes = {
 	#Sliders
-	spriteType = { 
+	spriteType = {
 		name = "GFX_realdev_output_bar_bg"
 		texturefile = "gfx/interface/menu_ui/mega_configuration/giga_menu_progressbar.dds" 
 	}
-
-	spriteType = { 
+	
+	spriteType = {
 		name = "GFX_realdev_background_bar_chunk"
 		texturefile = "gfx/interface/menu_ui/mega_configuration/giga_menu_background_bar_chunk.dds" 
 	}
 
-	spriteType = { 
+	spriteType = {
 		name = "GFX_realdev_output_bar_chunk"
 		texturefile = "gfx/interface/menu_ui/mega_configuration/giga_menu_output_bar_chunk.dds" 
 	}
 
-	spriteType = { 
+	spriteType = {
 		name = "GFX_realdev_output_ai_bar_chunk"
 		texturefile = "gfx/interface/menu_ui/mega_configuration/giga_menu_output_ai_bar_chunk.dds" 
 	}
 
-	spriteType = { 
+	spriteType = {
 		name = "GFX_realdev_cost_bar_chunk"
 		texturefile = "gfx/interface/menu_ui/mega_configuration/giga_menu_cost_bar_chunk.dds" 
 	}
 
-	spriteType = { 
+	spriteType = {
 		name = "GFX_realdev_cost_ai_bar_chunk"
 		texturefile = "gfx/interface/menu_ui/mega_configuration/giga_menu_cost_ai_bar_chunk.dds" 
 	}
 	
-	spriteType = { 
+	spriteType = {
 		name = "GFX_realdev_upkeep_bar_chunk"
 		texturefile = "gfx/interface/menu_ui/mega_configuration/giga_menu_upkeep_bar_chunk.dds" 
 	}
 
-	spriteType = { 
+	spriteType = {
 		name = "GFX_realdev_upkeep_ai_bar_chunk"
 		texturefile = "gfx/interface/menu_ui/mega_configuration/giga_menu_upkeep_ai_bar_chunk.dds" 
 	}

@@ -1,0 +1,429 @@
+#Make sure the fleet has the correct upkeep modifier
+#THIS = FLEET
+kiyo_correct_fleet_upkeep = {
+	if = {
+		limit = {
+			NOT = { check_variable = { which = kiyo_trade_modifier value = kiyo_trade_max_cargo_ships_per_fleet } }
+		}
+		remove_modifier = kiyo_trade_cargo_fleet_2
+		
+		add_modifier = {
+			modifier = kiyo_trade_cargo_fleet_2 days = -1
+			mult = kiyo_trade_max_cargo_ships_per_fleet
+		}
+		
+		set_variable = { which = kiyo_trade_modifier value = kiyo_trade_max_cargo_ships_per_fleet }
+	}
+}
+
+# Calculates resources to all trade ships in trade fleet by resource production
+# THIS = FLEET
+kiyo_trade_calculate_resources = {
+	#Add intel and opinion modifiers to both parties. Opinion does not stack, intel does.
+	random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_end@PREV } }
+		owner = {
+			remove_opinion_modifier = { modifier = opinion_kiyo_mod_trade_trade_routes who = prevprev.owner }
+			add_intel = { amount = 1 who = prevprev.owner }
+			prevprev.owner = {
+				remove_opinion_modifier = { modifier = opinion_kiyo_mod_trade_trade_routes who = prev }
+				add_intel = { amount = 1 who = prev }
+				every_owned_fleet = {
+					limit = { kiyo_mod_trade_opinion_modifier_valid = yes }
+					
+					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value = kiyo_trade_max_cargo_ships_per_fleet }
+					
+					while = { limit = { check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value > 0 } }
+						prevprev = { add_opinion_modifier = { who = root.owner modifier = opinion_kiyo_mod_trade_trade_routes } }
+						root.owner = { add_opinion_modifier = { who = prevprevprev modifier = opinion_kiyo_mod_trade_trade_routes } }
+						subtract_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value = 1 }
+					}
+				}
+			}
+		}
+	}
+	kiyo_correct_fleet_upkeep = yes #Ensure the fleet has the correct upkeep
+	
+	#When the fleet arrives at a planet, we first zero out the existing variables, 
+	orbit = {
+		set_variable = { which = kiyo_trade_minerals value = 0 }
+		set_variable = { which = kiyo_trade_energy value = 0 }
+		set_variable = { which = kiyo_trade_food value = 0 }
+		set_variable = { which = kiyo_trade_unity value = 0 }
+		set_variable = { which = kiyo_trade_consumer_goods value = 0 }
+		set_variable = { which = kiyo_trade_alloys value = 0 }
+		set_variable = { which = kiyo_trade_physics_research value = 0 }
+		set_variable = { which = kiyo_trade_society_research value = 0 }
+		set_variable = { which = kiyo_trade_engineering_research value = 0 }
+		set_variable = { which = kiyo_trade_trade_value value = 0 }
+		#Also remove all the Trade Value flags
+		remove_planet_flag = kiyo_trade_trade_value_1
+		remove_planet_flag = kiyo_trade_trade_value_2
+		remove_planet_flag = kiyo_trade_trade_value_4
+		remove_planet_flag = kiyo_trade_trade_value_8
+		remove_planet_flag = kiyo_trade_trade_value_16
+		remove_planet_flag = kiyo_trade_trade_value_32
+		remove_planet_flag = kiyo_trade_trade_value_64
+		remove_planet_flag = kiyo_trade_trade_value_128
+		remove_planet_flag = kiyo_trade_trade_value_256
+		remove_planet_flag = kiyo_trade_trade_value_512
+		remove_planet_flag = kiyo_trade_trade_value_1024
+		remove_planet_flag = kiyo_trade_trade_value_2048
+		remove_planet_flag = kiyo_trade_trade_value_4096
+		remove_planet_flag = kiyo_trade_trade_value_8192
+		remove_planet_flag = kiyo_trade_trade_value_16384
+		remove_planet_flag = kiyo_trade_trade_value_32768
+		remove_planet_flag = kiyo_trade_trade_value_65536
+		remove_planet_flag = kiyo_trade_trade_value_131072
+		remove_planet_flag = kiyo_trade_trade_value_262144
+		remove_planet_flag = kiyo_trade_trade_value_524288
+	}
+	#then export planet production
+	orbit = {
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = energy
+				type = produces
+			}
+			variable = kiyo_production_energy
+			rounded = yes
+		}
+		
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = minerals
+				type = produces
+			}
+			variable = kiyo_production_minerals
+			rounded = yes
+		}
+		
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = food
+				type = produces
+			}
+			variable = kiyo_production_food
+			rounded = yes
+		}
+		
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = alloys
+				type = produces
+			}
+			variable = kiyo_production_alloys
+			rounded = yes
+		}
+		
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = consumer_goods
+				type = produces
+			}
+			variable = kiyo_production_consumer_goods
+			rounded = yes
+		}
+		
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = physics_research
+				type = produces
+			}
+			variable = kiyo_production_physics_research
+			rounded = yes
+		}
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = society_research
+				type = produces
+			}
+			variable = kiyo_production_society_research
+			rounded = yes
+		}
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = engineering_research
+				type = produces
+			}
+			variable = kiyo_production_engineering_research
+			rounded = yes
+		}
+		
+		
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = unity
+				type = produces
+			}
+			variable = kiyo_production_unity
+			rounded = yes
+		}
+		
+		export_modifier_to_variable = { modifier = trade_value_add variable = kiyo_production_trade_value }
+		export_modifier_to_variable = { modifier = trade_value_mult variable = kiyo_production_trade_value_mult }
+		multiply_variable = { which = kiyo_trade_trade_value value = kiyo_production_trade_value_mult }
+	}
+	
+	#then unload its cargo, and attribute it according to who owns the fleet
+	if = {
+		limit = {
+			owner = {
+				is_same_value = orbit.owner
+			}
+		}
+		set_variable = { which = kiyo_trade_minerals_start value = kiyo_trade_minerals }
+		set_variable = { which = kiyo_trade_energy_start value = kiyo_trade_energy }
+		set_variable = { which = kiyo_trade_food_start value = kiyo_trade_food }
+		set_variable = { which = kiyo_trade_unity_start value = kiyo_trade_unity }
+		set_variable = { which = kiyo_trade_consumer_goods_start value = kiyo_trade_consumer_goods }
+		set_variable = { which = kiyo_trade_alloys_start value = kiyo_trade_alloys }
+		set_variable = { which = kiyo_trade_physics_research_start value = kiyo_trade_physics_research }
+		set_variable = { which = kiyo_trade_society_research_start value = kiyo_trade_society_research }
+		set_variable = { which = kiyo_trade_engineering_research_start value = kiyo_trade_engineering_research }
+		set_variable = { which = kiyo_trade_trade_value_start value = kiyo_trade_trade_value }
+		orbit = {
+			#Set the variables so that these trade resources are attributed to owner trade routes
+			set_variable = { which = kiyo_trade_minerals_start value = prev.kiyo_trade_minerals }
+			set_variable = { which = kiyo_trade_energy_start value = prev.kiyo_trade_energy }
+			set_variable = { which = kiyo_trade_food_start value = prev.kiyo_trade_food }
+			set_variable = { which = kiyo_trade_unity_start value = prev.kiyo_trade_unity }
+			set_variable = { which = kiyo_trade_consumer_goods_start value = prev.kiyo_trade_consumer_goods }
+			set_variable = { which = kiyo_trade_alloys_start value = prev.kiyo_trade_alloys }
+			set_variable = { which = kiyo_trade_physics_research_start value = prev.kiyo_trade_physics_research }
+			set_variable = { which = kiyo_trade_society_research_start value = prev.kiyo_trade_society_research }
+			set_variable = { which = kiyo_trade_engineering_research_start value = prev.kiyo_trade_engineering_research }
+			set_variable = { which = kiyo_trade_trade_value_start value = prev.kiyo_trade_trade_value }
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				NOT = { is_same_value = orbit.owner }
+			}
+		}
+		set_variable = { which = kiyo_trade_minerals_end value = kiyo_trade_minerals }
+		set_variable = { which = kiyo_trade_energy_end value = kiyo_trade_energy }
+		set_variable = { which = kiyo_trade_food_end value = kiyo_trade_food }
+		set_variable = { which = kiyo_trade_unity_end value = kiyo_trade_unity }
+		set_variable = { which = kiyo_trade_consumer_goods_end value = kiyo_trade_consumer_goods }
+		set_variable = { which = kiyo_trade_alloys_end value = kiyo_trade_alloys }
+		set_variable = { which = kiyo_trade_physics_research_end value = kiyo_trade_physics_research }
+		set_variable = { which = kiyo_trade_society_research_end value = kiyo_trade_society_research }
+		set_variable = { which = kiyo_trade_engineering_research_end value = kiyo_trade_engineering_research }
+		set_variable = { which = kiyo_trade_trade_value_end value = kiyo_trade_trade_value }
+		orbit = {
+			#Set the variables so that these trade resources are attributed to non-owner trade routes
+			set_variable = { which = kiyo_trade_minerals_end value = prev.kiyo_trade_minerals }
+			set_variable = { which = kiyo_trade_energy_end value = prev.kiyo_trade_energy }
+			set_variable = { which = kiyo_trade_food_end value = prev.kiyo_trade_food }
+			set_variable = { which = kiyo_trade_unity_end value = prev.kiyo_trade_unity }
+			set_variable = { which = kiyo_trade_consumer_goods_end value = prev.kiyo_trade_consumer_goods }
+			set_variable = { which = kiyo_trade_alloys_end value = prev.kiyo_trade_alloys }
+			set_variable = { which = kiyo_trade_physics_research_end value = prev.kiyo_trade_physics_research }
+			set_variable = { which = kiyo_trade_society_research_end value = prev.kiyo_trade_society_research }
+			set_variable = { which = kiyo_trade_engineering_research_end value = prev.kiyo_trade_engineering_research }
+			set_variable = { which = kiyo_trade_trade_value_end value = prev.kiyo_trade_trade_value }
+			
+		}
+	}
+	
+	orbit = {
+		#Sets the variables that are actually used by the deposit to determine trade production
+		set_variable = { which = kiyo_trade_minerals value = prev.kiyo_trade_minerals }
+		set_variable = { which = kiyo_trade_energy value = prev.kiyo_trade_energy }
+		set_variable = { which = kiyo_trade_food value = prev.kiyo_trade_food }
+		set_variable = { which = kiyo_trade_unity value = prev.kiyo_trade_unity }
+		set_variable = { which = kiyo_trade_consumer_goods value = prev.kiyo_trade_consumer_goods }
+		set_variable = { which = kiyo_trade_alloys value = prev.kiyo_trade_alloys }
+		set_variable = { which = kiyo_trade_physics_research value = prev.kiyo_trade_physics_research }
+		set_variable = { which = kiyo_trade_society_research value = prev.kiyo_trade_society_research }
+		set_variable = { which = kiyo_trade_engineering_research value = prev.kiyo_trade_engineering_research }
+		set_variable = { which = kiyo_trade_trade_value value = prev.kiyo_trade_trade_value }
+		
+		kiyo_trade_add_trade_value_modifier = yes
+	}
+	
+	#Load up the cargo fleet with cargo based on planet production
+	set_variable = { which = kiyo_trade_minerals value = orbit.kiyo_production_minerals }
+	set_variable = { which = kiyo_trade_energy value = orbit.kiyo_production_energy }
+	set_variable = { which = kiyo_trade_food value = orbit.kiyo_production_food }
+	set_variable = { which = kiyo_trade_unity value = orbit.kiyo_production_unity }
+	set_variable = { which = kiyo_trade_consumer_goods value = orbit.kiyo_production_consumer_goods }
+	set_variable = { which = kiyo_trade_alloys value = orbit.kiyo_production_alloys }
+	set_variable = { which = kiyo_trade_physics_research value = orbit.kiyo_production_physics_research }
+	set_variable = { which = kiyo_trade_society_research value = orbit.kiyo_production_society_research }
+	set_variable = { which = kiyo_trade_engineering_research value = orbit.kiyo_production_engineering_research }
+	set_variable = { which = kiyo_trade_trade_value value = orbit.kiyo_production_trade_value }
+	
+	##Apply any relevant multipliers to cargo capacity
+	
+	#Multiply based on number of cargo ships in the fleet
+	multiply_variable = { which = kiyo_trade_minerals value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_energy value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_food value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_unity value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_consumer_goods value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_alloys value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_physics_research value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_society_research value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_engineering_research value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_trade_value value = kiyo_trade_max_cargo_ships_per_fleet }
+	
+	
+	# 3/4 Cargo if getting cargo from origin to destination
+	if = {
+		limit = {
+			owner = {
+				is_same_value = orbit.owner
+			}
+		}
+		multiply_variable = { which = kiyo_trade_minerals value = 0.75 }
+		multiply_variable = { which = kiyo_trade_energy value = 0.75 }
+		multiply_variable = { which = kiyo_trade_food value = 0.75 }
+		multiply_variable = { which = kiyo_trade_unity value = 0.75 }
+		multiply_variable = { which = kiyo_trade_consumer_goods value = 0.75 }
+		multiply_variable = { which = kiyo_trade_alloys value = 0.75 }
+		multiply_variable = { which = kiyo_trade_physics_research value = 0.75 }
+		multiply_variable = { which = kiyo_trade_society_research value = 0.75 }
+		multiply_variable = { which = kiyo_trade_engineering_research value = 0.75 }
+		multiply_variable = { which = kiyo_trade_trade_value value = 0.75 }
+	}
+	
+	# 1.5x Cargo if fleet owner is corporate authority
+	if = { limit = { owner = { is_megacorp = yes } }
+		multiply_variable = { which = kiyo_trade_minerals value = 1.5 }
+		multiply_variable = { which = kiyo_trade_energy value = 1.5 }
+		multiply_variable = { which = kiyo_trade_food value = 1.5 }
+		multiply_variable = { which = kiyo_trade_unity value = 1.5 }
+		multiply_variable = { which = kiyo_trade_consumer_goods value = 1.5 }
+		multiply_variable = { which = kiyo_trade_alloys value = 1.5 }
+		multiply_variable = { which = kiyo_trade_physics_research value = 1.5 }
+		multiply_variable = { which = kiyo_trade_society_research value = 1.5 }
+		multiply_variable = { which = kiyo_trade_engineering_research value = 1.5 }
+		multiply_variable = { which = kiyo_trade_trade_value value = 1.5 }
+	}
+	
+	#Make it 5% of production
+	multiply_variable = { which = kiyo_trade_minerals value = 0.05 }
+	multiply_variable = { which = kiyo_trade_energy value = 0.05 }
+	multiply_variable = { which = kiyo_trade_food value = 0.05 }
+	multiply_variable = { which = kiyo_trade_unity value = 0.05 }
+	multiply_variable = { which = kiyo_trade_consumer_goods value = 0.05 }
+	multiply_variable = { which = kiyo_trade_alloys value = 0.05 }
+	multiply_variable = { which = kiyo_trade_physics_research value = 0.05 }
+	multiply_variable = { which = kiyo_trade_society_research value = 0.05 }
+	multiply_variable = { which = kiyo_trade_engineering_research value = 0.05 }
+	multiply_variable = { which = kiyo_trade_trade_value value = 0.05 }
+	
+	orbit = {
+		if = { limit = { NOT = { has_deposit = d_kiyo_mod_trade } } add_deposit = d_kiyo_mod_trade }
+		
+		# Check for Hive Mind/Machine Intelligence
+		if = { 
+			limit = { exists = owner }
+			owner = {
+				switch = { 
+					trigger = has_authority
+					auth_hive_mind = {
+						prev = {
+							divide_variable = { which = kiyo_trade_trade_value value = 2 }
+							change_variable = { which = kiyo_trade_minerals value = kiyo_trade_trade_value }
+							change_variable = { which = kiyo_trade_food value = kiyo_trade_trade_value }
+							set_variable = { which = kiyo_trade_trade_value value = 0 }
+							
+							divide_variable = { which = kiyo_trade_consumer_goods value = 2 }
+							change_variable = { which = kiyo_trade_minerals value = kiyo_trade_consumer_goods }
+							change_variable = { which = kiyo_trade_food value = kiyo_trade_consumer_goods }
+							set_variable = { which = kiyo_trade_consumer_goods value = 0 }
+						}
+					}
+					auth_machine_intelligence = {
+						prev = {
+							divide_variable = { which = kiyo_trade_trade_value value = 2 }
+							change_variable = { which = kiyo_trade_minerals value = kiyo_trade_trade_value }
+							change_variable = { which = kiyo_trade_energy value = kiyo_trade_trade_value }
+							set_variable = { which = kiyo_trade_trade_value value = 0 }
+							
+							divide_variable = { which = kiyo_trade_consumer_goods value = 2 }
+							change_variable = { which = kiyo_trade_minerals value = kiyo_trade_consumer_goods }
+							change_variable = { which = kiyo_trade_energy value = kiyo_trade_consumer_goods }
+							set_variable = { which = kiyo_trade_consumer_goods value = 0 }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+# Set timed fleet flag for how long a trade route should last
+# THIS = FLEET
+kiyo_mod_trade_set_route_time = {
+	remove_fleet_flag = kiyo_event_trade_expired_cargo
+	set_timed_fleet_flag = { flag = kiyo_event_trade_cargo_time days = 5400 }
+}
+
+# THIS = PLANET
+kiyo_mod_trade_check_trade_route_exist = {
+	if = { limit = { NOT = { any_country = { any_owned_fleet = { OR = { has_fleet_flag = kiyo_trade_start@PREVPREV has_fleet_flag = kiyo_trade_end@PREVPREV } } } } } remove_deposit = d_kiyo_mod_trade }
+}
+
+# THIS = COUNTRY
+kiyo_mod_trade_set_num_trade_routes = {
+	set_variable = { which = kiyo_trade_num_trade_routes value = 0 }
+	every_owned_fleet = { limit = { any_owned_ship = { is_ship_size = kiyo_trade } NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo } }
+		prev = { change_variable = { which = kiyo_trade_num_trade_routes value = 1 } }
+	}
+}
+
+# TO USE ONLY IN kiyo_trade_manual_event.11
+# THIS = FLEET
+kiyo_trade_manual_event_11 = {
+	random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start }
+	random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_end@PREV } } save_event_target_as = kiyo_trade_end }
+	
+	if = { limit = { has_fleet_flag = kiyo_event_trade_expired_cargo }
+		set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 0 }
+		set_fleet_flag = kiyo_trade_ending
+		queue_actions = { orbit_planet = event_target:kiyo_trade_start }
+	}
+	
+	change_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 1 }
+	
+	kiyo_mod_trade_set_route_time = yes
+	
+	if = { limit = { exists = event_target:kiyo_trade_end }
+		event_target:kiyo_trade_start = {
+			owner = {
+				event_target:kiyo_trade_end = {
+					owner = {
+						remove_opinion_modifier = { modifier = opinion_kiyo_mod_trade_trade_routes who = prevprev }
+						prevprev = {
+							every_owned_fleet = {
+								limit = { kiyo_mod_trade_opinion_modifier_valid = yes }
+								
+								set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value = kiyo_trade_max_cargo_ships_per_fleet }
+								
+								while = { limit = { check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value > 0 } }
+								
+									prevprev = { add_opinion_modifier = { who = prevprev modifier = opinion_kiyo_mod_trade_trade_routes } }
+									subtract_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value = 1 }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

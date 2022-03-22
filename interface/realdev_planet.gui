@@ -33,7 +33,7 @@ guiTypes = {
 		orientation = center
 		origo = center
 		moveable = yes
-		size = { width = 704 height = 720 }
+		size = { width = 604 height = 720 }
 		containerWindowType = {
 			name = "portrait"
 			position = { x = -95 y = 11000 } #Yeet
@@ -100,78 +100,217 @@ guiTypes = {
 			}
 		}
 		
+		effectButtonType = {
+			name = "realdev_planet_tooltip"
+			spriteType = "GFX_roci_tooltip"
+			position = { x = 525 y = 20 }
+			format = left
+			no_clicksound = yes
+			borderSize = { x = 10 y = 0 }
+			font = "cg_16b"
+			text = "blank"
+			effect = "realdev_planet_tooltip"
+		}
+		
 		containerWindowType = {
 			name = "realdev_indcap_contain"
-			position = { x = 220 y = 35 }
+			position = { x = 225 y = 35 }
 			size = { width=563 height=280 }
 			
+			
+			containerWindowType = {
+				name = "realdev_current_ip_display_contain"
+				position = { x = -70 y = 79 }
+				size = { width=563 height=280 }
+				#Sources Block
+				effectButtonType = {
+					name = "realdev_current_pop_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = -148 y = 0 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_pop_display"
+					effect = "realdev_current_pop_display"
+				}
+				effectButtonType = {
+					name = "realdev_current_building_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = 0 y = 0 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_building_display"
+					effect = "realdev_current_building_display"
+				}
+				effectButtonType = {
+					name = "realdev_current_alloys_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = -148 y = 37 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_alloys_display"
+					effect = "realdev_current_alloys_display"
+				}
+				effectButtonType = {
+					name = "realdev_current_cgs_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = 0 y = 37 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_cgs_display"
+					effect = "realdev_current_cgs_display"
+				}
+				effectButtonType = {
+					name = "realdev_current_multiplier_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = 0 y = 74 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_multiplier_display"
+					effect = "realdev_current_multiplier_display"
+				}
+			}
+			containerWindowType = {
+				name = "realdev_current_ipcap_display_contain"
+				position = { x = 82 y = 79 }
+				size = { width=563 height=280 }
+				effectButtonType = {
+					name = "realdev_current_pop_cap_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = 0 y = 0 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_pop_cap_display"
+					effect = "realdev_current_pop_cap_display"
+				}
+				effectButtonType = {
+					name = "realdev_current_building_cap_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = 148 y = 0 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_building_cap_display"
+					effect = "realdev_current_building_cap_display"
+				}
+				effectButtonType = {
+					name = "realdev_current_job_cap_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = 0 y = 37 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_job_cap_display"
+					effect = "realdev_current_job_cap_display"
+				}
+				effectButtonType = {
+					name = "realdev_construction_ship_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = 148 y = 37 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_construction_ship_display"
+					effect = "realdev_construction_ship_display"
+				}
+				effectButtonType = {
+					name = "realdev_current_amenities_display"
+					spriteType = "GFX_small_half_menu_button_bg"
+					position = { x = 0 y = 74 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_amenities_display"
+					effect = "realdev_current_amenities_display"
+				}
+			}
 			#Current/Cap IndCap display
-			effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_small_half_menu_button_bg"	position = { x = 28 y = 42 } clicksound = interface		effect = "realdev_industrial_production" }
-			effectButtonType = {
-				name = "realdev_current_indcap_display"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 30 y = -41 }
-				format = left
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_current_indcap_display"
-				effect = "realdev_blank"
-			}
-			effectButtonType = {
-				name = "realdev_current_indcap_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 20 y = -68 }
-				format = left
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_current_indcap_title"
-				effect = "realdev_blank"
-			}
-			effectButtonType = {
-				name = "realdev_indcap_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 100 y = -88 }
-				format = center
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "malgun_goth_24"
-				text = "realdev_indcap_title"
-				effect = "realdev_blank"
-			}
-			effectButtonType = {
-				name = "realdev_max_ind_cap_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 180 y = -68 }
-				format = right
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_max_ind_cap_title"
-				effect = "realdev_blank"
-			}
-			effectButtonType = {
-				name = "realdev_max_ind_cap_display"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 170 y = -41 }
-				format = right
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_max_ind_cap_display"
-				effect = "realdev_blank"
+			containerWindowType = {
+				name = "realdev_current_display_contain"
+				position = { x = -15 y = -1 }
+				size = { width=563 height=280 }
+				effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_small_half_menu_button_bg"	position = { x = 28 y = 42 } clicksound = interface		effect = "realdev_industrial_production" }
+				effectButtonType = {
+					name = "realdev_current_indcap_display"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 30 y = -41 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_indcap_display"
+					effect = "realdev_blank"
+				}
+				effectButtonType = {
+					name = "realdev_current_indcap_title"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 20 y = -68 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_current_indcap_title"
+					effect = "realdev_blank"
+				}
+				effectButtonType = {
+					name = "realdev_indcap_title"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 100 y = -88 }
+					format = center
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "malgun_goth_24"
+					text = "realdev_indcap_title"
+					effect = "realdev_blank"
+				}
+				effectButtonType = {
+					name = "realdev_max_ind_cap_title"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 180 y = -68 }
+					format = right
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_max_ind_cap_title"
+					effect = "realdev_blank"
+				}
+				effectButtonType = {
+					name = "realdev_max_ind_cap_display"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 170 y = -41 }
+					format = right
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_max_ind_cap_display"
+					effect = "realdev_blank"
+				}
 			}
 		}
 		
 		containerWindowType = {
 			name = "realdev_planet_ratio_contain"
-			position = { x = 20 y = 140 }
+			position = { x = 5 y = 270 }
 			size = { width=563 height=280 }
 			
 			#Slider background
@@ -401,7 +540,7 @@ guiTypes = {
 		}
 		containerWindowType = {
 			name = "realdev_build_ratio_contain"
-			position = { x = 20 y = 210 }
+			position = { x = 5 y = 340 }
 			size = { width=463 height=80 }
 			
 			effectButtonType = {
@@ -438,8 +577,23 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "realdev_assembly_speed_title"
-				effect = "realdev_blank"
+				effect = "realdev_assembly_speed_title"
 			}
+			effectButtonType = {
+				name = "realdev_production_speed_title"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				alwaysTransparent = yes
+				position = { x = 545 y = -108 }
+				format = right
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "realdev_production_speed_title"
+				effect = "realdev_production_speed_title"
+			}
+			
+			
+			effectButtonType = { name = "realdev_assembly_or_jobs" spriteType = "GFX_autofab_menu_swap" position = { x = 30 y = 3 } clicksound = interface effect = "realdev_assembly_or_jobs" }
 			
 			#Slider
 			effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_long_menu_button_skinny"	position = { x = 60 y = 2 } clicksound = interface		effect = "realdev_blank" }

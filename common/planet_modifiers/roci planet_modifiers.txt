@@ -1,0 +1,11 @@
+pm_colonized_planet = {
+	modifier = "colonized_planet"
+}
+
+pm_building_thing = {
+	modifier = "building_thing"
+}
+
+pm_orbital_space = {
+	modifier = "orbital_space"
+}

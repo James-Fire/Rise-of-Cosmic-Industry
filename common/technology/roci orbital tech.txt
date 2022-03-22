@@ -1,0 +1,53 @@
+tech_roci_space_anchor = {
+	cost = 0
+	area = engineering
+	tier = 0
+	start_tech = yes
+	category = { materials }
+	
+	ai_weight = {
+		factor = 4
+	}
+}
+
+tech_roci_space_elevator = {
+	cost = @tier2cost3
+	area = engineering
+	tier = 2
+	category = { industry }
+	prerequisites = { "tech_roci_space_anchor" "tech_starbase_3" }
+	weight = @tier1weight3
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_global_flag = no_orbital_infra
+		}
+	}
+	
+	ai_weight = {
+		factor = 10 #Orbital Infrastructure is very nice
+		modifier = { factor = 1000000 always = yes } #Force the Ai to like this
+	}
+}
+
+tech_roci_space_complex = {
+	cost = @tier4cost3
+	area = engineering
+	tier = 4
+	category = { industry }
+	prerequisites = { "tech_roci_space_elevator" "tech_housing_2" }
+	weight = @tier3weight3
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_global_flag = no_orbital_infra
+		}
+	}
+	
+	ai_weight = {
+		factor = 10 #Orbital Infrastructure is very nice
+		modifier = { factor = 1000000 always = yes } #Force the Ai to like this
+	}
+}

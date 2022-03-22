@@ -1,0 +1,11 @@
+# Opinions of Number of Trade Routes
+opinion_kiyo_mod_trade_trade_routes = {
+	opinion = { base = 3 }
+	
+	accumulative = yes
+}
+opinion_kiyo_mod_trade_trade_routes = {
+	opinion = { base = 1 }
+	
+	accumulative = yes
+}

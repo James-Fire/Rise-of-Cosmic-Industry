@@ -1,0 +1,159 @@
+
+# THIS = Planet
+has_trade_route = {
+	has_deposit = d_kiyo_mod_trade
+}
+
+# THIS = FLEET
+# PREV = FLEET OWNER
+# PREVPREV = OWNER OF PLANET BENEFITING FROM PREV'S CARGO FLEET
+kiyo_mod_trade_opinion_modifier_valid = {
+	NOT = {
+		has_fleet_flag = kiyo_trade_start_expired
+		has_fleet_flag = kiyo_event_trade_expired_cargo
+		has_fleet_flag = kiyo_event_trade_deleted_cargo
+	}
+	prevprev = {
+		any_owned_planet = {
+			prevprev = {
+				has_fleet_flag = kiyo_trade_end@PREV
+			}
+		}
+	}
+}
+
+# THIS = possible trade partner
+# PREV = Trade Route Origin Planet OR Trade Fleet
+roci_can_trade_with_country = {
+	#Can only trade with normal countries. No FEs, Marauders, or other special empires
+	is_country_type = default
+	OR = {
+		#Check if the opinion is high enough, either on its own, or with improving relations from either side
+		custom_tooltip = {
+			text = "roci_trade_routes_opinion"
+			opinion = { who = prev.owner value >= 50 }
+			AND = {
+				opinion = { who = prev.owner value >= 25 }
+				OR = {
+					is_improving_relations_with = prev.owner
+					prev.owner = { is_improving_relations_with = prev }
+				}
+			}
+		}
+		#Check if either country is a subject of the other
+		custom_tooltip = {
+			text = "roci_trade_routes_subject"
+			prev.owner = {
+				any_subject = {
+					is_same_value = prevprev
+				}
+			}
+			any_subject = {
+				is_same_value = prev.prev.owner
+			}
+		}
+	}
+	#Check some obvious things, like you can't trade with those you're currently at war with
+	NOT = {
+		is_country = prev.owner
+		has_closed_borders = prev.owner
+		is_at_war_with = prev.owner
+		prev.owner = {
+			has_closed_borders = prev
+		}
+	}
+}
+
+# ROOT = Origin Planet
+# THIS = Target Planet
+# PREV = Trade Fleet
+# PREVPREV = Origin Planet
+roci_no_existing_trade_route = {
+	prev.owner = {
+		any_owned_fleet = {
+			OR = {
+				AND = {
+					has_fleet_flag = kiyo_trade_starting
+					root = { prev = { has_fleet_flag = kiyo_trade_end@PREV } }
+				}
+				AND = {
+					has_fleet_flag = kiyo_trade_ending
+					root = { prev = { has_fleet_flag = kiyo_trade_start@PREV } }
+				}
+			}
+		}
+	}
+}
+
+# THIS = possible trade partner
+# PREV = Trade Route Origin Planet
+# ROOT = PREV
+# For the AI to see which empire they should trade with
+kiyo_mod_trade_is_country_to_trade_with = {
+	roci_can_trade_with_country = yes
+	any_owned_planet = {		
+		#Doesn't already have a trade route
+		
+		root.owner = {
+			
+			NOT = {
+				any_owned_fleet = {
+					has_fleet_flag = kiyo_trade_start@ROOT
+					NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo }
+					OR = {
+						has_fleet_flag = kiyo_trade_end@PREVPREV
+						has_fleet_flag = kiyo_trade_going@PREVPREV
+					}
+				}
+			}
+			#Check distance based on thruster tech, so that we don't get a planet that takes a very long time to get to
+			OR = {
+				AND = {
+					has_technology = tech_thrusters_2
+					OR = {
+						AND = {
+							NOT = { has_technology = tech_wormhole_stabilization }
+							prev = { distance = { source = root type = hyperlane use_bypasses = no min_jumps = 0 max_jumps = 18 } }
+						}
+						prev = { distance = { source = root type = hyperlane use_bypasses = yes min_jumps = 0 max_jumps = 18 } }
+					}
+				}
+				AND = {
+					has_technology = tech_thrusters_3
+					OR = {
+						AND = {
+							NOT = { has_technology = tech_wormhole_stabilization }
+							prev = { distance = { source = root type = hyperlane use_bypasses = no min_jumps = 0 max_jumps = 20 } }
+						}
+						prev = { distance = { source = root type = hyperlane use_bypasses = yes min_jumps = 0 max_jumps = 20 } }
+					}
+				}
+				AND = {
+					has_technology = tech_thrusters_4
+					OR = {
+						AND = {
+							NOT = { has_technology = tech_wormhole_stabilization }
+							prev = { distance = { source = root type = hyperlane use_bypasses = no min_jumps = 0 max_jumps = 22 } }
+						}
+						prev = { distance = { source = root type = hyperlane use_bypasses = yes min_jumps = 0 max_jumps = 22 } }
+					}
+				}
+				AND = {
+					has_technology = tech_dark_matter_propulsion
+					OR = {
+						AND = {
+							NOT = { has_technology = tech_wormhole_stabilization }
+							prev = { distance = { source = root type = hyperlane use_bypasses = no min_jumps = 0 max_jumps = 25 } }
+						}
+						prev = { distance = { source = root type = hyperlane use_bypasses = yes min_jumps = 0 max_jumps = 25 } }
+					}
+				}
+				AND = {
+					NOT = { has_technology = tech_wormhole_stabilization }
+					prev = { distance = { source = root type = hyperlane use_bypasses = no min_jumps = 0 max_jumps = 15 } }
+				}
+				prev = { distance = { source = root type = hyperlane use_bypasses = yes min_jumps = 0 max_jumps = 15 } }
+			}
+		}
+	}
+}

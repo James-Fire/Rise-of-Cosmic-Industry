@@ -1,0 +1,106 @@
+@fake_job_production = 100
+
+fake_orbital = {
+	category = worker
+	condition_string = WORKER_JOB_TRIGGER
+	building_icon = building_food_processing_facility
+	clothes_texture_index = 2
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_worker_job
+	possible = {
+		hidden_trigger = { exists = owner }
+		owner = {
+			is_gestalt = no
+		}
+	}
+
+	resources = {
+		category = planet_jobs
+		produces = {
+			energy = @fake_job_production
+			minerals = @fake_job_production
+			alloys = @fake_job_production
+			physics_research = @fake_job_production
+			society_research = @fake_job_production
+			engineering_research = @fake_job_production
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					country_uses_food = yes
+				}
+			}
+			food = @fake_job_production
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = yes
+				}
+			}
+			consumer_goods = @fake_job_production
+		}
+	}
+
+	weight = {
+		weight = @worker_job_weight
+	}
+}
+fake_orbital_gestalt = {
+	category = simple_drone
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_food_processing_facility
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+
+	resources = {
+		category = planet_jobs
+		produces = {
+			energy = @fake_job_production
+			minerals = @fake_job_production
+			alloys = @fake_job_production
+			physics_research = @fake_job_production
+			society_research = @fake_job_production
+			engineering_research = @fake_job_production
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					country_uses_food = yes
+				}
+			}
+			food = @fake_job_production
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = yes
+				}
+			}
+			consumer_goods = @fake_job_production
+		}
+	}
+
+	weight = {
+		weight = @worker_job_weight
+	}
+}

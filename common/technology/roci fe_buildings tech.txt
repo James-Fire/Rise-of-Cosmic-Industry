@@ -1,0 +1,334 @@
+tech_roci_affluence_center = {
+	cost = @tier5cost3
+	area = engineering
+	tier = 5
+	is_rare = yes
+	prerequisites = { "tech_luxuries_2" "tech_consumer_good_refinement_2" }
+	category = { industry }	
+	weight = @tier4weight2
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_global_flag = no_fe_buildings
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_curator"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_spark_of_genius"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_maniacal"
+			}				
+			
+		}
+	}
+}
+
+tech_roci_nourishment_center = {
+	cost = @tier5cost3
+	area = society
+	tier = 5
+	is_rare = yes
+	prerequisites = { "tech_food_processing_2" "tech_nutrient_replication" }
+	category = { biology }	
+	weight = @tier4weight2
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_global_flag = no_fe_buildings
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_curator"
+			}
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_spark_of_genius"
+			}
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_maniacal"
+			}				
+			
+		}
+	}
+}
+
+tech_roci_singularity_power = {
+	cost = @tier5cost3
+	area = physics
+	tier = 5
+	is_rare = yes
+	prerequisites = { "tech_power_hub_2" "tech_power_plant_4" }
+	category = { field_manipulation }	
+	weight = @tier4weight2
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_global_flag = no_fe_buildings
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_curator"
+			}
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_spark_of_genius"
+			}
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_maniacal"
+			}				
+			
+		}
+	}
+}
+
+tech_roci_auto_forge = {
+	cost = @tier5cost3
+	area = engineering
+	tier = 5
+	prerequisites = { "tech_alloys_2" "tech_advanced_metallurgy_2" }
+	is_rare = yes
+	category = { industry }	
+	weight = @tier4weight2
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_global_flag = no_fe_buildings
+		}
+		modifier = {
+			factor = 1.25
+			NOR = {
+				research_leader = {
+					area = engineering
+					has_trait = "leader_trait_expertise_industry"
+				}
+				research_leader = {
+					area = engineering
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = engineering
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = engineering
+					has_trait = "leader_trait_maniacal"
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_curator"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_spark_of_genius"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_maniacal"
+			}
+		}
+	}
+}
+
+tech_roci_dimensional_fabricator = {
+	cost = @tier5cost3
+	area = physics
+	tier = 5
+	prerequisites = { "tech_mineral_purification_2" "tech_jump_drive_1" }
+	is_rare = yes
+	category = { field_manipulation }	
+	weight = @tier4weight3
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_global_flag = no_fe_buildings
+		}
+		modifier = {
+			factor = 1.25
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_field_manipulation"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_maniacal"
+				}				
+			}
+		}	
+	}	
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_psionics"
+			}
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_curator"
+			}
+		}
+	}
+}
+
+tech_roci_archival_records = {
+	cost = @tier5cost3
+	area = physics
+	tier = 5
+	prerequisites = { "tech_administrative_ai" }
+	is_rare = yes
+	category = { computing }	
+	weight = @tier4weight2
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_global_flag = no_fe_buildings
+		}
+		modifier = {
+			factor = 1.25
+			NOR = {
+				research_leader = {
+					area = engineering
+					has_trait = "leader_trait_expertise_industry"
+				}
+				research_leader = {
+					area = engineering
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = engineering
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = engineering
+					has_trait = "leader_trait_maniacal"
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_curator"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_spark_of_genius"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_maniacal"
+			}
+		}
+	}
+}
+
+tech_roci_sky_dome = {
+	cost = @tier5cost3
+	area = physics
+	tier = 5
+	is_rare = yes
+	category = { field_manipulation }	
+	weight = @tier4weight2
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_global_flag = no_fe_buildings
+		}
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_curator"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_spark_of_genius"
+			}
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_maniacal"
+			}				
+			
+		}
+	}
+}

@@ -99,6 +99,17 @@ guiTypes = {
 				Orientation = "UPPER_LEFT"
 			}
 		}
+		effectButtonType = {
+			name = "realdev_country_tooltip"
+			spriteType = "GFX_roci_tooltip"
+			position = { x = 625 y = 20 }
+			format = left
+			no_clicksound = yes
+			borderSize = { x = 10 y = 0 }
+			font = "cg_16b"
+			text = "blank"
+			effect = "realdev_country_tooltip"
+		}
 		
 		containerWindowType = {
 			name = "realdev_indcap_contain"

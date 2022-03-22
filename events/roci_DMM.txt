@@ -1,0 +1,66 @@
+namespace = exploit_dmm
+# New Dynamic Mod Menu support.
+event = {
+	id = exploit_dmm.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		dmm_register_mod = {
+			DMM_NAME = exploit_menu_name
+			DMM_FLAG = space_exploit_menu_name_flag
+		}
+	}
+}
+
+country_event = {
+	id = exploit_dmm.2
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		from = {
+			has_leader_flag = space_exploit_menu_name_flag
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			exploit_reset_all_country_flags = yes
+			document_minor_colonies = yes
+			exploit_set_default_queue = yes
+			export_to_exploit_variables = yes
+		}
+		country_event = {
+			id = exploit_menu.1
+		}
+	}
+}
+
+namespace = autofab_dmm
+# New Dynamic Mod Menu support.
+event = {
+	id = autofab_dmm.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		dmm_register_mod = {
+			DMM_NAME = autofab_menu_name
+			DMM_FLAG = autofab_menu_name_flag
+		}
+	}
+}
+
+country_event = {
+	id = autofab_dmm.2
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		from = {
+			has_leader_flag = autofab_menu_name_flag
+		}
+	}
+	immediate = {
+		country_event = { id = autofab_menu.1 }
+		factory_reset_all_country_flags = yes
+		document_factory_country = yes
+		factory_set_default_queue = yes
+	}
+}

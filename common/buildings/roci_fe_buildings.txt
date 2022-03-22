@@ -1,0 +1,333 @@
+###########################
+# Fallen Empire buildings #
+###########################
+
+building_roci_affluence_center_mod = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = yes
+	icon = building_hyper_entertainment_forum
+	
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			consumer_goods = 100
+		}
+		cost = {
+			minerals = @b4_minerals
+		}
+		upkeep = {
+			minerals = 50
+			energy = 20
+		}
+	}
+	
+	planet_modifier = {
+		planet_artisans_consumer_goods_produces_add = 6
+		planet_artisans_energy_upkeep_add = 3
+		planet_artisans_minerals_upkeep_add = 6
+		
+		#planet_autofab_factory_consumer_goods_produces_add = 12
+		#planet_autofab_factory_energy_upkeep_add = 6
+		#planet_autofab_factory_minerals_upkeep_add = 12
+	}
+
+	prerequisites = {
+		"tech_roci_affluence_center"
+	}
+	
+	on_built = {	
+	
+	}
+	
+	upgrades = {
+	}
+}
+
+building_roci_nourishment_center_mod = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = yes
+	icon = building_food_processing_center
+	
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			food = 100
+		}
+		cost = {
+			minerals = @b4_minerals
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+	
+	planet_modifier = {
+		planet_farmers_food_produces_add = 6
+		planet_farmers_energy_upkeep_add = 3
+		
+		#planet_autofab_farm_food_produces_add = 12
+		#planet_autofab_farm_energy_upkeep_add = 6
+	}
+
+	prerequisites = {
+		"tech_roci_nourishment_center"
+	}
+		
+	upgrades = {
+	}
+}
+
+
+building_roci_class_4_singularity_mod = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = yes
+	icon = building_class_4_singularity
+	
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+		}
+		produces = {
+			energy = 250
+		}
+	}
+	
+	planet_modifier = {
+		planet_technician_energy_produces_add = 4
+		#planet_autofab_generator_energy_produces_add = 8
+	}
+		
+	upgrades = {
+	}
+
+	prerequisites = {
+		"tech_roci_singularity_power"
+	}
+}
+
+building_roci_nano_forge_mod = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = yes
+	icon = building_nano_forge
+	
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			alloys = 50
+		}
+		cost = {
+			minerals = @b4_minerals
+		}
+		upkeep = {
+			minerals = 100
+			energy = 20
+		}
+	}
+	
+	planet_modifier = {
+		planet_metallurgists_alloys_produces_add = 3
+		planet_metallurgists_energy_upkeep_add = 3
+		planet_metallurgists_minerals_upkeep_add = 6
+		
+		#planet_autofab_foundry_alloys_produces_add = 6
+		#planet_autofab_foundry_energy_upkeep_add = 6
+		#planet_autofab_foundry_minerals_upkeep_add = 12
+	}
+		
+	upgrades = {
+	}
+
+	prerequisites = {
+		"tech_roci_auto_forge"
+	}
+}
+
+building_roci_dimensional_fabricator_mod = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = yes
+	icon = building_nanite_transmuter
+	
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			minerals = 200
+			rare_crystals = 5
+			exotic_gases = 5
+			volatile_motes = 5
+			sr_zro = 2
+			sr_dark_matter = 2
+			sr_living_metal = 2			
+		}
+		cost = {
+			minerals = @b4_minerals
+		}
+		upkeep = {
+			energy = 50
+		}
+	}
+	
+	planet_modifier = {
+		planet_miners_minerals_produces_add = 4
+		planet_miners_energy_upkeep_add = 2
+		#planet_autofab_mine_minerals_produces_add = 8
+		#planet_autofab_mine_energy_upkeep_add = 4
+		
+		planet_chemists_volatile_motes_produces_add = 2
+		planet_chemists_minerals_upkeep_add = 10
+		planet_chemists_energy_upkeep_add = 4
+		
+		planet_refiners_exotic_gases_produces_add = 2
+		planet_refiners_minerals_upkeep_add = 10
+		planet_refiners_energy_upkeep_add = 4
+		
+		planet_translucers_rare_crystals_produces_add = 2
+		planet_translucers_minerals_upkeep_add = 10
+		planet_translucers_energy_upkeep_add = 4
+		
+		#planet_autofab_motes_volatile_motes_produces_add = 4
+		#planet_autofab_motes_minerals_upkeep_add = 20
+		#planet_autofab_motes_energy_upkeep_add = 4
+		
+		#planet_autofab_gases_exotic_gases_produces_add = 4
+		#planet_autofab_gases_minerals_upkeep_add = 20
+		#planet_autofab_gases_energy_upkeep_add = 4
+		
+		#planet_autofab_crystals_rare_crystals_produces_add = 4
+		#planet_autofab_crystals_minerals_upkeep_add = 20
+		#planet_autofab_crystals_energy_upkeep_add = 4
+	}
+
+	prerequisites = {
+		"tech_roci_dimensional_fabricator"
+	}
+		
+	upgrades = {
+	}
+}
+
+building_roci_master_archive_mod = {
+	base_buildtime = @b4_time
+	can_build = yes
+	can_demolish = yes
+	base_cap_amount = 1
+	icon = building_master_archive
+	
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+	}
+
+	resources = {
+		category = planet_buildings
+		produces = {
+			physics_research = 100
+			society_research = 100
+			engineering_research = 100
+		}
+		cost = {
+			minerals = @b4_minerals
+		}
+		upkeep = {
+			energy = 20
+		}
+	}
+	
+	planet_modifier = {
+		planet_researchers_physics_research_produces_add = 4
+		planet_researchers_society_research_produces_add = 4
+		planet_researchers_engineering_research_produces_add = 4
+		planet_researchers_energy_upkeep_add = 4
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			planet_researchers_consumer_goods_upkeep_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		modifier = {
+			planet_researchers_minerals_upkeep_add = 6
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		modifier = {
+			planet_researchers_energy_upkeep_add = 4
+		}
+	}
+
+	prerequisites = {
+		"tech_roci_archival_records"
+	}
+		
+	upgrades = {
+	}
+}
+
+building_roci_fe_dome_mod = {
+	base_buildtime = @b4_time
+	can_build = no
+	icon = building_paradise_dome
+	
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+		always = no
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 20
+		planet_amenities_add = 20
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+		}
+		upkeep = {
+			energy = 10
+		}
+	}
+
+	prerequisites = {
+		"tech_roci_sky_dome"
+	}
+}

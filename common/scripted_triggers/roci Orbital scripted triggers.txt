@@ -1,0 +1,35 @@
+has_oi_space_elevator = {
+	OR = {
+		has_active_building = building_roci_space_elevator
+		has_active_building = building_roci_space_elevator_2
+		has_active_building = building_roci_space_elevator_3
+	}
+}
+
+has_oi_space = {
+	check_modifier_value = { modifier = district_orbital_platform_cap_max value > 0 }
+}
+
+has_space_elevator_support = {
+	OR = {
+		AND = {
+			has_active_building = building_roci_space_elevator
+			check_variable = { which = orbital_infrastructure value < 10 }
+		}
+		AND = {
+			has_active_building = building_roci_space_elevator_2
+			check_variable = { which = orbital_infrastructure value < 25 }
+		}
+		AND = {
+			has_active_building = building_roci_space_elevator_3
+		}
+	}
+}
+
+is_special_planet = {
+	OR = {
+		is_planet_class = pc_city
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+	}
+}
