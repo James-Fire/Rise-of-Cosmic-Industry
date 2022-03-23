@@ -812,49 +812,8 @@ event = {
 				limit = {
 					has_planet_flag = has_autofab
 				}
-				planet_event = { id = autofab.31 }
+				reset_factory_part_1 = yes
 			}
 		}
-	}
-}
-
-planet_event = {
-	id = autofab.31
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		NOT = { has_global_flag = no_autofab }
-	}
-	
-	immediate = {
-		if = {
-			limit = {
-				NOT = { has_global_flag = no_autofab }
-			}
-			reset_factory_part_1 = yes
-		}
-	}
-	
-	after = {
-		reset_factory_part_2 = yes
-		planet_event = { id = autofab.32 days = 2 }
-	}
-}
-
-planet_event = {
-	id = autofab.32
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		NOT = { has_global_flag = no_autofab }
-	}
-	
-	immediate = {
-		reset_factory_part_3 = yes
-	}
-	
-	after = {
 	}
 }

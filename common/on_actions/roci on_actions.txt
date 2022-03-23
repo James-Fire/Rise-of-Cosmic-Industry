@@ -48,7 +48,6 @@ on_monthly_pulse = {
 		orbitalinfra.3
 		
 		kiyo_trade_triggered_event.2
-		kiyo_trade_compat_event.0		# Refer to "kiyo_mod_trade_compat_events.txt"
 	}
 }
 

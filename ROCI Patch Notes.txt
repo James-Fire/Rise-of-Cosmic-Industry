@@ -22,7 +22,9 @@ Improved tooltip readability about what is actually failing on Exploit UI button
 
 
 
+Fixed being able to go negative on how many Autofab Modules you have.*
 
+Fix autofab extractors remaining queued on planets that don't have any sr deposits.*
 
 Fixed the Autofab document script so it stops reporting negative amounts, and also so it stops giving increasingly large numbers whenever you refresh it.*
 
@@ -37,10 +39,6 @@ Added an effect that can be called to log exploit values on things.*
 Added an effect that can be called to log realdev values on things.*
 
 Added an effect that can be called to log trade values on things.*
-
-
-
-Fixed being able to go negative on how many Autofab Modules you have.*
 
 Moved the Trade Value provided by completed exploit constructions to the minor colonies.*
 

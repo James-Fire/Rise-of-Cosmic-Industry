@@ -818,105 +818,105 @@ factory_extractor_modifiers = {
 reset_factory_part_1 = {
 	while = {
 		limit = {
-			count_deposits = { type = autofab_farm value < autofab_farm }
+			count_deposits = { type = autofab_farm count < autofab_farm }
 			has_food_available = yes
 		}
 		add_deposit = autofab_farm
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_farm value > autofab_farm }
+			count_deposits = { type = autofab_farm count > autofab_farm }
 		}
 		remove_deposit = autofab_farm
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_mine value < autofab_mine }
+			count_deposits = { type = autofab_mine count < autofab_mine }
 			has_minerals_available = yes
 		}
 		add_deposit = autofab_mine
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_mine value > autofab_mine }
+			count_deposits = { type = autofab_mine count > autofab_mine }
 		}
 		remove_deposit = autofab_mine
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_power value < autofab_power }
+			count_deposits = { type = autofab_power count < autofab_power }
 			has_energy_available = yes
 		}
 		add_deposit = autofab_power
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_power value > autofab_power }
+			count_deposits = { type = autofab_power count > autofab_power }
 			has_energy_available = yes
 		}
 		remove_deposit = autofab_power
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_foundry value < autofab_foundry }
+			count_deposits = { type = autofab_foundry count < autofab_foundry }
 		}
 		add_deposit = autofab_foundry
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_foundry value > autofab_foundry }
+			count_deposits = { type = autofab_foundry count > autofab_foundry }
 			has_energy_available = yes
 		}
 		remove_deposit = autofab_foundry
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_factory value < autofab_factory }
+			count_deposits = { type = autofab_factory count < autofab_factory }
 		}
 		add_deposit = autofab_factory
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_factory value > autofab_factory }
+			count_deposits = { type = autofab_factory count > autofab_factory }
 			has_energy_available = yes
 		}
 		remove_deposit = autofab_factory
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_chemical value < autofab_chemical }
+			count_deposits = { type = autofab_motes_refinery count < autofab_chemical }
 		}
-		add_deposit = autofab_chemical
+		add_deposit = autofab_motes_refinery
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_chemical value > autofab_chemical }
+			count_deposits = { type = autofab_motes_refinery count > autofab_chemical }
 			has_energy_available = yes
 		}
-		remove_deposit = autofab_chemical
+		remove_deposit = autofab_motes_refinery
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_gases_refinery value < autofab_refinery }
+			count_deposits = { type = autofab_gases_refinery count < autofab_refinery }
 		}
 		add_deposit = autofab_gases_refinery
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_gases_refinery value > autofab_refinery }
+			count_deposits = { type = autofab_gases_refinery count > autofab_refinery }
 			has_energy_available = yes
 		}
 		remove_deposit = autofab_gases_refinery
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_crystals_refinery value < autofab_translucer }
+			count_deposits = { type = autofab_crystals_refinery count < autofab_translucer }
 		}
 		add_deposit = autofab_crystals_refinery
 	}
 	while = {
 		limit = {
-			count_deposits = { type = autofab_crystals_refinery value > autofab_translucer }
+			count_deposits = { type = autofab_crystals_refinery count > autofab_translucer }
 			has_energy_available = yes
 		}
 		remove_deposit = autofab_crystals_refinery
@@ -943,6 +943,7 @@ reset_factory_part_1 = {
 }
 
 autofab_log_everything = {
+	document_factory_country = yes
 	autofab_log_all_values = yes
 	every_owned_planet = {
 		autofab_log_all_values = yes
@@ -950,14 +951,14 @@ autofab_log_everything = {
 }
 
 autofab_log_all_values = {
-	log = "[This.GetName] autofabs Current:[This.autofabs]|Queued:[This.autofab_queue]|Available:[This.autofabs_available]"
-	log = "[This.GetName] power Current:[This.autofab_power] Current:[This.autofab_energy_building] Queued:[This.autofab_energy_queue] Available:[This.autofab_energy_avail]"
-	log = "[This.GetName] £minerals£ Current:[This.autofab_mine]|Building:[This.autofab_minerals_building]|Queued:[This.autofab_mineral_queue]|Available:[This.autofab_minerals_avail]"
-	log = "[This.GetName] £food£ Current:[This.autofab_farm]|Building:[This.autofab_food_building]|Queued:[This.autofab_food_queue]|Available:[This.autofab_food_avail]"
-	log = "[This.GetName] £alloys£ Current:[This.autofab_foundry]|Building:[This.autofab_alloys_building]|Queued:[This.autofab_alloys_queue]|Available:[This.autofab_foundry_available]"
-	log = "[This.GetName] £consumer_goods£ Current:[This.autofab_factory]|Building:[This.autofab_congoods_building]|Queued:[This.autofab_congoods_queue]|Available:[This.autofab_factory_available]"
-	log = "[This.GetName] £volatile_motes£ Current:[This.autofab_chemical]|Building:[This.autofab_motes_building]|Queued:[This.autofab_motes_queue]|Available:[This.autofab_motes_available]"
-	log = "[This.GetName] £exotic_gases£ Current:[This.autofab_refinery]|Building:[This.autofab_gases_building]|Queued:[This.autofab_gases_queue]|Available:[This.autofab_gases_available]"
-	log = "[This.GetName] £rare_crystals£ Current:[This.autofab_translucer]|Building:[This.autofab_crystals_building]|Queued:[This.autofab_crystals_queue]|Available:[This.autofab_crystals_available]"
-	log = "[This.GetName] £autofab_extractor£ Current:[This.autofab_extractor]|Building:[This.autofab_extractor_building]|Queued:[This.autofab_extractor_queue]|Available:[This.autofab_extractor_avail]"
+	log = "\\[This.GetName] autofabs Current:\\[This.autofabs]|Queued:\\[This.autofab_queue]|Available:\\[This.autofabs_available]"
+	log = "\\[This.GetName] power Current:\\[This.autofab_power]|Current:\\[This.autofab_energy_building]|Queued:\\[This.autofab_energy_queue]|Available:\\[This.autofab_energy_avail]"
+	log = "\\[This.GetName] £minerals£ Current:\\[This.autofab_mine]|Building:\\[This.autofab_minerals_building]|Queued:\\[This.autofab_mineral_queue]|Available:\\[This.autofab_minerals_avail]"
+	log = "\\[This.GetName] £food£ Current:\\[This.autofab_farm]|Building:\\[This.autofab_food_building]|Queued:\\[This.autofab_food_queue]|Available:\\[This.autofab_food_avail]"
+	log = "\\[This.GetName] £alloys£ Current:\\[This.autofab_foundry]|Building:\\[This.autofab_alloys_building]|Queued:\\[This.autofab_alloys_queue]|Available:\\[This.autofab_foundry_available]"
+	log = "\\[This.GetName] £consumer_goods£ Current:\\[This.autofab_factory]|Building:\\[This.autofab_congoods_building]|Queued:\\[This.autofab_congoods_queue]|Available:\\[This.autofab_factory_available]"
+	log = "\\[This.GetName] £volatile_motes£ Current:\\[This.autofab_chemical]|Building:\\[This.autofab_motes_building]|Queued:\\[This.autofab_motes_queue]|Available:\\[This.autofab_motes_available]"
+	log = "\\[This.GetName] £exotic_gases£ Current:\\[This.autofab_refinery]|Building:\\[This.autofab_gases_building]|Queued:\\[This.autofab_gases_queue]|Available:\\[This.autofab_gases_available]"
+	log = "\\[This.GetName] £rare_crystals£ Current:\\[This.autofab_translucer]|Building:\\[This.autofab_crystals_building]|Queued:\\[This.autofab_crystals_queue]|Available:\\[This.autofab_crystals_available]"
+	log = "\\[This.GetName] £autofab_extractor£ Current:\\[This.autofab_extractor]|Building:\\[This.autofab_extractor_building]|Queued:\\[This.autofab_extractor_queue]|Available:\\[This.autofab_extractor_avail]"
 }
