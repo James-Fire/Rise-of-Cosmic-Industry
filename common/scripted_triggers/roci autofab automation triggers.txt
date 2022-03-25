@@ -15,6 +15,7 @@ automation_active = {
 			}
 		}
 	}
+	has_autofab_queue = no
 	NOT = { has_planet_flag = automation_queued_this_cycle }
 }
 

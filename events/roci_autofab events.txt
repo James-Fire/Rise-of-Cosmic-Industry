@@ -310,6 +310,7 @@ country_event = {
 					if = {
 						limit = {
 							has_supported_district_set = yes
+							NOT = { has_autofab = yes }
 						}
 						add_autofab = yes
 					}
@@ -500,7 +501,7 @@ planet_event = {
 						}
 					}
 				}
-				NOT = {
+				NOR = {
 					owner = { has_country_flag = autofab_ignore_vanilla }
 					has_planet_flag = autofab_ignore_vanilla
 				}
@@ -812,8 +813,22 @@ event = {
 				limit = {
 					has_planet_flag = has_autofab
 				}
-				reset_factory_part_1 = yes
+				planet_event = { id = autofab.31 }
 			}
 		}
+	}
+}
+
+planet_event = {
+	id = autofab.31
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
+	immediate = {
+		reset_factory_part_1 = yes
 	}
 }

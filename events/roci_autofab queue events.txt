@@ -11,11 +11,11 @@ event = {
 				NOT = { has_global_flag = no_autofab }
 				can_use_autofab = yes
 				OR = {
-					has_queue = yes
+					has_autofab_queue = yes
 					check_variable = { which = autofab_alloy_debt value > 0 }
 					any_owned_planet = {
 						can_expand_factory = yes
-						has_queue = yes
+						has_autofab_queue = yes
 					}
 					any_owned_planet = {
 						can_expand_factory = yes
@@ -408,7 +408,7 @@ country_event = {
 	immediate = {
 		every_owned_planet = {
 			limit = {
-				has_queue = yes
+				has_autofab_queue = yes
 			}
 			if = {
 				limit = {

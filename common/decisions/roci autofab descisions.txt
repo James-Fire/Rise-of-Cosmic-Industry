@@ -17,7 +17,7 @@ decision_manage_autofab = {
 	}
 
 	effect = {
-		custom_tooltip = "Manage the Automatic Factory"
+		custom_tooltip = "autofab_factory_manage"
 		hidden_effect = {
 			document_factory_planet = yes
 			factory_reset_all_planet_flags = yes
@@ -47,7 +47,7 @@ decision_manage_realdev = {
 	}
 
 	effect = {
-		custom_tooltip = "Manage Industrial Production"
+		custom_tooltip = "realdev_ip_manage"
 		hidden_effect = {
 		}
 		planet_event = { id = realdev_menu.10 }

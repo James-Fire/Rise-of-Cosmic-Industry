@@ -161,7 +161,7 @@ on_megastructure_upgraded = {
 # From = Terraforming country
 on_terraforming_complete = {
 	events = {
-		autofab.31
+		autofab.30
 	}
 }
 
@@ -272,7 +272,7 @@ on_autofab_retool_completed = {
 #from = space_owner
 on_exploit_colony_completed = {
 	events = {
-		roci_menu.41
+		#roci_menu.41
 	}
 }
 #Planet Scope

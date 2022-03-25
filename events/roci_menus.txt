@@ -257,18 +257,7 @@ country_event = {
 						count = 5
 						add_deposit = roci_cheat_deposit
 					}
-					while = {
-						limit = {
-							num_districts = { type = district_roci_sprawl value > value:roci_district_sprawl }
-						}
-						remove_district = district_roci_sprawl
-					}
-					while = {
-						limit = {
-							num_districts = { type = district_roci_sprawl value < value:roci_district_sprawl }
-						}
-						add_district = district_roci_sprawl
-					}
+					planet_event = { id = roci_menu.41 }
 					every_deposit = {
 						limit = {
 							is_deposit_type = roci_cheat_deposit
@@ -324,6 +313,7 @@ country_event = {
 		}
 	}
 }
+
 #On_action event to handle Sprawl Districts when it is needed.
 planet_event = {
 	id = roci_menu.41

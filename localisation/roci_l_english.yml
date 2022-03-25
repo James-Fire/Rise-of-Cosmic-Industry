@@ -1,5 +1,6 @@
 ﻿l_english:
  ###Exploit
+  
   #Events 
     spaceexploit.1.name:0 "[FROM.GetName], a [FROM.GetClassName], Construction Completed"
     spaceexploit.1.desc:0 "Use the Location Button to go to [FROM.GetName], or simply close this window."
@@ -336,6 +337,7 @@
      space_1:0 " "
      space_2:0 "  "
      space_3:0 "   "
+ 
  ###Autofab
  
   #Decisions
@@ -551,7 +553,7 @@
     tr_autofab_optimization: "Factory Optimization"
     tr_autofab_optimization_desc: "Factory Output: §G+5%§!\nFactory Upkeep: §G-5%§!"
     tr_autofab_optimization_delayed: "Optimizing the input/output of the Factory can save large amounts of resources, and increase production."
-    #Deposits
+  #Deposits
      autofab:0 "Automatic Factory"
      autofab_desc:0 "This planet's Automated Factory. Allows building Factory Modules."
      autofab_refinery_extractor:0 "Factory Extractor"
@@ -592,7 +594,7 @@
      
      foundry_expanding:0 "Foundry"
    
-    #Origin and Civic
+  #Origin and Civic
      origin_autofab_tooltip_1:0 "The living standards of your main species will be set to a high standard. Ethic specific ones are used first, then Social Welfare."
      origin_autofab_tooltip_2:0 "You start with an Automatic Factory deposit, that replaces physical resource production."
      origin_autofab_tooltip_3:0 "You start with less £pop£ Pops, those that would have been working physical resource jobs removed. To compensate for needing more district space, your homeworld minimum size is £planetsize£ §Y25§!."
@@ -622,7 +624,7 @@
      
      can_use_autofab:0 "Unlock the ability to build Automated Factories on your planets, reducing your reliance on labour from people and machines. \nIf you have the Origin or Civic, this gives +40% factory production instead."
      
-    #Events
+  #Events
      autofab.2.name: "Factory For Everyone"
      autofab.2.desc: "You can decide if you want everyone to have access to the factory here. Any benefits or drawbacks from using the civic or origin will still be in place. The AP will provide +40% factory output to everyone, rather than just those with the civic or origin."
      autofab.2.yes: "Yes"
@@ -643,7 +645,7 @@
      autofab.25.desc_7:0 "We have [This.autofab_translucer] Crystal Translucers"
      autofab.25.desc_8:0 "We have [This.autofab_refinery] Gas Refineries"
      autofab.25.desc_9:0 "We have [This.autofab_extractor] Extractors"
-    #Advisor
+  #Advisor
      ADVISOR:0 "Advisor"
      autofab_0_desc_1:0 "Welcome [Root.GetRulerTitle]. The Automatic Factory is a special deposit on your planets, allowing automated production of key resources without the use of pops."
      autofab_0_desc_2:0 "After colonization, you can use either the Planet or Country Terminal to order construction. Once the base factory is built, you have several options to expand it, or let it handle its own expansion."
@@ -698,7 +700,7 @@
      
      
      
-    #Menu
+  #Menu
      autofab_menu_name:0 "AutoFactory Terminal"
      decision_manage_autofab:0 "Factory Terminal"
      decision_manage_autofab_desc:0 "Open up the factory terminal for this planet, where we can make changes, talk to the Advisor, or go to the country terminal."

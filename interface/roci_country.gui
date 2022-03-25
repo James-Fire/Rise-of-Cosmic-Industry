@@ -34,6 +34,14 @@ guiTypes = {
 		origo = center
 		moveable = yes
 		size = { width = 845 height = 310 }
+			
+		instantTextBoxType={
+			name = "heading"
+			font = "malgun_goth_24"
+			position = { x = 500 y = 0 } #Yeet
+			maxWidth = 520
+			alwaysTransparent = yes
+		}
 		containerWindowType = {
 			name = "portrait"
 			position = { x = -95 y = 11000 } #Yeet

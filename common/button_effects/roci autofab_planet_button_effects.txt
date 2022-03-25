@@ -41,7 +41,7 @@ planet_factory_automation_country = {
 	potential = { NOR = { has_planet_flag = autofab_automation has_planet_flag = autofab_automation_off } }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { 
-		custom_tooltip = "Defaulted to Country Setting."
+		custom_tooltip = "autofab_country_default"
 		set_planet_flag = autofab_automation
 	}
 }
@@ -80,7 +80,7 @@ planet_factory_vanilla_swapping_country = {
 	allow = { hidden_trigger = { always = yes } }
 	effect = {
 		set_planet_flag = factory_vanilla_swapping
-		custom_tooltip = "Defaulted to Country Setting."
+		custom_tooltip = "autofab_country_default"
 	}
 }
 planet_factory_vanilla_swapping_on = {
@@ -99,7 +99,7 @@ planet_factory_fallback_country = {
 	allow = { hidden_trigger = { always = yes } }
 	effect = {
 		set_planet_flag = factory_fallback
-		custom_tooltip = "Defaulted to Country Setting."
+		custom_tooltip = "autofab_country_default"
 	}
 }
 planet_factory_fallback_on = {
@@ -117,7 +117,7 @@ planet_factory_autofab_construction_country = {
 	potential = { NOR = { has_planet_flag = factory_autofab_construction_off has_planet_flag = factory_autofab_construction_on } }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { 
-		custom_tooltip = "Defaulted to Country Setting."
+		custom_tooltip = "autofab_country_default"
 		set_planet_flag = factory_autofab_construction_on
 	}
 }

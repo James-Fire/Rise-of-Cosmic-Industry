@@ -57,8 +57,11 @@ roci_trade_route_value = {
 	modifier = {
  		owner = { is_regular_empire = yes }	#Only applied if this trigger is true
 		add = modifier:trade_value_add
-		mult = modifier:trade_value_mult
  	}
+	 modifier = {
+		  owner = { is_regular_empire = yes }	#Only applied if this trigger is true
+		 mult = modifier:trade_value_mult
+	  }
 	
 	complex_trigger_modifier = {
 		trigger = planet_resource_compare
@@ -148,9 +151,49 @@ roci_district_sprawl = {
  	}
 }
 
+roci_autofab_districts = {
+	base = 0
+	modifier = {
+ 		is_variable_set = autofab_energy_queue
+		add = autofab_energy_queue
+ 	}
+	modifier = {
+ 		is_variable_set = autofab_mineral_queue
+		add = autofab_mineral_queue
+ 	}
+	modifier = {
+ 		is_variable_set = autofab_food_queue
+		add = autofab_food_queue
+ 	}
+	modifier = {
+ 		is_variable_set = autofab_alloys_queue
+		add = autofab_alloys_queue
+ 	}
+	modifier = {
+ 		is_variable_set = autofab_congoods_queue
+		add = autofab_congoods_queue
+ 	}
+	modifier = {
+ 		is_variable_set = autofab_motes_queue
+		add = autofab_motes_queue
+ 	}
+	modifier = {
+ 		is_variable_set = autofab_gases_queue
+		add = autofab_gases_queue
+ 	}
+	modifier = {
+ 		is_variable_set = autofab_crystals_queue
+		add = autofab_crystals_queue
+ 	}
+	modifier = {
+ 		is_variable_set = autofab_extractor_queue
+		add = autofab_extractor_queue
+ 	}
+}
+
 exploit_colony_energy_cost = {
 	base = 50
-	is_base_planet
+	#is_base_planet
 	modifier = {
 		OR = {
 			is_difficult_planet = yes
@@ -220,7 +263,7 @@ autofab_power_produces_mult = {
  			type = district_orbital_platform_solar_array
  		}
  		mode = add 					#Allows all numerical operations
- 		add = 5 					#Multiplies the outcome by this. In this example, this means adding 5 for each planet with more than 10 pops
+ 		mult = 5 					#Multiplies the outcome by this. In this example, this means adding 5 for each planet with more than 10 pops
  	}
 	modifier = { #Include FE Building
 		has_active_building = building_roci_class_4_singularity_mod

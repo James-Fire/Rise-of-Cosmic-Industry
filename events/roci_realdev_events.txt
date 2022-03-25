@@ -102,6 +102,7 @@ country_event = {
 			limit = {
 				NOT = { has_country_flag = realdev_variables_set }
 			}
+			set_variable = { which = realdev_minor_colony_speed value = 0 }
 			set_variable = { which = realdev_industry_shipyard_ratio value = 0.8 }
 			set_variable = { which = realdev_industry_country_stockpile value = 0.1 }
 			set_variable = { which = realdev_industry_space_ratio value = 1 }

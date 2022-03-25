@@ -47,7 +47,7 @@ can_build_autofab = { #Planet Scope
 }
 
 can_expand_factory = {
-	free_district_slots > 0
+	free_district_slots > value:roci_autofab_districts
 	has_autofab = yes
 	NOT = { has_planet_flag = factory_expanding }
 	can_afford_module = yes
@@ -146,7 +146,7 @@ has_vanilla_swap_candidate = {
 has_energy_available = {
 	OR = {
 		uses_district_set = giga_birch
-		AND = {	
+		AND = {
 			uses_district_set = standard
 			num_free_districts = { type = district_generator value > 0 }
 		}
@@ -155,6 +155,7 @@ has_energy_available = {
 				uses_district_set = hive_world
 				uses_district_set = machine_world
 				uses_district_set = ring_world
+				uses_district_set = shattered_ring_world
 			}
 			free_district_slots > 0
 		}
@@ -181,6 +182,7 @@ has_minerals_available = {
 		AND = {
 			uses_district_set = hive_world
 			uses_district_set = machine_world
+			uses_district_set = shattered_ring_world
 			free_district_slots > 0
 		}
 		AND = {
@@ -201,6 +203,7 @@ has_food_available = {
 			OR = {
 				uses_district_set = hive_world
 				uses_district_set = ring_world
+				uses_district_set = shattered_ring_world
 			}
 			free_district_slots > 0
 		}

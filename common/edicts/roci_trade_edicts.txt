@@ -1,4 +1,5 @@
 kiyo_trade_check = {
+	icon = "GFX_edict_type_policy"
 	length = 0
 	resources = { category = edicts cost = {} }
 	effect = { hidden_effect = { country_event = { id = kiyo_trade_manual_event.2 } set_country_flag = kiyo_trade_check_window } }
@@ -42,6 +43,7 @@ kiyo_trade_check = {
 
 # Add more cargo ships to trade route
 kiyo_trade_add_ships_to_trade_route = {
+	icon = "GFX_edict_type_policy"
 	length = 0
 	resources = {
 		category = campaign_kiyo_mod_trade

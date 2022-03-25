@@ -70,7 +70,6 @@ guiTypes = {
 			position = { x = 20 y = 5 }
 			size = { width=563 height=280 }
 			moveable = no
-			
 			instantTextBoxType={
 				name = "action_title"
 				font = "malgun_goth_24"

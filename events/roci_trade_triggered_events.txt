@@ -7,6 +7,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		NOT = { has_global_flag = no_trade_routes }
 		is_country_type = default
 		OR = {
 			last_increased_tech = tech_luxuries_1
@@ -47,6 +48,7 @@ event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		NOT = { has_global_flag = no_trade_routes }
 		any_country = {
 			any_owned_fleet = {
 				num_ships < 1
@@ -99,7 +101,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	trigger = { root.fromfrom = { has_fleet_flag = kiyo_trade_has_trade_route } }
+	trigger = { NOT = { has_global_flag = no_trade_routes } fromfrom = { has_fleet_flag = kiyo_trade_has_trade_route } }
 	
 	immediate = {
 		fromfrom = {
@@ -127,7 +129,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	trigger = { root.fromfrom = { has_fleet_flag = kiyo_trade_has_trade_route } }
+	trigger = { NOT = { has_global_flag = no_trade_routes } fromfrom = { has_fleet_flag = kiyo_trade_has_trade_route } }
 	
 	immediate = {
 		random_owned_planet = { limit = { root.fromfrom = { has_fleet_flag = kiyo_trade_start@PREV } }
@@ -247,7 +249,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	trigger = { root.fromfrom = { fleet = { has_fleet_flag = kiyo_trade_has_trade_route } } }
+	trigger = { NOT = { has_global_flag = no_trade_routes } fromfrom = { fleet = { has_fleet_flag = kiyo_trade_has_trade_route } } }
 	
 	immediate = {
 		fromfrom = {
@@ -288,7 +290,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	trigger = { from = { has_fleet_flag = kiyo_trade_has_trade_route NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo } } }
+	trigger = { NOT = { has_global_flag = no_trade_routes } from = { has_fleet_flag = kiyo_trade_has_trade_route NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo } } }
 	
 	immediate = {
 		random_owned_planet = { limit = { root.from = { has_fleet_flag = kiyo_trade_start@PREV } }
@@ -463,7 +465,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	trigger = { any_owned_planet = { root.from = { has_fleet_flag = kiyo_trade_start@PREV } } from = { NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo has_fleet_flag = kiyo_trade_has_trade_route } } }
+	trigger = { NOT = { has_global_flag = no_trade_routes } any_owned_planet = { root.from = { has_fleet_flag = kiyo_trade_start@PREV } } from = { NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo has_fleet_flag = kiyo_trade_has_trade_route } } }
 	
 	immediate = {
 		random_owned_planet = { limit = { root.from = { has_fleet_flag = kiyo_trade_start@PREV } }
@@ -497,6 +499,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		NOT = { has_global_flag = no_trade_routes }
 		any_owned_fleet = {
 			any_owned_ship = { is_ship_size = kiyo_trade }
 			is_fleet_idle = yes
@@ -567,6 +570,7 @@ fleet_event = {
 	location = root
 	
 	trigger = {
+		NOT = { has_global_flag = no_trade_routes }
 		exists = owner
 		NOT = { has_fleet_flag = kiyo_event_trade_deleted_cargo }
 		OR = {

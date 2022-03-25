@@ -1,4 +1,4 @@
-has_queue = {
+has_autofab_queue = {
 	OR = {
 		NOT = { check_variable = { which = autofab_queue value = 0 } }
 		NOT = { check_variable = { which = autofab_energy_queue value = 0 } }
