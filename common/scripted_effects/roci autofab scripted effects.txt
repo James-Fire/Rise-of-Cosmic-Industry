@@ -80,6 +80,60 @@ set_autofab_variables_initial = {
 set_unset_variables = {
 	if = {
 		limit = {
+			NOT = { is_variable_set = autofab_power }
+		}
+		set_variable = { which = autofab_power value = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { is_variable_set = autofab_mine }
+		}
+		set_variable = { which = autofab_mine value = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { is_variable_set = autofab_farm }
+		}
+		set_variable = { which = autofab_farm value = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { is_variable_set = autofab_foundry }
+		}
+		set_variable = { which = autofab_foundry value = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { is_variable_set = autofab_factory }
+		}
+		set_variable = { which = autofab_factory value = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { is_variable_set = autofab_chemical }
+		}
+		set_variable = { which = autofab_chemical value = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { is_variable_set = autofab_refinery }
+		}
+		set_variable = { which = autofab_refinery value = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { is_variable_set = autofab_translucer }
+		}
+		set_variable = { which = autofab_translucer value = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { is_variable_set = autofab_extractor }
+		}
+		set_variable = { which = autofab_extractor value = 0 }
+	}
+	if = {
+		limit = {
 			NOT = { is_variable_set = autofab_queue }
 		}
 		set_variable = { which = autofab_queue value = 0 }
@@ -195,6 +249,7 @@ document_factory_country = {
 		document_factory_planet = yes
 		PREV = {
 			change_variable = { which = autofabs_available value = PREV.autofabs_available }
+			change_variable = { which = autofabs_building value = PREV.autofabs_building }
 			change_variable = { which = autofabs value = PREV.autofabs }
 			change_variable = { which = autofab_farm value = PREV.autofab_farm }
 			change_variable = { which = autofab_mine value = PREV.autofab_mine }
@@ -286,7 +341,7 @@ document_factory_planet = {
 				check_variable = { which = autofab_queue value > 0 }
 			}
 		}
-		change_variable = { which = autofabs_available value = 1 }
+		set_variable = { which = autofabs_available value = 1 }
 	}
 	else_if = {
 		limit = {
@@ -299,13 +354,13 @@ document_factory_planet = {
 			limit = {
 				has_planet_flag = building_autofab
 			}
-			change_variable = { which = autofabs_building value = 1 }
+			set_variable = { which = autofabs_building value = 1 }
 		}
 		else_if = {
 			limit = {
 				has_planet_flag = has_autofab
 			}
-			change_variable = { which = autofabs value = 1 }
+			set_variable = { which = autofabs value = 1 }
 		}
 		if = {
 			limit = {
@@ -323,7 +378,7 @@ document_factory_planet = {
 		else_if = {
 			limit = {
 				has_rare_resource_deposit = yes
-				NOT = {
+				NOT = {	
 					has_planet_flag = has_autofab_extractor
 				}
 			}
@@ -828,102 +883,103 @@ count_limited_districts = {
 }
 
 reset_factory_part_1 = {
+	set_unset_variables = yes
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_farm  } count < autofab_farm }
+			count_deposit = { limit = { is_deposit_type = autofab_farm } count < autofab_farm }
 			has_food_available = yes
 		}
 		add_deposit = autofab_farm
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_farm  } count > autofab_farm }
+			count_deposit = { limit = { is_deposit_type = autofab_farm } count > autofab_farm }
 		}
 		remove_deposit = autofab_farm
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_mine  } count < autofab_mine }
+			count_deposit = { limit = { is_deposit_type = autofab_mine } count < autofab_mine }
 			has_minerals_available = yes
 		}
 		add_deposit = autofab_mine
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_mine  } count > autofab_mine }
+			count_deposit = { limit = { is_deposit_type = autofab_mine } count > autofab_mine }
 		}
 		remove_deposit = autofab_mine
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_power  } count < autofab_power }
+			count_deposit = { limit = { is_deposit_type = autofab_power } count < autofab_power }
 			has_energy_available = yes
 		}
 		add_deposit = autofab_power
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_power  } count > autofab_power }
+			count_deposit = { limit = { is_deposit_type = autofab_power } count > autofab_power }
 		}
 		remove_deposit = autofab_power
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_foundry  } count < autofab_foundry }
+			count_deposit = { limit = { is_deposit_type = autofab_foundry } count < autofab_foundry }
 		}
 		add_deposit = autofab_foundry
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_foundry  } count > autofab_foundry }
+			count_deposit = { limit = { is_deposit_type = autofab_foundry } count > autofab_foundry }
 		}
 		remove_deposit = autofab_foundry
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_factory  } count < autofab_factory }
+			count_deposit = { limit = { is_deposit_type = autofab_factory } count < autofab_factory }
 		}
 		add_deposit = autofab_factory
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_factory  } count > autofab_factory }
+			count_deposit = { limit = { is_deposit_type = autofab_factory } count > autofab_factory }
 		}
 		remove_deposit = autofab_factory
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery  } count < autofab_chemical }
+			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count < autofab_chemical }
 		}
 		add_deposit = autofab_motes_refinery
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery  } count > autofab_chemical }
+			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count > autofab_chemical }
 		}
 		remove_deposit = autofab_motes_refinery
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery  } count < autofab_refinery }
+			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count < autofab_refinery }
 		}
 		add_deposit = autofab_gases_refinery
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery  } count > autofab_refinery }
+			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count > autofab_refinery }
 		}
 		remove_deposit = autofab_gases_refinery
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery  } count < autofab_translucer }
+			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count < autofab_translucer }
 		}
 		add_deposit = autofab_crystals_refinery
 	}
 	while = {
 		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery  } count > autofab_translucer }
+			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count > autofab_translucer }
 		}
 		remove_deposit = autofab_crystals_refinery
 	}
@@ -953,6 +1009,95 @@ reset_factory_part_1 = {
 			remove_planet_flag = has_autofab_extractor
 		}
 	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_farm } count < autofab_farm }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { is_deposit_type = autofab_farm } 
+			variable = autofab_farm
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_mine } count < autofab_mine }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { is_deposit_type = autofab_mine } 
+			variable = autofab_mine
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_power } count < autofab_power }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { is_deposit_type = autofab_power } 
+			variable = autofab_power
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_foundry } count < autofab_foundry }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { is_deposit_type = autofab_foundry } 
+			variable = autofab_foundry
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_factory } count < autofab_factory }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { is_deposit_type = autofab_factory } 
+			variable = autofab_factory
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count < autofab_chemical }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { is_deposit_type = autofab_motes_refinery } 
+			variable = autofab_chemical
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count < autofab_refinery }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { is_deposit_type = autofab_gases_refinery } 
+			variable = autofab_refinery
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count < autofab_translucer }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { is_deposit_type = autofab_crystals_refinery } 
+			variable = autofab_translucer
+		}
+	}
+}
+
+autofab_log_all_countries = {
+	every_country = {
+		limit = {
+			can_use_autofab = yes
+		}
+		autofab_log_everything = yes
+	}
 }
 
 autofab_log_everything = {
@@ -964,7 +1109,9 @@ autofab_log_everything = {
 }
 
 autofab_log_all_values = {
-	log = "\\[This.GetName] autofabs Current:\\[This.autofabs]|Queued:\\[This.autofab_queue]|Available:\\[This.autofabs_available]"
+	log = "\\[This.GetName] autofabs Current:\\[This.autofabs]|Building:[This.autofabs_building]|Queued:\\[This.autofab_queue]|Available:\\[This.autofabs_available]"
+	log = "\\[This.GetName] £district£ Available:\\[This.autofab_districts_available]|Building:\\[This.autofab_districts_building]|Queued:\\[This.autofab_districts_queued]"
+	log = "\\[This.GetName] power Current:\\[This.autofab_power]|Current:\\[This.autofab_energy_building]|Queued:\\[This.autofab_energy_queue]|Available:\\[This.autofab_energy_avail]"
 	log = "\\[This.GetName] power Current:\\[This.autofab_power]|Current:\\[This.autofab_energy_building]|Queued:\\[This.autofab_energy_queue]|Available:\\[This.autofab_energy_avail]"
 	log = "\\[This.GetName] £minerals£ Current:\\[This.autofab_mine]|Building:\\[This.autofab_minerals_building]|Queued:\\[This.autofab_mineral_queue]|Available:\\[This.autofab_minerals_avail]"
 	log = "\\[This.GetName] £food£ Current:\\[This.autofab_farm]|Building:\\[This.autofab_food_building]|Queued:\\[This.autofab_food_queue]|Available:\\[This.autofab_food_avail]"

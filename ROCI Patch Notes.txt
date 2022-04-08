@@ -12,97 +12,43 @@ Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 Changed Assembly to have a per cap based on how many Roboticist (Or equivalent) jobs exist. Assembly Speed is now also "split" between them, like it is with shipyards. This will cause empires with lots of assembly jobs (Like machines) to require more IP to get the max boost.*
 
-Added a tooltip to the Minimum Stockpile title explaining what it means, and when it applies.*
-
-
-
 Improved tooltip readability about what is actually failing on Autofab UI buttons.*
 
 Improved tooltip readability about what is actually failing on Exploit UI buttons.*
 
 
 
-Fixed Autofab Automation queueing a module when the planet already has a queued module.
+Reduced FE buildings Flat production bonus, gave them a % production bonus, to work better with Orbital Districts.*
 
-Included an additional check in Autofab to ensure it takes into account queued modules when determining how much district space is left.
+Realdev Assembly Speed Cap is now affected by select techs and APs.*
 
-Fixed autofab extractors remaining queued on planets that don't have any sr deposits.
+Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet.*
 
-Fixed the Exploit minimum 2 moltens script so that it could actually work the way it was intended.
+Updated the Automation Settings window, so now it doesn't need to close and reopen to update numbers.*
 
-Fixed a ton of game start errors with Exploit.
+Updated the Exploit Terminal, so the values update automatically without needing a Terminal Refresh.*
 
-Fixed some game start errors with Autofab.
+Updated the Autofab Terminal, so the values update automatically without needing a Terminal Refresh.*
 
-Fixed some game start errors with Realdev.
+Fixed the positioning of the dongs in the autofab advisor UI.*
 
-Fixed some game start errors with Orbital.
+Added a block to the Autofab Planet UI to show current "time" remaining on the current construction, total "time" for the entire Queue, and the current build speed modifier.*
 
-Gave the Trade Ships edicts an icon.
-
-Gave the error log a massive cleanup.
-
-Gave the Colonize Planet decision the correct trigger.
-
-Included an on_action for when an autofab module completes.
-
-Included an on_action for when an autofab module starts.
-
-Included an on_action for when an autofab module retooling completes.
-
-Included an on_action for when an autofab module retooling starts.
-
-Included an on_action for when a Minor Colony completes.
-
-Included an on_action for when a Minor Colony starts a construction.
-
-Included an on_action for when a Minor Colony completes a construction.
-
-Simplified exploit loop events. This should reduce the performance impact of lots of colonies building at once.
-
-Made a yearly event for Cargo Ships to get them on their way if the on_action doesn't work as it should.
-
-Moved Sprawl Districts to being handled by a dedicated event based on on_actions.
-
-Fixed the Corporate Autofab civic not working with vanilla corps, only Bug Branch corps.
-
-Added a thing to the description of the Minor Colony planet modifier that shows the remaining and total exploit size. This does not work on existing planets, but will work on new ones.
-
-Renamed the "Colonized Planet" planet modifier to "Minor Colony".
-
-Improved tooltip readability on Exploit decisions, including removing extranneous ones.
-
-Fixed being able to demolish the Sprawl Workaround district.
-
-Renamed the Space Elevator stuff to Spaceport, and related for the other tiers.
-
-Added a planet modifier that shows the current Orbital Infrastructure.* Needs an Icon
-
-Fixed alloy mines being unable to be built of the shattered world from the ringworld origin.
-
-Fixed exploit not updating it's Building Colonies count often enough for realdev.
-
-Made Defense Platforms spawn a max of 1 platform per district per month. Removal of platforms over the limit supported by the current district count is still unlimited.
-
-Fixed starting minor colonies not building up.
-
-Added a hopeful fix for starbases not counting as hostile for preventing Orbital Platform spawning.
-
-Added an effect that can be called to log autofab values on things.
+Added a Planet Modifier to show to show the current "time" remaining on the current Autofab construction, total "time" for the entire Queue, and the current build speed modifier.*
 
 
 
-Fixed autofab not working correctly on the Shattered Ring.
+Added the Strategic Production module, that deals with the production of SRs, and how it's currently terrible in vanilla.*
 
-Fixed anyone using one of the Autofab Civic getting 2 Autofabs for some reason.
+Each Orbital District now increases the SR upkeep of the Spaceport by 0.5 of the appropriate resource for that district. This is also affected by the % upkeep increase on each district. This is only active with a T3 Spaceport.*
 
-Fixed the factory doing weird stuf on ringworlds.
+Added custom icons for the FE buildings and their techs.*
 
-Fixed Exploit causing stellaris to have a seizure.*
+Added a tooltip to the Minimum Stockpile title explaining what it means, when it applies, and limitations it has.*
 
-Fixed Void Dweller Autofab modules disappearing.
+Corrected Autofab UI triggers allowing you to queue more negative modules than exist.*
 
-Fixed being able to go negative on how many Autofab Modules you have.*
+Moved Equipment Factory upgrades to their own techs.*
 
 Fixed the Autofab document script so it stops reporting negative amounts, and also so it stops giving increasingly large numbers whenever you refresh it.*
 

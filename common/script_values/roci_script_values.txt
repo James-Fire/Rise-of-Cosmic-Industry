@@ -191,6 +191,33 @@ roci_autofab_districts = {
  	}
 }
 
+#Autofab UI stuff
+
+roci_autofab_available_districts = {
+	base = 0
+}
+
+
+#Exploit Stuff
+
+exploit_energy_min_stockpile = {
+	base = 0
+}
+exploit_alloys_min_stockpile = {
+	base = 0
+}
+exploit_minerals_min_stockpile = {
+	base = 0
+}
+exploit_motes_min_stockpile = {
+	base = 0
+}
+exploit_gases_min_stockpile = {
+	base = 0
+}
+
+
+
 exploit_colony_energy_cost = {
 	base = 50
 	#is_base_planet

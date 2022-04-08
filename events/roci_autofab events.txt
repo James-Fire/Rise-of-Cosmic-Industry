@@ -166,6 +166,7 @@ country_event = {
 					while = {
 						count = 1
 						limit = {
+							has_food_available = yes
 							owner = {
 								country_uses_food = yes
 							}
@@ -203,7 +204,7 @@ country_event = {
 										#has_job = farmer
 										has_job = technician
 										has_job = mining_drone
-										has_job = agri_drone
+										#has_job = agri_drone
 										has_job = technician_drone
 										#has_job = artisan
 										has_job = artisan_drone
@@ -304,7 +305,11 @@ country_event = {
 			}
 			else_if = {
 				limit = {
-					NOT = { has_origin = origin_autofab }
+					NOR = {
+						has_origin = origin_autofab
+						has_origin = origin_void_dwellers
+						has_origin = origin_birch
+					}
 				}
 				capital_scope = {
 					if = {
@@ -505,7 +510,7 @@ planet_event = {
 					owner = { has_country_flag = autofab_ignore_vanilla }
 					has_planet_flag = autofab_ignore_vanilla
 				}
-				has_planet_flag = has_autofab
+				has_autofab = yes
 			}
 			switch = {
 				trigger = last_district_changed

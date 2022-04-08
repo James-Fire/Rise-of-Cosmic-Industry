@@ -44,8 +44,8 @@ building_roci_space_elevator = {
 			energy = 1
 		}
 		upkeep = {
-			energy = 1
-			alloys = 1
+			energy = 2
+			alloys = 2
 			multiplier = orbital_infrastructure
 		}
 	}
@@ -151,8 +151,8 @@ building_roci_space_elevator_2 = {
 			energy = 1
 		}
 		upkeep = {
-			energy = 1
-			alloys = 1
+			energy = 2
+			alloys = 2
 			multiplier = orbital_infrastructure
 		}
 	}
@@ -261,8 +261,8 @@ building_roci_space_elevator_3 = {
 			energy = 1
 		}
 		upkeep = {
-			energy = 1
-			alloys = 1
+			energy = 2
+			alloys = 2
 			multiplier = orbital_infrastructure
 		}
 	}

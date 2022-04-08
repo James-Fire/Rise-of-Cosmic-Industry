@@ -15,14 +15,15 @@ building_roci_affluence_center_mod = {
 	resources = {
 		category = planet_buildings
 		produces = {
-			consumer_goods = 100
+			consumer_goods = 60
 		}
 		cost = {
 			minerals = @b4_minerals
 		}
 		upkeep = {
-			minerals = 50
-			energy = 20
+			minerals = 60
+			energy = 30
+			rare_crystals = 5
 		}
 	}
 	
@@ -61,13 +62,14 @@ building_roci_nourishment_center_mod = {
 	resources = {
 		category = planet_buildings
 		produces = {
-			food = 100
+			food = 60
 		}
 		cost = {
 			minerals = @b4_minerals
 		}
 		upkeep = {
-			energy = 20
+			energy = 30
+			volatile_motes = 5
 		}
 	}
 	
@@ -104,7 +106,10 @@ building_roci_class_4_singularity_mod = {
 			minerals = @b4_minerals
 		}
 		produces = {
-			energy = 250
+			energy = 60
+		}
+		upkeep = {
+			exotic_gases = 5
 		}
 	}
 	
@@ -134,25 +139,45 @@ building_roci_nano_forge_mod = {
 	resources = {
 		category = planet_buildings
 		produces = {
-			alloys = 50
+			alloys = 30
 		}
 		cost = {
 			minerals = @b4_minerals
 		}
 		upkeep = {
-			minerals = 100
-			energy = 20
+			minerals = 60
+			energy = 30
+			volatile_motes = 5
 		}
 	}
 	
 	planet_modifier = {
 		planet_metallurgists_alloys_produces_add = 3
 		planet_metallurgists_energy_upkeep_add = 3
-		planet_metallurgists_minerals_upkeep_add = 6
-		
-		#planet_autofab_foundry_alloys_produces_add = 6
-		#planet_autofab_foundry_energy_upkeep_add = 6
-		#planet_autofab_foundry_minerals_upkeep_add = 12
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_catalytic_empire = no
+			}
+		}
+		modifier = {
+			planet_metallurgists_minerals_upkeep_add = 6
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_catalytic_empire = yes
+			}
+		}
+		modifier = {
+			planet_metallurgists_food_upkeep_add = 12
+		}
 	}
 		
 	upgrades = {
@@ -176,19 +201,20 @@ building_roci_dimensional_fabricator_mod = {
 	resources = {
 		category = planet_buildings
 		produces = {
-			minerals = 200
-			rare_crystals = 5
-			exotic_gases = 5
-			volatile_motes = 5
-			sr_zro = 2
-			sr_dark_matter = 2
-			sr_living_metal = 2			
+			minerals = 40
+			#rare_crystals = 5
+			#exotic_gases = 5
+			#volatile_motes = 5
+			#sr_zro = 2
+			#sr_dark_matter = 2
+			#sr_living_metal = 2			
 		}
 		cost = {
 			minerals = @b4_minerals
 		}
 		upkeep = {
-			energy = 50
+			energy = 20
+			volatile_motes = 5
 		}
 	}
 	
@@ -245,15 +271,16 @@ building_roci_master_archive_mod = {
 	resources = {
 		category = planet_buildings
 		produces = {
-			physics_research = 100
-			society_research = 100
-			engineering_research = 100
+			physics_research = 40
+			society_research = 40
+			engineering_research = 40
 		}
 		cost = {
 			minerals = @b4_minerals
 		}
 		upkeep = {
-			energy = 20
+			energy = 60
+			exotic_gases = 5
 		}
 	}
 	

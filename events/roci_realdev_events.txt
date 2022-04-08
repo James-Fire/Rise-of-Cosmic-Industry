@@ -124,7 +124,12 @@ country_event = {
 			}
 			reset_realdev_variables = yes
 			#Add the building on game start
-			add_building = building_roci_infrastructure_construction_2
+			if = {
+				limit = {
+					is_capital = yes
+				}
+				add_building = building_roci_infrastructure_construction_2
+			}
 			#Start of game stuff to immediately apply the modifiers
 			planet_event = { id = realdev.1 }
 			planet_event = { id = realdev.2 }

@@ -13,6 +13,7 @@ event = {
 		#Game Start flags
 		set_global_flag = roci_realdev_build_adjustment_medium_flag
 		set_global_flag = exploit_speed_difficulty
+		#set_global_flag = no_exploit #Exploit is disable until the crashes are fixed in vanilla
 		
 		every_country = {
 			set_variable = { which = roci_country_order value = 1 }
@@ -54,14 +55,6 @@ country_event = {
 	
 	after = {
 		hidden_effect = {
-			#Set lockout flags on unneccesary modules for bug report
-			set_global_flag = no_trade_routes
-			set_global_flag = no_orbital_infra
-			set_global_flag = no_realdev
-			set_global_flag = no_autofab
-			set_global_flag = no_fe_buildings
-			
-			
 			if = { #Do Trade Route Game start stuff if it's allowed.
 				limit = {
 					NOT = { has_global_flag = no_trade_routes }

@@ -751,7 +751,7 @@
      
      factory_construction:0 "Factory Stats"
      
-     factory_planets:0 "£autofab_planet£ Current:[This.autofabs]|Queued:[This.autofab_queue]|Available:[This.autofabs_available]"
+     factory_planets:0 "£autofab_planet£ Current:[This.autofabs]|Building:[This.autofabs_building]|Queued:[This.autofab_queue]|Available:[This.autofabs_available]"
      factory_available_space:0 "£district£ Available:[This.autofab_districts_available]|Building:[This.autofab_districts_building]|Queued:[This.autofab_districts_queued]"
      
      factory_construction_extender:0 "$factory_generator$\n\n$factory_mine$\n\n$factory_farm$\n\n$factory_foundry$\n\n$factory_factory$\n\n$factory_motes$\n\n$factory_gases$\n\n$factory_crystals$\n\n$factory_extractor$"
@@ -1194,7 +1194,7 @@
     oi_shipyard: ""
     mod_district_orbital_platform_cap_max: "Max Orbital Infrastructure"
     not_enough_orbital_space: "We need more Orbital Platforms."
-    space_elevator_does_not_support: "We are currently at the limit of how much Orbital Infrastructure our Space Elevator can support."
+    space_elevator_does_not_support: "We are currently at the limit of how much Orbital Infrastructure our Spaceport can support."
      
     mod_planet_chemists_volatile_motes_produces_add: "£volatile_motes£ §Y$volatile_motes$§! from £job_chemist£ $job_chemist_plural$"
     mod_planet_chemists_minerals_upkeep_add: "£minerals£ §Y$minerals$§! Upkeep of £job_chemist£ $job_chemist_plural$"
@@ -1211,11 +1211,11 @@
     mod_planet_researchers_energy_upkeep_add: "£energy£ §Y$energy$§! Upkeep of £job_researcher£ $job_researcher_plural$"
     mod_planet_researchers_minerals_upkeep_add: "£minerals£ §Y$minerals$§! Upkeep of £job_researcher£ $job_researcher_plural$"
     
-    mod_planet_elevator_energy_upkeep_add: "Space Elevator £energy£ §Y$energy$§! Upkeep"
-    mod_planet_elevator_alloys_upkeep_add: "Space Elevator £alloys£ §Y$alloys$§! Upkeep"
-    mod_planet_elevator_upkeep_mult: "Space Elevator Upkeep"
+    mod_planet_elevator_energy_upkeep_add: "Spaceport £energy£ §Y$energy$§! Upkeep"
+    mod_planet_elevator_alloys_upkeep_add: "Spaceport £alloys£ §Y$alloys$§! Upkeep"
+    mod_planet_elevator_upkeep_mult: "Spaceport Upkeep"
     
-    planet_elevator: "Space Elevator"
+    planet_elevator: "Spaceport"
     
     job_fake_orbital:0 ""
     job_fake_orbital_plural:0 ""
@@ -1388,9 +1388,11 @@
     
     roci_exploit: "Space Exploitaiton"
     roci_exploit_desc: "The Space Exploitation module provides Minor Colonies, a mechanic you can use to produce resources from uninhabitable planets. It has a Country level UI, accessible from an edict."
+    roci_exploit_disabled: "Space Exploitation is disabled pending a crash fix in vanilla."
+    
     
     roci_orbital: "Orbital Infrastructure"
-    roci_orbital_desc: "The Orbital Infrastructure module provides Orbital Districts, a mechanic to increase a planet's production without increasing pop count. It has districts and a building; The Space Elevator."
+    roci_orbital_desc: "The Orbital Infrastructure module provides Orbital Districts, a mechanic to increase a planet's production without increasing pop count. It has districts and a building: The Spaceport."
    
     roci_realdev: "Realistic Development"
     roci_realdev_desc: "The Realistic Development module provides Industrial Production, a mechanic to simulate limited industrial ability, and your distribution of it. It adds a building; Equipment Factory. It has Planet and Country level UI, accessible from a decision and edict respectively."

@@ -460,6 +460,7 @@ factory_increase_queue = {
 factory_decrease_queue = {
 	potential = { has_country_flag = factory_autofab_construction_on }
 	allow = {
+		always = no
 		OR = {
 			AND = {
 				has_country_flag = factory_queue_1
