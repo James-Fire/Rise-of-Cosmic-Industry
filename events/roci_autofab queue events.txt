@@ -5,6 +5,10 @@ event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		every_country = {
 			limit = {
@@ -43,6 +47,10 @@ country_event = {
 	id = autofab_queue.1
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -125,6 +133,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -166,6 +178,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab = yes
 	}
@@ -174,6 +190,10 @@ planet_event = {
 	id = autofab_queue.5
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		add_autofab = yes
@@ -185,6 +205,10 @@ planet_event = {
 	id = autofab_queue.8
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -405,6 +429,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		every_owned_planet = {
 			limit = {
@@ -605,6 +633,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -678,6 +710,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -748,6 +784,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -817,6 +857,10 @@ country_event = {
 	id = autofab_queue.14
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		while = {
@@ -900,6 +944,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -969,6 +1017,10 @@ country_event = {
 	id = autofab_queue.16
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		while = {
@@ -1040,6 +1092,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -1109,6 +1165,10 @@ country_event = {
 	id = autofab_queue.18
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		while = {
@@ -1180,6 +1240,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -1225,6 +1289,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		if = {
 			limit = {
@@ -1240,6 +1308,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		add_autofab_power = yes
 	}
@@ -1250,6 +1322,10 @@ planet_event = {
 	id = autofab_queue.22
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -1266,6 +1342,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		add_autofab_mine = yes
 	}
@@ -1276,6 +1356,10 @@ planet_event = {
 	id = autofab_queue.24
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -1292,6 +1376,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		add_autofab_farm = yes
 	}
@@ -1302,6 +1390,10 @@ planet_event = {
 	id = autofab_queue.26
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -1317,6 +1409,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		add_autofab_foundry = yes
 	}
@@ -1327,6 +1423,10 @@ planet_event = {
 	id = autofab_queue.28
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -1342,6 +1442,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		add_autofab_factory = yes
 	}
@@ -1352,6 +1456,10 @@ planet_event = {
 	id = autofab_queue.30
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -1367,6 +1475,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		add_autofab_chemical = yes
 	}
@@ -1377,6 +1489,10 @@ planet_event = {
 	id = autofab_queue.32
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -1392,6 +1508,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		add_autofab_refinery = yes
 	}
@@ -1402,6 +1522,10 @@ planet_event = {
 	id = autofab_queue.34
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -1417,6 +1541,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		add_autofab_translucer = yes
 	}
@@ -1427,6 +1555,10 @@ planet_event = {
 	id = autofab_queue.36
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = {
@@ -1442,6 +1574,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		add_autofab_extractor = yes
 	}
@@ -1454,6 +1590,10 @@ country_event = {
 	id = autofab_queue.50
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		while = {
@@ -1513,6 +1653,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -1570,6 +1714,10 @@ country_event = {
 	id = autofab_queue.52
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		while = {
@@ -1629,6 +1777,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -1686,6 +1838,10 @@ country_event = {
 	id = autofab_queue.54
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		while = {
@@ -1745,6 +1901,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -1802,6 +1962,10 @@ country_event = {
 	id = autofab_queue.56
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		while = {
@@ -1861,6 +2025,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		while = {
 			limit = {
@@ -1918,6 +2086,10 @@ country_event = {
 	id = autofab_queue.58
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		while = {
@@ -1979,6 +2151,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab_power_retool = yes
 	}
@@ -1987,6 +2163,10 @@ planet_event = {
 	id = autofab_queue.62
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		retool_autofab_power = yes
@@ -1999,6 +2179,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab_mine_retool = yes
 	}
@@ -2007,6 +2191,10 @@ planet_event = {
 	id = autofab_queue.64
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		retool_autofab_mine = yes
@@ -2019,6 +2207,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab_farm_retool = yes
 	}
@@ -2027,6 +2219,10 @@ planet_event = {
 	id = autofab_queue.66
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		retool_autofab_farm = yes
@@ -2039,6 +2235,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab_foundry_retool = yes
 	}
@@ -2047,6 +2247,10 @@ planet_event = {
 	id = autofab_queue.68
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		retool_autofab_foundry = yes
@@ -2059,6 +2263,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab_factory_retool = yes
 	}
@@ -2067,6 +2275,10 @@ planet_event = {
 	id = autofab_queue.70
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		retool_autofab_factory = yes
@@ -2079,6 +2291,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab_chemical_retool = yes
 	}
@@ -2087,6 +2303,10 @@ planet_event = {
 	id = autofab_queue.72
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		retool_autofab_chemical = yes
@@ -2099,6 +2319,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab_refinery_retool = yes
 	}
@@ -2107,6 +2331,10 @@ planet_event = {
 	id = autofab_queue.74
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		retool_autofab_refinery = yes
@@ -2119,6 +2347,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab_translucer_retool = yes
 	}
@@ -2127,6 +2359,10 @@ planet_event = {
 	id = autofab_queue.76
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		retool_autofab_translucer = yes
@@ -2139,6 +2375,10 @@ planet_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		start_autofab_extractor_retool = yes
 	}
@@ -2147,6 +2387,10 @@ planet_event = {
 	id = autofab_queue.78
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		retool_autofab_extractor = yes

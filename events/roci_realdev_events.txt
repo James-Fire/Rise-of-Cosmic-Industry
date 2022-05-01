@@ -5,6 +5,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
 	immediate = {
 		every_owned_leader = {
 			limit = {
@@ -159,7 +163,7 @@ country_event = {
 			planet_event = { id = realdev.3 days = 16 random = 7 }
 			planet_event = { id = realdev.11 days = 24 random = 4 }
 		}
-		country_event = { id = realdev.4 days = 29 }
+		country_event = { id = realdev.4 days = 30 }
 	}
 }
 
@@ -169,47 +173,54 @@ country_event = { #Monthly Country event
 	hide_window = yes
 	
 	trigger = {
-		#NOT = { has_global_flag = no_realdev }
+		NOT = { has_global_flag = no_realdev }
 	}
 	
 	immediate = {
+		country_event = { id = realdev.101 days = 2 }
+	}
+}
+
+country_event = { #Monthly Country event
+	id = realdev.101
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
+	immediate = {
+		country_event = { id = realdev.5 days = 1 }
 		if = {
 			limit = {
-				NOT = { has_global_flag = no_realdev }
+				NOT = { has_country_flag = realdev_variables_set }
 			}
-			country_event = { id = realdev.5 }
+			set_variable = { which = realdev_industry_shipyard_ratio value = 0.8 }
+			set_variable = { which = realdev_industry_space_ratio value = 1 }
+			set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
+			set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+			set_country_flag = realdev_variables_set
+		}
+		every_owned_planet = {
+			limit = {
+				exists = this
+			}
 			if = {
 				limit = {
-					NOT = { has_country_flag = realdev_variables_set }
+					NOT = { has_planet_flag = realdev_variables_set }
 				}
-				set_variable = { which = realdev_industry_shipyard_ratio value = 0.8 }
-				set_variable = { which = realdev_industry_space_ratio value = 1 }
-				set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
-				set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
-				set_country_flag = realdev_variables_set
+				set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
+				set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
+				set_planet_flag = realdev_variables_set
 			}
-			reset_realdev_variables = yes
-			every_owned_planet = {
-				limit = {
-					exists = this
-				}
-				if = {
-					limit = {
-						NOT = { has_planet_flag = realdev_variables_set }
-					}
-					set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
-					set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
-					set_planet_flag = realdev_variables_set
-				}
-				reset_realdev_variables = yes
 
-				planet_event = { id = realdev.1 days = 1 random = 7 }
-				planet_event = { id = realdev.2 days = 9 random = 7 }
-				planet_event = { id = realdev.3 days = 16 random = 7 }
-				planet_event = { id = realdev.11 days = 24 random = 4 }
-			}
-			country_event = { id = realdev.4 days = 29 }
+			planet_event = { id = realdev.1 days = 1 random = 7 }
+			planet_event = { id = realdev.2 days = 7 random = 7 }
+			planet_event = { id = realdev.3 days = 14 random = 7 }
+			planet_event = { id = realdev.11 days = 22 random = 4 }
 		}
+		country_event = { id = realdev.4 days = 27 }
 	}
 }
 
@@ -879,6 +890,7 @@ country_event = {
 		#Split space construction build speed between Minor Colonies and Megastructures, if exploit is active, and if there are actually Minor Colonies building
 		if = {
 			limit = {
+				NOT = { has_global_flag = realdev_megastructure_build_ignore }
 				check_variable = { which = realdev_building_megas value > 0 }
 			}
 			if = {
@@ -951,10 +963,18 @@ country_event = {
 		if = {
 			limit = {
 				check_variable = { which = realdev_ship_build_speed value > realdev_ship_build_cap }
+				NOT = { has_global_flag = realdev_megastructure_build_ignore }
 			}
 			change_variable = { which = realdev_mega_build_speed value = realdev_ship_build_speed }
 			subtract_variable = { which = realdev_mega_build_speed value = realdev_ship_build_cap }
 			change_variable = { which = realdev_ship_build_speed value = realdev_ship_build_cap }
+		}
+		#If megastructure build speed is 0, set it to 1 so it doesn't break stuff
+		if = {
+			limit = {
+				check_variable = { which = realdev_mega_build_speed value < 1 }
+			}
+			set_variable = { which = realdev_mega_build_speed value = 1 }
 		}
 	}	
 }
@@ -977,7 +997,7 @@ country_event = {
 			set_variable = { which = realdev_assembly_speed_display value = realdev_assembly_speed }
 			set_variable = { which = realdev_industry_cap_display value = realdev_industry_cap }
 			set_variable = { which = realdev_industry_speed_display value = realdev_industry_speed }
-			set_variable = { which = realdev_industry_display value = realdev_industry }
+			set_variable = { which = realdev_industry_display value = realdev_industry_capped }
 			PREV = { change_variable = { which = realdev_industry_display value = prev.realdev_industry_display } }
 			
 			set_variable = { which = realdev_alloy_production_display value = realdev_alloy_production }
@@ -1083,6 +1103,7 @@ country_event = {
 					}
 				}
 			}
+			reset_realdev_variables = yes
 		}
 		
 		#Apply modifiers
@@ -1123,6 +1144,7 @@ country_event = {
 				days = 30
 			}
 		}
+		reset_realdev_variables = yes
 	}
 }
 

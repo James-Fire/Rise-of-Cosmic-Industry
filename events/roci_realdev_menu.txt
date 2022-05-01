@@ -8,6 +8,10 @@ country_event = { ###Country Terminal
 	custom_gui = "realdev_country_window"
 	is_triggered_only = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
+	
 	picture_event_data = {
 		portrait = ROOT.ruler
 		room = ethic_spaceship_room
@@ -36,6 +40,10 @@ planet_event = { ###Planet Terminal
 	diplomatic = yes
 	custom_gui = "realdev_planet_window"
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_realdev }
+	}
 	
 	
 	picture_event_data = {

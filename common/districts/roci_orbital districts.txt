@@ -119,10 +119,12 @@ district_orbital_platform_city = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -404,10 +406,12 @@ district_orbital_platform_industrial = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -514,10 +518,12 @@ district_orbital_platform_research = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -629,10 +635,12 @@ district_orbital_platform_refinery = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -710,10 +718,12 @@ district_orbital_platform_shipyard = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -876,10 +886,12 @@ district_orbital_platform_military = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -967,10 +979,12 @@ district_orbital_platform_solar_array = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -1047,10 +1061,12 @@ district_orbital_platform_commercial = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -1168,10 +1184,12 @@ district_orbital_platform_mining = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -1252,10 +1270,12 @@ district_orbital_platform_farming = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {
@@ -1327,10 +1347,12 @@ district_orbital_platform_admin = {
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = 1 }
 	}
 	
 	on_unqueued = {
 		remove_deposit = orbital_platform_neg
+		change_variable = { which = orbital_infrastructure value = -1 }
 	}
 	
 	on_built = {

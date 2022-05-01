@@ -1,7 +1,5 @@
 Added a collection of Realdev Default Settings that can be set in the Country UI, and can optionally be used by planets instead of setting them in the Planet UI.*
 
-Implemented a "Simple Mode" setting that changes various facets of Realistic Development to be easier to manage.*
-
 Added a Target mode for Industrial Production on planets, wherein they try to get a certain amount, either taking what they need from the country, or sending excess to the country.*
 
 Added Development Milestones. These can affect both the Target system and Ratios. These are a collection of triggers that modify the Target and Ratios based on the status of the planet or country they apply to.*
@@ -12,11 +10,54 @@ Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 Changed Assembly to have a per cap based on how many Roboticist (Or equivalent) jobs exist. Assembly Speed is now also "split" between them, like it is with shipyards. This will cause empires with lots of assembly jobs (Like machines) to require more IP to get the max boost.*
 
-Improved tooltip readability about what is actually failing on Autofab UI buttons.*
-
-Improved tooltip readability about what is actually failing on Exploit UI buttons.*
 
 
+Hopefully fixed exploit using Factorio Engineers on planets.
+
+Improved tooltip readability about what is actually failing on Autofab UI buttons.
+
+Corrected Autofab UI triggers allowing you to queue more negative modules than exist.
+
+Updated the Autofab Planet Terminal, so the values update automatically without needing a Terminal Refresh.
+
+Removed the Autofab Planet Terminal Refresh button, since it's not needed anymore.
+
+Added tooltips to the Autofab Planet Terminal settings.
+
+Added tooltips to the Autofab Planet Terminal Module Buttons.
+
+Updated the Autofab Empire Terminal, so the values update automatically without needing a Terminal Refresh.
+
+Removed the Autofab Empire Terminal Refresh button, since it's not needed anymore.
+
+Added tooltips to the Autofab Empire Terminal settings.
+
+Added tooltips to the Autofab Empire Terminal Module Buttons.
+
+Removed the Autofab Advisor, as it was out-of-date and has been near entirely supplanted by better tooltips anyway.
+
+Added the current "time" remaining on the current Autofab construction and the total "time" for the entire Queue to the Factory Expansion planet modifier.
+
+Updated realdev megastructure stuff to use Base Build Speed. This will allow it to work better with Gigastructure's Supertensiles.
+
+Added an option to realdev to disable megastructure handling, in case you want it handled by something else.
+
+Fixed the Realdev UI deciding some numbers are not important.
+
+Fixed Trade Routes checking for more than it should regarding opinion.
+
+Made Opinion not matter for trade routes between 2 players.
+
+Made being in a Federation bypass trade route opinion requirements. Just as either party being a subject of the other does.
+
+Each Orbital District now increases the SR upkeep of the Spaceport by 0.5 of the appropriate resource for that district. This is also affected by the % upkeep increase on each district. This is only active with a T3 Spaceport.
+
+Gave the Orbital planet modifier an icon.
+
+
+
+
+Added a block to the Autofab Planet UI to show current "time" remaining on the current construction, total "time" for the entire Queue, and the current build speed modifier.*
 
 Reduced FE buildings Flat production bonus, gave them a % production bonus, to work better with Orbital Districts.*
 
@@ -26,31 +67,17 @@ Realdev Production Boost now has a cap based on how many Equipment Factories are
 
 Updated the Automation Settings window, so now it doesn't need to close and reopen to update numbers.*
 
-Updated the Exploit Terminal, so the values update automatically without needing a Terminal Refresh.*
-
-Updated the Autofab Terminal, so the values update automatically without needing a Terminal Refresh.*
-
-Fixed the positioning of the dongs in the autofab advisor UI.*
-
-Added a block to the Autofab Planet UI to show current "time" remaining on the current construction, total "time" for the entire Queue, and the current build speed modifier.*
-
-Added a Planet Modifier to show to show the current "time" remaining on the current Autofab construction, total "time" for the entire Queue, and the current build speed modifier.*
-
 
 
 Added the Strategic Production module, that deals with the production of SRs, and how it's currently terrible in vanilla.*
 
-Each Orbital District now increases the SR upkeep of the Spaceport by 0.5 of the appropriate resource for that district. This is also affected by the % upkeep increase on each district. This is only active with a T3 Spaceport.*
+Added the Shipping Costs module, that represents logistics by adding energy costs to deficits on planets.*
 
-Added custom icons for the FE buildings and their techs.*
+Added the Subterannean Infrastructure module, dealing with construction projects beneath the surface.*
 
 Added a tooltip to the Minimum Stockpile title explaining what it means, when it applies, and limitations it has.*
 
-Corrected Autofab UI triggers allowing you to queue more negative modules than exist.*
-
 Moved Equipment Factory upgrades to their own techs.*
-
-Fixed the Autofab document script so it stops reporting negative amounts, and also so it stops giving increasingly large numbers whenever you refresh it.*
 
 Made autofab retooling respect Realdev.*
 
@@ -72,7 +99,7 @@ Fixed minor colonies on game start not having mining stations on them for some r
 
 Changed trade routes to never expire. Instead, they are cancelled if you have the trade fleet do something else.*
 
-Scripted more complex AI triggers involving all orbital platforms, so maybe they'll stop spamming Refinery and Shipyard platforms.*
+Scripted more complex AI triggers involving all orbital platforms, so maybe they'll stop spamming specific ones in situations they don't belong.*
 
 Gave the Realdev Empire UI the same treatment as the Planet UI, having a host of buttons that display numbers and tooltips about those numbers.*
 
@@ -83,7 +110,9 @@ Merged the Exploit and Autofab Minimum Stockpile menus. They now use the same on
 
 
 
--Trade Routes now also apply a +1 1/year decaying opinion modifier per cargo ship in the fleet. Empires with closer planets that get cargo ship visits more often will like you more(And vice-versa).* Looks to be impossible to implement how I want
+Implemented a "Simple Mode" setting that changes various facets of Realistic Development to be easier to manage.* Not sure if this is actually necessary. Also I'm not sure what to do for it.
+
+Trade Routes now also apply a +1 1/year decaying opinion modifier per cargo ship in the fleet. Empires with closer planets that get cargo ship visits more often will like you more(And vice-versa).* Looks to be impossible to implement how I want
 
 Scripted more complex AI triggers for the Orbital Defense Platforms, so they are hopefully a bit more smart about it.* Not sure how to actually go about this. Will need some ideas.
 

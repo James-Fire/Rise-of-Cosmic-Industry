@@ -4,6 +4,11 @@ event = {
 	id = autofab.1
 	hide_window = yes
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		every_country = {
 			limit = {
@@ -25,6 +30,11 @@ country_event = {
 	title = "autofab.2.name"
 	desc = "autofab.2.desc"
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	# Confirm
 	option = {
 		name = "autofab.2.yes"
@@ -40,6 +50,10 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		country_event = { id = autofab.10 days = 1 }
 	}
@@ -51,13 +65,17 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		if = {
 			limit = {
 				can_use_autofab = yes
 			}
 			autofab_game_start = yes
-			country_event = { id = autofab_menu.20 }
+			#country_event = { id = autofab_menu.20 }
 			switch = {
 				trigger = has_ethic
 				ethic_fanatic_authoritarian = {
@@ -473,6 +491,10 @@ planet_event = {
 	title = "autofab.11.name"
 	desc = "autofab.11.desc"
 	picture = GFX_evt_ai_planet
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 
 	option = {
 		name = Understood

@@ -446,6 +446,27 @@ roci_realdev_build_adjustment_full = {
 	allow = { hidden_trigger = { always = yes } }
 	effect = { custom_tooltip = "roci_realdev_build_adjustment_full_desc" }
 }
+roci_realdev_mega_handling = {
+	potential = { NOT = { has_global_flag = no_realdev } always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { 
+		custom_tooltip = "realdev_megastructure_build_ignore_desc"
+	}
+}
+roci_realdev_mega_handling_on = {
+	potential = { NOT = { has_global_flag = no_realdev has_global_flag = realdev_megastructure_build_ignore }  }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { 
+		custom_tooltip = "realdev_megastructure_build_ignore_desc"
+	}
+}
+roci_realdev_mega_handling_off = {
+	potential = { NOT = { has_global_flag = no_realdev } has_global_flag = realdev_megastructure_build_ignore }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { 
+		custom_tooltip = "realdev_megastructure_build_ignore_desc"
+	}
+}
 
 
 roci_fe_buildings = {

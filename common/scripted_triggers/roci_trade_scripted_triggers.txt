@@ -31,12 +31,18 @@ roci_can_trade_with_country = {
 		#Check if the opinion is high enough, either on its own, or with improving relations from either side
 		custom_tooltip = {
 			text = "roci_trade_routes_opinion"
-			opinion = { who = prev.owner value >= 50 }
-			AND = {
-				opinion = { who = prev.owner value >= 25 }
-				OR = {
-					is_improving_relations_with = prev.owner
-					prev.owner = { is_improving_relations_with = prev }
+			OR = {
+				AND = {
+					is_ai = no
+					prev.owner = { is_ai = no }
+				}
+				opinion = { who = prev.owner value >= 50 }
+				AND = {
+					opinion = { who = prev.owner value >= 25 }
+					OR = {
+						is_improving_relations_with = prev.owner
+						prev.owner = { is_improving_relations_with = prev }
+					}
 				}
 			}
 		}
@@ -51,6 +57,10 @@ roci_can_trade_with_country = {
 			any_subject = {
 				is_same_value = prev.prev.owner
 			}
+		}
+		custom_tooltip = {
+			text = "roci_trade_routes_federation"
+			is_in_federation_with = prev.owner
 		}
 	}
 	#Check some obvious things, like you can't trade with those you're currently at war with

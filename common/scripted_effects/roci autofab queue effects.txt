@@ -343,6 +343,13 @@ autofab_module_time_loop = {
 			subtract_variable = { which = autofab_module_construction_time value = autofab_module_construction_progress }
 			planet_event = { id = $module_event_1$ days = 1 }
 		}
+		#Do calcs for the planet modifier
+		set_variable = { which = autofab_module_progress value = value:autofab_module_progress }
+		
+		set_variable = { which = projected_autofab_construction_time value = value:projected_autofab_construction_time }
+		
+		set_variable = { which = autofab_queue_time value = value:autofab_queue_time }
+		set_variable = { which = projected_autofab_queue_time value = value:projected_autofab_queue_time }
 	}
 	else = {
 		planet_event = { id = $module_event_2$ }

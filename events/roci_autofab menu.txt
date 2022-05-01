@@ -8,6 +8,10 @@ country_event = { ###Country Terminal
 	custom_gui = "autofab_country_window"
 	is_triggered_only = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	picture_event_data = {
 		portrait = ROOT.ruler
 		room = ethic_spaceship_room
@@ -22,12 +26,6 @@ country_event = { ###Country Terminal
 		#custom_tooltip = "autofab_menu.1.refresh.tooltip"
 		custom_gui = "autofab_main_menu_confirm"
 		country_event = { id = autofab_menu.1 }
-	}
-	option = {
-		name = "autofab_menu.1.confirm"
-		#custom_tooltip = "autofab_menu.1.confirm.tooltip"
-		custom_gui = "autofab_main_menu_confirm"
-		country_event = { id = autofab_menu.20 }
 	}
 	option = {
 		name = "autofab_menu.1.confirm"
@@ -48,6 +46,10 @@ country_event = { ###Country Automation Controls
 	custom_gui = "autofab_automation_window"
 	is_triggered_only = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	picture_event_data = {
 		portrait = ROOT.ruler
 		room = ethic_spaceship_room
@@ -62,12 +64,6 @@ country_event = { ###Country Automation Controls
 		#custom_tooltip = "autofab_menu.1.refresh.tooltip"
 		custom_gui = "autofab_automation_menu_confirm"
 		country_event = { id = autofab_menu.2 }
-	}
-	option = {
-		name = "autofab_menu.1.confirm"
-		#custom_tooltip = "autofab_menu.1.confirm.tooltip"
-		custom_gui = "autofab_automation_menu_confirm"
-		country_event = { id = autofab_menu.20 }
 	}
 	option = {
 		name = "autofab_menu.1.confirm"
@@ -641,6 +637,10 @@ country_event = { ###Country Automation Controls
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		autofab_floor_automation_variables = yes
 	}
@@ -661,6 +661,10 @@ planet_event = { ###Planet Terminal
 	custom_gui = "autofab_planet_window"
 	is_triggered_only = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	
 	picture_event_data = {
 		portrait = ROOT.owner.ruler
@@ -668,13 +672,6 @@ planet_event = { ###Planet Terminal
 	}
 	
 	# Confirm
-	# Confirm
-	option = {
-		name = "autofab_menu.1.confirm"
-		#custom_tooltip = "autofab_menu.1.confirm.tooltip"
-		custom_gui = "autofab_planet_menu_confirm"
-		owner = { country_event = { id = autofab_menu.20 } }
-	}
 	option = {
 		name = "autofab_menu.1.refresh"
 		#custom_tooltip = "autofab_menu.1.refresh.tooltip"
@@ -714,6 +711,10 @@ country_event = { ###Advisor
 	diplomatic = yes
 	custom_gui = "autofab_advisor"
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	picture_event_data = {
 		portrait = ROOT.ruler

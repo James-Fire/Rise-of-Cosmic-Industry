@@ -6,7 +6,7 @@ building_roci_affluence_center_mod = {
 	base_buildtime = @b4_time
 	can_build = no
 	can_demolish = yes
-	icon = building_hyper_entertainment_forum
+	#icon = building_hyper_entertainment_forum
 	
 	potential = {
 		NOT = { has_global_flag = no_fe_buildings }
@@ -53,7 +53,7 @@ building_roci_nourishment_center_mod = {
 	base_buildtime = @b4_time
 	can_build = no
 	can_demolish = yes
-	icon = building_food_processing_center
+	#icon = building_food_processing_center
 	
 	potential = {
 		NOT = { has_global_flag = no_fe_buildings }
@@ -94,7 +94,7 @@ building_roci_class_4_singularity_mod = {
 	base_buildtime = @b4_time
 	can_build = no
 	can_demolish = yes
-	icon = building_class_4_singularity
+	#icon = building_class_4_singularity
 	
 	potential = {
 		NOT = { has_global_flag = no_fe_buildings }
@@ -130,7 +130,7 @@ building_roci_nano_forge_mod = {
 	base_buildtime = @b4_time
 	can_build = no
 	can_demolish = yes
-	icon = building_nano_forge
+	#icon = building_nano_forge
 	
 	potential = {
 		NOT = { has_global_flag = no_fe_buildings }
@@ -192,7 +192,7 @@ building_roci_dimensional_fabricator_mod = {
 	base_buildtime = @b4_time
 	can_build = no
 	can_demolish = yes
-	icon = building_nanite_transmuter
+	#icon = building_nanite_transmuter
 	
 	potential = {
 		NOT = { has_global_flag = no_fe_buildings }
@@ -262,7 +262,7 @@ building_roci_master_archive_mod = {
 	can_build = yes
 	can_demolish = yes
 	base_cap_amount = 1
-	icon = building_master_archive
+	#icon = building_master_archive
 	
 	potential = {
 		NOT = { has_global_flag = no_fe_buildings }

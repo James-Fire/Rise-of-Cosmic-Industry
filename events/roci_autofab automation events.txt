@@ -5,6 +5,10 @@ event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+	
 	immediate = {
 		log = "Autofab Automation is active"
 		if = {
@@ -66,6 +70,10 @@ country_event = {
 	id = autofab_automation.1000
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		set_variable = { which = autofab_auto_planets value = 0 }
@@ -145,6 +153,10 @@ country_event = {
 	id = autofab_automation.1001
 	is_triggered_only = yes
 	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
 	
 	immediate = {
 		if = { #Autofab construction

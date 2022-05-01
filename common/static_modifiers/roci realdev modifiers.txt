@@ -14,8 +14,8 @@ realdev_ship_speed = {
 	starbase_shipyard_build_speed_mult = 0.01
 }
 realdev_mega_speed = {
-	#megastructure_build_speed_add = 0.01
-	megastructure_build_speed_mult = 0.01
+	megastructure_build_speed_add = 0.01
+	#megastructure_build_speed_mult = 0.01
 }
 
 realdev_no_build_cap = {

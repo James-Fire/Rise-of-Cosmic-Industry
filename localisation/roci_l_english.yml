@@ -168,6 +168,11 @@
      exploit_spread_off:0 "Priority: Mature Systems"
      exploit_spread_on:0 "Priority: New Systems"
      
+     exploit_enough_available: "Queues the set number of this construction."
+     exploit_not_enough_available: "There are not enough available constructions of this type. Consider taking more systems, or reducing how many you are queueing at once."
+     exploit_enough_queued: "Unqueues the set number of this construction."
+     exploit_not_enough_queued: "There are not enough queued constructions of this type. Consider reducing how many you are unqueueing at once."
+     
      exploit_country_tooltip: "This UI has controls for Queueing Minor Colonies with a specific production to be built. The settings on the left includes Construction Type and Planet Type settings, controlling whether the chosen types are allowed to be built. Queuing a construction here will have it built in a suitable location somewhere in your empire."
      
      exploit_ai:0 "AI uses Exploit"
@@ -178,31 +183,26 @@
      Spread_desc:0 "'Mature' places queued colonies in systems that are already supporting Minor Colonies. 'New' builds queued colonies in systems that are not currently supporting Minor Colonies."
      Manual_Speed_desc:0 "Sets a multiplier to the number of colonies AI can develop at once based on what is set here. 0 is no multiplier, each step above increases it by 1x, each step below increases the dvision by 1x."
      Difficulty_Speed_desc:0 "Sets a multiplier to the number of colonies AI can develop at once based on Difficulty. \nCadet: x0.5\nEnsign: No multiplier\nCaptain: x2\nCommodore: x3\nAdmiral: x4\nGrand Admiral: x5"
-     exploit_planets_tooltip:0 "Legend: \n\n$exploit_planets_tooltip_1$\n\n$exploit_planets_tooltip_2$"
-     exploit_planets_tooltip_1:0 "£planet_total£  Total Planets \n\n£planet_barren£  Barren Planets \n\n£planet_frozen£  Frozen Planets \n\n£asteroid£  Asteroids \n\n£asteroid_ice£  Ice Asteroids"
-     exploit_planets_tooltip_2:0 "£planet_molten£  Molten Planets \n\n£planet_toxic£  Toxic Worlds \n\n£planet_rings£  Gas Giants \n\n£planet_shatter£  Shattered Worlds"
+     exploit_planets_tooltip:0 "Legend: \n\n$exploit_planets_tooltip_1$\n\n$exploit_planets_tooltip_2$\n\n$exploit_planets_tooltip_3$"
+     exploit_planets_tooltip_1:0 "£planet_total£  Total Planets \n\n£planet_barren£  Barren Worlds  Difficulty:Normal \n\n£planet_frozen£  Frozen Worlds  Difficulty:Medium \n\n£planet_molten£  Molten Worlds  Difficulty:Medium \n\n£planet_toxic£  Toxic Worlds  Difficulty:Medium"
+     exploit_planets_tooltip_2:0 "£asteroid£  Asteroids  Difficulty:Vacuum \n\n£asteroid_ice£  Ice Asteroids  Difficulty:Vacuum \n\n£planet_rings£  Gas Giants  Difficulty:Vacuum \n\n£planet_shatter£  Shattered Worlds  Difficulty:Vacuum "
+     exploit_planets_tooltip_3:0 "Difficulty: Planets have a construction difficulty; Normal, Medium, and Vacuum, while construction projects can be either Basic or Advanced. Basic means they use just the planet difficulty cost, while advanced means you add 50 £minerals£, 50 £energy£, and 100 £alloys£.  \nNormal:50 £energy£ 50 £minerals£ 100 £alloys£ \nMedium:100 £energy£ 100 £minerals£ 100 £alloys£ \nVacuum:100 £energy£ 50 £minerals£ 200 £alloys£"
      
      exploit_menu.1.refresh:0 "Terminal Refresh"
      exploit_menu.1.name:0 "[This.GetName] Exploitation Terminal"
-     exploit_menu.1.desc:0 "$exploit_stats$\n\n$base_exploit_const$\n\n$advanced_exploit_const$\n\n$sr_exploit_const$"
      
-     exploit_stats:0 "$exploit_current$\n\n$exploit_available$"
-     exploit_current:0 "Current: £planet_total£[This.minor_colonies] £planet_barren£[This.minor_colony_barren] £planet_frozen£[This.minor_colony_frozen] £asteroid£[This.minor_colony_asteroid] £asteroid_ice£[This.minor_colony_ice_asteroid] $exploit_current_2$"
-     exploit_current_2:0 "£planet_molten£[This.minor_colony_molten] £planet_toxic£[This.minor_colony_toxic] £planet_rings£[This.minor_colony_gas_giants] £planet_shatter£[This.minor_colony_shattered]"
-     exploit_available:0 "Available: £planet_total£[This.minor_colonies_available] £planet_barren£[This.minor_colony_barren_available] £planet_frozen£[This.minor_colony_frozen_available] £asteroid£[This.minor_colony_asteroid_available] £asteroid_ice£[This.minor_colony_ice_asteroid_available] $exploit_available_2$"
-     exploit_available_2:0 "£planet_molten£[This.minor_colony_molten_available] £planet_toxic£[This.minor_colony_toxic_available] £planet_rings£[This.minor_colony_gas_giants_available] £planet_shatter£[This.minor_colony_shattered_available]"
+     exploit_current:0 "[This.minor_colonies] £planet_total£"
+     exploit_available:0 "Available: £planet_total£ [This.minor_colonies_available]  £planet_barren£ [This.minor_colony_barren_available]  £planet_frozen£ [This.minor_colony_frozen_available]  £asteroid£ [This.minor_colony_asteroid_available]  £asteroid_ice£ [This.minor_colony_ice_asteroid_available]  $exploit_available_2$"
+     exploit_available_2:0 "£planet_molten£ [This.minor_colony_molten_available]  £planet_toxic£ [This.minor_colony_toxic_available]  £planet_rings£ [This.minor_colony_gas_giants_available]  £planet_shatter£ [This.minor_colony_shattered_available]"
      
-     base_exploit_const:0 "$power_plant_const$\n\n$mineral_mine_const$\n\n$alloy_mine_const$"
      power_plant_const:0 "£energy£ Operational:[This.exploit_energy_colonies]|Building:[This.exploit_energy_building]|Queued:[This.exploit_power_plant_queue]|Available:[This.exploit_energy_available]"
      mineral_mine_const:0 "£minerals£ Operational:[This.exploit_mineral_mine_colonies]|Building:[This.exploit_mineral_mine_building]|Queued:[This.exploit_mineral_mine_queue]|Available:[This.exploit_minerals_available]"
      alloy_mine_const:0 "£alloy_mine£ Operational:[This.exploit_alloy_mine_colonies]|Building:[This.exploit_alloy_mine_building]|Queued:[This.exploit_alloy_queue]|Available:[This.exploit_alloy_available]"
      
-     advanced_exploit_const:0 "$alloy_foundry_const$\n\n$research_const$\n\n$lava_refinery_const$"
      alloy_foundry_const:0 "£alloy_foundry£ Operational:[This.exploit_alloy_foundry_colonies]|Building:[This.exploit_alloy_foundry_building]|Queued:[This.exploit_foundry_queue]|Available:[This.exploit_foundry_available]"
      research_const:0 "£research£ Operational:[This.exploit_research_lab_colonies]|Building:[This.exploit_research_lab_building]|Queued:[This.exploit_research_queue]|Available:[This.exploit_research_available]"
      lava_refinery_const:0 "£lava_refinery£ Operational:[This.exploit_lava_refinery_colonies]|Building:[This.exploit_lava_refinery_building]|Queued:[This.exploit_lava_refinery_queue]|Available:[This.exploit_lava_refinery_available]"
      
-     sr_exploit_const:0 "$motes_const$\n\n$gas_const$\n\n$crystal_const$"
      motes_const:0 "£volatile_motes£ Operational:[This.exploit_motes_mine_colonies]|Building:[This.exploit_motes_mine_building]|Queued:[This.exploit_motes_queue]|Available:[This.exploit_motes_available]"
      gas_const:0 "£exotic_gases£ Operational:[This.exploit_gas_well_colonies]|Building:[This.exploit_gas_well_building]|Queued:[This.exploit_gases_queue]|Available:[This.exploit_gases_available]"
      crystal_const:0 "£rare_crystals£ Operational:[This.exploit_crystal_mine_colonies]|Building:[This.exploit_crystal_mine_building]|Queued:[This.exploit_crystals_queue]|Available:[This.exploit_crystals_available]"
@@ -226,6 +226,17 @@
      motes_mine:0 "Volatile Motes Mine"
      gases_tap:0 "Exotic Gases Well"
      crystal_mine:0 "Rare Crystal Mine"
+     
+     exploit_generator_tooltip: "Basic Construction \n\nThis construction can be built on all planets.\n\nProduces: §G2§! £energy£ base, §G+1§! £energy£ if on a Gas Giant."
+     exploit_mine_tooltip: "Basic Construction \n\nThis construction cannot be built on Gas Giants.\n\nUpkeep: §R1§! £energy£ \nProduces: §G2§! £minerals£ base, §G+1§! £minerals£ if on a Molten World, §G+1§! £minerals£ if in a Nebula, §G+2§! £minerals£ if on any kind of Asteroid or Shattered Planet."
+     exploit_alloy_tooltip: "Basic Construction \n\nThis construction can only be built on Asteroids, Broken, and Shattered Worlds.\n\nUpkeep: §R1§! £energy£ \nProduces: §G1§! £alloys£"
+     exploit_foundry_tooltip: "Basic Construction \n\nThis construction can be built on all planets.\n\nUpkeep: §R1§! £energy£ §R2§! £minerals£ \nProduces: §G1§! £alloys£"
+     exploit_research_tooltip: "Advanced Construction \n\nThis construction can be built on all planets.\n\nUpkeep: §R1§! £energy£ \nProduces: §G1§! £physics£ §G1§! £society£ §G1§! £engineering£ base, §G+1§! £physics£ if on a Gas Giant or Barren World, §G+1§! £society£ if on a Toxic World, §G+1§! £engineering£ if on a Molten or Frozen World."
+     exploit_lava_refinery_tooltip: "Advanced Construction \n\nThis construction can only be built on Molten Worlds.\n\nProduces: §G1§! £energy£ §G2§! £minerals£ and 75% chance of §G1§! £alloys£"
+     exploit_motes_tooltip: "Basic Construction \n\nThis construction can only be built on Molten Worlds.\n\nUpkeep: §R2§! £energy£ \nProduces: §G1§! £volatile_motes£"
+     exploit_gases_tooltip: "Basic Construction \n\nThis construction can only be built on Gas Giants.\n\nUpkeep: §R2§! £energy£ \nProduces: §G1§! £exotic_gases£"
+     exploit_crystals_tooltip: "Basic Construction \n\nThis construction can only be built on Ice and Crystal Asteroids.\n\nUpkeep: §R2§! £energy£ \nProduces: §G1§! £rare_crystals£"
+     
   #Automation Settings
      exploit_menu.2.name:0 "Exploitation Stockpile Settings"
      exploit_AUTOMATION_MANAGE:0 ""
@@ -590,7 +601,7 @@
      autofab_mine_habitat_desc:0 "The Factory extracts raw materials from the planet in this area."
      
      factory_expansion:0 "Factory Expansion"
-     factory_expansion_desc:0 "The Factory is expanding on this planet."
+     factory_expansion_desc:0 "The Factory is expanding on this planet.\n\nBuild Progress left on current construction: [This.autofab_module_construction_time]\nCurrent Projected Days until completion: [This.projected_autofab_construction_time]\n\nBuild Progress left in the whole queue: [This.autofab_queue_time]\nCurrent Projected Days until completion: [This.projected_autofab_queue_time]\n\nCurrent Build Progress per 30 days: [This.autofab_module_progress]"
      
      foundry_expanding:0 "Foundry"
    
@@ -660,7 +671,7 @@
      autofab.1.desc:0 "$autofab.1.desc_1$ \n\n$autofab.1.desc_2$ \n\n$autofab.1.desc_3$ \n\n$autofab.1.desc_4$ \n\n$autofab.1.desc_5$"
      autofab.1.desc_1:0 "General Factory Options allows you to control what the factory can and can't do, and even where. This is general info only, the Terminal page has more specific information for the Terminals."
      autofab.1.desc_2:0 "Automation toggles whether the factory decides what to build, or if it just takes orders from the Queue. The Automation page to the left has more detail about how it works."
-     autofab.1.desc_3:0 "Vanilla Swapping is the ability of the Factory to convert normal buildings and districts to the Factory version. This allows you to conveniently continue using the standard construction queue to expand the Factory."
+     autofab.1.desc_3:0 ""
      autofab.1.desc_4:0 "Construction Fallback allows you to change how the Queue and Automation handle placement of new constructions. By default, Fallback is on, which has the Queue and Automation prefer to place constructions on a planet with a matching colony designation, but they will still build it elsewhere. If Fallback is turned off, the Queue and Automation will never place something on a colony it doesn't belong."
      autofab.1.desc_5:0 "Autofab Construction dictates whether Automation and the Queue are allowed to place new Autofabs on planets. If this is disabled, you will be unable to Queue any. If this is disabled on a planet, one will not be built on that planet only."
      
@@ -720,16 +731,15 @@
      edict_autofab_manage:0 "Factory Terminal"
      
      autofab_menu.10.name:0 "[This.GetName] Factory Terminal"
-     autofab_menu.10.desc:0 "$factory_planets$\n\n$factory_available_space$\n\n$factory_construction_extender$"
+     autofab_menu.10.desc:0 ""
      autofab_menu.10.confirm:0 "Open the Country Terminal"
      autofab_menu.1.name:0 "[This.GetName] Factory Terminal"
-     autofab_menu.1.desc:0 "$factory_planets$\n\n$factory_available_space$\n\n$factory_construction_extender$"
+     autofab_menu.1.desc:0 ""
      autofab_menu.1.confirm:0 "Open the Advisor"
      autofab_menu.1.refresh:0 "Terminal Refresh"
      
      autofab_menu.plus_tooltip:0 "You must have enough available slots for this Module type."
      autofab_menu.minus_tooltip:0 "You must have enough Queued and Built Modules of this type."
-     
      
      autofab_easter.desc:0 ""
      
@@ -742,6 +752,15 @@
      factory_vanilla_swapping:0 "Vanilla Swapping"
      factory_fallback:0 "Construction Fallback"
      factory_autofab_construction:0 "Autofab Construction"
+     factory_automation_desc: "Automation allows the factory to decide for itself what to build, based on the values set in the Automation Targets section of Automation Settings."
+     factory_vanilla_swapping_desc: "Vanilla Swapping is the ability of the Factory to convert normal buildings and districts to the Factory version for 50 £alloys£. This allows you to conveniently continue using the standard construction queue to expand the Factory."
+     factory_fallback_desc: "Fallback is a setting to allow the Factory to build modules on planets they don't belong based on Designation, either through the Queue or Automation."
+     factory_autofab_construction_desc: "Using this setting, you can control if Autofabs are allowed to be built. Primarily used to control whether Automation is allowed to build Autofabs."
+     
+     planet_factory_automation_desc: "$factory_automation_desc$"
+     planet_factory_vanilla_swapping_desc: "$factory_vanilla_swapping_desc$"
+     planet_factory_fallback_desc: "Fallback is a setting to allow the Factory to build modules on this planet even if they don't belong based on the Designation, either through the Queue or Automation."
+     planet_factory_autofab_construction_desc: "$factory_autofab_construction_desc$"
      
      autofab_automation_explained:0 "The factory is capable of self expansion. We can allow it to do so, using it's own logic for what is required."
      factory_vanilla_swapping_explained:0 "When a vanilla structure that the factory can use is built, it will be replaced by the factory equivalent." 
@@ -751,15 +770,21 @@
      
      factory_construction:0 "Factory Stats"
      
+     autofab_enough_available: ""
+     autofab_not_enough_available: "There is not enough available Autofabs to fulfill this request."
+     autofab_enough_queued: ""
+     autofab_not_enough_queued: "There is not enough queued Autofabs to fulfill this request."
+     
+     autofab_module_enough_available: ""
+     autofab_module_not_enough_available: "There is not enough available Autofab Module space to fulfill this request."
+     autofab_module_enough_queued: ""
+     autofab_module_not_enough_queued: "There is not enough queued and/or built Autofab Modules to fulfill this request."
+     
      factory_planets:0 "£autofab_planet£ Current:[This.autofabs]|Building:[This.autofabs_building]|Queued:[This.autofab_queue]|Available:[This.autofabs_available]"
      factory_available_space:0 "£district£ Available:[This.autofab_districts_available]|Building:[This.autofab_districts_building]|Queued:[This.autofab_districts_queued]"
      
      factory_construction_extender:0 "$factory_generator$\n\n$factory_mine$\n\n$factory_farm$\n\n$factory_foundry$\n\n$factory_factory$\n\n$factory_motes$\n\n$factory_gases$\n\n$factory_crystals$\n\n$factory_extractor$"
-     factory_generator:0 "£energy£ $factory_generator_current$|$factory_generator_building$|$factory_generator_queued$|$factory_generator_available$"
-     factory_generator_current:0 "Current:[This.autofab_power]"
-     factory_generator_building:0 "Building:[This.autofab_energy_building]"
-     factory_generator_queued:0 "Queued:[This.autofab_energy_queue]"
-     factory_generator_available:0 "Available:[This.autofab_energy_avail]"
+     factory_generator:0 "£energy£ Current:[This.autofab_power]|Building:[This.autofab_energy_building]|Queued:[This.autofab_energy_queue]|Available:[This.autofab_energy_avail]"
      factory_mine:0 "£minerals£ Current:[This.autofab_mine]|Building:[This.autofab_minerals_building]|Queued:[This.autofab_mineral_queue]|Available:[This.autofab_minerals_avail]"
      factory_farm:0 "£food£ Current:[This.autofab_farm]|Building:[This.autofab_food_building]|Queued:[This.autofab_food_queue]|Available:[This.autofab_food_avail]"
      factory_foundry:0 "£alloys£ Current:[This.autofab_foundry]|Building:[This.autofab_alloys_building]|Queued:[This.autofab_alloys_queue]|Available:[This.autofab_foundry_available]"
@@ -768,6 +793,26 @@
      factory_gases:0 "£exotic_gases£ Current:[This.autofab_refinery]|Building:[This.autofab_gases_building]|Queued:[This.autofab_gases_queue]|Available:[This.autofab_gases_available]"
      factory_crystals:0 "£rare_crystals£ Current:[This.autofab_translucer]|Building:[This.autofab_crystals_building]|Queued:[This.autofab_crystals_queue]|Available:[This.autofab_crystals_available]"
      factory_extractor:0 "£autofab_extractor£ Current:[This.autofab_extractor]|Building:[This.autofab_extractor_building]|Queued:[This.autofab_extractor_queue]|Available:[This.autofab_extractor_avail]"
+     
+     factory_autofab_tooltip: "$factory_autofab_tooltip_time$\n\n$factory_autofab_tooltip_cost$"
+     factory_autofab_tooltip_time: "The Autofab Deposit takes 1080 £time£ to construct as a base. This value can be modified, and currently only is by the Automation Tradtition Finisher.\n\nBy default, £time£ is made at 1 per day, modified by £colony_development_speed£."
+     factory_autofab_tooltip_cost: "With no modifiers, each Autofab Deposit takes 150 £alloys£ to build, with a changing mineral and energy cost based on the district set of the planet.\nPlanets with standard districts take 300 £minerals£ and £energy£\nHabitats and other small-scale artificial planets take 500 £minerals£ and £energy£\nEcumenopolis take 1000 £minerals£ and £energy£\nRingworlds take 2000 £minerals£ and £energy£"
+     
+     factory_module_tooltip: "$factory_module_tooltip_time$\n\n$factory_module_tooltip_cost$"
+     factory_module_tooltip_time: "An Autofab Module takes 480 £time£ to construct as a base. This value can be modified, and currently only is by the Automation Tradtition Finisher.\n\nBy default, £time£ is made at 1 per day, modified by Planet Build Speed."
+     factory_module_tooltip_cost: "With no modifiers, each Autofab Module takes 50 £alloys£ to build, with a changing mineral cost based on the district set of the planet.\nPlanets with standard districts take 300 £minerals£\nHabitats and other small-scale artificial planets take 500 £minerals£\nEcumenopolis take 1000 £minerals£\nRingworlds take 2000 £minerals£"
+     factory_module_tooltip_production_district: "This module produces, and takes in upkeep, what would be produced by the jobs provided by the district it replaces, plus 2 £energy£ for each job replaced."
+     factory_module_tooltip_production_building: "This module produces, and takes in upkeep, what would be produced by the jobs provided by 2 buildings for the appropriate resource, plus 2 £energy£ for each job replaced."
+     
+     factory_generator_tooltip: "$factory_module_tooltip$\n\nThis module produces, and takes in upkeep, what would be produced by the jobs provided by the district it replaces.\n\nThis module can only be built on planets that would normally support districts of this type."
+     factory_mine_tooltip: "$factory_module_tooltip$\n\n$factory_module_tooltip_production_district$\n\nThis module can only be built on planets that would normally support districts of this type."
+     factory_farm_tooltip: "$factory_module_tooltip$\n\n$factory_module_tooltip_production_district$\n\nThis module can only be built on planets that would normally support districts of this type."
+     factory_foundry_tooltip: "$factory_module_tooltip$\n\n$factory_module_tooltip_production_district$"
+     factory_factory_tooltip: "$factory_module_tooltip$\n\n$factory_module_tooltip_production_district$"
+     factory_motes_tooltip: "$factory_module_tooltip$\n\n$factory_module_tooltip_production_building$"
+     factory_gases_tooltip: "$factory_module_tooltip$\n\n$factory_module_tooltip_production_building$"
+     factory_crystals_tooltip: "$factory_module_tooltip$\n\n$factory_module_tooltip_production_building$"
+     factory_extractor_tooltip: "$factory_module_tooltip$\n\nThis module produces the resources that would be produced by the jobs provided by all Strategic Resource Deposits on the planet, and takes 2 £energy£ in upkeep for each job replaced.\n\nThis module can only be built on planets that have Strategic Resource Deposits."
      
      factory_autofab_queue:0 "Add specified number of Autofabs to the Queue."
      factory_autofab_unqueue:0 "Remove specified number of Autofabs from the Queue."
@@ -986,6 +1031,8 @@
      realdev_take_would_be_maxxed: "The empire does not have enough unallocated Industrial Production to fulfill this ratio."
      realdev_planet_take: "Swap the planet taking/providing Industrial Production with the Empire."
      realdev_assembly_or_jobs: "Swap whether IP is put towards Assembly or Planet Production."
+     realdev_megastructure_build_ignore_desc: "Realistic Development handles Megastructure Build Speed as part of making the game more realistic. This can be disabled, if you either don't want it, or prefer to use just another method."
+     roci_realdev_mega_handling: "Megastructure Speed"
      
      realdev_country_tooltip: "This UI shows the whole empire's current Industrial Production value, and how much Industrial Production is allocated to the empire. Ratio sliders for allocating Industrial Production between empire-level uses are present. It updates its information every 30 days."
      realdev_planet_tooltip: "This UI shows this planet's current Industrial Production value, its current Industrial Production Capacity value, and has Ratio sliders for allocating Industrial Production between the empire and planet-level uses. It updates its information every 30 days."
@@ -1369,6 +1416,7 @@
   #Tooltips
     roci_trade_routes_opinion: "The partner empire must either have 50 opinion of us, or 25 and one of us is improving relations."
     roci_trade_routes_subject: "One country must be a subject of the other"
+    roci_trade_routes_federation: "Both countries must be in the same Federation"
     
  ###General ROCI
 
@@ -1386,7 +1434,7 @@
     roci_autofab_everyone_desc: "This setting allows you to make the Factory available to everyone, regardless of Origin, Civic, or AP. The Origin and Civic still start with some built, this setting does not."
     roci_autofab_desc: "The Automatic Factory module provides the Automatic Factory, a mechanic you can use to produce resources without pops. It has Planet and Country level UI, accessible from a decision and edict respectively."
     
-    roci_exploit: "Space Exploitaiton"
+    roci_exploit: "Space Exploitation"
     roci_exploit_desc: "The Space Exploitation module provides Minor Colonies, a mechanic you can use to produce resources from uninhabitable planets. It has a Country level UI, accessible from an edict."
     roci_exploit_disabled: "Space Exploitation is disabled pending a crash fix in vanilla."
     

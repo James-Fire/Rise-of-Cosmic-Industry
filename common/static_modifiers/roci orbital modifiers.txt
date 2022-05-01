@@ -7,5 +7,6 @@ oi_shipyard = {
 }
 
 orbital_space = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_orbital_infrastructure.dds"
 	custom_tooltip = orbital_space_effects
 }

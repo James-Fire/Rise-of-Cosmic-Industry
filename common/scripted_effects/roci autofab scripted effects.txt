@@ -251,13 +251,13 @@ document_factory_country = {
 			change_variable = { which = autofabs_available value = PREV.autofabs_available }
 			change_variable = { which = autofabs_building value = PREV.autofabs_building }
 			change_variable = { which = autofabs value = PREV.autofabs }
-			change_variable = { which = autofab_farm value = PREV.autofab_farm }
-			change_variable = { which = autofab_mine value = PREV.autofab_mine }
 			change_variable = { which = autofab_power value = PREV.autofab_power }
+			change_variable = { which = autofab_mine value = PREV.autofab_mine }
+			change_variable = { which = autofab_farm value = PREV.autofab_farm }
 			change_variable = { which = autofab_foundry value = PREV.autofab_foundry }
 			change_variable = { which = autofab_factory value = PREV.autofab_factory }
-			change_variable = { which = autofab_refinery value = PREV.autofab_refinery }
 			change_variable = { which = autofab_chemical value = PREV.autofab_chemical }
+			change_variable = { which = autofab_refinery value = PREV.autofab_refinery }
 			change_variable = { which = autofab_translucer value = PREV.autofab_translucer }
 			change_variable = { which = autofab_extractor value = PREV.autofab_extractor }
 			

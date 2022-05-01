@@ -191,10 +191,89 @@ roci_autofab_districts = {
  	}
 }
 
+autofab_module_progress = {
+	base = 30
+	multiply = autofab_module_build_speed
+}
+projected_autofab_construction_time = {
+	add = autofab_module_construction_time
+	multiply = autofab_module_build_speed
+}
+autofab_queue_time = {
+	base = @factory_construction_time
+	multiply = autofab_districts_queued
+	add = autofab_module_construction_time
+}
+projected_autofab_queue_time = {
+	add = value:autofab_queue_time
+	multiply = autofab_module_build_speed
+}
+	
+	
+	#orbitalinfra_refinery
+
+orbital_spaceport_motes_mult = {
+	add = orbitalinfra_farming
+	add = orbitalinfra_mining
+	add = orbitalinfra_industry
+	add = orbitalinfra_shipyard
+	add = orbitalinfra_military
+}
+orbital_spaceport_gas_mult = {
+	add = orbitalinfra_research
+	add = orbitalinfra_solar
+}
+orbital_spaceport_crystals_mult = {
+	add = orbitalinfra_cities
+	add = orbitalinfra_commercial
+	add = orbitalinfra_admin
+}
+
+
 #Autofab UI stuff
 
 roci_autofab_available_districts = {
 	base = 0
+}
+roci_autofab_available_autofab = {
+	base = 0
+}
+
+factory_generator_queue_value = {
+	add = autofab_energy_queue
+	add = autofab_power
+}
+factory_mine_queue_value = {
+	add = autofab_mineral_queue
+	add = autofab_mine
+}
+factory_farm_queue_value = {
+	add = autofab_food_queue
+	add = autofab_farm
+}
+factory_foundry_queue_value = {
+	add = autofab_alloys_queue
+	add = autofab_foundry
+}
+factory_factory_queue_value = {
+	add = autofab_congoods_queue
+	add = autofab_factory
+}
+factory_motes_queue_value = {
+	add = autofab_motes_queue
+	add = autofab_chemical
+}
+factory_gases_queue_value = {
+	add = autofab_gases_queue
+	add = autofab_refinery
+}
+factory_crystals_queue_value = {
+	add = autofab_crystals_queue
+	add = autofab_translucer
+}
+factory_extractor_queue_value = {
+	add = autofab_extractor_queue
+	add = autofab_extractor
 }
 
 

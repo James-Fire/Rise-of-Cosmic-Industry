@@ -288,6 +288,12 @@ guiTypes = {
 				effectButtonType = { name = "roci_realdev_build_adjustment_full" spriteType = "GFX_half_menu_button_bg" position = { x = 210 y = 145 } borderSize = { x = 10 y = 0 } format = left font = "cg_16b" text = "roci_realdev_build_adjustment_full" clicksound = interface effect = "roci_realdev_build_adjustment_full" }
 				
 				effectButtonType = { name = "roci_realdev_build_adjustment_swap" spriteType = "GFX_autofab_menu_swap" position = { x = 385 y = 150 } clicksound = interface effect = "roci_realdev_build_adjustment_swap" }
+				
+				
+				effectButtonType = { name = "roci_realdev_mega_handling" spriteType = "GFX_half_menu_button_bg" position = { x = 420 y = 145 } borderSize = { x = 10 y = 0 } format = left font = "cg_16b" text = "roci_realdev_mega_handling" clicksound = interface effect = "roci_realdev_mega_handling" }
+				
+				effectButtonType = { name = "roci_realdev_mega_handling_on" spriteType = "GFX_giga_menu_enabled" position = { x = 595 y = 150 } clicksound = interface effect = "roci_realdev_mega_handling_on" }
+				effectButtonType = { name = "roci_realdev_mega_handling_off" spriteType = "GFX_giga_menu_disabled" position = { x = 595 y = 150 } clicksound = interface effect = "roci_realdev_mega_handling_off" }
 		
 			effectButtonType = {
 				name = "roci_fe_buildings"

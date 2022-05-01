@@ -265,6 +265,18 @@ building_roci_space_elevator_3 = {
 			alloys = 2
 			multiplier = orbital_infrastructure
 		}
+		upkeep = {
+			volatile_motes = 0.5
+			multiplier = value:orbital_spaceport_motes_mult
+		}
+		upkeep = {
+			exotic_gases = 0.5
+			multiplier = value:orbital_spaceport_gas_mult
+		}
+		upkeep = {
+			rare_crystals = 0.5
+			multiplier = value:orbital_spaceport_crystals_mult
+		}
 	}
 
 	planet_modifier = {

@@ -16,6 +16,16 @@ factory_set_default_queue = {
 	set_country_flag = factory_gases_queue_1
 	set_country_flag = factory_crystals_queue_1
 	set_country_flag = factory_extractor_queue_1
+	set_variable = { which = factory_queue_apply_value value = 1 }
+	set_variable = { which = factory_generator_queue_apply_value value = 1 }
+	set_variable = { which = factory_mine_queue_apply_value value = 1 }
+	set_variable = { which = factory_farm_queue_apply_value value = 1 }
+	set_variable = { which = factory_foundry_queue_apply_value value = 1 }
+	set_variable = { which = factory_factory_queue_apply_value value = 1 }
+	set_variable = { which = factory_motes_queue_apply_value value = 1 }
+	set_variable = { which = factory_gases_queue_apply_value value = 1 }
+	set_variable = { which = factory_crystals_queue_apply_value value = 1 }
+	set_variable = { which = factory_extractor_queue_apply_value value = 1 }
 }
 
 factory_set_default_queue_planet = {
@@ -29,6 +39,16 @@ factory_set_default_queue_planet = {
 	set_planet_flag = factory_gases_queue_1
 	set_planet_flag = factory_crystals_queue_1
 	set_planet_flag = factory_extractor_queue_1
+	set_variable = { which = factory_queue_apply_value value = 1 }
+	set_variable = { which = factory_generator_queue_apply_value value = 1 }
+	set_variable = { which = factory_mine_queue_apply_value value = 1 }
+	set_variable = { which = factory_farm_queue_apply_value value = 1 }
+	set_variable = { which = factory_foundry_queue_apply_value value = 1 }
+	set_variable = { which = factory_factory_queue_apply_value value = 1 }
+	set_variable = { which = factory_motes_queue_apply_value value = 1 }
+	set_variable = { which = factory_gases_queue_apply_value value = 1 }
+	set_variable = { which = factory_crystals_queue_apply_value value = 1 }
+	set_variable = { which = factory_extractor_queue_apply_value value = 1 }
 }
 
 factory_remove_country_queue = {

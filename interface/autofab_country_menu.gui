@@ -225,7 +225,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_automation"
-				effect = "blank_effect"
+				effect = "factory_automation_desc"
 			}
 				effectButtonType = { name = "factory_automation_settings" spriteType = "GFX_autofab_settings" position = { x = 145 y = 40 } clicksound = interface effect = "factory_automation_settings" }
 				effectButtonType = { name = "factory_automation_on" spriteType = "GFX_giga_menu_enabled" position = { x = 175 y = 40 } clicksound = interface effect = "factory_automation_off" }
@@ -239,7 +239,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_vanilla_swapping"
-				effect = "blank_effect"
+				effect = "factory_vanilla_swapping_desc"
 			}
 				effectButtonType = { name = "factory_vanilla_swapping_fire_country" spriteType = "GFX_autofab_menu_swap" position = { x = 145 y = 75 } clicksound = interface effect = "factory_vanilla_swapping_fire_country" }
 				effectButtonType = { name = "factory_vanilla_swapping_on" spriteType = "GFX_giga_menu_enabled" position = { x = 175 y = 75 } clicksound = interface effect = "factory_vanilla_swapping_off" }
@@ -253,7 +253,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_fallback"
-				effect = "blank_effect"
+				effect = "factory_fallback_desc"
 			}
 				effectButtonType = { name = "factory_fallback_on" spriteType = "GFX_giga_menu_enabled" position = { x = 175 y = 110 } clicksound = interface effect = "factory_fallback_off" }
 				effectButtonType = { name = "factory_fallback_off" spriteType = "GFX_giga_menu_disabled" position = { x = 175 y = 110 } clicksound = interface effect = "factory_fallback_on" }
@@ -266,7 +266,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_autofab_construction"
-				effect = "blank_effect"
+				effect = "factory_autofab_construction_desc"
 			}
 				effectButtonType = { name = "factory_autofab_construction_on" spriteType = "GFX_giga_menu_enabled" position = { x = 175 y = 145 } clicksound = interface effect = "factory_autofab_construction_off" }
 				effectButtonType = { name = "factory_autofab_construction_off" spriteType = "GFX_giga_menu_disabled" position = { x = 175 y = 145 } clicksound = interface effect = "factory_autofab_construction_on" }
@@ -296,8 +296,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_planets"
+				effect = "factory_planets"
 			}
 			effectButtonType = { name = "factory_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 45 } clicksound = interface effect = "factory_increase_queue" }
 			effectButtonType = { name = "factory_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 45 } clicksound = interface effect = "factory_queue_1" }
@@ -315,7 +315,7 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
+				text = "factory_available_space"
 				effect = "blank_effect"
 			}
 			effectButtonType = {
@@ -326,8 +326,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_generator"
+				effect = "factory_generator"
 			}
 			effectButtonType = { name = "factory_generator_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 109 } clicksound = interface effect = "factory_generator_increase_queue" }
 			effectButtonType = { name = "factory_generator_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 109 } clicksound = interface effect = "factory_generator_queue_1" }
@@ -344,8 +344,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_mine"
+				effect = "factory_mine"
 			}
 			effectButtonType = { name = "factory_mine_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 141 } clicksound = interface effect = "factory_mine_increase_queue" }
 			effectButtonType = { name = "factory_mine_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 141 } clicksound = interface effect = "factory_mine_queue_1" }
@@ -362,8 +362,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_farm"
+				effect = "factory_farm"
 			}
 			effectButtonType = { name = "factory_farm_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 173 } clicksound = interface effect = "factory_farm_increase_queue" }
 			effectButtonType = { name = "factory_farm_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 173 } clicksound = interface effect = "factory_farm_queue_1" }
@@ -380,8 +380,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_foundry"
+				effect = "factory_foundry"
 			}
 			effectButtonType = { name = "factory_foundry_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 205 } clicksound = interface effect = "factory_foundry_increase_queue" }
 			effectButtonType = { name = "factory_foundry_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 205 } clicksound = interface effect = "factory_foundry_queue_1" }
@@ -398,8 +398,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_factory"
+				effect = "factory_factory"
 			}
 			effectButtonType = { name = "factory_factory_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 237 } clicksound = interface effect = "factory_factory_increase_queue" }
 			effectButtonType = { name = "factory_factory_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 237 } clicksound = interface effect = "factory_factory_queue_1" }
@@ -416,8 +416,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_motes"
+				effect = "factory_motes"
 			}
 			effectButtonType = { name = "factory_motes_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 269 } clicksound = interface effect = "factory_motes_increase_queue" }
 			effectButtonType = { name = "factory_motes_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 269 } clicksound = interface effect = "factory_motes_queue_1" }
@@ -434,8 +434,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_gases"
+				effect = "factory_gases"
 			}
 			effectButtonType = { name = "factory_gases_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 301 } clicksound = interface effect = "factory_gases_increase_queue" }
 			effectButtonType = { name = "factory_gases_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 301 } clicksound = interface effect = "factory_gases_queue_1" }
@@ -452,8 +452,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_crystals"
+				effect = "factory_crystals"
 			}
 			effectButtonType = { name = "factory_crystals_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 333 } clicksound = interface effect = "factory_crystals_increase_queue" }
 			effectButtonType = { name = "factory_crystals_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 333 } clicksound = interface effect = "factory_crystals_queue_1" }
@@ -470,8 +470,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "blank"
-				effect = "blank_effect"
+				text = "factory_extractor"
+				effect = "factory_extractor"
 			}
 			effectButtonType = { name = "factory_extractor_increase_queue" spriteType = "GFX_autofab_menu_plus" position = { x = 390 y = 365 } clicksound = interface effect = "factory_extractor_increase_queue" }
 			effectButtonType = { name = "factory_extractor_queue_1" spriteType = "GFX_giga_menu_1" position = { x = 420 y = 365 } clicksound = interface effect = "factory_extractor_queue_1" }
@@ -484,7 +484,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "alien_message"
 			font = "cg_16b"
-			position = { x = 225 y = 370 }
+			position = { x = 225 y = 3700 }
 			maxWidth = 350
 			maxHeight = 620
 			format = left
