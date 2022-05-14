@@ -71,11 +71,11 @@ orbital_ring = {
 						}
 						is_planet_class = pc_ringworld_habitable
 						is_planet_class = pc_habitat
+						has_planet_flag = megastructure
+						has_planet_flag = has_megastructure
 					}
 				}
 				NOR = {
-					has_planet_flag = megastructure
-					has_planet_flag = has_megastructure
 					is_planet_class = pc_ringworld_habitable_damaged
 					is_planet_class = pc_ringworld_tech
 					is_planet_class = pc_ringworld_tech_damaged
