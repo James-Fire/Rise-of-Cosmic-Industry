@@ -4,58 +4,25 @@ Added a Target mode for Industrial Production on planets, wherein they try to ge
 
 Added Development Milestones. These can affect both the Target system and Ratios. These are a collection of triggers that modify the Target and Ratios based on the status of the planet or country they apply to.*
 
-Added bling to the ROCI game start settings menu.*
-
 Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
-Changed Assembly to have a per cap based on how many Roboticist (Or equivalent) jobs exist. Assembly Speed is now also "split" between them, like it is with shipyards. This will cause empires with lots of assembly jobs (Like machines) to require more IP to get the max boost.*
 
 
 
-Hopefully fixed exploit using Factorio Engineers on planets.
-
-Improved tooltip readability about what is actually failing on Autofab UI buttons.
-
-Corrected Autofab UI triggers allowing you to queue more negative modules than exist.
-
-Updated the Autofab Planet Terminal, so the values update automatically without needing a Terminal Refresh.
-
-Removed the Autofab Planet Terminal Refresh button, since it's not needed anymore.
-
-Added tooltips to the Autofab Planet Terminal settings.
-
-Added tooltips to the Autofab Planet Terminal Module Buttons.
-
-Updated the Autofab Empire Terminal, so the values update automatically without needing a Terminal Refresh.
-
-Removed the Autofab Empire Terminal Refresh button, since it's not needed anymore.
-
-Added tooltips to the Autofab Empire Terminal settings.
-
-Added tooltips to the Autofab Empire Terminal Module Buttons.
-
-Removed the Autofab Advisor, as it was out-of-date and has been near entirely supplanted by better tooltips anyway.
-
-Added the current "time" remaining on the current Autofab construction and the total "time" for the entire Queue to the Factory Expansion planet modifier.
-
-Updated realdev megastructure stuff to use Base Build Speed. This will allow it to work better with Gigastructure's Supertensiles.
-
-Added an option to realdev to disable megastructure handling, in case you want it handled by something else.
-
-Fixed the Realdev UI deciding some numbers are not important.
-
-Fixed Trade Routes checking for more than it should regarding opinion.
-
-Made Opinion not matter for trade routes between 2 players.
-
-Made being in a Federation bypass trade route opinion requirements. Just as either party being a subject of the other does.
-
-Each Orbital District now increases the SR upkeep of the Spaceport by 0.5 of the appropriate resource for that district. This is also affected by the % upkeep increase on each district. This is only active with a T3 Spaceport.
-
-Gave the Orbital planet modifier an icon.
 
 
 
+Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.*
+
+Merged the Exploit Minimum Stockpile menu with the Autofab Automation Settings window.*
+
+Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per. This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.*
+
+Made unused IP in Planet Aid be distributed to country uses.*
+
+Overhauled Orbital Infrastructure so that it conflicts (Thematically and mechanically) much less with the Planetary Ring.*
+
+Changed the Planetary Ring to be allowed on habitats/ringworlds. Cause there's frankly no (thematic) reason to limit them that way.*
 
 Added a block to the Autofab Planet UI to show current "time" remaining on the current construction, total "time" for the entire Queue, and the current build speed modifier.*
 
@@ -63,19 +30,11 @@ Reduced FE buildings Flat production bonus, gave them a % production bonus, to w
 
 Realdev Assembly Speed Cap is now affected by select techs and APs.*
 
-Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet.*
-
-Updated the Automation Settings window, so now it doesn't need to close and reopen to update numbers.*
-
 
 
 Added the Strategic Production module, that deals with the production of SRs, and how it's currently terrible in vanilla.*
 
-Added the Shipping Costs module, that represents logistics by adding energy costs to deficits on planets.*
-
 Added the Subterannean Infrastructure module, dealing with construction projects beneath the surface.*
-
-Added a tooltip to the Minimum Stockpile title explaining what it means, when it applies, and limitations it has.*
 
 Moved Equipment Factory upgrades to their own techs.*
 
@@ -103,12 +62,12 @@ Scripted more complex AI triggers involving all orbital platforms, so maybe they
 
 Gave the Realdev Empire UI the same treatment as the Planet UI, having a host of buttons that display numbers and tooltips about those numbers.*
 
-Made unused IP in the Country Stockpile be distributed to country uses.*
-
-Merged the Exploit and Autofab Minimum Stockpile menus. They now use the same one.*
 
 
 
+
+
+Changed Assembly to have a per cap based on how many Roboticist (Or equivalent) jobs exist. Assembly Speed is now also "split" between them, like it is with shipyards. This will cause empires with lots of assembly jobs (Like machines) to require more IP to get the max boost.* Seems to not be necessary
 
 Implemented a "Simple Mode" setting that changes various facets of Realistic Development to be easier to manage.* Not sure if this is actually necessary. Also I'm not sure what to do for it.
 
@@ -131,8 +90,6 @@ Added support for Production Revolution's Manpower to Realdev. Manpower is now t
 Capped Industrial Production on any 1 object to +/- 2 million, to avoid overflow.* Not sure if even necessary outside of edge cases where the system is broken anyway
 
 Fixed Starting Minor Colonies having more construction than they should be able to support.* This is a PITA to try doing
-
-Added a Progress fraction to the Factory Expanding planetary modifier effect, in an attempt to replace the countdown it previously had.* The countdown doesn't seem to be missed
 
 Orbital Districts now also add a 0.1 alloy upkeep cost per job they affect. Those that don't affect jobs (Housing, Commercial) instead do 0.05 alloys per pop on the planet.* Might not do, see if current district upkeep is good enough
 

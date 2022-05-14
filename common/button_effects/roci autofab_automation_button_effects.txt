@@ -23,3 +23,15 @@ factory_expansion_swap = {
 		}
 	}
 }
+
+automation_targets_tooltip = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "automation_targets_tooltip" }
+}
+
+minimum_stockpile_tooltip = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "minimum_stockpile_tooltip" }
+}

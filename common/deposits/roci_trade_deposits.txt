@@ -5,27 +5,17 @@ d_kiyo_mod_trade = {
 	icon = d_building
 	
 	# trade_value (trade value)
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_1 } modifier = { trade_value_add = 1 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_2 } modifier = { trade_value_add = 2 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_4 } modifier = { trade_value_add = 4 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_8 } modifier = { trade_value_add = 8 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_16 } modifier = { trade_value_add = 16 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_32 } modifier = { trade_value_add = 32 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_64 } modifier = { trade_value_add = 64 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_128 } modifier = { trade_value_add = 128 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_256 } modifier = { trade_value_add = 256 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_512 } modifier = { trade_value_add = 512 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_1024 } modifier = { trade_value_add = 1024 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_2048 } modifier = { trade_value_add = 2048 } }
-	triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_4096 } modifier = { trade_value_add = 4096 } }
-	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_8192 } modifier = { trade_value_add = 8192 } }
-	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_16384 } modifier = { trade_value_add = 16384 } }
-	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_32768 } modifier = { trade_value_add = 32768 } }
-	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_65536 } modifier = { trade_value_add = 65536 } }
-	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_131072 } modifier = { trade_value_add = 131072 } }
-	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_262144 } modifier = { trade_value_add = 262144 } }
-	#triggered_planet_modifier = { potential = { exists = owner has_planet_flag = kiyo_trade_trade_value_524288 } modifier = { trade_value_add = 524288 } }
-	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			check_variable = { which = kiyo_trade_trade_value value > 0 }
+		}
+		modifier = {
+			trade_value_add = 1
+			mult = kiyo_trade_trade_value
+		}
+	}
 	resources = {
 		category = planet_kiyo_mod_trader
 		produces = {

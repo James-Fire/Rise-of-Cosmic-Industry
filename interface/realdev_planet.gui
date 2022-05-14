@@ -255,7 +255,7 @@ guiTypes = {
 					borderSize = { x = 10 y = 0 }
 					font = "cg_16b"
 					text = "realdev_current_indcap_display"
-					effect = "realdev_blank"
+					effect = "roci_blank_effect"
 				}
 				effectButtonType = {
 					name = "realdev_current_indcap_title"
@@ -267,7 +267,7 @@ guiTypes = {
 					borderSize = { x = 10 y = 0 }
 					font = "cg_16b"
 					text = "realdev_current_indcap_title"
-					effect = "realdev_blank"
+					effect = "roci_blank_effect"
 				}
 				effectButtonType = {
 					name = "realdev_indcap_title"
@@ -279,7 +279,7 @@ guiTypes = {
 					borderSize = { x = 10 y = 0 }
 					font = "malgun_goth_24"
 					text = "realdev_indcap_title"
-					effect = "realdev_blank"
+					effect = "roci_blank_effect"
 				}
 				effectButtonType = {
 					name = "realdev_max_ind_cap_title"
@@ -291,7 +291,7 @@ guiTypes = {
 					borderSize = { x = 10 y = 0 }
 					font = "cg_16b"
 					text = "realdev_max_ind_cap_title"
-					effect = "realdev_blank"
+					effect = "roci_blank_effect"
 				}
 				effectButtonType = {
 					name = "realdev_max_ind_cap_display"
@@ -303,7 +303,7 @@ guiTypes = {
 					borderSize = { x = 10 y = 0 }
 					font = "cg_16b"
 					text = "realdev_max_ind_cap_display"
-					effect = "realdev_blank"
+					effect = "roci_blank_effect"
 				}
 			}
 		}
@@ -389,7 +389,7 @@ guiTypes = {
 			}
 			
 			#Slider
-			effectButtonType = { name = "realdev_planet_ratio"		spriteType = "GFX_long_menu_button_skinny"	position = { x = 60 y = 2 } clicksound = interface		effect = "realdev_blank" }
+			effectButtonType = { name = "realdev_planet_ratio"		spriteType = "GFX_long_menu_button_skinny"	position = { x = 60 y = 2 } clicksound = interface		effect = "roci_blank_effect" }
 			effectButtonType = { name = "realdev_planet_take" spriteType = "GFX_autofab_menu_swap" position = { x = 30 y = 3 } clicksound = interface effect = "realdev_planet_take" }
 			
 			effectButtonType = { name = "realdev_planet_take_increase_planet"		spriteType = "GFX_roci_5_right"	position = { x = 140 y = 8 } clicksound = interface		effect = "realdev_planet_take_increase_planet" }
@@ -553,7 +553,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "realdev_build_speed_title"
-				effect = "realdev_blank"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "realdev_build_ratio_title"
@@ -565,7 +565,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "malgun_goth_24"
 				text = "realdev_build_ratio_title"
-				effect = "realdev_blank"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "realdev_assembly_speed_title"
@@ -596,7 +596,7 @@ guiTypes = {
 			effectButtonType = { name = "realdev_assembly_or_jobs" spriteType = "GFX_autofab_menu_swap" position = { x = 30 y = 3 } clicksound = interface effect = "realdev_assembly_or_jobs" }
 			
 			#Slider
-			effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_long_menu_button_skinny"	position = { x = 60 y = 2 } clicksound = interface		effect = "realdev_blank" }
+			effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_long_menu_button_skinny"	position = { x = 60 y = 2 } clicksound = interface		effect = "roci_blank_effect" }
 			effectButtonType = { name = "realdev_build_ratio_increase_build_speed"		spriteType = "GFX_roci_5_right"	position = { x = 140 y = 8 } clicksound = interface		effect = "realdev_build_ratio_increase_build_speed" }
 			effectButtonType = { name = "realdev_build_ratio_increase_assembly"			spriteType = "GFX_roci_5_left"		position = { x = 426 y = 8 } clicksound = interface		effect = "realdev_build_ratio_increase_assembly" }
 
@@ -653,7 +653,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "realdev_build_speed_display"
-				effect = "realdev_blank"
+				effect = "roci_blank_effect"
 			}
 			
 			#Current Assembly display
@@ -667,7 +667,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "realdev_assembly_display"
-				effect = "realdev_blank"
+				effect = "roci_blank_effect"
 			}
 		}
 		background = {
@@ -698,7 +698,7 @@ guiTypes = {
 			position = { x = 225 y = 20000 }
 			spriteType = "GFX_tiles_dark_area_cut_8"
 			alwaysTransparent = yes
-			effect = "blank_effect"
+			effect = "roci_blank_effect"
 		}
 		instantTextBoxType = {
 			name = "alien_message"

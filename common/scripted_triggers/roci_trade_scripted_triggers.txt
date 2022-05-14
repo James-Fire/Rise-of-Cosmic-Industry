@@ -1,6 +1,6 @@
 
 # THIS = Planet
-has_trade_route = {
+has_cargo_ship_trade_route = {
 	has_deposit = d_kiyo_mod_trade
 }
 

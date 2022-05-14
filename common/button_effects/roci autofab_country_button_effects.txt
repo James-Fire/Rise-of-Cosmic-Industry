@@ -230,27 +230,27 @@ factory_extractor = {
 factory_queue_1 = {
 	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_1 }
 	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_1 set_country_flag = factory_queue_2 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 1 } }
+	effect = { remove_country_flag = factory_queue_1 set_country_flag = factory_queue_2 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 1 } } }
 }
 factory_queue_2 = {
 	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_2 }
 	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_2 set_country_flag = factory_queue_3 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 2 } }
+	effect = { remove_country_flag = factory_queue_2 set_country_flag = factory_queue_3 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 2 } } }
 }
 factory_queue_3 = {
 	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_3 }
 	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_3 set_country_flag = factory_queue_4 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 3 } }
+	effect = { remove_country_flag = factory_queue_3 set_country_flag = factory_queue_4 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 3 } } }
 }
 factory_queue_4 = {
 	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_4 }
 	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_4 set_country_flag = factory_queue_5 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 4 } }
+	effect = { remove_country_flag = factory_queue_4 set_country_flag = factory_queue_5 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 4 } } }
 }
 factory_queue_5 = {
 	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_5 }
 	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_5 set_country_flag = factory_queue_1 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 5 } }
+	effect = { remove_country_flag = factory_queue_5 set_country_flag = factory_queue_1 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 5 } } }
 }
 
 factory_generator_queue_1 = {

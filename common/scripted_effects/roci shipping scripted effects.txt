@@ -1,0 +1,25 @@
+shipping_resource_export = {
+	export_trigger_value_to_variable = {
+		trigger = planet_resource_compare
+		parameters = { resource = $resource$ type = balance }
+		variable = shipping_$resource$_balance
+		rounded = yes
+	}
+	if = {
+		limit = {
+			exists = prev
+			PREV = { is_scope_type = solar_system }
+		}
+		PREV = { change_variable = { which = shipping_$resource$_balance value = prev.shipping_$resource$_balance } }
+	}
+}
+
+shipping_cost_calculation = {
+	if = {
+		limit = {
+			check_variable = { which = shipping_$resource$_balance value < 0 }
+		}
+		multiply_variable = { which = shipping_$resource$_balance value = $shipping_cost$ }
+		change_variable = { which = shipping_costs value = shipping_$resource$_balance }
+	}
+}

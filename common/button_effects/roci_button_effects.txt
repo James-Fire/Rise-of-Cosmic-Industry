@@ -1,9 +1,20 @@
+roci_blank_effect = {
+	potential = { hidden_trigger = { always = yes } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { }
+}
+
 roci_settings_tooltip = {
 	potential = { }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { custom_tooltip = "roci_settings_desc" }
 }
 
+roci_autofab_thumb = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { NOT = { has_global_flag = no_autofab } } }
+	effect = { }
+}
 roci_autofab = {
 	potential = { }
 	allow = { hidden_trigger = { always = yes } }
@@ -43,6 +54,11 @@ roci_autofab_everyone_off = {
 	}
 }
 
+roci_exploit_thumb = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { NOT = { has_global_flag = no_exploit } } }
+	effect = { }
+}
 roci_exploit = {
 	potential = { }
 	allow = { hidden_trigger = { always = yes } }
@@ -339,6 +355,11 @@ exploit_ai_speed_neg_5 = {
 	}
 }
 
+roci_orbital_thumb = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { NOT = { has_global_flag = no_orbital_infra } } }
+	effect = { }
+}
 roci_orbital = {
 	potential = { }
 	allow = { hidden_trigger = { always = yes } }
@@ -354,7 +375,27 @@ roci_orbital_off = {
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_global_flag = no_orbital_infra }
 }
+roci_orbital_ring = {
+	potential = { }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_orbital_ring_desc" }
+}
+roci_orbital_ring_on = {
+	potential = { has_global_flag = orbital_ring_overwrite }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { set_global_flag = orbital_ring_overwrite }
+}
+roci_orbital_ring_off = {
+	potential = { NOT = { has_global_flag = orbital_ring_overwrite } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { remove_global_flag = orbital_ring_overwrite }
+}
 
+roci_realdev_thumb = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { NOT = { has_global_flag = no_realdev } } }
+	effect = { }
+}
 roci_realdev = {
 	potential = { }
 	allow = { hidden_trigger = { always = yes } }
@@ -454,10 +495,11 @@ roci_realdev_mega_handling = {
 	}
 }
 roci_realdev_mega_handling_on = {
-	potential = { NOT = { has_global_flag = no_realdev has_global_flag = realdev_megastructure_build_ignore }  }
+	potential = { NOT = { has_global_flag = no_realdev has_global_flag = realdev_megastructure_build_ignore } }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { 
 		custom_tooltip = "realdev_megastructure_build_ignore_desc"
+		set_global_flag = realdev_megastructure_build_ignore
 	}
 }
 roci_realdev_mega_handling_off = {
@@ -465,10 +507,16 @@ roci_realdev_mega_handling_off = {
 	allow = { hidden_trigger = { always = yes } }
 	effect = { 
 		custom_tooltip = "realdev_megastructure_build_ignore_desc"
+		remove_global_flag = realdev_megastructure_build_ignore
 	}
 }
 
 
+roci_fe_buildings_thumb = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { NOT = { has_global_flag = no_fe_buildings } } }
+	effect = { }
+}
 roci_fe_buildings = {
 	potential = { }
 	allow = { hidden_trigger = { always = yes } }
@@ -486,6 +534,11 @@ roci_fe_buildings_off = {
 }
 
 
+roci_trade_routes_thumb = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { NOT = { has_global_flag = no_trade_routes } } }
+	effect = { }
+}
 roci_trade_routes = {
 	potential = { always = yes }
 	allow = { hidden_trigger = { always = yes } }
@@ -500,4 +553,25 @@ roci_trade_routes_off = {
 	potential = { has_global_flag = no_trade_routes }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_global_flag = no_trade_routes }
+}
+
+roci_shipping_thumb = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { NOT = { has_global_flag = no_shipping } } }
+	effect = { }
+}
+roci_shipping = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_shipping_desc" }
+}
+roci_shipping_on = {
+	potential = { always = yes NOT = { has_global_flag = no_shipping } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { set_global_flag = no_shipping }
+}
+roci_shipping_off = {
+	potential = { always = yes has_global_flag = no_shipping }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { remove_global_flag = no_shipping }
 }

@@ -199,7 +199,7 @@ guiTypes = {
 			position = { x = 225 y = 20000 }
 			spriteType = "GFX_tiles_dark_area_cut_8"
 			alwaysTransparent = yes
-			effect = "blank_effect"
+			effect = "roci_blank_effect"
 		}
 		containerWindowType = {
 			name = "factory_options_contain"
@@ -214,7 +214,7 @@ guiTypes = {
 				alwaysTransparent = yes
 				font = "large_title_font_28"
 				text = "factory_options"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_automation"
@@ -285,7 +285,7 @@ guiTypes = {
 				alwaysTransparent = yes
 				font = "large_title_font_28"
 				text = "factory_construction"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_planets"
@@ -316,7 +316,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_available_space"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_generator"

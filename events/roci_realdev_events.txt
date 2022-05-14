@@ -281,145 +281,15 @@ planet_event = {
 		change_variable = { which = realdev_industry_cap value = realdev_building_cap }
 		
 		#Count Pops
-		if = {
-			limit = {
-				NOT = { has_global_flag = realdev_ignore_pops }
-			}
-			set_variable = { which = realdev_pops value = trigger:num_pops }
-			set_variable = { which = realdev_industry_pops value = realdev_pops }
-			set_variable = { which = realdev_industry_pops_cap value = realdev_pops }
-			change_variable = { which = realdev_industry_pops_cap value = realdev_pops }
-			if = {
-				limit = {
-					owner = { has_technology = tech_powered_exoskeletons }
-				}
-				change_variable = { which = realdev_industry_pops value = realdev_pops }
-				change_variable = { which = realdev_industry_pops_cap value = realdev_pops }
-			}
-			if = {
-				limit = {
-					owner = { has_technology = tech_mega_assembly }
-				}
-				change_variable = { which = realdev_industry_pops value = realdev_pops }
-				change_variable = { which = realdev_industry_pops_cap value = realdev_pops }
-			}
-			every_owned_pop = {
-				limit = {
-					OR = {
-						has_trait = trait_mechanical
-						has_trait = trait_syncretic_proles
-						has_trait = trait_presapient_proles
-						has_trait = trait_nerve_stapled
-						has_trait = trait_robot_efficient_processors
-						has_trait = trait_latent_psionic
-						has_trait = trait_psionic
-						has_trait = trait_cybernetic
-						has_trait = trait_robust
-						has_trait = trait_erudite
-						has_trait = trait_enigmatic_intelligence
-						is_enslaved = yes
-					}
-				}
-				#Count pops that are slaves
-				if = {
-					limit = {
-						is_enslaved = yes
-					}
-					PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-				}
-				
-				#Count pops that have obvious traits.
-				switch = {
-					trigger = has_trait
-					trait_mechanical = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
-						if = {
-							limit = {
-								owner = { has_technology = tech_droid_workers }
-							}
-							PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-							PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
-						}
-						if = {
-							limit = {
-								owner = { has_technology = tech_synthetic_workers }
-							}
-							PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-							PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
-						}
-					}
-					trait_syncretic_proles = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-					}
-					trait_presapient_proles = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-					}
-					trait_nerve_stapled = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-					}
-					trait_robot_efficient_processors = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
-					}
-					trait_latent_psionic = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
-					}
-					trait_psionic = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 3 } }
-						PREV = { change_variable = { which = realdev_industry_pops_cap value = 6 } }
-					}
-					trait_cybernetic = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
-					}
-					trait_robust = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 1 } }
-						PREV = { change_variable = { which = realdev_industry_pops_cap value = 2 } }
-					}
-					trait_erudite = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 3 } }
-						PREV = { change_variable = { which = realdev_industry_pops_cap value = 6 } }
-					}
-					trait_enigmatic_intelligence = {
-						PREV = { change_variable = { which = realdev_industry_pops value = 2 } }
-						PREV = { change_variable = { which = realdev_industry_pops_cap value = 4 } }
-					}
-				}
-			}
-			
-			#Count Gestalt Maintenance Jobs - They can count as pops because I don't feel like making antrade_value category
-			export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = maintenance_drone } variable = realdev_maintenance_drones }
-			change_variable = { which = realdev_industry_pops value = realdev_maintenance_drones }
-			
-			change_variable = { which = realdev_industry value = realdev_industry_pops }
-			change_variable = { which = realdev_industry_cap value = realdev_industry_pops_cap }
-		}
+		set_variable = { which = realdev_industry_pops value = value:realdev_pops_industry }
+		set_variable = { which = realdev_industry_pops_cap value = value:realdev_pops_industry_cap }
 		
-		#Count Industrial Jobs
-		if = {
-			limit = {
-				always = no #Gonna try using resource production
-			}
-			export_modifier_to_variable = { modifier = job_artisan_add variable = realdev_artisan }
-			export_modifier_to_variable = { modifier = job_artificer_add variable = realdev_artificer }
-			export_modifier_to_variable = { modifier = job_artisan_drone_add variable = realdev_artisan_drone }
-			export_modifier_to_variable = { modifier = job_foundry_add variable = realdev_foundry }
-			export_modifier_to_variable = { modifier = job_alloy_drone_add variable = realdev_alloy_drone }
-			export_modifier_to_variable = { modifier = job_fabricator_add variable = realdev_fabricator }
-			export_modifier_to_variable = { modifier = job_catalytic_technician_add variable = realdev_catalytic }
-			export_modifier_to_variable = { modifier = job_catalytic_drone_add variable = realdev_catalytic_drone }
-			
-			change_variable = { which = realdev_industry value = realdev_artisan }
-			change_variable = { which = realdev_industry value = realdev_artificer }
-			change_variable = { which = realdev_industry value = realdev_artisan_drone }
-			change_variable = { which = realdev_industry value = realdev_foundry }
-			change_variable = { which = realdev_industry value = realdev_alloy_drone }
-			change_variable = { which = realdev_industry value = realdev_fabricator }
-			change_variable = { which = realdev_industry value = realdev_catalytic }
-			change_variable = { which = realdev_industry value = realdev_catalytic_drone }
-		}
+		#Count Gestalt Maintenance Jobs - They can count as pops because I don't feel like making a trade_value category
+		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = maintenance_drone } variable = realdev_maintenance_drones }
+		change_variable = { which = realdev_industry_pops value = realdev_maintenance_drones }
+		
+		change_variable = { which = realdev_industry value = realdev_industry_pops }
+		change_variable = { which = realdev_industry_cap value = realdev_industry_pops_cap }
 	}
 }
 
@@ -434,7 +304,7 @@ planet_event = {
 	}
 	
 	immediate = {
-		#Math with resource outputs
+		#Math with resource outputs - Can't include Minor Colonies with script values easily
 		export_trigger_value_to_variable = {
 			trigger = planet_resource_compare
 			parameters = { resource = alloys type = produces }
@@ -494,23 +364,21 @@ planet_event = {
 		change_variable = { which = realdev_industry_cap_rulers value = realdev_industry_cap_foreman }
 		change_variable = { which = realdev_industry_cap value = realdev_industry_cap_rulers }
 		
-		#Count Roboticist Jobs (And Equivalents)
-		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = roboticist } variable = realdev_roboticist }
-		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = spawning_drone } variable = realdev_spawning_drone }
-		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = replicator } variable = realdev_replicator }
+		#Count Roboticist Jobs (And Equivalents) #Not doing this to save on perf slightly
+		#export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = roboticist } variable = realdev_roboticist }
+		#export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = spawning_drone } variable = realdev_spawning_drone }
+		#export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = replicator } variable = realdev_replicator }
 
-		change_variable = { which = realdev_assembly_cap_jobs value = realdev_roboticist }
-		change_variable = { which = realdev_assembly_cap_jobs value = realdev_spawning_drone }
-		change_variable = { which = realdev_assembly_cap_jobs value = realdev_replicator }
+		#change_variable = { which = realdev_assembly_cap_jobs value = realdev_roboticist }
+		#change_variable = { which = realdev_assembly_cap_jobs value = realdev_spawning_drone }
+		#change_variable = { which = realdev_assembly_cap_jobs value = realdev_replicator }
 		
 		#Include Factory Production
 		if = {
 			limit = {
 				has_autofab = yes
 			}
-			set_variable = { which = realdev_autofab_modules value = autofab_modules }
-			multiply_variable = { which = realdev_autofab_modules value = 2 }
-			change_variable = { which = realdev_industry value = realdev_autofab_modules }
+			change_variable = { which = realdev_industry value = value:realdev_autofab_modules }
 		}
 
 		#Export number of branch office equipment buildings, if any exist.
@@ -539,39 +407,17 @@ planet_event = {
 		#Include bonuses from Capital Bonus techs
 		set_variable = { which = realdev_industry_multiplier_bonus value = 100 }
 		set_variable = { which = realdev_industry_multiplier_bonus_2 value = 1 }
-		if = {
-			limit = {
-				owner = { has_technology = tech_capital_productivity_1 }
-				has_upgraded_capital = yes
-			}
-			change_variable = { which = realdev_industry_multiplier_bonus value = 0.1 }
-		}
-		if = {
-			limit = {
-				owner = { has_technology = tech_capital_productivity_2 }
-				has_major_upgraded_capital = yes
-			}
-			change_variable = { which = realdev_industry_multiplier_bonus value = 0.2 }
-		}
-		if = {
-			limit = {
-				owner = { has_technology = tech_capital_productivity_3 }
-				has_fully_upgraded_capital = yes
-			}
-			change_variable = { which = realdev_industry_multiplier_bonus value = 0.3 }
-		}
+		change_variable = { which = realdev_industry_multiplier_bonus value = value:realdev_industry_multiplier }
 
 		#Pull bonuses from Governor and Ruler
 		if = {
 			limit = {
 				exists = sector
 			}
-			change_variable = { which = realdev_leader_level value = sector.leader.realdev_leader_level }
 			change_variable = { which = realdev_industry value = sector.leader.realdev_industry }
 		}
 		change_variable = { which = realdev_leader_level value = owner.leader.realdev_leader_level }
 		change_variable = { which = realdev_industry value = owner.leader.realdev_industry }
-		change_variable = { which = realdev_industry_multiplier_bonus value = realdev_leader_level }
 		
 		#Include Amenities Bonus
 		export_trigger_value_to_variable = { trigger = free_amenities variable = realdev_amenities }

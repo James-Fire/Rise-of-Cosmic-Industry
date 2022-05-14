@@ -23,4 +23,36 @@ spriteTypes = {
 	}
 	spriteType = { name = "GFX_roci_settings"						texturefile = "gfx/interface/menu_ui/roci_settings.dds" }
 	spriteType = { name = "GFX_roci_settings_off"					texturefile = "gfx/interface/menu_ui/roci_settings_off.dds" }
+	
+	#Thumbnails for the ROCI settings menu
+	spriteType = { name = "GFX_roci_settings_bg"					texturefile = "gfx/event_pictures/module_thumbnails/half_button_background.dds" }
+	spriteType = { name = "GFX_roci_desc_bg"						texturefile = "gfx/event_pictures/module_thumbnails/desc_background.dds" }
+	spriteType = { name = "GFX_roci_autofab_thumb"					texturefile = "gfx/event_pictures/module_thumbnails/autofab.dds" }
+	spriteType = { name = "GFX_roci_exploit_thumb"					texturefile = "gfx/event_pictures/module_thumbnails/exploit.dds" }
+	spriteType = { name = "GFX_roci_orbital_thumb"					texturefile = "gfx/event_pictures/module_thumbnails/orbital.dds" }
+	spriteType = { name = "GFX_roci_realdev_thumb"					texturefile = "gfx/event_pictures/module_thumbnails/realdev.dds" }
+	spriteType = { name = "GFX_roci_febuildings_thumb"				texturefile = "gfx/event_pictures/module_thumbnails/febuildings.dds" }
+	spriteType = { name = "GFX_roci_cargoships_thumb"				texturefile = "gfx/event_pictures/module_thumbnails/cargoships.dds" }
+	spriteType = { name = "GFX_roci_shipping_thumb"					texturefile = "gfx/event_pictures/module_thumbnails/shipping.dds" }
+	
+	spriteType = {
+		name = "GFX_roci_border"
+		texturefile = "gfx/event_pictures/module_thumbnails/roci_module_border.dds" #The base image. Defines the size of the sprite.
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/event_pictures/module_thumbnails/roci_module_border.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/event_pictures/module_thumbnails/roci_module_border.dds" #The image to animate.
+			animationrotation = 0.0
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "pulsing"  #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
 }

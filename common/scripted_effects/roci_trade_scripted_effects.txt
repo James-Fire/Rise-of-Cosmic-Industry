@@ -55,27 +55,6 @@ kiyo_trade_calculate_resources = {
 		set_variable = { which = kiyo_trade_society_research value = 0 }
 		set_variable = { which = kiyo_trade_engineering_research value = 0 }
 		set_variable = { which = kiyo_trade_trade_value value = 0 }
-		#Also remove all the Trade Value flags
-		remove_planet_flag = kiyo_trade_trade_value_1
-		remove_planet_flag = kiyo_trade_trade_value_2
-		remove_planet_flag = kiyo_trade_trade_value_4
-		remove_planet_flag = kiyo_trade_trade_value_8
-		remove_planet_flag = kiyo_trade_trade_value_16
-		remove_planet_flag = kiyo_trade_trade_value_32
-		remove_planet_flag = kiyo_trade_trade_value_64
-		remove_planet_flag = kiyo_trade_trade_value_128
-		remove_planet_flag = kiyo_trade_trade_value_256
-		remove_planet_flag = kiyo_trade_trade_value_512
-		remove_planet_flag = kiyo_trade_trade_value_1024
-		remove_planet_flag = kiyo_trade_trade_value_2048
-		remove_planet_flag = kiyo_trade_trade_value_4096
-		remove_planet_flag = kiyo_trade_trade_value_8192
-		remove_planet_flag = kiyo_trade_trade_value_16384
-		remove_planet_flag = kiyo_trade_trade_value_32768
-		remove_planet_flag = kiyo_trade_trade_value_65536
-		remove_planet_flag = kiyo_trade_trade_value_131072
-		remove_planet_flag = kiyo_trade_trade_value_262144
-		remove_planet_flag = kiyo_trade_trade_value_524288
 	}
 	#then export planet production
 	orbit = {
@@ -156,8 +135,6 @@ kiyo_trade_calculate_resources = {
 			variable = kiyo_production_engineering_research
 			rounded = yes
 		}
-		
-		
 		export_trigger_value_to_variable = {
 			trigger = planet_resource_compare
 			parameters = {
@@ -169,8 +146,7 @@ kiyo_trade_calculate_resources = {
 		}
 		
 		export_modifier_to_variable = { modifier = trade_value_add variable = kiyo_production_trade_value }
-		export_modifier_to_variable = { modifier = trade_value_mult variable = kiyo_production_trade_value_mult }
-		multiply_variable = { which = kiyo_trade_trade_value value = kiyo_production_trade_value_mult }
+		multiply_variable = { which = kiyo_trade_trade_value value = modifier:trade_value_mult }
 	}
 	
 	#then unload its cargo, and attribute it according to who owns the fleet
@@ -232,7 +208,6 @@ kiyo_trade_calculate_resources = {
 			set_variable = { which = kiyo_trade_society_research_end value = prev.kiyo_trade_society_research }
 			set_variable = { which = kiyo_trade_engineering_research_end value = prev.kiyo_trade_engineering_research }
 			set_variable = { which = kiyo_trade_trade_value_end value = prev.kiyo_trade_trade_value }
-			
 		}
 	}
 	
@@ -248,8 +223,6 @@ kiyo_trade_calculate_resources = {
 		set_variable = { which = kiyo_trade_society_research value = prev.kiyo_trade_society_research }
 		set_variable = { which = kiyo_trade_engineering_research value = prev.kiyo_trade_engineering_research }
 		set_variable = { which = kiyo_trade_trade_value value = prev.kiyo_trade_trade_value }
-		
-		kiyo_trade_add_trade_value_modifier = yes
 	}
 	
 	#Load up the cargo fleet with cargo based on planet production

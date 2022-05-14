@@ -1,9 +1,3 @@
-realdev_blank = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { }
-}
-
 realdev_planet_tooltip = {
 	potential = { }
 	allow = { hidden_trigger = { always = yes } }

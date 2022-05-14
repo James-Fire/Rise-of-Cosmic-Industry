@@ -293,7 +293,7 @@ country_event = {
 		
 		every_owned_planet = {
 			limit = {
-				has_trade_route = yes
+				has_cargo_ship_trade_route = yes
 			}
 			PREV = {
 				change_variable = { which = kiyo_trade_minerals_start value = prev.kiyo_trade_minerals_start }

@@ -1,0 +1,3 @@
+shipping_cost = {
+	shipping_energy_upkeep_add = 1
+}

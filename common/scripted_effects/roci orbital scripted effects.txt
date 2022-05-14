@@ -287,7 +287,7 @@ oi_update_platforms = {
 					has_fleet_flag = orbital_infra_defense@prevprev
 				}
 				while = {
-					count = preprev.orbitalinfra_military
+					count = prevprev.orbitalinfra_military
 					limit = {
 						count_owned_ship = { limit = { is_ship_size = military_station_small } count < prevprev.orbitalinfra_military_platforms }
 					}
@@ -298,7 +298,7 @@ oi_update_platforms = {
 					}
 				}
 				while = {
-					count = preprev.orbitalinfra_military
+					count = prevprev.orbitalinfra_military
 					limit = {
 						count_owned_ship = { limit = { is_ship_size = ion_cannon } count < prevprev.orbitalinfra_military_ion_cannons }
 					}

@@ -1,0 +1,7 @@
+@base_shipping_cost = 1
+
+@adv_shipping_cost = 1.5
+
+@sr_shipping_cost = 2
+
+@rr_shipping_cost = 2.5

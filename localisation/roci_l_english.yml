@@ -784,15 +784,15 @@
      factory_available_space:0 "£district£ Available:[This.autofab_districts_available]|Building:[This.autofab_districts_building]|Queued:[This.autofab_districts_queued]"
      
      factory_construction_extender:0 "$factory_generator$\n\n$factory_mine$\n\n$factory_farm$\n\n$factory_foundry$\n\n$factory_factory$\n\n$factory_motes$\n\n$factory_gases$\n\n$factory_crystals$\n\n$factory_extractor$"
-     factory_generator:0 "£energy£ Current:[This.autofab_power]|Building:[This.autofab_energy_building]|Queued:[This.autofab_energy_queue]|Available:[This.autofab_energy_avail]"
-     factory_mine:0 "£minerals£ Current:[This.autofab_mine]|Building:[This.autofab_minerals_building]|Queued:[This.autofab_mineral_queue]|Available:[This.autofab_minerals_avail]"
-     factory_farm:0 "£food£ Current:[This.autofab_farm]|Building:[This.autofab_food_building]|Queued:[This.autofab_food_queue]|Available:[This.autofab_food_avail]"
-     factory_foundry:0 "£alloys£ Current:[This.autofab_foundry]|Building:[This.autofab_alloys_building]|Queued:[This.autofab_alloys_queue]|Available:[This.autofab_foundry_available]"
-     factory_factory:0 "£consumer_goods£ Current:[This.autofab_factory]|Building:[This.autofab_congoods_building]|Queued:[This.autofab_congoods_queue]|Available:[This.autofab_factory_available]"
-     factory_motes:0 "£volatile_motes£ Current:[This.autofab_chemical]|Building:[This.autofab_motes_building]|Queued:[This.autofab_motes_queue]|Available:[This.autofab_motes_available]"
-     factory_gases:0 "£exotic_gases£ Current:[This.autofab_refinery]|Building:[This.autofab_gases_building]|Queued:[This.autofab_gases_queue]|Available:[This.autofab_gases_available]"
-     factory_crystals:0 "£rare_crystals£ Current:[This.autofab_translucer]|Building:[This.autofab_crystals_building]|Queued:[This.autofab_crystals_queue]|Available:[This.autofab_crystals_available]"
-     factory_extractor:0 "£autofab_extractor£ Current:[This.autofab_extractor]|Building:[This.autofab_extractor_building]|Queued:[This.autofab_extractor_queue]|Available:[This.autofab_extractor_avail]"
+     factory_generator:0 "£energy£ Current:[This.autofab_power]|Building:[This.autofab_energy_building]|Queued:[This.autofab_energy_queue]:[This.planet_autofab_energy_queue]|Available:[This.autofab_energy_avail]"
+     factory_mine:0 "£minerals£ Current:[This.autofab_mine]|Building:[This.autofab_minerals_building]|Queued:[This.autofab_mineral_queue]:[This.planet_autofab_mineral_queue]|Available:[This.autofab_minerals_avail]"
+     factory_farm:0 "£food£ Current:[This.autofab_farm]|Building:[This.autofab_food_building]|Queued:[This.autofab_food_queue]:[This.planet_autofab_food_queue]|Available:[This.autofab_food_avail]"
+     factory_foundry:0 "£alloys£ Current:[This.autofab_foundry]|Building:[This.autofab_alloys_building]|Queued:[This.autofab_alloys_queue]:[This.planet_autofab_alloys_queue]|Available:[This.autofab_foundry_available]"
+     factory_factory:0 "£consumer_goods£ Current:[This.autofab_factory]|Building:[This.autofab_congoods_building]|Queued:[This.autofab_congoods_queue]:[This.planet_autofab_congoods_queue]|Available:[This.autofab_factory_available]"
+     factory_motes:0 "£volatile_motes£ Current:[This.autofab_chemical]|Building:[This.autofab_motes_building]|Queued:[This.autofab_motes_queue]:[This.planet_autofab_motes_queue]|Available:[This.autofab_motes_available]"
+     factory_gases:0 "£exotic_gases£ Current:[This.autofab_refinery]|Building:[This.autofab_gases_building]|Queued:[This.autofab_gases_queue]:[This.planet_autofab_gases_queue]|Available:[This.autofab_gases_available]"
+     factory_crystals:0 "£rare_crystals£ Current:[This.autofab_translucer]|Building:[This.autofab_crystals_building]|Queued:[This.autofab_crystals_queue]:[This.planet_autofab_crystals_queue]|Available:[This.autofab_crystals_available]"
+     factory_extractor:0 "£autofab_extractor£ Current:[This.autofab_extractor]|Building:[This.autofab_extractor_building]|Queued:[This.autofab_extractor_queue]:[This.planet_autofab_extractor_queue]|Available:[This.autofab_extractor_avail]"
      
      factory_autofab_tooltip: "$factory_autofab_tooltip_time$\n\n$factory_autofab_tooltip_cost$"
      factory_autofab_tooltip_time: "The Autofab Deposit takes 1080 £time£ to construct as a base. This value can be modified, and currently only is by the Automation Tradtition Finisher.\n\nBy default, £time£ is made at 1 per day, modified by £colony_development_speed£."
@@ -846,6 +846,8 @@
      FACTORY_AUTOMATION_MANAGE:0 ""
      factory_automation_settings:0 "Automation Targets"
      factory_automation_target:0 "Current Targets"
+     automation_targets_tooltip: "The value set here for each resource is a surplus (Meaning after expenses) target value per planet owned by the empire. So setting energy to 20 while having 10 planets will have Automation attempt to get a total surplus of 200 energy. These values do not affect the Queue, as it does not decide what to build."
+     minimum_stockpile_tooltip: "The value set here for each resource is how much Automation and the Queue will not use from the stockpile, reserving it for player use."
      
      factory_expansion_space:0 "       Autofab Construction: Space Required"
      factory_expansion_always:0 "       Autofab Construction: Planets Available"
@@ -1021,6 +1023,7 @@
   #UI stuffs
      roci_menu.2.confirm: "Confirm Settings"
      realdev_menu.1.name: "[This.GetName] Industry Controls"
+     realdev_menu.1.desc: ""
      realdev_menu.10.name: "[This.GetName] Industry Controls"
      realdev_menu.10.desc: ""
      REALDEV_PLANET_MENU: ""
@@ -1402,7 +1405,8 @@
     kiyo_trade_manual_event.2.info:0 "\nResources imported: [This.kiyo_trade_minerals_start] £minerals£, [This.kiyo_trade_energy_start] £energy£, [This.kiyo_trade_food_start] £food£, [This.kiyo_trade_unity_start] £unity£, [This.kiyo_trade_consumer_goods_start] £consumer_goods£, [This.kiyo_trade_alloys_start] £alloys£, [This.kiyo_trade_physics_research_start] £physics£, [This.kiyo_trade_society_research_start] £society£, [This.kiyo_trade_engineering_research_start] £engineering£, [This.kiyo_trade_other_start] £trade_value£\nResources exported: [This.kiyo_trade_minerals_end] £minerals£, [This.kiyo_trade_energy_end] £energy£, [This.kiyo_trade_food_end] £food£, [This.kiyo_trade_unity_end] £unity£, [This.kiyo_trade_consumer_goods_end] £consumer_goods£, [This.kiyo_trade_alloys_end] £alloys£, [This.kiyo_trade_physics_research_end] £physics£, [This.kiyo_trade_society_research_end] £society£, [This.kiyo_trade_engineering_research_end] £engineering£, [This.kiyo_trade_other_end] £trade_value£"
     kiyo_trade_manual_event.22.title:0 "Trade Routes from §Y[kiyo_trade_other_empire.GetName]§!"
     kiyo_trade_manual_event.22.desc:0 "[kiyo_trade_cargo_fleet_other_1.GetName]: [kiyo_trade_cargo_fleet_other_1.kiyo_trade_minerals_end] £minerals£, [kiyo_trade_cargo_fleet_other_1.kiyo_trade_energy_end] £energy£, [kiyo_trade_cargo_fleet_other_1.kiyo_trade_food_end] £food£, [kiyo_trade_cargo_fleet_other_1.kiyo_trade_unity_end] £unity£, [kiyo_trade_cargo_fleet_other_1.kiyo_trade_consumer_goods_end] £consumer_goods£, [kiyo_trade_cargo_fleet_other_1.kiyo_trade_alloys_end] £alloys£, [kiyo_trade_cargo_fleet_other_1.kiyo_trade_physics_research_end] £physics£, [kiyo_trade_cargo_fleet_other_1.kiyo_trade_society_research_end] £society£, [kiyo_trade_cargo_fleet_other_1.kiyo_trade_engineering_research_end] £engineering£, [kiyo_trade_cargo_fleet_other_1.kiyo_trade_other_end] £trade_value£\n\n[kiyo_trade_cargo_fleet_other_2.GetName]: [kiyo_trade_cargo_fleet_other_2.kiyo_trade_minerals_end] £minerals£, [kiyo_trade_cargo_fleet_other_2.kiyo_trade_energy_end] £energy£, [kiyo_trade_cargo_fleet_other_2.kiyo_trade_food_end] £food£, [kiyo_trade_cargo_fleet_other_2.kiyo_trade_unity_end] £unity£, [kiyo_trade_cargo_fleet_other_2.kiyo_trade_consumer_goods_end] £consumer_goods£, [kiyo_trade_cargo_fleet_other_2.kiyo_trade_alloys_end] £alloys£, [kiyo_trade_cargo_fleet_other_2.kiyo_trade_physics_research_end] £physics£, [kiyo_trade_cargo_fleet_other_2.kiyo_trade_society_research_end] £society£, [kiyo_trade_cargo_fleet_other_2.kiyo_trade_engineering_research_end] £engineering£, [kiyo_trade_cargo_fleet_other_2.kiyo_trade_other_end] £trade_value£\n\n[kiyo_trade_cargo_fleet_other_3.GetName]: [kiyo_trade_cargo_fleet_other_3.kiyo_trade_minerals_end] £minerals£, [kiyo_trade_cargo_fleet_other_3.kiyo_trade_energy_end] £energy£, [kiyo_trade_cargo_fleet_other_3.kiyo_trade_food_end] £food£, [kiyo_trade_cargo_fleet_other_3.kiyo_trade_unity_end] £unity£, [kiyo_trade_cargo_fleet_other_3.kiyo_trade_consumer_goods_end] £consumer_goods£, [kiyo_trade_cargo_fleet_other_3.kiyo_trade_alloys_end] £alloys£, [kiyo_trade_cargo_fleet_other_3.kiyo_trade_physics_research_end] £physics£, [kiyo_trade_cargo_fleet_other_3.kiyo_trade_society_research_end] £society£, [kiyo_trade_cargo_fleet_other_3.kiyo_trade_engineering_research_end] £engineering£, [kiyo_trade_cargo_fleet_other_3.kiyo_trade_other_end] £trade_value£\n\n[kiyo_trade_cargo_fleet_other_4.GetName]: [kiyo_trade_cargo_fleet_other_4.kiyo_trade_minerals_end] £minerals£, [kiyo_trade_cargo_fleet_other_4.kiyo_trade_energy_end] £energy£, [kiyo_trade_cargo_fleet_other_4.kiyo_trade_food_end] £food£, [kiyo_trade_cargo_fleet_other_4.kiyo_trade_unity_end] £unity£, [kiyo_trade_cargo_fleet_other_4.kiyo_trade_consumer_goods_end] £consumer_goods£, [kiyo_trade_cargo_fleet_other_4.kiyo_trade_alloys_end] £alloys£, [kiyo_trade_cargo_fleet_other_4.kiyo_trade_physics_research_end] £physics£, [kiyo_trade_cargo_fleet_other_4.kiyo_trade_society_research_end] £society£, [kiyo_trade_cargo_fleet_other_4.kiyo_trade_engineering_research_end] £engineering£, [kiyo_trade_cargo_fleet_other_4.kiyo_trade_other_end] £trade_value£\n\n[kiyo_trade_cargo_fleet_other_5.GetName]: [kiyo_trade_cargo_fleet_other_5.kiyo_trade_minerals_end] £minerals£, [kiyo_trade_cargo_fleet_other_5.kiyo_trade_energy_end] £energy£, [kiyo_trade_cargo_fleet_other_5.kiyo_trade_food_end] £food£, [kiyo_trade_cargo_fleet_other_5.kiyo_trade_unity_end] £unity£, [kiyo_trade_cargo_fleet_other_5.kiyo_trade_consumer_goods_end] £consumer_goods£, [kiyo_trade_cargo_fleet_other_5.kiyo_trade_alloys_end] £alloys£, [kiyo_trade_cargo_fleet_other_5.kiyo_trade_physics_research_end] £physics£, [kiyo_trade_cargo_fleet_other_5.kiyo_trade_society_research_end] £society£, [kiyo_trade_cargo_fleet_other_5.kiyo_trade_engineering_research_end] £engineering£, [kiyo_trade_cargo_fleet_other_5.kiyo_trade_other_end] £trade_value£\n\n[kiyo_trade_cargo_fleet_other_6.GetName]: [kiyo_trade_cargo_fleet_other_6.kiyo_trade_minerals_end] £minerals£, [kiyo_trade_cargo_fleet_other_6.kiyo_trade_energy_end] £energy£, [kiyo_trade_cargo_fleet_other_6.kiyo_trade_food_end] £food£, [kiyo_trade_cargo_fleet_other_6.kiyo_trade_unity_end] £unity£, [kiyo_trade_cargo_fleet_other_6.kiyo_trade_consumer_goods_end] £consumer_goods£, [kiyo_trade_cargo_fleet_other_6.kiyo_trade_alloys_end] £alloys£, [kiyo_trade_cargo_fleet_other_6.kiyo_trade_physics_research_end] £physics£, [kiyo_trade_cargo_fleet_other_6.kiyo_trade_society_research_end] £society£, [kiyo_trade_cargo_fleet_other_6.kiyo_trade_engineering_research_end] £engineering£, [kiyo_trade_cargo_fleet_other_6.kiyo_trade_other_end] £trade_value£\n\n[kiyo_trade_cargo_fleet_other_7.GetName]: [kiyo_trade_cargo_fleet_other_7.kiyo_trade_minerals_end] £minerals£, [kiyo_trade_cargo_fleet_other_7.kiyo_trade_energy_end] £energy£, [kiyo_trade_cargo_fleet_other_7.kiyo_trade_food_end] £food£, [kiyo_trade_cargo_fleet_other_7.kiyo_trade_unity_end] £unity£, [kiyo_trade_cargo_fleet_other_7.kiyo_trade_consumer_goods_end] £consumer_goods£, [kiyo_trade_cargo_fleet_other_7.kiyo_trade_alloys_end] £alloys£, [kiyo_trade_cargo_fleet_other_7.kiyo_trade_physics_research_end] £physics£, [kiyo_trade_cargo_fleet_other_7.kiyo_trade_society_research_end] £society£, [kiyo_trade_cargo_fleet_other_7.kiyo_trade_engineering_research_end] £engineering£, [kiyo_trade_cargo_fleet_other_7.kiyo_trade_other_end] £trade_value£\n\n[kiyo_trade_cargo_fleet_other_8.GetName]: [kiyo_trade_cargo_fleet_other_8.kiyo_trade_minerals_end] £minerals£, [kiyo_trade_cargo_fleet_other_8.kiyo_trade_energy_end] £energy£, [kiyo_trade_cargo_fleet_other_8.kiyo_trade_food_end] £food£, [kiyo_trade_cargo_fleet_other_8.kiyo_trade_unity_end] £unity£, [kiyo_trade_cargo_fleet_other_8.kiyo_trade_consumer_goods_end] £consumer_goods£, [kiyo_trade_cargo_fleet_other_8.kiyo_trade_alloys_end] £alloys£, [kiyo_trade_cargo_fleet_other_8.kiyo_trade_physics_research_end] £physics£, [kiyo_trade_cargo_fleet_other_8.kiyo_trade_society_research_end] £society£, [kiyo_trade_cargo_fleet_other_8.kiyo_trade_engineering_research_end] £engineering£, [kiyo_trade_cargo_fleet_other_8.kiyo_trade_other_end] £trade_value£"
- 
+    kiyo_trade_manual_event.2.trade_value: ""
+    
   #Events
  
     kiyo_trade_orbit_event.1.title:0 "External Trade Route Setup Complete"
@@ -1417,6 +1421,16 @@
     roci_trade_routes_opinion: "The partner empire must either have 50 opinion of us, or 25 and one of us is improving relations."
     roci_trade_routes_subject: "One country must be a subject of the other"
     roci_trade_routes_federation: "Both countries must be in the same Federation"
+    
+ ###Shipping
+ 
+  #General Shipping
+    shipping: "Shipping"
+    shipping_desc: ""
+    shipping_cost: "Shipping Cost"
+    shipping_cost_desc: "This planet requires shipping in resources from other planets."
+    
+    mod_shipping_energy_upkeep_add: "Shipping £energy£ Cost"
     
  ###General ROCI
 
@@ -1441,6 +1455,9 @@
     
     roci_orbital: "Orbital Infrastructure"
     roci_orbital_desc: "The Orbital Infrastructure module provides Orbital Districts, a mechanic to increase a planet's production without increasing pop count. It has districts and a building: The Spaceport."
+    roci_orbital_ring: "Planetary Ring Overwrite"
+    roci_orbital_ring_desc: "The planetary ring from Overlord can be overwritten to be able to be placed on all habitable planets. This setting can be toggled separately from the Orbital Infrastructure module."
+   
    
     roci_realdev: "Realistic Development"
     roci_realdev_desc: "The Realistic Development module provides Industrial Production, a mechanic to simulate limited industrial ability, and your distribution of it. It adds a building; Equipment Factory. It has Planet and Country level UI, accessible from a decision and edict respectively."
@@ -1461,7 +1478,10 @@
     roci_fe_buildings_desc: "This module adds another tier of Buff Buildings, like the Energy Nexus, based on Fallen Empire tech. These buildings are powerful on their own, and provide a large buff to their appropriate job output on the planet."
     
     roci_trade_routes: "Cargo Ships"
-    roci_trade_routes_desc: "This module adds Cargo Ships, which can be used to set up trade routes with other empires, benefitting both target planets.\n\nThis module has 2 Edicts and 2 Decisions, and does not show up until Colonial Centralization is researched.\n\nNOTE: This module may not work entirely correctly. It is complicated, and I have not fully learned how it works. Report anything you think is an issue, and I'll do my best to either fix or explain it."
+    roci_trade_routes_desc: "This module adds Cargo Ships, which can be used to set up trade routes with other empires, benefitting both target planets.\nThis module has 2 Edicts and 2 Decisions, and does not show up until Colonial Centralization is researched."
+    
+    roci_shipping: "Shipping Costs"
+    roci_shipping_desc: "This module adds a simple Shipping Costs system to planets that have a deficit of resources, requiring energy to represent the cost of shipping in these resources.\nThis module has a planet modifier that updates monthly to show the current cost of shipping to this planet."
     
   #Stupid Stuff that only exists because error log
     autofab_country_default: "Defaulted to Country Setting."

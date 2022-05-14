@@ -58,6 +58,8 @@ on_monthly_pulse_country = {
 		spaceexploitAI.11
 		
 		realdev.92
+		
+		shipping.5
 	}
 }
 
@@ -156,12 +158,21 @@ on_megastructure_upgraded = {
 	}
 }
 
+# A planet has been colonized.
+# Scope = Planet
+on_colonized = {
+	events = {
+		shipping.1
+	}
+}
+
 # Planet has been terraformed
 # This = Planet
 # From = Terraforming country
 on_terraforming_complete = {
 	events = {
 		autofab.30
+		shipping.1
 	}
 }
 
@@ -247,13 +258,14 @@ autofab_apply_planet_queue = {
 #Planet Scope, no predefined scopes
 on_autofab_module_started = {
 	events = {
-	
+		
 	}
 }
 #Planet Scope, no predefined scopes
 on_autofab_module_completed = {
 	events = {
 		roci_menu.41
+		autofab_queue.8
 	}
 }
 #Planet Scope, no predefined scopes
@@ -266,6 +278,7 @@ on_autofab_retool_started = {
 on_autofab_retool_completed = {
 	events = {
 		roci_menu.41
+		autofab_queue.8
 	}
 }
 #Planet Scope

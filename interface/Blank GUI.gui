@@ -80,7 +80,7 @@ guiTypes = {
 			position = { x = 225 y = 365 }
 			spriteType = "GFX_tiles_dark_area_cut_8"
 			alwaysTransparent = yes
-			effect = "blank_effect"
+			effect = "roci_blank_effect"
 		}
 		instantTextBoxType = {
 			name = "alien_message"

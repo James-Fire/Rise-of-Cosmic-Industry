@@ -24,6 +24,21 @@ campaign_kiyo_mod_trade = {
 	}
 }
 
+#Shipping Categories
+
+shipping = {
+	parent = planets
+
+	generate_mult_modifiers = {
+		produces
+		upkeep
+	}
+	generate_add_modifiers = {
+		produces
+		upkeep
+	}
+}
+
 #Autofab Categories
 planet_autofab = {
 	parent = planet_technician

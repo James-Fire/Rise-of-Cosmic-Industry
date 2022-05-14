@@ -9,3 +9,7 @@ pm_building_thing = {
 pm_orbital_space = {
 	modifier = "orbital_space"
 }
+
+pm_shipping_cost = {
+	modifier = "shipping_cost"
+}

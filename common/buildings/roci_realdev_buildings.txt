@@ -425,7 +425,7 @@ building_corporate_construction = {
 	#icon = "building_tiberium_spike"
 	base_buildtime = 480
 	
-	branch_office_building = yes
+	owner_type = corporate
 	
 	potential = {
 		always = no
@@ -463,7 +463,7 @@ building_corporate_construction_criminal = {
 	#icon = "building_tiberium_spike"
 	base_buildtime = 480
 	
-	branch_office_building = yes
+	owner_type = corporate
 	
 	potential = {
 		always = no

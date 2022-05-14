@@ -311,7 +311,18 @@ guiTypes = {
 				alwaysTransparent = yes
 				font = "large_title_font_28"
 				text = "factory_automation_settings"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
+			}
+			effectButtonType = {
+				name = "automation_targets_tooltip"
+				spriteType = "GFX_roci_tooltip"
+				position = { x = 380 y = 60 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "blank"
+				effect = "automation_targets_tooltip"
 			}
 
 			effectButtonType = {
@@ -323,7 +334,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_energy_icons"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_minerals_icons"
@@ -334,7 +345,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_minerals_icons"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_food_icons"
@@ -345,7 +356,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_food_icons"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_consumer_goods_icons"
@@ -356,7 +367,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_consumer_goods_icons"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_motes_icons"
@@ -367,7 +378,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_motes_icons"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_gases_icons"
@@ -378,7 +389,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_gases_icons"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_crystals_icons"
@@ -389,7 +400,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_crystals_icons"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 		}
 		containerWindowType = {
@@ -406,7 +417,18 @@ guiTypes = {
 				alwaysTransparent = yes
 				font = "large_title_font_28"
 				text = "factory_stockpile"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
+			}
+			effectButtonType = {
+				name = "minimum_stockpile_tooltip"
+				spriteType = "GFX_roci_tooltip"
+				position = { x = 375 y = 60 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "blank"
+				effect = "minimum_stockpile_tooltip"
 			}
 
 			effectButtonType = {
@@ -418,7 +440,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_energy_stockpile"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_mineral_stockpile"
@@ -429,7 +451,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_mineral_stockpile"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
 				name = "factory_alloy_stockpile"
@@ -440,7 +462,7 @@ guiTypes = {
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
 				text = "factory_alloy_stockpile"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 		}
 		containerWindowType = {
@@ -456,7 +478,7 @@ guiTypes = {
 				alwaysTransparent = yes
 				font = "large_title_font_28"
 				text = "factory_options"
-				effect = "blank_effect"
+				effect = "roci_blank_effect"
 			}
 		
 			effectButtonType = {
@@ -511,7 +533,7 @@ guiTypes = {
 			position = { x = 225 y = 20000 }
 			spriteType = "GFX_tiles_dark_area_cut_8"
 			alwaysTransparent = yes
-			effect = "blank_effect"
+			effect = "roci_blank_effect"
 		}
 		instantTextBoxType = {
 			name = "alien_message"

@@ -1,0 +1,344 @@
+namespace = shipping
+
+#Game Start event to put the shipping deposit on all planets
+country_event = {
+	id = shipping.0
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_shipping }
+	}
+	
+	immediate = {
+		every_galaxy_planet = {
+			limit = {
+				OR = {
+					is_colony = yes
+					is_colonizable = yes
+				}
+				NOT = { has_deposit = shipping }
+			}
+			add_deposit = shipping
+		}
+	}
+}
+
+#General purpose event to put the shipping deposit on a planet if it's not already there.
+planet_event = {
+	id = shipping.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_shipping }
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_deposit = shipping }
+			}
+			add_deposit = shipping
+		}
+	}
+}
+
+#Country event to distribute planet calcs throughout the month
+country_event = {
+	id = shipping.5
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_shipping }
+	}
+	
+	immediate = {
+		every_system_within_border = { #If we don't have the gateway tech that allows us to do shipping by system, OR if the system only has one planet, do it by planet instead.
+			limit = {
+				any_system_planet = { is_colony = yes }
+			}
+			if = {
+				limit = {
+					count_system_planet = { count > 1 limit = { is_colony = yes } }
+					owner = { has_technology = tech_placeholder }
+				}
+				system_event = { id = shipping.6 days = 5 random = 20 }
+			}
+			else = {
+				every_system_planet = {
+					limit = {
+						is_colony = yes
+					}
+					planet_event = { id = shipping.7 days = 5 random = 20 }
+				}
+			}
+		}
+	}
+}
+
+#System event to handle all planets in a system, if the right tech is researched
+system_event = {
+	id = shipping.6
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_shipping }
+	}
+	
+	immediate = {
+		#Zero out all values
+		set_variable = { which = shipping_costs value = 0 }
+		set_variable = { which = shipping_energy_balance value = 0 }
+		set_variable = { which = shipping_minerals_balance value = 0 }
+		set_variable = { which = shipping_food_balance value = 0 }
+		set_variable = { which = shipping_alloys_balance value = 0 }
+		set_variable = { which = shipping_consumer_goods_balance value = 0 }
+		set_variable = { which = shipping_minor_artifacts_balance value = 0 }
+		set_variable = { which = shipping_volatile_motes_balance value = 0 }
+		set_variable = { which = shipping_exotic_gases_balance value = 0 }
+		set_variable = { which = shipping_rare_crystals_balance value = 0 }
+		set_variable = { which = shipping_sr_living_metal_balance value = 0 }
+		set_variable = { which = shipping_sr_zro_balance value = 0 }
+		set_variable = { which = shipping_sr_dark_matter_balance value = 0 }
+		set_variable = { which = shipping_nanites_balance value = 0 }
+		
+		#Count the number of planets in the system
+		export_trigger_value_to_variable = {
+			trigger = count_system_planet
+			parameters = { limit = { is_colony = yes } }
+			variable = shipping_system_planets
+		}
+		
+		#Export production values from all planets, pull to system
+		every_system_planet = {
+			limit = {
+				is_colony = yes
+			}
+			remove_modifier = shipping_cost
+			shipping_resource_export = {
+				resource = energy
+			}
+			shipping_resource_export = {
+				resource = minerals
+			}
+			shipping_resource_export = {
+				resource = food
+			}
+			shipping_resource_export = {
+				resource = alloys
+			}
+			shipping_resource_export = {
+				resource = consumer_goods
+			}
+			shipping_resource_export = {
+				resource = minor_artifacts
+			}
+			shipping_resource_export = {
+				resource = volatile_motes
+			}
+			shipping_resource_export = {
+				resource = exotic_gases
+			}
+			shipping_resource_export = {
+				resource = rare_crystals
+			}
+			shipping_resource_export = {
+				resource = sr_living_metal
+			}
+			shipping_resource_export = {
+				resource = sr_zro
+			}
+			shipping_resource_export = {
+				resource = sr_dark_matter
+			}
+			shipping_resource_export = {
+				resource = nanites
+			}
+		}
+		
+		#Calculate Shipping costs based on deficits in the whole system
+		shipping_cost_calculation = {
+			resource = energy
+			shipping_cost = @base_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = minerals
+			shipping_cost = @base_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = food
+			shipping_cost = @base_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = alloys
+			shipping_cost = @adv_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = consumer_goods
+			shipping_cost = @adv_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = minor_artifacts
+			shipping_cost = @adv_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = volatile_motes
+			shipping_cost = @sr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = exotic_gases
+			shipping_cost = @sr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = rare_crystals
+			shipping_cost = @sr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = sr_living_metal
+			shipping_cost = @rr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = sr_zro
+			shipping_cost = @rr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = sr_dark_matter
+			shipping_cost = @rr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = nanites
+			shipping_cost = @rr_shipping_cost
+		}
+		
+		#Divide Shipping costs between all planets in the system
+		multiply_variable = { which = shipping_costs value = -1 }
+		divide_variable = { which = shipping_costs value = shipping_system_planets }
+		every_system_planet = {
+			limit = {
+				is_colony = yes
+			}
+			change_variable = { which = shipping_costs value = prev.shipping_costs }
+			add_modifier = {
+				modifier = shipping_cost
+				multiplier = shipping_costs
+			}
+		}
+	}
+}
+
+#Planet event to export deficits, then calculate shipping costs from it
+planet_event = {
+	id = shipping.7
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_shipping }
+	}
+	
+	immediate = {
+		remove_modifier = shipping_cost
+		set_variable = { which = shipping_costs value = 0 }
+		shipping_resource_export = {
+			resource = energy
+		}
+		shipping_resource_export = {
+			resource = minerals
+		}
+		shipping_resource_export = {
+			resource = food
+		}
+		shipping_resource_export = {
+			resource = alloys
+		}
+		shipping_resource_export = {
+			resource = consumer_goods
+		}
+		shipping_resource_export = {
+			resource = minor_artifacts
+		}
+		shipping_resource_export = {
+			resource = volatile_motes
+		}
+		shipping_resource_export = {
+			resource = exotic_gases
+		}
+		shipping_resource_export = {
+			resource = rare_crystals
+		}
+		shipping_resource_export = {
+			resource = sr_living_metal
+		}
+		shipping_resource_export = {
+			resource = sr_zro
+		}
+		shipping_resource_export = {
+			resource = sr_dark_matter
+		}
+		shipping_resource_export = {
+			resource = nanites
+		}
+		
+		shipping_cost_calculation = {
+			resource = energy
+			shipping_cost = @base_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = minerals
+			shipping_cost = @base_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = food
+			shipping_cost = @base_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = alloys
+			shipping_cost = @adv_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = consumer_goods
+			shipping_cost = @adv_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = minor_artifacts
+			shipping_cost = @adv_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = volatile_motes
+			shipping_cost = @sr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = exotic_gases
+			shipping_cost = @sr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = rare_crystals
+			shipping_cost = @sr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = sr_living_metal
+			shipping_cost = @rr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = sr_zro
+			shipping_cost = @rr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = sr_dark_matter
+			shipping_cost = @rr_shipping_cost
+		}
+		shipping_cost_calculation = {
+			resource = nanites
+			shipping_cost = @rr_shipping_cost
+		}
+		multiply_variable = { which = shipping_costs value = -1 }
+		
+		add_modifier = {
+			modifier = shipping_cost
+			multiplier = shipping_costs
+		}
+	}
+}

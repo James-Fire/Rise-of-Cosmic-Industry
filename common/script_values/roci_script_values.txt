@@ -51,6 +51,22 @@
 # For format for doing so is value:my_value|PARAM1|value1|PARAM2|value2|.
 # Then you can use $PARAM1$ in the script value and it will replace it with value1
 
+### General ROCI
+
+roci_district_sprawl = {
+	base = 0
+	modifier = {
+ 		is_variable_set = small_colony_count
+		add = small_colony_count
+ 	}
+	modifier = {
+ 		is_variable_set = autofab_modules
+		add = autofab_modules
+ 	}
+}
+
+###Cargo Ships
+
 roci_trade_route_value = {
 	base = 0
 	
@@ -139,17 +155,7 @@ roci_trade_route_value = {
 	add = trigger:num_pops
 }
 
-roci_district_sprawl = {
-	base = 0
-	modifier = {
- 		is_variable_set = small_colony_count
-		add = small_colony_count
- 	}
-	modifier = {
- 		is_variable_set = autofab_modules
-		add = autofab_modules
- 	}
-}
+###Autofab
 
 roci_autofab_districts = {
 	base = 0
@@ -208,36 +214,6 @@ projected_autofab_queue_time = {
 	add = value:autofab_queue_time
 	multiply = autofab_module_build_speed
 }
-	
-	
-	#orbitalinfra_refinery
-
-orbital_spaceport_motes_mult = {
-	add = orbitalinfra_farming
-	add = orbitalinfra_mining
-	add = orbitalinfra_industry
-	add = orbitalinfra_shipyard
-	add = orbitalinfra_military
-}
-orbital_spaceport_gas_mult = {
-	add = orbitalinfra_research
-	add = orbitalinfra_solar
-}
-orbital_spaceport_crystals_mult = {
-	add = orbitalinfra_cities
-	add = orbitalinfra_commercial
-	add = orbitalinfra_admin
-}
-
-
-#Autofab UI stuff
-
-roci_autofab_available_districts = {
-	base = 0
-}
-roci_autofab_available_autofab = {
-	base = 0
-}
 
 factory_generator_queue_value = {
 	add = autofab_energy_queue
@@ -275,27 +251,232 @@ factory_extractor_queue_value = {
 	add = autofab_extractor_queue
 	add = autofab_extractor
 }
+	
+
+###Orbital
+
+orbital_spaceport_motes_mult = {
+	add = orbitalinfra_farming
+	add = orbitalinfra_mining
+	add = orbitalinfra_industry
+	add = orbitalinfra_shipyard
+	add = orbitalinfra_military
+}
+orbital_spaceport_gas_mult = {
+	add = orbitalinfra_research
+	add = orbitalinfra_solar
+}
+orbital_spaceport_crystals_mult = {
+	add = orbitalinfra_cities
+	add = orbitalinfra_commercial
+	add = orbitalinfra_admin
+}
+#orbitalinfra_refinery
+
+###Realdev
+
+realdev_pops_industry = {
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				is_enslaved = yes
+			}
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				owner = { has_technology = tech_powered_exoskeletons }
+			}
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				owner = { has_technology = tech_mega_assembly }
+			}
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				OR = {
+					has_trait = trait_robot_efficient_processors
+					has_trait = trait_latent_psionic
+					has_trait = trait_cybernetic
+					has_trait = trait_robust
+					AND = {
+						has_trait = trait_mechanical
+						NOR = {	owner = {
+							has_technology = tech_droid_workers
+							has_technology = tech_synthetic_workers
+						} }
+					}
+				}
+			}
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				OR = {
+					has_trait = trait_enigmatic_intelligence
+					AND = {
+						has_trait = trait_mechanical
+						owner = { has_technology = tech_droid_workers }
+					}
+				}
+			}
+		}
+		mode = add
+		mult = 2
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				OR = {
+					has_trait = trait_psionic
+					has_trait = trait_erudite
+					AND = {
+						has_trait = trait_mechanical
+						owner = { has_technology = tech_synthetic_workers }
+					}
+				}
+			}
+		}
+		mode = add
+		mult = 3
+	}
+}
+realdev_pops_industry_cap = {
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		mode = add
+		mult = 2
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				owner = { has_technology = tech_powered_exoskeletons }
+			}
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				owner = { has_technology = tech_mega_assembly }
+			}
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				OR = {
+					has_trait = trait_robot_efficient_processors
+					has_trait = trait_latent_psionic
+					has_trait = trait_cybernetic
+					has_trait = trait_robust
+					AND = {
+						has_trait = trait_mechanical
+						NOR = {	owner = {
+							has_technology = tech_droid_workers
+							has_technology = tech_synthetic_workers
+						} }
+					}
+				}
+			}
+		}
+		mode = add
+		mult = 2
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				OR = {
+					has_trait = trait_enigmatic_intelligence
+					AND = {
+						has_trait = trait_mechanical
+						owner = { has_technology = tech_droid_workers }
+					}
+				}
+			}
+		}
+		mode = add
+		mult = 4
+	}
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		parameters = {
+			limit = {
+				OR = {
+					has_trait = trait_psionic
+					has_trait = trait_erudite
+					AND = {
+						has_trait = trait_mechanical
+						owner = { has_technology = tech_synthetic_workers }
+					}
+				}
+			}
+		}
+		mode = add
+		mult = 6
+	}
+}
+
+realdev_autofab_modules = {
+	add = autofab_modules
+	multiply = 2
+}
+
+realdev_industry_multiplier = {
+	#base = 1
+	modifier = {
+ 		owner = { has_technology = tech_capital_productivity_1 }
+		has_upgraded_capital = yes
+		add = 0.1
+ 	}
+	modifier = {
+ 		owner = { has_technology = tech_capital_productivity_2 }
+		has_major_upgraded_capital = yes
+		add = 0.1
+ 	}
+	modifier = {
+ 		owner = { has_technology = tech_capital_productivity_3 }
+		has_fully_upgraded_capital = yes
+		add = 0.1
+ 	}
+	modifier = {
+ 		exists = sector.leader
+		add = sector.leader.realdev_leader_level
+ 	}
+	add = owner.leader.realdev_leader_level
+}
+realdev_amenities_multiplier = {
+
+}
 
 
-#Exploit Stuff
-
-exploit_energy_min_stockpile = {
-	base = 0
-}
-exploit_alloys_min_stockpile = {
-	base = 0
-}
-exploit_minerals_min_stockpile = {
-	base = 0
-}
-exploit_motes_min_stockpile = {
-	base = 0
-}
-exploit_gases_min_stockpile = {
-	base = 0
-}
-
-
+###Currently unused
 
 exploit_colony_energy_cost = {
 	base = 50
@@ -326,7 +507,15 @@ exploit_colony_srs_cost = {
 	base = 0
 }
 
-###Autofab Module Stuff. This = Planet
+
+
+
+roci_autofab_available_districts = {
+	base = 0
+}
+roci_autofab_available_autofab = {
+	base = 0
+}
 
 autofab_autofab_energy_cost = {
 	base = 300

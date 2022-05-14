@@ -1,3 +1,27 @@
+shipping = {
+	station = shipclass_mining_station
+	is_for_colonizable = yes
+	resources = {
+		category = shipping
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			solar_system = {
+				OR = {
+					has_megastructure = gateway_final
+					has_megastructure = gateway_restored
+				}
+			}
+		}
+		modifier = {
+			shipping_energy_upkeep_mult = -0.1
+		}
+	}
+	potential = { always = no }
+	drop_weight = { weight = 0 }
+}
+
 roci_cheat_deposit = {
 	station = shipclass_mining_station
 	is_for_colonizable = no

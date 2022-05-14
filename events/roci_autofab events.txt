@@ -856,6 +856,212 @@ planet_event = {
 	}
 	
 	immediate = {
-		reset_factory_part_1 = yes
+		#reset_factory_part_1 = yes
+		set_unset_variables = yes
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_farm } count < autofab_farm }
+			has_food_available = yes
+		}
+		add_deposit = autofab_farm
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_farm } count > autofab_farm }
+		}
+		remove_deposit = autofab_farm
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_mine } count < autofab_mine }
+			has_minerals_available = yes
+		}
+		add_deposit = autofab_mine
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_mine } count > autofab_mine }
+		}
+		remove_deposit = autofab_mine
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_power } count < autofab_power }
+			has_energy_available = yes
+		}
+		add_deposit = autofab_power
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_power } count > autofab_power }
+		}
+		remove_deposit = autofab_power
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_foundry } count < autofab_foundry }
+		}
+		add_deposit = autofab_foundry
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_foundry } count > autofab_foundry }
+		}
+		remove_deposit = autofab_foundry
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_factory } count < autofab_factory }
+		}
+		add_deposit = autofab_factory
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_factory } count > autofab_factory }
+		}
+		remove_deposit = autofab_factory
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count < autofab_chemical }
+		}
+		add_deposit = autofab_motes_refinery
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count > autofab_chemical }
+		}
+		remove_deposit = autofab_motes_refinery
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count < autofab_refinery }
+		}
+		add_deposit = autofab_gases_refinery
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count > autofab_refinery }
+		}
+		remove_deposit = autofab_gases_refinery
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count < autofab_translucer }
+		}
+		add_deposit = autofab_crystals_refinery
+	}
+	while = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count > autofab_translucer }
+		}
+		remove_deposit = autofab_crystals_refinery
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_autofab
+			NOT = {
+				has_deposit = autofab
+			}
+		}
+		add_deposit = autofab
+	}
+	if = {
+		limit = {
+			has_planet_flag = has_autofab_extractor
+			NOT = {
+				has_deposit = autofab_refinery_extractor
+			}
+		}
+		if = {
+			limit = {
+				has_rare_resource_deposit = yes
+			}
+			add_deposit = autofab_refinery_extractor
+		}
+		else = {
+			remove_planet_flag = has_autofab_extractor
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_farm } count < autofab_farm }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { limit = { is_deposit_type = autofab_farm } }
+			variable = autofab_farm
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_mine } count < autofab_mine }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { limit = { is_deposit_type = autofab_mine } }
+			variable = autofab_mine
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_power } count < autofab_power }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { limit = { is_deposit_type = autofab_power } }
+			variable = autofab_power
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_foundry } count < autofab_foundry }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { limit = { is_deposit_type = autofab_foundry } }
+			variable = autofab_foundry
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_factory } count < autofab_factory }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { limit = { is_deposit_type = autofab_factory } }
+			variable = autofab_factory
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count < autofab_chemical }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { limit = { is_deposit_type = autofab_motes_refinery } }
+			variable = autofab_chemical
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count < autofab_refinery }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { limit = { is_deposit_type = autofab_gases_refinery } }
+			variable = autofab_refinery
+		}
+	}
+	if = {
+		limit = {
+			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count < autofab_translucer }
+		}
+		export_trigger_value_to_variable = {
+			trigger = count_deposit
+			parameters = { limit = { is_deposit_type = autofab_crystals_refinery } }
+			variable = autofab_translucer
+		}
+	}
 	}
 }
