@@ -32,7 +32,7 @@ roci_autofab_off = {
 }
 roci_autofab_everyone = {
 	potential = { NOT = { has_global_flag = no_autofab } }
-	allow = { has_global_flag = autofab_for_all }
+	allow = { always = yes }
 	effect = { 
 		custom_tooltip = "roci_autofab_everyone_desc"
 	}

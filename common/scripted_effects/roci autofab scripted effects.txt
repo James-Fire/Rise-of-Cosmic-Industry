@@ -236,6 +236,7 @@ document_factory_country = {
 	set_variable = { which = autofab_refinery value = 0 }
 	set_variable = { which = autofab_chemical value = 0 }
 	set_variable = { which = autofab_translucer value = 0 }
+	set_variable = { which = autofab_extractor value = 0 }
 	
 	set_variable = { which = planet_autofab_farm_queue value = 0 }
 	set_variable = { which = planet_autofab_mine_queue value = 0 }

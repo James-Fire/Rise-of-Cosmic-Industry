@@ -94,6 +94,21 @@ system_event = {
 				is_colony = yes
 			}
 			remove_modifier = shipping_cost
+			#Zero out all values
+			set_variable = { which = shipping_costs value = 0 }
+			set_variable = { which = shipping_energy_balance value = 0 }
+			set_variable = { which = shipping_minerals_balance value = 0 }
+			set_variable = { which = shipping_food_balance value = 0 }
+			set_variable = { which = shipping_alloys_balance value = 0 }
+			set_variable = { which = shipping_consumer_goods_balance value = 0 }
+			set_variable = { which = shipping_minor_artifacts_balance value = 0 }
+			set_variable = { which = shipping_volatile_motes_balance value = 0 }
+			set_variable = { which = shipping_exotic_gases_balance value = 0 }
+			set_variable = { which = shipping_rare_crystals_balance value = 0 }
+			set_variable = { which = shipping_sr_living_metal_balance value = 0 }
+			set_variable = { which = shipping_sr_zro_balance value = 0 }
+			set_variable = { which = shipping_sr_dark_matter_balance value = 0 }
+			set_variable = { which = shipping_nanites_balance value = 0 }
 		}
 	}
 	
@@ -112,21 +127,7 @@ system_event = {
 	}
 	
 	immediate = {
-		#Zero out all values
-		set_variable = { which = shipping_costs value = 0 }
-		set_variable = { which = shipping_energy_balance value = 0 }
-		set_variable = { which = shipping_minerals_balance value = 0 }
-		set_variable = { which = shipping_food_balance value = 0 }
-		set_variable = { which = shipping_alloys_balance value = 0 }
-		set_variable = { which = shipping_consumer_goods_balance value = 0 }
-		set_variable = { which = shipping_minor_artifacts_balance value = 0 }
-		set_variable = { which = shipping_volatile_motes_balance value = 0 }
-		set_variable = { which = shipping_exotic_gases_balance value = 0 }
-		set_variable = { which = shipping_rare_crystals_balance value = 0 }
-		set_variable = { which = shipping_sr_living_metal_balance value = 0 }
-		set_variable = { which = shipping_sr_zro_balance value = 0 }
-		set_variable = { which = shipping_sr_dark_matter_balance value = 0 }
-		set_variable = { which = shipping_nanites_balance value = 0 }
+		
 		
 		#Count the number of planets in the system
 		export_trigger_value_to_variable = {
@@ -276,20 +277,6 @@ planet_event = {
 	
 	immediate = {
 		remove_modifier = shipping_cost
-		planet_event = { id = shipping.9 days = 1 }
-	}
-}
-#Planet event to export deficits, then calculate shipping costs from it
-planet_event = {
-	id = shipping.9
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		NOT = { has_global_flag = no_shipping }
-	}
-	
-	immediate = {
 		set_variable = { which = shipping_costs value = 0 }
 		set_variable = { which = shipping_energy_balance value = 0 }
 		set_variable = { which = shipping_minerals_balance value = 0 }
@@ -304,6 +291,20 @@ planet_event = {
 		set_variable = { which = shipping_sr_zro_balance value = 0 }
 		set_variable = { which = shipping_sr_dark_matter_balance value = 0 }
 		set_variable = { which = shipping_nanites_balance value = 0 }
+		planet_event = { id = shipping.9 days = 1 }
+	}
+}
+#Planet event to export deficits, then calculate shipping costs from it
+planet_event = {
+	id = shipping.9
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_shipping }
+	}
+	
+	immediate = {
 		
 		shipping_resource_export = {
 			resource = energy

@@ -258,7 +258,13 @@ country_event = {
 				random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_end@PREV } } save_event_target_as = kiyo_trade_end }
 				
 				subtract_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 1 }
-				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+				set_name = {
+					key = "roci_cargo_ships_fleetname"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+					variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+				}
 			}
 		}
 		random_galaxy_planet = {
@@ -393,47 +399,6 @@ country_event = {
 			set_fleet_flag = kiyo_event_trade_deleted_cargo
 			
 			clear_orders = yes
-			
-			create_fleet = {
-				name = "Cargo from [kiyo_trade_start.GetName] (Cargo Size: 1)"
-				effect = {
-					set_owner = root
-					set_location = {
-						target = prev
-						distance = 5
-						angle = random
-					}
-					set_fleet_stance = passive
-					
-					owner = {
-						every_owned_ship = {
-							limit = {
-								is_ship_size = kiyo_trade
-								fleet = { is_same_value = prevprevprevprev }
-							}
-							prevprev = {
-								create_ship = {
-									name = "Cargo Ship"
-									random_existing_design = kiyo_trade
-									prefix = yes
-									upgradable = yes
-								}
-							}
-						}
-					}
-					
-					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = prev.kiyo_trade_max_cargo_ships_per_fleet }
-					set_name = "Cargo from [kiyo_trade_start.GetName] (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet])"
-					owner = { event_target:kiyo_trade_start = { prevprev = { set_fleet_flag = kiyo_trade_start@PREV } } }
-				}
-				settings = {
-					can_upgrade = no
-					can_disband = yes
-					can_change_composition = no
-					can_change_leader = no
-					spawn_debris = yes
-				}
-			}
 		}
 		
 		random_galaxy_planet = { limit = { root.from = { has_fleet_flag = kiyo_trade_end@PREV } }

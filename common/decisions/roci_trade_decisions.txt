@@ -63,29 +63,36 @@ decision_kiyo_mod_trade_setup_trade_route = {
 		custom_tooltip = decision_kiyo_mod_trade_setup_trade_route_effects
 		hidden_effect = {
 			save_event_target_as = kiyo_trade_orbit
-			if = { limit = { owner = { is_ai = yes } }
-				create_fleet = {
-					name = "Cargo from [Prev.GetName] (Cargo Size: 1/[Prev.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
-					effect = {
-						set_owner = prev.owner
-						set_location = {
-							target = prev
-							distance = 5
-							angle = random
-						}
-						set_fleet_stance = passive
-						
-						create_ship = {
-							name = "Cargo Ship"
-							random_existing_design = kiyo_trade
-							prefix = yes
-							upgradable = yes
-						}
-						set_fleet_flag = kiyo_trade_start@PREV
-						set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 1 }
-						fleet_event = { id = kiyo_trade_manual_event.0 }
-						
-						#Find the planet in the galaxy that has the best trade route value that can be traded with
+			create_fleet = {
+				name = "Jeff wants you to report this to James"
+				effect = {
+					set_owner = prev.owner
+					set_location = {
+						target = prev
+						distance = 5
+						angle = random
+					}
+					set_fleet_stance = passive
+					
+					create_ship = {
+						name = "Cargo Ship"
+						random_existing_design = kiyo_trade
+						prefix = yes
+						upgradable = yes
+					}
+					set_fleet_flag = kiyo_trade_start@PREV
+					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 1 }
+					set_name = {
+						key = "roci_cargo_ships_fleetname_no_target"
+						variable_string = "[Orbit.GetName]"
+						#variable_string = "[kiyo_trade_end.GetName]"
+						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+						variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+					}
+					fleet_event = { id = kiyo_trade_manual_event.0 }
+					
+					#Find the planet in the galaxy that has the best trade route value that can be traded with if AI
+					if = { limit = { owner = { is_ai = yes } }
 						ordered_galaxy_planet = {
 							limit = { owner = { roci_can_trade_with_country = yes } }
 							position = 0
@@ -95,44 +102,13 @@ decision_kiyo_mod_trade_setup_trade_route = {
 						queue_actions = { orbit_planet = event_target:kiyo_trade_partner }
 						event_target:kiyo_trade_partner = { prev = { set_fleet_flag = kiyo_trade_going@PREV } }
 					}
-					settings = {
-						can_upgrade = no
-						can_disband = no
-						can_change_composition = no
-						can_change_leader = no
-						spawn_debris = yes
-					}
 				}
-			}
-			else = {
-				create_fleet = {
-					name = "Cargo from [Prev.GetName] (Cargo Size: 1/[Prev.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
-					effect = {
-						set_owner = prev.owner
-						set_location = {
-							target = prev
-							distance = 5
-							angle = random
-						}
-						set_fleet_stance = passive
-						
-						create_ship = {
-							name = "Cargo Ship"
-							random_existing_design = kiyo_trade
-							prefix = yes
-							upgradable = yes
-						}
-						set_fleet_flag = kiyo_trade_start@PREV
-						set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 1 }
-						fleet_event = { id = kiyo_trade_manual_event.0 }
-					}
-					settings = {
-						can_upgrade = no
-						can_disband = yes
-						can_change_composition = no
-						can_change_leader = no
-						spawn_debris = yes
-					}
+				settings = {
+					can_upgrade = no
+					can_disband = no
+					can_change_composition = no
+					can_change_leader = no
+					spawn_debris = yes
 				}
 			}
 		

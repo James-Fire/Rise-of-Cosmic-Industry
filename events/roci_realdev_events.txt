@@ -325,7 +325,7 @@ planet_event = {
 						parameters = { resource = alloys type = produces }
 						variable = realdev_alloy_production
 					}
-					PREVPREVPREV = { change_variable = { which = realdev_alloy_production value = prevprevprev.realdev_alloy_production } }
+					PREVPREV = { change_variable = { which = realdev_alloy_production value = prev.realdev_alloy_production } }
 				}
 			}
 		}

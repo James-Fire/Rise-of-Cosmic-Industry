@@ -1348,6 +1348,14 @@
     campaign_kiyo_mod_trade:0 "Cargo Ship Cost"
     campaign_kiyo_mod_trade_energy_upkeep_add:0 "Cargo Ship Energy Upkeep"
     
+    roci_cargo_ships_fleetname_no_target: "$roci_cargo_ships_name_no_target$ $roci_cargo_ships_capacity$"
+    roci_cargo_ships_fleetname: "$roci_cargo_ships_name$ $roci_cargo_ships_capacity$"
+    roci_cargo_ships_fleetname_going: "$roci_cargo_ships_name_going$ $roci_cargo_ships_capacity$"
+    roci_cargo_ships_name_no_target: "[Orbit.GetName]"
+    roci_cargo_ships_name: "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName])"
+    roci_cargo_ships_name_going: "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_end.GetName])"
+    roci_cargo_ships_capacity: "(Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+    
   #Components
  
     COMBAT_COMPUTER_KIYO_MOD_TRADE_EVADE_DEFAULT:0 "Basic Combat Computer"
@@ -1381,14 +1389,14 @@
  
   #Decisions and Edicts
  
-    decision_kiyo_mod_trade_setup_trade_route:0 "Add a Trade Route"
-    decision_kiyo_mod_trade_setup_trade_route_max_trade_routes:0 "$TRIGGER_FAIL$We have reached our maximum amount of trade routes we can have at this time."
-    decision_kiyo_mod_trade_setup_trade_route_effects:0 "We will set up a trade route in this planet. You must send the cargo fleet to another planet owned by another empire to start a trade route."
+    decision_kiyo_mod_trade_setup_trade_route:0 "Construct a Trade Fleet"
+    decision_kiyo_mod_trade_setup_trade_route_max_trade_routes:0 "$TRIGGER_FAIL$We have reached our maximum amount of trade fleets we can have at this time."
+    decision_kiyo_mod_trade_setup_trade_route_effects:0 "We will construct a trade fleet with this planet as its starting point. You must send the trade fleet to another planet owned by another empire to start a trade route."
     decision_kiyo_mod_trade_setup_trade_route_desc:0 "A trade route between empires will surely improve diplomatic relations and provide mutual prosperity."
-    edict_kiyo_trade_check:0 "Check Cargo Ships and Foreign Trade"
-    edict_kiyo_trade_check_desc:0 "Opens an event where you can view information on your cargo ships and how much you're making from trade routes."
-    edict_kiyo_trade_add_ships_to_trade_route:0 "Bolster Cargo Fleet"
-    edict_kiyo_trade_add_ships_to_trade_route_desc:0 "We will add another cargo ship to a trade route of your choice. Changing your mind will give you a full refund, provided that you are not over your administrative capacity."
+    edict_kiyo_trade_check:0 "Check Trade Fleets"
+    edict_kiyo_trade_check_desc:0 "Opens an event where you can view information on your trade fleets and how much you're making from trade routes."
+    edict_kiyo_trade_add_ships_to_trade_route:0 "Expand Trade Fleet"
+    edict_kiyo_trade_add_ships_to_trade_route_desc:0 "We will add another cargo ship to a trade fleet of your choice. Changing your mind will give you a full refund, provided that you are not over your administrative capacity."
     edict_kiyo_trade_add_ships_to_trade_route_any_fleet_has_room:0 "$TRIGGER_FAIL$There are no trade routes with any room for another cargo ship."
     edict_kiyo_trade_add_ships_to_trade_route_has_window:0 "$TRIGGER_FAIL$You are already trying to add cargo ships to a trade route."
     kiyo_trade_check_has_trade_route:1 "$TRIGGER_FAIL$You do not have any trade routes to check."
@@ -1468,7 +1476,7 @@
     roci_autofab: "Automatic Factory"
     roci_autofab_everyone: "Factory For All"
     roci_autofab_everyone_desc: "This setting allows you to make the Factory available to everyone, regardless of Origin, Civic, or AP. The Origin and Civic still start with some built, this setting does not."
-    roci_autofab_desc: "The Automatic Factory module provides the Automatic Factory, a mechanic you can use to produce resources without pops. It has Planet and Country level UI, accessible from a decision and edict respectively."
+    roci_autofab_desc: "The Automatic Factory module provides the Automatic Factory, a mechanic you can use to produce resources without pops. It has Planet and Country UI, accessible from a decision and edict respectively. Requires having the Origin, Civic, or AP, or having the Factory For All setting enabled."
     
     roci_exploit: "Space Exploitation"
     roci_exploit_desc: "The Space Exploitation module provides Minor Colonies, a mechanic you can use to produce resources from uninhabitable planets. It has a Country level UI, accessible from an edict."

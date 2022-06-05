@@ -69,7 +69,15 @@ fleet_event = {
 		owner = {
 			random_owned_planet = { limit = { root = { has_fleet_flag = kiyo_trade_start@PREV } }
 				save_event_target_as = kiyo_trade_start
-				root = { set_name = "[PREV.GetName] - [ORBIT.GetName] Cargo (To [PREV.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])" }
+				root = {
+					set_name = {
+						key = "roci_cargo_ships_fleetname"
+						variable_string = "[kiyo_trade_start.GetName]"
+						variable_string = "[kiyo_trade_end.GetName]"
+						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+						variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+					}
+				}
 			}
 		}
 		
@@ -93,7 +101,7 @@ fleet_event = {
 				variable = {
 					type = name
 					localization = PLANET_2
-					scope = orbit
+					scope = event_target:kiyo_trade_end
 				}
 			}
 		}
@@ -144,7 +152,13 @@ fleet_event = {
 	immediate = {
 		owner = { random_owned_planet = { limit = { root = { has_fleet_flag = kiyo_trade_start@PREV } } root = { remove_fleet_flag = kiyo_trade_start@PREV } } }
 		set_fleet_flag = kiyo_trade_start@ORBIT
-		set_name = "Cargo from [Orbit.GetName] (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+		set_name = {
+			key = "roci_cargo_ships_fleetname_no_target"
+			variable_string = "[Orbit.GetName]"
+			#variable_string = "[kiyo_trade_end.GetName]"
+			variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+			variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+		}
 	}
 	
 }
@@ -241,7 +255,13 @@ fleet_event = {
 				}
 			}
 			#Then set up fleet orders to go to the other end. Also rename fleet to ensure correctness, and set a flag to signify which direct it is going
-			set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			set_name = {
+				key = "roci_cargo_ships_fleetname"
+				variable_string = "[kiyo_trade_start.GetName]"
+				variable_string = "[kiyo_trade_end.GetName]"
+				variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+				variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+			}
 			queue_actions = { orbit_planet = event_target:kiyo_trade_start wait = 5 effect = { id = "kiyo_trade_orbit_event.2.1" fleet_event = { id = kiyo_trade_orbit_event.2 } } }
 			set_fleet_flag = kiyo_trade_ending
 		}
@@ -252,7 +272,13 @@ fleet_event = {
 				}
 			}
 			#Then set up fleet orders to go to the other end. Also rename fleet to ensure correctness, and set a flag to signify which direct it is going
-			set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_end.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+			set_name = {
+				key = "roci_cargo_ships_fleetname_going"
+				variable_string = "[kiyo_trade_start.GetName]"
+				variable_string = "[kiyo_trade_end.GetName]"
+				variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+				variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+			}
 			queue_actions = { orbit_planet = event_target:kiyo_trade_start wait = 5 effect = { id = "kiyo_trade_orbit_event.2.2" fleet_event = { id = kiyo_trade_orbit_event.2 } } }
 			set_fleet_flag = kiyo_trade_starting
 		}

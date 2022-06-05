@@ -9,7 +9,6 @@ fleet_event = {
 	trigger = { NOT = { has_global_flag = no_trade_routes } }
 	
 	immediate = {
-		event_target:kiyo_trade_orbit = { solar_system = { save_event_target_as = kiyo_trade_system } }
 		owner = {
 			create_message = {
 				type = EVENT_MESSAGE_TYPE
@@ -29,7 +28,7 @@ fleet_event = {
 				variable = {
 					type = name
 					localization = SOLAR_SYSTEM
-					scope = event_target:kiyo_trade_system
+					scope = solar_system
 				}
 			}
 		}
@@ -104,7 +103,13 @@ country_event = {
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_1 = {
 				kiyo_trade_manual_event_11 = yes
-				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+				set_name = {
+					key = "roci_cargo_ships_fleetname"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+					variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+				}
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -118,7 +123,13 @@ country_event = {
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_2 = {
 				kiyo_trade_manual_event_11 = yes
-				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+				set_name = {
+					key = "roci_cargo_ships_fleetname"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+					variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+				}
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -132,7 +143,13 @@ country_event = {
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_3 = {
 				kiyo_trade_manual_event_11 = yes
-				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+				set_name = {
+					key = "roci_cargo_ships_fleetname"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+					variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+				}
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -146,7 +163,13 @@ country_event = {
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_4 = {
 				kiyo_trade_manual_event_11 = yes
-				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+				set_name = {
+					key = "roci_cargo_ships_fleetname"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+					variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+				}
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -160,7 +183,13 @@ country_event = {
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_5 = {
 				kiyo_trade_manual_event_11 = yes
-				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+				set_name = {
+					key = "roci_cargo_ships_fleetname"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+					variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+				}
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -174,7 +203,13 @@ country_event = {
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_6 = {
 				kiyo_trade_manual_event_11 = yes
-				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+				set_name = {
+					key = "roci_cargo_ships_fleetname"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+					variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+				}
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -188,7 +223,13 @@ country_event = {
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_7 = {
 				kiyo_trade_manual_event_11 = yes
-				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+				set_name = {
+					key = "roci_cargo_ships_fleetname"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+					variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+				}
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -202,7 +243,13 @@ country_event = {
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_8 = {
 				kiyo_trade_manual_event_11 = yes
-				set_name = "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+				set_name = {
+					key = "roci_cargo_ships_fleetname"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+					variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+				}
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}

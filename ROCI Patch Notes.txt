@@ -8,17 +8,32 @@ Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 
 
-Changed the Exploit UI to always trigger a Queue application, rather than only doing it if there hasn't been one in the past 30 days.
+This patch thanks to Sindusk for taking the time to detail the issues fixed.
 
-Added a missing Exploit Automation tooltip.
+Added a tooltip to each Orbital District that they use Orbital Infrastructure.*
 
-Corrected the location of several UI elements in exploit UIs.
+Added how much available orbital space you have to the planet modifier.*
 
-Made the Minor Colony planet modifier display the current (If any) loop that is running on the planet, as well as the current construction.
+Added a note to the Sprawl Workaround district that it can't be built.*
 
-Fixed Exploit Automation simply not telling newly colonised planets to do anything.
+Fixed the Exploit UI ? button being missing.
+
+Fixed Cargo Ships forgetting where they're from.*
+
+Renamed the "Add Trade Route" decition to "Construct Cargo Fleet".
+
+Reworded the "Construct Cargo Fleet" decision Tooltip to be less confusing.
+
+Made the Cargo Ships edicts less wordy.
+
+Fixed Minor Colonies hogging all the IP, and not letting Megastructures have any.*
+
+Added text about what unlocks the Factory to the module blurb.
+
+Fixed the tooltip on the Factory For All setting.
 
 
+Added a decision to enable Swapping for Orbital Districts.*
 
 Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.*
 
