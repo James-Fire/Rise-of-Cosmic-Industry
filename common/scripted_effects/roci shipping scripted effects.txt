@@ -8,7 +8,7 @@ shipping_resource_export = {
 	if = {
 		limit = {
 			exists = prev
-			PREV = { is_scope_type = solar_system }
+			PREV = { is_scope_type = galactic_object }
 		}
 		PREV = { change_variable = { which = shipping_$resource$_balance value = prev.shipping_$resource$_balance } }
 	}

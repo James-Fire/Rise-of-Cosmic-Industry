@@ -127,13 +127,6 @@ country_event = {
 				set_planet_flag = realdev_variables_set
 			}
 			reset_realdev_variables = yes
-			#Add the building on game start
-			if = {
-				limit = {
-					is_capital = yes
-				}
-				add_building = building_roci_infrastructure_construction_2
-			}
 			#Start of game stuff to immediately apply the modifiers
 			planet_event = { id = realdev.1 }
 			planet_event = { id = realdev.2 }
@@ -212,6 +205,8 @@ country_event = { #Monthly Country event
 				}
 				set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
 				set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
+				set_variable = { which = realdev_take_ratio value = 0 }
+				set_variable = { which = realdev_assembly_cap value = 200 }
 				set_planet_flag = realdev_variables_set
 			}
 

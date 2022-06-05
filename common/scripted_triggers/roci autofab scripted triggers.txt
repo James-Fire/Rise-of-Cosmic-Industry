@@ -173,6 +173,9 @@ has_energy_available = {
 }
 has_minerals_available = {
 	OR = {
+		owner = {
+			has_origin = origin_subterranean
+		}
 		uses_district_set = giga_birch
 		AND = {	
 			uses_district_set = standard

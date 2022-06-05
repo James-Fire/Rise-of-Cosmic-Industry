@@ -683,6 +683,7 @@ district_orbital_platform_mining_ai = {
 	}
 	
 	potential = {
+		exists = owner
 		NOT = { has_global_flag = no_orbital_infra }
 		owner = { is_ai = yes }
 		OR = {

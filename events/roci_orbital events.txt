@@ -23,7 +23,7 @@ country_event = {
 				#log = "Orbital Infrastructure on [This.GetName] for [PREV.GetName]"
 				set_infrastructure_amount = yes
 				set_planet_flag = has_orbital_infrastructure
-				add_building = building_roci_space_elevator_2
+				add_building = building_roci_space_elevator
 				set_variable = { which = orbital_infrastructure value = 7 }
 				add_district = district_orbital_platform_city
 				remove_district = district_city
@@ -518,20 +518,22 @@ event = {
 			limit = {
 				has_global_flag = no_realdev
 			}
-			set_variable = { which = orbitalinfra_shipyard value = 0 }
-			remove_modifier = oi_shipyard
-			every_owned_planet = {
-				limit = {
-					check_variable = { which = orbitalinfra_shipyard value > 0 }
+			every_country = {
+				set_variable = { which = orbitalinfra_shipyard value = 0 }
+				remove_modifier = oi_shipyard
+				every_owned_planet = {
+					limit = {
+						check_variable = { which = orbitalinfra_shipyard value > 0 }
+					}
+					PREV = {
+						change_variable = { which = orbitalinfra_shipyard value = prev.orbitalinfra_shipyard }
+					}
 				}
-				PREV = {
-					change_variable = { which = orbitalinfra_shipyard value = prev.orbitalinfra_shipyard }
+				multiply_variable = { which = orbitalinfra_shipyard value = 5 }
+				add_modifier = {
+					modifier = oi_shipyard
+					multiplier = orbitalinfra_shipyard
 				}
-			}
-			multiply_variable = { which = orbitalinfra_shipyard value = 5 }
-			add_modifier = {
-				modifier = oi_shipyard
-				multiplier = orbitalinfra_shipyard
 			}
 		}
 		

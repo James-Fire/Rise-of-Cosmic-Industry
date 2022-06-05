@@ -8,9 +8,23 @@ Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 
 
+Changed the Exploit UI to always trigger a Queue application, rather than only doing it if there hasn't been one in the past 30 days.
+
+Added a missing Exploit Automation tooltip.
+
+Corrected the location of several UI elements in exploit UIs.
+
+Made the Minor Colony planet modifier display the current (If any) loop that is running on the planet, as well as the current construction.
+
+Fixed Exploit Automation simply not telling newly colonised planets to do anything.
 
 
 
+Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.*
+
+Added an Exploit setting to disable starting Minor Colonies starting with a loop.*
+
+Made planets that are being colonized not get shipping costs.*
 
 Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.*
 

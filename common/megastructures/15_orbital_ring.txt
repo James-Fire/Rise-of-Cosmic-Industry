@@ -58,7 +58,7 @@ orbital_ring = {
 					}
 				}
 			}
-			custom_tooltip = {
+			custom_tooltip = { #For compatibility with ROCI
 				fail_text = "requires_no_existing_megastructure"
 				#can_build_megastructure_on_planet = yes
 				if = {

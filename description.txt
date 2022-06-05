@@ -2,26 +2,41 @@
 
 Note: Given how this mod affects development, it is not recommended to try adding it to an existing save.
 
-
 Industry in Stellaris is simple, and abstracted to the point of not making much sense. Not only that, but critical methods of industry that should be utilized by space-faring empires are missing entirely. I've set out to fix this, introducing new mechanics, with the intention of being as compatible as possible.
 
 [img]https://i.imgur.com/jOg9Tu3.png[/img]
 
-Rise of Cosmic Industry is composed of 6 main components; Orbital Infrastructure, Realistic Development, Factory Automation, Space Exploitation, Fallen Empire Buildings, and Cargo Ships. Each component focuses on industry of a specific type. If you do not want them, they can be disabled through a game-start menu.
+Rise of Cosmic Industry is composed of 7 modules; Factory Automation, Space Exploitation, Orbital Infrastructure, Realistic Development, Fallen Empire Buildings, Cargo Ships, and Shipping Costs. Each module focuses on industry of a specific type, and can be disabled at game start through the settings menu.
 
-Orbital Infrastructure focuses on the implementation of Orbital Districts on planets, opening up more options for planetary development.
 
-Realistic Development overhauls how things are built, using a Labour-like system using Industrial Production, so that 2 planets don't build twice as fast as 1 for some reason.
+Orbital Infrastructure is an implementation of Orbital Districts on planets, opening up more options for planetary development.
+
+
+Realistic Development overhauls how things are built, using a Labour-like system called Industrial Production, so that 2 planets don't build twice as fast as 1 for some reason.
+
 
 Factory Automation implements Automated Factories, for making resources without pops.
 
-Space Exploitation is an expansion to Space Mining, allowing you to exploit celestial bodies more thoroughly.
 
-Fallen Empire Buildings provides a third tier of Buff Buildings, that increase the production of their appropriate job, as well as producing some resources on their own.
+Space Exploitation is an expansion to Space Mining using Minor Colonies, allowing you to exploit celestial bodies more thoroughly.
 
-Cargo Ships provides Cargo Ships that can be used to form trade routes with other empire's planets, granting both planets resources.
+
+Fallen Empire Buildings provides a third tier of Buff Buildings, that increase the production of their appropriate job, as well as produce some resources on their own.
+
+
+Cargo Ships provides Cargo Ships that can be used to form trade routes with other empire's planets, granting both planets resources based on their existing production.
+
+
+Shipping Costs makes planet-level deficits cost some energy credits to represent shipping in materials to cover the deficit.
+
 
 [img]https://i.imgur.com/cLvn8UX.png[/img]
+
+Factory Automation implements the Automatic Factory, and a Civic, AP, and Origin that allows you to build the Automatic Factory modules. These 3 items have interactions if you take more than one, in addition to their normal effects. The Automatic Factory modules produce resources without pops, requiring only space, and fairly large amounts of energy. Also available is a game-start setting to allow you to have everyone have access to the Factory.
+
+
+Space Exploitation allows you to build Minor Colonies on planets in systems with a normal colonized planet with at least 10 pops and an upgraded capital building, which extract more resources, and can be built on to provide more resources.
+
 
 Orbital Infrastructure introduces new Orbital Districts, a 3 level Space Elevator building, 3 techs for the Elevator, and a new Orbital Infrastructure modifier to cap the Orbital districts using custom math. These Orbital Districts, instead of providing jobs, instead provide additional producation to their matching job. This is to minimize lag caused by requiring more pops.
 
@@ -31,13 +46,12 @@ Realistic Development introduces Industrial Production, a mechanic designed to r
 Industrial Production is a 1:1 ratio of increasing the build speed of affected projects. RealDev manages the Build Speed of Megastructures, Minor Colonies(From Space Exploitation), Ships, Planets/Decisions and Assembly. Adds an upgradable building that provides 20 Industrial Production per level, plus 1 Foreman Job per level, which provides 20 Industrial Production Capacity.
 
 
-Factory Automation implements the Automatic Factory, and a Civic, AP, and Origin that allows you to build the Automatic Factory modules. These 3 items have interactions if you take more than one, in addition to their normal effects. The Automatic Factory modules produce resources without pops, requiring only space, and fairly large amounts of energy. Also available is a game-start setting to allow you to have everyone have access to the Factory.
-
-
-Space Exploitation allows you to build Minor Colonies on planets in systems with a normal colonized planet with at least 10 pops and an upgraded capital building, which extract more resources, and can be built on to provide more resources.
-
-
-Fallen Empire Buildings provides a third tier of Buff Buildings, that increase the production of their appropriate job, as well as producing some resources on their own.
+Fallen Empire Buildings provides the following:
+-Class-4 Singularity, Buffs Technician outputs and provides some energy, with an exotic gases upkeep
+-Dimensional Fabricator, Buffs Miners and provides some minerals, with a volatile motes upkeep
+-Nourishment Center, Buffs Farmers and provides food, with a volatile motes upkeep
+-Affluence Center, Buffs Artisans and provides consumer goods, with a rare crystals upkeep
+-Autoforge, Buffs Metallurgists and provides alloys, with a volatile motes upkeep
 
 
 Cargo Ships are ships that will be used for loading cargo in between planets involved in its trade route.
@@ -65,6 +79,24 @@ Tier 2 CGs Building Tech
 Tier 3 CGs Building Tech
 Galactic Stock Exchange Tech (increases max cargo fleet size per trade route by 3 instead)
 To view information on your trade routes, you can use the Check Cargo Ships and Foreign Trade edict. If you do not see a number beside a resource, then you can assume that the value is 0.
+
+
+Shipping Costs applies to planets, with no cost if the planet has no deficits. There are 4 tiers of resources, with increasing costs as you go higher up. T1 Shipping costs 1 energy per missing resource, with each tier higher costing 0.5 energy more than the previous tier. So T1:1, T2:1.5, T3:2, T4:2.5
+
+Shipping currently applies to the following resources:
+-Minerals:T1
+-Energy:T1 (Note: Shipping itself does not require shipping. This is to prevent death spirals where having a deficit of energy causes the planet to request more and more energy to cover shipping in energy.)
+-Food:T1
+-Consumer Goods:T2
+-Alloys:T2
+-Minor Artifacts:T2
+-Volatile Motes:T3
+-Exotic Gases:T3
+-Rare Crystals:T3
+-Dark Matter:T4
+-Living Metal:T4
+-Nanites:T4
+-Zro:T4
 
 [img]https://i.imgur.com/T9WHnL6.png[/img]
 

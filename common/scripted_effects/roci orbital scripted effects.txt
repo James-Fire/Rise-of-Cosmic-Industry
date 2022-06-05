@@ -144,6 +144,7 @@ update_oi_modifiers = {
 	#Military Districts make platforms
 	if = {
 		limit = {
+			exists = owner
 			check_variable = { which = orbitalinfra_military value > 0 }
 		}
 		oi_update_platforms = yes
@@ -151,6 +152,7 @@ update_oi_modifiers = {
 	#Apply Shipyard bonuses
 	if = {
 		limit = {
+			exists = owner
 			check_variable = { which = orbitalinfra_shipyard value > 0 }
 			always = no #Lock it out until Starbase buildings are fixed
 		}
@@ -239,6 +241,7 @@ oi_update_platforms = {
 	multiply_variable = { which = orbitalinfra_military_ion_cannons value = orbitalinfra_military }
 	if = {
 		limit = {
+			exists = owner
 			owner = { has_active_tradition = tr_unyielding_finish }
 		}
 		multiply_variable = { which = orbitalinfra_military_platforms value = 1.5 }
@@ -246,6 +249,7 @@ oi_update_platforms = {
 	}
 	if = {
 		limit = {
+			exists = owner
 			NOT = { solar_system = { any_fleet_in_system = { has_fleet_flag = orbital_infra_defense@prevprev } } }
 		}
 		create_fleet = {
@@ -284,6 +288,7 @@ oi_update_platforms = {
 		solar_system = {
 			every_fleet_in_system = {
 				limit = {
+					exists = owner
 					has_fleet_flag = orbital_infra_defense@prevprev
 				}
 				while = {
