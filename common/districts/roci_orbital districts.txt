@@ -104,10 +104,10 @@ district_orbital_platform_city = {
 	planet_modifier = {
 		planet_max_districts_add = 1
 		planet_max_buildings_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_housing_mult = 0.05
-		planet_amenities_mult = 0.05
+		pop_job_amenities_mult = 0.05
 	}
 	
 	ai_weight = {
@@ -182,7 +182,7 @@ district_orbital_platform_industrial = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 
@@ -468,7 +468,7 @@ district_orbital_platform_research = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_researchers_physics_research_produces_add = 0.5
 		planet_researchers_society_research_produces_add = 0.5
@@ -588,7 +588,7 @@ district_orbital_platform_refinery = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_chemists_volatile_motes_produces_add = 1
 		planet_chemists_minerals_upkeep_add = 5
@@ -698,7 +698,7 @@ district_orbital_platform_shipyard = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
@@ -866,7 +866,7 @@ district_orbital_platform_military = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
@@ -958,7 +958,7 @@ district_orbital_platform_solar_array = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_technician_energy_produces_add = 0.5
 	}
@@ -1047,10 +1047,10 @@ district_orbital_platform_commercial = {
 	planet_modifier = {
 		planet_housing_add = 2
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
-		trade_value_mult = 0.05
-		planet_amenities_mult = 0.05
+		pop_job_trade_mult = 0.05
+		pop_job_amenities_mult = 0.05
 	}
 	
 	ai_resource_production = {
@@ -1161,7 +1161,7 @@ district_orbital_platform_mining = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_miners_minerals_produces_add = 1
 		planet_miners_energy_upkeep_add = 0.5
@@ -1247,7 +1247,7 @@ district_orbital_platform_farming = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_farmers_food_produces_add = 1
 		planet_farmers_energy_upkeep_add = 0.5
@@ -1333,7 +1333,7 @@ district_orbital_platform_admin = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_administrators_unity_produces_add = 1
 		planet_administrators_energy_upkeep_add = 0.5

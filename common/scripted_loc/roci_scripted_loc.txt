@@ -1,5 +1,3 @@
-#Variable Localization#
-
 defined_text = {
 	name = Get0TradeRoutes
 	text = {
@@ -9,5 +7,22 @@ defined_text = {
 	text = {
 		trigger = { any_owned_planet = { prev = { any_owned_fleet = { has_fleet_flag = kiyo_trade_start@PREVPREV } } } }
 		localization_key = kiyo_mod_trade_noinfo
+	}
+}
+
+#Orbital
+defined_text = {
+	name = GetOrbitalCapacity
+	text = {
+		trigger = { has_active_building = building_roci_space_elevator }
+		localization_key = 10
+	}
+	text = {
+		trigger = { has_active_building = building_roci_space_elevator_2 }
+		localization_key = 25
+	}
+	text = {
+		trigger = { has_active_building = building_roci_space_elevator_3 }
+		localization_key = Infinity
 	}
 }

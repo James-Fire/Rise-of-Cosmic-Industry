@@ -32,26 +32,10 @@ Shipping Costs makes planet-level deficits cost some energy credits to represent
 
 [img]https://i.imgur.com/cLvn8UX.png[/img]
 
-Factory Automation implements the Automatic Factory, and a Civic, AP, and Origin that allows you to build the Automatic Factory modules. These 3 items have interactions if you take more than one, in addition to their normal effects. The Automatic Factory modules produce resources without pops, requiring only space, and fairly large amounts of energy. Also available is a game-start setting to allow you to have everyone have access to the Factory.
+[img]https://imgur.com/I7H1aNf.png[/img]
 
 
-Space Exploitation allows you to build Minor Colonies on planets in systems with a normal colonized planet with at least 10 pops and an upgraded capital building, which extract more resources, and can be built on to provide more resources.
-
-
-Orbital Infrastructure introduces new Orbital Districts, a 3 level Space Elevator building, 3 techs for the Elevator, and a new Orbital Infrastructure modifier to cap the Orbital districts using custom math. These Orbital Districts, instead of providing jobs, instead provide additional producation to their matching job. This is to minimize lag caused by requiring more pops.
-
-
-Realistic Development introduces Industrial Production, a mechanic designed to represent the might of your empire's labour and industrial force. Through this mechanic, it incentivizes building up planets to produce more Industrial Production to build with. Industrial Production also has a limit, through Industrial Production Capacity. The Industrial Production of a planet cannot go higher than this Maximum, so that you are required to expand not just industry, but also supporting infrastructure to utilize it.
-
-Industrial Production is a 1:1 ratio of increasing the build speed of affected projects. RealDev manages the Build Speed of Megastructures, Minor Colonies(From Space Exploitation), Ships, Planets/Decisions and Assembly. Adds an upgradable building that provides 20 Industrial Production per level, plus 1 Foreman Job per level, which provides 20 Industrial Production Capacity.
-
-
-Fallen Empire Buildings provides the following:
--Class-4 Singularity, Buffs Technician outputs and provides some energy, with an exotic gases upkeep
--Dimensional Fabricator, Buffs Miners and provides some minerals, with a volatile motes upkeep
--Nourishment Center, Buffs Farmers and provides food, with a volatile motes upkeep
--Affluence Center, Buffs Artisans and provides consumer goods, with a rare crystals upkeep
--Autoforge, Buffs Metallurgists and provides alloys, with a volatile motes upkeep
+[img]https://imgur.com/XZGQhBj.png[/img]
 
 
 Cargo Ships are ships that will be used for loading cargo in between planets involved in its trade route.
@@ -81,22 +65,8 @@ Galactic Stock Exchange Tech (increases max cargo fleet size per trade route by 
 To view information on your trade routes, you can use the Check Cargo Ships and Foreign Trade edict. If you do not see a number beside a resource, then you can assume that the value is 0.
 
 
-Shipping Costs applies to planets, with no cost if the planet has no deficits. There are 4 tiers of resources, with increasing costs as you go higher up. T1 Shipping costs 1 energy per missing resource, with each tier higher costing 0.5 energy more than the previous tier. So T1:1, T2:1.5, T3:2, T4:2.5
+[img]https://imgur.com/tjUbDO3.png[/img]
 
-Shipping currently applies to the following resources:
--Minerals:T1
--Energy:T1 (Note: Shipping itself does not require shipping. This is to prevent death spirals where having a deficit of energy causes the planet to request more and more energy to cover shipping in energy.)
--Food:T1
--Consumer Goods:T2
--Alloys:T2
--Minor Artifacts:T2
--Volatile Motes:T3
--Exotic Gases:T3
--Rare Crystals:T3
--Dark Matter:T4
--Living Metal:T4
--Nanites:T4
--Zro:T4
 
 [img]https://i.imgur.com/T9WHnL6.png[/img]
 

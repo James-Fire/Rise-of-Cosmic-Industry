@@ -34,6 +34,7 @@ district_roci_sprawl = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
+		district_roci_sprawl_no = 1
 	}
 	
 	resources = {

@@ -42,7 +42,7 @@ district_orbital_platform_shipyard_ai = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 	}
 	
 	resources = {
@@ -184,7 +184,7 @@ district_orbital_platform_military_ai = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 	}
 	
 	resources = {
@@ -320,7 +320,7 @@ district_orbital_platform_industrial_ai = {
 	planet_modifier = {
 		planet_housing_add = 2
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 	}
 	
 	resources = {
@@ -421,7 +421,7 @@ district_orbital_platform_research_ai = {
 	planet_modifier = {
 		planet_housing_add = 2
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 	}
 	
 	resources = {
@@ -514,7 +514,7 @@ district_orbital_platform_refinery_ai = {
 	planet_modifier = {
 		planet_housing_add = 3
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 	}
 	
 	resources = {
@@ -612,7 +612,7 @@ district_orbital_platform_solar_array_ai = {
 	planet_modifier = {
 		planet_housing_add = 2
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 	}
 	
 	resources = {
@@ -740,7 +740,7 @@ district_orbital_platform_mining_ai = {
 	planet_modifier = {
 		planet_housing_add = 2
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 	}
 	
 	resources = {
@@ -826,7 +826,7 @@ district_orbital_platform_farming_ai = {
 	planet_modifier = {
 		planet_housing_add = 2
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 	}
 	
 	resources = {
@@ -923,7 +923,7 @@ district_orbital_platform_admin_ai = {
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
-		district_orbital_platform_cap_max = -1
+		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_administrators_unity_produces_add = 1
 		planet_administrators_energy_upkeep_add = 0.5

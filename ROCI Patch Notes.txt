@@ -8,29 +8,10 @@ Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 
 
-This patch thanks to Sindusk for taking the time to detail the issues fixed.
+Added a breakdown to the Shipping Deposit about what costs what.*
 
-Added a tooltip to each Orbital District that they use Orbital Infrastructure.*
+Added a not to the Shipping Modifier to check the deposit for a breakdown.*
 
-Added how much available orbital space you have to the planet modifier.*
-
-Added a note to the Sprawl Workaround district that it can't be built.*
-
-Fixed the Exploit UI ? button being missing.
-
-Fixed Cargo Ships forgetting where they're from.*
-
-Renamed the "Add Trade Route" decition to "Construct Cargo Fleet".
-
-Reworded the "Construct Cargo Fleet" decision Tooltip to be less confusing.
-
-Made the Cargo Ships edicts less wordy.
-
-Fixed Minor Colonies hogging all the IP, and not letting Megastructures have any.*
-
-Added text about what unlocks the Factory to the module blurb.
-
-Fixed the tooltip on the Factory For All setting.
 
 
 Added a decision to enable Swapping for Orbital Districts.*

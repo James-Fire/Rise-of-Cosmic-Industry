@@ -77,7 +77,6 @@ country_event = {
 		}
 	}
 }
-
 #System event to handle all planets in a system, if the right tech is researched
 system_event = {
 	id = shipping.6
@@ -89,11 +88,11 @@ system_event = {
 	}
 	
 	immediate = {
+		
 		every_system_planet = {
 			limit = {
 				is_colony = yes
 			}
-			remove_modifier = shipping_cost
 			#Zero out all values
 			set_variable = { which = shipping_costs value = 0 }
 			set_variable = { which = shipping_energy_balance value = 0 }
@@ -110,24 +109,6 @@ system_event = {
 			set_variable = { which = shipping_sr_dark_matter_balance value = 0 }
 			set_variable = { which = shipping_nanites_balance value = 0 }
 		}
-	}
-	
-	after = {
-		system_event = { id = shipping.7 days = 1 }
-	}
-}
-#System event to handle all planets in a system, if the right tech is researched
-system_event = {
-	id = shipping.7
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		NOT = { has_global_flag = no_shipping }
-	}
-	
-	immediate = {
-		
 		
 		#Count the number of planets in the system
 		export_trigger_value_to_variable = {
@@ -264,7 +245,6 @@ system_event = {
 		}
 	}
 }
-
 #Planet event to export deficits, then calculate shipping costs from it
 planet_event = {
 	id = shipping.8
@@ -276,7 +256,6 @@ planet_event = {
 	}
 	
 	immediate = {
-		remove_modifier = shipping_cost
 		set_variable = { which = shipping_costs value = 0 }
 		set_variable = { which = shipping_energy_balance value = 0 }
 		set_variable = { which = shipping_minerals_balance value = 0 }
@@ -291,20 +270,6 @@ planet_event = {
 		set_variable = { which = shipping_sr_zro_balance value = 0 }
 		set_variable = { which = shipping_sr_dark_matter_balance value = 0 }
 		set_variable = { which = shipping_nanites_balance value = 0 }
-		planet_event = { id = shipping.9 days = 1 }
-	}
-}
-#Planet event to export deficits, then calculate shipping costs from it
-planet_event = {
-	id = shipping.9
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		NOT = { has_global_flag = no_shipping }
-	}
-	
-	immediate = {
 		
 		shipping_resource_export = {
 			resource = energy
@@ -398,6 +363,8 @@ planet_event = {
 			resource = nanites
 			shipping_cost = @rr_shipping_cost
 		}
+		
+		subtract_variable = { which = shipping_costs value = modifier:shipping_energy_upkeep_add }
 		if = {
 			limit = {
 				is_capital = yes

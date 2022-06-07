@@ -1260,10 +1260,11 @@
     
     orbital_space: "Orbital Infrastructure"
     orbital_space_effects: ""
-    orbital_space_desc: "Orbital Utilization: [This.orbital_infrastructure]"
+    orbital_space_desc: "Orbital Utilization: [This.orbital_infrastructure]/[This.GetOrbitalCapacity]"
     oi_shipyard_limited: ""
     oi_shipyard: ""
-    mod_district_orbital_platform_cap_max: "Max Orbital Infrastructure"
+    mod_district_orbital_platform_cap_max: "Max Orbital Slots"
+    mod_uses_orbital_infrastructure: "Uses Orbital Slots"
     not_enough_orbital_space: "We need more Orbital Platforms."
     space_elevator_does_not_support: "We are currently at the limit of how much Orbital Infrastructure our Spaceport can support."
      
@@ -1348,13 +1349,13 @@
     campaign_kiyo_mod_trade:0 "Cargo Ship Cost"
     campaign_kiyo_mod_trade_energy_upkeep_add:0 "Cargo Ship Energy Upkeep"
     
-    roci_cargo_ships_fleetname_no_target: "$roci_cargo_ships_name_no_target$ $roci_cargo_ships_capacity$"
-    roci_cargo_ships_fleetname: "$roci_cargo_ships_name$ $roci_cargo_ships_capacity$"
-    roci_cargo_ships_fleetname_going: "$roci_cargo_ships_name_going$ $roci_cargo_ships_capacity$"
-    roci_cargo_ships_name_no_target: "[Orbit.GetName]"
+    roci_cargo_ships_fleetname_no_target: "$roci_cargo_ships_name_no_target$"
+    roci_cargo_ships_fleetname: "$roci_cargo_ships_name$"
+    roci_cargo_ships_fleetname_going: "$roci_cargo_ships_name_going$"
+    roci_cargo_ships_name_no_target: "[Prev.GetName]"
     roci_cargo_ships_name: "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName])"
     roci_cargo_ships_name_going: "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_end.GetName])"
-    roci_cargo_ships_capacity: "(Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[This.Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+    roci_cargo_ships_capacity: "(Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
     
   #Components
  
@@ -1466,7 +1467,8 @@
 
   #Districts
     district_roci_sprawl: "Sprawl Workaround"
-    district_roci_sprawl_desc: "This district exists to work around the fact that adding flat sprawl is currently impossible outside of the hardcoded things that already add it."
+    mod_district_roci_sprawl_no: "Not for Player Use - Read Description"
+    district_roci_sprawl_desc: "This district exists to work around the fact that adding flat sprawl is currently impossible outside of the hardcoded things that already add it. This is handled by script."
   #UI stuffs
     roci_menu.2.name: "Rise Of Cosmic Industry Settings"
     roci_menu.2.desc: ""
@@ -1519,3 +1521,7 @@
     autofab_factory_manage: "Manage the Automatic Factory"
     autofab_open_country_terminal: "Open the Country Terminal- You must unselect the planet for this to work."
     Understood: "Understood"
+    
+    10: "10"
+    25: "25"
+    Infinity: "Infinity"

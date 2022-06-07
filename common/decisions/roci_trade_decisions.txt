@@ -84,10 +84,10 @@ decision_kiyo_mod_trade_setup_trade_route = {
 					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 1 }
 					set_name = {
 						key = "roci_cargo_ships_fleetname_no_target"
-						variable_string = "[Orbit.GetName]"
-						#variable_string = "[kiyo_trade_end.GetName]"
-						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
-						variable_string = "[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+						variable_string = "Prev.GetName"
+						#variable_string = "kiyo_trade_end.GetName"
+						variable_string = "This.kiyo_trade_max_cargo_ships_per_fleet"
+						variable_string = "Owner.kiyo_trade_max_cargo_ships_per_fleet"
 					}
 					fleet_event = { id = kiyo_trade_manual_event.0 }
 					
