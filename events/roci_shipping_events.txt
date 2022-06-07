@@ -61,17 +61,18 @@ country_event = {
 			}
 			if = {
 				limit = {
+					always = no
 					count_system_planet = { count > 1 limit = { is_colony = yes } }
 					owner = { has_technology = tech_placeholder }
 				}
-				system_event = { id = shipping.6 days = 5 random = 20 }
+				system_event = { id = shipping.6 days = 10 }
 			}
 			else = {
 				every_system_planet = {
 					limit = {
 						is_colony = yes
 					}
-					planet_event = { id = shipping.8 days = 5 random = 20 }
+					planet_event = { id = shipping.8 days = 5 }
 				}
 			}
 		}
@@ -163,6 +164,17 @@ system_event = {
 			}
 		}
 		
+		every_system_planet = {
+			limit = {
+				is_capital = yes
+			}
+			change_variable = { which = shipping_energy_balance value = 20 }
+			change_variable = { which = shipping_minerals_balance value = 20 }
+			change_variable = { which = shipping_food_balance value = 10 }
+			change_variable = { which = shipping_alloys_balance value = 5 }
+			change_variable = { which = shipping_consumer_goods_balance value = 10 }
+		}
+		
 		#Calculate Shipping costs based on deficits in the whole system
 		shipping_cost_calculation = {
 			resource = energy
@@ -216,18 +228,6 @@ system_event = {
 			resource = nanites
 			shipping_cost = @rr_shipping_cost
 		}
-		every_system_planet = {
-			limit = {
-				is_capital = yes
-			}
-			change_variable = { which = shipping_costs value = 100 }
-			if = {
-				limit = {
-					check_variable = { which = shipping_costs value > 0 }
-				}
-				set_variable = { which = shipping_costs value = 0 }
-			}
-		}
 		
 		#Divide Shipping costs between all planets in the system
 		multiply_variable = { which = shipping_costs value = -1 }
@@ -240,7 +240,7 @@ system_event = {
 			add_modifier = {
 				modifier = shipping_cost
 				multiplier = shipping_costs
-				days = 30
+				days = 29
 			}
 		}
 	}
@@ -274,6 +274,7 @@ planet_event = {
 		shipping_resource_export = {
 			resource = energy
 		}
+		change_variable = { which = shipping_energy_balance value = modifier:shipping_energy_upkeep_add }
 		shipping_resource_export = {
 			resource = minerals
 		}
@@ -309,12 +310,23 @@ planet_event = {
 		}
 		shipping_resource_export = {
 			resource = nanites
+		}
+		if = {
+			limit = {
+				is_capital = yes
+			}
+			change_variable = { which = shipping_energy_balance value = 20 }
+			change_variable = { which = shipping_minerals_balance value = 20 }
+			change_variable = { which = shipping_food_balance value = 10 }
+			change_variable = { which = shipping_alloys_balance value = 5 }
+			change_variable = { which = shipping_consumer_goods_balance value = 10 }
 		}
 		
 		shipping_cost_calculation = {
 			resource = energy
 			shipping_cost = @base_shipping_cost
 		}
+		change_variable = { which = shipping_costs value = modifier:shipping_energy_upkeep_add }
 		shipping_cost_calculation = {
 			resource = minerals
 			shipping_cost = @base_shipping_cost
@@ -362,20 +374,6 @@ planet_event = {
 		shipping_cost_calculation = {
 			resource = nanites
 			shipping_cost = @rr_shipping_cost
-		}
-		
-		subtract_variable = { which = shipping_costs value = modifier:shipping_energy_upkeep_add }
-		if = {
-			limit = {
-				is_capital = yes
-			}
-			change_variable = { which = shipping_costs value = 100 }
-			if = {
-				limit = {
-					check_variable = { which = shipping_costs value > 0 }
-				}
-				set_variable = { which = shipping_costs value = 0 }
-			}
 		}
 		
 		multiply_variable = { which = shipping_costs value = -1 }
@@ -383,7 +381,7 @@ planet_event = {
 		add_modifier = {
 			modifier = shipping_cost
 			multiplier = shipping_costs
-			days = 30
+			days = 29
 		}
 	}
 }

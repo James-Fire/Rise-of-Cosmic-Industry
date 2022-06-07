@@ -1456,9 +1456,9 @@
  
   #General Shipping
     shipping: "Shipping"
-    shipping_desc: ""
+    shipping_desc: "Capital Planets get 50% off shipping."
     shipping_cost: "Shipping Cost"
-    shipping_cost_desc: "This planet requires shipping in resources from other planets. You can check the Shipping Deposit to see more detailed information."
+    shipping_cost_desc: "This planet requires shipping in resources from other planets. \n\nShipping Cost Breakdown (As of last calculation):\n\nEnergy: [This.shipping_energy_balance]\nMinerals: [This.shipping_minerals_balance]\nFood: [This.shipping_food_balance]\nAlloys: [This.shipping_alloys_balance]\nConsumer Goods: [This.shipping_consumer_goods_balance]\nMinor Artifacts: [This.shipping_minor_artifacts_balance]\nVolatile Motes: [This.shipping_volatile_motes_balance]\nExotic Gases: [This.shipping_exotic_gases_balance]\nRare Crystals: [This.shipping_rare_crystals_balance]\nLiving Metal: [This.shipping_sr_living_metal_balance]\nZro: [This.shipping_sr_zro_balance]\nDark Matter: [This.shipping_sr_dark_matter_balance]\nNanites: [This.shipping_nanites_balance]"
     
     mod_shipping_energy_upkeep_add: "Shipping £energy£ Cost"
     mod_shipping_energy_upkeep_mult: "Shipping £energy£ Cost"

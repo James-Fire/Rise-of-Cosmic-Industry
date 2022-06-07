@@ -22,4 +22,10 @@ shipping_cost_calculation = {
 		multiply_variable = { which = shipping_$resource$_balance value = $shipping_cost$ }
 		change_variable = { which = shipping_costs value = shipping_$resource$_balance }
 	}
+	else_if = {
+		limit = {
+			check_variable = { which = shipping_$resource$_balance value > 0 }
+		}
+		set_variable = { which = shipping_$resource$_balance value = 0 }
+	}
 }
