@@ -6,9 +6,77 @@ Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 
 
+Localised the Sprawl Workaround Plural.
+
+Orbital Districts now also increase the upkeep of their job by 1% (For ones that affect specific jobs).
+
+Commercial Platforms no longer give housing.
+
+Corrected the modifier loc on the Orbital Admin District.
+
+Fixed a scope issue on orbital districts that could spam the log.
+
+Orbital Mining District now give Scrap Miners alloy bonuses.
+
+The Shipping Deposit and Modifier now have an icon.
+
+Added a setting under Space Exploitation to disable/enable showing the planet sizes of uninhabitables, with the side effect of always showing terraforming is available. It is default on.
+
+Corrected the location of a text BG.
+
+Reworded the ? button tooltip in the Exploit UI, to hopefully be slightly more clear.
+
+Rewrote the Exploit Module Blurb in the ROCI settings menu.
+
+Removed the Gas cost from the Exploit Research Construction.
+
+Removed the Motes cost from the Exploit Alloy Foundry Construction.
+
+Exploit decisions on uninhabitable planets are no longer able to show up if Exploit is disabled.
+
+Fixed the Exploit Automation window being messed up.
+
+Fixed the Autofab Automation window being messed up.
+
+Fixed the Autofab Queue to build the Autofab being locked behind having the Autofab.
+
+FE Buildings now provide jobs like the thing they upgrade from.
+
+Added Bug Branch compat for the Buff Buildings and Functional Architecture, since I have to overwrite those.
+
+The Dimensional Fabricator and Class-4 Singularity now provide +6 of the appropriate district.
+
+Dimensional Fabricator now takes into account being on a Shattered Ring.
+
+FE Buildings no longer produce any resources.
+
+FE Buildings Upkeep reduced a bunch.
+
+Fixed more errors.
 
 
 
+
+
+The AI is now limited to 40 total orbital districts on a planet, pending a trigger overhaul for them.*
+
+The AI no longer gets scaling Orbital District costs, pending a trigger overhaul for them.*
+
+Added a setting for Shipping to modify shipping cost.*
+
+Exploit decisions on uninhabitable planets are no longer able to show up if their planet/construction type is disabled.*
+
+Added explicit build time info to Exploit UI tooltips.*
+
+Spaceports now have modifiers to say what each orbital district costs in upkeep.*
+
+Orbital Platforms now have their own scaling upkeep, instead of working it through the spaceport. The AI should be more careful about spamming them.*
+
+Orbital Shipyard now has modifiers saying what it does.*
+
+Orbital Defense Platform now has modifiers saying what it does.*
+
+Fixed "Uses Orbital Slot" modifier showing up wherever the fuck it wants to.*
 
 Added a Target mode for Industrial Production on planets, wherein they try to get a certain amount, either taking what they need from the country, or sending excess to the country.*
 
@@ -16,7 +84,18 @@ Added defaults for Target mode that are set on the Empire. Planets can choose be
 
 Set Target Mode to be default Empire settings, and to request 100 IP be delivered. (This means every planet will, by default, get 100 IP, assuming there's enough to go around.)*
 
+The realdev Assembly/Production toggle is now available at the Empire level, and planets by default use the Empire setting.*
 
+Autofab now inherits Add modifiers, instead of needing it's own from Orbital Districts.*
+
+Added a "Deconstruct all" button to the Planet Autofab UI.*
+
+FE Buildings now make the job they affect have appropriate SR upkeep as well.*
+
+
+
+
+Orbital Cities increase the upkeep of Districts by a flat and % amount.*
 
 Added a decision to enable Swapping for Orbital Districts.*
 
@@ -53,6 +132,18 @@ Moved Equipment Factory upgrades to their own techs.*
 Made autofab retooling respect Realdev.*
 
 Simplified autofab loop events. This should reduce the performance impact of lots of colonies building at once.*
+
+Added a collection of effects that can be called to log autofab trigger values on things.*
+
+Added a collection of effects that can be called to log orbital trigger values on things.*
+
+Added a collection of effects that can be called to log exploit trigger values on things.*
+
+Added a collection of effects that can be called to log realdev trigger values on things.*
+
+Added a collection of effects that can be called to log cargo trigger values on things.*
+
+Added a collection of effects that can be called to log shipping trigger values on things.*
 
 Added an effect that can be called to log orbital values on things.*
 
@@ -110,13 +201,3 @@ Added a Preset Empire for the Autofab Origin.* Maybe later, maybe never
 Added a Preset Empire for the Space Colonizer Origin.* Maybe later, maybe never
 
 Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp. And a variant for Criminal Corps.* Need a way to have it affect the corp empire
-
-
-#These are harder than they first appeared, and have issues that I'm not sure how to deal with.
-Overhauled Factory Modules to use a Variable Multipler system for determining production.*
-
-Orbital Districts now affect the Variable Multiplier system instead of applying output modifiers for Autofab.*
-
-Fallen Empire Buildings now affect the Variable Multiplier system instead of being built-in production bonuses on the modules.*
-
-Fixed Orbital District not providing the correct bonus production to Factory Modules on some planet types.*

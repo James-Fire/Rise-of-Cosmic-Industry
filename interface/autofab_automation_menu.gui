@@ -22,7 +22,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_100" 
-			position = { x= 250 y= 24 }
+			position = { x= 250 y= 58 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -36,7 +36,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_10" 
-			position = { x= 310 y= -200 }
+			position = { x= 310 y= -166 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -50,7 +50,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_1" 
-			position = { x= 370 y= -424 }
+			position = { x= 370 y= -390 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -64,7 +64,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_1_neg" 
-			position = { x= 472 y= -648 }
+			position = { x= 472 y= -614 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -78,7 +78,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_10_neg" 
-			position = { x= 532 y = -872 }
+			position = { x= 532 y = -838 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -92,7 +92,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_100_neg" 
-			position = { x= 592 y = -1096 }
+			position = { x= 592 y = -1062 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -106,7 +106,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_100" 
-			position = { x= 250 y= -1064 }
+			position = { x= 250 y= -1030 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -120,7 +120,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_10" 
-			position = { x= 310 y= -1160 }
+			position = { x= 310 y= -1126 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -134,7 +134,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_1" 
-			position = { x= 370 y= -1256 }
+			position = { x= 370 y= -1222 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -148,7 +148,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_1_neg" 
-			position = { x= 472 y= -1352 }
+			position = { x= 472 y= -1318 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -162,7 +162,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_10_neg" 
-			position = { x= 532 y = -1448 }
+			position = { x= 532 y = -1414 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -176,7 +176,7 @@ guiTypes = {
 		buttonType = {
 			name = "option_button"
 			quadTextureSprite = "GFX_autofab_100_neg" 
-			position = { x= 592 y = -1544 }
+			position = { x= 592 y = -1510 }
 			font = "cg_16b"
 			text = ""
 		}
@@ -316,7 +316,7 @@ guiTypes = {
 			effectButtonType = {
 				name = "automation_targets_tooltip"
 				spriteType = "GFX_roci_tooltip"
-				position = { x = 380 y = 60 }
+				position = { x = 380 y = 56 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -422,7 +422,7 @@ guiTypes = {
 			effectButtonType = {
 				name = "minimum_stockpile_tooltip"
 				spriteType = "GFX_roci_tooltip"
-				position = { x = 375 y = 60 }
+				position = { x = 375 y = 56 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }

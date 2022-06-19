@@ -1,0 +1,4 @@
+﻿l_english:
+  #Overwriting Stupid PDX stuff
+    mod_planet_administrators_unity_produces_add: "£unity£ Unity from £job_bureaucrat£ Administrators"
+    mod_planet_administrators_upkeep_mult: "£job_bureaucrat£ Administrators Upkeep"

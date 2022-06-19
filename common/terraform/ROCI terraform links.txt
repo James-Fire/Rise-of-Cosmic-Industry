@@ -15,7 +15,7 @@ terraform_link = {
 	}
 
 	potential = {
-		always = yes
+		NOT = { has_global_flag = exploit_uninhabitables_size_off }
 	}
 	
 	condition = {
@@ -45,7 +45,7 @@ terraform_link = {
 	}
 	
 	potential = {
-		always = yes
+		NOT = { has_global_flag = exploit_uninhabitables_size_off }
 	}
 	
 	condition = {
@@ -75,7 +75,7 @@ terraform_link = {
 	}
 	
 	potential = {
-		always = yes
+		NOT = { has_global_flag = exploit_uninhabitables_size_off }
 	}
 	
 	condition = {
@@ -105,7 +105,7 @@ terraform_link = {
 	}
 	
 	potential = {
-		always = yes
+		NOT = { has_global_flag = exploit_uninhabitables_size_off }
 	}
 	
 	condition = {
@@ -135,7 +135,7 @@ terraform_link = {
 	}
 	
 	potential = {
-		always = yes
+		NOT = { has_global_flag = exploit_uninhabitables_size_off }
 	}
 	
 	condition = {
@@ -165,7 +165,7 @@ terraform_link = {
 	}
 	
 	potential = {
-		always = yes
+		NOT = { has_global_flag = exploit_uninhabitables_size_off }
 	}
 	
 	condition = {
@@ -195,7 +195,7 @@ terraform_link = {
 	}
 	
 	potential = {
-		always = yes
+		NOT = { has_global_flag = exploit_uninhabitables_size_off }
 	}
 	
 	condition = {
@@ -225,7 +225,7 @@ terraform_link = {
 	}
 	
 	potential = {
-		always = yes
+		NOT = { has_global_flag = exploit_uninhabitables_size_off }
 	}
 	
 	condition = {
@@ -255,7 +255,7 @@ terraform_link = {
 	}
 	
 	potential = {
-		always = yes
+		NOT = { has_global_flag = exploit_uninhabitables_size_off }
 	}
 	
 	condition = {

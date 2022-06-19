@@ -484,7 +484,7 @@ country_event = {
 			prev = { random_owned_planet = { limit = { prevprev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start } }
 			#Find the planet in the galaxy that has the best trade route value that can be traded with
 			ordered_galaxy_planet = {
-				limit = { owner = { roci_can_trade_with_country = yes } }
+				limit = { exists = owner owner = { roci_can_trade_with_country = yes } }
 				position = 0
 				order_by = value:roci_trade_route_value
 				save_event_target_as = kiyo_trade_start

@@ -355,6 +355,30 @@ exploit_ai_speed_neg_5 = {
 	}
 }
 
+roci_exploit_uninhabitables_size = {
+	potential = { NOT = { has_global_flag = no_autofab } }
+	allow = { always = yes }
+	effect = { 
+		custom_tooltip = "roci_exploit_uninhabitables_size_desc"
+	}
+}
+roci_exploit_uninhabitables_size_on = {
+	potential = { has_global_flag = exploit_uninhabitables_size_off }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "roci_exploit_uninhabitables_size_desc"
+		remove_global_flag = exploit_uninhabitables_size_off
+	}
+}
+roci_exploit_uninhabitables_size_off = {
+	potential = { NOT = { has_global_flag = exploit_uninhabitables_size_off } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "roci_exploit_uninhabitables_size_desc"
+		set_global_flag = exploit_uninhabitables_size_off
+	}
+}
+
 roci_orbital_thumb = {
 	potential = { always = yes }
 	allow = { hidden_trigger = { NOT = { has_global_flag = no_orbital_infra } } }

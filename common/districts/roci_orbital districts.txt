@@ -75,6 +75,7 @@ district_orbital_platform_city = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -92,6 +93,7 @@ district_orbital_platform_city = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -154,6 +156,7 @@ district_orbital_platform_industrial = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -171,6 +174,7 @@ district_orbital_platform_industrial = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -184,6 +188,8 @@ district_orbital_platform_industrial = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_metallurgists_upkeep_mult = 0.01
+		planet_artisans_upkeep_mult = 0.01
 	}
 
 	# Designation Job Changes
@@ -283,6 +289,7 @@ district_orbital_platform_industrial = {
 			OR = {
 				has_designation = col_foundry
 				has_designation = col_ecu_foundry
+				exists = owner
 				owner = { is_regular_empire = no }
 			}
 		}
@@ -301,6 +308,7 @@ district_orbital_platform_industrial = {
 			OR = {
 				has_designation = col_foundry
 				has_designation = col_ecu_foundry
+				exists = owner
 				owner = { is_regular_empire = no }
 			}
 		}
@@ -319,6 +327,7 @@ district_orbital_platform_industrial = {
 			OR = {
 				has_designation = col_foundry
 				has_designation = col_ecu_foundry
+				exists = owner
 				owner = { is_regular_empire = no }
 			}
 		}
@@ -337,6 +346,7 @@ district_orbital_platform_industrial = {
 			OR = {
 				has_designation = col_foundry
 				has_designation = col_ecu_foundry
+				exists = owner
 				owner = { is_regular_empire = no }
 			}
 		}
@@ -391,6 +401,7 @@ district_orbital_platform_industrial = {
 	ai_resource_production = {
 		consumer_goods = 10
 		trigger = {
+			exists = owner
 			owner = {
 				is_regular_empire = yes
 			}
@@ -440,6 +451,7 @@ district_orbital_platform_research = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -457,6 +469,7 @@ district_orbital_platform_research = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -474,6 +487,7 @@ district_orbital_platform_research = {
 		planet_researchers_society_research_produces_add = 0.5
 		planet_researchers_engineering_research_produces_add = 0.5
 		planet_researchers_energy_upkeep_add = 0.5
+		planet_researchers_upkeep_mult = 0.01
 	}
 
 	triggered_planet_modifier = {
@@ -546,6 +560,7 @@ district_orbital_platform_refinery = {
 			has_district = district_orbital_platform_refinery
 		}
 		has_oi_space_elevator = yes
+		exists = owner
 		owner = {
 			OR = {
 				has_technology = tech_exotic_gases
@@ -560,6 +575,7 @@ district_orbital_platform_refinery = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -577,6 +593,7 @@ district_orbital_platform_refinery = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -593,12 +610,15 @@ district_orbital_platform_refinery = {
 		planet_chemists_volatile_motes_produces_add = 1
 		planet_chemists_minerals_upkeep_add = 5
 		planet_chemists_energy_upkeep_add = 1
+		planet_chemists_upkeep_mult = 0.01
 		planet_refiners_exotic_gases_produces_add = 1
 		planet_refiners_minerals_upkeep_add = 5
 		planet_refiners_energy_upkeep_add = 1
+		planet_refiners_upkeep_mult = 0.01
 		planet_translucers_rare_crystals_produces_add = 1
 		planet_translucers_minerals_upkeep_add = 5
 		planet_translucers_energy_upkeep_add = 1
+		planet_translucers_upkeep_mult = 0.01
 	}
 	triggered_planet_modifier = {
 		potential = {
@@ -670,6 +690,7 @@ district_orbital_platform_shipyard = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -687,6 +708,7 @@ district_orbital_platform_shipyard = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -756,8 +778,10 @@ district_orbital_platform_military = {
 		}
 		OR = {
 			num_districts = { type = district_orbital_platform_military value < 11 }
+			exists = owner
 			owner = { is_ai = no }
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -805,12 +829,14 @@ district_orbital_platform_military = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = 400
 		}
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = 100
@@ -825,39 +851,48 @@ district_orbital_platform_military = {
 		}
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
+				exists = owner
 				owner = { has_technology = tech_starbase_3 }
 			}
 			alloys = 200
 		}
 		upkeep = {
 			trigger = {
+				exists = owner
 				owner = { has_technology = tech_starbase_3 }
 			}
 			alloys = 5
 		}
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
+				exists = owner
 				owner = { has_technology = tech_starbase_4 }
 			}
 			alloys = 200
 		}
 		upkeep = {
 			trigger = {
+				exists = owner
 				owner = { has_technology = tech_starbase_4 }
 			}
 			alloys = 5
 		}
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
+				exists = owner
 				owner = { has_technology = tech_starbase_5 }
 			}
 			alloys = 200
 		}
 		upkeep = {
 			trigger = {
+				exists = owner
 				owner = { has_technology = tech_starbase_5 }
 			}
 			alloys = 5
@@ -930,6 +965,7 @@ district_orbital_platform_solar_array = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -947,6 +983,7 @@ district_orbital_platform_solar_array = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -961,6 +998,7 @@ district_orbital_platform_solar_array = {
 		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_technician_energy_produces_add = 0.5
+		planet_technician_upkeep_mult = 0.01
 	}
 	triggered_planet_modifier = {
 		potential = {
@@ -1008,6 +1046,7 @@ district_orbital_platform_commercial = {
 		}
 		has_oi_space_elevator = yes
 		exists = owner
+		exists = owner
 		owner = {
 			is_regular_empire = yes
 		}
@@ -1018,6 +1057,7 @@ district_orbital_platform_commercial = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -1035,6 +1075,7 @@ district_orbital_platform_commercial = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -1045,12 +1086,11 @@ district_orbital_platform_commercial = {
 	}
 	
 	planet_modifier = {
-		planet_housing_add = 2
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
-		pop_job_trade_mult = 0.05
-		pop_job_amenities_mult = 0.05
+		pop_job_trade_mult = 0.025
+		pop_job_amenities_mult = 0.025
 	}
 	
 	ai_resource_production = {
@@ -1133,6 +1173,7 @@ district_orbital_platform_mining = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -1150,6 +1191,7 @@ district_orbital_platform_mining = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -1163,8 +1205,26 @@ district_orbital_platform_mining = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
-		planet_miners_minerals_produces_add = 1
 		planet_miners_energy_upkeep_add = 0.5
+		planet_miners_energy_mult = 0.01
+	}
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { is_planet_class = pc_shattered_ring_habitable }
+		}
+		modifier = {
+			planet_miners_minerals_produces_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			is_planet_class = pc_shattered_ring_habitable
+		}
+		modifier = {
+			planet_miners_minerals_produces_add = 0.5
+			planet_miners_alloys_produces_add = 0.25
+		}
 	}
 	triggered_planet_modifier = {
 		potential = {
@@ -1219,6 +1279,7 @@ district_orbital_platform_farming = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -1236,6 +1297,7 @@ district_orbital_platform_farming = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -1251,6 +1313,7 @@ district_orbital_platform_farming = {
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_farmers_food_produces_add = 1
 		planet_farmers_energy_upkeep_add = 0.5
+		planet_farmers_upkeep_mult = 0.01
 	}
 	triggered_planet_modifier = {
 		potential = {
@@ -1305,6 +1368,7 @@ district_orbital_platform_admin = {
 			fail_text = "space_elevator_does_not_support"
 			has_space_elevator_support = yes
 		}
+		exists = owner
 		owner = {
 			OR = {
 				is_ai = no
@@ -1322,6 +1386,7 @@ district_orbital_platform_admin = {
 		category = planet_districts
 		cost = {
 			trigger = {
+				exists = owner
 				owner = { is_ai = no }
 			}
 			alloys = @platform_alloys
@@ -1337,6 +1402,7 @@ district_orbital_platform_admin = {
 		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
 		planet_administrators_unity_produces_add = 1
 		planet_administrators_energy_upkeep_add = 0.5
+		planet_administrators_upkeep_mult = 0.01
 	}
 
 	ai_resource_production = {

@@ -207,7 +207,6 @@ planet_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = no_autofab }
-		has_autofab = yes
 		has_autofab_queue = yes
 	}
 	
