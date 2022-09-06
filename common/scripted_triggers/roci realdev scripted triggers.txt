@@ -1,3 +1,18 @@
+bonus_production_active = {
+	exists = owner
+	OR = {
+		has_planet_flag = realdev_production
+		AND = {
+			owner = {
+				has_country_flag = realdev_production
+			}
+			NOT = {
+				has_planet_flag = realdev_assembly
+			}
+		}
+	}
+}
+
 can_pops_assemble_on_planet = {
 	NOR = {
 		has_modifier = planet_robot_assembly_control

@@ -6,71 +6,21 @@ Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 
 
-Localised the Sprawl Workaround Plural.
+Fixed Exploit ignoring settings to not build certain things, or in certain places.*
 
-Orbital Districts now also increase the upkeep of their job by 1% (For ones that affect specific jobs).
+Fixed the Orbital Infrastructure modifier sometimes reporting the clearly wrong value.*
 
-Commercial Platforms no longer give housing.
-
-Corrected the modifier loc on the Orbital Admin District.
-
-Fixed a scope issue on orbital districts that could spam the log.
-
-Orbital Mining District now give Scrap Miners alloy bonuses.
-
-The Shipping Deposit and Modifier now have an icon.
-
-Added a setting under Space Exploitation to disable/enable showing the planet sizes of uninhabitables, with the side effect of always showing terraforming is available. It is default on.
-
-Corrected the location of a text BG.
-
-Reworded the ? button tooltip in the Exploit UI, to hopefully be slightly more clear.
-
-Rewrote the Exploit Module Blurb in the ROCI settings menu.
-
-Removed the Gas cost from the Exploit Research Construction.
-
-Removed the Motes cost from the Exploit Alloy Foundry Construction.
-
-Exploit decisions on uninhabitable planets are no longer able to show up if Exploit is disabled.
-
-Fixed the Exploit Automation window being messed up.
-
-Fixed the Autofab Automation window being messed up.
-
-Fixed the Autofab Queue to build the Autofab being locked behind having the Autofab.
-
-FE Buildings now provide jobs like the thing they upgrade from.
-
-Added Bug Branch compat for the Buff Buildings and Functional Architecture, since I have to overwrite those.
-
-The Dimensional Fabricator and Class-4 Singularity now provide +6 of the appropriate district.
-
-Dimensional Fabricator now takes into account being on a Shattered Ring.
-
-FE Buildings no longer produce any resources.
-
-FE Buildings Upkeep reduced a bunch.
-
-Fixed more errors.
+Fixed the Trade Route edict opening itself when you try to do nothing after bolstering a fleet.
 
 
 
-
-
-The AI is now limited to 40 total orbital districts on a planet, pending a trigger overhaul for them.*
-
-The AI no longer gets scaling Orbital District costs, pending a trigger overhaul for them.*
+Capped Megastructure Build Speed bonus from Industrial Production to +900% speed (For a total of 1000% speed).*
 
 Added a setting for Shipping to modify shipping cost.*
 
 Exploit decisions on uninhabitable planets are no longer able to show up if their planet/construction type is disabled.*
 
 Added explicit build time info to Exploit UI tooltips.*
-
-Spaceports now have modifiers to say what each orbital district costs in upkeep.*
-
-Orbital Platforms now have their own scaling upkeep, instead of working it through the spaceport. The AI should be more careful about spamming them.*
 
 Orbital Shipyard now has modifiers saying what it does.*
 
@@ -84,9 +34,7 @@ Added defaults for Target mode that are set on the Empire. Planets can choose be
 
 Set Target Mode to be default Empire settings, and to request 100 IP be delivered. (This means every planet will, by default, get 100 IP, assuming there's enough to go around.)*
 
-The realdev Assembly/Production toggle is now available at the Empire level, and planets by default use the Empire setting.*
-
-Autofab now inherits Add modifiers, instead of needing it's own from Orbital Districts.*
+Autofab now inherits Add modifiers, instead of needing its own from Orbital Districts.*
 
 Added a "Deconstruct all" button to the Planet Autofab UI.*
 

@@ -56,7 +56,7 @@ tr_autofab_environmental_studies = {
 
 tr_autofab_commercial_connections = {
 	possible = {
-		has_active_tradition = tr_autofab_infrastructure_support
+		has_tradition = tr_autofab_infrastructure_support
 	}
 	modifier = {
 		#Each Module adds 2 trade value.
@@ -80,7 +80,7 @@ tr_autofab_commercial_connections = {
 
 tr_autofab_pride = {
 	possible = {
-		has_active_tradition = tr_autofab_environmental_studies
+		has_tradition = tr_autofab_environmental_studies
 	}
 	modifier = {
 		#pop_happiness = 0.05	#The Autofab gives this

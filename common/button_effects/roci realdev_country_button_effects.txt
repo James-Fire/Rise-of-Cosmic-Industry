@@ -4,6 +4,35 @@ realdev_country_tooltip = {
 	effect = { custom_tooltip = "realdev_country_tooltip" }
 }
 
+#Settings!
+realdev_alt_production = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "realdev_alt_production_desc"
+	}
+}
+realdev_alt_production_swap = {
+	potential = { }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		if = {
+			limit = {
+				has_country_flag = realdev_assembly
+			}
+			remove_country_flag = realdev_assembly
+			set_country_flag = realdev_production
+		}
+		else_if = {
+			limit = {
+				has_country_flag = realdev_production
+			}
+			remove_country_flag = realdev_production
+			set_country_flag = realdev_assembly
+		}
+	}
+}
+
 #Stockpile/Usage ratio Slider
 realdev_build_ratio_increase_stockpile = {
 	potential = { always = yes }

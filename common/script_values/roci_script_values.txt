@@ -254,7 +254,89 @@ factory_extractor_queue_value = {
 	
 
 ###Orbital
-
+orbital_district_count = {
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_city
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_industrial
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_research
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_refinery
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_shipyard
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_military
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_solar_array
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_commercial
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_mining
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_farming
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = district_orbital_platform_admin
+		}
+		mode = add
+	}
+}
+orbital_district_upkeep = {
+	base = 1
+	add = modifier:planet_orbital_districts_upkeep_mult
+}
 orbital_spaceport_motes_mult = {
 	add = orbitalinfra_farming
 	add = orbitalinfra_mining
@@ -271,7 +353,6 @@ orbital_spaceport_crystals_mult = {
 	add = orbitalinfra_commercial
 	add = orbitalinfra_admin
 }
-#orbitalinfra_refinery
 
 ###Realdev
 

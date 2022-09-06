@@ -111,6 +111,25 @@ guiTypes = {
 		}
 		
 		containerWindowType = {
+			name = "realdev_settings_contain"
+			position = { x = 10 y = -35 }
+			size = { width=563 height=280 }
+			
+			effectButtonType = {
+				name = "realdev_alt_production"
+				spriteType = "GFX_half_menu_button_bg"
+				position = { x = 0 y = 105 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "realdev_alt_production"
+				effect = "realdev_alt_production"
+			}
+				effectButtonType = { name = "realdev_alt_production_swap" spriteType = "GFX_autofab_menu_swap" position = { x = 175 y = 110 } clicksound = interface effect = "realdev_alt_production_swap" }
+			
+		}
+		containerWindowType = {
 			name = "realdev_indcap_contain"
 			position = { x = 220 y = 35 }
 			size = { width=563 height=280 }

@@ -1054,13 +1054,18 @@
      realdev_take_minned: "This planet is already taking 0% of the Empire Industrial Production Planet Aid."
      realdev_take_would_be_maxxed: "The empire does not have enough unallocated Industrial Production to fulfill this ratio."
      realdev_planet_take: "Swap the planet taking/providing Industrial Production with the Empire."
-     realdev_assembly_or_jobs: "Swap whether IP is put towards Assembly or Planet Production."
+     realdev_assembly_or_jobs: "Swap whether IP is put towards Assembly, Planet Production, or what the Empire setting is."
      realdev_megastructure_build_ignore_desc: "Realistic Development handles Megastructure Build Speed as part of making the game more realistic. This can be disabled, if you either don't want it, or prefer to use just another method."
      roci_realdev_mega_handling: "Megastructure Speed"
      
      realdev_country_tooltip: "This UI shows the whole empire's current Industrial Production value, and how much Industrial Production is allocated to the empire. Ratio sliders for allocating Industrial Production between empire-level uses are present. It updates its information every 30 days."
      realdev_planet_tooltip: "This UI shows this planet's current Industrial Production value, its current Industrial Production Capacity value, and has Ratio sliders for allocating Industrial Production between the empire and planet-level uses. It updates its information every 30 days."
      
+     empire_assembly: "Empire - Assembly"
+     empire_production: "Empire - Production"
+     
+     realdev_alt_production: "[This.GetAltEmpireProdState]"
+     realdev_alt_production_desc: "Swap the Empire Default for the Assembly/Production choice."
      
      realdev_current_indcap_title: "Current"
      realdev_indcap_title: "Industrial Production"
@@ -1106,8 +1111,9 @@
      
      realdev_build_speed_title: "Build Speed"
      realdev_build_ratio_title: "Planet Usage"
-     realdev_assembly_speed_title: "Assembly"
-     realdev_production_speed_title: "Production"
+     realdev_alt_speed_title: "[This.GetAltProdState]"
+     planet_assembly: "Assembly"
+     planet_production: "Production"
      
      realdev_assembly_display: "[This.realdev_assembly_speed_display]%"
      realdev_build_speed_display: "[This.realdev_planet_build_speed_display]%"
@@ -1244,7 +1250,7 @@
     building_roci_space_elevator_2: "Spaceport"
     building_roci_space_elevator_2_desc: "A Spaceport surrounded by warehouses and terminals for ease of transportation. Limits total Orbital Infrastructure to 25."
     building_roci_space_elevator_3: "Spaceport Complex"
-    building_roci_space_elevator_3_desc: "A massive logistical complex for transferring goods and people to or from orbit."
+    building_roci_space_elevator_3_desc: "A massive logistical complex for transferring goods and people to or from orbit.\n\nThe Strategic Resource each district costs is based on what it produces, following vanilla."
     sm_orbital_shipyard_link:0 "Orbital Shipyards Link"
     sm_orbital_shipyard_link_desc:0 "Links this Starbase with the Orbital Shipyard districts of 1 planet in the system."
     
@@ -1267,6 +1273,10 @@
     mod_uses_orbital_infrastructure: "Uses Orbital Slots"
     not_enough_orbital_space: "We need more Orbital Platforms."
     space_elevator_does_not_support: "We are currently at the limit of how much Orbital Infrastructure our Spaceport can support."
+    
+    mod_orbital_district_alloy_upkeep: "£alloys£ §Y$alloys$§! Upkeep of Orbital Districts"
+    mod_orbital_district_energy_upkeep: "£energy£ §Y$energy$§! Upkeep of Orbital Districts"
+    mod_orbital_district_sr_upkeep: "£volatile_motes£ £exotic_gases£ £rare_crystals£ §YStrategics§! Upkeep of Orbital Districts"
      
     mod_planet_chemists_volatile_motes_produces_add: "£volatile_motes£ §Y$volatile_motes$§! from £job_chemist£ $job_chemist_plural$"
     mod_planet_chemists_minerals_upkeep_add: "£minerals£ §Y$minerals$§! Upkeep of £job_chemist£ $job_chemist_plural$"
@@ -1286,6 +1296,7 @@
     mod_planet_elevator_energy_upkeep_add: "Spaceport £energy£ §Y$energy$§! Upkeep"
     mod_planet_elevator_alloys_upkeep_add: "Spaceport £alloys£ §Y$alloys$§! Upkeep"
     mod_planet_elevator_upkeep_mult: "Spaceport Upkeep"
+    mod_planet_orbital_districts_upkeep_mult: "Orbital District Upkeep"
     
     planet_elevator: "Spaceport"
     

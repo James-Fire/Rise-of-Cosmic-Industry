@@ -1,3 +1,4 @@
+#Cargo Ships
 defined_text = {
 	name = Get0TradeRoutes
 	text = {
@@ -24,5 +25,63 @@ defined_text = {
 	text = {
 		trigger = { has_active_building = building_roci_space_elevator_3 }
 		localization_key = Infinity
+	}
+}
+
+#Realdev
+defined_text = {
+	name = GetAltEmpireProdState
+	text = {
+		trigger = {
+			has_country_flag = realdev_assembly
+		}
+		localization_key = planet_assembly
+	}
+	text = {
+		trigger = {
+			has_country_flag = realdev_production
+		}
+		localization_key = planet_production
+	}
+}
+defined_text = {
+	name = GetAltProdState
+	text = {
+		trigger = {
+			NOR = { 
+				has_planet_flag = realdev_production
+				has_planet_flag = realdev_assembly
+			}
+			exists = owner
+			owner = {
+				has_country_flag = realdev_assembly
+			}
+		}
+		localization_key = empire_assembly
+	}
+	text = {
+		trigger = {
+			NOR = { 
+				has_planet_flag = realdev_production
+				has_planet_flag = realdev_assembly
+			}
+			exists = owner
+			owner = {
+				has_country_flag = realdev_production
+			}
+		}
+		localization_key = empire_production
+	}
+	text = {
+		trigger = {
+			has_planet_flag = realdev_assembly
+		}
+		localization_key = planet_assembly
+	}
+	text = {
+		trigger = {
+			has_planet_flag = realdev_production
+		}
+		localization_key = planet_production
 	}
 }

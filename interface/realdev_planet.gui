@@ -568,7 +568,7 @@ guiTypes = {
 				effect = "roci_blank_effect"
 			}
 			effectButtonType = {
-				name = "realdev_assembly_speed_title"
+				name = "realdev_alt_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
 				position = { x = 545 y = -108 }
@@ -576,20 +576,8 @@ guiTypes = {
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
 				font = "cg_16b"
-				text = "realdev_assembly_speed_title"
-				effect = "realdev_assembly_speed_title"
-			}
-			effectButtonType = {
-				name = "realdev_production_speed_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 545 y = -108 }
-				format = right
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_production_speed_title"
-				effect = "realdev_production_speed_title"
+				text = "realdev_alt_speed_title"
+				effect = "roci_blank_effect"
 			}
 			
 			

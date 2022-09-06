@@ -7,13 +7,13 @@ country_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = no_orbital_infra }
+		NOT = { has_global_flag = no_orbital_infra }
 	}
 	
 	immediate = {
-		log = "orbital game start for [This.GetName]"
+		#log = "orbital game start for [This.GetName]"
 		if = {
 			limit = {
-				NOT = { has_global_flag = no_orbital_infra }
 				is_country_type = default
 				NOT = { has_origin = origin_void_dwellers }
 			}
@@ -813,7 +813,8 @@ planet_event = {
 					}
 				}
 				add_building = building_roci_space_elevator
-				log = "AI Elevator script place on [This.GetName]"
+				add_modifier = { modifier = orbital_space }
+				#log = "AI Elevator script place on [This.GetName]"
 			}
 			else_if = {
 				limit = {
@@ -826,7 +827,7 @@ planet_event = {
 				}
 				remove_building = building_roci_space_elevator
 				add_building = building_roci_space_elevator_2
-				log = "AI Elevator script upgrade on [This.GetName]"
+				#log = "AI Elevator script upgrade on [This.GetName]"
 			}
 			else_if = {
 				limit = {
@@ -836,7 +837,7 @@ planet_event = {
 				}
 				remove_building = building_roci_space_elevator_2
 				add_building = building_roci_space_elevator_3
-				log = "AI Elevator script upgrade on [This.GetName]"
+				#log = "AI Elevator script upgrade on [This.GetName]"
 			}
 			if = {
 				limit = {
@@ -862,7 +863,7 @@ planet_event = {
 							change_variable = { which = orbitalinfra_research value = 1 }
 							change_variable = { which = orbital_infrastructure value = 1 }
 							alloy_ai_orbital_cost = yes
-							log = "AI Orbital Research district Swap on [This.GetName]"
+							#log = "AI Orbital Research district Swap on [This.GetName]"
 						}
 					}
 					building_commercial_zone = {
@@ -875,7 +876,7 @@ planet_event = {
 							change_variable = { which = orbitalinfra_commercial value = 1 }
 							change_variable = { which = orbital_infrastructure value = 1 }
 							alloy_ai_orbital_cost = yes
-							log = "AI Orbital Commercial district Swap on [This.GetName]"
+							#log = "AI Orbital Commercial district Swap on [This.GetName]"
 						}
 					}
 					building_chemical_plant = {
@@ -888,7 +889,7 @@ planet_event = {
 							change_variable = { which = orbitalinfra_refinery value = 1 }
 							change_variable = { which = orbital_infrastructure value = 1 }
 							alloy_ai_orbital_cost = yes
-							log = "AI Orbital Refinery district Swap on [This.GetName]"
+							#log = "AI Orbital Refinery district Swap on [This.GetName]"
 						}
 					}
 					building_refinery = {
@@ -901,7 +902,7 @@ planet_event = {
 							change_variable = { which = orbitalinfra_refinery value = 1 }
 							change_variable = { which = orbital_infrastructure value = 1 }
 							alloy_ai_orbital_cost = yes
-							log = "AI Orbital Refinery district Swap on [This.GetName]"
+							#log = "AI Orbital Refinery district Swap on [This.GetName]"
 						}
 					}
 					building_crystal_plant = {
@@ -914,7 +915,7 @@ planet_event = {
 							change_variable = { which = orbitalinfra_refinery value = 1 }
 							change_variable = { which = orbital_infrastructure value = 1 }
 							alloy_ai_orbital_cost = yes
-							log = "AI Orbital Refinery district Swap on [This.GetName]"
+							#log = "AI Orbital Refinery district Swap on [This.GetName]"
 						}
 					}
 				}

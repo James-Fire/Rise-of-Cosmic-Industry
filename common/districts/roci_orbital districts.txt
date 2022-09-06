@@ -84,6 +84,7 @@ district_orbital_platform_city = {
 						resource = alloys
 						value >= @platform_alloys
 					}
+					
 				}
 			}
 		}
@@ -101,13 +102,37 @@ district_orbital_platform_city = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			#volatile_motes = 0.5
+			#exotic_gases = 0.5
+			rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		planet_max_buildings_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_housing_mult = 0.05
 		pop_job_amenities_mult = 0.05
 	}
@@ -182,12 +207,36 @@ district_orbital_platform_industrial = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			volatile_motes = 0.5
+			#exotic_gases = 0.5
+			#rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_metallurgists_upkeep_mult = 0.01
 		planet_artisans_upkeep_mult = 0.01
 	}
@@ -255,7 +304,6 @@ district_orbital_platform_industrial = {
 			planet_metallurgists_food_upkeep_add = 0.75
 			planet_artisans_consumer_goods_produces_add = 0.5
 			planet_artisans_minerals_upkeep_add = 0.5
-			planet_autofab_foundry_alloys_produces_add = 0.5
 		}
 	}
 	triggered_planet_modifier = {
@@ -289,7 +337,6 @@ district_orbital_platform_industrial = {
 			OR = {
 				has_designation = col_foundry
 				has_designation = col_ecu_foundry
-				exists = owner
 				owner = { is_regular_empire = no }
 			}
 		}
@@ -308,7 +355,6 @@ district_orbital_platform_industrial = {
 			OR = {
 				has_designation = col_foundry
 				has_designation = col_ecu_foundry
-				exists = owner
 				owner = { is_regular_empire = no }
 			}
 		}
@@ -327,7 +373,6 @@ district_orbital_platform_industrial = {
 			OR = {
 				has_designation = col_foundry
 				has_designation = col_ecu_foundry
-				exists = owner
 				owner = { is_regular_empire = no }
 			}
 		}
@@ -346,7 +391,6 @@ district_orbital_platform_industrial = {
 			OR = {
 				has_designation = col_foundry
 				has_designation = col_ecu_foundry
-				exists = owner
 				owner = { is_regular_empire = no }
 			}
 		}
@@ -389,22 +433,6 @@ district_orbital_platform_industrial = {
 		modifier = {
 			planet_autofab_factory_consumer_goods_produces_add = 2
 			planet_autofab_factory_minerals_upkeep_add = 2
-		}
-	}
-
-	ai_resource_production = {
-		alloys = 10
-		trigger = {
-			always = yes
-		}
-	}
-	ai_resource_production = {
-		consumer_goods = 10
-		trigger = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-			}
 		}
 	}
 	
@@ -477,12 +505,36 @@ district_orbital_platform_research = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			#volatile_motes = 0.5
+			exotic_gases = 0.5
+			#rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_researchers_physics_research_produces_add = 0.5
 		planet_researchers_society_research_produces_add = 0.5
 		planet_researchers_engineering_research_produces_add = 0.5
@@ -513,16 +565,6 @@ district_orbital_platform_research = {
 			planet_researchers_minerals_upkeep_add = 0.5
 		}
 	}
-	
-	ai_resource_production = {
-		physics_research = 10
-		society_research = 10
-		engineering_research = 10
-		trigger = {
-			always = yes
-		}
-	}
-	
 	ai_weight = {
 		weight = 1
 		modifier = {
@@ -601,12 +643,36 @@ district_orbital_platform_refinery = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 2
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			#volatile_motes = 0.5
+			#exotic_gases = 0.5
+			#rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_chemists_volatile_motes_produces_add = 1
 		planet_chemists_minerals_upkeep_add = 5
 		planet_chemists_energy_upkeep_add = 1
@@ -634,15 +700,6 @@ district_orbital_platform_refinery = {
 			planet_autofab_crystals_rare_crystals_produces_add = 2
 			planet_autofab_crystals_minerals_upkeep_add = 10
 			planet_autofab_crystals_energy_upkeep_add = 2
-		}
-	}
-	
-	ai_resource_production = {
-		volatile_motes = 10
-		exotic_gases = 10
-		rare_crystals = 10
-		trigger = {
-			always = yes
 		}
 	}
 	
@@ -716,12 +773,36 @@ district_orbital_platform_shipyard = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			volatile_motes = 0.5
+			#exotic_gases = 0.5
+			#rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
 	ai_weight = {
@@ -729,13 +810,6 @@ district_orbital_platform_shipyard = {
 		modifier = {
 			factor = 0
 			free_jobs > 0 
-		}
-	}
-
-	ai_resource_production = {
-		alloys = 10
-		trigger = {
-			always = yes
 		}
 	}
 	on_queued = {
@@ -778,8 +852,10 @@ district_orbital_platform_military = {
 		}
 		OR = {
 			num_districts = { type = district_orbital_platform_military value < 11 }
-			exists = owner
-			owner = { is_ai = no }
+			AND = {
+				exists = owner
+				owner = { is_ai = no }
+			}
 		}
 		exists = owner
 		owner = {
@@ -840,14 +916,38 @@ district_orbital_platform_military = {
 				owner = { is_ai = no }
 			}
 			alloys = 100
-			multiplier = orbital_infrastructure
 		}
 		cost = {
 			minerals = @platform_minerals
 		}
 		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			volatile_motes = 0.5
+			#exotic_gases = 0.5
+			#rare_crystals = 0.5
+		}
+		upkeep = {
 			energy = @platform_energy_upkeep
 			alloys = 12
+			mult = value:orbital_district_upkeep
 		}
 		cost = {
 			trigger = {
@@ -864,6 +964,7 @@ district_orbital_platform_military = {
 				owner = { has_technology = tech_starbase_3 }
 			}
 			alloys = 5
+			mult = value:orbital_district_upkeep
 		}
 		cost = {
 			trigger = {
@@ -880,6 +981,7 @@ district_orbital_platform_military = {
 				owner = { has_technology = tech_starbase_4 }
 			}
 			alloys = 5
+			mult = value:orbital_district_upkeep
 		}
 		cost = {
 			trigger = {
@@ -896,13 +998,14 @@ district_orbital_platform_military = {
 				owner = { has_technology = tech_starbase_5 }
 			}
 			alloys = 5
+			mult = value:orbital_district_upkeep
 		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
 	ai_weight = {
@@ -910,13 +1013,6 @@ district_orbital_platform_military = {
 		modifier = {
 			factor = 0
 			free_jobs > 0 
-		}
-	}
-
-	ai_resource_production = {
-		alloys = 10
-		trigger = {
-			always = yes
 		}
 	}
 	on_queued = {
@@ -991,12 +1087,36 @@ district_orbital_platform_solar_array = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			#volatile_motes = 0.5
+			exotic_gases = 0.5
+			#rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_technician_energy_produces_add = 0.5
 		planet_technician_upkeep_mult = 0.01
 	}
@@ -1006,13 +1126,6 @@ district_orbital_platform_solar_array = {
 		}
 		modifier = {
 			planet_autofab_generator_energy_produces_add = 1
-		}
-	}
-
-	ai_resource_production = {
-		energy = 10
-		trigger = {
-			always = yes
 		}
 	}
 	on_queued = {
@@ -1083,21 +1196,38 @@ district_orbital_platform_commercial = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			#volatile_motes = 0.5
+			#exotic_gases = 0.5
+			rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		pop_job_trade_mult = 0.025
 		pop_job_amenities_mult = 0.025
-	}
-	
-	ai_resource_production = {
-		energy = 10
-		trigger = {
-			always = yes
-		}
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
@@ -1199,12 +1329,36 @@ district_orbital_platform_mining = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			volatile_motes = 0.5
+			#exotic_gases = 0.5
+			#rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_miners_energy_upkeep_add = 0.5
 		planet_miners_energy_mult = 0.01
 	}
@@ -1233,13 +1387,6 @@ district_orbital_platform_mining = {
 		modifier = {
 			planet_autofab_mine_minerals_produces_add = 2
 			planet_autofab_mine_energy_upkeep_add = 1
-		}
-	}
-	
-	ai_resource_production = {
-		minerals = 10
-		trigger = {
-			always = yes
 		}
 	}
 	on_queued = {
@@ -1305,12 +1452,36 @@ district_orbital_platform_farming = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			volatile_motes = 0.5
+			#exotic_gases = 0.5
+			#rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_farmers_food_produces_add = 1
 		planet_farmers_energy_upkeep_add = 0.5
 		planet_farmers_upkeep_mult = 0.01
@@ -1322,13 +1493,6 @@ district_orbital_platform_farming = {
 		modifier = {
 			planet_autofab_farm_food_produces_add = 2
 			planet_autofab_farm_energy_upkeep_add = 1
-		}
-	}
-
-	ai_resource_production = {
-		food = 10
-		trigger = {
-			always = yes
 		}
 	}
 	on_queued = {
@@ -1394,21 +1558,71 @@ district_orbital_platform_admin = {
 		cost = {
 			minerals = @platform_minerals
 		}
+		upkeep = {
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_2
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_active_building = building_roci_space_elevator_3
+			}
+			energy = 1
+			alloys = 1
+			mult = value:orbital_district_upkeep
+			#volatile_motes = 0.5
+			#exotic_gases = 0.5
+			rare_crystals = 0.5
+		}
 	}
 	
 	planet_modifier = {
 		planet_max_districts_add = 1
 		uses_orbital_infrastructure = 1
-		planet_elevator_upkeep_mult = @Elevator_upkeep_mult
+		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_administrators_unity_produces_add = 1
 		planet_administrators_energy_upkeep_add = 0.5
 		planet_administrators_upkeep_mult = 0.01
 	}
-
-	ai_resource_production = {
-		unity = 10
-		trigger = {
-			always = yes
+	
+	triggered_planet_modifier = {
+		potential = {
+			num_assigned_jobs = { job = manager value > 0 }
+		}
+		modifier = {
+			planet_managers_unity_produces_add = 1
+			planet_managers_energy_upkeep_add = 0.5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			OR = {
+				num_assigned_jobs = { job = high_priest value > 0 }
+				num_assigned_jobs = { job = priest value > 0 }
+				num_assigned_jobs = { job = death_priest value > 0 }
+				num_assigned_jobs = { job = preacher value > 0 }
+			}
+		}
+		modifier = {
+			planet_priests_unity_produces_add = 1
+			planet_priests_energy_upkeep_add = 0.5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			num_assigned_jobs = { job = telepath value > 0 }
+		}
+		modifier = {
+			planet_telepaths_unity_produces_add = 1
+			planet_telepaths_energy_upkeep_add = 0.5
 		}
 	}
 	on_queued = {

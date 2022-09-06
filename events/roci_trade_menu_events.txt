@@ -286,9 +286,12 @@ country_event = {
 			add_resource = {
 				consumer_goods = -750
 			}
-			country_event = { id = kiyo_trade_manual_event.11 }
+			set_country_flag = kiyo_trade_add_cargo_window
+			country_event = { id = kiyo_trade_manual_event.1 }
 		}
-		remove_country_flag = kiyo_trade_add_cargo_window
+		else = {
+			remove_country_flag = kiyo_trade_add_cargo_window
+		}
 	}
 	
 }

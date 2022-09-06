@@ -99,48 +99,13 @@ upgrade_infrastructure_amount = {
 }
 
 update_oi_district_counts = {
-	set_variable = { which = orbital_infrastructure value = 0 }
-	
-	set_variable = { which = orbitalinfra_cities value = 0 }
-	set_variable = { which = orbitalinfra_industry value = 0 }
-	set_variable = { which = orbitalinfra_research value = 0 }
-	set_variable = { which = orbitalinfra_refinery value = 0 }
-	set_variable = { which = orbitalinfra_farming value = 0 }
-	set_variable = { which = orbitalinfra_mining value = 0 }
-	set_variable = { which = orbitalinfra_commercial value = 0 }
-	set_variable = { which = orbitalinfra_solar value = 0 }
-	set_variable = { which = orbitalinfra_shipyard value = 0 }
-	set_variable = { which = orbitalinfra_military value = 0 }
-	set_variable = { which = orbitalinfra_admin value = 0 }
-	
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_city } variable = orbitalinfra_cities }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_industrial } variable = orbitalinfra_industry }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_research } variable = orbitalinfra_research }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_refinery } variable = orbitalinfra_refinery }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_farming } variable = orbitalinfra_farming }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_mining } variable = orbitalinfra_mining }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_commercial } variable = orbitalinfra_commercial }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_solar_array } variable = orbitalinfra_solar }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_shipyard } variable = orbitalinfra_shipyard }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_military } variable = orbitalinfra_military }
-	export_trigger_value_to_variable = { trigger = num_districts parameters = { type = district_orbital_platform_admin } variable = orbitalinfra_admin }
-	
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_cities }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_industry }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_research }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_refinery }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_farming }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_mining }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_commercial }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_solar }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_shipyard }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_military }
-	change_variable = { which = orbital_infrastructure value = orbitalinfra_admin }
+	set_variable = { which = orbital_infrastructure value = value:orbital_district_count }
 	
 	update_oi_modifiers = yes
 }
 
 update_oi_modifiers = {	
+	set_variable = { which = orbital_infrastructure value = value:orbital_district_count }
 	#Military Districts make platforms
 	if = {
 		limit = {

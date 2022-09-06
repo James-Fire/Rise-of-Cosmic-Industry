@@ -26,7 +26,20 @@ district_roci_sprawl_no = {
 	category = planet
 }
 
+#Orbital
 uses_orbital_infrastructure = {
+	good = no
+	category = planet
+}
+orbital_district_alloy_upkeep = {
+	good = no
+	category = planet
+}
+orbital_district_energy_upkeep = {
+	good = no
+	category = planet
+}
+orbital_district_sr_upkeep = {
 	good = no
 	category = planet
 }

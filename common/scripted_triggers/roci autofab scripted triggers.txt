@@ -66,24 +66,11 @@ can_queue_factory = {
 
 has_supported_district_set = {
 	OR = {
-		##Vanilla District Sets
-		uses_district_set = standard
-		uses_district_set = habitat
-		uses_district_set = city_world
-		uses_district_set = hive_world
-		uses_district_set = machine_world
-		uses_district_set = ring_world
-		uses_district_set = shattered_ring_world
-		
-		##Gigas District Sets
-		uses_district_set = giga_birch
-		uses_district_set = acot_giga_void_sphere
-		#uses_district_set = giga_alderson
-		#uses_district_set = giga_alderson_ecu
-		#uses_district_set = giga_alderson_hive
-		#uses_district_set = giga_alderson_machine
-		#uses_district_set = giga_alderson_pc
-		#uses_district_set = giga_habitat
+		uses_base_district_set = yes
+		uses_habitat_district_set = yes
+		uses_city_district_set = yes
+		uses_ringworld_district_set = yes
+		uses_infinite_space_district_set = yes
 	}
 }
 

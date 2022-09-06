@@ -42,18 +42,15 @@ building_roci_space_elevator = {
 			alloys = 100
 		}
 		upkeep = {
-			energy = 1
-		}
-		upkeep = {
-			energy = 1
-			alloys = 1
-			multiplier = orbital_infrastructure
+			energy = 3
 		}
 	}
 
 	planet_modifier = {
-		district_orbital_platform_cap_max = 1
+		district_orbital_platform_cap_max = 10
 		planet_max_buildings_add = 1
+		orbital_district_alloy_upkeep = 1
+		orbital_district_energy_upkeep = 1
 	}
 	
 	triggered_planet_modifier = {
@@ -89,7 +86,7 @@ building_roci_space_elevator = {
 	
 	on_built = {
 		log = "[Owner.GetName] built T1 Elevator on [This.GetName]"
-		set_infrastructure_amount = yes
+		add_modifier = { modifier = orbital_space }
 		set_planet_flag = has_orbital_infrastructure
 		owner = {
 			if = {
@@ -153,18 +150,15 @@ building_roci_space_elevator_2 = {
 			alloys = 200
 		}
 		upkeep = {
-			energy = 1
-		}
-		upkeep = {
-			energy = 2
-			alloys = 2
-			multiplier = orbital_infrastructure
+			energy = 5
 		}
 	}
 
 	planet_modifier = {
-		district_orbital_platform_cap_max = 3
+		district_orbital_platform_cap_max = 25
 		planet_max_buildings_add = 1
+		orbital_district_alloy_upkeep = 2
+		orbital_district_energy_upkeep = 2
 	}
 	
 	triggered_planet_modifier = {
@@ -267,30 +261,16 @@ building_roci_space_elevator_3 = {
 			alloys = 300
 		}
 		upkeep = {
-			energy = 1
-		}
-		upkeep = {
-			energy = 2
-			alloys = 2
-			multiplier = orbital_infrastructure
-		}
-		upkeep = {
-			volatile_motes = 0.5
-			multiplier = value:orbital_spaceport_motes_mult
-		}
-		upkeep = {
-			exotic_gases = 0.5
-			multiplier = value:orbital_spaceport_gas_mult
-		}
-		upkeep = {
-			rare_crystals = 0.5
-			multiplier = value:orbital_spaceport_crystals_mult
+			energy = 10
 		}
 	}
 
 	planet_modifier = {
-		district_orbital_platform_cap_max = 5
+		district_orbital_platform_cap_max = 1000
 		planet_max_buildings_add = 1
+		orbital_district_alloy_upkeep = 2
+		orbital_district_energy_upkeep = 2
+		orbital_district_sr_upkeep = 0.5
 	}
 	
 	triggered_planet_modifier = {

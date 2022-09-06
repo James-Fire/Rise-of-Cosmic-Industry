@@ -92,32 +92,29 @@ realdev_assembly_or_jobs = {
 		hidden_effect = {
 			if = {
 				limit = {
-					has_planet_flag = realdev_production_instead
+					NOR = { 
+						has_planet_flag = realdev_production
+						has_planet_flag = realdev_assembly
+					}
 				}
-				remove_planet_flag = realdev_production_instead
+				set_planet_flag = realdev_production
 			}
 			else_if = {
 				limit = {
-					NOT = { has_planet_flag = realdev_production_instead }
+					has_planet_flag = realdev_production
 				}
-				set_planet_flag = realdev_production_instead
+				remove_planet_flag = realdev_production
+				set_planet_flag = realdev_assembly
+			}
+			else_if = {
+				limit = {
+					has_planet_flag = realdev_assembly
+				}
+				remove_planet_flag = realdev_assembly
 			}
 		}
 	}
 }
-
-realdev_assembly_speed_title = {
-	potential = { NOT = { has_planet_flag = realdev_production_instead } }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { }
-}
-
-realdev_production_speed_title = {
-	potential = { has_planet_flag = realdev_production_instead }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { }
-}
-
 realdev_build_ratio_bar_1_build = {
     potential = { check_variable = { which = realdev_industry_construction_ratio value >= 0.05 } }
     allow = { hidden_trigger = { always = yes } }

@@ -37,7 +37,8 @@ spriteTypes = {
 	spriteType = { name = "GFX_tr_autofab_infrastructure_support"		textureFile = "gfx/interface/icons/traditions/tradition_autofab_infrastructure_support.dds" }
 	spriteType = { name = "GFX_tr_autofab_environmental_studies"		textureFile = "gfx/interface/icons/traditions/tradition_autofab_environmental_studies.dds" }
 	spriteType = { name = "GFX_tr_autofab_commercial_connections"		textureFile = "gfx/interface/icons/traditions/tradition_autofab_commerce_connections.dds" }
-	spriteType = { name = "GFX_tr_autofab_factory_housing"				textureFile = "gfx/interface/icons/traditions/tradition_autofab_factory_housing.dds" } 
+	spriteType = { name = "GFX_tr_autofab_factory_housing"				textureFile = "gfx/interface/icons/traditions/tradition_autofab_factory_housing.dds" }
+	spriteType = { name = "GFX_tr_autofab_networking"				textureFile = "gfx/interface/icons/traditions/tr_autofab_networking.dds" }
 	spriteType = { name = "GFX_tr_autofab_pride"						textureFile = "gfx/interface/icons/traditions/tradition_autofab_pride.dds" }
 	spriteType = { name = "GFX_tr_autofab_services"						textureFile = "gfx/interface/icons/traditions/tradition_autofab_services.dds" }
 	spriteType = { name = "GFX_tr_autofab_optimization"					textureFile = "gfx/interface/icons/traditions/tradition_autofab_optimization.dds" }

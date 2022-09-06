@@ -114,6 +114,31 @@ country_event = {
 			set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
 			set_country_flag = realdev_variables_set
 			add_modifier = { modifier = realdev_no_build_cap }
+			
+			if = { #Checing if any species the country has can be assembled
+				limit = {
+					any_owned_species = {
+						is_sapient = yes
+						OR = {
+							is_robotic = yes
+							has_trait = trait_plantoid_budding
+							owner = { has_origin = origin_clone_army }
+							owner = { has_civic = civic_permanent_employment }
+							has_trait = trait_clone_soldier_infertile
+							has_trait = trait_clone_soldier_infertile_full_potential
+							AND = {
+								is_organic_species = yes
+								owner = { is_hive_empire = yes }
+								has_trait = trait_hive_mind
+							}
+						}
+					}
+				}
+				set_country_flag = realdev_assembly
+			}
+			else = {
+				set_country_flag = realdev_production
+			}
 		}
 		every_owned_planet = {
 			if = {
@@ -493,7 +518,7 @@ planet_event = {
 					limit = {
 						OR = {
 							can_pops_assemble_on_planet = yes
-							has_planet_flag = realdev_production_instead
+							bonus_production_active = yes
 						}
 					}
 					set_variable = { which = realdev_assembly_speed value = realdev_industry_speed }
@@ -519,7 +544,7 @@ planet_event = {
 					limit = {
 						OR = {
 							can_pops_assemble_on_planet = yes
-							has_planet_flag = realdev_production_instead
+							bonus_production_active = yes
 						}
 					}
 					set_variable = { which = realdev_planet_build_speed value = realdev_industry_speed }
@@ -874,7 +899,7 @@ country_event = {
 				change_variable = { which = realdev_planet_build_speed value = -25 }
 				if = {
 					limit = {
-						NOT = { has_planet_flag = realdev_production_instead }
+						bonus_production_active = no
 					}
 					change_variable = { which = realdev_assembly_speed value = -25 }
 				}
@@ -886,7 +911,7 @@ country_event = {
 				change_variable = { which = realdev_planet_build_speed value = -50 }
 				if = {
 					limit = {
-						NOT = { has_planet_flag = realdev_production_instead }
+						bonus_production_active = no
 					}
 					change_variable = { which = realdev_assembly_speed value = -50 }
 				}
@@ -898,7 +923,7 @@ country_event = {
 				change_variable = { which = realdev_planet_build_speed value = -75 }
 				if = {
 					limit = {
-						NOT = { has_planet_flag = realdev_production_instead }
+						bonus_production_active = no
 					}
 					change_variable = { which = realdev_assembly_speed value = -75 }
 				}
@@ -910,7 +935,7 @@ country_event = {
 				change_variable = { which = realdev_planet_build_speed value = -100 }
 				if = {
 					limit = {
-						NOT = { has_planet_flag = realdev_production_instead }
+						bonus_production_active = no
 					}
 					change_variable = { which = realdev_assembly_speed value = -100 }
 				}
@@ -928,7 +953,7 @@ country_event = {
 				}
 				if = {
 					limit = {
-						NOT = { has_planet_flag = realdev_production_instead }
+						bonus_production_active = no
 					}
 					add_modifier = {
 						modifier = realdev_planet_assembly
