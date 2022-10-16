@@ -207,10 +207,11 @@ fleet_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = no_trade_routes }
-		owner = { any_owned_planet = { root = { has_fleet_flag = kiyo_trade_start@PREV } } }
-		any_country = { is_country_type = default any_owned_planet = { root = { has_fleet_flag = kiyo_trade_end@PREV } } }
-		has_fleet_flag = kiyo_trade_has_trade_route
-		if = { limit = { exists = orbit }
+		if = {
+			limit = { exists = orbit }
+			owner = { any_owned_planet = { root = { has_fleet_flag = kiyo_trade_start@PREV } } }
+			any_country = { is_country_type = default any_owned_planet = { root = { has_fleet_flag = kiyo_trade_end@PREV } } }
+			has_fleet_flag = kiyo_trade_has_trade_route
 			OR = {
 				AND = {
 					has_fleet_flag = kiyo_trade_starting

@@ -95,7 +95,7 @@ on_tech_increased = {
 		
 		realdev.8
 		
-		kiyo_trade_triggered_event.11
+		kiyo_trade_triggered_event.1
 	}
 }
 on_district_complete = {
@@ -126,6 +126,26 @@ on_building_complete = {
 on_ship_designed = {
 	events = {
 		orbitalinfra.8
+	}
+}
+
+# Triggered when an Empire has fleets within another Empire's borders.
+# This = receiver
+# From = sender
+# FromFrom = fleet
+# FromFromFrom = system
+on_enforce_borders = {
+    events = {
+		kiyo_trade_triggered_event.11
+    }
+}
+
+# A war is beginning, executed for every country in the war.
+# Root = Country
+# From = War
+on_war_beginning = {
+	events = {
+		kiyo_trade_triggered_event.12
 	}
 }
 

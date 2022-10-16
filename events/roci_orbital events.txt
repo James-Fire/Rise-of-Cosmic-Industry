@@ -374,90 +374,48 @@ planet_event = {
 		switch = {
 			trigger = last_district_changed
 			district_orbital_platform_research = {
-				update_oi_district_counts = yes
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
-			}
-			district_orbital_platform_research_ai = {
-				remove_district = district_orbital_platform_research_ai
-				add_district = district_orbital_platform_research
 				update_oi_district_counts = yes
-				change_variable = { which = orbital_infrastructure value = 1 }
 			}
 			district_orbital_platform_industrial = {
-				update_oi_district_counts = yes
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
-			}
-			district_orbital_platform_industrial_ai = {
-				remove_district = district_orbital_platform_industrial_ai
-				add_district = district_orbital_platform_industrial
 				update_oi_district_counts = yes
-				change_variable = { which = orbital_infrastructure value = 1 }
 			}
 			district_orbital_platform_city = {
-				update_oi_district_counts = yes
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
+				update_oi_district_counts = yes
 			}
 			district_orbital_platform_refinery = {
-				update_oi_district_counts = yes
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
-			}
-			district_orbital_platform_refinery_ai = {
-				remove_district = district_orbital_platform_refinery_ai
-				add_district = district_orbital_platform_refinery
 				update_oi_district_counts = yes
-				change_variable = { which = orbital_infrastructure value = 1 }
 			}
 			district_orbital_platform_farming = {
-				update_oi_district_counts = yes
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
-			}
-			district_orbital_platform_farming_ai = {
-				remove_district = district_orbital_platform_farming_ai
-				add_district = district_orbital_platform_farming
 				update_oi_district_counts = yes
-				change_variable = { which = orbital_infrastructure value = 1 }
 			}
 			district_orbital_platform_mining = {
-				update_oi_district_counts = yes
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
-			}
-			district_orbital_platform_mining_ai = {
-				remove_district = district_orbital_platform_mining_ai
-				add_district = district_orbital_platform_mining
 				update_oi_district_counts = yes
-				change_variable = { which = orbital_infrastructure value = 1 }
 			}
 			district_orbital_platform_commercial = {
-				update_oi_district_counts = yes
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
+				update_oi_district_counts = yes
 			}
 			district_orbital_platform_solar_array = {
-				update_oi_district_counts = yes
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
-			}
-			district_orbital_platform_solar_array_ai = {
-				remove_district = district_orbital_platform_solar_array_ai
-				add_district = district_orbital_platform_solar_array
 				update_oi_district_counts = yes
-				change_variable = { which = orbital_infrastructure value = 1 }
 			}
 			district_orbital_platform_shipyard = {
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
-				update_oi_district_counts = yes
-			}
-			district_orbital_platform_shipyard_ai = {
-				remove_district = district_orbital_platform_shipyard_ai
-				add_district = district_orbital_platform_shipyard
-				change_variable = { which = orbital_infrastructure value = 1 }
 				update_oi_district_counts = yes
 			}
 			district_orbital_platform_military = {
@@ -465,22 +423,10 @@ planet_event = {
 				alloy_ai_orbital_military_cost = yes
 				update_oi_district_counts = yes
 			}
-			district_orbital_platform_military_ai = {
-				remove_district = district_orbital_platform_military_ai
-				add_district = district_orbital_platform_military
-				change_variable = { which = orbital_infrastructure value = 1 }
-				update_oi_district_counts = yes
-			}
 			district_orbital_platform_admin = {
-				update_oi_district_counts = yes
 				change_variable = { which = orbital_infrastructure value = 1 }
 				alloy_ai_orbital_cost = yes
-			}
-			district_orbital_platform_admin_ai = {
-				remove_district = district_orbital_platform_admin_ai
-				add_district = district_orbital_platform_admin
 				update_oi_district_counts = yes
-				change_variable = { which = orbital_infrastructure value = 1 }
 			}
 		} 
 	}

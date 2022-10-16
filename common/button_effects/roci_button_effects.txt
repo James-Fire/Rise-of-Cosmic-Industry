@@ -378,6 +378,29 @@ roci_exploit_uninhabitables_size_off = {
 		set_global_flag = exploit_uninhabitables_size_off
 	}
 }
+roci_exploit_starting_loops = {
+	potential = { }
+	allow = { always = yes }
+	effect = {
+		custom_tooltip = "roci_exploit_starting_loops_desc"
+	}
+}
+roci_exploit_starting_loops_on = {
+	potential = { has_global_flag = roci_exploit_starting_loops_off }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "roci_exploit_starting_loops_desc"
+		remove_global_flag = roci_exploit_starting_loops_off
+	}
+}
+roci_exploit_starting_loops_off = {
+	potential = { NOT = { has_global_flag = roci_exploit_starting_loops_off } }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "roci_exploit_starting_loops_desc"
+		set_global_flag = roci_exploit_starting_loops_off
+	}
+}
 
 roci_orbital_thumb = {
 	potential = { always = yes }

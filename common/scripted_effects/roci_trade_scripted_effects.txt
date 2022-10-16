@@ -153,7 +153,7 @@ kiyo_trade_calculate_resources = {
 	if = {
 		limit = {
 			owner = {
-				is_same_value = orbit.owner
+				is_same_value = prev.orbit.owner
 			}
 		}
 		set_variable = { which = kiyo_trade_minerals_start value = kiyo_trade_minerals }
@@ -183,7 +183,7 @@ kiyo_trade_calculate_resources = {
 	else_if = {
 		limit = {
 			owner = {
-				NOT = { is_same_value = orbit.owner }
+				NOT = { is_same_value = prev.orbit.owner }
 			}
 		}
 		set_variable = { which = kiyo_trade_minerals_end value = kiyo_trade_minerals }
@@ -240,23 +240,23 @@ kiyo_trade_calculate_resources = {
 	##Apply any relevant multipliers to cargo capacity
 	
 	#Multiply based on number of cargo ships in the fleet
-	multiply_variable = { which = kiyo_trade_minerals value = kiyo_trade_max_cargo_ships_per_fleet }
-	multiply_variable = { which = kiyo_trade_energy value = kiyo_trade_max_cargo_ships_per_fleet }
-	multiply_variable = { which = kiyo_trade_food value = kiyo_trade_max_cargo_ships_per_fleet }
-	multiply_variable = { which = kiyo_trade_unity value = kiyo_trade_max_cargo_ships_per_fleet }
-	multiply_variable = { which = kiyo_trade_consumer_goods value = kiyo_trade_max_cargo_ships_per_fleet }
-	multiply_variable = { which = kiyo_trade_alloys value = kiyo_trade_max_cargo_ships_per_fleet }
-	multiply_variable = { which = kiyo_trade_physics_research value = kiyo_trade_max_cargo_ships_per_fleet }
-	multiply_variable = { which = kiyo_trade_society_research value = kiyo_trade_max_cargo_ships_per_fleet }
-	multiply_variable = { which = kiyo_trade_engineering_research value = kiyo_trade_max_cargo_ships_per_fleet }
-	multiply_variable = { which = kiyo_trade_trade_value value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_minerals value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_energy value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_food value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_unity value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_consumer_goods value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_alloys value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_physics_research value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_society_research value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_engineering_research value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_trade_value value = trigger:num_ships }
 	
 	
 	# 3/4 Cargo if getting cargo from origin to destination
 	if = {
 		limit = {
 			owner = {
-				is_same_value = orbit.owner
+				is_same_value = prev.orbit.owner
 			}
 		}
 		multiply_variable = { which = kiyo_trade_minerals value = 0.75 }

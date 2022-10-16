@@ -26,6 +26,16 @@ shipping = {
 			shipping_energy_upkeep_mult = -0.5
 		}
 	}
+	triggered_planet_modifier = {
+		potential = {
+			orbit = {
+				is_capital = yes
+			}
+		}
+		modifier = {
+			shipping_energy_upkeep_mult = -0.5
+		}
+	}
 	potential = { always = no }
 	drop_weight = { weight = 0 }
 }

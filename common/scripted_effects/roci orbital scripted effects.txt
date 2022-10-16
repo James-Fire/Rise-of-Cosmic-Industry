@@ -215,13 +215,14 @@ oi_update_platforms = {
 	if = {
 		limit = {
 			exists = owner
-			NOT = { solar_system = { any_fleet_in_system = { has_fleet_flag = orbital_infra_defense@prevprev } } }
+			NOT = { exists = global_event_target:defense_fleet@this }
 		}
 		create_fleet = {
 			name = "\\[PREV.GetName] Defense Force"
 			effect = {
+				save_global_event_target_as = defense_fleet@prev
 				set_formation_scale = 3
-				set_fleet_flag = orbital_infra_defense@prevprev
+				set_fleet_flag = orbital_infra_defense@prev
 				set_fleet_flag = orbital_infra_defense
 				set_owner = prev.owner
 				set_location = {
@@ -250,16 +251,16 @@ oi_update_platforms = {
 		}
 	}
 	else = {
-		solar_system = {
-			every_fleet_in_system = {
+		global_event_target:defense_fleet@this = {
+			if = {
 				limit = {
 					exists = owner
-					has_fleet_flag = orbital_infra_defense@prevprev
+					has_fleet_flag = orbital_infra_defense
 				}
 				while = {
-					count = prevprev.orbitalinfra_military
+					count = prev.orbitalinfra_military
 					limit = {
-						count_owned_ship = { limit = { is_ship_size = military_station_small } count < prevprev.orbitalinfra_military_platforms }
+						count_owned_ship = { limit = { is_ship_size = military_station_small } count < prev.orbitalinfra_military_platforms }
 					}
 					create_ship = {
 						name = random
@@ -268,9 +269,9 @@ oi_update_platforms = {
 					}
 				}
 				while = {
-					count = prevprev.orbitalinfra_military
+					count = prev.orbitalinfra_military
 					limit = {
-						count_owned_ship = { limit = { is_ship_size = ion_cannon } count < prevprev.orbitalinfra_military_ion_cannons }
+						count_owned_ship = { limit = { is_ship_size = ion_cannon } count < prev.orbitalinfra_military_ion_cannons }
 					}
 					create_ship = {
 						name = random
@@ -280,7 +281,7 @@ oi_update_platforms = {
 				}
 				while = {
 					limit = {
-						count_owned_ship = { limit = { is_ship_size = military_station_small } count > prevprev.orbitalinfra_military_platforms }
+						count_owned_ship = { limit = { is_ship_size = military_station_small } count > prev.orbitalinfra_military_platforms }
 					}
 					random_owned_ship = {
 						limit = {
@@ -291,7 +292,7 @@ oi_update_platforms = {
 				}
 				while = {
 					limit = {
-						count_owned_ship = { limit = { is_ship_size = ion_cannon } count > prevprev.orbitalinfra_military_ion_cannons }
+						count_owned_ship = { limit = { is_ship_size = ion_cannon } count > prev.orbitalinfra_military_ion_cannons }
 					}
 					random_owned_ship = {
 						limit = {

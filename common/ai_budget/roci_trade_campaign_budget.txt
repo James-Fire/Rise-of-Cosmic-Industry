@@ -11,9 +11,8 @@ kiyo_mod_trade_energy_expenditure_campaigns = {
 	category = campaign_kiyo_mod_trade
 	
 	potential = {
-		if = { limit = { check_variable = { which = kiyo_trade_num_trade_routes value > 0 } }
-			check_variable = { which = kiyo_trade_num_trade_routes value < kiyo_trade_max_trade_routes }
-		}
+		check_variable = { which = kiyo_trade_num_trade_routes value > 0 }
+		check_variable = { which = kiyo_trade_num_trade_routes value < kiyo_trade_max_trade_routes }
 		has_resource = { 
 			type = energy 
 			amount >= 500
@@ -34,11 +33,11 @@ kiyo_mod_trade_energy_expenditure_campaigns = {
 		is_at_war = no
 	}
 	
-	fraction = {
+	weight = {
 		weight = 0.50
 	}
 
-	static_min = {
+	desired_min = {
 		base = 1000
 	}
 }
@@ -49,9 +48,8 @@ kiyo_mod_trade_minerals_expenditure_campaigns = {
 	category = campaign_kiyo_mod_trade
 	
 	potential = {
-		if = { limit = { check_variable = { which = kiyo_trade_num_trade_routes value > 0 } }
-			check_variable = { which = kiyo_trade_num_trade_routes value < kiyo_trade_max_trade_routes }
-		}
+		check_variable = { which = kiyo_trade_num_trade_routes value > 0 }
+		check_variable = { which = kiyo_trade_num_trade_routes value < kiyo_trade_max_trade_routes }
 		has_resource = { 
 			type = energy 
 			amount >= 500
@@ -72,11 +70,11 @@ kiyo_mod_trade_minerals_expenditure_campaigns = {
 		is_at_war = no
 	}
 	
-	fraction = {
+	weight = {
 		weight = 0.75
 	}
 
-	static_min = {
+	desired_min = {
 		base = 2000
 	}
 }

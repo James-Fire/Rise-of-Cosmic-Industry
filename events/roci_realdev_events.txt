@@ -122,13 +122,13 @@ country_event = {
 						OR = {
 							is_robotic = yes
 							has_trait = trait_plantoid_budding
-							owner = { has_origin = origin_clone_army }
-							owner = { has_civic = civic_permanent_employment }
+							PREV = { has_origin = origin_clone_army }
+							PREV = { has_civic = civic_permanent_employment }
 							has_trait = trait_clone_soldier_infertile
 							has_trait = trait_clone_soldier_infertile_full_potential
 							AND = {
 								is_organic_species = yes
-								owner = { is_hive_empire = yes }
+								PREV = { is_hive_empire = yes }
 								has_trait = trait_hive_mind
 							}
 						}
@@ -1265,55 +1265,51 @@ planet_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = no_realdev }
+		has_planet_flag = realdev_planet_take
 	}
 	
 	immediate = {
+		#Cap Industrial Capacity
+		ceiling_variable = realdev_industry
 		if = {
 			limit = {
-				has_planet_flag = realdev_planet_take
+				check_variable = { which = realdev_industry value > realdev_industry_cap }
 			}
-			#Cap Industrial Capacity
-			ceiling_variable = realdev_industry
-			if = {
-				limit = {
-					check_variable = { which = realdev_industry value > realdev_industry_cap }
+			set_variable = { which = realdev_industry_capped value = realdev_industry_cap }
+		}
+		else = {
+			set_variable = { which = realdev_industry_capped value = realdev_industry }
+		}
+		#Split industrial capacity between planet and country or take if needed
+		set_variable = { which = realdev_planet_stockpile value = owner.realdev_country_stockpile }
+		multiply_variable = { which = realdev_planet_stockpile value = realdev_take_ratio }
+		set_variable = { which = realdev_planet_stockpile_display value = realdev_planet_stockpile }
+		
+		owner = { subtract_variable = { which = realdev_country_stockpile value = PREV.realdev_planet_stockpile } }
+		change_variable = { which = realdev_industry_speed value = realdev_planet_stockpile }
+		
+		
+		round_variable = realdev_industry_speed
+		
+		#Split Planet industrial capacity between assembly and construction
+		if = {
+			limit = {
+				OR = {
+					has_building_construction = yes
+					has_planet_flag = factory_expanding
 				}
-				set_variable = { which = realdev_industry_capped value = realdev_industry_cap }
 			}
-			else = {
-				set_variable = { which = realdev_industry_capped value = realdev_industry }
-			}
-			#Split industrial capacity between planet and country or take if needed
-			set_variable = { which = realdev_planet_stockpile value = owner.realdev_country_stockpile }
-			multiply_variable = { which = realdev_planet_stockpile value = realdev_take_ratio }
-			set_variable = { which = realdev_planet_stockpile_display value = realdev_planet_stockpile }
+			set_variable = { which = realdev_planet_build_speed value = realdev_industry_speed }
+			multiply_variable = { which = realdev_planet_build_speed value = realdev_industry_construction_ratio }
 			
-			owner = { subtract_variable = { which = realdev_country_stockpile value = PREV.realdev_planet_stockpile } }
-			change_variable = { which = realdev_industry_speed value = realdev_planet_stockpile }
+			set_variable = { which = realdev_industry_assembly_ratio value = 1 }
+			subtract_variable = { which = realdev_industry_assembly_ratio value = realdev_industry_construction_ratio }
 			
+			set_variable = { which = realdev_assembly_speed value = realdev_industry_speed }
+			multiply_variable = { which = realdev_assembly_speed value = realdev_industry_assembly_ratio }
 			
-			round_variable = realdev_industry_speed
-			
-			#Split Planet industrial capacity between assembly and construction
-			if = {
-				limit = {
-					OR = {
-						has_building_construction = yes
-						has_planet_flag = factory_expanding
-					}
-				}
-				set_variable = { which = realdev_planet_build_speed value = realdev_industry_speed }
-				multiply_variable = { which = realdev_planet_build_speed value = realdev_industry_construction_ratio }
-				
-				set_variable = { which = realdev_industry_assembly_ratio value = 1 }
-				subtract_variable = { which = realdev_industry_assembly_ratio value = realdev_industry_construction_ratio }
-				
-				set_variable = { which = realdev_assembly_speed value = realdev_industry_speed }
-				multiply_variable = { which = realdev_assembly_speed value = realdev_industry_assembly_ratio }
-				
-				round_variable = realdev_planet_build_speed
-				round_variable = realdev_assembly_speed
-			}
+			round_variable = realdev_planet_build_speed
+			round_variable = realdev_assembly_speed
 		}
 	}	
 }
