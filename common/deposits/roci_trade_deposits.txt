@@ -13,7 +13,7 @@ d_kiyo_mod_trade = {
 		}
 		modifier = {
 			trade_value_add = 1
-			mult = kiyo_trade_trade_value
+			multiplier = kiyo_trade_trade_value
 		}
 	}
 	resources = {

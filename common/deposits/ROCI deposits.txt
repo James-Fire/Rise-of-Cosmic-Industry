@@ -28,6 +28,7 @@ shipping = {
 	}
 	triggered_planet_modifier = {
 		potential = {
+			exists = orbit
 			orbit = {
 				is_capital = yes
 			}

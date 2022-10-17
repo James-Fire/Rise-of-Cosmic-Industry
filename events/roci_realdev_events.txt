@@ -407,7 +407,7 @@ planet_event = {
 				has_branch_office = yes
 			}
 			set_variable = { which = realdev_megacorp_factories value = 0 }
-			export_trigger_value_to_variable = { trigger = num_buildings parameters = { type = building_corporate_construction } variable = realdev_megacorp_factories }
+			#export_trigger_value_to_variable = { trigger = num_buildings parameters = { type = building_corporate_construction } variable = realdev_megacorp_factories }
 			multiply_variable = { which = realdev_megacorp_factories value = 10 }
 		}
 	}

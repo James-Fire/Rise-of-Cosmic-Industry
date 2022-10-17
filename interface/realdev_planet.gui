@@ -243,13 +243,12 @@ guiTypes = {
 			containerWindowType = {
 				name = "realdev_current_display_contain"
 				position = { x = -15 y = -1 }
-				size = { width=563 height=280 }
 				effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_small_half_menu_button_bg"	position = { x = 28 y = 42 } clicksound = interface		effect = "realdev_industrial_production" }
 				effectButtonType = {
 					name = "realdev_current_indcap_display"
 					spriteType = "GFX_blank_tiny_menu_button_bg"
 					alwaysTransparent = yes
-					position = { x = 30 y = -41 }
+					position = { x = 30 y = 41 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -261,7 +260,7 @@ guiTypes = {
 					name = "realdev_current_indcap_title"
 					spriteType = "GFX_blank_tiny_menu_button_bg"
 					alwaysTransparent = yes
-					position = { x = 20 y = -68 }
+					position = { x = 20 y = 12 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -273,7 +272,7 @@ guiTypes = {
 					name = "realdev_indcap_title"
 					spriteType = "GFX_blank_tiny_menu_button_bg"
 					alwaysTransparent = yes
-					position = { x = 100 y = -88 }
+					position = { x = -2 y = -4 }
 					format = center
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -285,7 +284,7 @@ guiTypes = {
 					name = "realdev_max_ind_cap_title"
 					spriteType = "GFX_blank_tiny_menu_button_bg"
 					alwaysTransparent = yes
-					position = { x = 180 y = -68 }
+					position = { x = -35 y = 12 }
 					format = right
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -297,7 +296,7 @@ guiTypes = {
 					name = "realdev_max_ind_cap_display"
 					spriteType = "GFX_blank_tiny_menu_button_bg"
 					alwaysTransparent = yes
-					position = { x = 170 y = -41 }
+					position = { x = -35 y = 41 }
 					format = right
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -318,7 +317,7 @@ guiTypes = {
 				name = "realdev_planet_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 57 y = -108 }
+				position = { x = 54 y = -27 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -330,7 +329,7 @@ guiTypes = {
 				name = "realdev_planet_ratio_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 298 y = -118 }
+				position = { x = 195 y = -35 }
 				format = center
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -342,7 +341,7 @@ guiTypes = {
 				name = "realdev_country_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -108 }
+				position = { x = 335 y = -27 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -367,7 +366,7 @@ guiTypes = {
 				name = "realdev_planet_take_ratio_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 298 y = -118 }
+				position = { x = 195 y = -35 }
 				format = center
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -379,7 +378,7 @@ guiTypes = {
 				name = "realdev_country_take_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -108 }
+				position = { x = 335 y = -27 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -487,7 +486,7 @@ guiTypes = {
 				name = "realdev_planet_build_speed_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 57 y = -83 }
+				position = { x = 57 y = 0 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -501,7 +500,7 @@ guiTypes = {
 				name = "realdev_country_build_speed_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -83 }
+				position = { x = 335 y = 0 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -515,7 +514,7 @@ guiTypes = {
 				name = "realdev_planet_take_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 57 y = -83 }
+				position = { x = 57 y = 0 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -529,7 +528,7 @@ guiTypes = {
 				name = "realdev_country_take_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -83 }
+				position = { x = 335 y = 0 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -547,7 +546,7 @@ guiTypes = {
 				name = "realdev_build_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 57 y = -108 }
+				position = { x = 54 y = -30 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -559,7 +558,7 @@ guiTypes = {
 				name = "realdev_build_ratio_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 298 y = -118 }
+				position = { x = 195 y = -35 }
 				format = center
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -571,7 +570,7 @@ guiTypes = {
 				name = "realdev_alt_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -108 }
+				position = { x = 335 y = -30 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -635,7 +634,7 @@ guiTypes = {
 				name = "realdev_build_speed_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 57 y = -83 }
+				position = { x = 57 y = 0 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -649,7 +648,7 @@ guiTypes = {
 				name = "realdev_assembly_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -83 }
+				position = { x = 335 y = 0 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }

@@ -104,7 +104,7 @@ update_oi_district_counts = {
 	update_oi_modifiers = yes
 }
 
-update_oi_modifiers = {	
+update_oi_modifiers = {
 	set_variable = { which = orbital_infrastructure value = value:orbital_district_count }
 	#Military Districts make platforms
 	if = {
@@ -215,7 +215,9 @@ oi_update_platforms = {
 	if = {
 		limit = {
 			exists = owner
-			NOT = { exists = global_event_target:defense_fleet@this }
+			event_target:defense_fleet@this = {
+				exists = this
+			}
 		}
 		create_fleet = {
 			name = "\\[PREV.GetName] Defense Force"
@@ -251,7 +253,7 @@ oi_update_platforms = {
 		}
 	}
 	else = {
-		global_event_target:defense_fleet@this = {
+		event_target:defense_fleet@this = {
 			if = {
 				limit = {
 					exists = owner

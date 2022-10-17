@@ -162,7 +162,6 @@ building_food_processing_center = {
 			}
 			is_planet_class = pc_machine
 			has_modifier = resort_colony
-			buildings_no_motes = yes
 		}
 	}
 
@@ -295,7 +294,6 @@ building_energy_nexus = {
 		OR = {
 			OR = {
 				has_modifier = resort_colony
-				buildings_no_exotic_gases = yes
 			}
 			AND = {
 				owner = {
@@ -437,7 +435,6 @@ building_foundry_3 = {
 			has_modifier = slave_colony
 			AND = {
 				exists = owner
-				buildings_no_motes = yes
 			}
 			AND = {
 				owner = {
@@ -629,18 +626,16 @@ building_mineral_purification_hub = {
 
 	destroy_trigger = {
 		OR = {
-			OR = {
-				has_modifier = resort_colony
-				buildings_no_motes = yes
-			}
+			has_modifier = resort_colony
 
 			AND = {
+				exists = owner
 				owner = {
 					is_ai = yes
-				}	
+				}
 				has_any_mining_district = no
 			}
-		}	
+		}
 	}
 
 

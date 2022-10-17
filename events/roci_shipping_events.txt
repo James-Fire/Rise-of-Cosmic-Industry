@@ -63,7 +63,7 @@ country_event = {
 				limit = {
 					always = no
 					count_system_planet = { count > 1 limit = { is_colony = yes } }
-					owner = { has_technology = tech_placeholder }
+					#owner = { has_technology = tech_placeholder }
 				}
 				system_event = { id = shipping.6 days = 10 }
 			}

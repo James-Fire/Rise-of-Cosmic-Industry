@@ -6,12 +6,10 @@ kiyo_correct_fleet_upkeep = {
 			NOT = { check_variable = { which = kiyo_trade_modifier value = kiyo_trade_max_cargo_ships_per_fleet } }
 		}
 		remove_modifier = kiyo_trade_cargo_fleet_2
-		
 		add_modifier = {
 			modifier = kiyo_trade_cargo_fleet_2 days = -1
 			mult = kiyo_trade_max_cargo_ships_per_fleet
 		}
-		
 		set_variable = { which = kiyo_trade_modifier value = kiyo_trade_max_cargo_ships_per_fleet }
 	}
 }

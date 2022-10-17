@@ -131,16 +131,16 @@ guiTypes = {
 		}
 		containerWindowType = {
 			name = "realdev_indcap_contain"
-			position = { x = 220 y = 35 }
+			position = { x = 220 y = 45 }
 			size = { width=563 height=280 }
 			
 			#Current/Cap IndCap display
-			effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_small_half_menu_button_bg"	position = { x = 28 y = 42 } clicksound = interface		effect = "roci_blank_effect" }
+			effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_small_half_menu_button_bg"	position = { x = 28 y = 35 } clicksound = interface		effect = "roci_blank_effect" }
 			effectButtonType = {
 				name = "realdev_country_indcap_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 30 y = -41 }
+				position = { x = 25 y = 35 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -152,7 +152,7 @@ guiTypes = {
 				name = "realdev_country_indcap_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 20 y = -68 }
+				position = { x = 20 y = 8 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -164,7 +164,7 @@ guiTypes = {
 				name = "realdev_indcap_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 100 y = -88 }
+				position = { x = 0 y = -14 }
 				format = center
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -176,7 +176,7 @@ guiTypes = {
 				name = "realdev_total_ind_cap_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 180 y = -68 }
+				position = { x = -30 y = 8 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -188,7 +188,7 @@ guiTypes = {
 				name = "realdev_total_ind_cap_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 170 y = -41 }
+				position = { x = -35 y = 35 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -208,7 +208,7 @@ guiTypes = {
 				name = "realdev_country_stockpile_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 57 y = -108 }
+				position = { x = 57 y = -27 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -220,7 +220,7 @@ guiTypes = {
 				name = "realdev_country_stockpile_ratio_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 298 y = -118 }
+				position = { x = 198 y = -33 }
 				format = center
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -232,7 +232,7 @@ guiTypes = {
 				name = "realdev_country_usage_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -108 }
+				position = { x = 335 y = -27 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -293,7 +293,7 @@ guiTypes = {
 				name = "realdev_country_stockpile_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 57 y = -83 }
+				position = { x = 57 y = 0 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -307,7 +307,7 @@ guiTypes = {
 				name = "realdev_country_usage_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -83 }
+				position = { x = 330 y = 0 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -329,7 +329,7 @@ guiTypes = {
 				name = "realdev_country_ship_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 57 y = -108 }
+				position = { x = 57 y = -28 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -341,7 +341,7 @@ guiTypes = {
 				name = "realdev_country_ship_ratio_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 298 y = -118 }
+				position = { x = 198 y = -33 }
 				format = center
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -353,7 +353,7 @@ guiTypes = {
 				name = "realdev_country_space_const_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -108 }
+				position = { x = 335 y = -28 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -415,7 +415,7 @@ guiTypes = {
 				name = "realdev_country_ship_speed_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 57 y = -83 }
+				position = { x = 57 y = 0 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -429,7 +429,7 @@ guiTypes = {
 				name = "realdev_country_space_construction_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 545 y = -83 }
+				position = { x = 330 y = 0 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -450,7 +450,7 @@ guiTypes = {
 				name = "realdev_minor_colonies_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 170 y = -108 }
+				position = { x = -43 y = -27 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -462,7 +462,7 @@ guiTypes = {
 				name = "realdev_space_construction_ratio_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 298 y = -118 }
+				position = { x = 170 y = -33 }
 				format = center
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -474,7 +474,7 @@ guiTypes = {
 				name = "realdev_megastructure_speed_title"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 430 y = -108 }
+				position = { x = 430 y = -27 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -537,7 +537,7 @@ guiTypes = {
 				name = "realdev_minor_colonies_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 120 y = -83 }
+				position = { x = -112 y = 0 }
 				format = right
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }
@@ -550,7 +550,7 @@ guiTypes = {
 				name = "realdev_mega_build_speed_display"
 				spriteType = "GFX_blank_tiny_menu_button_bg"
 				alwaysTransparent = yes
-				position = { x = 482 y = -83 }
+				position = { x = 500 y = 0 }
 				format = left
 				no_clicksound = yes
 				borderSize = { x = 10 y = 0 }

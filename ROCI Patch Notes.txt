@@ -9,6 +9,8 @@ Reworded the Autofab module blurb so it doesn't overflow the box.
 
 Added a slight perf improvement to Exploit decisions.
 
+Removed the AI scaling setting for exploit. It doesn't seem that useful.
+
 Fixed Exploit ignoring settings to not build in certain places.
 
 Fixed Exploit ignoring settings to not build certain things.*
@@ -31,6 +33,8 @@ Building the 3 SR constructions is disabled by default, and can't be activated u
 
 Planets exploit can't colonize due to lack of tech no longer show up as available, and can't be queued in the terminal.*
 
+Fixed the location of all the Realdev UI elements, again.
+
 Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per. This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.*
 
 Made unused IP in Planet Aid be distributed to country uses.*
@@ -41,7 +45,7 @@ Added a setting for Shipping to modify shipping cost.*
 
 Habitats in orbit of your capital now get the same 50% discount on shipping the capital does.
 
-Fixed the Orbital Defense Platform not reliably spawning defense platforms.*
+Fixed the Orbital Defense Platform not reliably spawning defense platforms.* (Or disabled them)
 
 
 

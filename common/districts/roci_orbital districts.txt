@@ -1360,7 +1360,7 @@ district_orbital_platform_mining = {
 		uses_orbital_infrastructure = 1
 		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_miners_energy_upkeep_add = 0.5
-		planet_miners_energy_mult = 0.01
+		planet_miners_upkeep_mult = 0.01
 	}
 	triggered_planet_modifier = {
 		potential = {

@@ -19,7 +19,7 @@ autofab_game_start = {
 add_autofab_deposit = {
 	if = {
 		limit = {
-		 NOT = { has_deposit = autofab }
+			NOT = { has_deposit = autofab }
 		}
 		add_deposit = autofab
 	}
