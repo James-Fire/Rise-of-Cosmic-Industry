@@ -7,18 +7,21 @@ country_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = no_realdev }
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+		}
 	}
 	
 	immediate = {
+		reset_realdev_variables = yes
 		every_owned_leader = {
 			limit = {
 				OR = {
 					leader_class = ruler
 					AND = {
 						leader_class = governor
-						sector = {
-							exists = this
-						}
+						exists = sector
 					}
 				}
 			}
@@ -26,9 +29,7 @@ country_event = {
 			if = {
 				limit = {
 					leader_class = governor
-					sector = {
-						exists = this
-					}
+					exists = sector
 				}
 				export_trigger_value_to_variable = {
 					trigger = has_level
@@ -192,6 +193,10 @@ country_event = { #Monthly Country event
 	
 	trigger = {
 		NOT = { has_global_flag = no_realdev }
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+		}
 	}
 	
 	immediate = {
@@ -206,6 +211,10 @@ country_event = { #Monthly Country event
 	
 	trigger = {
 		NOT = { has_global_flag = no_realdev }
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+		}
 	}
 	
 	immediate = {
@@ -611,9 +620,14 @@ country_event = {
 				}
 			}
 			set_variable = { which = realdev_country_industry_display value = realdev_country_industry }
+			if = {
+				limit = {
+					check_variable = { which = orbitalinfra_shipyard value > 0 }
+				}
+				PREV = { change_variable = { which = orbitalinfra_shipyard value = prev.orbitalinfra_shipyard } }
+			}
 			PREV = {
 				change_variable = { which = realdev_country_industry value = prev.realdev_country_industry }
-				change_variable = { which = orbitalinfra_shipyard value = prev.orbitalinfra_shipyard }
 			}
 		}
 		#Count Shipyards - Can't do this yet. Need exporting modifier in starbase scope.
@@ -1031,9 +1045,7 @@ country_event = {
 			if = {
 				limit = {
 					leader_class = governor
-					sector = {
-						exists = this
-					}
+					exists = sector
 				}
 				export_trigger_value_to_variable = {
 					trigger = has_level

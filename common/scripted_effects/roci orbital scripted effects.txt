@@ -214,7 +214,6 @@ oi_update_platforms = {
 	}
 	if = {
 		limit = {
-			exists = owner
 			event_target:defense_fleet@this = {
 				exists = this
 			}
@@ -222,33 +221,33 @@ oi_update_platforms = {
 		create_fleet = {
 			name = "\\[PREV.GetName] Defense Force"
 			effect = {
-				save_global_event_target_as = defense_fleet@prev
-				set_formation_scale = 3
-				set_fleet_flag = orbital_infra_defense@prev
-				set_fleet_flag = orbital_infra_defense
 				set_owner = prev.owner
+				while = {
+					count = 1
+					create_ship = {
+						name = random
+						random_existing_design = military_station_small
+						prefix = yes
+					}
+				}
+				while = {
+					count = 1
+					create_ship = {
+						name = random
+						random_existing_design = ion_cannon
+						prefix = yes
+					}
+				}
 				set_location = {
 					target = prev
 					distance = 0
 					angle = 0
 					direction = in_system
 				}
-				while = {
-					count = prev.orbitalinfra_military_platforms
-					create_ship = {
-						name = random
-						random_existing_design = military_station_small
-						prefix = yes
-					}
-				}
-				while = {
-					count = prev.orbitalinfra_military_ion_cannons
-					create_ship = {
-						name = random
-						random_existing_design = military_station_small
-						prefix = yes
-					}
-				}
+				save_global_event_target_as = defense_fleet@prev
+				set_formation_scale = 3
+				set_fleet_flag = orbital_infra_defense@prev
+				set_fleet_flag = orbital_infra_defense
 			}
 		}
 	}

@@ -22,3 +22,7 @@ realdev_no_build_cap = {
 	country_megastructure_build_cap_add = 1000
 	hide_from_country_list = yes
 }
+realdev_fleet_cap = {
+	country_megastructure_build_cap_add = 1000
+	hide_from_country_list = yes
+}

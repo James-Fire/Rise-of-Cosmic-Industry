@@ -2,8 +2,8 @@ pm_colonized_planet = {
 	modifier = "colonized_planet"
 }
 
-pm_building_thing = {
-	modifier = "building_thing"
+pm_roci_building_thing = {
+	modifier = "roci_building_thing"
 }
 
 pm_orbital_space = {
