@@ -622,3 +622,35 @@ roci_shipping_off = {
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_global_flag = no_shipping }
 }
+roci_shipping_scaling = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "roci_shipping_scaling_desc" }
+}
+roci_shipping_scaling_increase = {
+	potential = { always = yes }
+	allow = { hidden_trigger = { always = yes } }
+	effect = {
+		custom_tooltip = "roci_shipping_scaling_desc"
+		event_target:global_event_country = {
+			change_variable = { which = shipping_scale value = 0.1 }
+		}
+	}
+}
+roci_shipping_scaling_decrease = {
+	potential = { always = yes }
+	allow = {
+		custom_tooltip = {
+			fail_text = "roci_shipping_scaling_decrease_error"
+			event_target:global_event_country = {
+				check_variable = { which = shipping_scale value > 0.1 }
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = "roci_shipping_scaling_desc"
+		event_target:global_event_country = {
+			subtract_variable = { which = shipping_scale value = 0.1 }
+		}
+	}
+}

@@ -1079,23 +1079,23 @@
      realdev_planet_take_display: "[This.realdev_industry_speed_display]"
      realdev_country_take_display: "[This.realdev_planet_stockpile_display]"
      
-     realdev_current_pop_display: "Pops IP: [This.realdev_industry_pops_display]"
+     realdev_current_pop_display: "From Pops: [This.realdev_industry_pops_display]"
      realdev_current_pop_display_tooltip: "Pops produce 1 Industrial Production base. The techs Powered Exoskeletons and Mega-Assembly Systems makes each pop produce an additional IP each. Pops that are enslaved produce an additional IP.\n\nThe following traits provide 1 IP each: Proles, Nerve Stapled, Latent Psionic, Cybernetic, Robust, and Efficient Processors.\n\nThe following traits provide 2 IP each: Enigmatic Intelligence.\n\nThe following traits provide 3 IP each: Erudite and Psionic.\n\nThe Mechanical trait is special. It starts by giving 1 IP. This is upgraded by 1 each upon getting the Droids and Synthetics techs.\n\nPops employed as Maintenance Drones produce 1 additonal IP."
-     realdev_current_pop_cap_display: "Pops IPC: [This.realdev_industry_pops_cap_display]"
+     realdev_current_pop_cap_display: "From Pops: [This.realdev_industry_pops_cap_display]"
      realdev_current_pop_cap_display_tooltip: "Pops provide 2 Industrial Production Capacity base. The techs Powered Exoskeletons and Mega-Assembly Systems makes each pop produce an additional IP Cap each.\n\nThe following traits provide 2 IP Cap each: Latent Psionic, Cybernetic, Robust, and Efficient Processors.\n\nThe following traits provide 4 IP Cap each: Enigmatic Intelligence.\n\nThe following traits provide 6 IP Cap each: Erudite and Psionic.\n\nThe Mechanical trait is special. It starts by giving 2 IP Cap. This is upgraded by 2 each upon getting the Droids and Synthetics techs."
      
-     realdev_current_building_display: "Buildings IP: [This.realdev_building_display]"
+     realdev_current_building_display: "From Buildings: [This.realdev_building_display]"
      realdev_current_building_display_tooltip: "Capital Planets get 20 Industrial Production for being the Capital.\n\nCapital Buildings provide 10 Industrial Production per level past the first, with the Reassembled Ship Shelter providing 5.\n\nEquipment Factories produce 20 Industrial Production per level.\n\nAutofab Factory Modules provide 2 IP per module."
-     realdev_current_building_cap_display: "Buildings IPC: [This.realdev_building_cap_display]"
+     realdev_current_building_cap_display: "From Buildings: [This.realdev_building_cap_display]"
      realdev_current_building_cap_display_tooltip: "Capital Planets get 20 Industrial Production Cap for being the Capital.\n\nCapital Buildings provide 10 Industrial Production Cap per level past the first, with the Reassembled Ship Shelter providing 5."
      
-     realdev_current_job_cap_display: "Jobs IPC: [This.realdev_industry_cap_rulers_display]"
+     realdev_current_job_cap_display: "From Jobs: [This.realdev_industry_cap_rulers_display]"
      realdev_current_job_cap_display_tooltip: "All Ruler jobs provide 10 Industrial Production Cap. Foreman provide 20."
      
-     realdev_current_alloys_display: "Alloys IP: [This.realdev_alloy_production_display]"
+     realdev_current_alloys_display: "From Alloys: [This.realdev_alloy_production_display]"
      realdev_current_alloys_display_tooltip: "Alloys provide 1 Industrial Production per 3 alloys produced on the planet."
      
-     realdev_current_cgs_display: "CGs IP: [This.realdev_congoods_production_display]"
+     realdev_current_cgs_display: "From CGs: [This.realdev_congoods_production_display]"
      realdev_current_cgs_display_tooltip: "Consumer Goods provide 1 Industrial Production per 6 consumer goods produced on the planet."
      
      realdev_construction_ship_display: "Constr. Ship: [This.realdev_construction_ship_industry_display]"
@@ -1531,6 +1531,9 @@
     
     roci_shipping: "Shipping Costs"
     roci_shipping_desc: "This module adds a simple Shipping Costs system to planets that have a deficit of resources, requiring energy to represent the cost of shipping in these resources.\nThis module has a planet modifier that updates monthly to show the current cost of shipping to this planet."
+    roci_shipping_scaling: "Current Multiplier: [event_target:global_event_country.shipping_scale]"
+    roci_shipping_scaling_desc: "The cost of shipping can be scaled by adjusting this setting. It moves in increments of 0.1"
+    roci_shipping_scaling_decrease_error: "The cost of shipping cannot be zero. Disable the module if that's what you want."
     
   #Stupid Stuff that only exists because error log
     autofab_country_default: "Defaulted to Country Setting."

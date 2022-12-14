@@ -16,7 +16,9 @@ event = {
 		set_global_flag = orbital_ring_overwrite
 		#set_global_flag = no_shipping #Shipping is currently off by default
 		#set_global_flag = no_exploit #Exploit is disable until the crashes are fixed in vanilla
-		
+		event_target:global_event_country = {
+			set_variable = { which = shipping_scale value = 1 }
+		}
 		every_country = {
 			set_variable = { which = roci_country_order value = 1 }
 		}

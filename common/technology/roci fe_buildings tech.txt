@@ -248,19 +248,19 @@ tech_roci_archival_records = {
 			factor = 1.25
 			NOR = {
 				research_leader = {
-					area = engineering
+					area = physics
 					has_trait = "leader_trait_expertise_industry"
 				}
 				research_leader = {
-					area = engineering
+					area = physics
 					has_trait = "leader_trait_curator"
 				}
 				research_leader = {
-					area = engineering
+					area = physics
 					has_trait = "leader_trait_spark_of_genius"
 				}
 				research_leader = {
-					area = engineering
+					area = physics
 					has_trait = "leader_trait_maniacal"
 				}				
 			}
@@ -271,19 +271,19 @@ tech_roci_archival_records = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
+				area = physics
 				has_trait = "leader_trait_expertise_industry"
 			}
 			research_leader = {
-				area = engineering
+				area = physics
 				has_trait = "leader_trait_curator"
 			}
 			research_leader = {
-				area = engineering
+				area = physics
 				has_trait = "leader_trait_spark_of_genius"
 			}
 			research_leader = {
-				area = engineering
+				area = physics
 				has_trait = "leader_trait_maniacal"
 			}
 		}
@@ -313,19 +313,19 @@ tech_roci_sky_dome = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
+				area = physics
 				has_trait = "leader_trait_expertise_industry"
 			}
 			research_leader = {
-				area = engineering
+				area = physics
 				has_trait = "leader_trait_curator"
 			}
 			research_leader = {
-				area = engineering
+				area = physics
 				has_trait = "leader_trait_spark_of_genius"
 			}
 			research_leader = {
-				area = engineering
+				area = physics
 				has_trait = "leader_trait_maniacal"
 			}				
 			

@@ -145,6 +145,7 @@ guiTypes = {
 				position = { x = -10 y = -10000 }
 				alwaysTransparent = yes
 				#scale = 0.65
+				effect = "roci_blank_effect"
 			}
 			
 			#Settings
@@ -401,7 +402,10 @@ guiTypes = {
 					font = "cg_16b"
 					text = "roci_shipping"
 					effect = "roci_blank_effect"
-				}
+				}	
+					effectButtonType = { name = "roci_shipping_scaling" spriteType = "GFX_roci_settings_bg" position = { x = -5 y = 50 } borderSize = { x = 10 y = 0 } format = left font = "cg_16b" text = "roci_shipping_scaling" clicksound = interface effect = "roci_shipping_scaling" }
+					effectButtonType = { name = "roci_shipping_scaling_increase" spriteType = "GFX_autofab_menu_plus" position = { x = 146 y = 55 } clicksound = interface effect = "roci_shipping_scaling_increase" }
+					effectButtonType = { name = "roci_shipping_scaling_decrease" spriteType = "GFX_autofab_menu_minus" position = { x = 173 y = 55 } clicksound = interface effect = "roci_shipping_scaling_decrease" }
 					effectButtonType = { name = "roci_shipping_on" spriteType = "GFX_giga_menu_enabled" position = { x = 275 y = -80 } clicksound = interface effect = "roci_shipping_on" }
 					effectButtonType = { name = "roci_shipping_off" spriteType = "GFX_giga_menu_disabled" position = { x = 275 y = -80 } clicksound = interface effect = "roci_shipping_off" }
 			}

@@ -33,7 +33,7 @@ guiTypes = {
 		orientation = center
 		origo = center
 		moveable = yes
-		size = { width = 604 height = 720 }
+		size = { width = 604 height = 665 }
 		containerWindowType = {
 			name = "portrait"
 			position = { x = -95 y = 11000 } #Yeet
@@ -111,22 +111,108 @@ guiTypes = {
 			text = "blank"
 			effect = "realdev_planet_tooltip"
 		}
+		containerWindowType = {
+			name = "realdev_header_contain"
+			position = { x = 187 y = 45 }
+			size = { width=563 height=280 }
+			
+			effectButtonType = {
+				name = "realdev_planet_header_gear_left"
+				spriteType = "GFX_realdev_tiny_gear_anim_ccw"
+				position = { x = 0 y = 0 }
+				format = left
+				no_clicksound = yes
+				alwaysTransparent = yes
+				effect = "roci_blank_effect"
+			}
+			effectButtonType = {
+				name = "realdev_planet_header_gear_right"
+				spriteType = "GFX_realdev_tiny_gear_anim_cw"
+				position = { x = 188 y = 0 }
+				format = left
+				no_clicksound = yes
+				alwaysTransparent = yes
+				effect = "roci_blank_effect"
+			}
+			effectButtonType = {
+				name = "realdev_planet_header"
+				spriteType = "GFX_realdev_header"
+				position = { x = 18 y = -2 }
+				format = left
+				no_clicksound = yes
+				alwaysTransparent = yes
+				effect = "roci_blank_effect" #realdev_industrial_production, pending giving it a tooltip
+			}
+		}
+		effectButtonType = {
+			name = "realdev_planet_dong_lines"
+			spriteType = "GFX_realdev_dong_lines"
+			position = { x = 42 y = 70 }
+			format = left
+			no_clicksound = yes
+			alwaysTransparent = yes
+			effect = "roci_blank_effect"
+		}
 		
 		containerWindowType = {
 			name = "realdev_indcap_contain"
-			position = { x = 225 y = 35 }
+			position = { x = 222 y = 20 }
 			size = { width=563 height=280 }
 			
+			effectButtonType = {
+				name = "realdev_planet_number_box"
+				spriteType = "GFX_realdev_planet_numbers"
+				position = { x = -180 y = -25 }
+				format = left
+				no_clicksound = yes
+				alwaysTransparent = yes
+				effect = "roci_blank_effect"
+			}
+			effectButtonType = {
+				name = "realdev_planet_number_box_bg"
+				spriteType = "GFX_realdev_dual_block"
+				position = { x = -180 y = -25 }
+				format = left
+				no_clicksound = yes
+				alwaysTransparent = yes
+				effect = "roci_blank_effect"
+			}
+			effectButtonType = {
+				name = "realdev_current_indcap_display"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				alwaysTransparent = yes
+				position = { x = 3 y = 85 }
+				format = left
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "realdev_current_indcap_display"
+				effect = "roci_blank_effect"
+			}
+			effectButtonType = {
+				name = "realdev_max_ind_cap_display"
+				spriteType = "GFX_blank_tiny_menu_button_bg"
+				alwaysTransparent = yes
+				position = { x = 103 y = 85 }
+				format = right
+				no_clicksound = yes
+				borderSize = { x = 10 y = 0 }
+				font = "cg_16b"
+				text = "realdev_max_ind_cap_display"
+				effect = "roci_blank_effect"
+			}
 			
 			containerWindowType = {
 				name = "realdev_current_ip_display_contain"
-				position = { x = -70 y = 79 }
+				position = { x = -135 y = 194 }
 				size = { width=563 height=280 }
+				
 				#Sources Block
 				effectButtonType = {
 					name = "realdev_current_pop_display"
-					spriteType = "GFX_small_half_menu_button_bg"
-					position = { x = -148 y = 0 }
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
+					position = { x = 0 y = -37 }
+					size = { width = 145 height = 34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -136,8 +222,9 @@ guiTypes = {
 				}
 				effectButtonType = {
 					name = "realdev_current_building_display"
-					spriteType = "GFX_small_half_menu_button_bg"
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
 					position = { x = 0 y = 0 }
+					size = { width=145 height=34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -147,8 +234,9 @@ guiTypes = {
 				}
 				effectButtonType = {
 					name = "realdev_current_alloys_display"
-					spriteType = "GFX_small_half_menu_button_bg"
-					position = { x = -148 y = 37 }
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
+					position = { x = 0 y = 37 }
+					size = { width=145 height=34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -158,8 +246,9 @@ guiTypes = {
 				}
 				effectButtonType = {
 					name = "realdev_current_cgs_display"
-					spriteType = "GFX_small_half_menu_button_bg"
-					position = { x = 0 y = 37 }
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
+					position = { x = 0 y = 74 }
+					size = { width=145 height=34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -169,8 +258,9 @@ guiTypes = {
 				}
 				effectButtonType = {
 					name = "realdev_current_multiplier_display"
-					spriteType = "GFX_small_half_menu_button_bg"
-					position = { x = 0 y = 74 }
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
+					position = { x = 0 y = 111 }
+					size = { width=145 height=34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -181,12 +271,13 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "realdev_current_ipcap_display_contain"
-				position = { x = 82 y = 79 }
+				position = { x = 135 y = 194 }
 				size = { width=563 height=280 }
 				effectButtonType = {
 					name = "realdev_current_pop_cap_display"
-					spriteType = "GFX_small_half_menu_button_bg"
-					position = { x = 0 y = 0 }
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
+					position = { x = 0 y = -37 }
+					size = { width=145 height=34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -196,8 +287,9 @@ guiTypes = {
 				}
 				effectButtonType = {
 					name = "realdev_current_building_cap_display"
-					spriteType = "GFX_small_half_menu_button_bg"
-					position = { x = 148 y = 0 }
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
+					position = { x = 0 y = 0 }
+					size = { width=145 height=34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -207,8 +299,9 @@ guiTypes = {
 				}
 				effectButtonType = {
 					name = "realdev_current_job_cap_display"
-					spriteType = "GFX_small_half_menu_button_bg"
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
 					position = { x = 0 y = 37 }
+					size = { width=145 height=34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -218,8 +311,9 @@ guiTypes = {
 				}
 				effectButtonType = {
 					name = "realdev_construction_ship_display"
-					spriteType = "GFX_small_half_menu_button_bg"
-					position = { x = 148 y = 37 }
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
+					position = { x = 0 y = 74 }
+					size = { width=145 height=34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -229,8 +323,9 @@ guiTypes = {
 				}
 				effectButtonType = {
 					name = "realdev_current_amenities_display"
-					spriteType = "GFX_small_half_menu_button_bg"
-					position = { x = 0 y = 74 }
+					#spriteType = "GFX_blank_small_half_menu_button_bg"
+					position = { x = 0 y = 111 }
+					size = { width=145 height=34 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
@@ -239,422 +334,394 @@ guiTypes = {
 					effect = "realdev_current_amenities_display"
 				}
 			}
-			#Current/Cap IndCap display
+		}
+		containerWindowType = {
+			name = "realdev_planet_sliders_contain"
+			position = { x = -4 y = 0 }
+			size = { width=563 height=280 }
+			
 			containerWindowType = {
-				name = "realdev_current_display_contain"
-				position = { x = -15 y = -1 }
-				effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_small_half_menu_button_bg"	position = { x = 28 y = 42 } clicksound = interface		effect = "realdev_industrial_production" }
+				name = "realdev_gears_contain"
+				position = { x = 231 y = 450 }
+				size = { width=563 height=280 }
 				effectButtonType = {
-					name = "realdev_current_indcap_display"
-					spriteType = "GFX_blank_tiny_menu_button_bg"
+					name = "realdev_planet_large_gear"
+					spriteType = "GFX_realdev_large_gear_anim"
+					position = { x = 0 y = 50 }
+					format = left
+					no_clicksound = yes
 					alwaysTransparent = yes
-					position = { x = 30 y = 41 }
+					effect = "roci_blank_effect"
+				}
+				effectButtonType = {
+					name = "realdev_planet_small_gear"
+					spriteType = "GFX_realdev_small_gear_anim"
+					position = { x = 70 y = 0 }
+					format = left
+					no_clicksound = yes
+					alwaysTransparent = yes
+					effect = "roci_blank_effect"
+				}
+			}
+			effectButtonType = {
+				name = "realdev_planet_slider_bg"
+				spriteType = "GFX_realdev_slider_space"
+				position = { x = 45 y = 2 }
+				no_clicksound = yes
+				alwaysTransparent = yes
+				effect = "roci_blank_effect"
+			}
+			effectButtonType = {
+				name = "realdev_planet_slider_bg_bg"
+				spriteType = "GFX_realdev_large_block"
+				position = { x = 45 y = 2 }
+				no_clicksound = yes
+				alwaysTransparent = yes
+				effect = "roci_blank_effect"
+			}
+			containerWindowType = {
+				name = "realdev_planet_ratio_contain"
+				position = { x = 20 y = 445 }
+				size = { width=563 height=280 }
+				
+				#Slider background
+				effectButtonType = {
+					name = "realdev_planet_speed_title"
+					alwaysTransparent = yes
+					position = { x = 105 y = -107 }
 					format = left
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
 					font = "cg_16b"
-					text = "realdev_current_indcap_display"
-					effect = "roci_blank_effect"
+					text = "realdev_planet_speed_title"
+					effect = "realdev_planet_take_off"
 				}
 				effectButtonType = {
-					name = "realdev_current_indcap_title"
-					spriteType = "GFX_blank_tiny_menu_button_bg"
+					name = "realdev_planet_ratio_title"
 					alwaysTransparent = yes
-					position = { x = 20 y = 12 }
-					format = left
-					no_clicksound = yes
-					borderSize = { x = 10 y = 0 }
-					font = "cg_16b"
-					text = "realdev_current_indcap_title"
-					effect = "roci_blank_effect"
-				}
-				effectButtonType = {
-					name = "realdev_indcap_title"
-					spriteType = "GFX_blank_tiny_menu_button_bg"
-					alwaysTransparent = yes
-					position = { x = -2 y = -4 }
+					position = { x = 185 y = -110 }
 					format = center
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
 					font = "malgun_goth_24"
-					text = "realdev_indcap_title"
-					effect = "roci_blank_effect"
+					text = "realdev_planet_ratio_title"
+					effect = "realdev_planet_take_off"
 				}
 				effectButtonType = {
-					name = "realdev_max_ind_cap_title"
-					spriteType = "GFX_blank_tiny_menu_button_bg"
+					name = "realdev_country_speed_title"
 					alwaysTransparent = yes
-					position = { x = -35 y = 12 }
+					position = { x = 290 y = -107 }
 					format = right
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
 					font = "cg_16b"
-					text = "realdev_max_ind_cap_title"
-					effect = "roci_blank_effect"
+					text = "realdev_country_speed_title"
+					effect = "realdev_planet_take_off"
+				}
+				
+				effectButtonType = {
+					name = "realdev_planet_take_speed_title"
+					alwaysTransparent = yes
+					position = { x = 100 y = -107 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_planet_take_speed_title"
+					effect = "realdev_planet_take_on"
 				}
 				effectButtonType = {
-					name = "realdev_max_ind_cap_display"
-					spriteType = "GFX_blank_tiny_menu_button_bg"
+					name = "realdev_planet_take_ratio_title"
 					alwaysTransparent = yes
-					position = { x = -35 y = 41 }
+					position = { x = 185 y = -110 }
+					format = center
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "malgun_goth_24"
+					text = "realdev_planet_take_ratio_title"
+					effect = "realdev_planet_take_on"
+				}
+				effectButtonType = {
+					name = "realdev_country_take_speed_title"
+					alwaysTransparent = yes
+					position = { x = 290 y = -107 }
 					format = right
 					no_clicksound = yes
 					borderSize = { x = 10 y = 0 }
 					font = "cg_16b"
-					text = "realdev_max_ind_cap_display"
-					effect = "roci_blank_effect"
+					text = "realdev_country_take_speed_title"
+					effect = "realdev_planet_take_on"
+				}
+				
+				#Slider
+				#effectButtonType = { name = "realdev_planet_ratio"		spriteType = "GFX_medium_menu_button_skinny"	position = { x = 107 y = 2 } clicksound = interface		effect = "roci_blank_effect" }
+				effectButtonType = { name = "realdev_planet_take" spriteType = "GFX_autofab_menu_swap" position = { x = 75 y = 4 } clicksound = interface effect = "realdev_planet_take" }
+				
+				effectButtonType = { name = "realdev_planet_take_increase_planet"		spriteType = "GFX_roci_5_right"	position = { x = 140 y = 8 } clicksound = interface		effect = "realdev_planet_take_increase_planet" }
+				effectButtonType = { name = "realdev_planet_take_increase_country"			spriteType = "GFX_roci_5_left"	position = { x = 426 y = 8 } clicksound = interface		effect = "realdev_planet_take_increase_country" }
+				
+				effectButtonType = { name = "realdev_planet_take_chunk_1_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_2_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_3_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_4_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_5_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_6_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_7_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_8_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_9_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_10_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_11_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_12_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_13_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_14_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_15_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_16_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_17_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_18_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_19_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+				effectButtonType = { name = "realdev_planet_take_chunk_20_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+
+				effectButtonType = { name = "realdev_planet_take_chunk_1_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_take_bar_1_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_2_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_2_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_3_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_3_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_4_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_4_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_5_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_take_bar_5_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_6_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_6_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_7_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_7_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_8_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_8_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_9_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_9_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_10_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_10_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_11_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_11_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_12_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_12_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_13_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_13_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_14_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_14_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_15_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_15_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_16_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_16_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_17_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_17_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_18_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_18_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_19_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_19_planet" }
+				effectButtonType = { name = "realdev_planet_take_chunk_20_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_20_planet" }
+				
+				effectButtonType = { name = "realdev_planet_ratio_increase_planet_speed"		spriteType = "GFX_roci_5_right"	position = { x = 140 y = 8 } clicksound = interface		effect = "realdev_planet_ratio_increase_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_increase_country"			spriteType = "GFX_roci_5_left"		position = { x = 426 y = 8 } clicksound = interface		effect = "realdev_planet_ratio_increase_country" }
+
+				effectButtonType = { name = "realdev_planet_ratio_chunk_1_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_1_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_2_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_2_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_3_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_3_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_4_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_4_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_5_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_5_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_6_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_6_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_7_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_7_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_8_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_8_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_9_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_9_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_10_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_10_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_11_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_11_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_12_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_12_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_13_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_13_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_14_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_14_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_15_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_15_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_16_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_16_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_17_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_17_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_18_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_18_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_19_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_19_country" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_20_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_20_country" }
+
+				effectButtonType = { name = "realdev_planet_ratio_chunk_1_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_1_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_2_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_2_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_3_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_3_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_4_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_4_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_5_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_5_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_6_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_6_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_7_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_7_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_8_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_8_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_9_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_9_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_10_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_10_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_11_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_11_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_12_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_12_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_13_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_13_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_14_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_14_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_15_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_15_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_16_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_16_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_17_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_17_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_18_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_18_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_19_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_19_planet" }
+				effectButtonType = { name = "realdev_planet_ratio_chunk_20_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_20_planet" }
+				
+				#Current Planet display
+				effectButtonType = {
+					name = "realdev_planet_build_speed_display"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 100 y = 0 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_planet_build_speed_display"
+					effect = "realdev_planet_take_off"
+				}
+				
+				#Current Country display
+				effectButtonType = {
+					name = "realdev_country_build_speed_display"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 280 y = 0 }
+					format = right
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_country_build_speed_display"
+					effect = "realdev_planet_take_off"
+				}
+				
+				#Current Planet display
+				effectButtonType = {
+					name = "realdev_planet_take_display"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 100 y = 0 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_planet_take_display"
+					effect = "realdev_planet_take_on"
+				}
+				
+				#Current Country take display
+				effectButtonType = {
+					name = "realdev_country_take_display"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 280 y = 0 }
+					format = right
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_country_take_display"
+					effect = "realdev_planet_take_on"
 				}
 			}
-		}
-		
-		containerWindowType = {
-			name = "realdev_planet_ratio_contain"
-			position = { x = 5 y = 270 }
-			size = { width=563 height=280 }
-			
-			#Slider background
-			effectButtonType = {
-				name = "realdev_planet_speed_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 54 y = -27 }
-				format = left
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_planet_speed_title"
-				effect = "realdev_planet_take_off"
-			}
-			effectButtonType = {
-				name = "realdev_planet_ratio_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 195 y = -35 }
-				format = center
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "malgun_goth_24"
-				text = "realdev_planet_ratio_title"
-				effect = "realdev_planet_take_off"
-			}
-			effectButtonType = {
-				name = "realdev_country_speed_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 335 y = -27 }
-				format = right
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_country_speed_title"
-				effect = "realdev_planet_take_off"
-			}
-			
-			effectButtonType = {
-				name = "realdev_planet_take_speed_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 57 y = -108 }
-				format = left
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_planet_take_speed_title"
-				effect = "realdev_planet_take_on"
-			}
-			effectButtonType = {
-				name = "realdev_planet_take_ratio_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 195 y = -35 }
-				format = center
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "malgun_goth_24"
-				text = "realdev_planet_take_ratio_title"
-				effect = "realdev_planet_take_on"
-			}
-			effectButtonType = {
-				name = "realdev_country_take_speed_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 335 y = -27 }
-				format = right
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_country_take_speed_title"
-				effect = "realdev_planet_take_on"
-			}
-			
-			#Slider
-			effectButtonType = { name = "realdev_planet_ratio"		spriteType = "GFX_long_menu_button_skinny"	position = { x = 60 y = 2 } clicksound = interface		effect = "roci_blank_effect" }
-			effectButtonType = { name = "realdev_planet_take" spriteType = "GFX_autofab_menu_swap" position = { x = 30 y = 3 } clicksound = interface effect = "realdev_planet_take" }
-			
-			effectButtonType = { name = "realdev_planet_take_increase_planet"		spriteType = "GFX_roci_5_right"	position = { x = 140 y = 8 } clicksound = interface		effect = "realdev_planet_take_increase_planet" }
-			effectButtonType = { name = "realdev_planet_take_increase_country"			spriteType = "GFX_roci_5_left"	position = { x = 426 y = 8 } clicksound = interface		effect = "realdev_planet_take_increase_country" }
-			
-			effectButtonType = { name = "realdev_planet_take_chunk_1_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_2_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_3_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_4_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_5_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_6_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_7_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_8_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_9_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_10_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_11_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_12_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_13_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_14_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_15_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_16_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_17_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_18_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_19_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
-			effectButtonType = { name = "realdev_planet_take_chunk_20_bg"	spriteType = "GFX_realdev_background_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_on" }
+			containerWindowType = {
+				name = "realdev_build_ratio_contain"
+				position = { x = 20 y = 503 }
+				size = { width=463 height=80 }
+				
+				effectButtonType = {
+					name = "realdev_build_speed_title"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 95 y = -25 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_build_speed_title"
+					effect = "roci_blank_effect"
+				}
+				effectButtonType = {
+					name = "realdev_build_ratio_title"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 185 y = -27 }
+					format = center
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "malgun_goth_24"
+					text = "realdev_build_ratio_title"
+					effect = "roci_blank_effect"
+				}
+				effectButtonType = {
+					name = "realdev_alt_speed_title"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 290 y = -25 }
+					format = right
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_alt_speed_title"
+					effect = "roci_blank_effect"
+				}
+				
+				
+				effectButtonType = { name = "realdev_assembly_or_jobs" spriteType = "GFX_autofab_menu_swap" position = { x = 75 y = 4 } clicksound = interface effect = "realdev_assembly_or_jobs" }
+				
+				#Slider
+				#effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_medium_menu_button_skinny"	position = { x = 107 y = 2 } clicksound = interface		effect = "roci_blank_effect" }
+				effectButtonType = { name = "realdev_build_ratio_increase_build_speed"		spriteType = "GFX_roci_5_right"	position = { x = 140 y = 8 } clicksound = interface		effect = "realdev_build_ratio_increase_build_speed" }
+				effectButtonType = { name = "realdev_build_ratio_increase_assembly"			spriteType = "GFX_roci_5_left"		position = { x = 426 y = 8 } clicksound = interface		effect = "realdev_build_ratio_increase_assembly" }
 
-			effectButtonType = { name = "realdev_planet_take_chunk_1_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_take_bar_1_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_2_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_2_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_3_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_3_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_4_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_4_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_5_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_take_bar_5_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_6_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_6_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_7_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_7_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_8_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_8_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_9_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_9_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_10_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_10_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_11_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_11_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_12_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_12_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_13_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_13_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_14_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_14_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_15_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_15_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_16_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_16_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_17_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_17_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_18_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_18_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_19_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_19_planet" }
-			effectButtonType = { name = "realdev_planet_take_chunk_20_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_take_bar_20_planet" }
-			
-			effectButtonType = { name = "realdev_planet_ratio_increase_planet_speed"		spriteType = "GFX_roci_5_right"	position = { x = 140 y = 8 } clicksound = interface		effect = "realdev_planet_ratio_increase_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_increase_country"			spriteType = "GFX_roci_5_left"		position = { x = 426 y = 8 } clicksound = interface		effect = "realdev_planet_ratio_increase_country" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_1_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_build_ratio_bar_1_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_2_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_2_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_3_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_3_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_4_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_4_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_5_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_build_ratio_bar_5_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_6_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_6_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_7_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_7_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_8_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_8_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_9_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_9_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_10_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_10_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_11_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_11_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_12_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_12_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_13_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_13_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_14_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_14_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_15_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_15_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_16_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_16_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_17_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_17_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_18_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_18_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_19_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_19_assembly" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_20_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_20_assembly" }
 
-			effectButtonType = { name = "realdev_planet_ratio_chunk_1_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_1_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_2_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_2_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_3_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_3_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_4_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_4_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_5_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_5_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_6_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_6_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_7_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_7_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_8_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_8_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_9_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_9_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_10_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_10_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_11_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_11_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_12_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_12_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_13_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_13_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_14_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_14_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_15_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_15_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_16_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_16_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_17_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_17_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_18_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_18_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_19_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_19_country" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_20_country"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_20_country" }
-
-			effectButtonType = { name = "realdev_planet_ratio_chunk_1_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_1_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_2_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_2_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_3_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_3_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_4_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_4_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_5_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_5_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_6_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_6_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_7_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_7_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_8_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_8_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_9_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_9_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_10_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_10_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_11_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_11_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_12_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_12_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_13_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_13_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_14_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_14_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_15_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_15_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_16_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_16_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_17_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_17_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_18_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_18_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_19_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_19_planet" }
-			effectButtonType = { name = "realdev_planet_ratio_chunk_20_planet"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_planet_ratio_bar_20_planet" }
-			
-			#Current Planet display
-			effectButtonType = {
-				name = "realdev_planet_build_speed_display"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 57 y = 0 }
-				format = left
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_planet_build_speed_display"
-				effect = "realdev_planet_take_off"
-			}
-			
-			#Current Country display
-			effectButtonType = {
-				name = "realdev_country_build_speed_display"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 335 y = 0 }
-				format = right
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_country_build_speed_display"
-				effect = "realdev_planet_take_off"
-			}
-			
-			#Current Planet display
-			effectButtonType = {
-				name = "realdev_planet_take_display"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 57 y = 0 }
-				format = left
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_planet_take_display"
-				effect = "realdev_planet_take_on"
-			}
-			
-			#Current Country take display
-			effectButtonType = {
-				name = "realdev_country_take_display"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 335 y = 0 }
-				format = right
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_country_take_display"
-				effect = "realdev_planet_take_on"
-			}
-		}
-		containerWindowType = {
-			name = "realdev_build_ratio_contain"
-			position = { x = 5 y = 340 }
-			size = { width=463 height=80 }
-			
-			effectButtonType = {
-				name = "realdev_build_speed_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 54 y = -30 }
-				format = left
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_build_speed_title"
-				effect = "roci_blank_effect"
-			}
-			effectButtonType = {
-				name = "realdev_build_ratio_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 195 y = -35 }
-				format = center
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "malgun_goth_24"
-				text = "realdev_build_ratio_title"
-				effect = "roci_blank_effect"
-			}
-			effectButtonType = {
-				name = "realdev_alt_speed_title"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 335 y = -30 }
-				format = right
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_alt_speed_title"
-				effect = "roci_blank_effect"
-			}
-			
-			
-			effectButtonType = { name = "realdev_assembly_or_jobs" spriteType = "GFX_autofab_menu_swap" position = { x = 30 y = 3 } clicksound = interface effect = "realdev_assembly_or_jobs" }
-			
-			#Slider
-			effectButtonType = { name = "realdev_build_ratio"		spriteType = "GFX_long_menu_button_skinny"	position = { x = 60 y = 2 } clicksound = interface		effect = "roci_blank_effect" }
-			effectButtonType = { name = "realdev_build_ratio_increase_build_speed"		spriteType = "GFX_roci_5_right"	position = { x = 140 y = 8 } clicksound = interface		effect = "realdev_build_ratio_increase_build_speed" }
-			effectButtonType = { name = "realdev_build_ratio_increase_assembly"			spriteType = "GFX_roci_5_left"		position = { x = 426 y = 8 } clicksound = interface		effect = "realdev_build_ratio_increase_assembly" }
-
-			effectButtonType = { name = "realdev_build_ratio_chunk_1_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_build_ratio_bar_1_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_2_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_2_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_3_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_3_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_4_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_4_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_5_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_build_ratio_bar_5_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_6_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_6_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_7_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_7_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_8_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_8_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_9_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_9_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_10_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_10_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_11_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_11_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_12_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_12_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_13_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_13_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_14_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_14_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_15_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_15_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_16_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_16_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_17_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_17_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_18_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_18_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_19_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_19_assembly" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_20_assembly"	spriteType = "GFX_realdev_upkeep_ai_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_20_assembly" }
-
-			effectButtonType = { name = "realdev_build_ratio_chunk_1_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_build_ratio_bar_1_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_2_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_2_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_3_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_3_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_4_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_4_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_5_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_build_ratio_bar_5_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_6_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_6_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_7_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_7_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_8_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_8_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_9_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_9_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_10_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_10_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_11_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_11_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_12_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_12_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_13_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_13_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_14_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_14_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_15_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_15_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_16_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_16_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_17_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_17_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_18_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_18_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_19_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_19_build" }
-			effectButtonType = { name = "realdev_build_ratio_chunk_20_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_20_build" }
-			
-			#Current Speed display
-			effectButtonType = {
-				name = "realdev_build_speed_display"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 57 y = 0 }
-				format = left
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_build_speed_display"
-				effect = "roci_blank_effect"
-			}
-			
-			#Current Assembly display
-			effectButtonType = {
-				name = "realdev_assembly_display"
-				spriteType = "GFX_blank_tiny_menu_button_bg"
-				alwaysTransparent = yes
-				position = { x = 335 y = 0 }
-				format = right
-				no_clicksound = yes
-				borderSize = { x = 10 y = 0 }
-				font = "cg_16b"
-				text = "realdev_assembly_display"
-				effect = "roci_blank_effect"
+				effectButtonType = { name = "realdev_build_ratio_chunk_1_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 180 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_build_ratio_bar_1_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_2_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 192 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_2_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_3_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 204 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_3_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_4_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 216 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_4_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_5_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 228 y = 11 } clicksound = interface 	alwaysTransparent = no	effect = "realdev_build_ratio_bar_5_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_6_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 240 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_6_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_7_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 252 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_7_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_8_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 264 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_8_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_9_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 276 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_9_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_10_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 288 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_10_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_11_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 300 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_11_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_12_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 312 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_12_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_13_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 324 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_13_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_14_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 336 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_14_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_15_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 348 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_15_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_16_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 360 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_16_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_17_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 372 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_17_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_18_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 384 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_18_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_19_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 396 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_19_build" }
+				effectButtonType = { name = "realdev_build_ratio_chunk_20_build"	spriteType = "GFX_realdev_output_bar_chunk"	position = { x = 408 y = 11 } clicksound = interface	alwaysTransparent = no	effect = "realdev_build_ratio_bar_20_build" }
+				
+				#Current Speed display
+				effectButtonType = {
+					name = "realdev_build_speed_display"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 100 y = 0 }
+					format = left
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_build_speed_display"
+					effect = "roci_blank_effect"
+				}
+				
+				#Current Assembly display
+				effectButtonType = {
+					name = "realdev_assembly_display"
+					spriteType = "GFX_blank_tiny_menu_button_bg"
+					alwaysTransparent = yes
+					position = { x = 290 y = 0 }
+					format = right
+					no_clicksound = yes
+					borderSize = { x = 10 y = 0 }
+					font = "cg_16b"
+					text = "realdev_assembly_display"
+					effect = "roci_blank_effect"
+				}
 			}
 		}
 		background = {
@@ -663,10 +730,10 @@ guiTypes = {
 		}
 
 		instantTextBoxType = { #Window Title
-			name = "REALDEV_PLANET_MENU"
+			name = "heading"
 			font = "malgun_goth_24"
 			text = "REALDEV_PLANET_MENU"
-			position = { x = 525 y = 15 }
+			position = { x = 5250 y = 15 }
 			maxWidth = 543
 			maxHeight = 22
 			fixedSize = yes

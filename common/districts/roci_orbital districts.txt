@@ -156,6 +156,8 @@ district_orbital_platform_city = {
 	
 	on_built = {
 		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
+		event = { id = orbitalinfra.20 }
 	}
 }
 
@@ -455,6 +457,7 @@ district_orbital_platform_industrial = {
 	
 	on_built = {
 		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
 	}
 }
 district_orbital_platform_research = {
@@ -584,6 +587,7 @@ district_orbital_platform_research = {
 	
 	on_built = {
 		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
 	}
 }
 
@@ -722,6 +726,7 @@ district_orbital_platform_refinery = {
 	
 	on_built = {
 		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
 	}
 }
 
@@ -1140,6 +1145,8 @@ district_orbital_platform_solar_array = {
 	
 	on_built = {
 		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
+		event = { id = orbitalinfra.20 }
 	}
 }
 
@@ -1241,6 +1248,7 @@ district_orbital_platform_commercial = {
 	
 	on_built = {
 		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
 	}
 }
 
@@ -1401,6 +1409,8 @@ district_orbital_platform_mining = {
 	
 	on_built = {
 		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
+		event = { id = orbitalinfra.20 }
 	}
 }
 
@@ -1507,6 +1517,8 @@ district_orbital_platform_farming = {
 	
 	on_built = {
 		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
+		event = { id = orbitalinfra.20 }
 	}
 }
 
@@ -1637,5 +1649,6 @@ district_orbital_platform_admin = {
 	
 	on_built = {
 		remove_deposit = orbital_platform_neg
+		update_oi_modifiers = yes
 	}
 }

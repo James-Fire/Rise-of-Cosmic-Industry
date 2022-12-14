@@ -490,7 +490,8 @@ planet_event = {
 		multiply_variable = { which = realdev_industry_cap value = realdev_industry_multiplier_bonus_2 }
 		
 		#Cap Industrial Capacity
-		multiply_variable = { which = realdev_industry_cap value = 2 } #Double the cap. It's being split 4 ways.
+		#multiply_variable = { which = realdev_industry_cap value = 2 } #Double the cap. It's being split 4 ways.
+		ceiling_variable = realdev_industry_cap
 		ceiling_variable = realdev_industry
 		if = {
 			limit = {
@@ -817,6 +818,16 @@ country_event = {
 				change_variable = { which = realdev_ship_build_speed value = realdev_space_build_speed }
 			}
 		}
+		
+		#Cap Megastructure build speed to 900
+		if = {
+			limit = {
+				check_variable = { which = realdev_mega_build_speed value > 900 }
+			}
+			set_variable = { which = realdev_mega_build_speed value = 900 }
+		}
+		
+		
 		
 		#Pull bonuses from Sector Governors, and Ruler
 		every_owned_leader = { 

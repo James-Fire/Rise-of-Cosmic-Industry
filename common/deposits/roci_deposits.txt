@@ -1,0 +1,359 @@
+###Exploit
+
+d_small_colonies = {
+	is_for_colonizable = yes
+	
+	resources = {
+		category = planet_deposits
+		produces = {
+			trigger = {
+				exists = planet
+				planet = {
+					owner = { is_gestalt = yes }
+				}
+			}
+			energy = 0.25
+		}
+		upkeep = {
+			trigger = {
+				exists = planet
+				planet = {
+					owner = {
+						is_lithoid_empire = yes
+					}
+				}
+			}
+			food = 2
+		}
+		upkeep = {
+			trigger = {
+				exists = planet
+				planet = {
+					owner = {
+						is_lithoid_empire = yes
+					}
+				}
+			}
+			minerals = 2
+		}
+		upkeep = {
+			trigger = {
+				exists = planet
+				planet = {
+					owner = { is_synthetic_empire = yes }
+				}
+			}
+			energy = 2
+		}
+		upkeep = {
+			trigger = {
+				exists = planet
+				planet = {
+					owner = { is_regular_empire = yes }
+				}
+			}
+			consumer_goods = 1
+		}
+		upkeep = {
+			trigger = {
+				exists = planet
+				planet = {
+					owner = { is_regular_empire = no }
+				}
+			}
+			minerals = 2
+		}
+	}
+	planet_modifier = { 
+	}
+	
+	country_modifier = {
+		#country_admin_cap_add = -1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				exists = owner
+				owner = { is_gestalt = no }
+			}
+		}
+		modifier = {
+			trade_value_add = 0.5
+			job_colony_admin_add = 0.5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				exists = owner
+				owner = { is_gestalt = yes }
+			}
+		}
+		modifier = {
+			job_gestalt_colony_admin_add = 0.5
+		}
+	}
+	
+	potential = { always = no }
+	drop_weight = { weight = 0 }
+}
+
+space_ex_construction_1 = {
+	is_for_colonizable = yes
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			trigger = {
+				exists = planet
+				planet = {
+					owner = { is_gestalt = yes }
+				}
+			}
+			energy = 0.25
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				exists = owner
+				owner = { is_gestalt = no }
+			}
+		}
+		modifier = {
+			trade_value_add = 0.5
+		}
+	}
+	
+	potential = {
+		OR = {
+			is_planet_class = pc_gas_giant
+			is_planet_class = pc_molten
+			is_planet_class = pc_toxic
+			is_asteroid = yes
+		}	
+	}
+	
+	drop_weight = {
+		weight = 0			
+	}
+}
+
+###Orbital Infrastructure
+
+orbital_platform = {
+	use_for_min_max_adjustments = yes
+	category = deposit_cat_energy
+	
+	planet_modifier = {
+		district_orbital_platform_cap_max = 1
+	}
+	
+	resources = {
+		category = planet_districts
+		produces = {	
+		}		
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+orbital_platform_neg = {
+	use_for_min_max_adjustments = yes
+	category = deposit_cat_energy
+	
+	planet_modifier = {
+		district_orbital_platform_cap_max = -1
+		planet_max_districts_add = 1
+	}
+	
+	resources = {
+		category = planet_districts
+		produces = {	
+		}		
+	}
+	
+	potential = {
+		always = yes
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+
+###Shipping
+
+shipping = {
+	is_for_colonizable = yes
+	resources = {
+		category = shipping
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			solar_system = {
+				OR = {
+					has_megastructure = gateway_final
+					has_megastructure = gateway_restored
+				}
+			}
+		}
+		modifier = {
+			shipping_energy_upkeep_mult = -0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			is_capital = yes
+		}
+		modifier = {
+			shipping_energy_upkeep_mult = -0.5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			OR = {
+				AND = {
+					exists = orbit
+					orbit = {
+						is_capital = yes
+					}
+				}
+				AND = {
+					exists = orbit.orbit
+					orbit.orbit = {
+						is_capital = yes
+					}
+				}
+			}
+		}
+		modifier = {
+			shipping_energy_upkeep_mult = -0.5
+		}
+	}
+	potential = { always = no }
+	drop_weight = { weight = 0 }
+}
+
+###Cargo Ships
+
+d_kiyo_mod_trade = {
+	is_for_colonizable = yes
+	category = planet_kiyo_mod_trader
+	
+	icon = d_building
+	
+	# trade_value (trade value)
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			check_variable = { which = kiyo_trade_trade_value value > 0 }
+		}
+		modifier = {
+			trade_value_add = 1
+			multiplier = kiyo_trade_trade_value
+		}
+	}
+	resources = {
+		category = planet_kiyo_mod_trader
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_energy value > 0 }
+			}
+			energy = 1
+			multiplier = kiyo_trade_energy
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_minerals value > 0 }
+			}
+			minerals = 1
+			multiplier = kiyo_trade_minerals
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_food value > 0 }
+			}
+			food = 1
+			multiplier = kiyo_trade_food
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_alloys value > 0 }
+			}
+			alloys	= 1
+			multiplier = kiyo_trade_alloys
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_consumer_goods value > 0 }
+			}
+			consumer_goods = 1
+			multiplier = kiyo_trade_consumer_goods
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_minerals value > 0 }
+			}
+			physics_research = 1
+			multiplier = kiyo_trade_physics_research
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_society_research value > 0 }
+			}
+			society_research = 1
+			multiplier = kiyo_trade_society_research
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_engineering_research value > 0 }
+			}
+			engineering_research = 1
+			multiplier = kiyo_trade_engineering_research
+		}
+		produces = {
+			trigger = {
+				check_variable = { which = kiyo_trade_unity value > 0 }
+			}
+			unity = 1
+			multiplier = kiyo_trade_unity
+		}
+	}
+	
+	#planet_modifier = { job_kiyo_mod_trader_add = 1 }
+
+	potential = { can_have_habitable_deposits = yes }
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+###Others
+
+roci_cheat_deposit = {
+	is_for_colonizable = yes
+	
+	resources = {
+		category = planet_deposits
+	}
+	planet_modifier = {
+		planet_max_districts_add = 1
+	}
+	
+	potential = { always = no }
+	drop_weight = { weight = 0 }
+}

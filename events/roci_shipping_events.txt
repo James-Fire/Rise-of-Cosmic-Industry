@@ -228,6 +228,8 @@ system_event = {
 			resource = nanites
 			shipping_cost = @rr_shipping_cost
 		}
+		#Apply scale setting
+		multiply_variable = { which = shipping_costs value = event_target:global_event_country.shipping_scale }
 		
 		#Divide Shipping costs between all planets in the system
 		multiply_variable = { which = shipping_costs value = -1 }
@@ -375,6 +377,8 @@ planet_event = {
 			resource = nanites
 			shipping_cost = @rr_shipping_cost
 		}
+		#Apply scale setting
+		multiply_variable = { which = shipping_costs value = event_target:global_event_country.shipping_scale }
 		
 		multiply_variable = { which = shipping_costs value = -1 }
 		

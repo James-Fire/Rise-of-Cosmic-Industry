@@ -5,55 +5,18 @@ Added Development Milestones. These can affect both the Target system and Ratios
 Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 
-Reworded the Autofab module blurb so it doesn't overflow the box.
 
-Added a slight perf improvement to Exploit decisions.
 
-Removed the AI scaling setting for exploit. It doesn't seem that useful.
 
-Fixed Exploit ignoring settings to not build in certain places.
 
-Fixed Exploit ignoring settings to not build certain things.
+Added a flowchart showing IP production sources and inheritance rules.*
 
-Flattened exploit scripted effect structure.
-
-Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.*
-
-Added an Exploit setting to disable starting Minor Colonies starting with a loop.
-
-Removed the AI Scaling setting.
-
-Fixed Rare Crystal mines only being able to be single-built on planets that were both an ice asteroid and a crystal asteroid.
-
-Fixed Rare Crystal mines only being able to be looped through the decision on crystal asteroids.
-
-Exploit decisions on uninhabitable planets are no longer able to show up if their planet type is disabled.
-
-Exploit decisions on uninhabitable planets are no longer able to show up if their construction type is disabled.
-
-Building on Gas Giants is disabled by default, and can't be activated until you research habitats.
-
-Building the 3 SR constructions is disabled by default, and can't be activated until you research the appropriate tech.
-
-Planets exploit can't colonize due to lack of tech no longer show up as available, and can't be queued in the terminal.
-
-Fixed the location of all the Realdev UI elements, again.
-
-Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per. This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.*
+Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per.
+This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.*
 
 Made unused IP in Planet Aid be distributed to country uses.*
 
-Capped Megastructure Build Speed bonus from Industrial Production to +900% speed (For a total of 1000% speed).*
-
-Added a setting for Shipping to modify shipping cost.*
-
-Habitats in orbit of your capital (Or in orbit of the moon of your capital) now get the same 50% discount on shipping the capital does.
-
-Fixed the Orbital Defense Platform not reliably spawning defense platforms.*
-
-Cleaned up more errors.
-
-
+Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.*
 
 Fixed the Orbital Infrastructure modifier sometimes reporting the clearly wrong value.*
 

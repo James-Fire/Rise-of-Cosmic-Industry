@@ -4,7 +4,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_roci_settings_anim"
 		texturefile = "gfx/interface/menu_ui/roci_settings.dds" #The base image. Defines the size of the sprite.
-		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
 		noOfFrames = 1
 		animation = {
 			animationmaskfile = "gfx/interface/menu_ui/roci_settings.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
@@ -38,7 +38,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_roci_border"
 		texturefile = "gfx/event_pictures/module_thumbnails/roci_module_border.dds" #The base image. Defines the size of the sprite.
-		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
 		noOfFrames = 1
 		animation = {
 			animationmaskfile = "gfx/event_pictures/module_thumbnails/roci_module_border.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
@@ -55,4 +55,125 @@ spriteTypes = {
 		}
 		legacy_lazy_load = no
 	}
+	
+	
+	spriteType = { name = "GFX_realdev_planet_bg"						texturefile = "gfx/interface/menu_ui/industry_production_panel_planet.dds" }
+	
+	##Realdev
+	spriteType = { name = "GFX_realdev_planet_numbers"					texturefile = "gfx/interface/menu_ui/realdev_planet_numbers.dds" }
+	spriteType = { name = "GFX_realdev_country_numbers"					texturefile = "gfx/interface/menu_ui/realdev_country_numbers.dds" }
+	spriteType = { name = "GFX_realdev_country_numbers_bg"					texturefile = "gfx/interface/menu_ui/realdev_country_numbers_bg.dds" }
+	spriteType = { name = "GFX_realdev_country_sliders"					texturefile = "gfx/interface/menu_ui/realdev_country_sliders.dds" }
+	spriteType = { name = "GFX_realdev_header"							texturefile = "gfx/interface/menu_ui/realdev_header.dds" }
+	spriteType = { name = "GFX_realdev_slider_space"							texturefile = "gfx/interface/menu_ui/realdev_slider_space.dds" }
+	spriteType = {
+		name = "GFX_realdev_small_gear_anim"
+		texturefile = "gfx/interface/menu_ui/realdev_cog_small_blank.dds" #The base image. Defines the size of the sprite.
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_cog_small_mask.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/interface/menu_ui/realdev_cog_small.dds" #The image to animate.
+			animationrotation = 0
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "rotating_ccw"  #scrolling, rotating, pulsing, rotating_ccw, rotating_cw
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_realdev_large_gear_anim"
+		texturefile = "gfx/interface/menu_ui/realdev_cog_big_blank.dds" #The base image. Defines the size of the sprite.
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_cog_big_mask.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/interface/menu_ui/realdev_cog_big.dds" #The image to animate.
+			animationrotation = 0.0
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "rotating"  #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_realdev_tiny_gear_anim_ccw"
+		texturefile = "gfx/interface/menu_ui/realdev_cog_tiny_blank.dds" #The base image. Defines the size of the sprite.
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_cog_tiny_mask_left.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/interface/menu_ui/realdev_cog_tiny.dds" #The image to animate.
+			animationrotation = 0.0
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "rotating_ccw"  #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_realdev_tiny_gear_anim_cw"
+		texturefile = "gfx/interface/menu_ui/realdev_cog_tiny_blank.dds" #The base image. Defines the size of the sprite.
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_cog_tiny_mask_right.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/interface/menu_ui/realdev_cog_tiny.dds" #The image to animate.
+			animationrotation = 0.0
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "rotating"  #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_realdev_dong_lines"
+		texturefile = "gfx/interface/menu_ui/realdev_dong_lines.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_dong_lines_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 185.0
+			animationlooping = yes
+			animationtime = 4
+			animationdelay = 5
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_dong_lines_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 185.0
+			animationlooping = yes
+			animationtime = 10
+			animationdelay = 7.5
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	
 }

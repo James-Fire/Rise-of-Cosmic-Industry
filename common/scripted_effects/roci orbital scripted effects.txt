@@ -106,6 +106,11 @@ update_oi_district_counts = {
 
 update_oi_modifiers = {
 	set_variable = { which = orbital_infrastructure value = value:orbital_district_count }
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = district_orbital_platform_military }
+		variable = orbitalinfra_military
+	}
 	#Military Districts make platforms
 	if = {
 		limit = {
@@ -214,16 +219,16 @@ oi_update_platforms = {
 	}
 	if = {
 		limit = {
-			event_target:defense_fleet@this = {
-				exists = this
+			NOT = {
+				exists = event_target:defense_fleet@this
 			}
 		}
 		create_fleet = {
-			name = "\\[PREV.GetName] Defense Force"
+			name = "\\[from.GetName] Defense Force"
 			effect = {
-				set_owner = prev.owner
+				set_owner = from.owner
 				while = {
-					count = 1
+					count = from.orbitalinfra_military_platforms
 					create_ship = {
 						name = random
 						random_existing_design = military_station_small
@@ -231,7 +236,7 @@ oi_update_platforms = {
 					}
 				}
 				while = {
-					count = 1
+					count = from.orbitalinfra_military_ion_cannons
 					create_ship = {
 						name = random
 						random_existing_design = ion_cannon
@@ -239,14 +244,14 @@ oi_update_platforms = {
 					}
 				}
 				set_location = {
-					target = prev
+					target = from
 					distance = 0
 					angle = 0
 					direction = in_system
 				}
-				save_global_event_target_as = defense_fleet@prev
+				save_global_event_target_as = defense_fleet@from
 				set_formation_scale = 3
-				set_fleet_flag = orbital_infra_defense@prev
+				set_fleet_flag = orbital_infra_defense@from
 				set_fleet_flag = orbital_infra_defense
 			}
 		}
@@ -259,7 +264,7 @@ oi_update_platforms = {
 					has_fleet_flag = orbital_infra_defense
 				}
 				while = {
-					count = prev.orbitalinfra_military
+					count = prev.orbitalinfra_military_platforms
 					limit = {
 						count_owned_ship = { limit = { is_ship_size = military_station_small } count < prev.orbitalinfra_military_platforms }
 					}
@@ -270,7 +275,7 @@ oi_update_platforms = {
 					}
 				}
 				while = {
-					count = prev.orbitalinfra_military
+					count = prev.orbitalinfra_military_ion_cannons
 					limit = {
 						count_owned_ship = { limit = { is_ship_size = ion_cannon } count < prev.orbitalinfra_military_ion_cannons }
 					}
