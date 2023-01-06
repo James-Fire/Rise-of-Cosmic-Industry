@@ -99,6 +99,38 @@ pay_for_autofab = {
 			}
 		}
 	}
+	else_if = {
+		limit = {
+			uses_alderson_gaia_district_set = yes
+		}
+		owner = {
+			add_resource = {
+				energy = @Negringdistrictcost
+			}
+			add_resource = {
+				minerals = @Negringdistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			uses_alderson_ecu_district_set = yes
+		}
+		owner = {
+			add_resource = {
+				energy = @Negringdistrictcost
+			}
+			add_resource = {
+				minerals = @Negringdistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
 }
 pay_for_district = {
 	if = {
@@ -147,6 +179,38 @@ pay_for_district = {
 		owner = {
 			add_resource = {
 				minerals = @Negringdistrictcost
+			}
+			add_resource = {
+				alloys = @Negfactoryalloycost
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			uses_alderson_gaia_district_set = yes
+		}
+		owner = {
+			add_resource = {
+				energy = @Negaldersongaiadistrictcost
+			}
+			add_resource = {
+				minerals = @Negaldersongaiadistrictcost
+			}
+			add_resource = {
+				alloys = @Negfactoryalloycost
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			uses_alderson_ecu_district_set = yes
+		}
+		owner = {
+			add_resource = {
+				energy = @Negaldersonecudistrictcost
+			}
+			add_resource = {
+				minerals = @Negaldersonecudistrictcost
 			}
 			add_resource = {
 				alloys = @Negfactoryalloycost

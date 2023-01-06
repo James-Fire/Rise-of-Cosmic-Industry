@@ -107,6 +107,32 @@ can_afford_autofab = {
 				}
 			}
 		}
+		AND = {
+			uses_alderson_gaia_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @ringdistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = energy
+					value >= @ringdistrictcost
+				}
+			}
+		}
+		AND = {
+			uses_alderson_ecu_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @aldersonecudistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = energy
+					value >= @aldersonecudistrictcost
+				}
+			}
+		}
 	}
 }
 can_afford_module = {
@@ -160,6 +186,32 @@ can_afford_module = {
 				resource_stockpile_compare = {
 					resource = alloys
 					value >= @factoryalloycost
+				}
+			}
+		}
+		AND = {
+			uses_alderson_gaia_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @aldersongaiadistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = energy
+					value >= @aldersongaiadistrictcost
+				}
+			}
+		}
+		AND = {
+			uses_alderson_ecu_district_set = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= @aldersonecudistrictcost
+				}
+				resource_stockpile_compare = {
+					resource = energy
+					value >= @aldersonecudistrictcost
 				}
 			}
 		}

@@ -524,6 +524,13 @@ document_factory_planet = {
 				set_variable = { which = autofab_gases_available value = autofab_districts_available }
 				set_variable = { which = autofab_crystals_available value = autofab_districts_available }
 			}
+			giga_equatorial_shipyard = {
+				set_variable = { which = autofab_foundry_available value = autofab_districts_available }
+				set_variable = { which = autofab_energy_avail value = autofab_districts_available }
+			}
+			giga_gas_giant_habitat = {
+				set_variable = { which = autofab_energy_avail value = autofab_districts_available }
+			}
 			standard = {
 				count_limited_districts = yes
 				if = {
@@ -791,6 +798,97 @@ document_factory_planet = {
 					limit = {
 						can_build_fallback_planet = yes
 					}
+					change_variable = { which = autofab_foundry_available value = autofab_districts_available }
+					change_variable = { which = autofab_factory_available value = autofab_districts_available }
+					change_variable = { which = autofab_motes_available value = autofab_districts_available }
+					change_variable = { which = autofab_gases_available value = autofab_districts_available }
+					change_variable = { which = autofab_crystals_available value = autofab_districts_available }
+				}
+				else = {
+					if = {
+						limit = {
+							is_alloys_colony = yes
+						}
+						change_variable = { which = autofab_foundry_available value = autofab_districts_available }
+					}
+					else_if = {
+						limit = {
+							is_congood_colony = yes
+						}
+						change_variable = { which = autofab_factory_available value = autofab_districts_available }
+					}
+					else_if = {
+						limit = {
+							is_refinery_colony = yes
+						}
+						change_variable = { which = autofab_motes_available value = autofab_districts_available }
+						change_variable = { which = autofab_gases_available value = autofab_districts_available }
+						change_variable = { which = autofab_crystals_available value = autofab_districts_available }
+					}
+				}
+			}
+		}
+		switch={
+			trigger = has_planet_flag
+			giga_alderson_gaia = {if = {
+					limit = {
+						can_build_fallback_planet = yes
+					}
+					change_variable = { which = autofab_energy_avail value = autofab_districts_available }
+					change_variable = { which = autofab_minerals_avail value = autofab_districts_available }
+					change_variable = { which = autofab_food_avail value = autofab_districts_available }
+	
+					change_variable = { which = autofab_foundry_available value = autofab_districts_available }
+					change_variable = { which = autofab_factory_available value = autofab_districts_available }
+					change_variable = { which = autofab_motes_available value = autofab_districts_available }
+					change_variable = { which = autofab_gases_available value = autofab_districts_available }
+					change_variable = { which = autofab_crystals_available value = autofab_districts_available }
+				}
+				else = {
+					if = {
+						limit = {
+							is_energy_colony = yes
+						}
+						change_variable = { which = autofab_energy_avail value = autofab_districts_available }
+					}
+					else_if = {
+						limit = {
+							is_mining_colony = yes
+						}
+						change_variable = { which = autofab_minerals_avail value = autofab_districts_available }
+					}
+					else_if = {
+						limit = {
+							is_farming_colony = yes
+						}
+						change_variable = { which = autofab_food_avail value = autofab_districts_available }
+					}
+					else_if = {
+						limit = {
+							is_alloys_colony = yes
+						}
+						change_variable = { which = autofab_foundry_available value = autofab_districts_available }
+					}
+					else_if = {
+						limit = {
+							is_congood_colony = yes
+						}
+						change_variable = { which = autofab_factory_available value = autofab_districts_available }
+					}
+					else_if = {
+						limit = {
+							is_refinery_colony = yes
+						}
+						change_variable = { which = autofab_motes_available value = autofab_districts_available }
+						change_variable = { which = autofab_gases_available value = autofab_districts_available }
+						change_variable = { which = autofab_crystals_available value = autofab_districts_available }
+					}
+				}
+			}
+			giga_alderson_ecu = {if = {
+					limit = {
+						can_build_fallback_planet = yes
+					}	
 					change_variable = { which = autofab_foundry_available value = autofab_districts_available }
 					change_variable = { which = autofab_factory_available value = autofab_districts_available }
 					change_variable = { which = autofab_motes_available value = autofab_districts_available }

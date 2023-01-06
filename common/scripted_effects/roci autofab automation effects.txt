@@ -195,4 +195,68 @@ autofab_account_energy_module = {
 			}
 		}
 	}
+	else_if = {
+		limit = {
+			uses_district_set = giga_equatorial_shipyard
+		}
+		owner = {
+			add_resource = {
+				energy = @Negspecialdistrictcost
+			}
+			add_resource = {
+				minerals = @Negspecialdistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			uses_district_set = giga_gas_giant_habitat
+		}
+		owner = {
+			add_resource = {
+				energy = @Negspecialdistrictcost
+			}
+			add_resource = {
+				minerals = @Negspecialdistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_planet_flag = giga_alderson_gaia
+		}
+		owner = {
+			add_resource = {
+				energy = @Negaldersongaiadistrictcost
+			}
+			add_resource = {
+				minerals = @Negaldersongaiadistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_planet_flag = giga_alderson_ecu
+		}
+		owner = {
+			add_resource = {
+				energy = @Negaldersonecudistrictcost
+			}
+			add_resource = {
+				minerals = @Negaldersonecudistrictcost
+			}
+			add_resource = {
+				alloys = @Negautofaballoycost
+			}
+		}
+	}
 }

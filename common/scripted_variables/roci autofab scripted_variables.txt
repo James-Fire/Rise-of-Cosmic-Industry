@@ -4,6 +4,8 @@
 @specialdistrictcost = 300
 @ringdistrictcost = 2000
 @factoryalloycost = 50
+@aldersongaiadistrictcost = 18000
+@aldersonecudistrictcost = 27000
 
 @autofab_construction_time = 1080
 @factory_construction_time = 480
@@ -16,6 +18,8 @@
 @Negspecialdistrictcost = -300
 @Negringdistrictcost = -2000
 @Negfactoryalloycost = -50
+@Negaldersongaiadistrictcost = -18000
+@Negaldersonecudistrictcost = -27000
 
 @Negautofaballoycost = -150
 

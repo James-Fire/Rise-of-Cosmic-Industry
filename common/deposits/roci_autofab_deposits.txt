@@ -243,6 +243,32 @@ autofab_power = {
 			energy = 4
 			rare_crystals = 2
 		}
+		#Gigas
+		produces = {
+			trigger = {
+				planet = { uses_district_set = giga_gas_giant_habitat }
+			}
+			energy = 12
+		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = giga_gas_giant_habitat }
+			}
+			energy = 1
+		}
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			energy = 468
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			energy = 83
+			rare_crystals = 24
+		}
 		
 		#Boosting Building Stuff
 		produces = {
@@ -438,6 +464,21 @@ autofab_farm = {
 			energy = 4
 			volatile_motes = 2
 		}
+		#Gigas
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			food = 708
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			energy = 79
+			volatile_motes = 24
+		}
+
 		
 		#Boosting Building Stuff
 		produces = {
@@ -645,6 +686,21 @@ autofab_mine = {
 			alloys = 4
 			minerals = -4
 		}
+		#Gigas
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			minerals = 468
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			energy = 79
+			exotic_gases = 24
+		}
+
 		
 		#Boosting Building Stuff
 		produces = {
@@ -815,27 +871,27 @@ autofab_foundry = {
 			trigger = {
 				planet = { uses_district_set = city_world }
 			}
-			alloys = 6
+			alloys = 12
 		}
 		upkeep = {
 			trigger = {
 				planet = { uses_district_set = city_world }
 			}
-			energy = 6
+			energy = 12
 		}
 		upkeep = {
 			trigger = {
 				owner = { is_catalytic_empire = no }
 				planet = { uses_district_set = city_world }
 			}
-			minerals = 12
+			minerals = 24
 		}
 		upkeep = {
 			trigger = {
 				owner = { is_catalytic_empire = yes }
 				planet = { uses_district_set = city_world }
 			}
-			food = 18
+			food = 36
 		}
 		produces = {
 			trigger = {
@@ -864,6 +920,88 @@ autofab_foundry = {
 			}
 			food = 162
 		}
+		#Gigas
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			alloys = 354
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			energy = 79
+			volatile_motes = 24
+		}
+		upkeep = {
+			trigger = {
+				owner = { is_catalytic_empire = no }
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			minerals = 708
+		}
+		upkeep = {
+			trigger = {
+				owner = { is_catalytic_empire = yes }
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			food = 1062
+		}
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			alloys = 534
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			energy = 91
+			volatile_motes = 24
+		}
+		upkeep = {
+			trigger = {
+				owner = { is_catalytic_empire = no }
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			minerals = 1068
+		}
+		upkeep = {
+			trigger = {
+				owner = { is_catalytic_empire = yes }
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			food = 1602
+		}
+		produces = {
+			trigger = {
+				planet = { uses_district_set = giga_equatorial_shipyard }
+			}
+			alloys = 3
+		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = giga_equatorial_shipyard }
+			}
+			energy = 3
+		}
+		upkeep = {
+			trigger = {
+				owner = { is_catalytic_empire = no }
+				planet = { uses_district_set = giga_equatorial_shipyard }
+			}
+			minerals = 12
+		}
+		upkeep = {
+			trigger = {
+				owner = { is_catalytic_empire = yes }
+				planet = { uses_district_set = giga_equatorial_shipyard }
+			}
+			food = 18
+		}
+
 		
 		#Boosting Building Stuff
 		produces = {
@@ -1231,6 +1369,35 @@ autofab_factory = {
 			minerals = 108
 			rare_crystals = 2
 		}
+		#Gigas
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			consumer_goods = 708
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_gaia }
+			}
+			energy = 79
+			rare_crystals = 24
+			minerals = 708
+		}
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			consumer_goods = 1068
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			energy = 91
+			rare_crystals = 24
+			minerals = 1068
+		}
 		
 		#Boosting Building Stuff
 		produces = {
@@ -1479,6 +1646,24 @@ autofab_motes_refinery = {
 			energy = 10
 			minerals = 20
 		}
+		
+		#Gigas		
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			volatile_motes = 36
+			rare_crystals = 40
+			exotic_gases = 40
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			minerals = 580
+			energy = 62
+		}
+
 		produces = {
 			trigger = {
 				planet = { has_building = building_roci_dimensional_fabricator_mod }
@@ -1537,6 +1722,22 @@ autofab_gases_refinery = {
 		upkeep = {
 			energy = 10
 			minerals = 20
+		}
+		#Gigas		
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			volatile_motes = 40
+			rare_crystals = 40
+			exotic_gases = 36
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			minerals = 580
+			energy = 62
 		}
 		produces = {
 			trigger = {
@@ -1597,6 +1798,23 @@ autofab_crystals_refinery = {
 			energy = 10
 			minerals = 20
 		}
+		#Gigas		
+		produces = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			volatile_motes = 40
+			rare_crystals = 36
+			exotic_gases = 40
+		}
+		upkeep = {
+			trigger = {
+				planet = { has_planet_flag = giga_alderson_ecu }
+			}
+			minerals = 580
+			energy = 62
+		}
+
 		produces = {
 			trigger = {
 				planet = { has_building = building_roci_dimensional_fabricator_mod }
@@ -1701,7 +1919,7 @@ autofab_refinery_extractor = {
 	country_modifier = {
 		#country_admin_cap_add = -1
 	}
-
+	
 	triggered_planet_modifier = {
 		potential = {
 			count_deposits = { type = d_industrial_sector count > 0 }

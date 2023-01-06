@@ -87,6 +87,8 @@ uses_base_district_set = {
 uses_habitat_district_set = {
 	OR = {
 		uses_district_set = habitat
+		uses_district_set = giga_gas_giant_habitat
+		uses_district_set = giga_equatorial_shipyard
 	}
 }
 uses_city_district_set = {
@@ -96,13 +98,23 @@ uses_city_district_set = {
 }
 uses_ringworld_district_set = {
 	OR = {
-		uses_district_set = ring_world
+		uses_district_set = ring_world		
 	}
 }
 uses_infinite_space_district_set = {
 	OR = {
 		uses_district_set = giga_birch
 		uses_district_set = acot_giga_void_sphere
+	}
+}
+uses_alderson_gaia_district_set = {
+	OR = {
+		has_planet_flag = giga_alderson_gaia
+	}
+}
+uses_alderson_ecu_district_set = {
+	OR = {
+		has_planet_flag = giga_alderson_ecu
 	}
 }
 
@@ -143,6 +155,8 @@ has_energy_available = {
 				uses_district_set = machine_world
 				uses_district_set = ring_world
 				uses_district_set = shattered_ring_world
+				uses_alderson_gaia_district_set = yes
+				uses_district_set = giga_gas_giant_habitat
 				AND = {
 					uses_district_set = habitat
 					OR = {
@@ -173,6 +187,7 @@ has_minerals_available = {
 				uses_district_set = hive_world
 				uses_district_set = machine_world
 				uses_district_set = shattered_ring_world
+				uses_alderson_gaia_district_set = yes
 				AND = {
 					uses_district_set = habitat
 					has_planet_flag = mining_habitat
@@ -194,6 +209,7 @@ has_food_available = {
 				uses_district_set = hive_world
 				uses_district_set = ring_world
 				uses_district_set = shattered_ring_world
+				uses_alderson_gaia_district_set = yes
 			}
 			free_district_slots > 0
 		}
@@ -224,7 +240,7 @@ has_rare_resource_deposit = {
 		has_deposit = d_hab_gas_3
 		has_deposit = d_hab_gas_4
 		has_deposit = d_hab_gas_5
-		has_deposit = d_industrial_sector
+		has_deposit = d_industrial_sector		
 	}
 }
 
