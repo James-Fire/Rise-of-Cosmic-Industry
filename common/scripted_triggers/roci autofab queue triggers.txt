@@ -50,62 +50,12 @@ can_build_fallback_planet = {
 can_afford_autofab = {
 	owner = {
 		resource_stockpile_compare = {
-			resource = alloys
-			value >= @autofaballoycost
+			resource = minerals
+			value >= @autofab_cost
 		}
-	}
-	OR = {
-		AND = {
-			uses_base_district_set = yes
-			owner = {
-				resource_stockpile_compare = {
-					resource = minerals
-					value >= @districtcost
-				}
-				resource_stockpile_compare = {
-					resource = energy
-					value >= @districtcost
-				}
-			}
-		}
-		AND = {
-			uses_habitat_district_set = yes
-			owner = {
-				resource_stockpile_compare = {
-					resource = minerals
-					value >= @habdistrictcost
-				}
-				resource_stockpile_compare = {
-					resource = energy
-					value >= @habdistrictcost
-				}
-			}
-		}
-		AND = {
-			uses_city_district_set = yes
-			owner = {
-				resource_stockpile_compare = {
-					resource = minerals
-					value >= @citydistrictcost
-				}
-				resource_stockpile_compare = {
-					resource = energy
-					value >= @citydistrictcost
-				}
-			}
-		}
-		AND = {
-			uses_ringworld_district_set = yes
-			owner = {
-				resource_stockpile_compare = {
-					resource = minerals
-					value >= @ringdistrictcost
-				}
-				resource_stockpile_compare = {
-					resource = energy
-					value >= @ringdistrictcost
-				}
-			}
+		resource_stockpile_compare = {
+			resource = energy
+			value >= @autofab_cost
 		}
 	}
 }

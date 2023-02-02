@@ -26,6 +26,13 @@ add_autofab_deposit = {
 }
 
 set_autofab_variables_initial = {
+	if = {
+		limit = {
+			is_scope_type = planet
+		}
+		set_variable = { which = roci_autofab_basic_jobs value = value:roci_autofab_basic_jobs }
+		set_variable = { which = roci_autofab_advanced_jobs value = value:roci_autofab_advanced_jobs }
+	}
 	set_variable = { which = autofabs value = 0 }
 	set_variable = { which = autofab_modules value = 0 }
 	set_variable = { which = autofab_districts_queued value = 0 }
@@ -74,7 +81,6 @@ set_autofab_variables_initial = {
 	set_variable = { which = autofab_gases_queue value = 0 }
 	set_variable = { which = autofab_crystals_queue value = 0 }
 	set_variable = { which = autofab_extractor_queue value = 0 }
-
 }
 
 set_unset_variables = {

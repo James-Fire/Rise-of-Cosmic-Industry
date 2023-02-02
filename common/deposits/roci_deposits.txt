@@ -19,7 +19,9 @@ d_small_colonies = {
 				exists = planet
 				planet = {
 					owner = {
-						is_lithoid_empire = yes
+						is_lithoid_empire = no
+						is_synthetic_empire = no
+						is_regular_empire = yes
 					}
 				}
 			}

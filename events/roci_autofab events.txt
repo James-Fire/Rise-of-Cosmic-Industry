@@ -486,6 +486,20 @@ country_event = {
 	}	
 }
 planet_event = {
+	id = autofab.5
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = no_autofab }
+	}
+
+	immediate = {
+		set_variable = { which = roci_autofab_basic_jobs value = value:roci_autofab_basic_jobs }
+		set_variable = { which = roci_autofab_advanced_jobs value = value:roci_autofab_advanced_jobs }
+	}	
+}
+planet_event = {
 	id = autofab.11
 	is_triggered_only = yes
 	title = "autofab.11.name"
@@ -498,8 +512,7 @@ planet_event = {
 
 	option = {
 		name = Understood
-	}
-	
+	}	
 }
 
 #Vanilla Swapping

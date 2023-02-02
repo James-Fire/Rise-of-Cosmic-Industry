@@ -36,6 +36,8 @@ on_yearly_pulse = {
 }
 on_yearly_pulse_country = {
 	events = {
+		autofab.5
+		
 		roci_menu.40
 		
 		kiyo_trade_triggered_event.8
@@ -191,7 +193,9 @@ on_colonized = {
 # From = Terraforming country
 on_terraforming_complete = {
 	events = {
+		autofab.5
 		autofab.30
+		
 		shipping.1
 	}
 }

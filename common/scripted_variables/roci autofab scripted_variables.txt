@@ -5,6 +5,7 @@
 @ringdistrictcost = 2000
 @factoryalloycost = 50
 
+@autofab_cost = 400
 @autofab_construction_time = 1080
 @factory_construction_time = 480
 @factory_retool_time = 180
@@ -17,6 +18,7 @@
 @Negringdistrictcost = -2000
 @Negfactoryalloycost = -50
 
+@Negautofab_cost = -400
 @Negautofaballoycost = -150
 
 @min_maint_res = 10

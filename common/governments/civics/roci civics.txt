@@ -1,4 +1,4 @@
-civic_construction_company = {
+roci_civic_construction_company = {
 	description = "civic_construction_company_effects"
 	
 	playable = {
@@ -23,7 +23,7 @@ civic_construction_company = {
 	}
 }
 
-origin_autofab = {
+roci_origin_autofab = {
 	is_origin = yes
 	icon = "gfx/interface/icons/origins/origin_autofab.dds"
 	picture = GFX_origin_autofab
@@ -52,7 +52,7 @@ origin_autofab = {
 	}
 }
 
-civic_autofab = {
+roci_civic_autofab = {
 	description = "civic_tooltip_autofab_effects"
 	modification = no
 	
@@ -94,7 +94,7 @@ civic_autofab = {
 		planet_autofab_srs_produces_mult = 0.5
 	}
 }
-civic_autofab_machine = {
+roci_civic_autofab_machine = {
 	description = "civic_tooltip_autofab_effects"
 	modification = no
 	
@@ -127,7 +127,7 @@ civic_autofab_machine = {
 		planet_autofab_srs_produces_mult = 0.5
 	}
 }
-civic_autofab_hive = {
+roci_civic_autofab_hive = {
 	description = "civic_tooltip_autofab_effects"
 	modification = no
 	
@@ -160,7 +160,7 @@ civic_autofab_hive = {
 		planet_autofab_srs_produces_mult = 0.5
 	}
 }
-civic_autofab_megacorp = {
+roci_civic_autofab_megacorp = {
 	description = "civic_tooltip_autofab_effects"
 	modification = no
 	

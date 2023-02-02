@@ -113,6 +113,7 @@ country_event = {
 			set_variable = { which = realdev_industry_space_ratio value = 1 }
 			set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
 			set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+			set_variable = { which = realdev_upgrading_megas value = 0 }
 			set_country_flag = realdev_variables_set
 			add_modifier = { modifier = realdev_no_build_cap }
 			
@@ -227,6 +228,7 @@ country_event = { #Monthly Country event
 			set_variable = { which = realdev_industry_space_ratio value = 1 }
 			set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
 			set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+			set_variable = { which = realdev_upgrading_megas value = 0 }
 			set_country_flag = realdev_variables_set
 		}
 		every_owned_planet = {
@@ -441,12 +443,17 @@ planet_event = {
 		#Pull bonuses from Governor and Ruler
 		if = {
 			limit = {
-				exists = sector
+				exists = sector.leader
 			}
 			change_variable = { which = realdev_industry value = sector.leader.realdev_industry }
 		}
-		change_variable = { which = realdev_leader_level value = owner.leader.realdev_leader_level }
-		change_variable = { which = realdev_industry value = owner.leader.realdev_industry }
+		if = {
+			limit = {
+				exists = owner.leader
+			}
+			change_variable = { which = realdev_leader_level value = owner.leader.realdev_leader_level }
+			change_variable = { which = realdev_industry value = owner.leader.realdev_industry }
+		}
 		
 		#Include Amenities Bonus
 		export_trigger_value_to_variable = { trigger = free_amenities variable = realdev_amenities }
@@ -831,13 +838,18 @@ country_event = {
 		
 		#Pull bonuses from Sector Governors, and Ruler
 		every_owned_leader = { 
-			limit = { 
+			limit = {
 				leader_class = governor
 			}
 			PREV = { change_variable = { which = realdev_ship_build_speed value = prev.realdev_ship_build_speed } }
 		}
-		leader = {
-			PREV = { change_variable = { which = realdev_ship_build_speed value = prev.realdev_ship_build_speed } }
+		if = {
+			limit = {
+				exists = leader
+			}
+			leader = {
+				PREV = { change_variable = { which = realdev_ship_build_speed value = prev.realdev_ship_build_speed } }
+			}
 		}
 		
 		#Pull Bonuses for Orbital Shipyards

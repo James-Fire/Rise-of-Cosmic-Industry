@@ -211,36 +211,18 @@ autofab_power = {
 	resources = {
 		category = planet_autofab_generator
 		produces = {
-			energy = 12
+			energy = 6
+			mult = roci_autofab_basic_jobs
 		}
 		upkeep = {
 			energy = 1
 		}
 		
 		#Different Planet Types
-		produces = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			energy = 4
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			energy = 1
-		}
-		produces = {
-			trigger = {
-				planet = { uses_district_set = ring_world }
-			}
-			energy = 48
-		}
 		upkeep = {
 			trigger = {
 				planet = { uses_district_set = ring_world }
 			}
-			energy = 4
 			rare_crystals = 2
 		}
 		
@@ -251,51 +233,17 @@ autofab_power = {
 					has_active_building = building_energy_grid
 				}
 			}
+			energy = 1
+			mult = roci_autofab_basic_jobs
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_active_building = building_energy_nexus
+				}
+			}
 			energy = 2
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_energy_nexus
-				}
-			}
-			energy = 4
-		}
-		produces = {
-			trigger = {
-				planet = {
-					uses_district_set = habitat
-					has_active_building = building_energy_grid
-				}
-			}
-			energy = 3
-		}
-		produces = {
-			trigger = {
-				planet = {
-					uses_district_set = habitat
-					has_active_building = building_energy_nexus
-				}
-			}
-			energy = 6
-		}
-		produces = {
-			trigger = {
-				planet = {
-					uses_district_set = ring_world
-					has_active_building = building_energy_grid
-				}
-			}
-			energy = 8
-		}
-		produces = {
-			trigger = {
-				planet = {
-					uses_district_set = ring_world
-					has_active_building = building_energy_nexus
-				}
-			}
-			energy = 16
+			mult = roci_autofab_basic_jobs
 		}
 		
 		#Machine Stuff
@@ -303,21 +251,8 @@ autofab_power = {
 			trigger = {
 				owner = { is_machine_empire = yes }
 			}
-			energy = 4
-		}
-		produces = {
-			trigger = {
-				owner = { is_machine_empire = yes }
-				planet = { uses_district_set = ring_world }
-			}
-			energy = 16
-		}
-		produces = {
-			trigger = {
-				owner = { is_machine_empire = yes }
-				planet = { uses_district_set = habitat }
-			}
 			energy = 2
+			mult = roci_autofab_basic_jobs
 		}
 		
 		#FE Buildings Stuff
@@ -326,48 +261,8 @@ autofab_power = {
 				planet = { has_active_building = building_roci_class_4_singularity_mod }
 			}
 			energy = 8
+			mult = roci_autofab_basic_jobs
 		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_roci_class_4_singularity_mod
-					uses_district_set = ring_world
-				}
-			}
-			energy = 32
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_roci_class_4_singularity_mod
-					uses_district_set = habitat
-				}
-			}
-			energy = 4
-		}
-		
-		#Hive Stuff
-		produces = {
-			trigger = {
-				owner = { is_hive_empire = yes }
-			}
-			energy = 6
-		}
-		produces = {
-			trigger = {
-				owner = { is_hive_empire = yes }
-				planet = { uses_district_set = ring_world }
-			}
-			energy = 30
-		}
-		produces = {
-			trigger = {
-				owner = { is_hive_empire = yes }
-				planet = { uses_district_set = habitat }
-			}
-			energy = 6
-		}
-		
 	}
 	
 	triggered_planet_modifier = {
@@ -419,18 +314,17 @@ autofab_farm = {
 		category = planet_autofab_farm
 		produces = {	
 			food = 12
+			mult = roci_autofab_basic_jobs
 		}
 		upkeep = {
-			energy = 5
+			energy = 3
+		}
+		upkeep = {
+			energy = 2
+			mult = roci_autofab_basic_jobs
 		}
 		
 		#Different Planet Types
-		produces = {
-			trigger = {
-				planet = { uses_district_set = ring_world }
-			}
-			food = 48
-		}
 		upkeep = {
 			trigger = {
 				planet = { uses_district_set = ring_world }
@@ -446,33 +340,17 @@ autofab_farm = {
 					has_active_building = building_food_processing_facility
 				}
 			}
+			food = 1
+			mult = roci_autofab_basic_jobs
+		}
+		produces = {
+			trigger = {
+				planet = {
+					has_active_building = building_food_processing_center
+				}
+			}
 			food = 2
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_food_processing_center
-				}
-			}
-			food = 4
-		}
-		produces = {
-			trigger = {
-				planet = {
-					uses_district_set = ring_world
-					has_active_building = building_food_processing_facility
-				}
-			}
-			food = 8
-		}
-		produces = {
-			trigger = {
-				planet = {
-					uses_district_set = ring_world
-					has_active_building = building_food_processing_center
-				}
-			}
-			food = 16
+			mult = roci_autofab_basic_jobs
 		}
 		
 		#Machine Stuff
@@ -481,13 +359,7 @@ autofab_farm = {
 				owner = { is_machine_empire = yes }
 			}
 			food = -2
-		}
-		produces = {
-			trigger = {
-				owner = { is_machine_empire = yes }
-				planet = { uses_district_set = ring_world }
-			}
-			food = -8
+			mult = roci_autofab_basic_jobs
 		}
 		
 		#FE Buildings Stuff
@@ -495,61 +367,15 @@ autofab_farm = {
 			trigger = {
 				planet = { has_active_building = building_roci_nourishment_center_mod }
 			}
-			food = 6
+			food = 3
+			mult = roci_autofab_basic_jobs
 		}
 		upkeep = {
 			trigger = {
 				planet = { has_active_building = building_roci_nourishment_center_mod }
 			}
-			energy = 3
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_roci_nourishment_center_mod
-					uses_district_set = ring_world
-				}
-			}
-			food = 24
-		}
-		upkeep = {
-			trigger = {
-				planet = {
-					has_active_building = building_roci_nourishment_center_mod
-					uses_district_set = ring_world
-				}
-			}
-			energy = 12
-		}
-		
-		#Hive Stuff
-		produces = {
-			trigger = {
-				owner = { is_hive_empire = yes }
-			}
-			food = 6
-		}
-		upkeep = {
-			trigger = {
-				owner = { is_hive_empire = yes }
-			}
-			energy = 2
-		}
-		produces = {
-			trigger = {
-				owner = { is_hive_empire = yes }
-				planet = { uses_district_set = ring_world }
-			}
-			food = 30
-		}
-		upkeep = {
-			trigger = {
-				planet = {
-					owner = { is_hive_empire = yes }
-					planet = { uses_district_set = ring_world }
-				}
-			}
-			energy = 10
+			energy = 1.5
+			mult = roci_autofab_basic_jobs
 		}
 	}
 	
@@ -613,7 +439,11 @@ autofab_mine = {
 			minerals = 12
 		}
 		upkeep = {
-			energy = 5
+			energy = 3
+		}
+		upkeep = {
+			energy = 2
+			mult = roci_autofab_basic_jobs
 		}
 		
 		upkeep = {
@@ -624,26 +454,16 @@ autofab_mine = {
 				} }
 			}
 			energy = 1
+			mult = roci_autofab_basic_jobs
 		}	
 		#Different Planet Types
-		produces = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			minerals = 4
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			energy = 3
-		}
 		produces = {
 			trigger = {
 				planet = { uses_district_set = shattered_ring_world }
 			}
 			alloys = 4
 			minerals = -4
+			mult = roci_autofab_basic_jobs
 		}
 		
 		#Boosting Building Stuff
@@ -653,95 +473,32 @@ autofab_mine = {
 					has_active_building = building_mineral_purification_plant
 				}
 			}
-			minerals = 2
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_mineral_purification_hub
-				}
-			}
-			minerals = 4
-		}
-		produces = {
-			trigger = {
-				planet = {
-					uses_district_set = habitat
-					has_active_building = building_mineral_purification_plant
-				}
-			}
 			minerals = 1
+			mult = roci_autofab_basic_jobs
 		}
 		produces = {
 			trigger = {
 				planet = {
-					uses_district_set = habitat
 					has_active_building = building_mineral_purification_hub
 				}
 			}
 			minerals = 2
+			mult = roci_autofab_basic_jobs
 		}
-		
 		#FE Buildings Stuff
 		produces = {
 			trigger = {
 				planet = { has_active_building = building_roci_dimensional_fabricator_mod }
 			}
-			minerals = 8
+			minerals = 4
+			mult = roci_autofab_basic_jobs
 		}
 		upkeep = {
 			trigger = {
 				planet = { has_active_building = building_roci_dimensional_fabricator_mod }
 			}
-			energy = 4
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_roci_dimensional_fabricator_mod
-					uses_district_set = habitat
-				}
-			}
-			minerals = 4
-		}
-		upkeep = {
-			trigger = {
-				planet = {
-					has_active_building = building_roci_dimensional_fabricator_mod
-					uses_district_set = habitat
-				}
-			}
 			energy = 2
-		}
-		
-		#Hive Stuff
-		produces = {
-			trigger = {
-				owner = { is_hive_empire = yes }
-			}
-			minerals = 4
-		}
-		upkeep = {
-			trigger = {
-				owner = { is_hive_empire = yes }
-			}
-			energy = 2
-		}
-		produces = {
-			trigger = {
-				owner = { is_hive_empire = yes }
-				planet = { uses_district_set = habitat }
-			}
-			minerals = 4
-		}
-		upkeep = {
-			trigger = {
-				planet = {
-					owner = { is_hive_empire = yes }
-					planet = { uses_district_set = habitat }
-				}
-			}
-			energy = 2
+			mult = roci_autofab_basic_jobs
 		}
 	}
 	
@@ -794,7 +551,11 @@ autofab_foundry = {
 			alloys = 6
 		}
 		upkeep = {
-			energy = 6
+			energy = 4
+		}
+		upkeep = {
+			energy = 2
+			mult = roci_autofab_advanced_jobs
 		}
 		
 		upkeep = {
@@ -1199,8 +960,12 @@ autofab_factory = {
 			consumer_goods = 12
 		}
 		upkeep = {
-			energy = 6
+			energy = 4
 			minerals = 12
+		}
+		upkeep = {
+			energy = 2
+			mult = roci_autofab_advanced_jobs
 		}
 		
 		#Different Planet Types
@@ -1476,8 +1241,12 @@ autofab_motes_refinery = {
 			volatile_motes = 4
 		}
 		upkeep = {
-			energy = 10
+			energy = 6
 			minerals = 20
+		}
+		upkeep = {
+			energy = 2
+			mult = roci_autofab_advanced_jobs
 		}
 		produces = {
 			trigger = {
@@ -1535,8 +1304,12 @@ autofab_gases_refinery = {
 			exotic_gases = 4
 		}
 		upkeep = {
-			energy = 10
+			energy = 6
 			minerals = 20
+		}
+		upkeep = {
+			energy = 2
+			mult = roci_autofab_advanced_jobs
 		}
 		produces = {
 			trigger = {
@@ -1594,8 +1367,12 @@ autofab_crystals_refinery = {
 			rare_crystals = 4
 		}
 		upkeep = {
-			energy = 10
+			energy = 6
 			minerals = 20
+		}
+		upkeep = {
+			energy = 2
+			mult = roci_autofab_advanced_jobs
 		}
 		produces = {
 			trigger = {

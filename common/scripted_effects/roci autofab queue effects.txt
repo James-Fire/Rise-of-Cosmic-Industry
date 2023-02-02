@@ -35,68 +35,12 @@ pay_for_swapping = {
 
 #Planet Scope
 pay_for_autofab = {
-	if = {
-		limit = {
-			uses_base_district_set = yes
+	owner = {
+		add_resource = {
+			energy = @Negautofab_cost
 		}
-		owner = {
-			add_resource = {
-				energy = @Negdistrictcost
-			}
-			add_resource = {
-				minerals = @Negdistrictcost
-			}
-			add_resource = {
-				alloys = @Negautofaballoycost
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			uses_habitat_district_set = yes
-		}
-		owner = {
-			add_resource = {
-				energy = @Neghabdistrictcost
-			}
-			add_resource = {
-				minerals = @Neghabdistrictcost
-			}
-			add_resource = {
-				alloys = @Negautofaballoycost
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			uses_city_district_set = yes
-		}
-		owner = {
-			add_resource = {
-				energy = @Negcitydistrictcost
-			}
-			add_resource = {
-				minerals = @Negcitydistrictcost
-			}
-			add_resource = {
-				alloys = @Negautofaballoycost
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			uses_ringworld_district_set = yes
-		}
-		owner = {
-			add_resource = {
-				energy = @Negringdistrictcost
-			}
-			add_resource = {
-				minerals = @Negringdistrictcost
-			}
-			add_resource = {
-				alloys = @Negautofaballoycost
-			}
+		add_resource = {
+			minerals = @Negautofab_cost
 		}
 	}
 }
@@ -262,6 +206,7 @@ add_autofab = {
 	remove_modifier = factory_expansion
 	remove_planet_flag = building_autofab
 	change_variable = { which = autofabs value = 1 }
+	set_variable = { which = roci_autofab_jobs value = value:roci_autofab_jobs }
 }
 
 autofab_module_time_set = {

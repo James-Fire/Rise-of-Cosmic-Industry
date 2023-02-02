@@ -59,6 +59,18 @@ country_event = {
 	
 	after = {
 		hidden_effect = {
+			if = { #Do Orbital Game start stuff if it's allowed.
+				limit = {
+					NOT = { has_global_flag = no_orbital_infra }
+				}
+				every_country = {
+					limit = {
+						is_country_type = default
+					}
+					log = "ROCI trigger orbital on game start for [This.GetRealName]"
+					country_event = { id = orbitalinfra.1000 }
+				}
+			}
 			if = { #Do Shipping Game start stuff if it's allowed.
 				limit = {
 					NOT = { has_global_flag = no_shipping }
@@ -85,30 +97,6 @@ country_event = {
 					set_country_flag = kiyo_trade_has_base_values
 				}
 			}
-			if = { #Do Exploit Game start stuff if it's allowed.
-				limit = {
-					NOT = { has_global_flag = no_exploit }
-				}
-				every_country = {
-					limit = {
-						is_country_type = default
-					}
-					log = "ROCI trigger exploit on game start for [This.GetRealName]"
-					country_event = { id = spaceexploit.37 }
-				}
-			}
-			if = { #Do Orbital Game start stuff if it's allowed.
-				limit = {
-					NOT = { has_global_flag = no_orbital_infra }
-				}
-				every_country = {
-					limit = {
-						is_country_type = default
-					}
-					log = "ROCI trigger orbital on game start for [This.GetRealName]"
-					country_event = { id = orbitalinfra.1000 }
-				}
-			}
 			if = { #Do Realdev Game start stuff if it's allowed.
 				limit = {
 					NOT = { has_global_flag = no_realdev }
@@ -119,6 +107,18 @@ country_event = {
 					}
 					log = "ROCI trigger realdev on game start for [This.GetRealName]"
 					country_event = { id = realdev.0 }
+				}
+			}
+			if = { #Do Exploit Game start stuff if it's allowed.
+				limit = {
+					NOT = { has_global_flag = no_exploit }
+				}
+				every_country = {
+					limit = {
+						is_country_type = default
+					}
+					log = "ROCI trigger exploit on game start for [This.GetRealName]"
+					country_event = { id = spaceexploit.37 }
 				}
 			}
 			if = { #Do Autofab Game start stuff if it's allowed.
@@ -147,16 +147,16 @@ country_event = {
 				every_country = {
 					limit = {
 						OR = {
-							has_valid_civic = civic_autofab
-							has_valid_civic = civic_autofab_machine
-							has_valid_civic = civic_autofab_hive
-							has_valid_civic = civic_autofab_megacorp
+							has_valid_civic = roci_civic_autofab
+							has_valid_civic = roci_civic_autofab_machine
+							has_valid_civic = roci_civic_autofab_hive
+							has_valid_civic = roci_civic_autofab_megacorp
 						}
 					}
-					force_remove_civic = civic_autofab
-					force_remove_civic = civic_autofab_machine
-					force_remove_civic = civic_autofab_hive
-					force_remove_civic = civic_autofab_megacorp
+					force_remove_civic = roci_civic_autofab
+					force_remove_civic = roci_civic_autofab_machine
+					force_remove_civic = roci_civic_autofab_hive
+					force_remove_civic = roci_civic_autofab_megacorp
 					capital_scope = {
 						clear_blockers = yes
 						clear_deposits = yes

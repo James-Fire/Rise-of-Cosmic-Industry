@@ -21,10 +21,10 @@ starts_with_autofab = {
 
 has_autofab_civic = {
 	OR = {
-		has_valid_civic = civic_autofab
-		has_valid_civic = civic_autofab_machine
-		has_valid_civic = civic_autofab_hive
-		has_valid_civic = civic_autofab_megacorp
+		has_valid_civic = roci_civic_autofab
+		has_valid_civic = roci_civic_autofab_machine
+		has_valid_civic = roci_civic_autofab_hive
+		has_valid_civic = roci_civic_autofab_megacorp
 	}
 }
 

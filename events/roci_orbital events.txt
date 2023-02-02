@@ -12,6 +12,81 @@ country_event = {
 	
 	immediate = {
 		#log = "orbital game start for [This.GetName]"
+		capital_scope = {
+			if= {
+				limit = {
+					OR = {
+						has_modifier = extensive_moon_system
+						has_modifier = asteroid_belt
+						has_planet_flag = mining_habitat
+						AND = {
+							OR = {
+								is_moon = yes
+								is_planet_class = pc_habitat
+							}
+							orbit = {
+								OR = {
+									uninhabitable_regular_planet = yes
+									AND = {
+										has_moon = yes
+										any_moon = {
+											uninhabitable_regular_planet = yes
+										}
+									}
+								}
+							}
+						}
+						AND = {
+							has_moon = yes
+							any_moon = {
+								uninhabitable_regular_planet = yes
+							}
+						}
+						solar_system = {
+							any_system_planet = {
+								OR = {
+									is_asteroid = yes
+									is_planet_class = pc_shattered
+									is_planet_class = pc_shattered_2
+								}
+							}
+						}
+					}
+				}
+				#Add some way to ensure home planet can have orbital mining districts
+				if = {
+					limit = {	
+						is_moon = yes
+						NOT = {
+							orbit = {
+								OR = {
+									uninhabitable_regular_planet = yes
+									AND = {
+										has_moon = yes
+										any_moon = {
+											uninhabitable_regular_planet = yes
+										}
+									}
+								}
+							}
+						}
+					}
+					
+				}
+				else_if = {
+					limit = {	
+						is_moon = no
+						NOT = {
+							has_moon = yes
+							any_moon = {
+								uninhabitable_regular_planet = yes
+							}
+						}
+					}
+					
+				}
+			}
+		}
 		if = {
 			limit = {
 				is_country_type = default

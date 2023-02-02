@@ -6,8 +6,39 @@ Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 
 
+Fixed cargo ships being on strike.
+
+Autofab modules scale properly with ecumenopolis now.
+
+Autofab scaling with planet and empire types is more robust now.
+
+Autofab now inherits Add modifiers, instead of needing its own from Orbital Districts.*
+
+The Autofab itself now costs a flat 400 energy and 400 minerals regardless of where it is built.
+
+Prefixed my origins and civics so they're unique to my mod. (This will break save games)
+
+Fixed fome autofab buttons not having the correct triggers.
+
+Added a thing to make sure Homeworlds can always have Orbital Mines (If the Orbital Infrastructure module is active)
+
+Fixed orbital district destroy triggers. They now remove themselves if they can't exists
+
+Added a safety check for Exploit polling countries about stuff.
+
+Fixed Minor Colony deposits doing weird stuff for lithoids
+
+Minor Colonies now require either an upgraded starbase with the <building>, or an appropriate Major Colony.*
+
+All minor colony deposits are now placed on your homeworld.*
+
+Fixed swapping between pulling/pushing IP between planet and country not resetting the values.*
+
+Added a safety check for realdev polling the ruler about stuff.
 
 
+
+Added the Exodus Fleet origin.*
 
 Added a flowchart showing IP production sources and inheritance rules.*
 
@@ -33,8 +64,6 @@ Added a Target mode for Industrial Production on planets, wherein they try to ge
 Added defaults for Target mode that are set on the Empire. Planets can choose between having Target Mode off, using Empire settings for it, or using Planet settings.*
 
 Set Target Mode to be default Empire settings, and to request 100 IP be delivered. (This means every planet will, by default, get 100 IP, assuming there's enough to go around.)*
-
-Autofab now inherits Add modifiers, instead of needing its own from Orbital Districts.*
 
 FE Buildings now make the job they affect have appropriate SR upkeep as well.*
 

@@ -157,6 +157,76 @@ roci_trade_route_value = {
 
 ###Autofab
 
+#Planet Scope
+#Total calculation for how much production a module should have.
+roci_autofab_job_multiplier = {
+	base = 1
+
+	#Multiply by the number of jobs it is replacing
+	#Multiply to include the fact that Hive Empires get 50% more basic resource jobs
+	modifier = {
+ 		owner = { is_hive_empire = yes }
+		multiply = 1.5
+ 	}
+	
+	#Include some variable that orbital can output to.
+}
+
+#How many jobs does a module replace, because Hives exist
+#Planet Scope, cached as a variable on the planet on terraforming and when the autofab is built
+roci_autofab_basic_jobs = {
+	base = 1
+	modifier = {
+ 		uses_base_district_set = yes
+		multiply = 2
+ 	}
+	modifier = {
+ 		uses_habitat_district_set = yes
+		multiply = 3
+ 	}
+	modifier = {
+ 		uses_city_district_set = yes
+		multiply = 6
+ 	}
+	modifier = {
+ 		uses_ringworld_district_set = yes
+		multiply = 10
+ 	}
+	modifier = {
+ 		uses_infinite_space_district_set = yes
+		multiply = 2
+ 	}
+	modifier = {
+ 		owner = { is_hive_empire = yes }
+		multiply = 1.5
+ 	}
+}
+#How many jobs does a module replace
+#Planet Scope, cached as a variable on the planet on terraforming and when the autofab is built
+roci_autofab_advanced_jobs = {
+	base = 1
+	modifier = {
+ 		uses_base_district_set = yes
+		multiply = 2
+ 	}
+	modifier = {
+ 		uses_habitat_district_set = yes
+		multiply = 3
+ 	}
+	modifier = {
+ 		uses_city_district_set = yes
+		multiply = 6
+ 	}
+	modifier = {
+ 		uses_ringworld_district_set = yes
+		multiply = 10
+ 	}
+	modifier = {
+ 		uses_infinite_space_district_set = yes
+		multiply = 2
+ 	}
+}
+
 roci_autofab_districts = {
 	base = 0
 	modifier = {
@@ -550,7 +620,10 @@ realdev_industry_multiplier = {
  		exists = sector.leader
 		add = sector.leader.realdev_leader_level
  	}
-	add = owner.leader.realdev_leader_level
+	modifier = {
+ 		exists = owner.leader
+		add = owner.leader.realdev_leader_level
+ 	}
 }
 realdev_amenities_multiplier = {
 
