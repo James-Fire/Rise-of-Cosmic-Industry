@@ -12,7 +12,7 @@ Autofab modules scale properly with ecumenopolis now.
 
 Autofab scaling with planet and empire types is more robust now.
 
-Autofab now inherits Add modifiers, instead of needing its own from Orbital Districts.*
+Autofab now inherits Add modifiers, instead of needing its own from Orbital Districts.
 
 The Autofab itself now costs a flat 400 energy and 400 minerals regardless of where it is built.
 

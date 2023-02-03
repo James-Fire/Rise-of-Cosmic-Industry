@@ -285,28 +285,6 @@ district_orbital_platform_industrial = {
 	}
 	triggered_planet_modifier = {
 		potential = {
-			NOT = { has_global_flag = no_autofab }
-			NOR = {
-				has_designation = col_foundry
-				has_designation = col_factory
-				has_designation = col_ecu_foundry
-				has_designation = col_ecu_factory
-			}
-			exists = owner
-			owner = {
-				is_catalytic_empire = no
-				is_regular_empire = yes
-			}
-		}
-		modifier = {
-			planet_autofab_foundry_alloys_produces_add = 0.5
-			planet_autofab_foundry_minerals_upkeep_add = 1
-			planet_autofab_factory_consumer_goods_produces_add = 1
-			planet_autofab_factory_minerals_upkeep_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
 			NOR = {
 				has_designation = col_foundry
 				has_designation = col_factory
@@ -328,28 +306,6 @@ district_orbital_platform_industrial = {
 	}
 	triggered_planet_modifier = {
 		potential = {
-			NOT = { has_global_flag = no_autofab }
-			NOR = {
-				has_designation = col_foundry
-				has_designation = col_factory
-				has_designation = col_ecu_foundry
-				has_designation = col_ecu_factory
-			}
-			exists = owner
-			owner = {
-				is_catalytic_empire = yes
-				is_regular_empire = yes
-			}
-		}
-		modifier = {
-			planet_autofab_foundry_alloys_produces_add = 0.5
-			planet_autofab_foundry_food_upkeep_add = 1.5
-			planet_autofab_factory_consumer_goods_produces_add = 1
-			planet_autofab_factory_minerals_upkeep_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
 			exists = owner
 			owner = {
 				is_catalytic_empire = no
@@ -363,24 +319,6 @@ district_orbital_platform_industrial = {
 		modifier = {
 			planet_metallurgists_alloys_produces_add = 0.5
 			planet_metallurgists_minerals_upkeep_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_global_flag = no_autofab }
-			exists = owner
-			owner = {
-				is_catalytic_empire = no
-			}
-			OR = {
-				has_designation = col_foundry
-				has_designation = col_ecu_foundry
-				owner = { is_regular_empire = no }
-			}
-		}
-		modifier = {
-			planet_autofab_foundry_alloys_produces_add = 1
-			planet_autofab_foundry_minerals_upkeep_add = 2
 		}
 	}
 
@@ -401,24 +339,6 @@ district_orbital_platform_industrial = {
 			planet_metallurgists_food_upkeep_add = 1.5
 		}
 	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_global_flag = no_autofab }
-			exists = owner
-			owner = {
-				is_catalytic_empire = yes
-			}
-			OR = {
-				has_designation = col_foundry
-				has_designation = col_ecu_foundry
-				owner = { is_regular_empire = no }
-			}
-		}
-		modifier = {
-			planet_autofab_foundry_alloys_produces_add = 1
-			planet_autofab_foundry_food_upkeep_add = 3
-		}
-	}
 
 	triggered_planet_modifier = {
 		potential = {
@@ -435,24 +355,6 @@ district_orbital_platform_industrial = {
 		modifier = {
 			planet_artisans_consumer_goods_produces_add = 1
 			planet_artisans_minerals_upkeep_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_global_flag = no_autofab }
-			OR = {
-				has_designation = col_factory
-				has_designation = col_mac_factory
-				has_designation = col_ecu_factory
-			}
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-			}
-		}
-		modifier = {
-			planet_autofab_factory_consumer_goods_produces_add = 2
-			planet_autofab_factory_minerals_upkeep_add = 2
 		}
 	}
 	
@@ -733,22 +635,6 @@ district_orbital_platform_refinery = {
 		planet_translucers_minerals_upkeep_add = 5
 		planet_translucers_energy_upkeep_add = 1
 		planet_translucers_upkeep_mult = 0.01
-	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_global_flag = no_autofab }
-		}
-		modifier = {
-			planet_autofab_motes_volatile_motes_produces_add = 2
-			planet_autofab_motes_minerals_upkeep_add = 10
-			planet_autofab_motes_energy_upkeep_add = 2
-			planet_autofab_gases_exotic_gases_produces_add = 2
-			planet_autofab_gases_minerals_upkeep_add = 10
-			planet_autofab_gases_energy_upkeep_add = 2
-			planet_autofab_crystals_rare_crystals_produces_add = 2
-			planet_autofab_crystals_minerals_upkeep_add = 10
-			planet_autofab_crystals_energy_upkeep_add = 2
-		}
 	}
 	
 	ai_weight = {
@@ -1204,14 +1090,6 @@ district_orbital_platform_solar_array = {
 		planet_technician_energy_produces_add = 0.5
 		planet_technician_upkeep_mult = 0.01
 	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_global_flag = no_autofab }
-		}
-		modifier = {
-			planet_autofab_generator_energy_produces_add = 1
-		}
-	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
 		change_variable = { which = orbital_infrastructure value = 1 }
@@ -1408,6 +1286,7 @@ district_orbital_platform_mining = {
 		}
 		has_oi_space_elevator = yes
 		OR = {
+			is_homeworld = yes
 			has_modifier = extensive_moon_system
 			has_modifier = asteroid_belt
 			has_planet_flag = mining_habitat
@@ -1528,15 +1407,6 @@ district_orbital_platform_mining = {
 			planet_miners_alloys_produces_add = 0.25
 		}
 	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_global_flag = no_autofab }
-		}
-		modifier = {
-			planet_autofab_mine_minerals_produces_add = 2
-			planet_autofab_mine_energy_upkeep_add = 1
-		}
-	}
 	on_queued = {
 		add_deposit = orbital_platform_neg
 		change_variable = { which = orbital_infrastructure value = 1 }
@@ -1644,15 +1514,6 @@ district_orbital_platform_farming = {
 		planet_farmers_food_produces_add = 1
 		planet_farmers_energy_upkeep_add = 0.5
 		planet_farmers_upkeep_mult = 0.01
-	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_global_flag = no_autofab }
-		}
-		modifier = {
-			planet_autofab_farm_food_produces_add = 2
-			planet_autofab_farm_energy_upkeep_add = 1
-		}
 	}
 	on_queued = {
 		add_deposit = orbital_platform_neg

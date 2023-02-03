@@ -158,19 +158,64 @@ roci_trade_route_value = {
 ###Autofab
 
 #Planet Scope
-#Total calculation for how much production a module should have.
+#Total calculation for how much production a module should have. Calculate per job first, then multiply by number of jobs.
 roci_autofab_job_multiplier = {
-	base = 1
-
-	#Multiply by the number of jobs it is replacing
-	#Multiply to include the fact that Hive Empires get 50% more basic resource jobs
+	base = 0
+	
+	#Some sort of check to see what job was passed, so I can add the base production
+	add = @roci_$job$_base_production
+	modifier = {
+ 		owner = { is_machine_empire = yes }
+		add = @roci_$job$_machine_production
+ 	}
 	modifier = {
  		owner = { is_hive_empire = yes }
-		multiply = 1.5
+		add = @roci_$job$_hive_production
  	}
 	
-	#Include some variable that orbital can output to.
+	#Check the total added production of the relevant job
+	complex_trigger_modifier = {
+		trigger = check_modifier_value
+		parameters = {
+			modifier = job_$job$_produces_$resource$_add
+		}
+		mode = add
+	}
+	
+	#How many jobs it replaces, pull from cached variable
+	multiply = $basic_or_adv$
 }
+#roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
+
+#Planet Scope
+#Total calculation for how much production a module should have. Calculate per job first, then multiply by number of jobs.
+roci_autofab_job_upkeep_multiplier = {
+	base = 0
+	
+	#Some sort of check to see what job was passed, so I can add the base upkeep
+	add = @roci_$job$_base_$resource$_upkeep
+	#modifier = {
+ 	#	owner = { is_machine_empire = yes }
+	#	add = @roci_$job$_machine_$resource$_upkeep
+ 	#}
+	#modifier = {
+ 	#	owner = { is_hive_empire = yes }
+	#	add = @roci_$job$_hive_$resource$_upkeep
+ 	#}
+	
+	#Check the total added production of the relevant job
+	complex_trigger_modifier = {
+		trigger = check_modifier_value
+		parameters = {
+			modifier = job_$job$_upkeep_$resource$_add
+		}
+		mode = add
+	}
+	
+	#How many jobs it replaces, pull from cached variable
+	multiply = $basic_or_adv$
+}
+#roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
 
 #How many jobs does a module replace, because Hives exist
 #Planet Scope, cached as a variable on the planet on terraforming and when the autofab is built

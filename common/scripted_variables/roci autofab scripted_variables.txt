@@ -32,3 +32,72 @@
 
 @Negb3_minerals = -800
 @Negb3_rare_cost = -100
+
+@roci_farmer_base_production = 6
+@roci_miner_base_production = 4
+@roci_technician_base_production = 6
+@roci_foundry_base_production = 3
+@roci_artisan_base_production = 6
+@roci_chemist_base_production = 2
+@roci_gas_refiner_base_production = 2
+@roci_translucer_base_production = 2
+
+@roci_farmer_machine_production = -1
+@roci_miner_machine_production = 0
+@roci_technician_machine_production = 2
+@roci_foundry_machine_production = 1
+@roci_artisan_machine_production = 4
+@roci_chemist_machine_production = 0
+@roci_gas_refiner_machine_production = 0
+@roci_translucer_machine_production = 0
+
+@roci_farmer_hive_production = 0
+@roci_miner_hive_production = 0
+@roci_technician_hive_production = 0
+@roci_foundry_hive_production = 0
+@roci_artisan_hive_production = 4
+@roci_chemist_hive_production = 0
+@roci_gas_refiner_hive_production = 0
+@roci_translucer_hive_production = 0
+
+@roci_farmer_base_energy_upkeep = 0
+@roci_miner_base_energy_upkeep = 0
+@roci_technician_base_energy_upkeep = 0
+@roci_foundry_base_energy_upkeep = 0
+@roci_foundry_base_minerals_upkeep = 6
+@roci_artisan_base_energy_upkeep = 0
+@roci_artisan_base_minerals_upkeep = 6
+@roci_chemist_base_energy_upkeep = 0
+@roci_chemist_base_minerals_upkeep = 10
+@roci_gas_refiner_base_energy_upkeep = 0
+@roci_gas_refiner_base_minerals_upkeep = 10
+@roci_translucer_base_energy_upkeep = 0
+@roci_translucer_base_minerals_upkeep = 10
+
+@roci_farmer_machine_energy_upkeep = 0
+@roci_miner_machine_energy_upkeep = 0
+@roci_technician_machine_energy_upkeep = 0
+@roci_foundry_machine_energy_upkeep = 0
+@roci_foundry_machine_minerals_upkeep = 0
+@roci_artisan_machine_energy_upkeep = 0
+@roci_artisan_machine_minerals_upkeep = 0
+@roci_chemist_machine_energy_upkeep = 0
+@roci_chemist_machine_minerals_upkeep = 0
+@roci_gas_refiner_machine_energy_upkeep = 0
+@roci_gas_refiner_machine_minerals_upkeep = 0
+@roci_translucer_machine_energy_upkeep = 0
+@roci_translucer_machine_minerals_upkeep = 0
+
+@roci_farmer_hive_energy_upkeep = 0
+@roci_miner_hive_energy_upkeep = 0
+@roci_technician_hive_energy_upkeep = 0
+@roci_foundry_hive_energy_upkeep = 0
+@roci_foundry_hive_minerals_upkeep = 0
+@roci_artisan_hive_energy_upkeep = 0
+@roci_artisan_hive_minerals_upkeep = 0
+@roci_chemist_hive_energy_upkeep = 0
+@roci_chemist_hive_minerals_upkeep = 0
+@roci_gas_refiner_hive_energy_upkeep = 0
+@roci_gas_refiner_hive_minerals_upkeep = 0
+@roci_translucer_hive_energy_upkeep = 0
+@roci_translucer_hive_minerals_upkeep = 0
