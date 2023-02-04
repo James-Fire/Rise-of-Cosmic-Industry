@@ -200,6 +200,15 @@ on_terraforming_complete = {
 	}
 }
 
+#You have changed the location of your capital. Also called when a country's capital is first set e.g. during galaxy creation (but then FROM is not set)
+#this/root = new capital
+#from = old capital
+on_capital_changed = {
+	events = {
+		
+	}
+}
+
 #From = Planet scope
 #This = Fleet scope
 on_fleet_enter_orbit = {

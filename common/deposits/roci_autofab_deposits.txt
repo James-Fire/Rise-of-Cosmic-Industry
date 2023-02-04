@@ -280,7 +280,7 @@ autofab_farm = {
 		category = planet_autofab_farm
 		produces = {
 			food = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmer|resource|food|
+			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmer|resource|food|	
 		}
 		upkeep = {
 			energy = 3

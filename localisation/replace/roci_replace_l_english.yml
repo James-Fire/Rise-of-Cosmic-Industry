@@ -2,3 +2,4 @@
   #Overwriting Stupid PDX stuff
     mod_planet_administrators_unity_produces_add: "£unity£ Unity from £job_bureaucrat£ Administrators"
     mod_planet_administrators_upkeep_mult: "£job_bureaucrat£ Administrators Upkeep"
+    sm_transit_hub_desc:0 "Dedicated infrastructure for non-military vessels, enabling a smooth and convenient transit network.\n Allows §Minor Colonies§! to be built in this system.\n"

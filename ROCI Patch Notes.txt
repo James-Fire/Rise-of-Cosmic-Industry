@@ -28,13 +28,15 @@ Added a safety check for Exploit polling countries about stuff.
 
 Fixed Minor Colony deposits doing weird stuff for lithoids
 
-Minor Colonies now require either an upgraded starbase with the <building>, or an appropriate Major Colony.*
+Minor Colonies now require either an upgraded starbase with the Transit Hub, or an appropriate Major Colony.
 
 All minor colony deposits are now placed on your homeworld.*
 
+The transit hub now says it allows minor colonies.
+
 Fixed swapping between pulling/pushing IP between planet and country not resetting the values.*
 
-Added a safety check for realdev polling the ruler about stuff.
+Added a safety check for realdev polling the ruler about stuff.	
 
 
 
