@@ -433,14 +433,25 @@ building_foundry_3 = {
 		OR = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
+
 			AND = {
 				exists = owner
-			}
-			AND = {
 				owner = {
 					is_ai = yes
 				}	
 				has_any_industry_district = no
+				OR = {
+					owner = {
+						is_ai = yes
+						is_regular_empire = no
+					}
+					AND = {
+						owner = {
+							is_ai = yes
+						}
+						has_any_industry_district = no	
+					}
+				}
 			}
 		}
 	}

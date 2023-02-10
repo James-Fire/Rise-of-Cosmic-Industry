@@ -259,15 +259,15 @@ country_event = {
 			every_country = {
 				limit = {
 					OR = {
-						NOT = { has_global_flag = no_autofab }
-						NOT = { has_global_flag = no_exploit }
+						has_global_flag = no_autofab
+						has_global_flag = no_exploit
 					}
 				}
 				every_owned_planet = {
 					limit = {
 						OR = {
 							has_autofab = yes
-							is_hosting_exploit = yes
+							is_capital = yes
 						}
 					}
 					while = {
@@ -323,7 +323,7 @@ country_event = {
 			limit = {
 				OR = {
 					has_autofab = yes
-					is_hosting_exploit = yes
+					is_capital = yes
 				}
 			}
 			planet_event = { id = roci_menu.41 days = 1 random = 10 }
@@ -340,7 +340,7 @@ planet_event = {
 	trigger = {
 		OR = {
 			has_autofab = yes
-			is_hosting_exploit = yes
+			is_capital = yes
 		}
 	}
 	

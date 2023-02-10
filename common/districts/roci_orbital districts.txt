@@ -71,12 +71,8 @@ district_orbital_platform_city = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		has_oi_space_elevator = yes
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_city
-		}
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
 	}
 	
 	allow = {
@@ -166,7 +162,7 @@ district_orbital_platform_city = {
 	on_built = {
 		remove_deposit = orbital_platform_neg
 		update_oi_modifiers = yes
-		event = { id = orbitalinfra.20 }
+		planet_event = { id = orbitalinfra.20 }
 	}
 }
 
@@ -188,12 +184,8 @@ district_orbital_platform_industrial = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		has_oi_space_elevator = yes
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_industrial
-		}
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
 	}
 	
 	allow = {
@@ -398,12 +390,8 @@ district_orbital_platform_research = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_research
-		}
-		has_oi_space_elevator = yes
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
 	}
 	
 	allow = {
@@ -546,18 +534,16 @@ district_orbital_platform_refinery = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_refinery
-		}
-		has_oi_space_elevator = yes
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
 		exists = owner
-		owner = {
-			OR = {
-				has_technology = tech_exotic_gases
-				has_technology = tech_volatile_motes
-				has_technology = tech_rare_crystals
+		NOT = {
+			owner = {
+				OR = {
+					has_technology = tech_exotic_gases
+					has_technology = tech_volatile_motes
+					has_technology = tech_rare_crystals
+				}
 			}
 		}
 	}
@@ -678,12 +664,8 @@ district_orbital_platform_shipyard = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_shipyard
-		}
-		has_oi_space_elevator = yes
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
 	}
 	
 	allow = {
@@ -790,12 +772,8 @@ district_orbital_platform_military = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_military
-		}
-		has_oi_space_elevator = yes
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
 	}
 	
 	allow = {
@@ -1010,18 +988,16 @@ district_orbital_platform_solar_array = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_solar_array
-		}
-		has_oi_space_elevator = yes
-		solar_system = {
-			NOR = {
-				is_star_class = sc_black_hole
-				is_star_class = sc_neutron_star
-				is_star_class = sc_pulsar
-				is_star_class = sc_t
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
+		NOT = {
+			solar_system = {
+				NOR = {
+					is_star_class = sc_black_hole
+					is_star_class = sc_neutron_star
+					is_star_class = sc_pulsar
+					is_star_class = sc_t
+				}
 			}
 		}
 	}
@@ -1103,7 +1079,7 @@ district_orbital_platform_solar_array = {
 	on_built = {
 		remove_deposit = orbital_platform_neg
 		update_oi_modifiers = yes
-		event = { id = orbitalinfra.20 }
+		planet_event = { id = orbitalinfra.20 }
 	}
 }
 
@@ -1130,16 +1106,13 @@ district_orbital_platform_commercial = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_commercial
-		}
-		has_oi_space_elevator = yes
-		exists = owner
-		exists = owner
-		owner = {
-			is_regular_empire = yes
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
+		NOT = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
 		}
 	}
 	
@@ -1279,12 +1252,8 @@ district_orbital_platform_mining = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_mining
-		}
-		has_oi_space_elevator = yes
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
 		OR = {
 			is_homeworld = yes
 			has_modifier = extensive_moon_system
@@ -1420,7 +1389,7 @@ district_orbital_platform_mining = {
 	on_built = {
 		remove_deposit = orbital_platform_neg
 		update_oi_modifiers = yes
-		event = { id = orbitalinfra.20 }
+		planet_event = { id = orbitalinfra.20 }
 	}
 }
 
@@ -1442,12 +1411,8 @@ district_orbital_platform_farming = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		has_oi_space_elevator = yes
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_farming
-		}
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
 	}
 	
 	allow = {
@@ -1528,7 +1493,7 @@ district_orbital_platform_farming = {
 	on_built = {
 		remove_deposit = orbital_platform_neg
 		update_oi_modifiers = yes
-		event = { id = orbitalinfra.20 }
+		planet_event = { id = orbitalinfra.20 }
 	}
 }
 
@@ -1550,12 +1515,8 @@ district_orbital_platform_admin = {
 	}
 	
 	destroy_trigger = {
-		NOT = { has_global_flag = no_orbital_infra }
-		has_oi_space_elevator = yes
-		OR = {
-			NOT = { has_planet_flag = orbitalinfra_district_hide }
-			has_district = district_orbital_platform_admin
-		}
+		has_global_flag = no_orbital_infra
+		NOT = { has_oi_space_elevator = yes }
 	}
 	
 	allow = {
