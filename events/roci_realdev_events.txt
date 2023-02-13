@@ -347,11 +347,11 @@ planet_event = {
 			variable = realdev_congoods_production
 		}
 		#Include Minor Colony Stuff
-		if = {
-			limit = {
-				is_hosting_exploit = yes
-			}
-			solar_system = {
+		solar_system = {
+			if = {
+				limit = {
+					is_hosting_exploit = yes
+				}
 				every_system_planet = {
 					limit = {
 						has_modifier = colonized_planet
