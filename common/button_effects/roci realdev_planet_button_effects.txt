@@ -330,6 +330,8 @@ realdev_planet_take = {
 					has_planet_flag = realdev_planet_take
 				}
 				remove_planet_flag = realdev_planet_take
+				owner = { subtract_variable = { which = realdev_take_ratio value = prev.realdev_take_ratio } }
+				set_variable = { which = realdev_take_ratio value = 0 }
 			}
 			else_if = {
 				limit = {

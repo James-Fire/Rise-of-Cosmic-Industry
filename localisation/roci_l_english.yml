@@ -635,13 +635,13 @@
      origin_autofab_tooltip_5:0 "Using this in combination with the Civic gives a -10% upkeep cost to Factory Modules."
      roci_origin_autofab:0 "Factory Automation"
      origin_autofab_desc:0 "Ever since the Industrial Revolution, this species has been obsessed with increasing automation in their factories. Achieving fully automatic factories, in operation and expansion, has allowed them to greatly reduce the labour required by their species, and catapult themselves to spacefaring before the expected population levels."
-     origin_tooltip_autofab_effects:0 "- $origin_autofab_tooltip_1$ \n- $origin_autofab_tooltip_2$ \n- $origin_autofab_tooltip_3$ \n- $origin_autofab_tooltip_4$ \n- $origin_autofab_tooltip_5$"
+     origin_tooltip_autofab_effects:0 "- $origin_autofab_tooltip_1$ \n- $origin_autofab_tooltip_2$ \n- $origin_autofab_tooltip_3$ \n- $origin_autofab_tooltip_4$ \n- $origin_autofab_tooltip_5$\n- $autofab_script_replace$"
      
      roci_civic_autofab_tooltip_1:0 "Normal jobs produce less, as the population is ready to transfer production over to Automatic Factory Modules."
      roci_civic_autofab_tooltip_2:0 "You start with an Automatic Factory deposit, and 1 of each resource module, if they are used by your countryA."
      roci_civic_autofab_tooltip_3:0 "Using this in combination with the Origin gives a §G-10%§! upkeep cost to Factory Modules."
      roci_civic_autofab_tooltip_4:0 "The §R-30%§! job production malus also applies to the factory. This means that the §G+50%§! production bonus is actually only a §G+20%§! bonus overall."
-     civic_tooltip_autofab_effects:0 "- $roci_civic_autofab_tooltip_1$ \n- $roci_civic_autofab_tooltip_2$ \n- $roci_civic_autofab_tooltip_3$\n- $roci_civic_autofab_tooltip_4$"
+     civic_tooltip_autofab_effects:0 "- $roci_civic_autofab_tooltip_1$ \n- $roci_civic_autofab_tooltip_2$ \n- $roci_civic_autofab_tooltip_3$\n- $roci_civic_autofab_tooltip_4$\n- $autofab_script_replace$"
      roci_civic_autofab_desc: "Having recently achieved Automated Factory production, our society is read to give up their burden."
      roci_civic_autofab:0 "Factory Automation"
      
@@ -656,6 +656,8 @@
      ap_autofab_desc:0 "Our society has progressed to the point where our population expects certain things, and is unwilling to do it themselves. Automated Factories can handle the required tasks."
      
      can_use_autofab:0 "Unlock the ability to build Automated Factories on your planets, reducing your reliance on labour from people and machines. \nIf you have the Origin or Civic, this gives +40% factory production instead."
+     
+     autofab_script_replace: "§RThis Origin or Civic is replaced by script if Autofab is disabled after game start.§!
      
   #Events
      autofab.2.name: "Factory For Everyone"

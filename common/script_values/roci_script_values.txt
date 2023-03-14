@@ -471,6 +471,69 @@ orbital_spaceport_crystals_mult = {
 
 ###Realdev
 
+#Planet/Country Scope
+realdev_ip_target = {
+	base = 200
+	modifier = {
+		AND = {
+			is_scope_type = planet
+			has_building_construction = yes
+		}
+		add = 100
+ 	}
+}
+
+realdev_planet_ip_usage = {
+	add = realdev_planet_build_speed
+	add = realdev_assembly_speed
+}
+
+realdev_ruler_jobs = {
+	complex_trigger_modifier = {
+		trigger = num_assigned_jobs
+		parameters = {
+			job = head_researcher
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_assigned_jobs
+		parameters = {
+			job = politician
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_assigned_jobs
+		parameters = {
+			job = noble
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_assigned_jobs
+		parameters = {
+			job = executive
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_assigned_jobs
+		parameters = {
+			job = merchant
+		}
+		mode = add
+	}
+	complex_trigger_modifier = {
+		trigger = num_assigned_jobs
+		parameters = {
+			job = high_priest
+		}
+		mode = add
+	}
+	multiply = 10
+}
+
 realdev_pops_industry = {
 	complex_trigger_modifier = {
 		trigger = count_owned_pop
@@ -671,7 +734,12 @@ realdev_industry_multiplier = {
  	}
 }
 realdev_amenities_multiplier = {
-
+	complex_trigger_modifier = {
+		trigger = free_amenities
+		mode = add
+	}
+	round_to = 100
+	divide = 100
 }
 
 

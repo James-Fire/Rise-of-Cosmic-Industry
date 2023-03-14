@@ -1,10 +1,4 @@
-Added a collection of Realdev Default Settings that can be set in the Country UI, and can optionally be used by planets instead of setting them in the Planet UI.*
-
-Added a "Space Colonizer" Origin that deals with Minor Colonies.*
-
-
-
-Fixed cargo ships being on strike.
+Disabled the Cargo Ships module.
 
 Autofab modules scale properly with ecumenopolis now.
 
@@ -13,6 +7,8 @@ Autofab scaling with planet and empire types is more robust now.
 Autofab now inherits Add modifiers, instead of needing its own from Orbital Districts.
 
 The Autofab itself now costs a flat 400 energy and 400 minerals regardless of where it is built.
+
+Added a disclaimer to Autofab Origins and Civics that they are script-replaced if autofab isn't active.
 
 Prefixed my origins and civics so they're unique to my mod. (This will break save games)
 
@@ -24,32 +20,44 @@ Fixed orbital district destroy triggers. They now remove themselves if they can'
 
 Fixed an incorrect event call in orbital districts
 
+Fixed Orbital Defense platforms spawning platforms when they shouldn't.*
+
 Added a safety check for Exploit polling countries about stuff.
 
 Fixed Minor Colony deposits doing weird stuff for lithoids
 
 Minor Colonies now require either an upgraded starbase with the Transit Hub, or an appropriate Major Colony.
 
-All minor colony deposits are now placed on your homeworld.
-
-Moved the Trade Value provided by completed exploit constructions to the minor colonies.*
-
 The transit hub now says it allows minor colonies.
 
-Fixed swapping between pulling/pushing IP between planet and country not resetting the values.*
+All minor colony deposits are now placed on your homeworld.
 
 Added a safety check for realdev polling the ruler about stuff.	
 
+Added a Target mode for Industrial Production on planets, wherein they try to get a certain amount, either taking what they need from the country, or sending excess to the country.*
+
+Set Target Mode to be default Empire settings, and to request 200 IP be delivered. (This means every planet will, by default, get 200 IP, assuming there's enough to go around.)*
+
+Added defaults for Target mode that are set on the Empire. Planets can choose between having Target Mode off, using Empire settings for it, or using Planet settings. By default, planets use the empire setting.*
+
+IP is now limited by use. Planets can generate as much as they want, but can only use up to their IPC. Excess is sent to the Empire.*
+
+Removed "Planet Aid" and "Empire Assistance". This is now covered by Targets.*
 
 
-Added the Exodus Fleet origin.*
+
+Fixed swapping between pulling/pushing IP between planet and country not resetting the values.
+
+Fixed cargo ships being on strike.*
+
+Moved the Trade Value provided by completed exploit constructions to the minor colonies.*
 
 Added a flowchart showing IP production sources and inheritance rules.*
 
+Added the Exodus Fleet origin.*
+
 Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per.
 This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.*
-
-Made unused IP in Planet Aid be distributed to country uses.*
 
 Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.*
 
@@ -63,20 +71,16 @@ Orbital Defense Platform now has modifiers saying what it does.*
 
 Fixed "Uses Orbital Slot" modifier showing up wherever the fuck it wants to.*
 
-Added a Target mode for Industrial Production on planets, wherein they try to get a certain amount, either taking what they need from the country, or sending excess to the country.*
-
 Added Development Milestones. These can affect both the Target system and Ratios. These are a collection of triggers that modify the Target and Ratios based on the status of the planet or country they apply to.*
-
-Added defaults for Target mode that are set on the Empire. Planets can choose between having Target Mode off, using Empire settings for it, or using Planet settings.*
-
-Set Target Mode to be default Empire settings, and to request 100 IP be delivered. (This means every planet will, by default, get 100 IP, assuming there's enough to go around.)*
-
-IP is now limited by use. Planets can generate as much as they want, but can only use up to their IPC. Excess is sent to the Empire.*
 
 FE Buildings now make the job they affect have appropriate SR upkeep as well.*
 
 
 
+
+Added a collection of Realdev Default Settings that can be set in the Country UI, and can optionally be used by planets instead of setting them in the Planet UI.*
+
+Added a "Space Colonizer" Origin that deals with Minor Colonies.*
 
 Orbital Cities increase the upkeep of Districts by a flat and % amount.*
 

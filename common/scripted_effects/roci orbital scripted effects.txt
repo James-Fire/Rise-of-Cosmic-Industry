@@ -222,9 +222,14 @@ oi_update_platforms = {
 			NOT = {
 				exists = event_target:defense_fleet@this
 			}
+			NOT = { 
+				any_fleet_in_orbit = {
+					has_fleet_flag = orbital_infra_defense@prev
+				}
+			}
 		}
 		create_fleet = {
-			name = "\\[from.GetName] Defense Force"
+			name = "\\[prev.GetName] Defense Force"
 			effect = {
 				set_owner = from.owner
 				while = {
@@ -244,68 +249,67 @@ oi_update_platforms = {
 					}
 				}
 				set_location = {
-					target = from
+					target = prev
 					distance = 0
 					angle = 0
 					direction = in_system
 				}
-				save_global_event_target_as = defense_fleet@from
+				save_global_event_target_as = defense_fleet@prev
 				set_formation_scale = 3
-				set_fleet_flag = orbital_infra_defense@from
+				set_fleet_flag = orbital_infra_defense@prev
 				set_fleet_flag = orbital_infra_defense
 			}
 		}
 	}
 	else = {
-		event_target:defense_fleet@this = {
-			if = {
+		every_fleet_in_orbit = {
+			limit = {
+				has_fleet_flag = orbital_infra_defense@prev
+				exists = owner
+				has_fleet_flag = orbital_infra_defense
+			}
+			while = {
+				count = prev.orbitalinfra_military_platforms
 				limit = {
-					exists = owner
-					has_fleet_flag = orbital_infra_defense
+					count_owned_ship = { limit = { is_ship_size = military_station_small } count < prev.orbitalinfra_military_platforms }
 				}
-				while = {
-					count = prev.orbitalinfra_military_platforms
-					limit = {
-						count_owned_ship = { limit = { is_ship_size = military_station_small } count < prev.orbitalinfra_military_platforms }
-					}
-					create_ship = {
-						name = random
-						random_existing_design = military_station_small
-						prefix = yes
-					}
+				create_ship = {
+					name = random
+					random_existing_design = military_station_small
+					prefix = yes
 				}
-				while = {
-					count = prev.orbitalinfra_military_ion_cannons
-					limit = {
-						count_owned_ship = { limit = { is_ship_size = ion_cannon } count < prev.orbitalinfra_military_ion_cannons }
-					}
-					create_ship = {
-						name = random
-						random_existing_design = ion_cannon
-						prefix = yes
-					}
+			}
+			while = {
+				count = prev.orbitalinfra_military_ion_cannons
+				limit = {
+					count_owned_ship = { limit = { is_ship_size = ion_cannon } count < prev.orbitalinfra_military_ion_cannons }
 				}
-				while = {
-					limit = {
-						count_owned_ship = { limit = { is_ship_size = military_station_small } count > prev.orbitalinfra_military_platforms }
-					}
-					random_owned_ship = {
-						limit = {
-							is_ship_size = military_station_small
-						}
-						delete_ship = this
-					}
+				create_ship = {
+					name = random
+					random_existing_design = ion_cannon
+					prefix = yes
 				}
-				while = {
+			}
+			while = {
+				limit = {
+					count_owned_ship = { limit = { is_ship_size = military_station_small } count > prev.orbitalinfra_military_platforms }
+				}
+				random_owned_ship = {
 					limit = {
-						count_owned_ship = { limit = { is_ship_size = ion_cannon } count > prev.orbitalinfra_military_ion_cannons }
+						is_ship_size = military_station_small
 					}
-					random_owned_ship = {
-						limit = {
-							is_ship_size = ion_cannon
-						}
-						delete_ship = this
+					delete_ship = this
+				}
+			}
+			while = {
+				limit = {
+					count_owned_ship = { limit = { is_ship_size = ion_cannon } count > prev.orbitalinfra_military_ion_cannons }
+				}
+				random_owned_ship = {
+					limit = {
+						is_ship_size = ion_cannon
 					}
+					delete_ship = this
 				}
 			}
 		}

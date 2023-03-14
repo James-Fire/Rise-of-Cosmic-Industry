@@ -107,17 +107,9 @@ country_event = {
 			limit = {
 				NOT = { has_country_flag = realdev_variables_set }
 			}
-			set_variable = { which = realdev_minor_colony_speed value = 0 }
-			set_variable = { which = realdev_industry_shipyard_ratio value = 0.8 }
-			set_variable = { which = realdev_industry_country_stockpile value = 0.1 }
-			set_variable = { which = realdev_industry_space_ratio value = 1 }
-			set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
-			set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
-			set_variable = { which = realdev_upgrading_megas value = 0 }
-			set_country_flag = realdev_variables_set
-			add_modifier = { modifier = realdev_no_build_cap }
+			set_realdev_country_variables = yes
 			
-			if = { #Checing if any species the country has can be assembled
+			if = { #Checing if any species the country has can be assembled at game start
 				limit = {
 					any_owned_species = {
 						is_sapient = yes
@@ -147,11 +139,7 @@ country_event = {
 				limit = {
 					NOT = { has_planet_flag = realdev_variables_set }
 				}
-				set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
-				set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
-				set_variable = { which = realdev_take_ratio value = 0 }
-				set_variable = { which = realdev_assembly_cap value = 200 }
-				set_planet_flag = realdev_variables_set
+				set_realdev_planet_variables = yes
 			}
 			reset_realdev_variables = yes
 			#Start of game stuff to immediately apply the modifiers
@@ -172,9 +160,7 @@ country_event = {
 				limit = {
 					NOT = { has_planet_flag = realdev_variables_set }
 				}
-				set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
-				set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
-				set_planet_flag = realdev_variables_set
+				set_realdev_planet_variables = yes
 			}
 			reset_realdev_variables = yes
 		
@@ -224,26 +210,14 @@ country_event = { #Monthly Country event
 			limit = {
 				NOT = { has_country_flag = realdev_variables_set }
 			}
-			set_variable = { which = realdev_industry_shipyard_ratio value = 0.8 }
-			set_variable = { which = realdev_industry_space_ratio value = 1 }
-			set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
-			set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
-			set_variable = { which = realdev_upgrading_megas value = 0 }
-			set_country_flag = realdev_variables_set
+			set_realdev_country_variables = yes
 		}
 		every_owned_planet = {
-			limit = {
-				exists = this
-			}
 			if = {
 				limit = {
 					NOT = { has_planet_flag = realdev_variables_set }
 				}
-				set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
-				set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
-				set_variable = { which = realdev_take_ratio value = 0 }
-				set_variable = { which = realdev_assembly_cap value = 200 }
-				set_planet_flag = realdev_variables_set
+				set_realdev_planet_variables = yes
 			}
 
 			planet_event = { id = realdev.1 days = 1 random = 7 }
@@ -265,7 +239,12 @@ planet_event = {
 	}
 	
 	immediate = {
-		
+		if = {
+			limit = {
+				NOT = { has_planet_flag = realdev_variables_set }
+			}
+			set_realdev_planet_variables = yes
+		}	
 		#Include Building Production
 		export_modifier_to_variable = { modifier = district_realdev_industry_max variable = realdev_building }
 		
@@ -373,36 +352,11 @@ planet_event = {
 		change_variable = { which = realdev_industry value = realdev_congoods_production }
 		
 		#Count Administrator Jobs (And Swaps)
-		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = head_researcher } variable = realdev_head_researcher }
-		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = politician } variable = realdev_administrator }
-		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = noble } variable = realdev_noble }
-		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = executive } variable = realdev_executive }
-		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = merchant } variable = realdev_merchant }
-		export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = high_priest } variable = realdev_high_priest }
+		change_variable = { which = realdev_industry_cap value = value:realdev_ruler_jobs }
 		
-		
-		change_variable = { which = realdev_industry_cap_rulers value = realdev_head_researcher }
-		change_variable = { which = realdev_industry_cap_rulers value = realdev_administrator }
-		change_variable = { which = realdev_industry_cap_rulers value = realdev_noble }
-		change_variable = { which = realdev_industry_cap_rulers value = realdev_executive }
-		change_variable = { which = realdev_industry_cap_rulers value = realdev_merchant }
-		change_variable = { which = realdev_industry_cap_rulers value = realdev_high_priest }
-		
-		multiply_variable = { which = realdev_industry_cap_rulers value = 10 }
-		
+		#Count Foremen
 		export_modifier_to_variable = { modifier = district_realdev_industry_cap_max variable = realdev_industry_cap_foreman }
-		
 		change_variable = { which = realdev_industry_cap_rulers value = realdev_industry_cap_foreman }
-		change_variable = { which = realdev_industry_cap value = realdev_industry_cap_rulers }
-		
-		#Count Roboticist Jobs (And Equivalents) #Not doing this to save on perf slightly
-		#export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = roboticist } variable = realdev_roboticist }
-		#export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = spawning_drone } variable = realdev_spawning_drone }
-		#export_trigger_value_to_variable = { trigger = num_assigned_jobs parameters = { job = replicator } variable = realdev_replicator }
-
-		#change_variable = { which = realdev_assembly_cap_jobs value = realdev_roboticist }
-		#change_variable = { which = realdev_assembly_cap_jobs value = realdev_spawning_drone }
-		#change_variable = { which = realdev_assembly_cap_jobs value = realdev_replicator }
 		
 		#Include Factory Production
 		if = {
@@ -412,7 +366,7 @@ planet_event = {
 			change_variable = { which = realdev_industry value = value:realdev_autofab_modules }
 		}
 
-		#Export number of branch office equipment buildings, if any exist.
+		#Export number of branch office equipment buildings, if any exist. ###Not implemented yet, might never be, because of issues
 		if = {
 			limit = {
 				has_branch_office = yes
@@ -435,27 +389,11 @@ planet_event = {
 	}
 	
 	immediate = {
-		#Include bonuses from Capital Bonus techs
+		#Include bonuses from Capital Bonus techs, Governor, Ruler, and Amenities
 		set_variable = { which = realdev_industry_multiplier_bonus value = 100 }
 		set_variable = { which = realdev_industry_multiplier_bonus_2 value = 1 }
 		change_variable = { which = realdev_industry_multiplier_bonus value = value:realdev_industry_multiplier }
-
-		#Pull bonuses from Governor and Ruler
-		if = {
-			limit = {
-				exists = sector.leader
-			}
-			change_variable = { which = realdev_industry value = sector.leader.realdev_industry }
-		}
-		if = {
-			limit = {
-				exists = owner.leader
-			}
-			change_variable = { which = realdev_leader_level value = owner.leader.realdev_leader_level }
-			change_variable = { which = realdev_industry value = owner.leader.realdev_industry }
-		}
 		
-		#Include Amenities Bonus
 		export_trigger_value_to_variable = { trigger = free_amenities variable = realdev_amenities }
 		if = {
 			limit = {
@@ -472,6 +410,7 @@ planet_event = {
 		divide_variable = { which = realdev_amenities value = 100 }
 		change_variable = { which = realdev_industry_multiplier_bonus_2 value = realdev_amenities }
 		
+		
 		#Include Bonus from orbiting Construction Ships
 		if = {
 			limit = {
@@ -487,39 +426,44 @@ planet_event = {
 		}
 		else = {
 			set_variable = { which = realdev_construction_ship_industry value = 0 }
+			set_variable = { which = realdev_construction_ship_industry_cap value = 0 }
 		}
 		
 		#Apply Multiplier Bonuses
 		divide_variable = { which = realdev_industry_multiplier_bonus value = 100 }
 		multiply_variable = { which = realdev_industry value = realdev_industry_multiplier_bonus }
 		multiply_variable = { which = realdev_industry_cap value = realdev_industry_multiplier_bonus }
+		
 		multiply_variable = { which = realdev_industry value = realdev_industry_multiplier_bonus_2 }
 		multiply_variable = { which = realdev_industry_cap value = realdev_industry_multiplier_bonus_2 }
 		
-		#Cap Industrial Capacity
-		#multiply_variable = { which = realdev_industry_cap value = 2 } #Double the cap. It's being split 4 ways.
+		#Target Industrial Capacity
 		ceiling_variable = realdev_industry_cap
 		ceiling_variable = realdev_industry
 		if = {
 			limit = {
-				check_variable = { which = realdev_industry value > realdev_industry_cap }
+				has_planet_flag = realdev_auto_target
 			}
-			set_variable = { which = realdev_industry_capped value = realdev_industry_cap }
+			set_realdev_target = yes
+		}
+		if = {
+			limit = {
+				check_variable = { which = realdev_industry value > realdev_ip_target }
+			}
+			set_variable = { which = realdev_industry_capped value = realdev_ip_target }
+			subtract_variable = { which = realdev_industry value = realdev_ip_target }
+			set_variable = { which = realdev_country_industry value = realdev_industry }
 		}
 		else = {
 			set_variable = { which = realdev_industry_capped value = realdev_industry }
+			subtract_variable = { which = realdev_industry value = realdev_ip_target }
+			if = {
+				limit = {
+					check_variable = { which = realdev_industry value < 0 }
+				}
+				multiply_variable = { which = realdev_industry value = -1 }
+			}
 		}
-		#Split industrial capacity between planet and country or take if needed
-		set_variable = { which = realdev_industry_speed value = realdev_industry_capped }
-		multiply_variable = { which = realdev_industry_speed value = realdev_industry_planet_ratio }
-		
-		set_variable = { which = realdev_industry_country_ratio value = 1 }
-		subtract_variable = { which = realdev_industry_country_ratio value = realdev_industry_planet_ratio }
-		
-		set_variable = { which = realdev_country_industry value = realdev_industry_capped }
-		multiply_variable = { which = realdev_country_industry value = realdev_industry_country_ratio }
-		ceiling_variable = realdev_industry_speed
-		ceiling_variable = realdev_country_industry
 		
 		#Split Planet industrial capacity between assembly and construction, if this planet doesn't use Empire Assistance, then give build speed that isn't being used to country.
 		if = {

@@ -12,3 +12,35 @@ reset_realdev_variables = {
 	set_variable = { which = realdev_industry_cap_foreman value = 0 }
 	set_variable = { which = realdev_leader_level value = 0 }
 }
+
+set_realdev_target = {
+	set_variable = { which = realdev_ip_target value = value:realdev_ip_target }
+	if = {
+		limit = {
+			check_variable = { which = realdev_ip_target value > realdev_industry_cap }
+		}
+		set_variable = { which = realdev_ip_target value = realdev_industry_cap }	
+	}
+}
+
+set_realdev_planet_variables = {
+	set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
+	set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
+	set_variable = { which = realdev_take_ratio value = 0 }
+	set_variable = { which = realdev_assembly_cap value = 200 }
+	set_planet_flag = realdev_variables_set
+	set_planet_flag = realdev_auto_target
+}
+
+set_realdev_country_variables = {
+	set_variable = { which = realdev_ip_target value = value:realdev_ip_target }
+	set_variable = { which = realdev_minor_colony_speed value = 0 }
+	set_variable = { which = realdev_industry_shipyard_ratio value = 0.8 }
+	set_variable = { which = realdev_industry_country_stockpile value = 0.1 }
+	set_variable = { which = realdev_industry_space_ratio value = 1 }
+	set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
+	set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
+	set_variable = { which = realdev_upgrading_megas value = 0 }
+	set_country_flag = realdev_variables_set
+	add_modifier = { modifier = realdev_no_build_cap }
+}
