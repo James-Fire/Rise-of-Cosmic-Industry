@@ -18,6 +18,11 @@ kiyo_correct_fleet_upkeep = {
 # THIS = FLEET
 kiyo_trade_calculate_resources = {
 	#Add intel and opinion modifiers to both parties. Opinion does not stack, intel does.
+	event_target:kiyo_trade_start@root = {
+	}
+	event_target:kiyo_trade_end@root = {
+	
+	}
 	random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_end@PREV } }
 		owner = {
 			remove_opinion_modifier = { modifier = opinion_kiyo_mod_trade_trade_routes who = prevprev.owner }

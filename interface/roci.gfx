@@ -1,5 +1,6 @@
 spriteTypes = {
 	spriteType = { name = "GFX_roci_tooltip"					texturefile = "gfx/interface/menu_ui/roci_tooltip.dds" }
+	spriteType = { name = "GFX_roci_info"					texturefile = "gfx/interface/menu_ui/roci_button_i.dds" }
 
 	spriteType = {
 		name = "GFX_roci_settings_anim"
@@ -60,12 +61,62 @@ spriteTypes = {
 	spriteType = { name = "GFX_realdev_planet_bg"						texturefile = "gfx/interface/menu_ui/industry_production_panel_planet.dds" }
 	
 	##Realdev
+	spriteType = { name = "GFX_thicc_round_anim"							texturefile = "gfx/interface/menu_ui/roci_settings_button_middle_blu_anim.dds" }
+	spriteType = { name = "GFX_thicc_round"							texturefile = "gfx/interface/menu_ui/roci_settings_button_middle_blu.dds" }
+	spriteType = { name = "GFX_up_curve_right_blue"							texturefile = "gfx/interface/menu_ui/roci_settings_button_up_blu.dds" }
+	spriteType = { name = "GFX_down_curve_right_blue"							texturefile = "gfx/interface/menu_ui/roci_settings_button_down_blu.dds" }
+	spriteType = { name = "GFX_roci_menu_swap_blue"							texturefile = "gfx/interface/menu_ui/roci_settings_button_circle_swap_blu.dds" }
+	spriteType = { name = "GFX_up_curve"							texturefile = "gfx/interface/menu_ui/up_curve.dds" }
+	spriteType = { name = "GFX_down_curve"							texturefile = "gfx/interface/menu_ui/down_curve.dds" }
+	spriteType = { name = "GFX_up_curve_right"							texturefile = "gfx/interface/menu_ui/up_curve_right.dds" }
+	spriteType = { name = "GFX_down_curve_right"							texturefile = "gfx/interface/menu_ui/down_curve_right.dds" }
+	
 	spriteType = { name = "GFX_realdev_planet_numbers"					texturefile = "gfx/interface/menu_ui/realdev_planet_numbers.dds" }
 	spriteType = { name = "GFX_realdev_country_numbers"					texturefile = "gfx/interface/menu_ui/realdev_country_numbers.dds" }
 	spriteType = { name = "GFX_realdev_country_numbers_bg"					texturefile = "gfx/interface/menu_ui/realdev_country_numbers_bg.dds" }
 	spriteType = { name = "GFX_realdev_country_sliders"					texturefile = "gfx/interface/menu_ui/realdev_country_sliders.dds" }
 	spriteType = { name = "GFX_realdev_header"							texturefile = "gfx/interface/menu_ui/realdev_header.dds" }
 	spriteType = { name = "GFX_realdev_slider_space"							texturefile = "gfx/interface/menu_ui/realdev_slider_space.dds" }
+	
+	
+	
+	spriteType = {
+		name = "GFX_roci_menu_swap_blue"
+		texturefile = "gfx/interface/menu_ui/roci_settings_button_circle_swap_blu.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/giga_menu_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/crystal_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = yes
+			animationtime = 1
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "rotating"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_thicc_round_animated"
+		texturefile = "gfx/interface/menu_ui/roci_settings_button_middle_blu.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/roci_settings_button_middle_blu_anim.dds"
+			animationtexturefile = "gfx/interface/menu_ui/roci_crystal_overlay.dds" #The image to animate.
+			animationrotation = -90.0
+			animationlooping = yes
+			animationtime = 1
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "rotating"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+	
 	spriteType = {
 		name = "GFX_realdev_small_gear_anim"
 		texturefile = "gfx/interface/menu_ui/realdev_cog_small_blank.dds" #The base image. Defines the size of the sprite.

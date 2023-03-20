@@ -1,0 +1,5 @@
+test_cargo_ships = {
+	add_resource = { consumer_goods = 5000 }
+	add_resource = { energy = 5000 }
+	give_technology = { tech = tech_colonial_centralization }
+}

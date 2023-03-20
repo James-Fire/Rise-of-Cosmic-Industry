@@ -6,6 +6,7 @@ orbital_ring = {
 	entity_offset = { x = 0 y = 0 }
 	scales_with_planet = yes
 	show_galactic_map_icon = no
+	show_in_outliner = no
 	build_time = 720
 
 	resources = {
@@ -85,6 +86,18 @@ orbital_ring = {
 					is_planet_class = pc_ringworld_seam_damaged
 					
 				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_orbital_debris"
+				NOR = {
+					has_planet_flag = has_orbital_debris
+				}
+			}
+			if = {
+				limit = {
+					from = { is_ai = yes }
+				}
+				num_pops >= 25
 			}
 		}
 	}
@@ -174,6 +187,7 @@ orbital_ring_restored = {
 	entity_offset = { x = 0 y = 0 }
 	scales_with_planet = yes
 	show_galactic_map_icon = no
+	show_in_outliner = no
 	build_time = 720
 
 	resources = {
@@ -214,24 +228,6 @@ orbital_ring_restored = {
 				controller = { is_same_value = from }
 			}
 		}
-		#custom_tooltip = {
-		#	fail_text = "requires_no_existing_megastructure"
-		#	#can_build_megastructure_on_planet = yes
-		#	NOR = {
-		#		has_planet_flag = megastructure
-		#		has_planet_flag = has_megastructure
-		#		solar_system = {
-		#			has_star_flag = ring_world_built
-		#		}
-		#		is_planet_class = pc_ringworld_habitable
-		#		is_planet_class = pc_ringworld_habitable_damaged
-		#		is_planet_class = pc_ringworld_tech
-		#		is_planet_class = pc_ringworld_tech_damaged
-		#		is_planet_class = pc_ringworld_seam
-		#		is_planet_class = pc_ringworld_seam_damaged
-		#		is_planet_class = pc_habitat
-		#	}
-		#}
 	}
 
 	on_build_start = {}

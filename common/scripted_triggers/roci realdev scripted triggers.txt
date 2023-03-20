@@ -28,3 +28,28 @@ can_pops_assemble_on_planet = {
 		}
 	}
 }
+
+planet_uses_target_auto = {
+	OR = {
+		has_planet_flag = realdev_target_auto
+		AND = {
+			has_planet_flag = realdev_target_country
+			exists = owner
+			owner = {
+				has_country_flag = realdev_target_auto
+			}
+		}
+	}
+}
+planet_uses_target_manual = {
+	OR = {
+		has_planet_flag = realdev_target_manual
+		AND = {
+			has_planet_flag = realdev_target_country
+			exists = owner
+			owner = {
+				has_country_flag = realdev_target_manual
+			}
+		}
+	}
+}

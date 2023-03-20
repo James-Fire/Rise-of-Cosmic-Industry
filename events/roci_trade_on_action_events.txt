@@ -269,10 +269,10 @@ country_event = {
 				
 				set_name = {
 					key = "roci_cargo_ships_fleetname"
-					variable_string = "kiyo_trade_start.GetName"
-					variable_string = "kiyo_trade_end.GetName"
-					variable_string = "This.trigger:num_ships"
-					variable_string = "Owner.kiyo_trade_max_cargo_ships_per_fleet"
+					variable_string = "[kiyo_trade_start.GetName]"
+					variable_string = "[kiyo_trade_end.GetName]"
+					variable_string = "[This.trigger:num_ships]"
+					variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
 				}
 			}
 		}
@@ -476,7 +476,17 @@ country_event = {
 		NOT = { has_global_flag = no_trade_routes }
 		any_owned_fleet = {
 			any_owned_ship = { is_ship_size = kiyo_trade }
-			is_fleet_idle = yes
+			OR = {
+				is_fleet_idle = yes
+				AND = {
+					has_fleet_flag = kiyo_trade_starting
+					orbit = { root = { has_fleet_flag = kiyo_trade_end@PREV } }
+				}
+				AND = {
+					has_fleet_flag = kiyo_trade_ending
+					orbit = { root = { has_fleet_flag = kiyo_trade_start@PREV } }
+				}
+			}
 			OR = {
 				owner = { is_ai = yes }
 				has_fleet_flag = kiyo_trade_has_trade_route
@@ -489,6 +499,7 @@ country_event = {
 			limit = {
 				any_owned_ship = { is_ship_size = kiyo_trade }
 				is_fleet_idle = yes
+				owner = { is_ai = yes }
 			}
 			prev = { random_owned_planet = { limit = { prevprev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start } }
 			#Find the planet in the galaxy that has the best trade route value that can be traded with

@@ -11,6 +11,8 @@ reset_realdev_variables = {
 	set_variable = { which = realdev_industry_cap_rulers value = 0 }
 	set_variable = { which = realdev_industry_cap_foreman value = 0 }
 	set_variable = { which = realdev_leader_level value = 0 }
+	set_variable = { which = realdev_ip_target value = 100 }
+	set_variable = { which = realdev_ip_target_display value = 100 }
 }
 
 set_realdev_target = {
@@ -24,12 +26,14 @@ set_realdev_target = {
 }
 
 set_realdev_planet_variables = {
+	set_variable = { which = realdev_ip_target value = value:realdev_ip_target }
 	set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
 	set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
 	set_variable = { which = realdev_take_ratio value = 0 }
 	set_variable = { which = realdev_assembly_cap value = 200 }
 	set_planet_flag = realdev_variables_set
-	set_planet_flag = realdev_auto_target
+	set_planet_flag = realdev_target_country
+	set_variable = { which = realdev_ip_target_display value = realdev_ip_target }
 }
 
 set_realdev_country_variables = {
@@ -41,6 +45,32 @@ set_realdev_country_variables = {
 	set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
 	set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
 	set_variable = { which = realdev_upgrading_megas value = 0 }
+	set_variable = { which = realdev_ip_target value = 100 }
 	set_country_flag = realdev_variables_set
+	set_country_flag = realdev_target_auto
 	add_modifier = { modifier = realdev_no_build_cap }
+	if = { #Checing if any species the country has can be assembled at game start
+		limit = {
+			any_owned_species = {
+				is_sapient = yes
+				OR = {
+					is_robotic = yes
+					has_trait = trait_plantoid_budding
+					PREV = { has_origin = origin_clone_army }
+					PREV = { has_civic = civic_permanent_employment }
+					has_trait = trait_clone_soldier_infertile
+					has_trait = trait_clone_soldier_infertile_full_potential
+					AND = {
+						is_organic_species = yes
+						PREV = { is_hive_empire = yes }
+						has_trait = trait_hive_mind
+					}
+				}
+			}
+		}
+		set_country_flag = realdev_assembly
+	}
+	else = {
+		set_country_flag = realdev_production
+	}
 }

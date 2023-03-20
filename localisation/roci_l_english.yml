@@ -657,7 +657,7 @@
      
      can_use_autofab:0 "Unlock the ability to build Automated Factories on your planets, reducing your reliance on labour from people and machines. \nIf you have the Origin or Civic, this gives +40% factory production instead."
      
-     autofab_script_replace: "§RThis Origin or Civic is replaced by script if Autofab is disabled after game start.§!
+     autofab_script_replace: "§RThis Origin or Civic is replaced by script if Autofab is disabled after game start.§!"
      
   #Events
      autofab.2.name: "Factory For Everyone"
@@ -1053,6 +1053,7 @@
      REALDEV_PLANET_MENU: ""
      REALDEV_country_MENU: ""
      realdev_ratio_maxxed: "This ratio is already maxed in that direction."
+     realdev_target_minned: "You are already giving 0 IP."
      realdev_take_maxxed: "100% of the Empire Industrial Production Planet Aid is already allocated."
      realdev_take_minned: "This planet is already taking 0% of the Empire Industrial Production Planet Aid."
      realdev_take_would_be_maxxed: "The empire does not have enough unallocated Industrial Production to fulfill this ratio."
@@ -1060,9 +1061,20 @@
      realdev_assembly_or_jobs: "Swap whether IP is put towards Assembly, Planet Production, or what the Empire setting is."
      realdev_megastructure_build_ignore_desc: "Realistic Development handles Megastructure Build Speed as part of making the game more realistic. This can be disabled, if you either don't want it, or prefer to use just another method."
      roci_realdev_mega_handling: "Megastructure Speed"
+     realdev_inheritance_tooltip: "$realdev_inheritance_tooltip_1$\n\n$realdev_inheritance_tooltip_2$\n\n$realdev_inheritance_tooltip_3$\n\n"
+     realdev_inheritance_tooltip_1: "Inheritance is the method by which unused IP moves to places where it is needed. If you give IP to Planet Building that it doesn't need, this is fine, Inheritance will handle it. Together with Targets, you can set up how much IP planets should get if they need it all, but if they don't, it'll flow back to the Empire."
+     realdev_inheritance_tooltip_2: "Starting on planets, Inheritance works by passing overflow and uneeded IP to the next item in line. On Planets, this order is:\n-Planet Building\n-Assembly/Production Boost\n-Empire."
+     realdev_inheritance_tooltip_3: "At the Empire level, the Inheritance order is:\n-Ships\n-Minor Colonies\n-Megastructures"
+
+     realdev_target_increase: "Increase the Target by 1."
+     realdev_target_decrease: "Decrease the Target by 1."
+     realdev_target_display: "  [This.realdev_ip_target_display]"
      
      realdev_country_tooltip: "This UI shows the whole empire's current Industrial Production value, and how much Industrial Production is allocated to the empire. Ratio sliders for allocating Industrial Production between empire-level uses are present. It updates its information every 30 days."
      realdev_planet_tooltip: "This UI shows this planet's current Industrial Production value, its current Industrial Production Capacity value, and has Ratio sliders for allocating Industrial Production between the empire and planet-level uses. It updates its information every 30 days."
+     realdev_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the country level, there is 2 options: Manual and Auto.\n\nManual has you enter a number, and that is the explicit value all planets that follow the country-level settings will try to get.\n\nAuto includes some automatic adjustments based on what the planet needs."
+     realdev_planet_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the planet level, there are 3 options: Manual, Auto, and Country.\n\nManual has you enter a number, and that is the explicit value the planet will try to get.\n\nAuto includes some automatic adjustments based on what the planet needs.\n\nCountry has it follow the country setting."
+     realdev_country_target: "  [This.realdev_ip_target]"
      
      empire_assembly: "Empire - Assembly"
      empire_production: "Empire - Production"
@@ -1074,9 +1086,7 @@
      realdev_indcap_title: "Industrial Production"
      realdev_max_ind_cap_title: "Capacity"
      
-     realdev_planet_take_speed_title: "Total"
-     realdev_planet_take_ratio_title: "Empire Assistance"
-     realdev_country_take_speed_title: "Extra"
+     realdev_planet_target_title: "Target [this.realdev_planet_target_setting]"
      
      realdev_planet_take_display: "[This.realdev_industry_speed_display]"
      realdev_country_take_display: "[This.realdev_planet_stockpile_display]"
@@ -1114,6 +1124,7 @@
      
      realdev_build_speed_title: "Build Speed"
      realdev_build_ratio_title: "Planet Usage"
+     realdev_build_ratio_title_tooltip: "This slider controls the distribution of IP on this planet. If it can't be used, it will follow Inheritance so it isn't wasted."
      realdev_alt_speed_title: "[This.GetAltProdState]"
      planet_assembly: "Assembly"
      planet_production: "Production"
@@ -1127,10 +1138,10 @@
      realdev_current_indcap_display: "[This.realdev_industry_display]"
      realdev_max_ind_cap_display: "[This.realdev_industry_cap_display]"
      
-     
-     realdev_country_stockpile_title: "Planet Aid"
-     realdev_country_stockpile_ratio_title: "Planet Aid/Usage Split"
-     realdev_country_usage_title: "Usage"
+     realdev_country_stockpile_ratio_title: "Target [this.realdev_country_target_setting]"
+     realdev_target_manual: "Manual"
+     realdev_target_auto: "Auto"
+     realdev_target_country: "Country"
      
      realdev_country_stockpile_display: "[This.realdev_country_stockpile_display]"
      realdev_country_usage_display: "[This.realdev_usage_industry_display]"
@@ -1138,6 +1149,9 @@
      realdev_country_ship_speed_title: "Ships"
      realdev_country_ship_ratio_title: "Empire Usage Split"
      realdev_country_space_const_speed_title: "Space Construction"
+
+     realdev_country_ship_ratio_title_tooltip: "This slider controls the distribution of IP between Ships and the slider below this one. If it can't be used, it will follow Inheritance so it isn't wasted."
+     realdev_space_construction_ratio_title_tooltip: "This slider controls the distribution of IP between Minor Colonies and Megastructures. If it can't be used, it will follow Inheritance so it isn't wasted."
      
      realdev_country_ship_speed_display: "[This.realdev_ship_build_speed_display]%"
      realdev_country_space_construction_display: "[This.realdev_space_build_speed_display]"
@@ -1152,7 +1166,7 @@
      realdev_country_indcap_title: "Current"
      realdev_total_ind_cap_title: "Total"
      
-     realdev_country_indcap_display: "[This.realdev_country_industry_display]"
+     realdev_country_indcap_display: "[this.realdev_country_indcap_spacing][This.realdev_country_industry_display]"
      realdev_total_ind_cap_display: "[This.realdev_industry_display]"
      
      realdev_industrial_production: ""
@@ -1364,13 +1378,10 @@
     campaign_kiyo_mod_trade:0 "Cargo Ship Cost"
     campaign_kiyo_mod_trade_energy_upkeep_add:0 "Cargo Ship Energy Upkeep"
     
-    roci_cargo_ships_fleetname_no_target: "[Prev.GetName] Cargo Fleet"
-    roci_cargo_ships_fleetname: "$roci_cargo_ships_name$"
-    roci_cargo_ships_fleetname_going: "$roci_cargo_ships_name_going$"
-    roci_cargo_ships_name_no_target: "[Prev.GetName]"
-    roci_cargo_ships_name: "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_start.GetName])"
-    roci_cargo_ships_name_going: "[kiyo_trade_start.GetName] - [kiyo_trade_end.GetName] Cargo (To [kiyo_trade_end.GetName])"
-    roci_cargo_ships_capacity: "(Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+    roci_cargo_ships_fleetname_no_target: "[Prev.GetName] Cargo Fleet (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+    roci_cargo_ships_fleetname: "[prevprev.GetName] - [prev.GetName] Cargo (To [prevprev.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+    roci_cargo_ships_fleetname_going: "[prevprev.GetName] - [prev.GetName] Cargo (To [prev.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+    roci_cargo_ships_name_no_target: "[Prev.GetName] (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
     
   #Components
  
@@ -1497,7 +1508,7 @@
     roci_autofab_desc: "The Automatic Factory module provides the Automatic Factory, a mechanic you can use to produce resources without pops. It has Planet and Country UI, accessible from a decision and edict respectively. Requires the Origin, Civic, or AP, or the Factory For All setting enabled."
     
     roci_exploit: "Space Exploitation"
-    roci_exploit_desc: "The Space Exploitation module provides Minor Colonies, a mechanic you can use to "upgrade" existing mining/research stations, and to allow more to be built. It has a Country level UI, accessible from an edict."
+    roci_exploit_desc: "The Space Exploitation module provides Minor Colonies, a mechanic you can use to build more resource production on uninhabitable planets for collection by Mining or Research stations. It has a Country level UI, accessible from an edict."
     roci_exploit_disabled: "Space Exploitation is disabled pending a crash fix in vanilla."
     roci_exploit_uninhabitables_size: "Uninhabitable Sizes"
     roci_exploit_uninhabitables_size_desc: "When a planet has a valid terrform available, it shows the planet size. This setting controls terraform options for all Uninhabitable Planets, so that their size can be shown. A side effect of this is that they will always show as having a terraform option available.\n\nThis option is placed under Space Exploitation, but it can be toggled even if Space Exploitation is off."

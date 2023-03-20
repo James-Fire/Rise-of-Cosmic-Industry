@@ -1,54 +1,9 @@
-Disabled the Cargo Ships module.
-
-Autofab modules scale properly with ecumenopolis now.
-
-Autofab scaling with planet and empire types is more robust now.
-
-Autofab now inherits Add modifiers, instead of needing its own from Orbital Districts.
-
-The Autofab itself now costs a flat 400 energy and 400 minerals regardless of where it is built.
-
-Added a disclaimer to Autofab Origins and Civics that they are script-replaced if autofab isn't active.
-
-Prefixed my origins and civics so they're unique to my mod. (This will break save games)
-
-Fixed fome autofab buttons not having the correct triggers.
-
-Added a thing to make sure Homeworlds can always have Orbital Mines (If the Orbital Infrastructure module is active)
-
-Fixed orbital district destroy triggers. They now remove themselves if they can't exist
-
-Fixed an incorrect event call in orbital districts
-
-Fixed Orbital Defense platforms spawning platforms when they shouldn't.*
-
-Added a safety check for Exploit polling countries about stuff.
-
-Fixed Minor Colony deposits doing weird stuff for lithoids
-
-Minor Colonies now require either an upgraded starbase with the Transit Hub, or an appropriate Major Colony.
-
-The transit hub now says it allows minor colonies.
-
-All minor colony deposits are now placed on your homeworld.
-
-Added a safety check for realdev polling the ruler about stuff.	
-
-Added a Target mode for Industrial Production on planets, wherein they try to get a certain amount, either taking what they need from the country, or sending excess to the country.*
-
-Set Target Mode to be default Empire settings, and to request 200 IP be delivered. (This means every planet will, by default, get 200 IP, assuming there's enough to go around.)*
-
-Added defaults for Target mode that are set on the Empire. Planets can choose between having Target Mode off, using Empire settings for it, or using Planet settings. By default, planets use the empire setting.*
-
-IP is now limited by use. Planets can generate as much as they want, but can only use up to their IPC. Excess is sent to the Empire.*
-
-Removed "Planet Aid" and "Empire Assistance". This is now covered by Targets.*
 
 
 
-Fixed swapping between pulling/pushing IP between planet and country not resetting the values.
 
-Fixed cargo ships being on strike.*
+
+
 
 Moved the Trade Value provided by completed exploit constructions to the minor colonies.*
 

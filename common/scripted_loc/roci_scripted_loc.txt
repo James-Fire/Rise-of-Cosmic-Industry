@@ -85,3 +85,57 @@ defined_text = {
 		localization_key = planet_production
 	}
 }
+defined_text = { #Scope Agnostic
+	name = realdev_country_target_spacing
+	text = {
+		trigger = {
+			check_variable = { which = realdev_ip_target value < 10 }
+		}
+		localization_key = space_1
+	}
+}
+defined_text = { #Scope Agnostic
+	name = realdev_country_indcap_spacing
+	text = {
+		trigger = {
+			check_variable = { which = realdev_country_industry_display value < 10 }
+		}
+		localization_key = space_1
+	}
+}
+defined_text = { #Country scope
+	name = realdev_country_target_setting
+	text = {
+		trigger = {
+			has_country_flag = realdev_target_manual
+		}
+		localization_key = realdev_target_manual
+	}
+	text = {
+		trigger = {
+			has_country_flag = realdev_target_auto
+		}
+		localization_key = realdev_target_auto
+	}
+}
+defined_text = { #Planet scope
+	name = realdev_planet_target_setting
+	text = {
+		trigger = {
+			has_planet_flag = realdev_target_manual
+		}
+		localization_key = realdev_target_manual
+	}
+	text = {
+		trigger = {
+			has_planet_flag = realdev_target_auto
+		}
+		localization_key = realdev_target_auto
+	}
+	text = {
+		trigger = {
+			has_planet_flag = realdev_target_country
+		}
+		localization_key = realdev_target_country
+	}
+}

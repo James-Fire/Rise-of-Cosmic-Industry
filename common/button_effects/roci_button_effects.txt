@@ -598,7 +598,7 @@ roci_trade_routes_on = {
 }
 roci_trade_routes_off = {
 	potential = { has_global_flag = no_trade_routes }
-	allow = { custom_tooltip = "This Module is disabled pending figuring out and fixing its issues." hidden_trigger = { always = no } }
+	allow = { hidden_trigger = { always = yes } } #custom_tooltip = "This Module is disabled pending figuring out and fixing its issues."
 	effect = { remove_global_flag = no_trade_routes  }
 }
 

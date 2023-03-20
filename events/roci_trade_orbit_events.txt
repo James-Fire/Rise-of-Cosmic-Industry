@@ -5,8 +5,6 @@ fleet_event = {
 	id = kiyo_trade_orbit_event.1
 	hide_window = yes
 	is_triggered_only = yes
-	#name = yes
-	#desc = yes
 	
 	trigger = {
 		NOT = { has_global_flag = no_trade_routes }
@@ -16,9 +14,7 @@ fleet_event = {
 		orbit = {
 			exists = owner
 			owner = {
-				ROOT = {
-					PREV = { roci_can_trade_with_country = yes }
-				}
+				ROOT.owner = { PREV = { roci_can_trade_with_country = yes } }
 			}
 		}
 		
@@ -29,27 +25,18 @@ fleet_event = {
 			has_fleet_flag = kiyo_trade_has_trade_route
 		}
 		#Trade Fleet must have an origin planet
-		owner = { any_owned_planet = { root = { has_fleet_flag = kiyo_trade_start@PREV } } }
-		if = {
-			limit = {
-				owner = {
-					any_owned_planet = {
-						prev = {
-							any_owned_fleet = {
-								NOT = { is_same_value = root }
-								has_fleet_flag = kiyo_trade_start@PREVPREV
-							}
-						}
-					}
-				}
-			}
-			orbit = {
-				root.owner = {
-					NOT = {
-						any_owned_fleet = {
-							NOT = { is_same_value = root }
-							has_fleet_flag = kiyo_trade_end@PREVPREV
-						}
+
+		#exists = event_target:kiyo_trade_start@this
+		event_target:kiyo_trade_start@this = {
+			exists = this
+			NOT = { is_same_value = root.orbit }
+		}
+		orbit = {
+			root.owner = {
+				NOT = {
+					any_owned_fleet = {
+						NOT = { is_same_value = root }
+						has_fleet_flag = kiyo_trade_end@PREVPREV
 					}
 				}
 			}
@@ -57,6 +44,12 @@ fleet_event = {
 	}
 	
 	immediate = {
+		if = {
+			limit = {
+				has_global_flag = cargo_ships_logging
+			}
+			log = "Trade fleet for [Owner.GetName] arrived at [Orbit.GetName] owned by [Orbit.Owner.GetName] to create a trade route"
+		}
 		#Set up required flags on the fleet
 		remove_fleet_flag = kiyo_trade_going@ORBIT
 		set_fleet_flag = kiyo_trade_end@ORBIT
@@ -64,50 +57,53 @@ fleet_event = {
 		set_fleet_flag = kiyo_trade_has_trade_route
 		
 		#Start the loop event to run the trade route
-		fleet_event = { id = kiyo_trade_orbit_event.2 }
-		orbit = { save_event_target_as = kiyo_trade_end }
-		owner = {
-			random_owned_planet = { limit = { root = { has_fleet_flag = kiyo_trade_start@PREV } }
-				save_event_target_as = kiyo_trade_start
+		orbit = { save_global_event_target_as = kiyo_trade_end@root }
+		fleet_event = { id = kiyo_trade_orbit_event.2 days = 1 }
+		event_target:kiyo_trade_start@root = {
+			event_target:kiyo_trade_end@root = {
 				root = {
+					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
 					set_name = {
 						key = "roci_cargo_ships_fleetname"
-						variable_string = "kiyo_trade_start.GetName"
-						variable_string = "kiyo_trade_end.GetName"
-						variable_string = "This.kiyo_trade_max_cargo_ships_per_fleet"
-						variable_string = "Owner.kiyo_trade_max_cargo_ships_per_fleet"
+						variable_string = "[prevprev.GetName]"
+						variable_string = "[prev.GetName]"
+						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+						variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
 					}
 				}
 			}
 		}
 		
-		# Prevent expire event from firing immediately after starting a trade route
+		#Prevent expire event from firing immediately after starting a trade route
 		set_fleet_flag = kiyo_trade_start_expired
 		set_fleet_flag = kiyo_trade_end_expired
 		
 		#Message for fleet owner that trade route has been started
-		owner = {
-			save_event_target_as = kiyo_trade_trader	# For Notification Localization
-			create_message = {
-				type = EVENT_MESSAGE_TYPE
-				localization = kiyo_trade_orbit_event.1.desc
-				target = root
-				days = 30
-				variable = {
-					type = name
-					localization = PLANET_1
-					scope = event_target:kiyo_trade_start
-				}
-				variable = {
-					type = name
-					localization = PLANET_2
-					scope = event_target:kiyo_trade_end
+		event_target:kiyo_trade_start@root = {
+			event_target:kiyo_trade_end@root = {
+				root.owner = {
+					create_message = {
+						type = EVENT_MESSAGE_TYPE
+						localization = kiyo_trade_orbit_event.1.desc
+						target = root
+						days = 30
+						variable = {
+							type = name
+							localization = PLANET_1
+							scope = prevprev
+						}
+						variable = {
+							type = name
+							localization = PLANET_2
+							scope = prev
+						}
+					}
 				}
 			}
 		}
 		
 		#Event for the planet owner that a trade route has been started
-		orbit = { owner = { country_event = { id = kiyo_trade_orbit_event.12 } } }
+		orbit.owner = { country_event = { id = kiyo_trade_orbit_event.12 } }
 	}
 }
 
@@ -139,28 +135,34 @@ fleet_event = {
 			has_fleet_flag = kiyo_trade_start@ORBIT
 			has_fleet_flag = kiyo_trade_has_trade_route
 		}
-		owner = {
-			any_owned_planet = {
-				root = {
-					has_fleet_flag = kiyo_trade_start@PREV
-					orbit = { NOT = { is_same_value = prevprev } }
-				}
+		exists = kiyo_trade_start@root
+		event_target:kiyo_trade_start@root = {
+			root = {
+				has_fleet_flag = kiyo_trade_start@PREV
+				orbit = { NOT = { is_same_value = prevprev } }
 			}
 		}
 	}
 	
 	immediate = {
-		owner = { random_owned_planet = { limit = { root = { has_fleet_flag = kiyo_trade_start@PREV } } root = { remove_fleet_flag = kiyo_trade_start@PREV } } }
+		event_target:kiyo_trade_start@root = { root = { remove_fleet_flag = kiyo_trade_start@PREV } }
 		set_fleet_flag = kiyo_trade_start@ORBIT
-		set_name = {
-			key = "roci_cargo_ships_fleetname_no_target"
-			variable_string = "Orbit.GetName"
-			#variable_string = "kiyo_trade_end.GetName"
-			variable_string = "This.kiyo_trade_max_cargo_ships_per_fleet"
-			variable_string = "Owner.kiyo_trade_max_cargo_ships_per_fleet"
+		orbit = { save_global_event_target_as = kiyo_trade_start@root }
+		event_target:kiyo_trade_start@root = {
+			owner = {
+				root = {
+					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
+					set_name = {
+						key = "roci_cargo_ships_fleetname"
+						variable_string = "[prevprev.GetName]"
+						#variable_string = "[prev.GetName]"
+						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+						variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+					}
+				}
+			}
 		}
 	}
-	
 }
 
 # Notify Trade Target of Trade Route to their planet
@@ -173,27 +175,24 @@ country_event = {
 	
 	immediate = {
 		from = {
-			random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start }
-			random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_end@PREV } }
-				save_event_target_as = kiyo_trade_end
-				solar_system = { save_event_target_as = kiyo_trade_system }
-			}
 			kiyo_mod_trade_set_route_time = yes
 		}
-		create_message = {
-			target = this
-			type = EVENT_MESSAGE_TYPE
-			localization = kiyo_trade_orbit_event.12.desc
-			days = 30
-			variable = {
-				type = name
-				localization = PLANET_2
-				scope = event_target:kiyo_trade_end
-			}
-			variable = {
-				type = name
-				localization = SOLAR_SYSTEM
-				scope = event_target:kiyo_trade_system
+		event_target:kiyo_trade_end@from = {
+			create_message = {
+				target = prev
+				type = EVENT_MESSAGE_TYPE
+				localization = kiyo_trade_orbit_event.12.desc
+				days = 30
+				variable = {
+					type = name
+					localization = PLANET_2
+					scope = this
+				}
+				variable = {
+					type = name
+					localization = SOLAR_SYSTEM
+					scope = root.from.solar_system
+				}
 			}
 		}
 	}
@@ -207,44 +206,32 @@ fleet_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = no_trade_routes }
-		if = {
-			limit = { exists = orbit }
-			owner = { any_owned_planet = { root = { has_fleet_flag = kiyo_trade_start@PREV } } }
-			any_country = { is_country_type = default any_owned_planet = { root = { has_fleet_flag = kiyo_trade_end@PREV } } }
-			has_fleet_flag = kiyo_trade_has_trade_route
-			OR = {
-				AND = {
-					has_fleet_flag = kiyo_trade_starting
-					orbit = { root = { has_fleet_flag = kiyo_trade_end@PREV } }
-				}
-				AND = {
-					has_fleet_flag = kiyo_trade_ending
-					orbit = { root = { has_fleet_flag = kiyo_trade_start@PREV } }
-				}
+		exists = orbit
+		has_fleet_flag = kiyo_trade_has_trade_route
+		OR = {
+			AND = {
+				has_fleet_flag = kiyo_trade_starting
+				orbit = { root = { has_fleet_flag = kiyo_trade_end@PREV } }
+			}
+			AND = {
+				has_fleet_flag = kiyo_trade_ending
+				orbit = { root = { has_fleet_flag = kiyo_trade_start@PREV } }
 			}
 		}
-		else = { always = no }
 	}
 	
 	immediate = {
+		if = {
+			limit = {
+				has_global_flag = cargo_ships_logging
+			}
+			log = "Trade fleet for [Owner.GetName] arrived at [Orbit.GetName] owned by [Orbit.Owner.GetName] to continue a trade route"
+		}
 		#Remove the direction flags so they can be reset
 		remove_fleet_flag = kiyo_trade_starting
 		remove_fleet_flag = kiyo_trade_ending
-		
-		#If the event targets for the two ends of the trade route don't exist, make them
-		if = {
-			limit = {
-				NOT = { exists = event_target:kiyo_trade_start }
-			}
-			owner = { random_owned_planet = { limit = { root = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start } }
-		}
-		if = {
-			limit = {
-				NOT = { exists = event_target:kiyo_trade_end }
-			}
-			random_galaxy_planet = { limit = { root = { has_fleet_flag = kiyo_trade_end@PREV } } save_event_target_as = kiyo_trade_end }
-		}
-		
+		clear_fleet_actions = this
+
 		#Do cargo swapping with the planet
 		kiyo_trade_calculate_resources = yes
 		
@@ -255,16 +242,29 @@ fleet_event = {
 					is_same_value = prev.orbit.owner
 				}
 			}
-			#Then set up fleet orders to go to the other end. Also rename fleet to ensure correctness, and set a flag to signify which direct it is going
-			set_name = {
-				key = "roci_cargo_ships_fleetname"
-				variable_string = "kiyo_trade_start.GetName"
-				variable_string = "kiyo_trade_end.GetName"
-				variable_string = "This.kiyo_trade_max_cargo_ships_per_fleet"
-				variable_string = "Owner.kiyo_trade_max_cargo_ships_per_fleet"
+			if = {
+				limit = {
+					has_global_flag = cargo_ships_logging
+				}
+				log = "Trade fleet for [Owner.GetName] determined it was at homebase [Orbit.GetName]"
 			}
-			queue_actions = { orbit_planet = event_target:kiyo_trade_start wait = 5 effect = { id = "kiyo_trade_orbit_event.2.1" fleet_event = { id = kiyo_trade_orbit_event.2 } } }
-			set_fleet_flag = kiyo_trade_ending
+			#Then set up fleet orders to go to the other end. Also rename fleet to ensure correctness, and set a flag to signify which direct it is going
+			event_target:kiyo_trade_start@root = {
+				event_target:kiyo_trade_end@root = {
+					root = {
+						set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
+						set_name = {
+							key = "roci_cargo_ships_fleetname"
+							variable_string = "[prevprev.GetName]"
+							variable_string = "[prev.GetName]"
+							variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+							variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+						}
+					}
+				}
+			}
+			event_target:kiyo_trade_end@this = { prev = { queue_actions = { repeat = { orbit_planet = prev wait = 5 effect = { fleet_event = { id = kiyo_trade_orbit_event.2 } } } } } }
+			set_fleet_flag = kiyo_trade_starting
 		}
 		else_if = {
 			limit = {
@@ -272,16 +272,29 @@ fleet_event = {
 					NOT = { is_same_value = prev.orbit.owner }
 				}
 			}
-			#Then set up fleet orders to go to the other end. Also rename fleet to ensure correctness, and set a flag to signify which direct it is going
-			set_name = {
-				key = "roci_cargo_ships_fleetname_going"
-				variable_string = "kiyo_trade_start.GetName"
-				variable_string = "kiyo_trade_end.GetName"
-				variable_string = "This.kiyo_trade_max_cargo_ships_per_fleet"
-				variable_string = "Owner.kiyo_trade_max_cargo_ships_per_fleet"
+			if = {
+				limit = {
+					has_global_flag = cargo_ships_logging
+				}
+				log = "Trade fleet for [Owner.GetName] determined it was at destination [Orbit.GetName] owned by [Orbit.Owner.GetName]"
 			}
-			queue_actions = { orbit_planet = event_target:kiyo_trade_start wait = 5 effect = { id = "kiyo_trade_orbit_event.2.2" fleet_event = { id = kiyo_trade_orbit_event.2 } } }
-			set_fleet_flag = kiyo_trade_starting
+			#Then set up fleet orders to go to the other end. Also rename fleet to ensure correctness, and set a flag to signify which direction it is going
+			event_target:kiyo_trade_start@root = {
+				event_target:kiyo_trade_end@root = {
+					root = {
+						set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
+						set_name = {
+							key = "roci_cargo_ships_fleetname_going"
+							variable_string = "[prevprev.GetName]"
+							variable_string = "[prev.GetName]"
+							variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+							variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+						}
+					}
+				}
+			}
+			event_target:kiyo_trade_start@this = { prev = { queue_actions = { repeat = { orbit_planet = prev wait = 5 effect = { fleet_event = { id = kiyo_trade_orbit_event.2 } } } } } }
+			set_fleet_flag = kiyo_trade_ending
 		}
 	}
 

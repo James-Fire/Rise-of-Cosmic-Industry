@@ -66,20 +66,28 @@ decision_kiyo_mod_trade_setup_trade_route = {
 			create_fleet = {
 				name = "Jeff wants you to report this to James"
 				effect = {
-					set_name = {
-						key = "roci_cargo_ships_fleetname_no_target"
-						variable_string = "Prev.GetName"
-						#variable_string = "kiyo_trade_end.GetName"
-						variable_string = "This.trigger:num_ships"
-						variable_string = "Owner.kiyo_trade_max_cargo_ships_per_fleet"
-					}
+					ROOT = { save_global_event_target_as = kiyo_trade_start@prev }
 					set_owner = prev.owner
+					set_location = {
+						target = prev
+						distance = 5
+						angle = random
+					}
 					create_ship = {
 						name = "Cargo Ship"
 						random_existing_design = kiyo_trade
 						prefix = yes
 						upgradable = yes
 					}
+					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
+					set_name = {
+						key = "roci_cargo_ships_fleetname_no_target"
+						variable_string = "[Prev.GetName]"
+						#variable_string = "[kiyo_trade_end.GetName]"
+						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+						variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+					}
+					set_owner = prev.owner
 					set_location = {
 						target = prev
 						distance = 5
