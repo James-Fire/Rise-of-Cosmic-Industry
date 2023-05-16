@@ -3,3 +3,38 @@ test_cargo_ships = {
 	add_resource = { energy = 5000 }
 	give_technology = { tech = tech_colonial_centralization }
 }
+
+print_realdev_values = {
+	if = {
+		limit = {
+			is_scope_type = country
+		}
+		log = "Logging Realdev values on Country [This.GetName]"
+		log = "Country total IP: [This.realdev_country_industry]"
+		log = "Country IP from Trade Value: [This.realdev_trade_value]"
+		log = "Country IP from Commercial Trade Value: [This.realdev_trade_value]"
+		log = "Country Shipyard count: [This.realdev_shipyard_count]"
+	}
+	if = {
+		limit = {
+			is_scope_type = planet
+		}
+		log = "Logging Realdev values on Planet [This.GetName]"
+		log = "Planet total IP: [This.realdev_industry]"
+		log = "Planet IP to country: [This.realdev_country_industry]"
+		log = "Planet IP bonuses: [This.realdev_industry_multiplier_bonus]"
+		log = "Planet IP amenities bonuses: [This.realdev_industry_multiplier_bonus_2]"
+		log = "Planet IP construction ship bonuses: [This.realdev_construction_ship_industry]"
+		log = "Planet IP construction speed: [This.realdev_planet_build_speed]"
+		log = "Planet IP assembly speed: [This.realdev_assembly_speed]"
+		if = {
+			limit = {
+				bonus_production_active = yes
+			}
+			log = "Planet using bonus production"
+		}
+		else = {
+			log = "Planet using assembly"
+		}
+	}
+}

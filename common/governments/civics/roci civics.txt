@@ -1,5 +1,5 @@
 roci_civic_construction_company = {
-	description = "civic_construction_company_effects"
+	description = "roci_civic_construction_company_effects"
 	
 	playable = {
 		always = yes

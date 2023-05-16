@@ -1,0 +1,18 @@
+
+# If no icon/texture is specified it will use NDefines::NInterface::GAME_CONCEPT_ICON_DEFAULT
+
+concept_autofab = {
+
+}
+concept_autofab_modules = {
+
+}
+concept_minor_colony = {
+
+}
+concept_construction = {
+
+}
+concept_industrial_production = {
+
+}

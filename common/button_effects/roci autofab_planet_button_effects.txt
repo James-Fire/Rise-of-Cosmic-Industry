@@ -458,7 +458,7 @@ planet_factory_generator_increase_queue = {
 			success_text = "autofab_module_enough_available"
 			fail_text = "autofab_module_not_enough_available"
 			check_variable = { which = autofab_energy_avail value >= factory_generator_queue_apply_value }
-			check_variable = { which = autofabs_available value >= factory_generator_queue_apply_value }
+			check_variable = { which = autofab_districts_available value >= factory_generator_queue_apply_value }
 		}
 	}
 	effect = {
@@ -496,7 +496,7 @@ planet_factory_mine_increase_queue = {
 			success_text = "autofab_module_enough_available"
 			fail_text = "autofab_module_not_enough_available"
 			check_variable = { which = autofab_minerals_avail value >= factory_mine_queue_apply_value }
-			check_variable = { which = autofabs_available value >= factory_mine_queue_apply_value }
+			check_variable = { which = autofab_districts_available value >= factory_mine_queue_apply_value }
 		}
 	}
 	effect = {
@@ -534,7 +534,7 @@ planet_factory_farm_increase_queue = {
 			success_text = "autofab_module_enough_available"
 			fail_text = "autofab_module_not_enough_available"
 			check_variable = { which = autofab_food_avail value >= factory_farm_queue_apply_value }
-			check_variable = { which = autofabs_available value >= factory_farm_queue_apply_value }
+			check_variable = { which = autofab_districts_available value >= factory_farm_queue_apply_value }
 		}
 	}
 	effect = {
@@ -609,7 +609,7 @@ planet_factory_factory_increase_queue = {
 			success_text = "autofab_module_enough_available"
 			fail_text = "autofab_module_not_enough_available"
 			check_variable = { which = autofab_factory_available value >= factory_factory_queue_apply_value }
-			check_variable = { which = autofabs_available value >= factory_factory_queue_apply_value }
+			check_variable = { which = autofab_districts_available value >= factory_factory_queue_apply_value }
 		}
 	}
 	effect = {

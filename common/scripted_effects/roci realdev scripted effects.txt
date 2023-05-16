@@ -11,8 +11,6 @@ reset_realdev_variables = {
 	set_variable = { which = realdev_industry_cap_rulers value = 0 }
 	set_variable = { which = realdev_industry_cap_foreman value = 0 }
 	set_variable = { which = realdev_leader_level value = 0 }
-	set_variable = { which = realdev_ip_target value = 100 }
-	set_variable = { which = realdev_ip_target_display value = 100 }
 }
 
 set_realdev_target = {

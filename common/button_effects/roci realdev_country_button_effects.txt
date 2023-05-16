@@ -68,7 +68,9 @@ realdev_country_target_increase = {
 	allow = { hidden_trigger = { has_country_flag = realdev_target_manual } }
 	effect = {
 		custom_tooltip = "realdev_target_increase"
-		hidden_effect = { change_variable = { which = realdev_ip_target value = 1 } }
+		hidden_effect = {
+			change_variable = { which = realdev_ip_target value = 1 }
+		}
 	}
 }
 realdev_country_target_decrease = {
@@ -82,7 +84,9 @@ realdev_country_target_decrease = {
 	}
 	effect = {
 		custom_tooltip = "realdev_target_decrease"
-		hidden_effect = { change_variable = { which = realdev_ip_target value = -1 } }
+		hidden_effect = {
+			change_variable = { which = realdev_ip_target value = -1 }
+		}
 	}
 }
 

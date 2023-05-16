@@ -18,7 +18,8 @@ country_event = {
 		every_owned_leader = {
 			limit = {
 				OR = {
-					leader_class = ruler
+					owner.ruler = { is_same_value = prev } 
+					#leader_class = ruler
 					AND = {
 						leader_class = governor
 						exists = sector
@@ -426,7 +427,7 @@ planet_event = {
 			}
 			set_variable = { which = realdev_ip_target value = owner.realdev_ip_target }	
 		}
-		set_variable = { which = realdev_ip_target_display value = realdev_ip_target }	
+		#set_variable = { which = realdev_ip_target_display value = realdev_ip_target }
 		if = {
 			limit = {
 				check_variable = { which = realdev_industry value > realdev_industry_cap }
@@ -690,43 +691,29 @@ country_event = {
 		#Give IP to planets that request it, then have them evaluate their stuff.
 		every_owned_planet = {
 			limit = {
-				check_variable = { which = realdev_ip_target value > 0 }
+				#check_variable = { which = realdev_ip_target value > 0 }
+				check_variable = { which = realdev_industry value < realdev_ip_target }
 			}
+			set_variable = { which = realdev_ip_request value = realdev_ip_target }
+			subtract_variable = { which = realdev_ip_request value = realdev_industry }
 			if = {
 				limit = {
-					check_variable = { which = realdev_ip_target value < prev.realdev_country_industry }
+					check_variable = { which = realdev_ip_request value < prev.realdev_country_industry }
 				}
-				PREV = { subtract_variable = { which = realdev_country_industry value = prev.realdev_ip_target } }
-				change_variable = { which = realdev_industry value = realdev_ip_target }
+				PREV = { subtract_variable = { which = realdev_country_industry value = prev.realdev_ip_request } }
+				change_variable = { which = realdev_industry value = realdev_ip_request }
 			}
 			planet_event = { id = realdev.11 days = 2 random = 2 }
-		}
-		
-		#Split country build speed between stockpile and usage
-		set_variable = { which = realdev_country_stockpile value = realdev_country_industry }
-		multiply_variable = { which = realdev_country_stockpile value = realdev_industry_country_stockpile }
-		
-		set_variable = { which = realdev_industry_stockpile_ratio value = 1 }
-		subtract_variable = { which = realdev_industry_stockpile_ratio value = realdev_industry_country_stockpile }
-		
-		set_variable = { which = realdev_usage_industry value = realdev_country_industry }
-		multiply_variable = { which = realdev_usage_industry value = realdev_industry_stockpile_ratio }
-		
-		ceiling_variable = realdev_country_stockpile
-		ceiling_variable = realdev_usage_industry
-		
-		set_variable = { which = realdev_country_stockpile_display value = realdev_country_stockpile }
-		set_variable = { which = realdev_usage_industry_display value = realdev_usage_industry }
-		
+		}	
 		
 		#Split country build speed between shipyards and space construction
-		set_variable = { which = realdev_ship_build_speed value = realdev_usage_industry }
+		set_variable = { which = realdev_ship_build_speed value = realdev_country_industry }
 		multiply_variable = { which = realdev_ship_build_speed value = realdev_industry_shipyard_ratio }
 		
 		set_variable = { which = realdev_industry_space_construction_ratio value = 1 }
 		subtract_variable = { which = realdev_industry_space_construction_ratio value = realdev_industry_shipyard_ratio }
 		
-		set_variable = { which = realdev_space_build_speed value = realdev_usage_industry }
+		set_variable = { which = realdev_space_build_speed value = realdev_country_industry }
 		multiply_variable = { which = realdev_space_build_speed value = realdev_industry_space_construction_ratio }
 		
 		
@@ -1053,7 +1040,8 @@ country_event = {
 			#Ruler
 			else_if = {
 				limit = {
-					leader_class = ruler
+					owner.ruler = { is_same_value = root } 
+					#leader_class = ruler
 				}
 				export_trigger_value_to_variable = {
 					trigger = has_level

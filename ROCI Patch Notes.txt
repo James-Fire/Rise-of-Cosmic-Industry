@@ -3,11 +3,11 @@
 
 
 
+Added a thing to show how much IP the Empire has distributed to planets.*
 
+Added a whole bunch of nested tooltips to help explain various mod concepts.*
 
 Moved the Trade Value provided by completed exploit constructions to the minor colonies.*
-
-Added a flowchart showing IP production sources and inheritance rules.*
 
 Added the Exodus Fleet origin.*
 
@@ -90,8 +90,6 @@ Added an effect that can be called to log realdev values on things.*
 Added an effect that can be called to log trade values on things.*
 
 Optimized detection events for when Cargo Ships have Sudden Dissapearance Syndrome, or other circumstances in which a trade route is cancelled.*
-
-Fixed minor colonies on game start not having mining stations on them for some reason.*
 
 Changed trade routes to never expire. Instead, they are cancelled if you have the trade fleet do something else.*
 
