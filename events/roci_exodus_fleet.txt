@@ -1,0 +1,538 @@
+namespace = exodus_fleet
+
+
+
+#Event to set up starting stuff
+country_event = {
+	id = exodus_fleet.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		has_origin = roci_origin_exodus_fleet
+	}
+	
+	immediate = {
+		#Homeworld result - Collapse, survives as-is, taken over by something
+		#Spawn a home system for the homeworld, a minimum distance from your new home based on galaxy size
+		
+		random_list = {
+			1 = { #Collapse. Add some stuff to make it "lived in", pick between a Tomb World and a Relic World for the home planet, terraform a planet or 2
+				random_list = { #Tomb World or Relic World
+					1 = {
+						
+					}
+					1 = {
+					
+					}
+				}
+			}
+			1 = { #Survives. Ethics are opposite of yours
+			
+			}
+			1 = { #Taken Over. Ethics are similar or completely unrelated to yours
+			
+			}
+		}
+	
+		#Give extra starting tech
+		give_technology = { message = no tech = tech_powered_exoskeletons }
+		give_technology = { message = no tech = tech_robotic_workers }
+		give_technology = { message = no tech = tech_thrusters_2 }
+		give_technology = { message = no tech = tech_assembly_pattern }
+		give_technology = { message = no tech = tech_space_mining_1 }
+		
+		give_technology = { message = no tech = tech_space_science_1 }
+		give_technology = { message = no tech = tech_administrative_ai }
+		give_technology = { message = no tech = tech_fusion_power }
+		give_technology = { message = no tech = tech_shields_2 }
+		
+		give_technology = { message = no tech = tech_hydroponics }
+		give_technology = { message = no tech = tech_genome_mapping }
+		give_technology = { message = no tech = tech_frontier_health }
+		give_technology = { message = no tech = tech_planetary_unification }
+		give_technology = { message = no tech = tech_space_trading }
+		give_technology = { message = no tech = tech_heritage_site }
+		if = {
+			limit = {
+				capital_scope = {
+					has_climate = dry
+				}
+			}
+			give_technology = { message = no tech = tech_quicksand_basin }
+			give_technology = { message = no tech = tech_deep_sinkhole }
+		}
+		else_if = {
+			limit = {
+				capital_scope = {
+					has_climate = wet
+				}
+			}
+			give_technology = { message = no tech = tech_toxic_kelp }
+			give_technology = { message = no tech = tech_dense_jungle }
+			give_technology = { message = no tech = tech_noxious_swamp }
+		}
+		else_if = {
+			limit = {
+				capital_scope = {
+					has_climate = cold
+				}
+			}
+			give_technology = { message = no tech = tech_massive_glacier }
+		}
+		
+		#Temp boost, decays yearly
+		set_variable = { which = ExodusAttractionBoost value = 20 }
+		add_modifier = {
+			modifier = exodus_governing
+			years = 1
+			multiplier = ExodusAttractionBoost
+		}
+		
+		#Make ruler chosen one
+		leader = {
+			add_trait = leader_trait_chosen
+		}
+		
+		#Remove starting mining/research stations
+		capital_scope = {
+			solar_system = {
+				every_system_planet = {
+					delete_ship = orbital_station
+				}
+			}
+		}
+		
+		#Set up system resources
+		every_system_planet = {
+			limit = {
+				is_colonizable = no
+			}
+			clear_deposits = yes
+		}
+		while = {
+			limit = {
+				any_system_planet = {
+					is_colonizable = no
+					NOT = { has_planet_flag = exodus_resources_placed }
+				}
+			}
+			random_system_planet = {
+				limit = {
+					is_colonizable = no
+					NOT = { has_planet_flag = exodus_resources_placed }
+				}
+				switch = {
+					trigger = has_planet_flag
+					exodus_star = {
+						add_deposit = d_energy_10
+						add_deposit = d_energy_5
+					}
+					exodus_molten = {
+						add_deposit = d_energy_3
+						add_deposit = d_minerals_3
+						add_deposit = d_alloys_1
+					}
+					exodus_research = {
+						add_deposit = d_physics_2
+						add_deposit = d_society_2
+						add_deposit = d_engineering_2
+					}
+					exodus_cold_barren = {
+						add_deposit = d_energy_3
+						add_deposit = d_minerals_3
+					}
+					exodus_motes_candiate = {
+						add_deposit = d_volatile_motes_2
+					}
+					exodus_gases_candiate = {
+						add_deposit = d_exotic_gases_2
+					}
+					exodus_crystals_candiate = {
+						add_deposit = d_rare_crystals_2
+					}
+				}
+			}
+		}
+		
+		#Remove pops, add some Robots, add stasis pods
+		capital_scope = { #26 pops is normal
+			while = {
+				count = 22
+				add_deposit = b_exodus_stasis
+				random_owned_pop = {
+					limit = {
+						is_same_species = owner
+					}
+					kill_pop = yes
+				}
+			}
+			owner = {
+				create_built_robot_species = yes
+			}
+			while = {
+				count = 8
+				create_pop = {
+					species = last_created_species
+				}
+			}
+		}
+		
+		#Remake homeworld starting stuffs
+		autofab_game_start = yes
+		capital_scope = {
+			remove_all_districts = yes
+			remove_all_buildings = yes
+			add_building = building_capital
+			add_building = building_robot_assembly_plant
+			add_building = building_research_lab_1
+			add_district = district_farming
+			add_district = district_mining
+			add_district = district_mining
+			add_district = district_generator
+			
+			add_autofab = yes
+			add_deposit = autofab_foundry
+			change_variable = { which = autofab_foundry value = 1 }
+			add_deposit = autofab_power
+			change_variable = { which = autofab_power value = 1 }
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							NOT = {
+								has_ethic = ethic_gestalt_consciousness
+							}
+							has_civic = civic_machine_servitor
+						}
+					}
+				}
+				add_deposit = autofab_factory
+				change_variable = { which = autofab_factory value = 1 }
+			}
+			
+			
+		}
+		
+		#Planet modifiers and deposits
+		capital_scope = {
+			add_deposit = d_black_soil
+			add_deposit = d_black_soil
+			add_deposit = d_rich_mountain
+			add_deposit = d_rich_mountain
+			add_deposit = d_tempestous_mountain
+			add_deposit = d_tempestous_mountain
+			add_deposit = d_crystal_forest
+			add_deposit = d_dust_desert
+			add_deposit = d_fuming_bog
+			add_deposit = d_betharian_deposit
+			solar_system = {
+				every_system_planet = {
+					limit = {
+						has_planet_flag = exodus_colony
+					}
+					
+					add_deposit = d_black_soil
+					add_deposit = d_rich_mountain
+					add_deposit = d_tempestous_mountain
+					add_deposit = d_crystal_forest
+					add_deposit = d_dust_desert
+					add_deposit = d_fuming_bog
+					add_deposit = d_betharian_deposit
+					set_variable = { which = ExodusModifiers value = 2 }
+					while = {
+						limit = {
+							check_variable = { which = ExodusModifiers value > 0 }
+						}
+						random_list = {
+							1 = {
+								modifier = {
+									factor = 0
+									has_planet_modifier = pm_strong_magnetic_field
+								}
+								modifier = {
+									factor = 0
+									check_variable = { which = ExodusModifiers value < 1 }
+								}
+								add_modifier = {
+									modifier = strong_magnetic_field
+									days = -1
+								}
+								change_variable = { which = ExodusModifiers value = -1 }
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									has_planet_modifier = pm_extensive_moon_system
+								}
+								modifier = {
+									factor = 0
+									check_variable = { which = ExodusModifiers value < 2 }
+								}
+								add_modifier = {
+									modifier = extensive_moon_system
+									days = -1
+								}
+								change_variable = { which = ExodusModifiers value = -2 }
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									has_planet_modifier = pm_mineral_rich
+								}
+								modifier = {
+									factor = 0
+									check_variable = { which = ExodusModifiers value < 2 }
+								}
+								add_modifier = {
+									modifier = mineral_rich
+									days = -1
+								}
+								change_variable = { which = ExodusModifiers value = -2 }
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									has_planet_modifier = pm_ultra_rich
+								}
+								modifier = {
+									factor = 0
+									check_variable = { which = ExodusModifiers value < 3 }
+								}
+								add_modifier = {
+									modifier = ultra_rich
+									days = -1
+								}
+								change_variable = { which = ExodusModifiers value = -3 }
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									has_planet_modifier = pm_asteroid_belt
+								}
+								modifier = {
+									factor = 0
+									check_variable = { which = ExodusModifiers value < 2 }
+								}
+								add_modifier = {
+									modifier = asteroid_belt
+									days = -1
+								}
+								change_variable = { which = ExodusModifiers value = -2 }
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									has_planet_modifier = pm_lush
+								}
+								modifier = {
+									factor = 0
+									check_variable = { which = ExodusModifiers value < 2 }
+								}
+								add_modifier = {
+									modifier = lush_planet
+									days = -1
+								}
+								change_variable = { which = ExodusModifiers value = -2 }
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									has_planet_modifier = pm_natural_beauty
+								}
+								modifier = {
+									factor = 0
+									check_variable = { which = ExodusModifiers value < 1 }
+								}
+								add_modifier = {
+									modifier = natural_beauty
+									days = -1
+								}
+								change_variable = { which = ExodusModifiers value = -1 }
+							}
+						}
+					}
+				}
+			}
+			set_variable = { which = ExodusModifiers value = 4 }
+			while = {
+				limit = {
+					check_variable = { which = ExodusModifiers value > 0 }
+				}
+				random_list = {
+					1 = {
+						modifier = {
+							factor = 0
+							has_planet_modifier = pm_strong_magnetic_field
+						}
+						modifier = {
+							factor = 0
+							check_variable = { which = ExodusModifiers value < 1 }
+						}
+						add_modifier = {
+							modifier = strong_magnetic_field
+							days = -1
+						}
+						change_variable = { which = ExodusModifiers value = -1 }
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							has_planet_modifier = pm_extensive_moon_system
+						}
+						modifier = {
+							factor = 0
+							check_variable = { which = ExodusModifiers value < 2 }
+						}
+						add_modifier = {
+							modifier = extensive_moon_system
+							days = -1
+						}
+						change_variable = { which = ExodusModifiers value = -2 }
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							has_planet_modifier = pm_mineral_rich
+						}
+						modifier = {
+							factor = 0
+							check_variable = { which = ExodusModifiers value < 2 }
+						}
+						add_modifier = {
+							modifier = mineral_rich
+							days = -1
+						}
+						change_variable = { which = ExodusModifiers value = -2 }
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							has_planet_modifier = pm_ultra_rich
+						}
+						modifier = {
+							factor = 0
+							check_variable = { which = ExodusModifiers value < 3 }
+						}
+						add_modifier = {
+							modifier = ultra_rich
+							days = -1
+						}
+						change_variable = { which = ExodusModifiers value = -3 }
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							has_planet_modifier = pm_asteroid_belt
+						}
+						modifier = {
+							factor = 0
+							check_variable = { which = ExodusModifiers value < 2 }
+						}
+						add_modifier = {
+							modifier = asteroid_belt
+							days = -1
+						}
+						change_variable = { which = ExodusModifiers value = -2 }
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							has_planet_modifier = pm_lush
+						}
+						modifier = {
+							factor = 0
+							check_variable = { which = ExodusModifiers value < 2 }
+						}
+						add_modifier = {
+							modifier = lush_planet
+							days = -1
+						}
+						change_variable = { which = ExodusModifiers value = -2 }
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							has_planet_modifier = pm_natural_beauty
+						}
+						modifier = {
+							factor = 0
+							check_variable = { which = ExodusModifiers value < 1 }
+						}
+						add_modifier = {
+							modifier = natural_beauty
+							days = -1
+						}
+						change_variable = { which = ExodusModifiers value = -1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+#Yearly event to decay Temp Boost
+country_event = {
+	id = exodus_fleet.10
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		if = {
+			limit = {
+				is_variable_set = ExodusAttractionBoost
+			}
+			check_variable = { which = ExodusAttractionBoost value > 0 }
+		}
+	}
+	
+	immediate = {
+		set_variable = { which = ExodusPlanetCount value = 0 }
+		set_variable = { which = ExodusHappyPlanetCount value = 0 }
+		every_owned_planet = {
+			prev = { change_variable = { which = ExodusPlanetCount value = 1 } }
+			if = {
+				limit = {
+					happiness_planet > 0.8
+				}
+				prev = { change_variable = { which = ExodusHappyPlanetCount value = 1 } }
+				
+			}
+			if = {
+				limit = {
+					happiness_planet > 0.9
+				}
+				prev = { change_variable = { which = ExodusHappyPlanetCount value = 1 } }
+				
+			}
+		}
+		change_variable = { which = ExodusAttractionBoost value = -1 }
+		if = {
+			limit = {
+				check_variable = { which = ExodusHappyPlanetCount value > ExodusPlanetCount }
+			}
+			subtract_variable = { which = ExodusHappyPlanetCount value = ExodusPlanetCount }
+			if = {
+				limit = {
+					check_variable = { which = ExodusAttractionBoost value < 10 }
+				}
+				change_variable = { which = ExodusAttractionBoost value = 1 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = ExodusHappyPlanetCount value > 3 }
+				}
+				set_variable = { which = ExodusHappyPlanetCount value = 3 }
+			}
+		}
+		else = {
+			set_variable = { which = ExodusHappyPlanetCount value = 1 }
+		}
+		add_modifier = {
+			modifier = exodus_governing
+			years = 1
+			multiplier = ExodusAttractionBoost
+			time_multiplier = ExodusHappyPlanetCount
+		}
+	}
+}

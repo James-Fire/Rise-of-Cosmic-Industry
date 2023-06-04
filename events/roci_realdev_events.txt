@@ -62,7 +62,15 @@ country_event = {
 			#Ruler
 			else_if = {
 				limit = {
-					leader_class = ruler
+					OR = {
+						is_councilor_type = councilor_ruler_democratic
+						is_councilor_type = councilor_ruler_oligarchic
+						is_councilor_type = councilor_ruler_dictatorial
+						is_councilor_type = councilor_ruler_imperial
+						is_councilor_type = councilor_ruler_hive_mind
+						is_councilor_type = councilor_ruler_machine_intelligence
+						is_councilor_type = councilor_ruler_corporate
+					}
 				}
 				export_trigger_value_to_variable = {
 					trigger = has_level

@@ -263,7 +263,7 @@
      origin_autofab_tooltip_4:0 "£pop£ Pop Growth is slower, due to massive societal changes from living a life of luxury."
      origin_autofab_tooltip_5:0 "Using this in combination with the Civic gives a -10% upkeep cost to Factory Modules."
      roci_origin_autofab:0 "Factory Automation"
-     origin_autofab_desc:0 "Ever since the Industrial Revolution, this species has been obsessed with increasing automation in their factories. Achieving fully automatic factories, in operation and expansion, has allowed them to greatly reduce the labour required by their species, and catapult themselves to spacefaring before the expected population levels."
+     roci_origin_autofab_desc:0 "Ever since the Industrial Revolution, this species has been obsessed with increasing automation in their factories. Achieving fully automatic factories, in operation and expansion, has allowed them to greatly reduce the labour required by their species, and catapult themselves to spacefaring before the expected population levels."
      origin_tooltip_autofab_effects:0 "- $origin_autofab_tooltip_1$ \n- $origin_autofab_tooltip_2$ \n- $origin_autofab_tooltip_3$ \n- $origin_autofab_tooltip_4$ \n- $origin_autofab_tooltip_5$\n- $autofab_script_replace$"
      
      roci_civic_autofab_tooltip_1:0 "Normal jobs produce less, as the population is ready to transfer production over to Automatic Factory Modules."
@@ -1507,6 +1507,34 @@
     
     mod_shipping_energy_upkeep_add: "Shipping £energy£ Cost"
     mod_shipping_energy_upkeep_mult: "Shipping £energy£ Cost"
+ 
+ ###Exodus Fleet
+    
+    exodus_governing: "Exodus Support"
+    exodus_governing_desc: "The people support the Exodus from the homeworld, and will continue to do so as long as promises of a 'better society' continue to be filled."
+    
+    b_exodus_stasis: "Stasis Pods"
+    b_exodus_stasis_desc: "We still have people in stasis from our Exodus. We should work on expanding our living space and support infrastructure to bring them out as soon as possible."
+    b_exodus_stasis_effect_tooltip: "§Y1§! £pop£ Pop is created"
+    
+    roci_origin_exodus_fleet: "Exodus Fleet"
+    roci_origin_exodus_fleet_desc: "A mysterious figure from the fractured homeworld offered to take anyone willing to a new planet to build a better society, enough people signed up, but with a lack of construction ability, it might be a while before everyone gets to come out of stasis.\nThey chose a resource-rich system, with 2 good planets to settle in, which should help kickstart the new society."    
+    roci_origin_exodus_fleet_effects: "- $roci_origin_exodus_fleet_effects_1$ \n- $roci_origin_exodus_fleet_effects_2$ \n- $roci_origin_exodus_fleet_effects_3$ \n- $roci_origin_exodus_fleet_effects_4$ \n- $roci_origin_exodus_fleet_effects_5$\n- $roci_origin_exodus_fleet_effects_6$\n\n"
+     
+    roci_origin_exodus_fleet_effects_1: "Starts with a Chosen One ruler."
+    roci_origin_exodus_fleet_effects_2: "Start with a size £planetsize£ §Y30§! gaia world, with §Y2-3§! §Gpositive§! modifiers, rich in resources."
+    roci_origin_exodus_fleet_effects_3: "Your new home system is rich in deposits, and contains a size £planetsize£ §Y20§! planet of your ideal planet class, with §Y1-2§! §Gpositive§! modifiers."
+    roci_origin_exodus_fleet_effects_4: "You start with very few £pop£ pops. Robots and some Autofab Modules make up a large portion of your starting prodution. You can bring more £pop£ pops out of stasis by clearing the blockers."
+    roci_origin_exodus_fleet_effects_5: "Start with a selection of extra techs, including blocker clearing tech based on the climate of your homeworld."
+    roci_origin_exodus_fleet_effects_6: "Start with no mining or research stations, and no Orbital Infrastructure. Your home planet has some bare-bones infrastructure."
+    roci_origin_exodus_fleet_effects_7: "A large Governing Ethics Attraction boost. Also a temporary Governing Ethics Attraction and Happiness boost, that decays over time. It takes longer to decay, and can even stop decaying after a certain amount, the happier your people are."
+    
+    exodus_system_NAME: "Single Star Exodus"
+    exodus_system_DESC: "A starting system with a single star.\n\nThese Exodus systems are currently setup with the exact same resources, with the number of stars being entirely cosmetic."
+    binary_exodus_system_NAME: "Binary Star Exodus"
+    binary_exodus_system_DESC: "A starting system with two stars.\n\nThese Exodus systems are currently setup with the exact same resources, with the number of stars being entirely cosmetic."
+    trinary_exodus_system_NAME: "Trinary Star Exodus"
+    trinary_exodus_system_DESC: "A starting system with three stars.\n\nThese Exodus systems are currently setup with the exact same resources, with the number of stars being entirely cosmetic."
     
  ###General ROCI
 

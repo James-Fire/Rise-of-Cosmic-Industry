@@ -1,3 +1,34 @@
+roci_origin_exodus_fleet = {
+	description = "roci_origin_exodus_fleet_effects"
+	#initializers = { exodus_system binary_exodus_system trinary_exodus_system }
+	is_origin = yes
+	
+	playable = {
+		always = no
+	}
+	potential = {
+		always = no
+	}
+	possible = {
+		civics = {
+			NOT = {
+				value = roci_civic_autofab
+			}
+		}
+		authority = {
+			OR = {
+				value = auth_dictatorial
+				value = auth_imperial	
+			}
+		}
+	}
+	random_weight = { base = 1 }
+	modifier = {
+		pop_government_ethic_attraction = 1
+	}
+
+}
+
 roci_civic_construction_company = {
 	description = "roci_civic_construction_company_effects"
 	
@@ -66,8 +97,6 @@ roci_civic_autofab = {
 				value = auth_corporate
 				value = auth_hive_mind
 				value = auth_machine_intelligence
-				value = auth_bugged_corporate_democratic
-				value = auth_bugged_corporate_imperial
 			}
 		}
 		civics = { NOT = { value = civic_galactic_sovereign_megacorp } }

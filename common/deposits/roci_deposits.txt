@@ -1,3 +1,70 @@
+###Exodus Fleet
+
+b_exodus_stasis = {
+	time = 10
+
+	is_for_colonizable = yes
+	category = deposit_cat_rare_blocker
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 100
+		}
+	}
+
+	planet_modifier = {
+	}
+
+	on_cleared = {
+		custom_tooltip = b_exodus_stasis_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					any_owned_pop = {
+						NOT = { has_trait = trait_hive_mind }
+						is_robot_pop = no
+					}
+				}
+				random_owned_pop = {
+					limit = {
+						NOT = { has_trait = trait_hive_mind }
+						is_robot_pop = no
+					}
+					root = {
+						create_pop = {
+							species = prev
+						}
+					}
+				}
+			}
+			else = {
+				random_owned_pop = {
+					root = {
+						create_pop = {
+							species = prev
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		
+		modifier = {
+			factor = 100
+			free_jobs > 0
+		}
+	}
+	
+	drop_weight = {
+		weight = 0
+	}
+
+}
+
 ###Exploit
 
 d_small_colonies = {

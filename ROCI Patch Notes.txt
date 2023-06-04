@@ -1,6 +1,6 @@
 
 
-
+Added the Exodus Fleet origin.*
 
 
 Added a thing to show how much IP the Empire has distributed to planets.*
@@ -8,8 +8,6 @@ Added a thing to show how much IP the Empire has distributed to planets.*
 Added a whole bunch of nested tooltips to help explain various mod concepts.*
 
 Moved the Trade Value provided by completed exploit constructions to the minor colonies.*
-
-Added the Exodus Fleet origin.*
 
 Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per.
 This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.*

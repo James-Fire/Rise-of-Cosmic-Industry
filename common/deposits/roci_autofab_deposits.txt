@@ -79,7 +79,7 @@ autofab = {
 			owner = {
 				has_ascension_perk = ap_autofab
 				OR = {
-					has_origin = origin_autofab
+					has_origin = roci_origin_autofab
 					has_autofab_civic = yes
 					has_global_flag = autofab_for_all
 				}
@@ -102,7 +102,7 @@ autofab = {
 		potential = {
 			exists = owner
 			owner = {
-				has_origin = origin_autofab
+				has_origin = roci_origin_autofab
 				has_autofab_civic = yes
 			}
 		}
@@ -291,7 +291,7 @@ autofab_farm = {
 		}
 		upkeep = {
 			energy = 2
-			mult = roci_autofab_basic_jobs
+			mult = value:roci_autofab_basic_jobs
 		}
 		
 		#Different Planet Types
@@ -373,7 +373,7 @@ autofab_mine = {
 		}
 		upkeep = {
 			energy = 2
-			mult = roci_autofab_basic_jobs
+			mult = value:roci_autofab_basic_jobs
 		}
 		
 		upkeep = {
@@ -384,7 +384,7 @@ autofab_mine = {
 				} }
 			}
 			energy = 1
-			mult = roci_autofab_basic_jobs
+			mult = value:roci_autofab_basic_jobs
 		}	
 		#Different Planet Types
 		produces = {
@@ -393,7 +393,7 @@ autofab_mine = {
 			}
 			alloys = 4
 			minerals = -4
-			mult = roci_autofab_basic_jobs
+			mult = value:roci_autofab_basic_jobs
 		}
 		
 		#Boosting Building Stuff
@@ -404,7 +404,7 @@ autofab_mine = {
 				}
 			}
 			minerals = 1
-			mult = roci_autofab_basic_jobs
+			mult = value:roci_autofab_basic_jobs
 		}
 		produces = {
 			trigger = {
@@ -413,7 +413,7 @@ autofab_mine = {
 				}
 			}
 			minerals = 2
-			mult = roci_autofab_basic_jobs
+			mult = value:roci_autofab_basic_jobs
 		}
 		#FE Buildings Stuff
 		produces = {
@@ -421,14 +421,14 @@ autofab_mine = {
 				planet = { has_active_building = building_roci_dimensional_fabricator_mod }
 			}
 			minerals = 4
-			mult = roci_autofab_basic_jobs
+			mult = value:roci_autofab_basic_jobs
 		}
 		upkeep = {
 			trigger = {
 				planet = { has_active_building = building_roci_dimensional_fabricator_mod }
 			}
 			energy = 2
-			mult = roci_autofab_basic_jobs
+			mult = value:roci_autofab_basic_jobs
 		}
 	}
 	
@@ -490,7 +490,7 @@ autofab_foundry = {
 		}
 		upkeep = {
 			energy = 2
-			mult = roci_autofab_advanced_jobs
+			mult = value:roci_autofab_advanced_jobs
 		}
 		
 		upkeep = {
@@ -498,14 +498,14 @@ autofab_foundry = {
 				owner = { is_catalytic_empire = no }
 			}
 			minerals = 1
-			mult = roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|foundry|resource|minerals|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|foundry|resource|minerals|
 		}
 		upkeep = {
 			trigger = {
 				owner = { is_catalytic_empire = yes }
 			}
 			food = 1.5
-			mult = roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|foundry|resource|food|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|foundry|resource|food|
 		}
 		
 		#Different Planet Types
@@ -568,7 +568,7 @@ autofab_factory = {
 		}
 		upkeep = {
 			minerals = 1
-			mult = roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisan|resource|minerals|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisan|resource|minerals|
 		}
 		upkeep = {
 			energy = 4
@@ -579,7 +579,7 @@ autofab_factory = {
 		}
 		upkeep = {
 			energy = 2
-			mult = roci_autofab_advanced_jobs
+			mult = value:roci_autofab_advanced_jobs
 		}
 		
 		#Different Planet Types
@@ -642,7 +642,7 @@ autofab_motes_refinery = {
 		}
 		upkeep = {
 			minerals = 1
-			mult = roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|minerals|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|minerals|
 		}
 		upkeep = {
 			energy = 1
@@ -653,7 +653,7 @@ autofab_motes_refinery = {
 		}
 		upkeep = {
 			energy = 2
-			mult = roci_autofab_advanced_jobs
+			mult = value:roci_autofab_advanced_jobs
 		}
 	}
 	
@@ -700,7 +700,7 @@ autofab_gases_refinery = {
 		}
 		upkeep = {
 			minerals = 1
-			mult = roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|minerals|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|minerals|
 		}
 		upkeep = {
 			energy = 1
@@ -711,7 +711,7 @@ autofab_gases_refinery = {
 		}
 		upkeep = {
 			energy = 2
-			mult = roci_autofab_advanced_jobs
+			mult = value:roci_autofab_advanced_jobs
 		}
 	}
 	
@@ -758,7 +758,7 @@ autofab_crystals_refinery = {
 		}
 		upkeep = {
 			minerals = 1
-			mult = roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|minerals|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|minerals|
 		}
 		upkeep = {
 			energy = 1
@@ -769,7 +769,7 @@ autofab_crystals_refinery = {
 		}
 		upkeep = {
 			energy = 2
-			mult = roci_autofab_advanced_jobs
+			mult = value:roci_autofab_advanced_jobs
 		}
 	}
 	

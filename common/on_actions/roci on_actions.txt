@@ -5,6 +5,11 @@ on_game_start = {
 		exploit_dmm.1		# New Dynamic Mod Menu support.
 	}
 }
+on_game_start_country = {
+	events = {
+		exodus_fleet.1
+	}
+}
 on_press_begin = {
 	events = {
 		#roci_menu.2
@@ -62,6 +67,8 @@ on_monthly_pulse_country = {
 		realdev.92
 		
 		shipping.5
+	
+		exodus_fleet.10
 	}
 }
 

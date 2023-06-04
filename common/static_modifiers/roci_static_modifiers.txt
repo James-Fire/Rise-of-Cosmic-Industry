@@ -1,0 +1,107 @@
+###Exodus
+exodus_governing = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	#icon_frame = 1
+	pop_government_ethic_attraction = 0.05
+	pop_happiness = 0.01
+}
+
+###Autofab
+factory_expansion = {
+	icon = "gfx/interface/icons/planet_modifiers/factory_expansion.dds"
+	icon_frame = 1
+}
+
+###Exploit
+colonized_planet = {
+	custom_tooltip = colonized_planet_effects
+	
+	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
+	icon_frame = 1
+	important = yes
+}
+roci_building_thing = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_city_ruins.dds"
+	icon_frame = 1
+	important = yes
+}
+
+###Orbital
+oi_shipyard_limited = {
+	starbase_shipyard_build_time_mult = -0.05
+}
+
+oi_shipyard = {
+	starbase_shipyard_build_speed_mult = 0.1
+}
+
+orbital_space = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_orbital_infrastructure.dds"
+	custom_tooltip = orbital_space_effects
+}
+
+
+##Realdev
+realdev_planet_speed = {
+	planet_building_build_speed_mult = 0.01
+	#planet_decision_enact_speed_mult = 0.01
+}
+realdev_planet_assembly = {
+	planet_pop_assembly_mult = 0.01
+	planet_pop_assembly_organic_mult = 0.01
+}
+realdev_planet_job_output = {
+	planet_jobs_productive_upkeep_mult = 0.005
+	planet_jobs_productive_produces_mult = 0.005
+}
+realdev_ship_speed = {
+	starbase_shipyard_build_speed_mult = 0.01
+}
+realdev_mega_speed = {
+	megastructure_build_speed_add = 0.01
+	#megastructure_build_speed_mult = 0.01
+}
+
+realdev_no_build_cap = {
+	country_megastructure_build_cap_add = 1000
+	hide_from_country_list = yes
+}
+realdev_fleet_cap = {
+	country_megastructure_build_cap_add = 1000
+	hide_from_country_list = yes
+}
+
+###Cargo Ships
+kiyo_trade_cargo_fleet_2 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 2
+}
+kiyo_trade_cargo_fleet_3 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 4
+}
+kiyo_trade_cargo_fleet_4 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 6
+}
+kiyo_trade_cargo_fleet_5 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 8
+}
+kiyo_trade_cargo_fleet_6 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 10
+}
+kiyo_trade_cargo_fleet_7 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 12
+}
+kiyo_trade_cargo_fleet_8 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 14
+}
+kiyo_trade_cargo_fleet_9 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 16
+}
+kiyo_trade_cargo_fleet_10 = {
+	campaign_kiyo_mod_trade_energy_upkeep_add = 18
+}
+
+###Shipping
+shipping_cost = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_shipping.dds"
+	shipping_energy_upkeep_add = 1
+}

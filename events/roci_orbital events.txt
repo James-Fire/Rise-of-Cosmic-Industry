@@ -55,7 +55,7 @@ country_event = {
 				}
 				#Add some way to ensure home planet can have orbital mining districts
 				if = {
-					limit = {	
+					limit = {
 						is_moon = yes
 						NOT = {
 							orbit = {

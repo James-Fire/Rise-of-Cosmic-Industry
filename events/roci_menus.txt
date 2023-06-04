@@ -63,6 +63,7 @@ country_event = {
 			if = { #Do Orbital Game start stuff if it's allowed.
 				limit = {
 					NOT = { has_global_flag = no_orbital_infra }
+					NOT = { has_origin = roci_origin_exodus_fleet }
 				}
 				every_country = {
 					limit = {
@@ -117,6 +118,7 @@ country_event = {
 				every_country = {
 					limit = {
 						is_country_type = default
+						NOT = { has_origin = roci_origin_exodus_fleet }
 					}
 					log = "ROCI trigger exploit on game start for [This.GetRealName]"
 					country_event = { id = spaceexploit.37 }
@@ -137,7 +139,7 @@ country_event = {
 			}
 			else = { #Gotta remove all empires that used an origin or civic that isn't allowed.
 				every_country = {
-					limit = { has_origin = origin_autofab }
+					limit = { has_origin = roci_origin_autofab }
 					set_origin = origin_default
 					capital_scope = {
 						clear_blockers = yes

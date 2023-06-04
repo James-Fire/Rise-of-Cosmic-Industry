@@ -1,4 +1,0 @@
-shipping_cost = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_shipping.dds"
-	shipping_energy_upkeep_add = 1
-}

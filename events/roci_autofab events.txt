@@ -324,7 +324,7 @@ country_event = {
 			else_if = {
 				limit = {
 					NOR = {
-						has_origin = origin_autofab
+						has_origin = roci_origin_autofab
 						has_origin = origin_void_dwellers
 						has_origin = origin_birch
 					}
@@ -341,7 +341,7 @@ country_event = {
 			}
 			else_if = {
 				limit = {
-					has_origin = origin_autofab
+					has_origin = roci_origin_autofab
 				}
 				capital_scope = {
 					if = {

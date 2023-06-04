@@ -5,17 +5,19 @@ has_autofab_mod = {
 can_use_autofab = {
 	NOT = { has_global_flag = no_autofab }
 	OR = {
-		has_origin = origin_autofab
+		has_origin = roci_origin_autofab
 		has_ascension_perk = ap_autofab
 		has_autofab_civic = yes
 		has_global_flag = autofab_for_all
+		has_origin = roci_origin_exodus_fleet
 	}
 }
 starts_with_autofab = {
 	NOT = { has_global_flag = no_autofab }
 	OR = {
-		has_origin = origin_autofab
+		has_origin = roci_origin_autofab
 		has_autofab_civic = yes
+		has_origin = roci_origin_exodus_fleet
 	}
 }
 
