@@ -485,18 +485,24 @@ country_event = {
 		}
 	}	
 }
-planet_event = {
+country_event = {
 	id = autofab.5
 	is_triggered_only = yes
 	hide_window = yes
 	
 	trigger = {
 		NOT = { has_global_flag = no_autofab }
+		can_use_autofab = yes
 	}
 
 	immediate = {
-		set_variable = { which = roci_autofab_basic_jobs value = value:roci_autofab_basic_jobs }
-		set_variable = { which = roci_autofab_advanced_jobs value = value:roci_autofab_advanced_jobs }
+		every_owned_planet = {
+			limit = {
+				has_autofab = yes
+			}
+			set_variable = { which = roci_autofab_basic_jobs value = value:roci_autofab_basic_jobs }
+			set_variable = { which = roci_autofab_advanced_jobs value = value:roci_autofab_advanced_jobs }
+		}
 	}	
 }
 planet_event = {
@@ -871,6 +877,7 @@ planet_event = {
 	immediate = {
 		#reset_factory_part_1 = yes
 		set_unset_variables = yes
+		reset_autofab_scale_variables = yes
 	while = {
 		limit = {
 			count_deposit = { limit = { is_deposit_type = autofab_farm } count < autofab_farm }

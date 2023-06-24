@@ -481,8 +481,8 @@
      factory_factory_unqueue:0 "Remove specified number of Factories from the Queue."
      factory_chemical_queue:0 "Add specified number of Chemical Plants to the Queue."
      factory_chemical_unqueue:0 "Remove specified number of Chemical Plants from the Queue."
-     factory_refinery_queue:0 "Add specified number of Refinerys to the Queue."
-     factory_refinery_unqueue:0 "Remove specified number of Refinerys from the Queue."
+     factory_refinery_queue:0 "Add specified number of Refineries to the Queue."
+     factory_refinery_unqueue:0 "Remove specified number of Refineries from the Queue."
      factory_translucer_queue:0 "Add specified number of Translucers to the Queue."
      factory_translucer_unqueue:0 "Remove specified number of Translucers from the Queue."
      factory_extractor_queue:0 "Add specified number of Extractors to the Queue."
@@ -1229,7 +1229,7 @@
      roci_realdev_mega_handling: "Megastructure Speed"
      realdev_inheritance_tooltip: "$realdev_inheritance_tooltip_1$\n\n$realdev_inheritance_tooltip_2$\n\n$realdev_inheritance_tooltip_3$\n\n"
      realdev_inheritance_tooltip_1: "Inheritance is the method by which unused IP moves to places where it is needed. If you give IP to Planet Building that it doesn't need, this is fine, Inheritance will handle it. Together with Targets, you can set up how much IP planets should get if they need it all, but if they don't, it'll flow back to the Empire."
-     realdev_inheritance_tooltip_2: "Starting on planets, Inheritance works by passing overflow and uneeded IP to the next item in line. On Planets, this order is:\n-Planet Building\n-Assembly/Production Boost\n-Empire."
+     realdev_inheritance_tooltip_2: "Starting on planets, Inheritance works by passing overflow and uneeded IP to the next item in line. On Planets, this order is:\n-Planet Building\n-Assembly/Production Boost\n-Empire"
      realdev_inheritance_tooltip_3: "At the Empire level, the Inheritance order is:\n-Ships\n-Minor Colonies\n-Megastructures"
 
      realdev_target_increase: "Increase the Target by 1."
@@ -1268,7 +1268,7 @@
      realdev_current_building_cap_display_tooltip: "Capital Planets get 20 Industrial Production Cap for being the Capital.\n\nCapital Buildings provide 10 Industrial Production Cap per level past the first, with the Reassembled Ship Shelter providing 5."
      
      realdev_current_job_cap_display: "From Jobs: [This.realdev_industry_cap_rulers_display]"
-     realdev_current_job_cap_display_tooltip: "All Ruler jobs provide 10 Industrial Production Cap. Foreman provide 20."
+     realdev_current_job_cap_display_tooltip: "All Ruler jobs provide 10 Industrial Production Cap. Foremen provide 20."
      
      realdev_current_alloys_display: "From Alloys: [This.realdev_alloy_production_display]"
      realdev_current_alloys_display_tooltip: "Alloys provide 1 Industrial Production per 3 alloys produced on the planet."
@@ -1280,7 +1280,7 @@
      realdev_construction_ship_display_tooltip: "Having a Construction Ship in orbit of this world will provide 25 Industrial Production and Industrial Production Capacity to the planet."
      
      realdev_current_multiplier_display: "Multiplier: [This.realdev_industry_multiplier_bonus_display]%"
-     realdev_current_multiplier_display_tooltip: "All sources of this multiplier are added together, then applied to Industrial Production and Industrial Production Capacity. Sources are\n\nLeaders: Sector Governor provides 2% per level, while Rulers provide 0.5% per level.\n\nCapital Production Techs provide their resource output bonus to IP and IPC."
+     realdev_current_multiplier_display_tooltip: "All sources of this multiplier are added together, then applied to Industrial Production and Industrial Production Capacity. Sources are:\n\nLeaders: Sector Governor provides 2% per level, while Rulers provide 0.5% per level.\n\nCapital Production Techs provide their resource output bonus"
      realdev_current_amenities_display: "Amenities: [This.realdev_industry_multiplier_bonus_2_display]%"
      realdev_current_amenities_display_tooltip: "A -100% to a +100% multipler to Industrial Production and Industrial Production Capacity (After the other multiplier) is applied based on amenities being -100 to +100." 
      

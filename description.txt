@@ -72,7 +72,7 @@ To view information on your trade routes, you can use the Check Cargo Ships and 
 
 Compatibility:
 
-I overwrite anything specific vanilla buildings so that my Fallen Empire buildings are an upgrade to them. These overwrites are only important if you use the Fallen Empire Buildings module.
+I overwrite specific vanilla buildings so that my Fallen Empire buildings are an upgrade to them. These overwrites are only important if you use the Fallen Empire Buildings module.
 
 There may be compatibility issues arising from things like Production Revolution, since it is intended to remove pops, which I do not account for in Realistic Development.
 

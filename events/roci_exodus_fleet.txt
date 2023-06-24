@@ -100,56 +100,56 @@ country_event = {
 				every_system_planet = {
 					delete_ship = orbital_station
 				}
-			}
-		}
 		
 		#Set up system resources
-		every_system_planet = {
-			limit = {
-				is_colonizable = no
-			}
-			clear_deposits = yes
-		}
-		while = {
-			limit = {
-				any_system_planet = {
-					is_colonizable = no
-					NOT = { has_planet_flag = exodus_resources_placed }
+				every_system_planet = {
+					limit = {
+						is_colonizable = no
+					}
+					clear_deposits = yes
 				}
-			}
-			random_system_planet = {
-				limit = {
-					is_colonizable = no
-					NOT = { has_planet_flag = exodus_resources_placed }
-				}
-				switch = {
-					trigger = has_planet_flag
-					exodus_star = {
-						add_deposit = d_energy_10
-						add_deposit = d_energy_5
+				while = {
+					limit = {
+						any_system_planet = {
+							is_colonizable = no
+							NOT = { has_planet_flag = exodus_resources_placed }
+						}
 					}
-					exodus_molten = {
-						add_deposit = d_energy_3
-						add_deposit = d_minerals_3
-						add_deposit = d_alloys_1
-					}
-					exodus_research = {
-						add_deposit = d_physics_2
-						add_deposit = d_society_2
-						add_deposit = d_engineering_2
-					}
-					exodus_cold_barren = {
-						add_deposit = d_energy_3
-						add_deposit = d_minerals_3
-					}
-					exodus_motes_candiate = {
-						add_deposit = d_volatile_motes_2
-					}
-					exodus_gases_candiate = {
-						add_deposit = d_exotic_gases_2
-					}
-					exodus_crystals_candiate = {
-						add_deposit = d_rare_crystals_2
+					random_system_planet = {
+						limit = {
+							is_colonizable = no
+							NOT = { has_planet_flag = exodus_resources_placed }
+						}
+						switch = {
+							trigger = has_planet_flag
+							exodus_star = {
+								add_deposit = d_energy_10
+								add_deposit = d_energy_5
+							}
+							exodus_molten = {
+								add_deposit = d_energy_3
+								add_deposit = d_minerals_3
+								add_deposit = d_alloys_1
+							}
+							exodus_research = {
+								add_deposit = d_physics_2
+								add_deposit = d_society_2
+								add_deposit = d_engineering_2
+							}
+							exodus_cold_barren = {
+								add_deposit = d_energy_3
+								add_deposit = d_minerals_3
+							}
+							exodus_motes_candiate = {
+								add_deposit = d_volatile_motes_2
+							}
+							exodus_gases_candiate = {
+								add_deposit = d_exotic_gases_2
+							}
+							exodus_crystals_candiate = {
+								add_deposit = d_rare_crystals_2
+							}
+						}
 					}
 				}
 			}

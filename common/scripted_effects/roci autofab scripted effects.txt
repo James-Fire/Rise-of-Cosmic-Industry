@@ -25,6 +25,16 @@ add_autofab_deposit = {
 	}
 }
 
+reset_autofab_scale_variables = {
+	if = {
+		limit = {
+			is_scope_type = planet
+		}
+		set_variable = { which = roci_autofab_basic_jobs value = value:roci_autofab_basic_jobs }
+		set_variable = { which = roci_autofab_advanced_jobs value = value:roci_autofab_advanced_jobs }
+	}
+}
+
 set_autofab_variables_initial = {
 	if = {
 		limit = {

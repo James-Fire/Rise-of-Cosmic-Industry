@@ -67,7 +67,7 @@ guiTypes = {
 				Orientation = "UPPER_LEFT"
 			}
 		}
-		background = {
+		background = { #The event window BG
 			name = "background"
 			quadTextureSprite ="GFX_tile_large_bg_curator" 
 		}

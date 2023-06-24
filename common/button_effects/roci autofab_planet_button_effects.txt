@@ -648,6 +648,10 @@ planet_factory_motes_increase_queue = {
 			fail_text = "autofab_module_not_enough_available"
 			check_variable = { which = autofab_districts_available value >= factory_motes_queue_apply_value }
 		}
+		custom_tooltip = {
+			fail_text = "MISSING_TECH_AREA|TECH|tech_volatile_motes|"
+			owner = { has_technology = tech_volatile_motes }
+		}
 	}
 	effect = {
 		custom_tooltip = "factory_chemical_queue"
@@ -683,6 +687,10 @@ planet_factory_gases_increase_queue = {
 			fail_text = "autofab_module_not_enough_available"
 			check_variable = { which = autofab_districts_available value >= factory_gases_queue_apply_value }
 		}
+		custom_tooltip = {
+			fail_text = "MISSING_TECH_AREA|TECH|tech_exotic_gases|"
+			owner = { has_technology = tech_exotic_gases }
+		}
 	}
 	effect = {
 		custom_tooltip = "factory_refinery_queue"
@@ -717,6 +725,10 @@ planet_factory_crystals_increase_queue = {
 			success_text = "autofab_module_enough_available"
 			fail_text = "autofab_module_not_enough_available"
 			check_variable = { which = autofab_districts_available value >= factory_crystals_queue_apply_value }
+		}
+		custom_tooltip = {
+			fail_text = "MISSING_TECH_AREA|TECH|tech_rare_crystals|"
+			owner = { has_technology = tech_rare_crystals }
 		}
 	}
 	effect = {

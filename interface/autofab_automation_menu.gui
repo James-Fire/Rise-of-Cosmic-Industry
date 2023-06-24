@@ -505,7 +505,7 @@ guiTypes = {
 			}
 				effectButtonType = { name = "factory_expansion_swap" spriteType = "GFX_autofab_menu_swap" position = { x = 5 y = 45 } clicksound = interface effect = "factory_expansion_swap" }
 		}
-		background = {
+		background = { #The event window BG
 			name = "background"
 			quadTextureSprite ="GFX_tile_large_bg_curator" 
 		}

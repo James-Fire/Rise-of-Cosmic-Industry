@@ -52,10 +52,9 @@ b_exodus_stasis = {
 	
 	ai_weight = {
 		weight = 1
-		
 		modifier = {
 			factor = 100
-			free_jobs > 0
+			from = { free_jobs > 0 }
 		}
 	}
 	

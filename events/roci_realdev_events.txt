@@ -227,7 +227,7 @@ planet_event = {
 			}
 			set_realdev_planet_variables = yes
 		}	
-		#Include Building Production
+		#Include Building Production, Branch Offices too
 		export_modifier_to_variable = { modifier = district_realdev_industry_max variable = realdev_building }
 		
 		set_variable = { which = realdev_building_cap value = 0 }
@@ -351,6 +351,7 @@ planet_event = {
 		#Export number of branch office equipment buildings, if any exist. ###Not implemented yet, might never be, because of issues
 		if = {
 			limit = {
+				always = no
 				has_branch_office = yes
 			}
 			set_variable = { which = realdev_megacorp_factories value = 0 }
@@ -1048,7 +1049,7 @@ country_event = {
 			#Ruler
 			else_if = {
 				limit = {
-					owner.ruler = { is_same_value = root } 
+					prev.ruler = { is_same_value = prev } 
 					#leader_class = ruler
 				}
 				export_trigger_value_to_variable = {

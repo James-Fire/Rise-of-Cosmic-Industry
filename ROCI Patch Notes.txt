@@ -1,6 +1,18 @@
+*Added the Exodus Fleet origin.
 
+*Made autofab retooling respect Realdev.
 
-Added the Exodus Fleet origin.*
+*Merged the Exploit Minimum Stockpile menu with the Autofab Automation Settings window.
+
+*Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp. And a variant for Criminal Corps.
+
+*Autofab Modules are now Districts.
+
+*Orbital "Districts" are now deposits.
+
+*The Level 3 spaceport no longer provides infinite orbital space.
+
+*To build an orbital deposit, you now "upgrade" the spaceport.
 
 
 Added a thing to show how much IP the Empire has distributed to planets.*
@@ -12,7 +24,7 @@ Moved the Trade Value provided by completed exploit constructions to the minor c
 Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per.
 This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.*
 
-Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.*
+Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.* Kinda annoying to do
 
 Fixed the Orbital Infrastructure modifier sometimes reporting the clearly wrong value.*
 
@@ -43,8 +55,6 @@ Made planets that are being colonized not get shipping costs.*
 
 Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.*
 
-Merged the Exploit Minimum Stockpile menu with the Autofab Automation Settings window.*
-
 Overhauled Orbital Infrastructure so that it conflicts (Thematically and mechanically) much less with the Planetary Ring.*
 
 Added a block to the Autofab Planet UI to show current "time" remaining on the current construction, total "time" for the entire Queue, and the current build speed modifier.*
@@ -62,8 +72,6 @@ Added the Strategic Production module, that deals with the production of SRs, an
 Added the Subterannean Infrastructure module, dealing with construction projects beneath the surface.*
 
 Moved Equipment Factory upgrades to their own techs.*
-
-Made autofab retooling respect Realdev.*
 
 Simplified autofab loop events. This should reduce the performance impact of lots of colonies building at once.*
 
@@ -108,8 +116,6 @@ Trade Routes now also apply a +1 1/year decaying opinion modifier per cargo ship
 
 Scripted more complex AI triggers for the Orbital Defense Platforms, so they are hopefully a bit more smart about it.* Not sure how to actually go about this. Will need some ideas.
 
-Added a second colour to the Country Assistance slider in the realdev planet UI to show how much of the country stockpile is being used.* This hard
-
 Fixed Gigas Ruined Ships blocking Minor Colonies.* This might not even be a problem.
 
 Overhauled Exploit to have production work through a deposit on the Hosting Major Colonies instead.* This hard. And honestly not *that* neccesary
@@ -129,5 +135,3 @@ Orbital Districts now also add a 0.1 alloy upkeep cost per job they affect. Thos
 Added a Preset Empire for the Autofab Origin.* Maybe later, maybe never
 
 Added a Preset Empire for the Space Colonizer Origin.* Maybe later, maybe never
-
-Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp. And a variant for Criminal Corps.* Need a way to have it affect the corp empire
