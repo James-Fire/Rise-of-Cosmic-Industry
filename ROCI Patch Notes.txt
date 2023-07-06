@@ -10,9 +10,11 @@
 
 *Orbital "Districts" are now deposits.
 
-*The Level 3 spaceport no longer provides infinite orbital space.
+*The Level 3 spaceport no longer provides infinite orbital space. It instead provides 25+1 per planet size.
 
 *To build an orbital deposit, you now "upgrade" the spaceport.
+
+Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.*
 
 
 Added a thing to show how much IP the Empire has distributed to planets.*
@@ -52,8 +54,6 @@ Orbital Cities increase the upkeep of Districts by a flat and % amount.*
 Added a decision to enable Swapping for Orbital Districts.*
 
 Made planets that are being colonized not get shipping costs.*
-
-Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.*
 
 Overhauled Orbital Infrastructure so that it conflicts (Thematically and mechanically) much less with the Planetary Ring.*
 
