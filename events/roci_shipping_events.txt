@@ -57,7 +57,7 @@ country_event = {
 	immediate = {
 		every_system_within_border = { #If we don't have the gateway tech that allows us to do shipping by system, OR if the system only has one planet, do it by planet instead.
 			limit = {
-				any_system_planet = { is_colony = yes }
+				any_system_planet = { is_colony = yes mmgsiege_is_under_siege = no }
 			}
 			if = {
 				limit = {
@@ -93,6 +93,7 @@ system_event = {
 		every_system_planet = {
 			limit = {
 				is_colony = yes
+				mmgsiege_is_under_siege = no 
 			}
 			#Zero out all values
 			set_variable = { which = shipping_costs value = 0 }
@@ -114,7 +115,7 @@ system_event = {
 		#Count the number of planets in the system
 		export_trigger_value_to_variable = {
 			trigger = count_system_planet
-			parameters = { limit = { is_colony = yes } }
+			parameters = { limit = { is_colony = yes mmgsiege_is_under_siege = no } }
 			variable = shipping_system_planets
 		}
 		
@@ -228,8 +229,6 @@ system_event = {
 			resource = nanites
 			shipping_cost = @rr_shipping_cost
 		}
-		#Apply scale setting
-		multiply_variable = { which = shipping_costs value = event_target:global_event_country.shipping_scale }
 		
 		#Divide Shipping costs between all planets in the system
 		multiply_variable = { which = shipping_costs value = -1 }
@@ -255,6 +254,7 @@ planet_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = no_shipping }
+		mmgsiege_is_under_siege = no 
 	}
 	
 	immediate = {

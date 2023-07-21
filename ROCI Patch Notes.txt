@@ -10,11 +10,28 @@
 
 *Orbital "Districts" are now deposits.
 
-*The Level 3 spaceport no longer provides infinite orbital space. It instead provides 25+1 per planet size.
+The Level 3 spaceport no longer provides infinite orbital space. It instead provides 25+1 per planet size.
+
+Made ship upkeep modifiers also apply to shipping
+
+Added script values for shipping costs
+
+Added scripted triggers for my modules, to allow better mod compat
+
+Included compat with Under Siege. Planets under siege no longer have shipping costs.
 
 *To build an orbital deposit, you now "upgrade" the spaceport.
 
-Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.*
+*Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.
+
+*Hyper Relays now decrease shipping cost.
+
+*Added some techs to decrease shipping cost. Or overwrite relevant vanilla ones
+
+*Realdev IP stuff is now recalculated every 3 months instead of every month.
+
+*Realdev IP now calculates the current stuff for 3 months out, instead of next month.
+
 
 
 Added a thing to show how much IP the Empire has distributed to planets.*

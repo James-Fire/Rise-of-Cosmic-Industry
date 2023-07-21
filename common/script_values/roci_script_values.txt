@@ -725,12 +725,12 @@ realdev_industry_multiplier = {
 		add = 0.1
  	}
 	modifier = {
- 		exists = sector.leader
-		add = sector.leader.realdev_leader_level
+ 		exists = planet.sector.leader
+		add = planet.sector.leader.realdev_leader_level
  	}
 	modifier = {
- 		exists = owner.leader
-		add = owner.leader.realdev_leader_level
+ 		exists = planet.owner.leader
+		add = planet.owner.leader.realdev_leader_level
  	}
 }
 realdev_amenities_multiplier = {
@@ -742,6 +742,14 @@ realdev_amenities_multiplier = {
 	divide = 100
 }
 
+###Shipping
+
+shipping_cost = {
+	base = shipping_$resource$_balance
+	multiply = $shipping_cost$
+	multiply = event_target:global_event_country.shipping_scale
+}
+#shipping_cost|resource|energy|shipping_cost|@base_shipping_cost|
 
 ###Currently unused
 

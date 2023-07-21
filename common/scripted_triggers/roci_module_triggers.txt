@@ -1,0 +1,21 @@
+roci_autofab_module_active = {
+	NOT = { has_global_flag = no_autofab }
+}
+roci_exploit_module_active = {
+	NOT = { has_global_flag = no_exploit }
+}
+roci_orbital_module_active = {
+	NOT = { has_global_flag = no_orbital_infra }
+}
+roci_realdev_module_active = {
+	NOT = { has_global_flag = no_realdev }
+}
+roci_fe_module_active = {
+	NOT = { has_global_flag = no_fe_buildings }
+}
+roci_cargo_module_active = {
+	NOT = { has_global_flag = no_trade_routes }
+}
+roci_shipping_module_active = {
+	NOT = { has_global_flag = no_shipping }
+}

@@ -1,3 +1,4 @@
+@jumps = 3
 @distance = 70
 @planet_min_size = 10
 @planet_max_size = 25

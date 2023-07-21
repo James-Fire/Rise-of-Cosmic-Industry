@@ -266,13 +266,19 @@ building_roci_space_elevator_3 = {
 	}
 
 	planet_modifier = {
-		district_orbital_platform_cap_max = 1000
+		district_orbital_platform_cap_max = 25
 		planet_max_buildings_add = 1
 		orbital_district_alloy_upkeep = 2
 		orbital_district_energy_upkeep = 2
 		orbital_district_sr_upkeep = 0.5
 	}
 	
+	triggered_planet_modifier = {
+		modifier = {
+			district_orbital_platform_cap_max = 1
+		}
+		mult = trigger:planet_size
+	}
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner

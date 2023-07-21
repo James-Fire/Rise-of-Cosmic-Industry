@@ -1,0 +1,3 @@
+mmgsiege_is_under_siege = {
+	always = no
+}

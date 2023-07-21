@@ -1,7 +1,11 @@
+#Food, Minerals, Energy
 @base_shipping_cost = 1
 
+#Alloys, CGs, Minor Artifacts
 @adv_shipping_cost = 1.5
 
+#Gas, Crystal, Motes
 @sr_shipping_cost = 2
 
+#Living Metal, Nanites, Zro, Dark Matter
 @rr_shipping_cost = 2.5
