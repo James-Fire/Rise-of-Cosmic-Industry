@@ -19,7 +19,7 @@ shipping_cost_calculation = {
 		limit = {
 			check_variable = { which = shipping_$resource$_balance value < 0 }
 		}
-		change_variable = { which = shipping_costs value = shipping_cost|resource|$resource$|shipping_cost|$shipping_cost$| }
+		change_variable = { which = shipping_costs value = value:shipping_cost|balance|shipping_$resource$_balance|shipping_cost|$shipping_cost$| }
 	}
 	else_if = {
 		limit = {

@@ -745,11 +745,12 @@ realdev_amenities_multiplier = {
 ###Shipping
 
 shipping_cost = {
-	base = shipping_$resource$_balance
+	base = 0
+	add = $balance$
 	multiply = $shipping_cost$
 	multiply = event_target:global_event_country.shipping_scale
 }
-#shipping_cost|resource|energy|shipping_cost|@base_shipping_cost|
+#shipping_cost|balance|10|shipping_cost|@base_shipping_cost|
 
 ###Currently unused
 
