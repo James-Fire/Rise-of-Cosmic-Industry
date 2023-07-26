@@ -111,6 +111,11 @@ update_oi_modifiers = {
 		parameters = { type = district_orbital_platform_military }
 		variable = orbitalinfra_military
 	}
+	export_trigger_value_to_variable = {
+		trigger = num_districts
+		parameters = { type = district_orbital_platform_shipyard }
+		variable = orbitalinfra_shipyard
+	}
 	#Military Districts make platforms
 	if = {
 		limit = {

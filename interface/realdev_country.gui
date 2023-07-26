@@ -284,8 +284,8 @@ guiTypes = {
 						effectButtonType = { name = "realdev_country_target_increase" spriteType = "GFX_up_curve_right_blue" position = { x = 76 y = 4 } clicksound = interface effect = "realdev_country_target_increase" }
 						effectButtonType = { name = "realdev_country_target_decrease" spriteType = "GFX_down_curve_right_blue" position = { x = 76 y = 19 } clicksound = interface effect = "realdev_country_target_decrease" }
 					
-					#Current Assembly display
-				effectButtonType = { name = "realdev_planet_target_bg" spriteType = "GFX_thicc_round" position = { x = 40 y = 5 } clicksound = interface effect = "roci_blank_effect" }
+					#Current Target display
+					effectButtonType = { name = "realdev_planet_target_bg" spriteType = "GFX_thicc_round" position = { x = 40 y = 5 } clicksound = interface effect = "roci_blank_effect" }
 					effectButtonType = {
 						name = "realdev_country_target_display"
 						spriteType = "GFX_blank_tiny_menu_button_bg"
@@ -299,7 +299,44 @@ guiTypes = {
 						effect = "roci_blank_effect"
 					}
 					
+					#Current TV Display
+					effectButtonType = {
+						name = "realdev_country_tv_display"
+						spriteType = "GFX_half_menu_button_bg"
+						position = { x = 103 y = 0 }
+						format = center
+						clicksound = interface
+						borderSize = { x = 10 y = 0 }
+						font = "cg_16b"
+						text = "realdev_country_tv"
+						effect = "realdev_country_tv"
+					}
 					
+					#Current Shipyard Count
+					effectButtonType = {
+						name = "realdev_country_shipyard_display"
+						spriteType = "GFX_half_menu_button_bg"
+						position = { x = -193 y = 5 }
+						format = center
+						clicksound = interface
+						borderSize = { x = 10 y = 0 }
+						font = "cg_16b"
+						text = "realdev_country_shipyard"
+						effect = "realdev_country_shipyard"
+					}
+					
+					#Current Distributed IP
+					effectButtonType = {
+						name = "realdev_country_distributed_ip_display"
+						spriteType = "GFX_half_menu_button_bg"
+						position = { x = -193 y = -30 }
+						format = center
+						clicksound = interface
+						borderSize = { x = 10 y = 0 }
+						font = "cg_16b"
+						text = "realdev_ip_distributed"
+						effect = "realdev_ip_distributed"
+					}
 				}
 				
 				containerWindowType = {

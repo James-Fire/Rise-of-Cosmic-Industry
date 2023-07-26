@@ -439,6 +439,14 @@ planet_event = {
 		#set_variable = { which = realdev_ip_target_display value = realdev_ip_target }
 		if = {
 			limit = {
+				has_global_flag = realdev_logging
+			}
+			log = "Realdev Target for [This.GetName] before capping: [this.realdev_ip_target]"
+			log = "Realdev IP for [This.GetName] before capping: [this.realdev_industry]"
+			log = "Realdev IPC for [This.GetName] before capping: [this.realdev_industry_cap]"
+		}
+		if = {
+			limit = {
 				check_variable = { which = realdev_industry value > realdev_industry_cap }
 			}
 			set_variable = { which = realdev_country_industry value = realdev_industry }
@@ -461,6 +469,14 @@ planet_event = {
 				}
 				multiply_variable = { which = realdev_industry value = -1 }
 			}
+		}
+		if = {
+			limit = {
+				has_global_flag = realdev_logging
+			}
+			log = "Realdev Target for [This.GetName] after capping: [this.realdev_ip_target]"
+			log = "Realdev IP for [This.GetName] after capping: [this.realdev_industry]"
+			log = "Realdev IPC for [This.GetName] after capping: [this.realdev_industry_cap]"
 		}
 		if = {
 			limit = {
@@ -582,11 +598,23 @@ country_event = {
 				limit = {
 					check_variable = { which = orbitalinfra_shipyard value > 0 }
 				}
+				if = {
+					limit = {
+						has_global_flag = realdev_logging
+					}
+					log = "Realdev Orbital Shipyard count for [This.GetName]: [this.orbitalinfra_shipyard]"
+				}
 				PREV = { change_variable = { which = orbitalinfra_shipyard value = prev.orbitalinfra_shipyard } }
 			}
 			PREV = {
 				change_variable = { which = realdev_country_industry value = prev.realdev_country_industry }
 			}
+		}
+		if = {
+			limit = {
+				has_global_flag = realdev_logging
+			}
+			log = "Realdev Orbital Shipyard count for [This.GetName]: [this.orbitalinfra_shipyard]"
 		}
 		#Count Shipyards - Can't do this yet. Need exporting modifier in starbase scope.
 		#every_owned_ship = {
@@ -673,6 +701,10 @@ country_event = {
 		ceiling_variable = realdev_trade_value
 		ceiling_variable = realdev_trade_value_shared
 		
+		set_variable = { which = realdev_trade_value_total value = 0 }
+		change_variable = { which = realdev_trade_value_total value = realdev_trade_value }
+		change_variable = { which = realdev_trade_value_total value = realdev_trade_value_shared }
+		
 		change_variable = { which = realdev_country_industry value = realdev_trade_value }
 		change_variable = { which = realdev_country_industry value = realdev_trade_value_shared }
 		
@@ -694,10 +726,13 @@ country_event = {
 			}
 			PREV = { change_variable = { which = realdev_shipyard_count value = prev.realdev_shipyard_count } }
 		}
+		set_variable = { which = realdev_shipyard_display value = realdev_shipyard_count }
 		change_variable = { which = realdev_shipyard_bonus value = realdev_shipyard_count }
 		multiply_variable = { which = realdev_shipyard_bonus value = 5 }		
 		
+		set_variable = { which = realdev_country_industry_collected value = realdev_country_industry }
 		#Give IP to planets that request it, then have them evaluate their stuff.
+		set_variable = { which = realdev_ip_distributed value = 0 }
 		every_owned_planet = {
 			limit = {
 				#check_variable = { which = realdev_ip_target value > 0 }
@@ -711,6 +746,7 @@ country_event = {
 				}
 				PREV = { subtract_variable = { which = realdev_country_industry value = prev.realdev_ip_request } }
 				change_variable = { which = realdev_industry value = realdev_ip_request }
+				PREV = { change_variable = { which = realdev_ip_distributed value = prev.realdev_ip_request } }
 			}
 			planet_event = { id = realdev.11 days = 2 random = 2 }
 		}	
@@ -873,57 +909,47 @@ country_event = {
 			set_variable = { which = realdev_construction_ship_industry_display value = realdev_construction_ship_industry }
 			
 			#Include adjustment
-			if = {
-				limit = {
-					has_global_flag = roci_realdev_build_adjustment_none_flag
+			switch = {
+				trigger = has_global_flag
+				roci_realdev_build_adjustment_none_flag = {
+				
 				}
-			}
-			else_if = {
-				limit = {
-					has_global_flag = roci_realdev_build_adjustment_small_flag
-				}
-				change_variable = { which = realdev_planet_build_speed value = -25 }
-				if = {
-					limit = {
-						bonus_production_active = no
+				roci_realdev_build_adjustment_small_flag = {
+					change_variable = { which = realdev_planet_build_speed value = -25 }
+					if = {
+						limit = {
+							bonus_production_active = no
+						}
+						change_variable = { which = realdev_assembly_speed value = -25 }
 					}
-					change_variable = { which = realdev_assembly_speed value = -25 }
 				}
-			}
-			else_if = {
-				limit = {
-					has_global_flag = roci_realdev_build_adjustment_medium_flag
-				}
-				change_variable = { which = realdev_planet_build_speed value = -50 }
-				if = {
-					limit = {
-						bonus_production_active = no
+				roci_realdev_build_adjustment_medium_flag = {
+					change_variable = { which = realdev_planet_build_speed value = -50 }
+					if = {
+						limit = {
+							bonus_production_active = no
+						}
+						change_variable = { which = realdev_assembly_speed value = -50 }
 					}
-					change_variable = { which = realdev_assembly_speed value = -50 }
+				
 				}
-			}
-			else_if = {
-				limit = {
-					has_global_flag = roci_realdev_build_adjustment_large_flag
-				}
-				change_variable = { which = realdev_planet_build_speed value = -75 }
-				if = {
-					limit = {
-						bonus_production_active = no
+				roci_realdev_build_adjustment_large_flag = {
+					change_variable = { which = realdev_planet_build_speed value = -75 }
+					if = {
+						limit = {
+							bonus_production_active = no
+						}
+						change_variable = { which = realdev_assembly_speed value = -75 }
 					}
-					change_variable = { which = realdev_assembly_speed value = -75 }
 				}
-			}
-			else_if = {
-				limit = {
-					has_global_flag = roci_realdev_build_adjustment_full_flag
-				}
-				change_variable = { which = realdev_planet_build_speed value = -100 }
-				if = {
-					limit = {
-						bonus_production_active = no
+				roci_realdev_build_adjustment_full_flag = {
+					change_variable = { which = realdev_planet_build_speed value = -100 }
+					if = {
+						limit = {
+							bonus_production_active = no
+						}
+						change_variable = { which = realdev_assembly_speed value = -100 }
 					}
-					change_variable = { which = realdev_assembly_speed value = -100 }
 				}
 			}
 		

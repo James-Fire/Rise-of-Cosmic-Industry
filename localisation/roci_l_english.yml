@@ -1236,6 +1236,15 @@
      realdev_target_decrease: "Decrease the Target by 1."
      realdev_target_display: "  [This.realdev_ip_target]"
      
+     realdev_country_tv: "Trade Value: [This.realdev_trade_value_total]"
+     realdev_country_tv_desc: "Empires produce Industrial Production from collected Trade Value, at a ratio of 1IP:20TV. \n\nIf you have the Megacorp Construction Company civic, you also get 1IP for every 40TV all your Commercial Pact partners have.\n\nIf one of your Commercial Pact partners has the Megacorp Construction Company civic, then you get 1IP for every 40TV they have."
+     
+     realdev_country_shipyard: "Shipyards: [This.realdev_shipyard_display]"
+     realdev_country_shipyard_desc: "IP sent towards shipbuilding is split between all shipyards.\n\nThere is currently no way to tell how many of these shipyards are active, so don't overbuild shipyards."
+     
+     realdev_ip_distributed: "Distributed IP: [This.realdev_ip_distributed]"
+     realdev_ip_distributed_desc: "IP given to planets so they can meet their Target."
+     
      realdev_country_tooltip: "This UI shows the whole empire's current Industrial Production value, and how much Industrial Production is allocated to the empire. Ratio sliders for allocating Industrial Production between empire-level uses are present. It updates its information every 30 days."
      realdev_planet_tooltip: "This UI shows this planet's current Industrial Production value, its current Industrial Production Capacity value, and has Ratio sliders for allocating Industrial Production between the empire and planet-level uses. It updates its information every 30 days."
      realdev_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the country level, there is 2 options: Manual and Auto.\n\nManual has you enter a number, and that is the explicit value all planets that follow the country-level settings will try to get.\n\nAuto includes some automatic adjustments based on what the planet needs."

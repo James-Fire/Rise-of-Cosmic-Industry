@@ -157,7 +157,7 @@ guiTypes = {
 				effectButtonType = { name = "roci_autofab_thumb" spriteType = "GFX_roci_autofab_thumb" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_autofab_thumb" }
 				effectButtonType = { name = "roci_autofab_thumb_border" spriteType = "GFX_roci_border" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_autofab_thumb" }
 				ButtonType = { name = "roci_autofab_desc_bg" spriteType = "GFX_roci_desc_bg" position = { x = -5 y = -45 } alwaysTransparent = yes }
-				instantTextBoxType = { name = "roci_autofab_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 alwaysTransparent = yes font = "cg_16b" text = "roci_autofab_desc" }
+				instantTextBoxType = { name = "roci_autofab_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 font = "cg_16b" text = "roci_autofab_desc" }
 			
 				effectButtonType = {
 					name = "roci_autofab"
@@ -195,7 +195,7 @@ guiTypes = {
 				effectButtonType = { name = "roci_exploit_thumb" spriteType = "GFX_roci_exploit_thumb" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_exploit_thumb" }
 				effectButtonType = { name = "roci_exploit_thumb_border" spriteType = "GFX_roci_border" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_exploit_thumb" }
 				ButtonType = { name = "roci_exploit_desc_bg" spriteType = "GFX_roci_desc_bg" position = { x = 0 y = -45 } alwaysTransparent = yes }
-				instantTextBoxType = { name = "roci_exploit_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 alwaysTransparent = yes font = "cg_16b" text = "roci_exploit_desc" }
+				instantTextBoxType = { name = "roci_exploit_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 font = "cg_16b" text = "roci_exploit_desc" }
 				
 				effectButtonType = {
 					name = "roci_exploit"
@@ -263,7 +263,7 @@ guiTypes = {
 				effectButtonType = { name = "roci_orbital_thumb" spriteType = "GFX_roci_orbital_thumb" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_orbital_thumb" }
 				effectButtonType = { name = "roci_orbital_thumb_border" spriteType = "GFX_roci_border" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_orbital_thumb" }
 				ButtonType = { name = "roci_orbital_desc_bg" spriteType = "GFX_roci_desc_bg" position = { x = -5 y = -45 } alwaysTransparent = yes }
-				instantTextBoxType = { name = "roci_orbital_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 alwaysTransparent = yes font = "cg_16b" text = "roci_orbital_desc" }
+				instantTextBoxType = { name = "roci_orbital_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 font = "cg_16b" text = "roci_orbital_desc" }
 			
 				effectButtonType = {
 					name = "roci_orbital"
@@ -302,7 +302,7 @@ guiTypes = {
 				effectButtonType = { name = "roci_realdev_thumb" spriteType = "GFX_roci_realdev_thumb" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_realdev_thumb" }
 				effectButtonType = { name = "roci_realdev_thumb_border" spriteType = "GFX_roci_border" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_realdev_thumb" }
 				ButtonType = { name = "roci_realdev_desc_bg" spriteType = "GFX_roci_desc_bg" position = { x = -5 y = -45 } alwaysTransparent = yes }
-				instantTextBoxType = { name = "roci_realdev_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 alwaysTransparent = yes font = "cg_16b" text = "roci_realdev_desc" }
+				instantTextBoxType = { name = "roci_realdev_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 font = "cg_16b" text = "roci_realdev_desc" }
 			
 				effectButtonType = {
 					name = "roci_realdev"
@@ -342,7 +342,7 @@ guiTypes = {
 				effectButtonType = { name = "roci_fe_buildings_thumb" spriteType = "GFX_roci_febuildings_thumb" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_fe_buildings_thumb" }
 				effectButtonType = { name = "roci_fe_buildings_thumb_border" spriteType = "GFX_roci_border" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_fe_buildings_thumb" }
 				ButtonType = { name = "roci_fe_buildings_desc_bg" spriteType = "GFX_roci_desc_bg" position = { x = -5 y = -45 } alwaysTransparent = yes }
-				instantTextBoxType = { name = "roci_fe_buildings_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 alwaysTransparent = yes font = "cg_16b" text = "roci_fe_buildings_desc" }
+				instantTextBoxType = { name = "roci_fe_buildings_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 font = "cg_16b" text = "roci_fe_buildings_desc" }
 			
 				effectButtonType = {
 					name = "roci_fe_buildings"
@@ -366,7 +366,7 @@ guiTypes = {
 				effectButtonType = { name = "roci_trade_routes_thumb" spriteType = "GFX_roci_cargoships_thumb" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_trade_routes_thumb" }
 				effectButtonType = { name = "roci_trade_routes_thumb_border" spriteType = "GFX_roci_border" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_trade_routes_thumb" }
 				ButtonType = { name = "roci_trade_routes_desc_bg" spriteType = "GFX_roci_desc_bg" position = { x = -5 y = -45 } alwaysTransparent = yes }
-				instantTextBoxType = { name = "roci_trade_routes_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 alwaysTransparent = yes font = "cg_16b" text = "roci_trade_routes_desc" }
+				instantTextBoxType = { name = "roci_trade_routes_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 font = "cg_16b" text = "roci_trade_routes_desc" }
 			
 				effectButtonType = {
 					name = "roci_trade_routes"
@@ -390,7 +390,7 @@ guiTypes = {
 				effectButtonType = { name = "roci_shipping_thumb" spriteType = "GFX_roci_shipping_thumb" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_shipping_thumb" }
 				effectButtonType = { name = "roci_shipping_thumb_border" spriteType = "GFX_roci_border" position = { x = -35 y = -115 } alwaysTransparent = yes effect = "roci_shipping_thumb" }
 				ButtonType = { name = "roci_shipping_desc_bg" spriteType = "GFX_roci_desc_bg" position = { x = -5 y = -45 } alwaysTransparent = yes }
-				instantTextBoxType = { name = "roci_shipping_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 alwaysTransparent = yes font = "cg_16b" text = "roci_shipping_desc" }
+				instantTextBoxType = { name = "roci_shipping_desc" position = { x = 5 y = -40 } format = left maxWidth = 393 font = "cg_16b" text = "roci_shipping_desc" }
 			
 				effectButtonType = {
 					name = "roci_shipping"

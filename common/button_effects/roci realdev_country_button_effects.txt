@@ -90,7 +90,26 @@ realdev_country_target_decrease = {
 	}
 }
 
+#Trade Value
+realdev_country_tv = {
+	potential = { }
+	allow = { custom_tooltip = "realdev_country_tv_desc" hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "realdev_country_tv_desc" }
+}
 
+#Shipyards
+realdev_country_shipyard = {
+	potential = { }
+	allow = { custom_tooltip = "realdev_country_shipyard_desc" hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "realdev_country_shipyard_desc" }
+}
+
+#Distributed IP
+realdev_ip_distributed = {
+	potential = { }
+	allow = { custom_tooltip = "realdev_ip_distributed_desc" hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "realdev_ip_distributed_desc" }
+}
 
 #Ships/Space Construction ratio Slider
 realdev_country_ship_ratio_title_tooltip = {

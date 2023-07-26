@@ -4,8 +4,6 @@
 
 *Merged the Exploit Minimum Stockpile menu with the Autofab Automation Settings window.
 
-*Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp. And a variant for Criminal Corps.
-
 *Autofab Modules are now Districts.
 
 *Orbital "Districts" are now deposits.
@@ -18,20 +16,44 @@
 
 *Added some techs to decrease shipping cost. Or overwrite relevant vanilla ones
 
+*Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp. And a variant for Criminal Corps.
+
+*Realdev now calculates the current stuff for 3 calcs out, instead of next calc.
+
+*Realdev now shows you the next 3 calcs, in addition to current numbers
+
+*Added a notification to Realdev that triggers if your IP lowers by too much in 1 calc.
+
+*Equipment Factory no longer provides Foreman jobs.
+
+*Added a "Construction Office" building that provides Foreman jobs.
+
+*Moved Equipment Factory upgrades to their own techs.
+
+*Construction Office upgrades are on the same techs as Equipment Factory.
+
+*Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per.
+This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.
+
+Fixed Orbital Shipyards not giving ship IP.
+
+Added scripted effects to allow easier usage of realdev debug commands.
+
+Added a realdev debug flag, and added debugging stuff in various places.
+
+Added a value for how much IP is collected from Trade Value to the Realdev Empire UI.
+
+Added a value for how many shipyards you have to the Realdev Empire UI.
+
+Added a value for how much IP is distributed to planets to meet their Target to the Realdev Empire UI.
+
+
+
 *Realdev IP stuff is now recalculated every 3 months instead of every month.
-
-*Realdev IP now calculates the current stuff for 3 months out, instead of next month.
-
-
-
-Added a thing to show how much IP the Empire has distributed to planets.*
 
 Added a whole bunch of nested tooltips to help explain various mod concepts.*
 
 Moved the Trade Value provided by completed exploit constructions to the minor colonies.*
-
-Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per.
-This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.*
 
 Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.* Kinda annoying to do
 
@@ -45,9 +67,9 @@ Orbital Defense Platform now has modifiers saying what it does.*
 
 Fixed "Uses Orbital Slot" modifier showing up wherever the fuck it wants to.*
 
-Added Development Milestones. These can affect both the Target system and Ratios. These are a collection of triggers that modify the Target and Ratios based on the status of the planet or country they apply to.*
-
 FE Buildings now make the job they affect have appropriate SR upkeep as well.*
+
+*Added Development Milestones. These can affect both the Target system and Ratios. These are a collection of triggers that modify the Target and Ratios based on the status of the planet or country they apply to. These are default off for the player.
 
 
 
@@ -77,8 +99,6 @@ Added a "Deconstruct all" button to the Planet Autofab UI.*
 Added the Strategic Production module, that deals with the production of SRs, and how it's currently terrible in vanilla.*
 
 Added the Subterannean Infrastructure module, dealing with construction projects beneath the surface.*
-
-Moved Equipment Factory upgrades to their own techs.*
 
 Simplified autofab loop events. This should reduce the performance impact of lots of colonies building at once.*
 

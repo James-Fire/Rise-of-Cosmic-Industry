@@ -4,6 +4,22 @@ test_cargo_ships = {
 	give_technology = { tech = tech_colonial_centralization }
 }
 
+#Any Scope works
+log_all_country_realdev_values = {
+	every_country = {
+		log_all_country_realdev_values = yes
+	}
+}
+
+#Country Scope only
+log_all_country_realdev_values = {
+	print_realdev_values = yes
+	
+	every_owned_planet = {
+		print_realdev_values = yes
+	}
+}
+
 print_realdev_values = {
 	if = {
 		limit = {

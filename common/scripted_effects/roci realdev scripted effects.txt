@@ -21,6 +21,12 @@ set_realdev_target = {
 		}
 		set_variable = { which = realdev_ip_target value = realdev_industry_cap }	
 	}
+	if = {
+		limit = {
+			has_global_flag = realdev_logging
+		}
+		log = "Realdev set Target at [this.realdev_ip_target] on [This.GetName] for [Owner.GetName]"
+	}
 }
 
 set_realdev_planet_variables = {
