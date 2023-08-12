@@ -485,11 +485,13 @@ planet_event = {
 			multiply_variable = { which = realdev_ip_target value = -1 }
 		}
 		
+		
 		#Split Planet industrial capacity between assembly and construction, if this planet doesn't need more IP to fill its Target.
 		if = {
 			limit = {
 				NOT = { check_variable = { which = realdev_ip_target value > 0 } }
 			}
+			set_variable = { which = realdev_total_ip value = realdev_industry }
 			if = {
 				limit = {
 					has_building_construction = no
@@ -731,6 +733,9 @@ country_event = {
 		multiply_variable = { which = realdev_shipyard_bonus value = 5 }		
 		
 		set_variable = { which = realdev_country_industry_collected value = realdev_country_industry }
+		
+		set_variable = { which = realdev_total_ip value = realdev_country_industry }
+		
 		#Give IP to planets that request it, then have them evaluate their stuff.
 		set_variable = { which = realdev_ip_distributed value = 0 }
 		every_owned_planet = {
@@ -879,7 +884,12 @@ country_event = {
 	
 	immediate = {
 		set_variable = { which = realdev_industry_display value = 0 }
+		set_variable = { which = realdev_total_ip_previous value = realdev_total_ip }
+		set_variable = { which = realdev_total_ip value = 0 }
 		every_owned_planet = {
+			#Pull final IP values
+			PREV = { change_variable = { which = realdev_total_ip value = prev.realdev_total_ip } }
+		
 			#Set display variables
 			set_variable = { which = realdev_planet_build_speed_display value = realdev_planet_build_speed }
 			set_variable = { which = realdev_assembly_speed_display value = realdev_assembly_speed }
@@ -982,6 +992,19 @@ country_event = {
 				}
 			}
 			reset_realdev_variables = yes
+		}
+		
+		#Send a message if IP went down by too much.
+		if = {
+			limit = {
+				always = no
+				check_variable_arithmetic = {
+					which = realdev_total_ip
+					multiply = 0.8
+					value < realdev_total_ip_previous
+				}
+			}
+			country_event = { id = realdev.12 }
 		}
 		
 		#Apply modifiers
@@ -1279,6 +1302,8 @@ planet_event = {
 	}
 	
 	immediate = {
+		set_variable = { which = realdev_total_ip value = realdev_industry }
+		
 		if = {
 			limit = {
 				has_building_construction = no
@@ -1356,4 +1381,24 @@ planet_event = {
 			}
 		}
 	}	
+}
+
+#Warning event that IP is much lower than last month
+country_event = {
+	id = realdev.12
+	title = "realdev.12.name"
+	desc = "realdev.12.desc"
+	picture = GFX_evt_metropolis
+	is_triggered_only = yes
+	auto_opens = no
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "Ok"
+	}
 }

@@ -1,15 +1,5 @@
 *Added the Exodus Fleet origin.
 
-*Made autofab retooling respect Realdev.
-
-*Merged the Exploit Minimum Stockpile menu with the Autofab Automation Settings window.
-
-*Autofab Modules are now Districts.
-
-*Orbital "Districts" are now deposits.
-
-*To build an orbital deposit, you now "upgrade" the spaceport.
-
 *Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.
 
 *Hyper Relays now decrease shipping cost.
@@ -22,7 +12,7 @@
 
 *Realdev now shows you the next 3 calcs, in addition to current numbers
 
-*Added a notification to Realdev that triggers if your IP lowers by too much in 1 calc.
+Added a notification to Realdev that triggers if your IP lowers by too much in 1 calc.
 
 *Equipment Factory no longer provides Foreman jobs.
 
@@ -32,9 +22,6 @@
 
 *Construction Office upgrades are on the same techs as Equipment Factory.
 
-*Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per.
-This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.
-
 Fixed Orbital Shipyards not giving ship IP.
 
 Added scripted effects to allow easier usage of realdev debug commands.
@@ -43,11 +30,32 @@ Added a realdev debug flag, and added debugging stuff in various places.
 
 Added a value for how much IP is collected from Trade Value to the Realdev Empire UI.
 
-Added a value for how many shipyards you have to the Realdev Empire UI.
+Added a value for how many Shipyards you have to the Realdev Empire UI.
+
+*Added a value for how many building Minor Colonies are currently building to the Realdev Empire UI.
+
+*Added a value for how many building Megastructures are currently building to the Realdev Empire UI.
 
 Added a value for how much IP is distributed to planets to meet their Target to the Realdev Empire UI.
 
+*Moved the triggers for Astro Mining Bay to Allow, so you can always see the district, and see the fail conditions if you can't build it.
 
+
+
+*Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per.
+This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.
+
+*Added a value for how many Equipment Factories you have to the Realdev Planet UI.
+
+*Made autofab retooling respect Realdev.
+
+*Merged the Exploit Minimum Stockpile menu with the Autofab Automation Settings window.
+
+*Autofab Modules are now Districts.
+
+*Orbital "Districts" are now deposits.
+
+*To build an orbital deposit, you now "upgrade" the spaceport.
 
 *Realdev IP stuff is now recalculated every 3 months instead of every month.
 
