@@ -1353,16 +1353,11 @@ planet_event = {
 						can_pops_assemble_on_planet = yes
 						bonus_production_active = yes
 					}
+					check_variable = { which = realdev_assembly_speed value > realdev_assembly_cap }
 				}
-				
-				if = {
-					limit = {
-						check_variable = { which = realdev_assembly_speed value > realdev_assembly_cap }
-					}
-					subtract_variable = { which = realdev_assembly_speed value = realdev_assembly_cap }
-					change_variable = { which = realdev_country_industry value = realdev_assembly_speed }
-					set_variable = { which = realdev_assembly_speed value = realdev_assembly_cap }
-				}
+				subtract_variable = { which = realdev_assembly_speed value = realdev_assembly_cap }
+				change_variable = { which = realdev_country_industry value = realdev_assembly_speed }
+				set_variable = { which = realdev_assembly_speed value = realdev_assembly_cap }
 			}
 			else = {
 				change_variable = { which = realdev_country_industry value = realdev_assembly_speed }
