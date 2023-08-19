@@ -1335,6 +1335,18 @@ planet_event = {
 			}
 		}
 		else = {
+			set_variable = { which = realdev_planet_build_speed value = realdev_industry }
+			multiply_variable = { which = realdev_planet_build_speed value = realdev_industry_construction_ratio }
+			
+			set_variable = { which = realdev_industry_assembly_ratio value = 1 }
+			subtract_variable = { which = realdev_industry_assembly_ratio value = realdev_industry_construction_ratio }
+			
+			set_variable = { which = realdev_assembly_speed value = realdev_industry }
+			multiply_variable = { which = realdev_assembly_speed value = realdev_industry_assembly_ratio }
+			
+			round_variable = realdev_planet_build_speed
+			round_variable = realdev_assembly_speed
+
 			if = {
 				limit = {
 					OR = {
@@ -1342,17 +1354,6 @@ planet_event = {
 						bonus_production_active = yes
 					}
 				}
-				set_variable = { which = realdev_planet_build_speed value = realdev_industry }
-				multiply_variable = { which = realdev_planet_build_speed value = realdev_industry_construction_ratio }
-				
-				set_variable = { which = realdev_industry_assembly_ratio value = 1 }
-				subtract_variable = { which = realdev_industry_assembly_ratio value = realdev_industry_construction_ratio }
-				
-				set_variable = { which = realdev_assembly_speed value = realdev_industry }
-				multiply_variable = { which = realdev_assembly_speed value = realdev_industry_assembly_ratio }
-				
-				round_variable = realdev_planet_build_speed
-				round_variable = realdev_assembly_speed
 				
 				if = {
 					limit = {
@@ -1364,18 +1365,6 @@ planet_event = {
 				}
 			}
 			else = {
-				set_variable = { which = realdev_planet_build_speed value = realdev_industry }
-				multiply_variable = { which = realdev_planet_build_speed value = realdev_industry_construction_ratio }
-				
-				set_variable = { which = realdev_industry_assembly_ratio value = 1 }
-				subtract_variable = { which = realdev_industry_assembly_ratio value = realdev_industry_construction_ratio }
-				
-				set_variable = { which = realdev_assembly_speed value = realdev_industry }
-				multiply_variable = { which = realdev_assembly_speed value = realdev_industry_assembly_ratio }
-				
-				round_variable = realdev_planet_build_speed
-				round_variable = realdev_assembly_speed
-				
 				change_variable = { which = realdev_country_industry value = realdev_assembly_speed }
 				set_variable = { which = realdev_assembly_speed value = 0 }
 			}
