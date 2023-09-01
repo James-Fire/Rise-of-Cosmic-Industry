@@ -731,6 +731,13 @@ district_orbital_platform_shipyard = {
 		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 	}
 	
+	triggered_planet_modifier = {
+		potential = {
+			roci_realdev_module_active = yes
+		}
+		realdev_ship_build_ip = 10
+	}
+	
 	ai_weight = {
 		weight = 1
 		modifier = {
@@ -1211,44 +1218,6 @@ district_orbital_platform_mining = {
 			has_district = district_orbital_platform_mining
 		}
 		has_oi_space_elevator = yes
-		OR = {
-			is_homeworld = yes
-			has_modifier = extensive_moon_system
-			has_modifier = asteroid_belt
-			has_planet_flag = mining_habitat
-			AND = {
-				OR = {
-					is_moon = yes
-					is_planet_class = pc_habitat
-				}
-				orbit = {
-					OR = {
-						uninhabitable_regular_planet = yes
-						AND = {
-							has_moon = yes
-							any_moon = {
-								uninhabitable_regular_planet = yes
-							}
-						}
-					}
-				}
-			}
-			AND = {
-				has_moon = yes
-				any_moon = {
-					uninhabitable_regular_planet = yes
-				}
-			}
-			solar_system = {
-				any_system_planet = {
-					OR = {
-						is_asteroid = yes
-						is_planet_class = pc_shattered
-						is_planet_class = pc_shattered_2
-					}
-				}
-			}
-		}
 	}
 	
 	destroy_trigger = {
@@ -1307,6 +1276,44 @@ district_orbital_platform_mining = {
 					resource_stockpile_compare = {
 						resource = alloys
 						value >= @platform_alloys
+					}
+				}
+			}
+		}
+		OR = {
+			is_homeworld = yes
+			has_modifier = extensive_moon_system
+			has_modifier = asteroid_belt
+			has_planet_flag = mining_habitat
+			AND = {
+				OR = {
+					is_moon = yes
+					is_planet_class = pc_habitat
+				}
+				orbit = {
+					OR = {
+						uninhabitable_regular_planet = yes
+						AND = {
+							has_moon = yes
+							any_moon = {
+								uninhabitable_regular_planet = yes
+							}
+						}
+					}
+				}
+			}
+			AND = {
+				has_moon = yes
+				any_moon = {
+					uninhabitable_regular_planet = yes
+				}
+			}
+			solar_system = {
+				any_system_planet = {
+					OR = {
+						is_asteroid = yes
+						is_planet_class = pc_shattered
+						is_planet_class = pc_shattered_2
 					}
 				}
 			}

@@ -15,23 +15,275 @@ country_event = {
 	immediate = {
 		#Homeworld result - Collapse, survives as-is, taken over by something
 		#Spawn a home system for the homeworld, a minimum distance from your new home based on galaxy size
-		
-		random_list = {
-			1 = { #Collapse. Add some stuff to make it "lived in", pick between a Tomb World and a Relic World for the home planet, terraform a planet or 2
-				random_list = { #Tomb World or Relic World
-					1 = {
-						
+		capital_scope = {
+			solar_system = {
+				random_list = {
+					1 = { #Came from another galaxy, so no homeworld
+						ROOT = { country_event = { id = exodus_fleet.20 days = 1 } }
 					}
-					1 = {
-					
+					3 = {
+						ROOT = { country_event = { id = exodus_fleet.21 days = 1 } }
+						spawn_system = { min_distance = 50 max_distance = 100 initializer = exodus_1 hyperlane = yes is_discovered = no }
+						random_system = {
+							limit = {
+								has_star_flag = exodus_home_system
+								NOT = { has_star_flag = exodus_home_taken }
+							}
+							set_star_flag = exodus_home_taken
+							random_system_planet = {
+								limit = {
+									has_planet_flag = exodus_parent_home
+								}
+								generate_start_deposits_and_blockers = yes
+								random_list = {
+									1 = { #Collapse. Add some stuff to make it "lived in", pick between a Tomb World and a Relic World for the home planet, terraform a planet or 2
+										random_list = { #Tomb World or Relic World
+											1 = {
+												change_pc = pc_tomb
+											}
+											1 = {
+												change_pc = pc_relic
+											}
+										}
+									}
+									2 = { #Survives in some way
+										create_country = {
+											species = root
+											name_list = root
+											type = default
+											origin = "origin_default"
+											government_restrictions = {
+												authority = { NOT = { value = auth_machine_intelligence value = auth_hive_mind } }
+											}
+											effect = {
+												save_event_target_as = exodus_parent
+												add_resource = {
+													minerals = 2400
+													energy = 2400
+													food = 2400
+													alloys = 800
+													consumer_goods = 1200
+													influence = 600
+												}
+											}
+										}
+										create_colony = {
+											owner = event_target:exodus_parent
+										}
+										clear_blockers = yes
+										generate_start_buildings_and_districts = yes
+										generate_start_pops = yes
+										generate_lost_colony_parent_bonus = yes
+										event_target:exodus_parent = {
+											create_starting_leaders = yes
+											set_country_flag = exodus_parent@root
+											set_country_flag = special_intro_for@root
+											country_event = { id = game_start.9 }
+											country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
+											owner_species = { set_species_homeworld = prev }
+											set_name = random # Fixes some naming issues
+											log = "Exodus Fleet PARENT CREATED"
+										}
+										
+										solar_system = {
+											every_neighbor_system = {
+												limit = {
+													has_star_flag = empire_cluster
+												}
+												create_starbase = {
+													size = starbase_outpost
+													owner = event_target:lost_colony_parent
+												}
+												every_system_planet = {
+													limit = {
+														is_colonizeable = yes
+													}
+													create_colony = {
+														owner = event_target:exodus_parent
+													}
+												}
+												every_neighbor_system = {
+													limit = {
+														has_star_flag = empire_cluster
+													}
+													create_starbase = {
+														size = starbase_outpost
+														owner = event_target:lost_colony_parent
+													}
+													every_system_planet = {
+														limit = {
+															is_colonizeable = yes
+														}
+														create_colony = {
+															owner = event_target:exodus_parent
+														}
+													}
+												}
+											}
+										}
+										random_list = {
+											1 = { #Survives. Ethics are opposite of yours
+												event_target:lost_colony_parent = {
+													country_remove_ethic = ethic_fanatic_authoritarian
+													country_remove_ethic = ethic_fanatic_egalitarian
+													country_remove_ethic = ethic_fanatic_militarist
+													country_remove_ethic = ethic_fanatic_pacifist
+													country_remove_ethic = ethic_fanatic_materialist
+													country_remove_ethic = ethic_fanatic_spiritualist
+													country_remove_ethic = ethic_fanatic_xenophile
+													country_remove_ethic = ethic_fanatic_xenophobe
+													country_remove_ethic = ethic_authoritarian
+													country_remove_ethic = ethic_egalitarian
+													country_remove_ethic = ethic_militarist
+													country_remove_ethic = ethic_pacifist
+													country_remove_ethic = ethic_materialist
+													country_remove_ethic = ethic_spiritualist
+													country_remove_ethic = ethic_xenophile
+													country_remove_ethic = ethic_xenophobe
+												}
+												
+												#shift_ethic = <key>
+												if = {
+													limit = {
+														ROOT = { is_fanatic = yes }
+													}
+													ROOT = {
+														switch = {
+															trigger = has_ethic
+															ethic_fanatic_authoritarian = {
+																event_target:exodus_parent = {
+																	country_add_ethic = ethic_fanatic_egalitarian
+																}
+															}
+															ethic_fanatic_egalitarian = {
+																event_target:exodus_parent = {
+																	country_add_ethic = ethic_fanatic_authoritarian
+																}
+															}
+															ethic_fanatic_militarist = {
+																event_target:exodus_parent = {
+																	country_add_ethic = ethic_fanatic_pacifist
+																}
+															}
+															ethic_fanatic_pacifist = {
+																event_target:exodus_parent = {
+																	country_add_ethic = ethic_fanatic_militarist
+																}
+															}
+															ethic_fanatic_materialist = {
+																event_target:exodus_parent = {
+																	country_add_ethic = ethic_fanatic_spiritualist
+																}
+															}
+															ethic_fanatic_spiritualist = {
+																event_target:exodus_parent = {
+																	country_add_ethic = ethic_fanatic_materialist
+																}
+															}
+															ethic_fanatic_xenophile = {
+																event_target:exodus_parent = {
+																	country_add_ethic = ethic_fanatic_xenophobe
+																}
+															}
+															ethic_fanatic_xenophobe = {
+																event_target:exodus_parent = {
+																	country_add_ethic = ethic_fanatic_xenophile
+																}
+															}
+														}
+													}
+												}
+												if = {
+													limit = {
+														ROOT = {
+															has_ethic = ethic_authoritarian
+														}
+													}
+													event_target:exodus_parent = {
+														country_add_ethic = ethic_egalitarian
+													}
+												}
+												if = {
+													limit = {
+														ROOT = {
+															has_ethic = ethic_egalitarian
+														}
+													}
+													event_target:exodus_parent = {
+														country_add_ethic = ethic_authoritarian
+													}
+												}
+												if = {
+													limit = {
+														ROOT = {
+															has_ethic = ethic_militarist
+														}
+													}
+													event_target:exodus_parent = {
+														country_add_ethic = ethic_pacifist
+													}
+												}
+												if = {
+													limit = {
+														ROOT = {
+															has_ethic = ethic_militarist
+														}
+													}
+													event_target:exodus_parent = {
+														country_add_ethic = ethic_militarist
+													}
+												}
+												if = {
+													limit = {
+														ROOT = {
+															has_ethic = ethic_spiritualist
+														}
+													}
+													event_target:exodus_parent = {
+														country_add_ethic = ethic_materialist
+													}
+												}
+												if = {
+													limit = {
+														ROOT = {
+															has_ethic = ethic_materialist
+														}
+													}
+													event_target:exodus_parent = {
+														country_add_ethic = ethic_spiritualist
+													}
+												}
+												if = {
+													limit = {
+														ROOT = {
+															has_ethic = ethic_xenophobe
+														}
+													}
+													event_target:exodus_parent = {
+														country_add_ethic = ethic_xenophile
+													}
+												}
+												if = {
+													limit = {
+														ROOT = {
+															has_ethic = ethic_xenophile
+														}
+													}
+													event_target:exodus_parent = {
+														country_add_ethic = ethic_xenophobe
+													}
+												}
+											}
+											1 = { #Taken Over. Ethics are random
+												
+											}
+										}
+									}
+								}
+							}
+						}
 					}
 				}
-			}
-			1 = { #Survives. Ethics are opposite of yours
-			
-			}
-			1 = { #Taken Over. Ethics are similar or completely unrelated to yours
-			
 			}
 		}
 	
@@ -101,7 +353,7 @@ country_event = {
 					delete_ship = orbital_station
 				}
 		
-		#Set up system resources
+				#Set up system resources
 				every_system_planet = {
 					limit = {
 						is_colonizable = no
@@ -120,6 +372,7 @@ country_event = {
 							is_colonizable = no
 							NOT = { has_planet_flag = exodus_resources_placed }
 						}
+						set_planet_flag = exodus_resources_placed
 						switch = {
 							trigger = has_planet_flag
 							exodus_star = {
@@ -132,9 +385,9 @@ country_event = {
 								add_deposit = d_alloys_1
 							}
 							exodus_research = {
-								add_deposit = d_physics_2
-								add_deposit = d_society_2
-								add_deposit = d_engineering_2
+								add_deposit = d_physics_4
+								add_deposit = d_society_4
+								add_deposit = d_engineering_4
 							}
 							exodus_cold_barren = {
 								add_deposit = d_energy_3
@@ -178,44 +431,10 @@ country_event = {
 			}
 		}
 		
-		#Remake homeworld starting stuffs
-		autofab_game_start = yes
-		capital_scope = {
-			remove_all_districts = yes
-			remove_all_buildings = yes
-			add_building = building_capital
-			add_building = building_robot_assembly_plant
-			add_building = building_research_lab_1
-			add_district = district_farming
-			add_district = district_mining
-			add_district = district_mining
-			add_district = district_generator
-			
-			add_autofab = yes
-			add_deposit = autofab_foundry
-			change_variable = { which = autofab_foundry value = 1 }
-			add_deposit = autofab_power
-			change_variable = { which = autofab_power value = 1 }
-			if = {
-				limit = {
-					owner = {
-						OR = {
-							NOT = {
-								has_ethic = ethic_gestalt_consciousness
-							}
-							has_civic = civic_machine_servitor
-						}
-					}
-				}
-				add_deposit = autofab_factory
-				change_variable = { which = autofab_factory value = 1 }
-			}
-			
-			
-		}
 		
 		#Planet modifiers and deposits
 		capital_scope = {
+			change_pc = pc_gaia
 			add_deposit = d_black_soil
 			add_deposit = d_black_soil
 			add_deposit = d_rich_mountain
@@ -468,6 +687,40 @@ country_event = {
 				}
 			}
 		}
+		
+		#Remake homeworld starting stuffs
+		autofab_game_start = yes
+		capital_scope = {
+			remove_all_districts = yes
+			remove_all_buildings = yes
+			add_building = building_capital
+			add_building = building_robot_assembly_plant
+			add_building = building_research_lab_1
+			add_district = district_farming
+			add_district = district_mining
+			add_district = district_mining
+			add_district = district_generator
+			
+			add_autofab = yes
+			add_deposit = autofab_foundry
+			change_variable = { which = autofab_foundry value = 1 }
+			add_deposit = autofab_power
+			change_variable = { which = autofab_power value = 1 }
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							NOT = {
+								has_ethic = ethic_gestalt_consciousness
+							}
+							has_civic = civic_machine_servitor
+						}
+					}
+				}
+				add_deposit = autofab_factory
+				change_variable = { which = autofab_factory value = 1 }
+			}
+		}
 	}
 }
 
@@ -534,5 +787,114 @@ country_event = {
 			multiplier = ExodusAttractionBoost
 			time_multiplier = ExodusHappyPlanetCount
 		}
+	}
+}
+
+#From Another Galaxy
+country_event = {
+	id = exodus_fleet.20
+	title = "exodus_fleet.20.name"
+	desc = "exodus_fleet.20.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_ship_in_orbit
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "UNDERSTOOD"
+	}
+}
+#From This Galaxy
+country_event = {
+	id = exodus_fleet.21
+	title = "exodus_fleet.21.name"
+	desc = "exodus_fleet.21.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_ship_in_orbit
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "UNDERSTOOD"
+	}
+}
+#Found the homeworld (Relic)
+country_event = {
+	id = exodus_fleet.22
+	title = "exodus_fleet.22.name"
+	desc = "exodus_fleet.22.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_city_ruins
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "exodus_fleet.22.option"
+	}
+}
+#Found the homeworld (Tomb)
+country_event = {
+	id = exodus_fleet.23
+	title = "exodus_fleet.23.name"
+	desc = "exodus_fleet.23.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_relic_world 
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "exodus_fleet.23.option"
+	}
+}
+#Found the homeworld (Survived)
+country_event = {
+	id = exodus_fleet.24
+	title = "exodus_fleet.24.name"
+	desc = "exodus_fleet.24.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_metropolis
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "exodus_fleet.24.option"
+	}
+}
+#Found the homeworld (Revolution)
+country_event = {
+	id = exodus_fleet.25
+	title = "exodus_fleet.25.name"
+	desc = "exodus_fleet.25.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_open_revolt
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "exodus_fleet.25.option"
 	}
 }

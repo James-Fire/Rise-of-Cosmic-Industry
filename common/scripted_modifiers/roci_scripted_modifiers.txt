@@ -26,7 +26,8 @@ district_roci_sprawl_no = {
 	category = planet
 }
 
-#Orbital
+###Orbital
+
 uses_orbital_infrastructure = {
 	good = no
 	category = planet
@@ -42,4 +43,18 @@ orbital_district_energy_upkeep = {
 orbital_district_sr_upkeep = {
 	good = no
 	category = planet
+}
+
+###Realdev
+
+realdev_ip_mod = {
+	good = yes
+	category = all
+}
+realdev_ipc_mod = {
+	good = yes
+	category = all
+}
+realdev_ship_build_ip = {
+	category = all
 }

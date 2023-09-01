@@ -1174,8 +1174,8 @@
     realdev_planet_job_output: "Industrial Production Boost"
     realdev_planet_job_output_desc: "Industrial Production is being used to boost the output of this planet."
     
-    mod_district_realdev_industry_max: "Industrial Production"
-    mod_district_realdev_industry_cap_max: "Industrial Production Capacity"
+    mod_realdev_ip_mod: "Industrial Production"
+    mod_realdev_ipc_mod: "Industrial Production Capacity"
  
   #Buildings and Jobs
     building_roci_infrastructure_construction:0 "Equipment Workshop"
@@ -1201,7 +1201,7 @@
     building_corporate_construction:0 "Construction Company"
     building_corporate_construction_desc:0 "The headquarters of a construction-focused subsidiary is based here, providing construction benefits to the planet."
     building_corporate_construction_criminal:0 "Illicit Construction Operation"
-    building_corporate_construction_criminal_desc:0 "REPLACE_ME"
+    building_corporate_construction_criminal_desc:0 "Construction companies that don't necessarily provide up-to-code construction services, but they are cheap."
     
     district_realdev_industry:0 ""
     district_realdev_industry_desc:0 ""
@@ -1234,19 +1234,50 @@
     realdev_inheritance_tooltip_1: "Inheritance is the method by which unused IP moves to places where it is needed. If you give IP to Planet Building that it doesn't need, this is fine, Inheritance will handle it. Together with Targets, you can set up how much IP planets should get if they need it all, but if they don't, it'll flow back to the Empire."
     realdev_inheritance_tooltip_2: "Starting on planets, Inheritance works by passing overflow and uneeded IP to the next item in line. On Planets, this order is:\n-Planet Building\n-Assembly/Production Boost\n-Empire"
     realdev_inheritance_tooltip_3: "At the Empire level, the Inheritance order is:\n-Ships\n-Minor Colonies\n-Megastructures"
+    realdev_all_committed: "100% of IP is already committed"
+    realdev_none_committed: "Already at 0%"
+    realdev_industry_ratio_desc: "How much of the Empire IP this category gets."
+    
+    realdev_country_totals: "IP Totals"
+    realdev_country_collection: "IP Collection"
+    realdev_country_distribution: "IP Distribution"
+    realdev_country_settings: "Settings"
+    
+    realdev_country_indcap_display: "Empire IP: [This.realdev_country_industry_display]"
+    realdev_country_indcap_display_desc: "All the Industrial Production collected at the Empire level."
+    realdev_total_ind_cap_display: "Total IP: [This.realdev_industry_display]"
+    realdev_total_ind_cap_display_desc: "All the Industrial Production in use across the entire empire."
 
     realdev_target_increase: "Increase the Target by 1."
     realdev_target_decrease: "Decrease the Target by 1."
     realdev_target_display: "  [This.realdev_ip_target]"
     
-    realdev_country_tv: "Trade Value: [This.realdev_trade_value_total]"
-    realdev_country_tv_desc: "Empires produce Industrial Production from collected Trade Value, at a ratio of 1IP:20TV. \n\nIf you have the Megacorp Construction Company civic, you also get 1IP for every 40TV all your Commercial Pact partners have.\n\nIf one of your Commercial Pact partners has the Megacorp Construction Company civic, then you get 1IP for every 40TV they have."
+    realdev_industry_from_planets: "Planets: [This.realdev_industry_from_planets]"
+    realdev_industry_from_planets_desc: "Planets give IP that they don't need to the empire, based on their Target."
     
-    realdev_country_shipyard: "Shipyards: [This.realdev_shipyard_display]"
-    realdev_country_shipyard_desc: "IP sent towards shipbuilding is split between all shipyards.\n\nThere is currently no way to tell how many of these shipyards are active, so don't overbuild shipyards."
+    realdev_country_tv: "Trade: [This.realdev_trade_value_total]"
+    realdev_country_tv_desc: "Empires produce Industrial Production from collected Trade Value, at a ratio of 1IP:20TV. \n\nIf you have the Megacorp Construction Company civic, you also get 1IP for every 40TV all your Commercial Pact partners have.\n\nIf one of your Commercial Pact partners has the Megacorp Construction Company civic, then you get 1IP for every 40TV they have.\n\nThis also includes IP produced by your Branch Offices and their Buildings."
     
-    realdev_ip_distributed: "Distributed IP: [This.realdev_ip_distributed]"
-    realdev_ip_distributed_desc: "IP given to planets so they can meet their Target."
+    realdev_country_megastructures: "Megastructures: [This.realdev_upgrading_megas]  "
+    realdev_country_megastructures_desc: "IP devoted to building Megastructures is split equally between all building Megastructures, providing slower build speed the more it is spread between."
+    realdev_country_megastructure_increase_desc: "Increase IP dedicated to megastructures by 1%"
+    realdev_country_megastructure_decrease_desc: "Decrease IP dedicated to megastructures by 1%"
+    realdev_megastructure_ratio: "[This.realdev_megastructure_ratio]%"
+    
+    realdev_country_minor_colonies: "Minor Colonies: [This.exploit_minor_colonies_building]  "
+    realdev_country_minor_colonies_desc: "IP devoted to building Minor Colonies is split equally between all building Minor Colonies, providing slower build speed the more it is spread between."
+    realdev_country_minor_colonies_increase_desc: "Increase IP dedicated to minor colonies by 1%"
+    realdev_country_minor_colonies_decrease_desc: "Decrease IP dedicated to minor colonies by 1%"
+    realdev_minor_colony_ratio: "[This.realdev_minor_colony_ratio]%"
+    
+    realdev_country_shipyard: "Shipyards: [This.realdev_shipyard_display]  "
+    realdev_country_shipyard_desc: "IP sent towards shipbuilding is split between all shipyards. This is the current ship build speed, and how many shipyards are built in the empire.\n\nThere is currently no way to tell how many of these shipyards are active, so don't overbuild shipyards."
+    realdev_country_shipyard_increase_desc: "Increase IP dedicated to shipyards by 1%"
+    realdev_country_shipyard_decrease_desc: "Decrease IP dedicated to shipyards by 1%"
+    realdev_industry_shipyard_ratio: " [This.realdev_industry_shipyard_ratio]%"
+    
+    realdev_ip_distributed: "IP to Planets: [This.realdev_ip_distributed]"
+    realdev_ip_distributed_desc: "Tracks how much IP is given to planets so they can meet their Target. This is given before distribution between Empire uses."
     
     realdev_country_tooltip: "This UI shows the whole empire's current Industrial Production value, and how much Industrial Production is allocated to the empire. Ratio sliders for allocating Industrial Production between empire-level uses are present. It updates its information every 30 days."
     realdev_planet_tooltip: "This UI shows this planet's current Industrial Production value, its current Industrial Production Capacity value, and has Ratio sliders for allocating Industrial Production between the empire and planet-level uses. It updates its information every 30 days."
@@ -1316,7 +1347,7 @@
     realdev_current_indcap_display: "[This.realdev_industry_display]"
     realdev_max_ind_cap_display: "[This.realdev_industry_cap_display]"
     
-    realdev_country_stockpile_ratio_title: "Target [this.realdev_country_target_setting]"
+    realdev_country_target_display: "Target [this.realdev_country_target_setting]"
     realdev_target_manual: "Manual"
     realdev_target_auto: "Auto"
     realdev_target_country: "Country"
@@ -1342,9 +1373,6 @@
     
     realdev_country_indcap_title: "Current"
     realdev_total_ind_cap_title: "Total"
-    
-    realdev_country_indcap_display: "[this.realdev_country_indcap_spacing][This.realdev_country_industry_display]"
-    realdev_total_ind_cap_display: "[This.realdev_industry_display]"
     
     realdev_industrial_production: ""
     
@@ -1548,6 +1576,29 @@
     trinary_exodus_system_NAME: "Trinary Star Exodus"
     trinary_exodus_system_DESC: "A starting system with three stars.\n\nThese Exodus systems are currently setup with the exact same resources, with the number of stars being entirely cosmetic."
     
+   #Homeworld events
+    exodus_fleet.20.name: "From Another Galaxy"
+    exodus_fleet.20.desc: "Our trip through the void was long, but we're here, far beyond the reach of the homeworld. We can start our new life free from their interference."
+    
+    exodus_fleet.21.name: "From This Galaxy"
+    exodus_fleet.21.desc: "We have escaped the immediate reach of the homeworld. Whatever happens to them is no longer our concern, for the moment. If they survive, we may meet them later. We should be prepared for that."
+    
+    exodus_fleet.22.name: "Found The Homeworld"
+    exodus_fleet.22.desc: "We have found the homeworld, but it's abandoned and lifeless. Something happened to cause total societal collapse after we left. Disease, famine, natural disasters, we may never know. At least we can put the ruins to good use."
+    exodus_fleet.22.option: "Maybe we can find out what happened to them."
+    
+    exodus_fleet.23.name: "Found The Homeworld"
+    exodus_fleet.23.desc: "It seems that nuclear war erupted sometime after we left. Not much is left of our forefathers' civilization, and maybe that's a good thing."
+    exodus_fleet.23.option: "Seems we were right to leave."
+    
+    exodus_fleet.24.name: "Met The Homeworld"
+    exodus_fleet.24.desc: "The homeworld survived our exodus, and are just the same as ever. All the problems with how they do things are still there, and the reason we left. We will not get along."
+    exodus_fleet.24.option: "We'll have to deal with them."
+    
+    exodus_fleet.25.name: "Met The Homeworld"
+    exodus_fleet.25.desc: "The homeworld survived the exodus, but was hit by a revolution sometime after. They've changed, so maybe we'll be able to get along now."
+    exodus_fleet.25.option: "Perhaps we can be friends?"
+    
  ###General ROCI
 
   #Districts
@@ -1568,7 +1619,7 @@
     
     roci_exploit: "Space Exploitation"
     roci_exploit_desc: "The Space Exploitation module provides ['concept_minor_colony'], a mechanic you can use to build more resource production on uninhabitable planets for collection by Mining or Research stations. It has a Country level UI, accessible from an edict."
-    roci_exploit_disabled: "Space Exploitation is disabled pending a crash fix in vanilla."
+    roci_exploit_disabled: "Space Exploitation is disabled because of clashing with 3.9 Habitats."
     roci_exploit_uninhabitables_size: "Uninhabitable Sizes"
     roci_exploit_uninhabitables_size_desc: "When a planet has a valid terrform available, it shows the planet size. This setting controls terraform options for all Uninhabitable Planets, so that their size can be shown. A side effect of this is that they will always show as having a terraform option available.\n\nThis option is placed under Space Exploitation, but it can be toggled even if Space Exploitation is off."
     roci_exploit_starting_loops: "Starting Loops"

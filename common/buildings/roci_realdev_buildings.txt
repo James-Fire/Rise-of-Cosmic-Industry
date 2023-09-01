@@ -40,7 +40,7 @@ building_roci_infrastructure_construction = {
 	}
 
 	planet_modifier = {
-		district_realdev_industry_max = 20
+		realdev_ip_mod = 20
 	}
 	
 	triggered_planet_modifier = {
@@ -51,7 +51,7 @@ building_roci_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -62,7 +62,7 @@ building_roci_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -73,7 +73,7 @@ building_roci_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -84,7 +84,7 @@ building_roci_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	
@@ -171,7 +171,7 @@ building_roci_infrastructure_construction_2 = {
 	}
 
 	planet_modifier = {
-		district_realdev_industry_max = 40
+		realdev_ip_mod = 40
 	}
 	
 	triggered_planet_modifier = {
@@ -182,7 +182,7 @@ building_roci_infrastructure_construction_2 = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -193,7 +193,7 @@ building_roci_infrastructure_construction_2 = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -204,7 +204,7 @@ building_roci_infrastructure_construction_2 = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -215,7 +215,7 @@ building_roci_infrastructure_construction_2 = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	
@@ -304,7 +304,7 @@ building_roci_infrastructure_construction_3 = {
 	}
 
 	planet_modifier = {
-		district_realdev_industry_max = 60
+		realdev_ip_mod = 60
 	}
 	
 	triggered_planet_modifier = {
@@ -315,7 +315,7 @@ building_roci_infrastructure_construction_3 = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -326,7 +326,7 @@ building_roci_infrastructure_construction_3 = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -337,7 +337,7 @@ building_roci_infrastructure_construction_3 = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	triggered_planet_modifier = {
@@ -348,7 +348,7 @@ building_roci_infrastructure_construction_3 = {
 			}
 		}
 		modifier = {
-			district_realdev_industry_max = 5
+			realdev_ip_mod = 5
 		}
 	}
 	
@@ -428,7 +428,7 @@ building_corporate_construction = {
 	owner_type = corporate
 	
 	potential = {
-		always = no
+		#always = no
 		has_branch_office = yes
 		branch_office_owner = { 
 			is_criminal_syndicate = no
@@ -443,13 +443,16 @@ building_corporate_construction = {
 		produces = {
 		}
 		upkeep = {
-			alloys = 1
+			alloys = 2
 			energy = 4
 		}
 	}
+	country_modifier = {
+		realdev_ip_mod = 10
+	}
 	
 	planet_modifier = {
-		district_realdev_industry_max = 10
+		realdev_ip_mod = 10
 	}
 
 	
@@ -466,7 +469,7 @@ building_corporate_construction_criminal = {
 	owner_type = corporate
 	
 	potential = {
-		always = no
+		#always = no
 		has_branch_office = yes
 		branch_office_owner = { 
 			is_criminal_syndicate = no
@@ -482,12 +485,17 @@ building_corporate_construction_criminal = {
 		}
 		upkeep = {
 			alloys = 1
-			energy = 4
+			energy = 2
 		}
 	}
 	
+	country_modifier = {
+		realdev_ip_mod = 15
+	}
+	
 	planet_modifier = {
-		district_realdev_industry_max = 10
+		planet_crime_add = 10
+		realdev_ip_mod = 10
 	}
 
 	

@@ -1,28 +1,22 @@
-*Added the Exodus Fleet origin.
+Disabled the Space Exploitation Module. It may be removed from the mod entirely, or reworked to not clash so much with the new Habitats.
 
-*Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.
+Added the Exodus Fleet origin.
 
 *Hyper Relays now decrease shipping cost.
 
 *Added some techs to decrease shipping cost. Or overwrite relevant vanilla ones
 
-*Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp. And a variant for Criminal Corps.
+Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp.
 
-*Realdev now calculates the current stuff for 3 calcs out, instead of next calc.
-
-*Realdev now shows you the next 3 calcs, in addition to current numbers
+Added a Branch Office Building that gives Industrial Production variant for Criminal Corps, that gives crime, and more IP for the megacorp, but has lower upkeep.
 
 Added a notification to Realdev that triggers if your IP lowers by too much in 1 calc.
 
-*Equipment Factory no longer provides Foreman jobs.
-
-*Added a "Construction Office" building that provides Foreman jobs.
-
-*Moved Equipment Factory upgrades to their own techs.
-
-*Construction Office upgrades are on the same techs as Equipment Factory.
-
 Fixed Orbital Shipyards not giving ship IP.
+
+Orbital Shipyard now has modifiers saying what it does.
+
+*Orbital Defense Platform now has modifiers saying what it does.
 
 Added scripted effects to allow easier usage of realdev debug commands.
 
@@ -32,15 +26,35 @@ Added a value for how much IP is collected from Trade Value to the Realdev Empir
 
 Added a value for how many Shipyards you have to the Realdev Empire UI.
 
-*Added a value for how many building Minor Colonies are currently building to the Realdev Empire UI.
+Added a value for how many building Minor Colonies are currently building to the Realdev Empire UI.
 
-*Added a value for how many building Megastructures are currently building to the Realdev Empire UI.
+Added a value for how many building Megastructures are currently building to the Realdev Empire UI.
 
 Added a value for how much IP is distributed to planets to meet their Target to the Realdev Empire UI.
 
-*Moved the triggers for Astro Mining Bay to Allow, so you can always see the district, and see the fail conditions if you can't build it.
+Moved the triggers for Astro Mining Bay to Allow, so you can always see the district, and see the fail conditions if you can't build it.
+
+Switch realdev fake modifiers to scripted modifiers.
+
+Cleaned up the gfx file entries, unifying the various modules better
 
 
+
+
+
+*Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.
+
+*Realdev now calculates the current stuff for 3 calcs out, instead of next calc.
+
+*Realdev now shows you the next 3 calcs, in addition to current numbers
+
+*Equipment Factory no longer provides Foreman jobs.
+
+*Added a "Construction Office" building that provides Foreman jobs.
+
+*Moved Equipment Factory upgrades to their own techs.
+
+*Construction Office upgrades are on the same techs as Equipment Factory.
 
 *Realdev Production Boost now has a cap based on how many Equipment Factories are on the planet, being 25 per.
 This cap applies during splitting, so Planet Build Speed will get any IP over this cap first, then it will follow normal inheritance rules.
@@ -68,10 +82,6 @@ Fixed Exploit starting Minor Colonies sometimes having incompatible loops on the
 Fixed the Orbital Infrastructure modifier sometimes reporting the clearly wrong value.*
 
 Added explicit build time info to Exploit UI tooltips.*
-
-Orbital Shipyard now has modifiers saying what it does.*
-
-Orbital Defense Platform now has modifiers saying what it does.*
 
 Fixed "Uses Orbital Slot" modifier showing up wherever the fuck it wants to.*
 

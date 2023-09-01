@@ -471,6 +471,44 @@ orbital_spaceport_crystals_mult = {
 
 ###Realdev
 
+#Country Scope
+realdev_distribution_total = {
+	base = 0
+	add = realdev_industry_shipyard_ratio
+	add = realdev_megastructure_ratio
+	add = realdev_minor_colony_ratio
+}
+
+#Country Scope
+realdev_ship_build_speed = {
+	base = 0
+	add = realdev_country_industry
+	multiply = realdev_industry_shipyard_ratio
+	divide = 100
+	modifier = {
+ 		country_has_megastructures_building = no
+		add = value:realdev_megastructure_build_speed
+	}
+	modifier = {
+ 		country_has_minor_colonies_building = no
+		add = value:realdev_minor_colonies_build_speed
+	}
+}
+#Country Scope
+realdev_megastructure_build_speed = {
+	base = 0
+	add = realdev_country_industry
+	multiply = realdev_megastructure_ratio
+	divide = 100
+}
+#Country Scope
+realdev_minor_colonies_build_speed = {
+	base = 0
+	add = realdev_country_industry
+	multiply = realdev_minor_colony_ratio
+	divide = 100
+}
+
 #Planet/Country Scope
 realdev_ip_target = {
 	base = 200

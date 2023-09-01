@@ -228,7 +228,7 @@ planet_event = {
 			set_realdev_planet_variables = yes
 		}	
 		#Include Building Production, Branch Offices too
-		export_modifier_to_variable = { modifier = district_realdev_industry_max variable = realdev_building }
+		export_modifier_to_variable = { modifier = realdev_ip_mod variable = realdev_building }
 		
 		set_variable = { which = realdev_building_cap value = 0 }
 		
@@ -346,17 +346,6 @@ planet_event = {
 				has_autofab = yes
 			}
 			change_variable = { which = realdev_industry value = value:realdev_autofab_modules }
-		}
-
-		#Export number of branch office equipment buildings, if any exist. ###Not implemented yet, might never be, because of issues
-		if = {
-			limit = {
-				always = no
-				has_branch_office = yes
-			}
-			set_variable = { which = realdev_megacorp_factories value = 0 }
-			#export_trigger_value_to_variable = { trigger = num_buildings parameters = { type = building_corporate_construction } variable = realdev_megacorp_factories }
-			multiply_variable = { which = realdev_megacorp_factories value = 10 }
 		}
 	}
 }
@@ -590,34 +579,12 @@ country_event = {
 			limit = {
 				is_occupied_flag = no
 				has_orbital_bombardment = no
-				OR = {
-					check_variable = { which = realdev_country_industry value > 0 }
-					check_variable = { which = orbitalinfra_shipyard value > 0 }
-				}
+				check_variable = { which = realdev_country_industry value > 0 }
 			}
 			set_variable = { which = realdev_country_industry_display value = realdev_country_industry }
-			if = {
-				limit = {
-					check_variable = { which = orbitalinfra_shipyard value > 0 }
-				}
-				if = {
-					limit = {
-						has_global_flag = realdev_logging
-					}
-					log = "Realdev Orbital Shipyard count for [This.GetName]: [this.orbitalinfra_shipyard]"
-				}
-				PREV = { change_variable = { which = orbitalinfra_shipyard value = prev.orbitalinfra_shipyard } }
-			}
-			PREV = {
-				change_variable = { which = realdev_country_industry value = prev.realdev_country_industry }
-			}
+			export_modifier_to_variable = { modifier = realdev_ship_build_ip variable = realdev_ship_build_ip }
 		}
-		if = {
-			limit = {
-				has_global_flag = realdev_logging
-			}
-			log = "Realdev Orbital Shipyard count for [This.GetName]: [this.orbitalinfra_shipyard]"
-		}
+		set_variable = { which = realdev_industry_from_planets value = realdev_country_industry }
 		#Count Shipyards - Can't do this yet. Need exporting modifier in starbase scope.
 		#every_owned_ship = {
 		#	limit = {
@@ -710,6 +677,11 @@ country_event = {
 		change_variable = { which = realdev_country_industry value = realdev_trade_value }
 		change_variable = { which = realdev_country_industry value = realdev_trade_value_shared }
 		
+		#Branch Office Buildings
+		export_modifier_to_variable = { modifier = realdev_ip_mod variable = realdev_building }
+		change_variable = { which = realdev_trade_value_total value = realdev_building }
+		change_variable = { which = realdev_country_industry value = realdev_building }
+		
 		#Count shipyard modules, and Orbital Infrastructure Shipyards
 		every_owned_starbase = {
 			limit = {
@@ -756,67 +728,22 @@ country_event = {
 			planet_event = { id = realdev.11 days = 2 random = 2 }
 		}	
 		
-		#Split country build speed between shipyards and space construction
-		set_variable = { which = realdev_ship_build_speed value = realdev_country_industry }
-		multiply_variable = { which = realdev_ship_build_speed value = realdev_industry_shipyard_ratio }
-		
-		set_variable = { which = realdev_industry_space_construction_ratio value = 1 }
-		subtract_variable = { which = realdev_industry_space_construction_ratio value = realdev_industry_shipyard_ratio }
-		
-		set_variable = { which = realdev_space_build_speed value = realdev_country_industry }
-		multiply_variable = { which = realdev_space_build_speed value = realdev_industry_space_construction_ratio }
-		
-		
-		#Split space construction build speed between Minor Colonies and Megastructures, if exploit is active, and if there are actually Minor Colonies building
+		#Distribute Country IP
+		set_variable = { which = realdev_ship_build_speed value = value:realdev_ship_build_speed }
 		if = {
 			limit = {
-				NOT = { has_global_flag = realdev_megastructure_build_ignore }
-				check_variable = { which = realdev_building_megas value > 0 }
+				country_has_megastructures_building = yes
 			}
-			if = {
-				limit = {
-					check_variable = { which = exploit_minor_colonies_building value > 0 }
-					NOT = { has_global_flag = no_exploit }
-				}
-			
-				set_variable = { which = realdev_minor_colony_speed value = realdev_space_build_speed }
-				multiply_variable = { which = realdev_minor_colony_speed value = realdev_industry_space_ratio }
-				divide_variable = { which = realdev_minor_colony_speed value = exploit_minor_colonies_building }
-				
-				set_variable = { which = realdev_industry_megastructure_ratio value = 1 }
-				subtract_variable = { which = realdev_industry_megastructure_ratio value = realdev_industry_space_ratio }
-				
-				set_variable = { which = realdev_mega_build_speed value = realdev_space_build_speed }
-				multiply_variable = { which = realdev_mega_build_speed value = realdev_industry_megastructure_ratio }
-				divide_variable = { which = realdev_mega_build_speed value = realdev_building_megas }
-			}
-			else = {
-				set_variable = { which = realdev_mega_build_speed value = realdev_space_build_speed }
-				divide_variable = { which = realdev_mega_build_speed value = realdev_building_megas }
-			}
+			set_variable = { which = realdev_mega_build_speed value = value:realdev_megastructure_build_speed }
 		}
-		else = {
-			if = {
-				limit = {
-					check_variable = { which = exploit_minor_colonies_building value > 0 }
-				}
-			
-				set_variable = { which = realdev_minor_colony_speed value = realdev_space_build_speed }
-				multiply_variable = { which = realdev_minor_colony_speed value = realdev_industry_space_ratio }
-				divide_variable = { which = realdev_minor_colony_speed value = exploit_minor_colonies_building }
-				
-				set_variable = { which = realdev_industry_megastructure_ratio value = 1 }
-				subtract_variable = { which = realdev_industry_megastructure_ratio value = realdev_industry_space_ratio }
-				
-				set_variable = { which = realdev_mega_build_speed value = realdev_space_build_speed }
-				multiply_variable = { which = realdev_mega_build_speed value = realdev_industry_megastructure_ratio }
-				change_variable = { which = realdev_ship_build_speed value = realdev_mega_build_speed }
-				set_variable = { which = realdev_mega_build_speed value = 0 }
+		if = {
+			limit = {
+				country_has_minor_colonies_building = yes
 			}
-			else = {
-				change_variable = { which = realdev_ship_build_speed value = realdev_space_build_speed }
-			}
+			set_variable = { which = realdev_minor_colony_speed_display value = value:realdev_minor_colonies_build_speed }
 		}
+		
+		
 		
 		#Cap Megastructure build speed to 900
 		if = {
@@ -843,8 +770,7 @@ country_event = {
 		}
 		
 		#Pull Bonuses for Orbital Shipyards
-		multiply_variable = { which = orbitalinfra_shipyard value = 10 }
-		change_variable = { which = realdev_ship_build_speed value = orbitalinfra_shipyard }
+		change_variable = { which = realdev_ship_build_speed value = realdev_ship_build_ip }
 		
 		
 		#Include Ship speed bonuses based on techs
@@ -865,6 +791,7 @@ country_event = {
 		#If megastructure build speed is 0, set it to 1 so it doesn't break stuff
 		if = {
 			limit = {
+				country_has_megastructures_building = yes
 				check_variable = { which = realdev_mega_build_speed value < 1 }
 			}
 			set_variable = { which = realdev_mega_build_speed value = 1 }

@@ -53,3 +53,12 @@ planet_uses_target_manual = {
 		}
 	}
 }
+
+country_has_megastructures_building = {
+	NOT = { has_global_flag = realdev_megastructure_build_ignore }
+	check_variable = { which = realdev_building_megas value > 0 }
+}
+country_has_minor_colonies_building = {
+	check_variable = { which = exploit_minor_colonies_building value > 0 }
+	roci_exploit_module_active = yes
+}

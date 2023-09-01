@@ -1,13 +1,15 @@
 roci_origin_exodus_fleet = {
 	description = "roci_origin_exodus_fleet_effects"
-	#initializers = { exodus_system binary_exodus_system trinary_exodus_system }
+	icon = "gfx/interface/icons/origins/origin_exodus_fleet.dds"
+	picture = GFX_origin_exodus_fleet
+	initializers = { exodus_system binary_exodus_system trinary_exodus_system }
 	is_origin = yes
 	
 	playable = {
-		always = no
+		#always = no
 	}
 	potential = {
-		always = no
+		#always = no
 	}
 	possible = {
 		civics = {
