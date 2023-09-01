@@ -39,18 +39,11 @@ spriteTypes = {
 		name = "GFX_realdev_upkeep_ai_bar_chunk"
 		texturefile = "gfx/interface/menu_ui/mega_configuration/giga_menu_upkeep_ai_bar_chunk.dds" 
 	}
-
+	spriteType = { name = "GFX_realdev_squirrel"				texturefile = "gfx/interface/menu_ui/squirrel.dds" }
 
 	spriteType = { name = "GFX_roci_5_right"					texturefile = "gfx/interface/menu_ui/roci_5_right.dds" }
 	spriteType = { name = "GFX_roci_5_left"						texturefile = "gfx/interface/menu_ui/roci_5_left.dds" }
 
-	spriteType = { name = "GFX_realdev_squirrel"				texturefile = "gfx/interface/menu_ui/squirrel.dds" }
-	spriteType = { name = "GFX_autofab_1"						texturefile = "gfx/interface/menu_ui/1.dds" }
-	spriteType = { name = "GFX_autofab_1_neg"					texturefile = "gfx/interface/menu_ui/-1.dds" }
-	spriteType = { name = "GFX_autofab_10"						texturefile = "gfx/interface/menu_ui/10.dds" }
-	spriteType = { name = "GFX_autofab_10_neg"					texturefile = "gfx/interface/menu_ui/-10.dds" }
-	spriteType = { name = "GFX_autofab_100"						texturefile = "gfx/interface/menu_ui/100.dds" }
-	spriteType = { name = "GFX_autofab_100_neg"					texturefile = "gfx/interface/menu_ui/-100.dds" }
 	
 	spriteType = { name = "GFX_advisor_autofab"						texturefile = "gfx/event_pictures/custom_uis/Advisor-Room.dds" }
 	spriteType = { name = "GFX_easter_egg_autofab"					texturefile = "gfx/event_pictures/custom_uis/easter_egg.dds" }
@@ -65,89 +58,9 @@ spriteTypes = {
 	spriteType = { name = "GFX_advisor_lower_dongs"					texturefile = "gfx/event_pictures/custom_uis/advisor_lower_dongs.dds" }
 	spriteType = { name = "GFX_autofab_side_button"					texturefile = "gfx/event_pictures/custom_uis/side_button_1.dds" }
 	spriteType = { name = "GFX_autofab_planet_dongs"				texturefile = "gfx/event_pictures/custom_uis/planet_button.dds" }
-	
-	spriteType = { name = "GFX_text_menu_1"							texturefile = "gfx/interface/icons/text_icons/text_icon_menu_1.dds" }
-	spriteType = { name = "GFX_text_menu_2"							texturefile = "gfx/interface/icons/text_icons/text_icon_menu_2.dds" }
-	spriteType = { name = "GFX_text_menu_3"							texturefile = "gfx/interface/icons/text_icons/text_icon_menu_3.dds" }
-	spriteType = { name = "GFX_giga_menu_bg"						texturefile = "gfx/interface/menu_ui/background.dds" }
-	spriteType = { name = "GFX_menu_button_bg"						texturefile = "gfx/interface/menu_ui/button_background.dds" }
-	spriteType = { name = "GFX_extend_menu_button"					texturefile = "gfx/interface/menu_ui/extend_button_background.dds" }
-	spriteType = { name = "GFX_long_menu_button"					texturefile = "gfx/interface/menu_ui/long_button_background.dds" }
-	spriteType = { name = "GFX_long_menu_button_skinny"				texturefile = "gfx/interface/menu_ui/skinny_long_button_background.dds" }
-	spriteType = { name = "GFX_medium_menu_button_skinny"				texturefile = "gfx/interface/menu_ui/skinny_medium_button_background.dds" }
-	spriteType = { name = "GFX_half_menu_button_bg"					texturefile = "gfx/interface/menu_ui/half_button_background.dds" }
-	spriteType = { name = "GFX_small_half_menu_button_bg"					texturefile = "gfx/interface/menu_ui/small_half_button_background.dds" }
-	spriteType = { name = "GFX_blank_small_half_menu_button_bg"					texturefile = "gfx/interface/menu_ui/blank_small_half_button_background.dds" }
-	spriteType = { name = "GFX_blank_menu_button_bg"				texturefile = "gfx/interface/menu_ui/blank_button_background.dds" }
-	spriteType = { name = "GFX_blank_half_menu_button_bg"			texturefile = "gfx/interface/menu_ui/blank_half_button_background.dds" }
-	spriteType = { name = "GFX_blank_tiny_menu_button_bg"			texturefile = "gfx/interface/menu_ui/blank_tiny_button_background.dds" }
-	spriteType = { name = "GFX_menu_button_skinny"					texturefile = "gfx/interface/menu_ui/skinny_button_background.dds" }
-	spriteType = { name = "GFX_half_menu_button_skinny"				texturefile = "gfx/interface/menu_ui/skinny_half_button_background.dds" }
-	spriteType = { name = "GFX_blank_menu_button_skinny"			texturefile = "gfx/interface/menu_ui/blank_skinny_button_background.dds" }
-	spriteType = { name = "GFX_blank_half_menu_button_skinny"		texturefile = "gfx/interface/menu_ui/blank_skinny_half_button_background.dds" }
+
 	spriteType = { name = "GFX_realdev_dual_block"			texturefile = "gfx/interface/menu_ui/realdev_dual_block.dds" }
 	spriteType = { name = "GFX_realdev_large_block"		texturefile = "gfx/interface/menu_ui/realdev_large_block.dds" }
-	
-	spriteType = {
-		name = "GFX_autofab_portrait_bg"
-		texturefile = "gfx/event_pictures/custom_uis/portrait_bg.dds" #The base image. Defines the size of the sprite.
-		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
-		noOfFrames = 1
-		animation = {
-			animationmaskfile = "gfx/event_pictures/custom_uis/portrait_bg.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
-			animationtexturefile = "gfx/event_pictures/custom_uis/portrait_bg.dds" #The image to animate.
-			animationrotation = 0.0
-			animationlooping = yes
-			animationtime = 5.0
-			animationdelay = 0
-			animationblendmode = "add"
-			animationtype = "pulsing"  #scrolling, rotating, pulsing
-			animationrotationoffset = { x = 0.0 y = 0.0 }
-			animationtexturescale = { x = 1.0 y = 1.0 }
-			animationframes = { 1 }
-		}
-		legacy_lazy_load = no
-	}
-	spriteType = {
-		name = "GFX_terminal_autofab"
-		texturefile = "gfx/event_pictures/custom_uis/Terminal-Image.dds" #The base image. Defines the size of the sprite.
-		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
-		noOfFrames = 1
-		animation = {
-			animationmaskfile = "gfx/event_pictures/custom_uis/image_border.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
-			animationtexturefile = "gfx/event_pictures/custom_uis/image_border.dds" #The image to animate.
-			animationrotation = 0.0
-			animationlooping = yes
-			animationtime = 5.0
-			animationdelay = 0
-			animationblendmode = "add"
-			animationtype = "pulsing"  #scrolling, rotating, pulsing
-			animationrotationoffset = { x = 0.0 y = 0.0 }
-			animationtexturescale = { x = 1.0 y = 1.0 }
-			animationframes = { 1 }
-		}
-		legacy_lazy_load = no
-	}
-	spriteType = {
-		name = "GFX_planet_terminal_autofab"
-		texturefile = "gfx/event_pictures/custom_uis/Planet Terminal.dds" #The base image. Defines the size of the sprite.
-		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
-		noOfFrames = 1
-		animation = {
-			animationmaskfile = "gfx/event_pictures/custom_uis/image_border.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
-			animationtexturefile = "gfx/event_pictures/custom_uis/image_border.dds" #The image to animate.
-			animationrotation = 0.0
-			animationlooping = yes
-			animationtime = 5.0
-			animationdelay = 0
-			animationblendmode = "add"
-			animationtype = "pulsing"  #scrolling, rotating, pulsing
-			animationrotationoffset = { x = 0.0 y = 0.0 }
-			animationtexturescale = { x = 1.0 y = 1.0 }
-			animationframes = { 1 }
-		}
-		legacy_lazy_load = no
-	}
 	spriteType = {
 		name = "GFX_empty_dongs_anim"
 		texturefile = "gfx/event_pictures/custom_uis/empty_dongs.dds" #The base image. Defines the size of the sprite.

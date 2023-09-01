@@ -21,11 +21,10 @@ spriteTypes = {
 		name = "GFX_text_autofab_planet"
 		textureFile = "gfx/interface/icons/text_icons/autofab_planet.dds"
 	}
-	
-	
+
+	#Tradition Stuff
 	spriteType = { name = "GFX_tradition_hex_bg_tradition_autofab"				textureFile = "gfx/interface/traditions/tradition_hex_bg_autofab.dds" }
 	spriteType = { name = "GFX_tradition_category_icon_tradition_autofab"		textureFile = "gfx/interface/icons/traditions/tradition_icon_autofab.dds" }
-	
 	corneredTileSpriteType = {
 		name = "GFX_tradition_category_tile_tradition_autofab"
 		textureFile = "gfx/interface/tiles/tradition_category_tile_autofab.dds"
@@ -33,7 +32,6 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
 	}
 	spriteType = { name = "GFX_tradition_category_bg_tradition_autofab"		textureFile = "gfx/interface/tiles/tradition_category_tile_autofab.dds" }
-	
 	spriteType = { name = "GFX_tr_autofab_infrastructure_support"		textureFile = "gfx/interface/icons/traditions/tradition_autofab_infrastructure_support.dds" }
 	spriteType = { name = "GFX_tr_autofab_environmental_studies"		textureFile = "gfx/interface/icons/traditions/tradition_autofab_environmental_studies.dds" }
 	spriteType = { name = "GFX_tr_autofab_commercial_connections"		textureFile = "gfx/interface/icons/traditions/tradition_autofab_commerce_connections.dds" }
@@ -43,14 +41,7 @@ spriteTypes = {
 	spriteType = { name = "GFX_tr_autofab_services"						textureFile = "gfx/interface/icons/traditions/tradition_autofab_services.dds" }
 	spriteType = { name = "GFX_tr_autofab_optimization"					textureFile = "gfx/interface/icons/traditions/tradition_autofab_optimization.dds" }
 
-
-	spriteType = { name = "GFX_autofab_1"						texturefile = "gfx/interface/menu_ui/1.dds" }
-	spriteType = { name = "GFX_autofab_1_neg"					texturefile = "gfx/interface/menu_ui/-1.dds" }
-	spriteType = { name = "GFX_autofab_10"						texturefile = "gfx/interface/menu_ui/10.dds" }
-	spriteType = { name = "GFX_autofab_10_neg"					texturefile = "gfx/interface/menu_ui/-10.dds" }
-	spriteType = { name = "GFX_autofab_100"						texturefile = "gfx/interface/menu_ui/100.dds" }
-	spriteType = { name = "GFX_autofab_100_neg"					texturefile = "gfx/interface/menu_ui/-100.dds" }
-	
+	#Other stuff, I guess
 	spriteType = { name = "GFX_advisor_autofab"						texturefile = "gfx/event_pictures/custom_uis/Advisor-Room.dds" }
 	spriteType = { name = "GFX_easter_egg_autofab"					texturefile = "gfx/event_pictures/custom_uis/easter_egg.dds" }
 	spriteType = { name = "GFX_gear_menu"							texturefile = "gfx/interface/menu_ui/3-2-Gear.dds" }
@@ -65,22 +56,6 @@ spriteTypes = {
 	spriteType = { name = "GFX_autofab_side_button"					texturefile = "gfx/event_pictures/custom_uis/side_button_1.dds" }
 	spriteType = { name = "GFX_autofab_planet_dongs"				texturefile = "gfx/event_pictures/custom_uis/planet_button.dds" }
 	
-	spriteType = { name = "GFX_text_menu_1"							texturefile = "gfx/interface/icons/text_icons/text_icon_menu_1.dds" }
-	spriteType = { name = "GFX_text_menu_2"							texturefile = "gfx/interface/icons/text_icons/text_icon_menu_2.dds" }
-	spriteType = { name = "GFX_text_menu_3"							texturefile = "gfx/interface/icons/text_icons/text_icon_menu_3.dds" }
-	spriteType = { name = "GFX_giga_menu_bg"						texturefile = "gfx/interface/menu_ui/background.dds" }
-	spriteType = { name = "GFX_menu_button_bg"						texturefile = "gfx/interface/menu_ui/button_background.dds" }
-	spriteType = { name = "GFX_extend_menu_button"					texturefile = "gfx/interface/menu_ui/extend_button_background.dds" }
-	spriteType = { name = "GFX_long_menu_button"					texturefile = "gfx/interface/menu_ui/long_button_background.dds" }
-	spriteType = { name = "GFX_long_menu_button_skinny"				texturefile = "gfx/interface/menu_ui/skinny_long_button_background.dds" }
-	spriteType = { name = "GFX_half_menu_button_bg"					texturefile = "gfx/interface/menu_ui/half_button_background.dds" }
-	spriteType = { name = "GFX_blank_menu_button_bg"				texturefile = "gfx/interface/menu_ui/blank_button_background.dds" }
-	spriteType = { name = "GFX_blank_half_menu_button_bg"			texturefile = "gfx/interface/menu_ui/blank_half_button_background.dds" }
-	spriteType = { name = "GFX_blank_tiny_menu_button_bg"			texturefile = "gfx/interface/menu_ui/blank_tiny_button_background.dds" }
-	spriteType = { name = "GFX_menu_button_skinny"					texturefile = "gfx/interface/menu_ui/skinny_button_background.dds" }
-	spriteType = { name = "GFX_half_menu_button_skinny"				texturefile = "gfx/interface/menu_ui/skinny_half_button_background.dds" }
-	spriteType = { name = "GFX_blank_menu_button_skinny"			texturefile = "gfx/interface/menu_ui/blank_skinny_button_background.dds" }
-	spriteType = { name = "GFX_blank_half_menu_button_skinny"		texturefile = "gfx/interface/menu_ui/blank_skinny_half_button_background.dds" }
 	
 	spriteType = {
 		name = "GFX_autofab_portrait_bg"
