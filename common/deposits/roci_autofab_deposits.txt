@@ -90,7 +90,7 @@ autofab = {
 			planet_autofab_generator_produces_mult = 0.4
 			planet_autofab_farm_produces_mult = 0.4
 			planet_autofab_mine_produces_mult = 0.4
-			planet_autofab_foundry_produces_mult = 0.4
+			planet_autofab_metallurgists_produces_mult = 0.4
 			planet_autofab_factory_produces_mult = 0.4
 			planet_autofab_motes_produces_mult = 0.4
 			planet_autofab_gases_produces_mult = 0.4
@@ -111,7 +111,7 @@ autofab = {
 			planet_autofab_generator_upkeep_mult = -0.1
 			planet_autofab_farm_upkeep_mult = -0.1
 			planet_autofab_mine_upkeep_mult = -0.1
-			planet_autofab_foundry_upkeep_mult = -0.1
+			planet_autofab_metallurgists_upkeep_mult = -0.1
 			planet_autofab_factory_upkeep_mult = -0.1
 			planet_autofab_motes_upkeep_mult = -0.1
 			planet_autofab_gases_upkeep_mult = -0.1
@@ -136,7 +136,7 @@ autofab = {
 			planet_autofab_generator_upkeep_mult = -0.1
 			planet_autofab_farm_upkeep_mult = -0.1
 			planet_autofab_mine_upkeep_mult = -0.1
-			planet_autofab_foundry_upkeep_mult = -0.1
+			planet_autofab_metallurgists_upkeep_mult = -0.1
 			planet_autofab_factory_upkeep_mult = -0.1
 			planet_autofab_motes_upkeep_mult = -0.1
 			planet_autofab_gases_upkeep_mult = -0.1
@@ -159,7 +159,7 @@ autofab = {
 			planet_autofab_generator_upkeep_mult = -0.1
 			planet_autofab_farm_upkeep_mult = -0.1
 			planet_autofab_mine_upkeep_mult = -0.1
-			planet_autofab_foundry_upkeep_mult = -0.1
+			planet_autofab_metallurgists_upkeep_mult = -0.1
 			planet_autofab_factory_upkeep_mult = -0.1
 			planet_autofab_motes_upkeep_mult = -0.1
 			planet_autofab_gases_upkeep_mult = -0.1
@@ -481,14 +481,14 @@ autofab_foundry = {
 		category = planet_autofab_foundry
 		produces = {
 			alloys = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|foundry|resource|alloys|
+			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|alloys|
 		}
 		upkeep = {
 			energy = 4
 		}
 		upkeep = {
 			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|foundry|resource|energy|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|energy|
 		}
 		upkeep = {
 			energy = 2
@@ -501,7 +501,7 @@ autofab_foundry = {
 				owner = { is_catalytic_empire = no }
 			}
 			minerals = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|foundry|resource|minerals|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|minerals|
 		}
 		upkeep = {
 			trigger = {
@@ -509,7 +509,7 @@ autofab_foundry = {
 				owner = { is_catalytic_empire = yes }
 			}
 			food = 1.5
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|foundry|resource|food|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|food|
 		}
 		
 		#Different Planet Types
@@ -568,18 +568,18 @@ autofab_factory = {
 		category = planet_autofab_factory
 		produces = {
 			consumer_goods = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisan|resource|consumer_goods|
+			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisans|resource|consumer_goods|
 		}
 		upkeep = {
 			minerals = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisan|resource|minerals|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisans|resource|minerals|
 		}
 		upkeep = {
 			energy = 4
 		}
 		upkeep = {
 			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisan|resource|energy|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisans|resource|energy|
 		}
 		upkeep = {
 			energy = 2

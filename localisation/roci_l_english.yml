@@ -1247,7 +1247,12 @@
     realdev_country_indcap_display_desc: "All the Industrial Production collected at the Empire level."
     realdev_total_ind_cap_display: "Total IP: [This.realdev_industry_display]"
     realdev_total_ind_cap_display_desc: "All the Industrial Production in use across the entire empire."
-
+    
+    realdev_country_split_1_display_desc: "Empire IP is first given to planets that request it based on their Target."
+    realdev_country_split_1_display: "[This.realdev_country_industry_display]"
+    realdev_country_split_2_display_desc: "After planet Targets are filled, Empire IP is split between empire uses based on their set %."
+    realdev_country_split_2_display: "[This.realdev_country_industry_pre_split]"
+    
     realdev_target_increase: "Increase the Target by 1."
     realdev_target_decrease: "Decrease the Target by 1."
     realdev_target_display: "  [This.realdev_ip_target]"
@@ -1258,30 +1263,30 @@
     realdev_country_tv: "Trade: [This.realdev_trade_value_total]"
     realdev_country_tv_desc: "Empires produce Industrial Production from collected Trade Value, at a ratio of 1IP:20TV. \n\nIf you have the Megacorp Construction Company civic, you also get 1IP for every 40TV all your Commercial Pact partners have.\n\nIf one of your Commercial Pact partners has the Megacorp Construction Company civic, then you get 1IP for every 40TV they have.\n\nThis also includes IP produced by your Branch Offices and their Buildings."
     
-    realdev_country_megastructures: "Megastructures: [This.realdev_upgrading_megas]  "
+    realdev_country_megastructures: "Megas: [This.realdev_upgrading_megas]"
     realdev_country_megastructures_desc: "IP devoted to building Megastructures is split equally between all building Megastructures, providing slower build speed the more it is spread between."
     realdev_country_megastructure_increase_desc: "Increase IP dedicated to megastructures by 1%"
     realdev_country_megastructure_decrease_desc: "Decrease IP dedicated to megastructures by 1%"
-    realdev_megastructure_ratio: "[This.realdev_megastructure_ratio]%"
+    realdev_megastructure_ratio: "  [This.realdev_megastructure_ratio]%"
     
-    realdev_country_minor_colonies: "Minor Colonies: [This.exploit_minor_colonies_building]  "
+    realdev_country_minor_colonies: "Minor Colonies: [This.exploit_minor_colonies_building]"
     realdev_country_minor_colonies_desc: "IP devoted to building Minor Colonies is split equally between all building Minor Colonies, providing slower build speed the more it is spread between."
     realdev_country_minor_colonies_increase_desc: "Increase IP dedicated to minor colonies by 1%"
     realdev_country_minor_colonies_decrease_desc: "Decrease IP dedicated to minor colonies by 1%"
-    realdev_minor_colony_ratio: "[This.realdev_minor_colony_ratio]%"
+    realdev_minor_colony_ratio: "  [This.realdev_minor_colony_ratio]%"
     
-    realdev_country_shipyard: "Shipyards: [This.realdev_shipyard_display]  "
+    realdev_country_shipyard: "Shipyards: [This.realdev_shipyard_display]"
     realdev_country_shipyard_desc: "IP sent towards shipbuilding is split between all shipyards. This is the current ship build speed, and how many shipyards are built in the empire.\n\nThere is currently no way to tell how many of these shipyards are active, so don't overbuild shipyards."
     realdev_country_shipyard_increase_desc: "Increase IP dedicated to shipyards by 1%"
     realdev_country_shipyard_decrease_desc: "Decrease IP dedicated to shipyards by 1%"
-    realdev_industry_shipyard_ratio: " [This.realdev_industry_shipyard_ratio]%"
+    realdev_industry_shipyard_ratio: "  [This.realdev_industry_shipyard_ratio]%"
     
     realdev_ip_distributed: "IP to Planets: [This.realdev_ip_distributed]"
     realdev_ip_distributed_desc: "Tracks how much IP is given to planets so they can meet their Target. This is given before distribution between Empire uses."
     
     realdev_country_tooltip: "This UI shows the whole empire's current Industrial Production value, and how much Industrial Production is allocated to the empire. Ratio sliders for allocating Industrial Production between empire-level uses are present. It updates its information every 30 days."
     realdev_planet_tooltip: "This UI shows this planet's current Industrial Production value, its current Industrial Production Capacity value, and has Ratio sliders for allocating Industrial Production between the empire and planet-level uses. It updates its information every 30 days."
-    realdev_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the country level, there is 2 options: Manual and Auto.\n\nManual has you enter a number, and that is the explicit value all planets that follow the country-level settings will try to get.\n\nAuto includes some automatic adjustments based on what the planet needs."
+    realdev_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the country level, there is 2 options: Manual and Auto.\n\nManual has you enter a number, and that is the explicit value all planets that follow the country-level settings will try to get.\n\nAuto tries to get 100 each for Building and Assembly/Production Boost."
     realdev_planet_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the planet level, there are 3 options: Manual, Auto, and Country.\n\nManual has you enter a number, and that is the explicit value the planet will try to get.\n\nAuto includes some automatic adjustments based on what the planet needs.\n\nCountry has it follow the country setting."
     realdev_country_target: "  [This.realdev_ip_target]"
     
@@ -1347,7 +1352,7 @@
     realdev_current_indcap_display: "[This.realdev_industry_display]"
     realdev_max_ind_cap_display: "[This.realdev_industry_cap_display]"
     
-    realdev_country_target_display: "Target [this.realdev_country_target_setting]"
+    realdev_country_target_display: "[this.realdev_country_target_setting]"
     realdev_target_manual: "Manual"
     realdev_target_auto: "Auto"
     realdev_target_country: "Country"

@@ -177,7 +177,7 @@ roci_autofab_job_multiplier = {
 	complex_trigger_modifier = {
 		trigger = check_modifier_value
 		parameters = {
-			modifier = job_$job$_produces_$resource$_add
+			modifier = job_$job$_$resource$_produces_add
 		}
 		mode = add
 	}
@@ -207,7 +207,7 @@ roci_autofab_job_upkeep_multiplier = {
 	complex_trigger_modifier = {
 		trigger = check_modifier_value
 		parameters = {
-			modifier = job_$job$_upkeep_$resource$_add
+			modifier = job_$job$_$resource$_upkeep_add
 		}
 		mode = add
 	}

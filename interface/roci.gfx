@@ -117,7 +117,27 @@ spriteTypes = {
 	spriteType = { name = "GFX_realdev_slider_space"							texturefile = "gfx/interface/menu_ui/realdev_slider_space.dds" }
 	
 	
-	
+	#Documented
+	spriteType = {
+		name = "GFX_realdev_small_gear_anim"
+		texturefile = "gfx/interface/menu_ui/realdev_cog_small_blank.dds" #The base image. Defines the size of the sprite.
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_cog_small_mask.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/interface/menu_ui/realdev_cog_small.dds" #The image to animate.
+			animationrotation = 0 #0 is bottom
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "rotating_ccw"  #scrolling, rotating, pulsing, rotating_ccw, rotating_cw
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
 	spriteType = {
 		name = "GFX_roci_menu_swap_blue"
 		texturefile = "gfx/interface/menu_ui/roci_settings_button_circle_swap_blu.dds"
@@ -151,27 +171,6 @@ spriteTypes = {
 			animationtype = "rotating"
 			animationrotationoffset = { x = 0.0 y = 0.0 }
 			animationtexturescale = { x = 1.0 y = 1.0 }
-		}
-		legacy_lazy_load = no
-	}
-	
-	spriteType = {
-		name = "GFX_realdev_small_gear_anim"
-		texturefile = "gfx/interface/menu_ui/realdev_cog_small_blank.dds" #The base image. Defines the size of the sprite.
-		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
-		noOfFrames = 1
-		animation = {
-			animationmaskfile = "gfx/interface/menu_ui/realdev_cog_small_mask.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
-			animationtexturefile = "gfx/interface/menu_ui/realdev_cog_small.dds" #The image to animate.
-			animationrotation = 0
-			animationlooping = yes
-			animationtime = 5.0
-			animationdelay = 0
-			animationblendmode = "add"
-			animationtype = "rotating_ccw"  #scrolling, rotating, pulsing, rotating_ccw, rotating_cw
-			animationrotationoffset = { x = 0.0 y = 0.0 }
-			animationtexturescale = { x = 1.0 y = 1.0 }
-			animationframes = { 1 }
 		}
 		legacy_lazy_load = no
 	}
@@ -234,35 +233,6 @@ spriteTypes = {
 			animationframes = { 1 }
 		}
 		legacy_lazy_load = no
-	}
-	spriteType = {
-		name = "GFX_realdev_dong_lines"
-		texturefile = "gfx/interface/menu_ui/realdev_dong_lines.dds"
-		noOfFrames = 1
-		animation = {
-			animationmaskfile = "gfx/interface/menu_ui/realdev_dong_lines_mask.dds"
-			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
-			animationrotation = 185.0
-			animationlooping = yes
-			animationtime = 4
-			animationdelay = 5
-			animationblendmode = "add"
-			animationtype = "scrolling"
-			animationrotationoffset = { x = 0.0 y = 0.0 }
-			animationtexturescale = { x = 1.0 y = 1.0 }
-		}
-		animation = {
-			animationmaskfile = "gfx/interface/menu_ui/realdev_dong_lines_mask.dds"
-			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
-			animationrotation = 185.0
-			animationlooping = yes
-			animationtime = 10
-			animationdelay = 7.5
-			animationblendmode = "add"
-			animationtype = "scrolling"
-			animationrotationoffset = { x = 0.0 y = 0.0 }
-			animationtexturescale = { x = 1.0 y = 1.0 }
-		}
 	}
 	spriteType = {
 		name = "GFX_autofab_settings"

@@ -9,6 +9,8 @@ orbital_ring = {
 	show_in_outliner = no
 	build_time = 720
 
+	starbase = starbase_level_orbital_ring_tier_1
+
 	resources = {
 		category = megastructures
 		cost = {
@@ -68,23 +70,30 @@ orbital_ring = {
 						NOT = { has_global_flag = orbital_ring_overwrite }
 					}
 					NOR = {
+						has_planet_flag = megastructure
+						AND = {
+							has_planet_flag = has_megastructure
+							# Special exception so you can build an orbital ring even if you have MSI's warship as a habitat.
+							NOT = {
+								has_planet_flag = has_payback_habitat
+							}
+						}
+						has_planet_flag = ruined_orbital_ring_planet
 						solar_system = {
 							has_star_flag = ring_world_built
 						}
-						is_planet_class = pc_ringworld_habitable
-						is_planet_class = pc_habitat
-						has_planet_flag = megastructure
-						has_planet_flag = has_megastructure
-						has_planet_flag = ruined_orbital_ring_planet
+						is_artificial = yes
 					}
 				}
-				NOR = {
-					is_planet_class = pc_ringworld_habitable_damaged
-					is_planet_class = pc_ringworld_tech
-					is_planet_class = pc_ringworld_tech_damaged
-					is_planet_class = pc_ringworld_seam
-					is_planet_class = pc_ringworld_seam_damaged
-					
+				else = { #If overwrite is active, we're only blocked from building it on ringworlds
+					NOR = {
+						is_planet_class = pc_ringworld_habitable_damaged
+						is_planet_class = pc_ringworld_tech
+						is_planet_class = pc_ringworld_tech_damaged
+						is_planet_class = pc_ringworld_seam
+						is_planet_class = pc_ringworld_seam_damaged
+						
+					}
 				}
 			}
 			custom_tooltip = {

@@ -1,42 +1,10 @@
-Disabled the Space Exploitation Module. It may be removed from the mod entirely, or reworked to not clash so much with the new Habitats.
 
-Added the Exodus Fleet origin.
 
 *Hyper Relays now decrease shipping cost.
 
 *Added some techs to decrease shipping cost. Or overwrite relevant vanilla ones
 
-Added a Branch Office Building that gives Industrial Production to both the planet owner and Megacorp.
-
-Added a Branch Office Building that gives Industrial Production variant for Criminal Corps, that gives crime, and more IP for the megacorp, but has lower upkeep.
-
-Added a notification to Realdev that triggers if your IP lowers by too much in 1 calc.
-
-Fixed Orbital Shipyards not giving ship IP.
-
-Orbital Shipyard now has modifiers saying what it does.
-
 *Orbital Defense Platform now has modifiers saying what it does.
-
-Added scripted effects to allow easier usage of realdev debug commands.
-
-Added a realdev debug flag, and added debugging stuff in various places.
-
-Added a value for how much IP is collected from Trade Value to the Realdev Empire UI.
-
-Added a value for how many Shipyards you have to the Realdev Empire UI.
-
-Added a value for how many building Minor Colonies are currently building to the Realdev Empire UI.
-
-Added a value for how many building Megastructures are currently building to the Realdev Empire UI.
-
-Added a value for how much IP is distributed to planets to meet their Target to the Realdev Empire UI.
-
-Moved the triggers for Astro Mining Bay to Allow, so you can always see the district, and see the fail conditions if you can't build it.
-
-Switch realdev fake modifiers to scripted modifiers.
-
-Cleaned up the gfx file entries, unifying the various modules better
 
 
 

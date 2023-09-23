@@ -66,14 +66,17 @@ roci_exploit = {
 }
 roci_exploit_on = {
 	potential = { NOT = { has_global_flag = no_exploit } }
-	allow = { hidden_trigger = { always = no } }
+	allow = {
+		custom_tooltip = "roci_exploit_disabled"
+		hidden_trigger = { always = no }
+	}
 	effect = { set_global_flag = no_exploit }
 }
 roci_exploit_off = {
 	potential = { has_global_flag = no_exploit }
-	allow = { 
+	allow = {
 		custom_tooltip = "roci_exploit_disabled"
-		hidden_trigger = { always = yes }
+		hidden_trigger = { always = no }
 	}
 	effect = { remove_global_flag = no_exploit }
 }

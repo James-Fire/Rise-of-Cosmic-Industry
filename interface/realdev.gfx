@@ -43,24 +43,314 @@ spriteTypes = {
 
 	spriteType = { name = "GFX_roci_5_right"					texturefile = "gfx/interface/menu_ui/roci_5_right.dds" }
 	spriteType = { name = "GFX_roci_5_left"						texturefile = "gfx/interface/menu_ui/roci_5_left.dds" }
-
 	
-	spriteType = { name = "GFX_advisor_autofab"						texturefile = "gfx/event_pictures/custom_uis/Advisor-Room.dds" }
-	spriteType = { name = "GFX_easter_egg_autofab"					texturefile = "gfx/event_pictures/custom_uis/easter_egg.dds" }
-	spriteType = { name = "GFX_gear_menu"							texturefile = "gfx/interface/menu_ui/3-2-Gear.dds" }
-	spriteType = { name = "GFX_empty_dongs"							texturefile = "gfx/event_pictures/custom_uis/empty_dongs.dds" }
-	spriteType = { name = "GFX_gears_dongs"							texturefile = "gfx/event_pictures/custom_uis/gearDongs.dds" }
-	spriteType = { name = "GFX_horflip_gears_dongs"							texturefile = "gfx/event_pictures/custom_uis/horflipgearDongs.dds" }
-	spriteType = { name = "GFX_gearwrench_dongs"					texturefile = "gfx/event_pictures/custom_uis/gearwrenchDongs.dds" }
-	spriteType = { name = "GFX_lower_gearwrench_dongs"					texturefile = "gfx/event_pictures/custom_uis/lower_gearwrench_dongs.dds" }
-	spriteType = { name = "GFX_flipped_gearwrench_dongs"					texturefile = "gfx/event_pictures/custom_uis/flipped_gearwrenchDongs.dds" }
-	spriteType = { name = "GFX_advisor_upper_dongs"					texturefile = "gfx/event_pictures/custom_uis/advisor_upper_dongs.dds" }
-	spriteType = { name = "GFX_advisor_lower_dongs"					texturefile = "gfx/event_pictures/custom_uis/advisor_lower_dongs.dds" }
-	spriteType = { name = "GFX_autofab_side_button"					texturefile = "gfx/event_pictures/custom_uis/side_button_1.dds" }
-	spriteType = { name = "GFX_autofab_planet_dongs"				texturefile = "gfx/event_pictures/custom_uis/planet_button.dds" }
+	spriteType = { name = "GFX_gear_menu"						texturefile = "gfx/interface/menu_ui/3-2-Gear.dds" }
+	spriteType = { name = "GFX_empty_dongs"						texturefile = "gfx/event_pictures/custom_uis/empty_dongs.dds" }
+	spriteType = { name = "GFX_gears_dongs"						texturefile = "gfx/event_pictures/custom_uis/gearDongs.dds" }
+	spriteType = { name = "GFX_horflip_gears_dongs"				texturefile = "gfx/event_pictures/custom_uis/horflipgearDongs.dds" }
+	spriteType = { name = "GFX_gearwrench_dongs"				texturefile = "gfx/event_pictures/custom_uis/gearwrenchDongs.dds" }
+	spriteType = { name = "GFX_lower_gearwrench_dongs"			texturefile = "gfx/event_pictures/custom_uis/lower_gearwrench_dongs.dds" }
+	spriteType = { name = "GFX_flipped_gearwrench_dongs"		texturefile = "gfx/event_pictures/custom_uis/flipped_gearwrenchDongs.dds" }
+	spriteType = { name = "GFX_advisor_upper_dongs"				texturefile = "gfx/event_pictures/custom_uis/advisor_upper_dongs.dds" }
+	spriteType = { name = "GFX_advisor_lower_dongs"				texturefile = "gfx/event_pictures/custom_uis/advisor_lower_dongs.dds" }
+	spriteType = { name = "GFX_autofab_side_button"				texturefile = "gfx/event_pictures/custom_uis/side_button_1.dds" }
+	spriteType = { name = "GFX_autofab_planet_dongs"			texturefile = "gfx/event_pictures/custom_uis/planet_button.dds" }
 
-	spriteType = { name = "GFX_realdev_dual_block"			texturefile = "gfx/interface/menu_ui/realdev_dual_block.dds" }
-	spriteType = { name = "GFX_realdev_large_block"		texturefile = "gfx/interface/menu_ui/realdev_large_block.dds" }
+	spriteType = { name = "GFX_realdev_dual_block"				texturefile = "gfx/interface/menu_ui/realdev_dual_block.dds" }
+	spriteType = { name = "GFX_realdev_large_block"				texturefile = "gfx/interface/menu_ui/realdev_large_block.dds" }
+	
+	
+	spriteType = { name = "GFX_roci_settings_target"			texturefile = "gfx/interface/menu_ui/roci_settings_target.dds" }
+	spriteType = { name = "GFX_ip_distribution_window_totals"	texturefile = "gfx/interface/menu_ui/ip_distribution_window_totals.dds" }
+	spriteType = { name = "GFX_ip_distribution_window_collection"	texturefile = "gfx/interface/menu_ui/ip_distribution_window_collection.dds" }
+	spriteType = { name = "GFX_ip_distribution_window_distribution"	texturefile = "gfx/interface/menu_ui/ip_distribution_window_distribution.dds" }
+	spriteType = { name = "GFX_ip_distribution_window_distribution_4"	texturefile = "gfx/interface/menu_ui/ip_distribution_window_distribution_4.dds" }
+	spriteType = { name = "GFX_roci_mini_chip"					texturefile = "gfx/interface/menu_ui/roci_mini_chip.dds" }
+	spriteType = { name = "GFX_realdev_country_settings_bg"		texturefile = "gfx/interface/menu_ui/realdev_country_settings_bg.dds" }
+	spriteType = { name = "GFX_roci_thicc_round_circuit"		texturefile = "gfx/interface/menu_ui/roci_thicc_round_circuit.dds" }
+	
+	spriteType = { name = "GFX_roci_big_chip"					texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_big_chip.dds" }
+	spriteType = { name = "GFX_roci_big_chip_center"			texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_big_chip_pulse.dds" }
+	spriteType = {
+		name = "GFX_realdev_country_bg"
+		texturefile = "gfx/interface/menu_ui/realdev_country_bg.dds" #The base image. Defines the size of the sprite.
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_country_bg.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds" #The image to animate.
+			animationrotation = 0.0
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "pulsing"  #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_roci_big_chip_pulse"
+		texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_big_chip_pulse.dds" #The base image. Defines the size of the sprite.
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_big_chip_pulse.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds" #The image to animate.
+			animationrotation = 0.0
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "pulsing"  #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_roci_mini_chip_pulse"
+		texturefile = "gfx/interface/menu_ui/roci_mini_chip.dds" #The base image. Defines the size of the sprite.
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/roci_mini_chip.dds" #The shape of the animation. Whitespace appears to define where the animation can appear.
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds" #The image to animate.
+			animationrotation = 0.0
+			animationlooping = yes
+			animationtime = 5.0
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "pulsing"  #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 }
+		}
+		legacy_lazy_load = no
+	}
+	#Country Flow Section 1
+	spriteType = {
+		name = "GFX_ip_distribution_S1U"
+		texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_S1U.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 270.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	spriteType = {
+		name = "GFX_ip_distribution_S1V"
+		texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_S1V.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_mask_V.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 180.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	spriteType = {
+		name = "GFX_ip_distribution_S1L"
+		texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_S1L.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 270.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	
+	#Country Flow Section 2
+	spriteType = {
+		name = "GFX_ip_distribution_flow_4"
+		texturefile = "gfx/interface/menu_ui/ip_distribution_flow_4.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 90.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	
+	#Country Flow Section 3
+	spriteType = {
+		name = "GFX_ip_distribution_S3US"
+		texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_S3US.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 270.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	spriteType = {
+		name = "GFX_ip_distribution_S3V"
+		texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_S3V.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_mask_V.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 180.0 
+			animationlooping = yes
+			animationtime = 15
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	spriteType = {
+		name = "GFX_ip_distribution_splitter"
+		texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_flow_splitter.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_flow_splitter_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 270.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	spriteType = {
+		name = "GFX_ip_distribution_splitter_2"
+		texturefile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_flow_splitter_2.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/Realdev_Flow/ip_distribution_flow_splitter_2_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 270.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	
+	#Others
+	spriteType = {
+		name = "GFX_ip_distribution_flow_1"
+		texturefile = "gfx/interface/menu_ui/ip_distribution_flow_1.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/ip_distribution_flow_1_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 270.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	spriteType = {
+		name = "GFX_ip_distribution_flow_2"
+		texturefile = "gfx/interface/menu_ui/ip_distribution_flow_2.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/ip_distribution_flow_2_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 180.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	spriteType = {
+		name = "GFX_ip_distribution_flow_3"
+		texturefile = "gfx/interface/menu_ui/ip_distribution_flow_3.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/ip_distribution_flow_3_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 270.0 
+			animationlooping = yes
+			animationtime = 2
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
+	spriteType = {
+		name = "GFX_realdev_dong_lines"
+		texturefile = "gfx/interface/menu_ui/realdev_dong_lines.dds"
+		noOfFrames = 1
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_dong_lines_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 185.0
+			animationlooping = yes
+			animationtime = 4
+			animationdelay = 5
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/menu_ui/realdev_dong_lines_mask.dds"
+			animationtexturefile = "gfx/interface/icons/relics/shine_overlay_02.dds"
+			animationrotation = 185.0
+			animationlooping = yes
+			animationtime = 10
+			animationdelay = 7.5
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+	}
 	spriteType = {
 		name = "GFX_empty_dongs_anim"
 		texturefile = "gfx/event_pictures/custom_uis/empty_dongs.dds" #The base image. Defines the size of the sprite.

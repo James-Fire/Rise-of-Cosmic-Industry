@@ -726,7 +726,10 @@ country_event = {
 				PREV = { change_variable = { which = realdev_ip_distributed value = prev.realdev_ip_request } }
 			}
 			planet_event = { id = realdev.11 days = 2 random = 2 }
-		}	
+		}
+		set_variable = { which = realdev_country_industry_pre_split value = realdev_country_industry }
+		
+		
 		
 		#Distribute Country IP
 		set_variable = { which = realdev_ship_build_speed value = value:realdev_ship_build_speed }

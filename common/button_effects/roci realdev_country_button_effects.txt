@@ -199,6 +199,11 @@ realdev_country_minor_colonies_check = {
 	allow = { }
 	effect = { }
 }
+realdev_country_minor_colonies_check_null = {
+	potential = { roci_exploit_module_active = no }
+	allow = { }
+	effect = { }
+}
 realdev_country_minor_colonies = {
 	potential = { roci_exploit_module_active = yes }
 	allow = { custom_tooltip = "realdev_country_minor_colonies_desc" hidden_trigger = { always = yes } }
@@ -276,4 +281,16 @@ realdev_total_ind_cap_display = {
 	potential = { }
 	allow = { custom_tooltip = "realdev_total_ind_cap_display_desc" hidden_trigger = { always = yes } }
 	effect = { custom_tooltip = "realdev_total_ind_cap_display_desc" }
+}
+
+#Distribution Lines
+realdev_country_split_1_display = {
+	potential = { }
+	allow = { custom_tooltip = "realdev_country_split_1_display_desc" hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "realdev_country_split_1_display_desc" }
+}
+realdev_country_split_2_display = {
+	potential = { }
+	allow = { custom_tooltip = "realdev_country_split_2_display_desc" hidden_trigger = { always = yes } }
+	effect = { custom_tooltip = "realdev_country_split_2_display_desc" }
 }

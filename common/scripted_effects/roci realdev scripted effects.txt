@@ -43,9 +43,18 @@ set_realdev_planet_variables = {
 set_realdev_country_variables = {
 	set_variable = { which = realdev_ip_target value = value:realdev_ip_target }
 	set_variable = { which = realdev_minor_colony_speed value = 0 }
-	set_variable = { which = realdev_industry_shipyard_ratio value = 34 }
-	set_variable = { which = realdev_megastructure_ratio value = 33 }
-	set_variable = { which = realdev_minor_colony_ratio value = 33 }
+	if = {
+		limit = {
+			roci_exploit_module_active = yes
+		}
+		set_variable = { which = realdev_industry_shipyard_ratio value = 34 }
+		set_variable = { which = realdev_megastructure_ratio value = 33 }
+		set_variable = { which = realdev_minor_colony_ratio value = 33 }
+	}
+	else = {
+		set_variable = { which = realdev_industry_shipyard_ratio value = 50 }
+		set_variable = { which = realdev_megastructure_ratio value = 50 }
+	}
 	set_variable = { which = realdev_industry_country_stockpile value = 0.1 }
 	set_variable = { which = realdev_ship_build_cap value = 100 } #Start being able to build ships at double speed with enough industrial capacity
 	set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
