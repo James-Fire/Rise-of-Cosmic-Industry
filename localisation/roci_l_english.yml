@@ -267,7 +267,7 @@
     origin_tooltip_autofab_effects:0 "- $origin_autofab_tooltip_1$ \n- $origin_autofab_tooltip_2$ \n- $origin_autofab_tooltip_3$ \n- $origin_autofab_tooltip_4$ \n- $origin_autofab_tooltip_5$\n- $autofab_script_replace$"
     
     roci_civic_autofab_tooltip_1:0 "Normal jobs produce less, as the population is ready to transfer production over to Automatic Factory Modules."
-    roci_civic_autofab_tooltip_2:0 "You start with an Automatic Factory deposit, and 1 of each resource module, if they are used by your countryA."
+    roci_civic_autofab_tooltip_2:0 "You start with an Automatic Factory deposit, and 1 of each resource module, if they are used by your Empire."
     roci_civic_autofab_tooltip_3:0 "Using this in combination with the Origin gives a §G-10%§! upkeep cost to Factory Modules."
     roci_civic_autofab_tooltip_4:0 "The §R-30%§! job production malus also applies to the factory. This means that the §G+50%§! production bonus is actually only a §G+20%§! bonus overall."
     civic_tooltip_autofab_effects:0 "- $roci_civic_autofab_tooltip_1$ \n- $roci_civic_autofab_tooltip_2$ \n- $roci_civic_autofab_tooltip_3$\n- $roci_civic_autofab_tooltip_4$\n- $autofab_script_replace$"
@@ -312,9 +312,9 @@
   #Advisor
     ADVISOR:0 "Advisor"
     autofab_0_desc_1:0 "Welcome [Root.GetRulerTitle]. The Automatic Factory is a special deposit on your planets, allowing automated production of key resources without the use of pops."
-    autofab_0_desc_2:0 "After colonization, you can use either the Planet or Country Terminal to order construction. Once the base factory is built, you have several options to expand it, or let it handle its own expansion."
+    autofab_0_desc_2:0 "After colonization, you can use either the Planet or Empire Terminal to order construction. Once the base factory is built, you have several options to expand it, or let it handle its own expansion."
     autofab_0_desc_3:0 ""
-    autofab_0_desc_4:0 "To the left is a list of key concepts present in the mod, which you can read at your leisure. You can bring up this advisor at any time from either the Country or Planet Terminal."
+    autofab_0_desc_4:0 "To the left is a list of key concepts present in the mod, which you can read at your leisure. You can bring up this advisor at any time from either the Empire or Planet Terminal."
     autofab_menu.0.name:0 "The [Root.GetRulerTitle]'s Factory Advisor"
     autofab_menu.0.desc:0 "$autofab_0_desc_1$ \n\n$autofab_0_desc_2$ \n\n$autofab_0_desc_3$ \n\n$autofab_0_desc_4$"
     autofab.0.option.1:0 "We can go through the management in order."
@@ -331,23 +331,23 @@
     autofab.2.name:0 "Factory Queue"
     autofab.2.desc:0 "$autofab.2.desc_1$ \n\n$autofab.2.desc_2$ \n\n$autofab.2.desc_3$ \n\n$autofab.2.desc_4$ \n\n$autofab.2.desc_5$"
     autofab.2.desc_1:0 "The Factory Queue is a script-based application of user-input build orders, placing constructions in locations based on a set of triggers. It is capable of building Factory Deposits."
-    autofab.2.desc_2:0 "In both the Planet and Country Terminal, you have controls to increase or decrease the queue, which is then utilized by this script every 3 months to build factory modules on Factory planets that don't have a construction going on."
+    autofab.2.desc_2:0 "In both the Planet and Empire Terminal, you have controls to increase or decrease the queue, which is then utilized by this script every 3 months to build factory modules on Factory planets that don't have a construction going on."
     autofab.2.desc_3:0 "The Queue applies constructions from all of one Factory module first, and then moves on to the next one in the list. This order is the same order of the modules in the Terminal."
     autofab.2.desc_4:0 "The time it takes to finish a factory module is 1 year. The time it takes to build the Factory itself is 2 years. Costs, except for the flat 50 alloy cost per module, are based on the planet, being specific to any planets using a specific supported district set. The following is mineral £minerals£ costs:"
     autofab.2.desc_5:0 "Standard: 300\nHabitat:500\nEcumenopolis:1000\nRingworld:2000\nHive/Machine Worlds:300"
     
     autofab.3.name:0 "Factory Terminal"
     autofab.3.desc:0 "$autofab.3.desc_1$ \n\n$autofab.3.desc_2$ \n\n$autofab.3.desc_3$ \n\n$autofab.3.desc_4$ \n\n$autofab.3.desc_5$"
-    autofab.3.desc_1:0 "There are two Terminals available to control the Factory. The Planet Terminal is for local planetary control, and is accessed by a decision on any planet you own. The Country Terminal allows high level control of all factories in your Empire, and is triggered by either the edict, or can be accessed from the Planet Terminal."
-    autofab.3.desc_2:0 "The options available in these Terminals allow control of how the Factory expands. Options selected on a planet override those selected for the Country, allowing you to have fine grain control over what can be built where."
-    autofab.3.desc_3:0 "The queue buttons here change the queue values, and can be adjusted to provide anywhere from 1-5 queue. Country and Planet queues are separate, with the planet queue being used first."
+    autofab.3.desc_1:0 "There are two Terminals available to control the Factory. The Planet Terminal is for local planetary control, and is accessed by a decision on any planet you own. The Empire Terminal allows high level control of all factories in your Empire, and is triggered by either the edict, or can be accessed from the Planet Terminal."
+    autofab.3.desc_2:0 "The options available in these Terminals allow control of how the Factory expands. Options selected on a planet override those selected for the Empire, allowing you to have fine grain control over what can be built where."
+    autofab.3.desc_3:0 "The queue buttons here change the queue values, and can be adjusted to provide anywhere from 1-5 queue. Empire and Planet queues are separate, with the planet queue being used first."
     autofab.3.desc_3:0 ""
     autofab.3.desc_4:0 ""
     autofab.3.desc_5:0 ""
     
     autofab.4.name:0 "Factory Automation"
     autofab.4.desc:0 "$autofab.4.desc_1$ \n\n$autofab.4.desc_2$ \n\n$autofab.4.desc_3$ \n\n$autofab.4.desc_4$ \n\n$autofab.4.desc_5$ \n\n$autofab.4.desc_6$ \n\n$autofab.4.desc_7$"
-    autofab.4.desc_1:0 "Our factories are capable of limited logical processing, allowing them to decide what to build next based on our current resource situation. This feature can be turned on for each factory, or for the whole country. Planning is done on the country level."
+    autofab.4.desc_1:0 "Our factories are capable of limited logical processing, allowing them to decide what to build next based on our current resource situation. This feature can be turned on for each factory, or for the whole Empire. Planning is done on the Empire level."
     autofab.4.desc_2:0 "Automation adds Modules to planet queues based on the settings for income per planet. It takes into account upkeep and production of the queued modules."
     autofab.4.desc_3:0 "Automation checks resources in this order: Energy, Strategic Resources, Food, Consumer Goods, Minerals, Alloys. It does not check them if your empire does not user them. Automation uses resources from your Empire Stockpile. The controls in the Automation Options window allows you to set a minimum stockpile amount that the factory is not allowed to use."
     autofab.4.desc_4:0 ""
@@ -367,14 +367,14 @@
   #Menu
     autofab_menu_name:0 "AutoFactory Terminal"
     decision_manage_autofab:0 "Factory Terminal"
-    decision_manage_autofab_desc:0 "Open up the factory terminal for this planet, where we can make changes, talk to the Advisor, or go to the country terminal."
+    decision_manage_autofab_desc:0 "Open up the factory terminal for this planet, where we can make changes, talk to the Advisor, or go to the Empire terminal."
     swapping_country_tooltip:0 "Any planet you own must have districts that can be swapped, and not have Swapping disabled."
     swapping_planet_tooltip:0 "The planet must have districts that can be swapped, and not have Swapping disabled."
     swapping_country_effects_tooltip:0 "All Districts in your empire that can be swapped will be. This respects swapping being disabled."
     swapping_planet_effects_tooltip:0 "All Districts on this planet that can be swapped will be."
     
-    autofab_country_tooltip: "This UI Allows you to queue Autofabs and Autofab Modules at a country level. Depending on your settings, this queue will distribute them to planets in your empire. The settings on the left are the default settings, that all planets in your empire use if you don't change anything."
-    autofab_planet_tooltip: "This UI Allows you to queue Autofabs and Autofab Modules at a planet level. Queuing items here will build them on this planet. The settings on the left are by default following the settings the country uses. You can change them so this planet uses separate settings."
+    autofab_country_tooltip: "This UI Allows you to queue Autofabs and Autofab Modules at an Empire level. Depending on your settings, this queue will distribute them to planets in your empire. The settings on the left are the default settings, that all planets in your empire use if you don't change anything."
+    autofab_planet_tooltip: "This UI Allows you to queue Autofabs and Autofab Modules at a planet level. Queuing items here will build them on this planet. The settings on the left are by default following the settings the Empire uses. You can change them so this planet uses separate settings."
     
     Zero:0 "0"
     blank:0 ""
@@ -385,7 +385,7 @@
     
     autofab_menu.10.name:0 "[This.GetName] Factory Terminal"
     autofab_menu.10.desc:0 ""
-    autofab_menu.10.confirm:0 "Open the Country Terminal"
+    autofab_menu.10.confirm:0 "Open the Empire Terminal"
     autofab_menu.1.name:0 "[This.GetName] Factory Terminal"
     autofab_menu.1.desc:0 ""
     autofab_menu.1.confirm:0 "Open the Advisor"
@@ -396,7 +396,7 @@
     
     autofab_easter.desc:0 ""
     
-    Terminal_greeting:0 "This is the Country-wide Factory Control Terminal. From here, you can make high level changes to how our Factories operate."
+    Terminal_greeting:0 "This is the Empire-wide Factory Control Terminal. From here, you can make high level changes to how our Factories operate."
     
     FACTORY_COUNTRY_MANAGE:0 ""
     
@@ -764,7 +764,7 @@
     exploit.2.desc:0 "Automation and the Queue are two methods by which new colonies are made. Both respect the Priority setting.\n\n$exploit.2_1$\n\n$exploit.2_3$"
     exploit.2_1:0 "Automation develops planets automatically based on options you select, and a priority system based on what the planet has and is. Automation has a limit on how many planets it is $exploit.2_2$"
     exploit.2_2:0 " allowed to develop at any one time. This limit is based on the number of Major colonies you have, and every 5 years since game start, up to 20 years after. 3 for each colony, plus one for each colony for every 5 years after game start, up to 20 years."
-    exploit.2_3:0 "The Queue applies user input from the country UI to build Minor Colonies on suitable planets for the ordered Colony types. The Queue runs every year, and whenever the terminal is closed, provided more than 30 days have passed since the last run."
+    exploit.2_3:0 "The Queue applies user input from the Empire UI to build Minor Colonies on suitable planets for the ordered Colony types. The Queue runs every year, and whenever the terminal is closed, provided more than 30 days have passed since the last run."
     exploit.3.name:0 "General Options"
     exploit.3.desc:0 "$exploit.3_1$\n\n$exploit.3_2$"
     exploit.3_1:0 "The Priority option chooses whether to prioritize establishing Minor Colonies in new systems, or to prioritize building them in systems that already have other Minor Colonies."
@@ -1031,7 +1031,7 @@
     district_orbital_platform_refinery_desc: ""
     district_orbital_platform_refinery_plural: "Refinery Platforms"
     district_orbital_platform_shipyard: "Orbital Shipyard"
-    district_orbital_platform_shipyard_desc: "Provides 10 ship Industrial Production if Realdev is active, or a 5% (stacking) bonus to country-wide ship build speed if Realdev is off."
+    district_orbital_platform_shipyard_desc: "Provides 10 ship Industrial Production if Realdev is active, or a 5% (stacking) bonus to Empire-wide ship build speed if Realdev is off."
     district_orbital_platform_shipyard_plural: "Orbital Shipyards"
     district_orbital_platform_military: "Orbital Defense Platform"
     district_orbital_platform_military_desc: "Provides 1 platform per Starbase Tech researched to this planet. Citadel gives an Ion Cannon instead if you have Apocalypse. Costs 200 alloys and 5 alloys upkeep per Starbase Tech."
@@ -1194,7 +1194,7 @@
     mod_job_realdev_foreman_gestalt_add:0 "Construction Drone"
     
     job_realdev_foreman_effect_desc: "$job_realdev_foreman_plural$ Produce 20 §YIndustrial Production Capacity§! for the planet they are on."
-    job_realdev_foreman_gestalt_effect_desc: "$job_realdev_foreman_gestalt_plural$ Produce 20 §Y$Industrial Production Capacity$§! for the planet they are on."
+    job_realdev_foreman_gestalt_effect_desc: "$job_realdev_foreman_gestalt_plural$ Produce 20 §YIndustrial Production Capacity§! for the planet they are on."
     
     blub: "Industrial Production Capacity: §G$+20$§!"
     
@@ -1255,7 +1255,7 @@
     
     realdev_target_increase: "Increase the Target by 1."
     realdev_target_decrease: "Decrease the Target by 1."
-    realdev_target_display: "  [This.realdev_ip_target]"
+    realdev_target_display: "  [This.realdev_ip_target_display]"
     
     realdev_industry_from_planets: "Planets: [This.realdev_industry_from_planets]"
     realdev_industry_from_planets_desc: "Planets give IP that they don't need to the empire, based on their Target."
@@ -1286,9 +1286,8 @@
     
     realdev_country_tooltip: "This UI shows the whole empire's current Industrial Production value, and how much Industrial Production is allocated to the empire. Ratio sliders for allocating Industrial Production between empire-level uses are present. It updates its information every 30 days."
     realdev_planet_tooltip: "This UI shows this planet's current Industrial Production value, its current Industrial Production Capacity value, and has Ratio sliders for allocating Industrial Production between the empire and planet-level uses. It updates its information every 30 days."
-    realdev_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the country level, there is 2 options: Manual and Auto.\n\nManual has you enter a number, and that is the explicit value all planets that follow the country-level settings will try to get.\n\nAuto tries to get 100 each for Building and Assembly/Production Boost."
-    realdev_planet_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the planet level, there are 3 options: Manual, Auto, and Country.\n\nManual has you enter a number, and that is the explicit value the planet will try to get.\n\nAuto includes some automatic adjustments based on what the planet needs.\n\nCountry has it follow the country setting."
-    realdev_country_target: "  [This.realdev_ip_target]"
+    realdev_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the Empire level, there is 2 options: Manual and Auto.\n\nManual has you enter a number, and that is the explicit value all planets that follow the Empire-level settings will try to get.\n\nAuto tries to get 100 each for Building and Assembly/Production Boost."
+    realdev_planet_target_desc: "Targets function by having a set value for all planets to try to achieve for IP. At the planet level, there are 3 options: Manual, Auto, and Empire.\n\nManual has you enter a number, and that is the explicit value the planet will try to get.\n\nAuto includes some automatic adjustments based on what the planet needs.\n\nEmpire has it follow the Empire setting."
     
     empire_assembly: "Empire - Assembly"
     empire_production: "Empire - Production"
@@ -1328,7 +1327,7 @@
     realdev_construction_ship_display_tooltip: "Having a Construction Ship in orbit of this world will provide 25 Industrial Production and Industrial Production Capacity to the planet."
     
     realdev_current_multiplier_display: "Multiplier: [This.realdev_industry_multiplier_bonus_display]%"
-    realdev_current_multiplier_display_tooltip: "All sources of this multiplier are added together, then applied to Industrial Production and Industrial Production Capacity. Sources are:\n\nLeaders: Sector Governor provides 2% per level, while Rulers provide 0.5% per level.\n\nCapital Production Techs provide their resource output bonus"
+    realdev_current_multiplier_display_tooltip: "All sources of this multiplier are added together, then applied to Industrial Production and Industrial Production Capacity. Sources are:\n\nLeaders: Planet and Sector Governors provides 2% per level, while Rulers provide 0.5% per level.\n\nCapital Production Techs provide their resource output bonus"
     realdev_current_amenities_display: "Amenities: [This.realdev_industry_multiplier_bonus_2_display]%"
     realdev_current_amenities_display_tooltip: "A -100% to a +100% multipler to Industrial Production and Industrial Production Capacity (After the other multiplier) is applied based on amenities being -100 to +100." 
     
@@ -1355,7 +1354,8 @@
     realdev_country_target_display: "[this.realdev_country_target_setting]"
     realdev_target_manual: "Manual"
     realdev_target_auto: "Auto"
-    realdev_target_country: "Country"
+    realdev_target_country: "Empire"
+    realdev_country_target: "  [This.realdev_ip_target]"
     
     realdev_country_usage_display: "[This.realdev_usage_industry_display]"
     
@@ -1539,7 +1539,7 @@
     kiyo_trade_triggered_event.9.desc:0 "Our trade route from the §Y[Root.GetName]§! was cancelled.\n\nIf the trade route was fully set up, then strained relations with your trade partner or a planet being devastated can cause this to happen. Otherwise, you may have done something really weird, like disbanding an individual cargo ship (which only harms you)."
   #Tooltips
     roci_trade_routes_opinion: "The partner empire must either have 50 opinion of us, or 25 and one of us is improving relations."
-    roci_trade_routes_subject: "One country must be a subject of the other."
+    roci_trade_routes_subject: "One Empire must be a subject of the other."
     roci_trade_routes_federation: "Both countries must be in the same Federation."
     
  ###Shipping
@@ -1620,10 +1620,10 @@
     roci_autofab: "Automatic Factory"
     roci_autofab_everyone: "Factory For All"
     roci_autofab_everyone_desc: "This setting allows you to make the Factory available to everyone, regardless of Origin, Civic, or AP. The Origin and Civic still start with some built, this setting does not."
-    roci_autofab_desc: "The Automatic Factory module provides the ['concept_autofab'], a mechanic you can use to produce resources without pops. It has Planet and Country UI, accessible from a decision and edict respectively. Requires the Origin, Civic, or AP, or the Factory For All setting enabled."
+    roci_autofab_desc: "The Automatic Factory module provides the ['concept_autofab'], a mechanic you can use to produce resources without pops. It has Planet and Empire UI, accessible from a decision and edict respectively. Requires the Origin, Civic, or AP, or the Factory For All setting enabled."
     
     roci_exploit: "Space Exploitation"
-    roci_exploit_desc: "The Space Exploitation module provides ['concept_minor_colony'], a mechanic you can use to build more resource production on uninhabitable planets for collection by Mining or Research stations. It has a Country level UI, accessible from an edict."
+    roci_exploit_desc: "The Space Exploitation module provides ['concept_minor_colony'], a mechanic you can use to build more resource production on uninhabitable planets for collection by Mining or Research stations. It has an Empire level UI, accessible from an edict."
     roci_exploit_disabled: "Space Exploitation is disabled because of clashing with 3.9 Habitats."
     roci_exploit_uninhabitables_size: "Uninhabitable Sizes"
     roci_exploit_uninhabitables_size_desc: "When a planet has a valid terrform available, it shows the planet size. This setting controls terraform options for all Uninhabitable Planets, so that their size can be shown. A side effect of this is that they will always show as having a terraform option available.\n\nThis option is placed under Space Exploitation, but it can be toggled even if Space Exploitation is off."
@@ -1637,7 +1637,7 @@
    
    
     roci_realdev: "Realistic Development"
-    roci_realdev_desc: "The Realistic Development module provides ['concept_industrial_production'], a mechanic to simulate limited industrial ability, and your distribution of it. It adds a building; Equipment Factory. It has Planet and Country level UI, accessible from a decision and edict respectively."
+    roci_realdev_desc: "The Realistic Development module provides ['concept_industrial_production'], a mechanic to simulate limited industrial ability, and your distribution of it. It adds a building; Equipment Factory. It has Planet and Empire level UI, accessible from a decision and edict respectively."
     roci_realdev_build_adjustment_desc: "This setting controls the strength of the Planet Build Speed and Assembly adjustment. A higher adjustment will lead to longer games, as it takes longer to build up."
     roci_realdev_build_adjustment_swap_desc: "This setting controls the strength of the Planet Build Speed and Assembly adjustment. A higher adjustment will lead to longer games, as it takes longer to build up."
     roci_realdev_build_adjustment_none: "Adjustment: None"
@@ -1664,10 +1664,10 @@
     roci_shipping_scaling_decrease_error: "The cost of shipping cannot be zero. Disable the module if that's what you want."
     
   #Stupid Stuff that only exists because error log
-    autofab_country_default: "Defaulted to Country Setting."
+    autofab_country_default: "Defaulted to Empire Setting."
     realdev_ip_manage: "Manage Industrial Production"
     autofab_factory_manage: "Manage the Automatic Factory"
-    autofab_open_country_terminal: "Open the Country Terminal- You must unselect the planet for this to work."
+    autofab_open_country_terminal: "Open the Empire Terminal- You must unselect the planet for this to work."
     Understood: "Understood"
     realdev_no_build_cap: ""
     kiyo_trade_cargo_fleet_2: ""

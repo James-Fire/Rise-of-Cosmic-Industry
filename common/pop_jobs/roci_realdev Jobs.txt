@@ -16,7 +16,7 @@ realdev_foreman = {
 	}
 	
 	planet_modifier = {
-		district_realdev_industry_cap_max = 20
+		realdev_ipc_mod = 20
 	}
 	
 	resources = {
@@ -78,7 +78,7 @@ realdev_foreman_gestalt = {
 	possible_precalc = can_fill_drone_job
 	
 	planet_modifier = {
-		district_realdev_industry_cap_max = 20
+		realdev_ipc_mod = 20
 	}
 	
 	country_modifier = {

@@ -493,6 +493,7 @@ realdev_ship_build_speed = {
  		country_has_minor_colonies_building = no
 		add = value:realdev_minor_colonies_build_speed
 	}
+	#subtract = 100
 }
 #Country Scope
 realdev_megastructure_build_speed = {
@@ -500,6 +501,7 @@ realdev_megastructure_build_speed = {
 	add = realdev_country_industry
 	multiply = realdev_megastructure_ratio
 	divide = 100
+	#subtract = 100
 }
 #Country Scope
 realdev_minor_colonies_build_speed = {
@@ -763,12 +765,16 @@ realdev_industry_multiplier = {
 		add = 0.1
  	}
 	modifier = {
- 		exists = planet.sector.leader
-		add = planet.sector.leader.realdev_leader_level
+ 		exists = planet.leader
+		add = planet.leader.realdev_leader_level
  	}
 	modifier = {
- 		exists = planet.owner.leader
-		add = planet.owner.leader.realdev_leader_level
+ 		exists = sector.sector_capital.leader
+		add = sector.sector_capital.leader.realdev_leader_level
+ 	}
+	modifier = {
+ 		exists = ruler
+		add = ruler.realdev_leader_level
  	}
 }
 realdev_amenities_multiplier = {

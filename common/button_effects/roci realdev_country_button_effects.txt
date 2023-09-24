@@ -70,6 +70,7 @@ realdev_country_target_increase = {
 		custom_tooltip = "realdev_target_increase"
 		hidden_effect = {
 			change_variable = { which = realdev_ip_target value = 1 }
+			change_variable = { which = realdev_ip_target_display value = 1 }
 		}
 	}
 }
@@ -86,6 +87,7 @@ realdev_country_target_decrease = {
 		custom_tooltip = "realdev_target_decrease"
 		hidden_effect = {
 			change_variable = { which = realdev_ip_target value = -1 }
+			change_variable = { which = realdev_ip_target_display value = -1 }
 		}
 	}
 }

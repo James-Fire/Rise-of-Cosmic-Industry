@@ -56,5 +56,6 @@ realdev_ipc_mod = {
 	category = all
 }
 realdev_ship_build_ip = {
+	good = yes
 	category = all
 }

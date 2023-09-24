@@ -5,7 +5,7 @@ test_cargo_ships = {
 }
 
 #Any Scope works
-log_all_country_realdev_values = {
+log_all_countries_realdev_values = {
 	every_country = {
 		log_all_country_realdev_values = yes
 	}
@@ -25,24 +25,44 @@ print_realdev_values = {
 		limit = {
 			is_scope_type = country
 		}
-		log = "Logging Realdev values on Country [This.GetName]"
-		log = "Country total IP: [This.realdev_country_industry]"
-		log = "Country IP from Trade Value: [This.realdev_trade_value]"
-		log = "Country IP from Commercial Trade Value: [This.realdev_trade_value]"
-		log = "Country Shipyard count: [This.realdev_shipyard_count]"
+		log = "Logging Realdev values on Country \\[This.GetName]"
+		log = "Country total IP: \\[This.realdev_country_industry]"
+		log = "Country IP from Trade Value: \\[This.realdev_trade_value]"
+		log = "Country IP from Commercial Trade Value: \\[This.realdev_trade_value_shared]"
+		log = "Country IP from Branch Offices: \\[This.realdev_branch_building]"
+		log = "Country IP Total Trade Value: \\[This.realdev_trade_value_total]"
+		log = "Country Shipyard count: \\[This.realdev_shipyard_display]"
+		log = "Country Megastructure count: \\[This.realdev_building_megas]"
+		log = "Country Shipyard Speed: \\[This.realdev_ship_build_speed]"
+		log = "Country Megastructure Speed: \\[This.realdev_mega_build_speed]"
+		log = "Country Minor Colony Speed: \\[This.realdev_minor_colony_speed]"
+		log = "Country Shipyard Ratio: \\[This.realdev_industry_shipyard_ratio]"
+		log = "Country Megastructure Ratio: \\[This.realdev_megastructure_ratio]"
+		log = "Country Minor Colony Ratio: \\[This.realdev_minor_colony_ratio]"
+		log = "Country Shipyard Orbital: \\[This.realdev_ship_build_ip]"
+		log = "Country Shipyard Tech Bonus: \\[This.realdev_ship_build_speed_tech_bonus]"
+		log = "Country Shipyard Speed Cap: \\[This.realdev_ship_build_cap]"
+		log = "Country Shipyard Leader Speed: \\[This.leader_realdev_ship_build_speed]"
+		#log = "Country Shipyard Bonus Speed: \\[This.realdev_shipyard_bonus]"
 	}
 	if = {
 		limit = {
 			is_scope_type = planet
 		}
-		log = "Logging Realdev values on Planet [This.GetName]"
-		log = "Planet total IP: [This.realdev_industry]"
-		log = "Planet IP to country: [This.realdev_country_industry]"
-		log = "Planet IP bonuses: [This.realdev_industry_multiplier_bonus]"
-		log = "Planet IP amenities bonuses: [This.realdev_industry_multiplier_bonus_2]"
-		log = "Planet IP construction ship bonuses: [This.realdev_construction_ship_industry]"
-		log = "Planet IP construction speed: [This.realdev_planet_build_speed]"
-		log = "Planet IP assembly speed: [This.realdev_assembly_speed]"
+		log = "Logging Realdev values on Planet \\[This.GetName]"
+		log = "Planet produced IP: \\[This.realdev_industry_display]"
+		log = "Planet used IP: \\[This.realdev_total_ip]"
+		log = "Planet IP to country: \\[This.realdev_country_industry]"
+		log = "Planet IP bonuses: \\[This.realdev_industry_multiplier_bonus]"
+		log = "Planet IP Pops: \\[This.realdev_industry_pops]"
+		log = "Planet IP Buildings: \\[This.realdev_building]"
+		log = "Planet IP Alloys: \\[This.realdev_alloy_production]"
+		log = "Planet IP CGs: \\[This.realdev_congoods_production]"
+		log = "Planet IP bonuses: \\[This.realdev_industry_multiplier_bonus]"
+		log = "Planet IP amenities bonuses: \\[This.realdev_industry_multiplier_bonus_2]"
+		log = "Planet IP construction ship bonuses: \\[This.realdev_construction_ship_industry]"
+		log = "Planet IP construction speed: \\[This.realdev_planet_build_speed]"
+		log = "Planet IP assembly speed: \\[This.realdev_assembly_speed]"
 		if = {
 			limit = {
 				bonus_production_active = yes

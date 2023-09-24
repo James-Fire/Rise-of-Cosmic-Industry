@@ -42,6 +42,7 @@ set_realdev_planet_variables = {
 
 set_realdev_country_variables = {
 	set_variable = { which = realdev_ip_target value = value:realdev_ip_target }
+	set_variable = { which = realdev_ip_target_display value = realdev_ip_target }
 	set_variable = { which = realdev_minor_colony_speed value = 0 }
 	if = {
 		limit = {
