@@ -199,6 +199,7 @@ country_event = { #Monthly Country event
 	}
 }
 
+#First event for planet math
 planet_event = {
 	id = realdev.1
 	is_triggered_only = yes
@@ -217,7 +218,7 @@ planet_event = {
 		}	
 		#Include Building Production, Branch Offices too
 		set_variable = { which = realdev_building value = modifier:realdev_ip_mod }
-		log = "[This.GetName] Building IP: [This.realdev_building]"
+		#log = "[This.GetName] Building IP: [This.realdev_building]"
 		#change_variable = { which = realdev_building value = realdev_buildings }
 		set_variable = { which = realdev_building_cap value = 0 }
 		
@@ -274,7 +275,7 @@ planet_event = {
 	}
 }
 
-#First event for planet math
+#Second event for planet math
 planet_event = {
 	id = realdev.2
 	is_triggered_only = yes
@@ -323,11 +324,12 @@ planet_event = {
 		change_variable = { which = realdev_industry value = realdev_congoods_production }
 		
 		#Count Administrator Jobs (And Swaps)
-		change_variable = { which = realdev_industry_cap value = value:realdev_ruler_jobs }
+		change_variable = { which = realdev_industry_cap_rulers value = value:realdev_ruler_jobs }
 		
 		#Count Foremen
-		set_variable = { which = realdev_industry_cap_foreman value = modifier:realdev_ipc_mod }
-		change_variable = { which = realdev_industry_cap_rulers value = realdev_industry_cap_foreman }
+		change_variable = { which = realdev_industry_cap_rulers value = modifier:realdev_ipc_mod }
+		
+		change_variable = { which = realdev_industry_cap value = realdev_industry_cap_rulers }
 		
 		#Include Factory Production
 		if = {
@@ -563,6 +565,7 @@ country_event = {
 	
 	immediate = {
 		set_variable = { which = orbitalinfra_shipyard value = 0 }
+		set_variable = { which = realdev_country_industry value = 0 }
 		
 		#Pull build speed dedicated to the country from all planets
 		every_owned_planet = {
@@ -572,6 +575,7 @@ country_event = {
 				check_variable = { which = realdev_country_industry value > 0 }
 			}
 			set_variable = { which = realdev_country_industry_display value = realdev_country_industry }
+			PREV = { change_variable = { which = realdev_country_industry value = prev.realdev_country_industry } }
 			set_variable = { which = realdev_ship_build_ip value = modifier:realdev_ship_build_ip }
 		}
 		set_variable = { which = realdev_industry_from_planets value = realdev_country_industry }
@@ -597,7 +601,7 @@ country_event = {
 			limit = {
 				has_system_trade_value > 0
 			}
-			export_trigger_value_to_variable = { trigger = has_collected_system_trade_value variable = realdev_trade_value }
+			set_variable = { which = realdev_trade_value value = trigger:has_collected_system_trade_value }
 			PREV = { change_variable = { which = realdev_trade_value value = prev.realdev_trade_value } }
 		}
 
@@ -632,8 +636,6 @@ country_event = {
 				PREV = { change_variable = { which = realdev_trade_value_shared value = prev.realdev_trade_value } }
 			}
 		}
-		
-		
 		divide_variable = { which = realdev_trade_value value = 20 }
 		divide_variable = { which = realdev_trade_value_shared value = 40 }
 		ceiling_variable = realdev_trade_value
@@ -642,13 +644,12 @@ country_event = {
 		set_variable = { which = realdev_trade_value_total value = 0 }
 		change_variable = { which = realdev_trade_value_total value = realdev_trade_value }
 		change_variable = { which = realdev_trade_value_total value = realdev_trade_value_shared }
-		
-		change_variable = { which = realdev_country_industry value = realdev_trade_value }
-		change_variable = { which = realdev_country_industry value = realdev_trade_value_shared }
-		
+
 		#Branch Office Buildings
-		set_variable = { which = realdev_branch_building value = modifier:realdev_ip_mod }
-		change_variable = { which = realdev_trade_value_total value = realdev_branch_building }
+		change_variable = { which = realdev_trade_value_total value = modifier:realdev_ip_mod }
+		
+		change_variable = { which = realdev_country_industry value = realdev_trade_value_total }
+		
 		
 		#Count shipyard modules, and Orbital Infrastructure Shipyards
 		every_owned_starbase = {
@@ -671,12 +672,10 @@ country_event = {
 		set_variable = { which = realdev_shipyard_display value = realdev_shipyard_count }
 		#change_variable = { which = realdev_shipyard_bonus value = realdev_shipyard_count }
 		#multiply_variable = { which = realdev_shipyard_bonus value = 5 }		
-		
-		set_variable = { which = realdev_country_industry_collected value = realdev_country_industry }
-		change_variable = { which = realdev_country_industry value = realdev_trade_value_total }
-		
+
 		set_variable = { which = realdev_total_ip value = realdev_country_industry }
 		set_variable = { which = realdev_country_industry_display value = realdev_country_industry }
+		
 		
 		#Give IP to planets that request it, then have them evaluate their stuff.
 		set_variable = { which = realdev_ip_distributed value = 0 }

@@ -188,7 +188,7 @@ roci_autofab_job_multiplier = {
 #roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
 
 #Planet Scope
-#Total calculation for how much production a module should have. Calculate per job first, then multiply by number of jobs.
+#Total calculation for how much upkeep a module should have. Calculate per job first, then multiply by number of jobs.
 roci_autofab_job_upkeep_multiplier = {
 	base = 0
 	

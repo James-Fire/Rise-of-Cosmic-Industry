@@ -64,6 +64,7 @@
 @roci_miner_base_energy_upkeep = 0
 @roci_technician_base_energy_upkeep = 0
 @roci_metallurgists_base_energy_upkeep = 0
+@roci_metallurgists_base_food_upkeep = 9
 @roci_metallurgists_base_minerals_upkeep = 6
 @roci_artisans_base_energy_upkeep = 0
 @roci_artisans_base_minerals_upkeep = 6
@@ -78,6 +79,7 @@
 @roci_miner_machine_energy_upkeep = 0
 @roci_technician_machine_energy_upkeep = 0
 @roci_metallurgists_machine_energy_upkeep = 0
+@roci_metallurgists_machine_food_upkeep = 0
 @roci_metallurgists_machine_minerals_upkeep = 0
 @roci_artisans_machine_energy_upkeep = 0
 @roci_artisans_machine_minerals_upkeep = 0
@@ -92,6 +94,7 @@
 @roci_miner_hive_energy_upkeep = 0
 @roci_technician_hive_energy_upkeep = 0
 @roci_metallurgists_hive_energy_upkeep = 0
+@roci_metallurgists_hive_food_upkeep = 0
 @roci_metallurgists_hive_minerals_upkeep = 0
 @roci_artisans_hive_energy_upkeep = 0
 @roci_artisans_hive_minerals_upkeep = 0

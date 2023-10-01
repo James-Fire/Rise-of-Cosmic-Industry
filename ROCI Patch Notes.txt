@@ -1,4 +1,8 @@
+*Autofab Modules now provide sprawl directly.
 
+*Minor Colonies now provide sprawl directly.
+
+*Removed the Sprawl Workaround district
 
 *Hyper Relays now decrease shipping cost.
 
