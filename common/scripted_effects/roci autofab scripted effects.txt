@@ -730,29 +730,11 @@ document_factory_planet = {
 				}
 			}
 			habitat = {
+				count_limited_districts = yes
 				if = {
 					limit = {
 						can_build_fallback_planet = yes
 					}
-					if = {
-						limit = {
-							OR = {
-								has_planet_flag = energy_habitat
-								AND = {
-									exists = from
-									from = { is_gestalt = yes }
-								}
-							}
-						}
-						change_variable = { which = autofab_energy_avail value = autofab_districts_available }
-					}
-					if = {
-						limit = {
-							has_planet_flag = mining_habitat
-						}
-						change_variable = { which = autofab_minerals_avail value = autofab_districts_available }
-					}
-	
 					change_variable = { which = autofab_foundry_available value = autofab_districts_available }
 					change_variable = { which = autofab_factory_available value = autofab_districts_available }
 					change_variable = { which = autofab_motes_available value = autofab_districts_available }
@@ -761,26 +743,6 @@ document_factory_planet = {
 				}
 				else = {
 					if = {
-						limit = {
-							is_energy_colony = yes
-							OR = {
-								has_planet_flag = energy_habitat
-								AND = {
-									exists = from
-									from = { is_gestalt = yes }
-								}
-							}
-						}
-						change_variable = { which = autofab_energy_avail value = autofab_districts_available }
-					}
-					else_if = {
-						limit = {
-							is_mining_colony = yes
-							has_planet_flag = mining_habitat
-						}
-						change_variable = { which = autofab_minerals_avail value = autofab_districts_available }
-					}
-					else_if = {
 						limit = {
 							is_alloys_colony = yes
 						}
@@ -875,6 +837,7 @@ document_factory_planet = {
 
 count_limited_districts = {
 	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_generator } variable = autofab_energy_avail }
+	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_hab_energy } variable = autofab_energy_avail }
 	if = {
 		limit = {
 			check_variable = { which = autofab_energy_avail value > trigger:free_district_slots }
@@ -883,6 +846,7 @@ count_limited_districts = {
 	}
 	
 	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_mining } variable = autofab_minerals_avail }
+	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_hab_mining } variable = autofab_minerals_avail }
 	if = {
 		limit = {
 			check_variable = { which = autofab_minerals_avail value > trigger:free_district_slots }
