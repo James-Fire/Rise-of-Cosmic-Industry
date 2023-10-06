@@ -50,8 +50,9 @@ print_realdev_values = {
 			is_scope_type = planet
 		}
 		log = "Logging Realdev values on Planet \\[This.GetName]"
-		log = "Planet produced IP: \\[This.realdev_industry_display]"
-		log = "Planet used IP: \\[This.realdev_total_ip]"
+		log = "Planet used IP: \\[This.realdev_industry_display]"
+		log = "Planet produced IP: \\[This.realdev_produced_ip]"
+		log = "Planet produced IPC: \\[This.realdev_produced_ipc]"
 		log = "Planet IP to country: \\[This.realdev_country_industry]"
 		log = "Planet IP bonuses: \\[This.realdev_industry_multiplier_bonus]"
 		log = "Planet IP Pops: \\[This.realdev_industry_pops]"
@@ -61,8 +62,19 @@ print_realdev_values = {
 		log = "Planet IP bonuses: \\[This.realdev_industry_multiplier_bonus]"
 		log = "Planet IP amenities bonuses: \\[This.realdev_industry_multiplier_bonus_2]"
 		log = "Planet IP construction ship bonuses: \\[This.realdev_construction_ship_industry]"
-		log = "Planet IP construction speed: \\[This.realdev_planet_build_speed]"
+		log = "Planet IP build/assembly ratio: \\[This.realdev_industry_construction_ratio]"
+		log = "Planet IP build speed: \\[This.realdev_planet_build_speed]"
 		log = "Planet IP assembly speed: \\[This.realdev_assembly_speed]"
+		if = {
+			limit = {
+				has_building_construction = no
+				NOT = { has_planet_flag = factory_expanding }
+			}
+			log = "Planet not building anything"
+		}
+		else = {
+			log = "Planet building"
+		}
 		if = {
 			limit = {
 				bonus_production_active = yes
