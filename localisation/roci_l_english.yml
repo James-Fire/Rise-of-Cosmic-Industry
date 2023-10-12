@@ -1174,6 +1174,7 @@
     realdev_planet_job_output: "Industrial Production Boost"
     realdev_planet_job_output_desc: "Industrial Production is being used to boost the output of this planet."
     
+    mod_realdev_ship_build_ip: "Shipbuilding Industrial Production"
     mod_realdev_ip_mod: "Industrial Production"
     mod_realdev_ipc_mod: "Industrial Production Capacity"
  
@@ -1662,6 +1663,10 @@
     roci_shipping_scaling: "Current Multiplier: [event_target:global_event_country.shipping_scale]"
     roci_shipping_scaling_desc: "The cost of shipping can be scaled by adjusting this setting. It moves in increments of 0.1"
     roci_shipping_scaling_decrease_error: "The cost of shipping cannot be zero. Disable the module if that's what you want."
+  #Modifiers
+    mod_planet_technician_upkeep_mult: "Technician Upkeep"
+    mod_planet_miners_upkeep_mult: "Miner Upkeep"
+    mod_planet_farmers_upkeep_mult: "Farmer Upkeep"
     
   #Stupid Stuff that only exists because error log
     autofab_country_default: "Defaulted to Empire Setting."
