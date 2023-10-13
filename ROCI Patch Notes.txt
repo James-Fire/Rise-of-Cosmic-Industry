@@ -1,5 +1,3 @@
-
-
 *Autofab Modules now provide sprawl directly.
 
 *Minor Colonies now provide sprawl directly.

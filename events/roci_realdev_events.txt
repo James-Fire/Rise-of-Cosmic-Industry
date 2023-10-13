@@ -475,6 +475,7 @@ planet_event = {
 				NOT = { check_variable = { which = realdev_ip_target value > 0 } }
 			}
 			set_variable = { which = realdev_total_ip value = realdev_industry }
+			set_variable = { which = realdev_assembly_speed value = 0 }
 			if = {
 				limit = {
 					has_building_construction = no
@@ -667,18 +668,22 @@ country_event = {
 		every_owned_planet = {
 			limit = {
 				check_variable = { which = realdev_ip_target value > 0 }
-				check_variable = { which = realdev_ip_target value > prev.realdev_country_industry }
 			}
-			set_variable = { which = realdev_ip_request value = realdev_ip_target }
-			subtract_variable = { which = realdev_ip_request value = realdev_industry }
 			if = {
 				limit = {
-					check_variable = { which = realdev_ip_request value < prev.realdev_country_industry }
+					check_variable = { which = realdev_ip_target value > prev.realdev_country_industry }
 				}
-				set_variable = { which = realdev_ip_request value = prev.realdev_country_industry }
-				PREV = { set_variable = { which = realdev_country_industry value = 0 } }
-				change_variable = { which = realdev_industry value = realdev_ip_request }
-				PREV = { change_variable = { which = realdev_ip_distributed value = prev.realdev_ip_request } }
+				set_variable = { which = realdev_ip_request value = realdev_ip_target }
+				subtract_variable = { which = realdev_ip_request value = realdev_industry }
+				if = {
+					limit = {
+						check_variable = { which = realdev_ip_request value < prev.realdev_country_industry }
+					}
+					set_variable = { which = realdev_ip_request value = prev.realdev_country_industry }
+					PREV = { set_variable = { which = realdev_country_industry value = 0 } }
+					change_variable = { which = realdev_industry value = realdev_ip_request }
+					PREV = { change_variable = { which = realdev_ip_distributed value = prev.realdev_ip_request } }
+				}
 			}
 			planet_event = { id = realdev.11 days = 2 random = 2 }
 		}

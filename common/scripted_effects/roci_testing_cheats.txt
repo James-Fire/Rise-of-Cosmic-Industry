@@ -44,6 +44,15 @@ print_realdev_values = {
 		log = "Country Shipyard Speed Cap: \\[This.realdev_ship_build_cap]"
 		log = "Country Shipyard Leader Speed: \\[This.leader_realdev_ship_build_speed]"
 		#log = "Country Shipyard Bonus Speed: \\[This.realdev_shipyard_bonus]"
+		if = {
+			limit = {
+				has_country_flag = realdev_variables_set
+			}
+			log = "Realdev Empire Variables are set"
+		}
+		else = {
+			log = "Realdev Empire Variables are not set"
+		}
 	}
 	if = {
 		limit = {
@@ -51,6 +60,7 @@ print_realdev_values = {
 		}
 		log = "Logging Realdev values on Planet \\[This.GetName]"
 		log = "Planet used IP: \\[This.realdev_industry_display]"
+		log = "Planet target remaining IP: \\[This.realdev_ip_target]"
 		log = "Planet produced IP: \\[This.realdev_produced_ip]"
 		log = "Planet produced IPC: \\[This.realdev_produced_ipc]"
 		log = "Planet IP to country: \\[This.realdev_country_industry]"
@@ -65,6 +75,21 @@ print_realdev_values = {
 		log = "Planet IP build/assembly ratio: \\[This.realdev_industry_construction_ratio]"
 		log = "Planet IP build speed: \\[This.realdev_planet_build_speed]"
 		log = "Planet IP assembly speed: \\[This.realdev_assembly_speed]"
+		if = {
+			limit = {
+				has_planet_flag = realdev_variables_set
+			}
+			log = "Realdev Planet Variables are set"
+		}
+		else = {
+			log = "Realdev Planet Variables are not set"
+		}
+		if = {
+			limit = {
+				can_pops_assemble_on_planet = yes
+			}
+			log = "Pops can be assembled on the planet"
+		}
 		if = {
 			limit = {
 				has_building_construction = no
