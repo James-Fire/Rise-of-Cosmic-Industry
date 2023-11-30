@@ -1,6 +1,12 @@
-*Autofab Modules now provide sprawl directly.
+*Fixed Catalytic Processing not converting SR FE Buildings, SR Orbital Districts, or SR Autofab Modules to food consumption
 
-*Minor Colonies now provide sprawl directly.
+*Fixed the autofab automation settings window
+
+The autofab itself now makes 1 sprawl.
+
+Autofab Modules now provide sprawl directly.
+
+Minor Colonies now provide sprawl directly.
 
 *Removed the Sprawl Workaround district
 

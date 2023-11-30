@@ -186,6 +186,10 @@ autofab = {
 		}
 	}
 	
+	country_modifier = {
+		empire_size_add = 1
+	}
+	
 	potential = {
 		always = yes
 	}
@@ -251,7 +255,7 @@ autofab_power = {
 	
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 	
 	potential = {
@@ -334,7 +338,7 @@ autofab_farm = {
 	}
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 	
 	potential = {
@@ -452,7 +456,7 @@ autofab_mine = {
 	}
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 	
 	potential = {
@@ -539,7 +543,7 @@ autofab_foundry = {
 	}
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 	
 	potential = {
@@ -613,7 +617,7 @@ autofab_factory = {
 	}
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 	
 	potential = {
@@ -672,7 +676,7 @@ autofab_motes_refinery = {
 	}
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 	
 	potential = {
@@ -731,7 +735,7 @@ autofab_gases_refinery = {
 	}
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 	
 	potential = {
@@ -790,7 +794,7 @@ autofab_crystals_refinery = {
 	}
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 	
 	potential = {
@@ -871,7 +875,7 @@ autofab_refinery_extractor = {
 	}
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 
 	triggered_planet_modifier = {

@@ -136,7 +136,7 @@ d_small_colonies = {
 	}
 	
 	country_modifier = {
-		#country_admin_cap_add = -1
+		empire_size_add = 1
 	}
 	
 	triggered_planet_modifier = {

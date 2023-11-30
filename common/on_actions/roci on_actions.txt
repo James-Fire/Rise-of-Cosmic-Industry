@@ -43,8 +43,6 @@ on_yearly_pulse_country = {
 	events = {
 		autofab.5
 		
-		roci_menu.40
-		
 		kiyo_trade_triggered_event.8
 	}
 }
@@ -304,7 +302,6 @@ on_autofab_module_started = {
 #Planet Scope, no predefined scopes
 on_autofab_module_completed = {
 	events = {
-		roci_menu.41
 		autofab_queue.8
 	}
 }
@@ -317,7 +314,6 @@ on_autofab_retool_started = {
 #Planet Scope, no predefined scopes
 on_autofab_retool_completed = {
 	events = {
-		roci_menu.41
 		autofab_queue.8
 	}
 }
@@ -325,7 +321,6 @@ on_autofab_retool_completed = {
 #from = space_owner
 on_exploit_colony_completed = {
 	events = {
-		roci_menu.41
 	}
 }
 #Planet Scope
