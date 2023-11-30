@@ -610,17 +610,36 @@ district_orbital_platform_refinery = {
 		uses_orbital_infrastructure = 1
 		planet_orbital_districts_upkeep_mult = @Elevator_upkeep_mult
 		planet_chemists_volatile_motes_produces_add = 1
-		planet_chemists_minerals_upkeep_add = 5
 		planet_chemists_energy_upkeep_add = 1
 		planet_chemists_upkeep_mult = 0.01
 		planet_refiners_exotic_gases_produces_add = 1
-		planet_refiners_minerals_upkeep_add = 5
 		planet_refiners_energy_upkeep_add = 1
 		planet_refiners_upkeep_mult = 0.01
 		planet_translucers_rare_crystals_produces_add = 1
-		planet_translucers_minerals_upkeep_add = 5
 		planet_translucers_energy_upkeep_add = 1
 		planet_translucers_upkeep_mult = 0.01
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_catalytic_empire = no }
+		}
+		modifier = {
+			planet_chemists_minerals_upkeep_add = 5
+			planet_refiners_minerals_upkeep_add = 5
+			planet_translucers_minerals_upkeep_add = 5
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_catalytic_empire = yes }
+		}
+		modifier = {
+			planet_chemists_food_upkeep_add = 10
+			planet_refiners_food_upkeep_add = 10
+			planet_translucers_food_upkeep_add = 10
+		}
 	}
 	
 	ai_weight = {

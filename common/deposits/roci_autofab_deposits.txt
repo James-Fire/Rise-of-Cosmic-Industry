@@ -649,8 +649,20 @@ autofab_motes_refinery = {
 			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|volatile_motes|
 		}
 		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_catalytic_empire = no }
+			}
 			minerals = 1
 			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|minerals|
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_catalytic_empire = yes }
+			}
+			food = 1
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|food|
 		}
 		upkeep = {
 			energy = 1
@@ -708,8 +720,20 @@ autofab_gases_refinery = {
 			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|exotic_gases|
 		}
 		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_catalytic_empire = no }
+			}
 			minerals = 1
 			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|minerals|
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_catalytic_empire = yes }
+			}
+			food = 1
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|food|
 		}
 		upkeep = {
 			energy = 1
@@ -767,8 +791,20 @@ autofab_crystals_refinery = {
 			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|rare_crystals|
 		}
 		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_catalytic_empire = no }
+			}
 			minerals = 1
 			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|minerals|
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_catalytic_empire = yes }
+			}
+			food = 1
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|food|
 		}
 		upkeep = {
 			energy = 1

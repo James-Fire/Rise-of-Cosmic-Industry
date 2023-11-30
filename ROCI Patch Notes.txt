@@ -1,5 +1,11 @@
 *Fixed Catalytic Processing not converting SR FE Buildings, SR Orbital Districts, or SR Autofab Modules to food consumption
 
+Catalytic Processing now makes autofab SR production use food.
+
+Catalytic Processing now makes Orbital District SR production bonus use food.
+
+Catalytic Processing now makes FE Building SR production bonus use food.
+
 *Fixed the autofab automation settings window
 
 The autofab itself now makes 1 sprawl.
@@ -8,7 +14,7 @@ Autofab Modules now provide sprawl directly.
 
 Minor Colonies now provide sprawl directly.
 
-*Removed the Sprawl Workaround district
+Removed the Sprawl Workaround district
 
 *Hyper Relays now decrease shipping cost.
 
