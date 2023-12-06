@@ -1,12 +1,18 @@
-*Fixed Catalytic Processing not converting SR FE Buildings, SR Orbital Districts, or SR Autofab Modules to food consumption
-
 Catalytic Processing now makes autofab SR production use food.
 
 Catalytic Processing now makes Orbital District SR production bonus use food.
 
 Catalytic Processing now makes FE Building SR production bonus use food.
 
-*Fixed the autofab automation settings window
+Fixed the autofab automation settings window
+
+Removed the unlocalized "changes variable by this much" message from the Shipping Scale setting.
+
+Fixed the Orbital Districts concept not having a description
+
+Fixed missing GFX that causes "?" buttons
+
+Locked the "Starting Loops" setting behind Exploitation being active.
 
 The autofab itself now makes 1 sprawl.
 
@@ -21,6 +27,7 @@ Removed the Sprawl Workaround district
 *Added some techs to decrease shipping cost. Or overwrite relevant vanilla ones
 
 *Orbital Defense Platform now has modifiers saying what it does.
+
 
 
 
@@ -47,8 +54,6 @@ This cap applies during splitting, so Planet Build Speed will get any IP over th
 
 *Made autofab retooling respect Realdev.
 
-*Merged the Exploit Minimum Stockpile menu with the Autofab Automation Settings window.
-
 *Autofab Modules are now Districts.
 
 *Orbital "Districts" are now deposits.
@@ -59,13 +64,7 @@ This cap applies during splitting, so Planet Build Speed will get any IP over th
 
 Added a whole bunch of nested tooltips to help explain various mod concepts.*
 
-Moved the Trade Value provided by completed exploit constructions to the minor colonies.*
-
-Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.* Kinda annoying to do
-
 Fixed the Orbital Infrastructure modifier sometimes reporting the clearly wrong value.*
-
-Added explicit build time info to Exploit UI tooltips.*
 
 Fixed "Uses Orbital Slot" modifier showing up wherever the fuck it wants to.*
 
@@ -76,9 +75,17 @@ FE Buildings now make the job they affect have appropriate SR upkeep as well.*
 
 
 
+*Merged the Exploit Minimum Stockpile menu with the Autofab Automation Settings window. Exploit probably won't come back
+
+Moved the Trade Value provided by completed exploit constructions to the minor colonies.* Exploit probably won't come back
+
+Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.* Kinda annoying to do, Exploit probably won't come back
+
+Added explicit build time info to Exploit UI tooltips.* Exploit probably won't come back
+
 Added a collection of Realdev Default Settings that can be set in the Country UI, and can optionally be used by planets instead of setting them in the Planet UI.*
 
-Added a "Space Colonizer" Origin that deals with Minor Colonies.*
+Added a "Space Colonizer" Origin that deals with Minor Colonies.* Exploit probably won't come back
 
 Orbital Cities increase the upkeep of Districts by a flat and % amount.*
 

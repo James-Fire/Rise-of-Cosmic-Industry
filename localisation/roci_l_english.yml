@@ -1663,6 +1663,8 @@
     roci_shipping_scaling: "Current Multiplier: [event_target:global_event_country.shipping_scale]"
     roci_shipping_scaling_desc: "The cost of shipping can be scaled by adjusting this setting. It moves in increments of 0.1"
     roci_shipping_scaling_decrease_error: "The cost of shipping cannot be zero. Disable the module if that's what you want."
+    shipping_scale: "Shipping Cost"
+    
   #Modifiers
     mod_planet_technician_upkeep_mult: "Technician Upkeep"
     mod_planet_miners_upkeep_mult: "Miner Upkeep"

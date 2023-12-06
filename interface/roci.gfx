@@ -88,6 +88,9 @@ spriteTypes = {
 	spriteType = { name = "GFX_blank_menu_button_skinny"			texturefile = "gfx/interface/menu_ui/blank_skinny_button_background.dds" }
 	spriteType = { name = "GFX_blank_half_menu_button_skinny"		texturefile = "gfx/interface/menu_ui/blank_skinny_half_button_background.dds" }
 	
+	#Buttons
+	spriteType = { name = "GFX_roci_menu_minus_g"					texturefile = "gfx/interface/menu_ui/roci_menu_minus_g.dds" }
+	
 	#Sidebar Buttons
 	spriteType = { name = "GFX_side_top"							texturefile = "gfx/interface/menu_ui/side_button_top.dds" }
 	spriteType = { name = "GFX_autofab_side"						texturefile = "gfx/interface/menu_ui/side_button_factory.dds" }

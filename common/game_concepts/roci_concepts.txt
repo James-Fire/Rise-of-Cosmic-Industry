@@ -13,6 +13,9 @@ concept_minor_colony = {
 concept_construction = {
 
 }
+concept_orbital_districts = {
+
+}
 concept_industrial_production = {
 
 }

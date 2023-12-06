@@ -382,14 +382,14 @@ roci_exploit_uninhabitables_size_off = {
 	}
 }
 roci_exploit_starting_loops = {
-	potential = { }
+	potential = { NOT = { has_global_flag = no_exploit } }
 	allow = { always = yes }
 	effect = {
 		custom_tooltip = "roci_exploit_starting_loops_desc"
 	}
 }
 roci_exploit_starting_loops_on = {
-	potential = { has_global_flag = roci_exploit_starting_loops_off }
+	potential = { NOT = { has_global_flag = no_exploit } has_global_flag = roci_exploit_starting_loops_off }
 	allow = { hidden_trigger = { always = yes } }
 	effect = {
 		custom_tooltip = "roci_exploit_starting_loops_desc"
@@ -397,7 +397,7 @@ roci_exploit_starting_loops_on = {
 	}
 }
 roci_exploit_starting_loops_off = {
-	potential = { NOT = { has_global_flag = roci_exploit_starting_loops_off } }
+	potential = { NOT = { has_global_flag = no_exploit } NOT = { has_global_flag = roci_exploit_starting_loops_off } }
 	allow = { hidden_trigger = { always = yes } }
 	effect = {
 		custom_tooltip = "roci_exploit_starting_loops_desc"
@@ -635,8 +635,10 @@ roci_shipping_scaling_increase = {
 	allow = { hidden_trigger = { always = yes } }
 	effect = {
 		custom_tooltip = "roci_shipping_scaling_desc"
-		event_target:global_event_country = {
-			change_variable = { which = shipping_scale value = 0.1 }
+		hidden_effect = {
+			event_target:global_event_country = {
+				change_variable = { which = shipping_scale value = 0.1 }
+			}
 		}
 	}
 }
@@ -652,8 +654,10 @@ roci_shipping_scaling_decrease = {
 	}
 	effect = {
 		custom_tooltip = "roci_shipping_scaling_desc"
-		event_target:global_event_country = {
-			subtract_variable = { which = shipping_scale value = 0.1 }
+		hidden_effect = {
+			event_target:global_event_country = {
+				subtract_variable = { which = shipping_scale value = 0.1 }
+			}
 		}
 	}
 }
