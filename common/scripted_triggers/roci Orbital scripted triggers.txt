@@ -11,16 +11,7 @@ has_oi_space = {
 }
 
 has_space_elevator_support = {
-	OR = {
-		AND = {
-			OR = {
-				has_active_building = building_roci_space_elevator
-				has_active_building = building_roci_space_elevator_2
-			}
-			check_modifier_value = { modifier = district_orbital_platform_cap_max value > value:orbital_district_count }
-		}
-		has_active_building = building_roci_space_elevator_3
-	}
+	check_modifier_value = { modifier = district_orbital_platform_cap_max value > value:orbital_district_count }
 }
 
 is_special_planet = {

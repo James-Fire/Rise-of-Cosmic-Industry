@@ -51,20 +51,6 @@
 # For format for doing so is value:my_value|PARAM1|value1|PARAM2|value2|.
 # Then you can use $PARAM1$ in the script value and it will replace it with value1
 
-### General ROCI
-
-roci_district_sprawl = {
-	base = 0
-	modifier = {
- 		is_variable_set = small_colony_count
-		add = small_colony_count
- 	}
-	modifier = {
- 		is_variable_set = autofab_modules
-		add = autofab_modules
- 	}
-}
-
 ###Cargo Ships
 
 roci_trade_route_value = {
@@ -467,6 +453,28 @@ orbital_spaceport_crystals_mult = {
 	add = orbitalinfra_cities
 	add = orbitalinfra_commercial
 	add = orbitalinfra_admin
+}
+
+#Planet Scope
+orbital_space_total = {
+	base = 0
+	modifier = {
+ 		has_active_building = building_roci_space_elevator
+		add = 10
+	}
+	modifier = {
+ 		has_active_building = building_roci_space_elevator_2
+		add = 25
+	}
+	modifier = {
+ 		has_active_building = building_roci_space_elevator_3
+		add = 25
+	}
+	modifier = {
+ 		has_active_building = building_roci_space_elevator_3
+		add = trigger:planet_size
+	}
+
 }
 
 ###Realdev

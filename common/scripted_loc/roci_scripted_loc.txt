@@ -14,18 +14,7 @@ defined_text = {
 #Orbital
 defined_text = {
 	name = GetOrbitalCapacity
-	text = {
-		trigger = { has_active_building = building_roci_space_elevator }
-		localization_key = 10
-	}
-	text = {
-		trigger = { has_active_building = building_roci_space_elevator_2 }
-		localization_key = 25
-	}
-	text = {
-		trigger = { has_active_building = building_roci_space_elevator_3 }
-		localization_key = Infinity
-	}
+	value = value:orbital_space_total
 }
 
 #Realdev

@@ -836,32 +836,19 @@ document_factory_planet = {
 }
 
 count_limited_districts = {
-	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_generator } variable = autofab_energy_avail }
-	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_hab_energy } variable = autofab_energy_avail }
-	if = {
-		limit = {
-			check_variable = { which = autofab_energy_avail value > trigger:free_district_slots }
-		}
-		set_variable = { which = autofab_energy_avail value = trigger:free_district_slots }
-	}
+	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_generator } variable = autofab_energy_avail_stan }
+	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_hab_energy } variable = autofab_energy_avail_hab }
+	change_variable = { which = autofab_energy_avail value = autofab_energy_avail_stan }
+	change_variable = { which = autofab_energy_avail value = autofab_energy_avail_hab }
 	
-	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_mining } variable = autofab_minerals_avail }
-	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_hab_mining } variable = autofab_minerals_avail }
-	if = {
-		limit = {
-			check_variable = { which = autofab_minerals_avail value > trigger:free_district_slots }
-		}
-		set_variable = { which = autofab_minerals_avail value = trigger:free_district_slots }
-	}
+	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_mining } variable = autofab_minerals_avail_stan }
+	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_hab_mining } variable = autofab_minerals_avail_hab }
+	change_variable = { which = autofab_minerals_avail value = autofab_minerals_avail_stan }
+	change_variable = { which = autofab_minerals_avail value = autofab_minerals_avail_hab }
 	
 	export_trigger_value_to_variable = { trigger = num_free_districts parameters = { type = district_farming } variable = autofab_food_avail }
-	if = {
-		limit = {
-			check_variable = { which = autofab_food_avail value > trigger:free_district_slots }
-		}
-		set_variable = { which = autofab_food_avail value = trigger:free_district_slots }
-	}
 }
+
 
 reset_factory_part_1 = {
 	set_unset_variables = yes

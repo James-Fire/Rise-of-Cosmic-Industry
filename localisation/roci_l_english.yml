@@ -1109,6 +1109,7 @@
     orbital_space: "Orbital Infrastructure"
     orbital_space_effects: ""
     orbital_space_desc: "Orbital Utilization: [This.orbital_infrastructure]/[This.GetOrbitalCapacity]"
+    orbital_space_to
     oi_shipyard_limited: ""
     oi_shipyard: ""
     mod_district_orbital_platform_cap_max: "Max Orbital Slots"
