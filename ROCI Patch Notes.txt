@@ -1,4 +1,8 @@
+The edict to add more trade ships to existing trade fleets now requires you to have just a trade fleet, instead of an active trade route.
 
+The edict to add more trade ships to existing trade fleets now multiplies cargo capacity instead, since paradox decided multi-ship civilian fleets is bad.
+
+The edict to add more trade ships no longer fucks the name.
 
 *Hyper Relays now decrease shipping cost.
 

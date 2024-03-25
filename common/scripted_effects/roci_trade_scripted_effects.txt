@@ -243,16 +243,16 @@ kiyo_trade_calculate_resources = {
 	##Apply any relevant multipliers to cargo capacity
 	
 	#Multiply based on number of cargo ships in the fleet
-	multiply_variable = { which = kiyo_trade_minerals value = trigger:num_ships }
-	multiply_variable = { which = kiyo_trade_energy value = trigger:num_ships }
-	multiply_variable = { which = kiyo_trade_food value = trigger:num_ships }
-	multiply_variable = { which = kiyo_trade_unity value = trigger:num_ships }
-	multiply_variable = { which = kiyo_trade_consumer_goods value = trigger:num_ships }
-	multiply_variable = { which = kiyo_trade_alloys value = trigger:num_ships }
-	multiply_variable = { which = kiyo_trade_physics_research value = trigger:num_ships }
-	multiply_variable = { which = kiyo_trade_society_research value = trigger:num_ships }
-	multiply_variable = { which = kiyo_trade_engineering_research value = trigger:num_ships }
-	multiply_variable = { which = kiyo_trade_trade_value value = trigger:num_ships }
+	multiply_variable = { which = kiyo_trade_minerals value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_energy value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_food value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_unity value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_consumer_goods value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_alloys value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_physics_research value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_society_research value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_engineering_research value = kiyo_trade_max_cargo_ships_per_fleet }
+	multiply_variable = { which = kiyo_trade_trade_value value = kiyo_trade_max_cargo_ships_per_fleet }
 	
 	
 	# 3/4 Cargo if getting cargo from origin to destination
@@ -400,6 +400,27 @@ kiyo_trade_manual_event_11 = {
 					}
 				}
 			}
+		}
+	}
+	if = {
+		limit = {
+			has_fleet_flag = kiyo_trade_has_trade_route
+		}
+		set_name = {
+			key = "roci_cargo_ships_fleetname"
+			variable_string = "\\[event_target:kiyo_trade_start.GetName]"
+			variable_string = "\\[event_target:kiyo_trade_end.GetName]"
+			variable_string = "\\[This.kiyo_trade_max_cargo_ships_per_fleet]"
+			variable_string = "\\[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+		}
+	}
+	else = {
+		set_name = {
+			key = "roci_cargo_ships_fleetname_no_target_upgrade"
+			variable_string = "\\[kiyo_trade_start.GetName]"
+			#variable_string = "\\[kiyo_trade_end.GetName]"
+			variable_string = "\\[This.kiyo_trade_max_cargo_ships_per_fleet]"
+			variable_string = "\\[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
 		}
 	}
 }

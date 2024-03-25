@@ -1445,6 +1445,7 @@
     campaign_kiyo_mod_trade_energy_upkeep_add:0 "Cargo Ship Energy Upkeep"
     
     roci_cargo_ships_fleetname_no_target: "[Prev.GetName] Cargo Fleet (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+    roci_cargo_ships_fleetname_no_target_upgrade: "[kiyo_trade_start.GetName] Cargo Fleet (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
     roci_cargo_ships_fleetname: "[prevprev.GetName] - [prev.GetName] Cargo (To [prevprev.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
     roci_cargo_ships_fleetname_going: "[prevprev.GetName] - [prev.GetName] Cargo (To [prev.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
     roci_cargo_ships_name_no_target: "[Prev.GetName] (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
