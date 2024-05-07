@@ -140,21 +140,15 @@ has_energy_available = {
 			num_free_districts = { type = district_generator value > 0 }
 		}
 		AND = {
+			uses_district_set = habitat
+			num_free_districts = { type = district_hab_energy value > 0 }
+		}
+		AND = {
 			OR = {
 				uses_district_set = hive_world
 				uses_district_set = machine_world
 				uses_district_set = ring_world
 				uses_district_set = shattered_ring_world
-				AND = {
-					uses_district_set = habitat
-					OR = {
-						has_planet_flag = energy_habitat
-						AND = {
-							exists = from
-							from = { is_gestalt = yes }
-						}
-					}
-				}
 			}
 			free_district_slots > 0
 		}
@@ -170,15 +164,15 @@ has_minerals_available = {
 			uses_district_set = standard
 			num_free_districts = { type = district_mining value > 0 }
 		}
+		AND = {	
+			uses_district_set = habitat
+			num_free_districts = { type = district_hab_mining value > 0 }
+		}
 		AND = {
 			OR = {
 				uses_district_set = hive_world
 				uses_district_set = machine_world
 				uses_district_set = shattered_ring_world
-				AND = {
-					uses_district_set = habitat
-					has_planet_flag = mining_habitat
-				}
 			}
 			free_district_slots > 0
 		}

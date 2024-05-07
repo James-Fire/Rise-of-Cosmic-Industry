@@ -233,6 +233,12 @@ autofab_power = {
 			}
 			rare_crystals = 2
 		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = habitat }
+			}
+			alloys = 0.2
+		}
 	}
 	
 	triggered_planet_modifier = {
@@ -250,6 +256,14 @@ autofab_power = {
 		}
 		modifier = {
 			district_generator_max = -1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			uses_district_set = habitat
+		}
+		modifier = {
+			district_hab_energy_max = -1
 		}
 	}
 	
@@ -435,6 +449,12 @@ autofab_mine = {
 			energy = 2
 			mult = value:roci_autofab_basic_jobs
 		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = habitat }
+			}
+			alloys = 0.2
+		}
 	}
 	
 	triggered_planet_modifier = {
@@ -452,6 +472,14 @@ autofab_mine = {
 		}
 		modifier = {
 			district_mining_max = -1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			uses_district_set = habitat
+		}
+		modifier = {
+			district_hab_mining_max = -1
 		}
 	}
 	
@@ -530,6 +558,12 @@ autofab_foundry = {
 			energy = 19
 			volatile_motes = 2
 		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = habitat }
+			}
+			alloys = 0.2
+		}
 	}
 	
 	triggered_planet_modifier = {
@@ -604,6 +638,12 @@ autofab_factory = {
 			energy = 19
 			rare_crystals = 2
 		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = habitat }
+			}
+			alloys = 0.2
+		}
 	}
 	
 	triggered_planet_modifier = {
@@ -674,6 +714,12 @@ autofab_motes_refinery = {
 		upkeep = {
 			energy = 2
 			mult = value:roci_autofab_advanced_jobs
+		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = habitat }
+			}
+			alloys = 0.2
 		}
 	}
 	
@@ -746,6 +792,12 @@ autofab_gases_refinery = {
 			energy = 2
 			mult = value:roci_autofab_advanced_jobs
 		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = habitat }
+			}
+			alloys = 0.2
+		}
 	}
 	
 	triggered_planet_modifier = {
@@ -816,6 +868,12 @@ autofab_crystals_refinery = {
 		upkeep = {
 			energy = 2
 			mult = value:roci_autofab_advanced_jobs
+		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = habitat }
+			}
+			alloys = 0.2
 		}
 	}
 	
@@ -897,7 +955,13 @@ autofab_refinery_extractor = {
 	resources = {
 		category = planet_autofab_srs
 		produces = {
-		}		
+		}
+		upkeep = {
+			trigger = {
+				planet = { uses_district_set = habitat }
+			}
+			alloys = 0.2
+		}
 	}
 	
 	triggered_planet_modifier = {

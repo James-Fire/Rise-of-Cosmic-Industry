@@ -1,8 +1,16 @@
-The edict to add more trade ships to existing trade fleets now requires you to have just a trade fleet, instead of an active trade route.
+Autofab modules on habitats now cost 0.2 alloys for upkeep, like the districts
 
-The edict to add more trade ships to existing trade fleets now multiplies cargo capacity instead, since paradox decided multi-ship civilian fleets is bad.
+Autofab energy modules on habitats now properly use up Habitat Energy District cap
 
-The edict to add more trade ships no longer fucks the name.
+Autofab mining modules on habitats now properly use up Habitat Mining District cap
+
+*Fixed Assembly Boost not being malused if you're not giving it IP.
+
+*Added a value to the realdev planet UI about how much IP it is changing the empire IP by.
+
+*Exploit now works with Habitats.
+
+*Fixed the Current and Capacity values in the planet UI not being centered in their thing.
 
 *Hyper Relays now decrease shipping cost.
 
