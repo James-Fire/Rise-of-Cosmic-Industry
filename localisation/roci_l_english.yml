@@ -1609,11 +1609,6 @@
     
  ###General ROCI
 
-  #Districts
-    district_roci_sprawl: "Sprawl Workaround"
-    mod_district_roci_sprawl_no: "Not for Player Use - Read Description"
-    district_roci_sprawl_desc: "This district exists to work around the fact that adding flat sprawl is currently impossible outside of the hardcoded things that already add it. This is handled by script."
-    district_roci_sprawl_plural: "$district_roci_sprawl$s"
   #UI stuffs
     roci_menu.2.name: "Rise Of Cosmic Industry Settings"
     roci_menu.2.desc: ""

@@ -149,7 +149,7 @@ roci_autofab_job_multiplier = {
 	base = 0
 	
 	#Some sort of check to see what job was passed, so I can add the base production
-	add = @roci_$job$_base_production
+	set = @roci_$job$_$resource$_base_production
 	modifier = {
  		owner = { is_machine_empire = yes }
 		add = @roci_$job$_machine_production

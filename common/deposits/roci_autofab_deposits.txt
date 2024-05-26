@@ -298,14 +298,22 @@ autofab_farm = {
 		category = planet_autofab_farm
 		produces = {
 			food = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmer|resource|food|	
+			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|food|	
+		}
+		produces = {
+			energy = 1
+			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|energy|
+		}
+		produces = {
+			exotic_gases = 1
+			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|exotic_gases|
 		}
 		upkeep = {
 			energy = 3
 		}
 		upkeep = {
 			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmer|resource|energy|
+			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|energy|
 		}
 		upkeep = {
 			energy = 2

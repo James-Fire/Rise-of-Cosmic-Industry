@@ -1,8 +1,4 @@
-Autofab modules on habitats now cost 0.2 alloys for upkeep, like the districts
 
-Autofab energy modules on habitats now properly use up Habitat Energy District cap
-
-Autofab mining modules on habitats now properly use up Habitat Mining District cap
 
 *Fixed Assembly Boost not being malused if you're not giving it IP.
 

@@ -33,16 +33,18 @@
 @Negb3_minerals = -800
 @Negb3_rare_cost = -100
 
-@roci_farmer_base_production = 6
-@roci_miners_base_production = 4
-@roci_technician_base_production = 6
-@roci_metallurgists_base_production = 3
-@roci_artisans_base_production = 6
-@roci_chemist_base_production = 2
-@roci_gas_refiner_base_production = 2
-@roci_translucer_base_production = 2
+@roci_farmers_food_base_production = 6
+@roci_farmers_energy_base_production = 0
+@roci_farmers_exotic_gases_base_production = 0
+@roci_miners_minerals_base_production = 4
+@roci_technician_energy_base_production = 6
+@roci_metallurgists_alloys_base_production = 3
+@roci_artisans_consumer_goods_base_production = 6
+@roci_chemist_volatile_motesbase_production = 2
+@roci_gas_refiner_exotic_gases_base_production = 2
+@roci_translucer__rare_crystals_base_production = 2
 
-@roci_farmer_machine_production = -1
+@roci_farmers_machine_production = -1
 @roci_miners_machine_production = 0
 @roci_technician_machine_production = 2
 @roci_metallurgists_machine_production = 1
@@ -51,7 +53,7 @@
 @roci_gas_refiner_machine_production = 0
 @roci_translucer_machine_production = 0
 
-@roci_farmer_hive_production = 0
+@roci_farmers_hive_production = 0
 @roci_miners_hive_production = 0
 @roci_technician_hive_production = 0
 @roci_metallurgists_hive_production = 0
@@ -60,7 +62,7 @@
 @roci_gas_refiner_hive_production = 0
 @roci_translucer_hive_production = 0
 
-@roci_farmer_base_energy_upkeep = 0
+@roci_farmers_base_energy_upkeep = 0
 @roci_miners_base_energy_upkeep = 0
 @roci_technician_base_energy_upkeep = 0
 @roci_metallurgists_base_energy_upkeep = 0
@@ -75,7 +77,7 @@
 @roci_translucer_base_energy_upkeep = 0
 @roci_translucer_base_minerals_upkeep = 10
 
-@roci_farmer_machine_energy_upkeep = 0
+@roci_farmers_machine_energy_upkeep = 0
 @roci_miners_machine_energy_upkeep = 0
 @roci_technician_machine_energy_upkeep = 0
 @roci_metallurgists_machine_energy_upkeep = 0
@@ -90,7 +92,7 @@
 @roci_translucer_machine_energy_upkeep = 0
 @roci_translucer_machine_minerals_upkeep = 0
 
-@roci_farmer_hive_energy_upkeep = 0
+@roci_farmers_hive_energy_upkeep = 0
 @roci_miners_hive_energy_upkeep = 0
 @roci_technician_hive_energy_upkeep = 0
 @roci_metallurgists_hive_energy_upkeep = 0
