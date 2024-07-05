@@ -98,7 +98,16 @@ country_event = {
 	option = {
 		name = kiyo_trade_manual_event.11.a
 		trigger = { exists = event_target:kiyo_trade_cargo_fleet_1 }
+		allow = {
+			custom_tooltip = {
+				fail_text = "cargo_fleet_maxxed"
+				event_target:kiyo_trade_cargo_fleet_1 = {
+					check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+				}
+			}
+		}
 		ai_chance = { factor = 1 }
+		pay_trade_cargo_expansion = yes
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_1 = {
@@ -111,7 +120,16 @@ country_event = {
 	option = {
 		name = kiyo_trade_manual_event.11.b
 		trigger = { exists = event_target:kiyo_trade_cargo_fleet_2 }
+		allow = {
+			custom_tooltip = {
+				fail_text = "cargo_fleet_maxxed"
+				event_target:kiyo_trade_cargo_fleet_2 = {
+					check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+				}
+			}
+		}
 		ai_chance = { factor = 1 }
+		pay_trade_cargo_expansion = yes
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_2 = {
@@ -124,7 +142,16 @@ country_event = {
 	option = {
 		name = kiyo_trade_manual_event.11.c
 		trigger = { exists = event_target:kiyo_trade_cargo_fleet_3 }
+		allow = {
+			custom_tooltip = {
+				fail_text = "cargo_fleet_maxxed"
+				event_target:kiyo_trade_cargo_fleet_3 = {
+					check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+				}
+			}
+		}
 		ai_chance = { factor = 1 }
+		pay_trade_cargo_expansion = yes
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_3 = {
@@ -137,6 +164,14 @@ country_event = {
 	option = {
 		name = kiyo_trade_manual_event.11.d
 		trigger = { exists = event_target:kiyo_trade_cargo_fleet_4 }
+		allow = {
+			custom_tooltip = {
+				fail_text = "cargo_fleet_maxxed"
+				event_target:kiyo_trade_cargo_fleet_4 = {
+					check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+				}
+			}
+		}
 		ai_chance = { factor = 1 }
 		
 		hidden_effect = {
@@ -150,7 +185,16 @@ country_event = {
 	option = {
 		name = kiyo_trade_manual_event.11.e
 		trigger = { exists = event_target:kiyo_trade_cargo_fleet_5 }
+		allow = {
+			custom_tooltip = {
+				fail_text = "cargo_fleet_maxxed"
+				event_target:kiyo_trade_cargo_fleet_5 = {
+					check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+				}
+			}
+		}
 		ai_chance = { factor = 1 }
+		pay_trade_cargo_expansion = yes
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_5 = {
@@ -163,7 +207,16 @@ country_event = {
 	option = {
 		name = kiyo_trade_manual_event.11.f
 		trigger = { exists = event_target:kiyo_trade_cargo_fleet_6 }
+		allow = {
+			custom_tooltip = {
+				fail_text = "cargo_fleet_maxxed"
+				event_target:kiyo_trade_cargo_fleet_6 = {
+					check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+				}
+			}
+		}
 		ai_chance = { factor = 1 }
+		pay_trade_cargo_expansion = yes
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_6 = {
@@ -176,7 +229,16 @@ country_event = {
 	option = {
 		name = kiyo_trade_manual_event.11.g
 		trigger = { exists = event_target:kiyo_trade_cargo_fleet_7 }
+		allow = {
+			custom_tooltip = {
+				fail_text = "cargo_fleet_maxxed"
+				event_target:kiyo_trade_cargo_fleet_7 = {
+					check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+				}
+			}
+		}
 		ai_chance = { factor = 1 }
+		pay_trade_cargo_expansion = yes
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_7 = {
@@ -189,7 +251,16 @@ country_event = {
 	option = {
 		name = kiyo_trade_manual_event.11.h
 		trigger = { exists = event_target:kiyo_trade_cargo_fleet_8 }
+		allow = {
+			custom_tooltip = {
+				fail_text = "cargo_fleet_maxxed"
+				event_target:kiyo_trade_cargo_fleet_8 = {
+					check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+				}
+			}
+		}
 		ai_chance = { factor = 1 }
+		pay_trade_cargo_expansion = yes
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_8 = {
@@ -202,33 +273,13 @@ country_event = {
 	option = {
 		name = NOTIME
 		ai_chance = { factor = 0 }
-		
-		owner = {
-			add_resource = {
-				energy = 750
-				consumer_goods = 750
-			}
-		}
 	}
 	
 	after = {
 		if = {
 			limit = {
 				NOT = { has_country_flag = kiyo_trade_add_cargo_window }
-				resource_stockpile_compare = {
-					resource = energy
-					value >= 750
-				}
-				resource_stockpile_compare = {
-					resource = consumer_goods
-					value >= 750
-				}
-			}
-			add_resource = {
-				energy = -750
-			}
-			add_resource = {
-				consumer_goods = -750
+				can_afford_trade_cargo_expansion = yes
 			}
 			set_country_flag = kiyo_trade_add_cargo_window
 			country_event = { id = kiyo_trade_manual_event.1 }

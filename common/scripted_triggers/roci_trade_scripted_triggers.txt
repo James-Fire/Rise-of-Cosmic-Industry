@@ -1,4 +1,31 @@
 
+can_afford_trade_cargo_expansion = {
+	OR = {
+		AND = {
+			country_uses_consumer_goods = yes
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 750
+			}
+			resource_stockpile_compare = {
+				resource = consumer_goods
+				value >= 750
+			}
+		}
+		AND = {
+			country_uses_consumer_goods = no
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1000
+			}
+			resource_stockpile_compare = {
+				resource = minerals
+				value >= 1000
+			}
+		}
+	}
+}
+
 # THIS = Planet
 has_cargo_ship_trade_route = {
 	has_deposit = d_kiyo_mod_trade

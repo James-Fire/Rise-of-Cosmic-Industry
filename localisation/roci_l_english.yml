@@ -1490,7 +1490,7 @@
     edict_kiyo_trade_check:0 "Check Trade Fleets"
     edict_kiyo_trade_check_desc:0 "Opens an event where you can view information on your trade fleets and how much you're making from trade routes."
     edict_kiyo_trade_add_ships_to_trade_route:0 "Expand Trade Fleet"
-    edict_kiyo_trade_add_ships_to_trade_route_desc:0 "We will add another cargo ship to a trade fleet of your choice. Changing your mind will give you a full refund, provided that you are not over your administrative capacity."
+    edict_kiyo_trade_add_ships_to_trade_route_desc:0 "We will add another cargo ship to a trade fleet of your choice. Requires 750 each of Energy and Consumer Goods."
     edict_kiyo_trade_add_ships_to_trade_route_any_fleet_has_room:0 "$TRIGGER_FAIL$There are no trade routes with any room for another cargo ship."
     edict_kiyo_trade_add_ships_to_trade_route_has_window:0 "$TRIGGER_FAIL$You are already trying to add cargo ships to a trade route."
     kiyo_trade_check_has_trade_route:1 "$TRIGGER_FAIL$You do not have any trade routes to check."
@@ -1500,7 +1500,7 @@
     kiyo_trade_manual_event.0.desc:2 "We have set up a cargo fleet at $PLANET|Y$ in the $SOLAR_SYSTEM|Y$ system.\n\nTo complete the trade route setup, send the $FLEET|Y$ to another planet owned by a regular playable empire. Both planets will then start gaining resources from trade based on the pops in those planets.\n\nRequires Non-Aggression Pact or Defensive Pact if you are Gestalt Consciousness."
     
     kiyo_trade_manual_event.11.title:0 "Bolstering our Cargo Fleets"
-    kiyo_trade_manual_event.11.desc:0 "Which of your cargo fleets do you want bolstered?"
+    kiyo_trade_manual_event.11.desc:0 "Which of your cargo fleets do you want bolstered?\n\nAfter selection, this event will reopen and take enough resources to bolster a fleet again, if you have enough."
     kiyo_trade_manual_event.11.a:0 "[kiyo_trade_cargo_fleet_1.GetName]"
     kiyo_trade_manual_event.11.b:0 "[kiyo_trade_cargo_fleet_2.GetName]"
     kiyo_trade_manual_event.11.c:0 "[kiyo_trade_cargo_fleet_3.GetName]"
@@ -1544,6 +1544,7 @@
     roci_trade_routes_opinion: "The partner empire must either have 50 opinion of us, or 25 and one of us is improving relations."
     roci_trade_routes_subject: "One Empire must be a subject of the other."
     roci_trade_routes_federation: "Both countries must be in the same Federation."
+    cargo_fleet_maxxed: "This Cargo Fleet already has the max number of ships"
     
  ###Shipping
  

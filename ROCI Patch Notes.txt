@@ -1,3 +1,15 @@
+The edict to expand a trade fleet no longer has the cost on itself, to avoid edict cost reductions.
+
+Trade Fleets no longer cost CGs if you don't otherwise use them.
+
+AI trade fleets will now be automatically expanded every time it returns to the source planet, if the empire can afford it.
+
+Fixed being able expand a trade fleet more than the cap.
+
+Added a line to the Bolster Cargo Fleet event about how it will reopen.
+
+Added a periodic recheck of how many cargo fleets you have in case they get nommed
+
 
 
 *Fixed Assembly Boost not being malused if you're not giving it IP.

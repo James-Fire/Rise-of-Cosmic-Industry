@@ -1,3 +1,25 @@
+pay_trade_cargo_expansion = {
+	if = {
+		limit = {
+			country_uses_consumer_goods = yes
+		}
+		add_resource = {
+			energy = -750
+		}
+		add_resource = {
+			consumer_goods = -750
+		}
+	}
+	else = {
+		add_resource = {
+			energy = -1000
+		}
+		add_resource = {
+			minerals = -1000
+		}
+	}
+}
+
 #Make sure the fleet has the correct upkeep modifier
 #THIS = FLEET
 kiyo_correct_fleet_upkeep = {
@@ -159,6 +181,17 @@ kiyo_trade_calculate_resources = {
 				is_same_value = prev.orbit.owner
 			}
 		}
+		#Also in here do an AI thing where the cargo fleet is expanded if they can afford it
+		if = {
+			limit = {
+				is_ai = yes
+				can_afford_trade_cargo_expansion = yes
+				check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+			}
+			kiyo_trade_manual_event_11 = yes
+		}
+		#And then back to cargo calculation
+		
 		set_variable = { which = kiyo_trade_minerals_start value = kiyo_trade_minerals }
 		set_variable = { which = kiyo_trade_energy_start value = kiyo_trade_energy }
 		set_variable = { which = kiyo_trade_food_start value = kiyo_trade_food }

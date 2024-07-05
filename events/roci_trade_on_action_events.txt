@@ -466,7 +466,7 @@ country_event = {
 
 }
 
-# (ON YEARLY COUNTRY PULSE) If a trade fleet is doing nothing, then make them do something!
+# (ON YEARLY COUNTRY PULSE) If a trade fleet is doing nothing, then make them do something! Also recount how many trade fleets we have
 country_event = {
 	id = kiyo_trade_triggered_event.8
 	hide_window = yes
@@ -474,74 +474,85 @@ country_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = no_trade_routes }
-		any_owned_fleet = {
-			any_owned_ship = { is_ship_size = kiyo_trade }
-			OR = {
-				is_fleet_idle = yes
-				AND = {
-					has_fleet_flag = kiyo_trade_starting
-					orbit = { root = { has_fleet_flag = kiyo_trade_end@PREV } }
-				}
-				AND = {
-					has_fleet_flag = kiyo_trade_ending
-					orbit = { root = { has_fleet_flag = kiyo_trade_start@PREV } }
-				}
-			}
-			OR = {
-				owner = { is_ai = yes }
-				has_fleet_flag = kiyo_trade_has_trade_route
-			}
-		}
 	}
 	
 	immediate = {
+		set_variable = { which = kiyo_trade_num_trade_routes value = 0 }
 		every_owned_fleet = {
 			limit = {
 				any_owned_ship = { is_ship_size = kiyo_trade }
-				is_fleet_idle = yes
-				owner = { is_ai = yes }
 			}
-			prev = { random_owned_planet = { limit = { prevprev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start } }
-			#Find the planet in the galaxy that has the best trade route value that can be traded with
-			ordered_galaxy_planet = {
-				limit = { exists = owner owner = { roci_can_trade_with_country = yes } }
-				position = 0
-				order_by = value:roci_trade_route_value
-				save_event_target_as = kiyo_trade_start
-			}
-			if = {
-				limit = {
-					exists = event_target:kiyo_trade_start
+			owner = { change_variable = { which = kiyo_trade_num_trade_routes value = 1 } }
+		}
+		if = {
+			limit = {
+				any_owned_fleet = {
+					any_owned_ship = { is_ship_size = kiyo_trade }
 					OR = {
-						has_fleet_flag = kiyo_trade_ending
-						has_fleet_flag = kiyo_event_trade_expired_cargo
+						owner = { is_ai = yes }
+						has_fleet_flag = kiyo_trade_has_trade_route
 					}
-				}
-				queue_actions = { orbit_planet = event_target:kiyo_trade_start }
-			}
-			else_if = {
-				limit = {
-					exists = event_target:kiyo_trade_end
-					event_target:kiyo_trade_end = {
-						prev = {
-							OR = {
-								has_fleet_flag = kiyo_trade_going@PREV
-								has_fleet_flag = kiyo_trade_end@PREV
-							}
+					OR = {
+						is_fleet_idle = yes
+						AND = {
+							has_fleet_flag = kiyo_trade_starting
+							orbit = { root = { has_fleet_flag = kiyo_trade_end@PREV } }
+						}
+						AND = {
+							has_fleet_flag = kiyo_trade_ending
+							orbit = { root = { has_fleet_flag = kiyo_trade_start@PREV } }
 						}
 					}
 				}
-				queue_actions = { orbit_planet = event_target:kiyo_trade_end }
 			}
-			else = { delete_fleet = this }
-		}
-		every_owned_fleet = {
-			limit = {
-				any_owned_ship = { is_ship_size = kiyo_trade }
-				is_fleet_idle = yes
-				has_fleet_flag = kiyo_trade_has_trade_route
+			every_owned_fleet = {
+				limit = {
+					any_owned_ship = { is_ship_size = kiyo_trade }
+					is_fleet_idle = yes
+					owner = { is_ai = yes }
+				}
+				prev = { random_owned_planet = { limit = { prevprev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start } }
+				#Find the planet in the galaxy that has the best trade route value that can be traded with
+				ordered_galaxy_planet = {
+					limit = { exists = owner owner = { roci_can_trade_with_country = yes } }
+					position = 0
+					order_by = value:roci_trade_route_value
+					save_event_target_as = kiyo_trade_start
+				}
+				if = {
+					limit = {
+						exists = event_target:kiyo_trade_start
+						OR = {
+							has_fleet_flag = kiyo_trade_ending
+							has_fleet_flag = kiyo_event_trade_expired_cargo
+						}
+					}
+					queue_actions = { orbit_planet = event_target:kiyo_trade_start }
+				}
+				else_if = {
+					limit = {
+						exists = event_target:kiyo_trade_end
+						event_target:kiyo_trade_end = {
+							prev = {
+								OR = {
+									has_fleet_flag = kiyo_trade_going@PREV
+									has_fleet_flag = kiyo_trade_end@PREV
+								}
+							}
+						}
+					}
+					queue_actions = { orbit_planet = event_target:kiyo_trade_end }
+				}
+				else = { delete_fleet = this }
 			}
-			fleet_event = { id = kiyo_trade_orbit_event.2 }
+			every_owned_fleet = {
+				limit = {
+					any_owned_ship = { is_ship_size = kiyo_trade }
+					is_fleet_idle = yes
+					has_fleet_flag = kiyo_trade_has_trade_route
+				}
+				fleet_event = { id = kiyo_trade_orbit_event.2 }
+			}
 		}
 	}
 }
