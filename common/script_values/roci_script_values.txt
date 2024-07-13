@@ -152,7 +152,7 @@ roci_autofab_job_multiplier = {
 	set = @roci_$job$_$resource$_base_production
 	modifier = {
  		owner = { is_machine_empire = yes }
-		add = @roci_$job$_machine_production
+		add = @roci_$job$_$resource$_machine_production
  	}
 	modifier = {
  		owner = { is_hive_empire = yes }

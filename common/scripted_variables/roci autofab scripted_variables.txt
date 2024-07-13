@@ -44,23 +44,23 @@
 @roci_gas_refiner_exotic_gases_base_production = 2
 @roci_translucer__rare_crystals_base_production = 2
 
-@roci_farmers_machine_production = -1
-@roci_miners_machine_production = 0
-@roci_technician_machine_production = 2
-@roci_metallurgists_machine_production = 1
-@roci_artisans_machine_production = 4
-@roci_chemist_machine_production = 0
-@roci_gas_refiner_machine_production = 0
-@roci_translucer_machine_production = 0
+@roci_farmers_food_machine_production = -1
+@roci_miners_minerals_machine_production = 0
+@roci_technician_energy_machine_production = 2
+@roci_metallurgists_alloys_machine_production = 1
+@roci_artisans_consumer_goods_machine_production = 4
+@roci_chemist_volatile_motes_machine_production = 0
+@roci_gas_refiner_exotic_gases_machine_production = 0
+@roci_translucer_rare_crystals_machine_production = 0
 
-@roci_farmers_hive_production = 0
-@roci_miners_hive_production = 0
-@roci_technician_hive_production = 0
-@roci_metallurgists_hive_production = 0
-@roci_artisans_hive_production = 4
-@roci_chemist_hive_production = 0
-@roci_gas_refiner_hive_production = 0
-@roci_translucer_hive_production = 0
+@roci_farmers_food_hive_production = 0
+@roci_miners_minerals_hive_production = 0
+@roci_technician_energy_hive_production = 0
+@roci_metallurgists_alloys_hive_production = 0
+@roci_artisans_consumer_goods_hive_production = 4
+@roci_chemist_volatile_motes_hive_production = 0
+@roci_gas_refiner_exotic_gases_hive_production = 0
+@roci_translucer_rare_crystals_hive_production = 0
 
 @roci_farmers_base_energy_upkeep = 0
 @roci_miners_base_energy_upkeep = 0
