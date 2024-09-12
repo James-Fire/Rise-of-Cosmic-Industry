@@ -412,7 +412,45 @@ autofab_mine = {
 			}
 			energy = 1
 			mult = value:roci_autofab_basic_jobs
-		}	
+		}
+		#Strategic Resources
+		produces = {
+			trigger = {
+				exists = owner
+				planet = { 
+					owner = {
+						has_technology = tech_mine_volatile_motes
+					}
+				}
+			}
+			volatile_motes = 1
+			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|volatile_motes|
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				planet = { 
+					owner = {
+						has_technology = tech_mine_exotic_gases
+					}
+				}
+			}
+			exotic_gases = 1
+			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|exotic_gases|
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				planet = { 
+					owner = {
+						has_technology = tech_mine_rare_crystals
+					}
+				}
+			}
+			rare_crystals = 1
+			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|rare_crystals|
+		}
+		
 		#Different Planet Types
 		produces = {
 			trigger = {

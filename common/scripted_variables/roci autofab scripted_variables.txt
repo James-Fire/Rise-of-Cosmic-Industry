@@ -37,6 +37,9 @@
 @roci_farmers_energy_base_production = 0
 @roci_farmers_exotic_gases_base_production = 0
 @roci_miners_minerals_base_production = 4
+@roci_miners_volatile_motes_base_production = 0
+@roci_miners_exotic_gases_base_production = 0
+@roci_miners_rare_crystals_base_production = 0
 @roci_technician_energy_base_production = 6
 @roci_metallurgists_alloys_base_production = 3
 @roci_artisans_consumer_goods_base_production = 6

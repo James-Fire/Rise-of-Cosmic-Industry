@@ -391,27 +391,27 @@ planet_factory_crystals_queue_5 = {
 }
 
 planet_factory_extractor_queue_1 = {
-	potential = { has_planet_flag = factory_extractor_queue_1 }
+	potential = { always = no has_planet_flag = factory_extractor_queue_1 }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_planet_flag = factory_extractor_queue_1 set_planet_flag = factory_extractor_queue_2 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 1 } } }
 }
 planet_factory_extractor_queue_2 = {
-	potential = { has_planet_flag = factory_extractor_queue_2 }
+	potential = { always = no has_planet_flag = factory_extractor_queue_2 }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_planet_flag = factory_extractor_queue_2 set_planet_flag = factory_extractor_queue_3 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 2 } } }
 }
 planet_factory_extractor_queue_3 = {
-	potential = { has_planet_flag = factory_extractor_queue_3 }
+	potential = { always = no has_planet_flag = factory_extractor_queue_3 }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_planet_flag = factory_extractor_queue_3 set_planet_flag = factory_extractor_queue_4 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 3 } } }
 }
 planet_factory_extractor_queue_4 = {
-	potential = { has_planet_flag = factory_extractor_queue_4 }
+	potential = { always = no has_planet_flag = factory_extractor_queue_4 }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_planet_flag = factory_extractor_queue_4 set_planet_flag = factory_extractor_queue_5 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 4 } } }
 }
 planet_factory_extractor_queue_5 = {
-	potential = { has_planet_flag = factory_extractor_queue_5 }
+	potential = { always = no has_planet_flag = factory_extractor_queue_5 }
 	allow = { hidden_trigger = { always = yes } }
 	effect = { remove_planet_flag = factory_extractor_queue_5 set_planet_flag = factory_extractor_queue_1 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 5 } } }
 }
@@ -758,8 +758,9 @@ planet_factory_crystals_decrease_queue = {
 }
 
 planet_factory_extractor_increase_queue = {
-	potential = { }
+	potential = { always = no }
 	allow = {
+		always = no
 		custom_tooltip = {
 			success_text = "autofab_module_enough_available"
 			fail_text = "autofab_module_not_enough_available"
@@ -776,7 +777,7 @@ planet_factory_extractor_increase_queue = {
 	}
 }
 planet_factory_extractor_decrease_queue = {
-	potential = { }
+	potential = { always = no }
 	allow = {
 		custom_tooltip = {
 			success_text = "autofab_module_enough_queued"

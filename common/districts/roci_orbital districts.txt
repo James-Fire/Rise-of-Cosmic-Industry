@@ -1271,11 +1271,14 @@ district_orbital_platform_mining = {
 				}
 			}
 			solar_system = {
-				any_system_planet = {
-					OR = {
-						is_asteroid = yes
-						is_planet_class = pc_shattered
-						is_planet_class = pc_shattered_2
+				OR = {
+					num_asteroid_belts > 0
+					any_system_planet = {
+						OR = {
+							is_asteroid = yes
+							is_planet_class = pc_shattered
+							is_planet_class = pc_shattered_2
+						}
 					}
 				}
 			}
@@ -1328,11 +1331,14 @@ district_orbital_platform_mining = {
 				}
 			}
 			solar_system = {
-				any_system_planet = {
-					OR = {
-						is_asteroid = yes
-						is_planet_class = pc_shattered
-						is_planet_class = pc_shattered_2
+				OR = {
+					num_asteroid_belts > 0
+					any_system_planet = {
+						OR = {
+							is_asteroid = yes
+							is_planet_class = pc_shattered
+							is_planet_class = pc_shattered_2
+						}
 					}
 				}
 			}
