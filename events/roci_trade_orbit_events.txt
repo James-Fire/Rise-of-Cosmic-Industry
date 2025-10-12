@@ -59,20 +59,7 @@ fleet_event = {
 		#Start the loop event to run the trade route
 		orbit = { save_global_event_target_as = kiyo_trade_end@root }
 		fleet_event = { id = kiyo_trade_orbit_event.2 days = 1 }
-		event_target:kiyo_trade_start@root = {
-			event_target:kiyo_trade_end@root = {
-				root = {
-					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
-					set_name = {
-						key = "roci_cargo_ships_fleetname"
-						variable_string = "[prevprev.GetName]"
-						variable_string = "[prev.GetName]"
-						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
-						variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
-					}
-				}
-			}
-		}
+		fleet_event = { id = kiyo_trade_manual_event.50 }
 		
 		#Prevent expire event from firing immediately after starting a trade route
 		set_fleet_flag = kiyo_trade_start_expired
@@ -126,7 +113,7 @@ fleet_event = {
 				any_owned_planet = {
 					is_same_value = prev
 					num_buildings = { type = any value >= 5 }
-					num_pops >= 20
+					sapient_pop_amount >= 2000
 				}
 			}
 		}
@@ -135,7 +122,7 @@ fleet_event = {
 			has_fleet_flag = kiyo_trade_start@ORBIT
 			has_fleet_flag = kiyo_trade_has_trade_route
 		}
-		exists = kiyo_trade_start@root
+		exists = event_target:kiyo_trade_start@root
 		event_target:kiyo_trade_start@root = {
 			root = {
 				has_fleet_flag = kiyo_trade_start@PREV
@@ -151,14 +138,7 @@ fleet_event = {
 		event_target:kiyo_trade_start@root = {
 			owner = {
 				root = {
-					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
-					set_name = {
-						key = "roci_cargo_ships_fleetname"
-						variable_string = "[prevprev.GetName]"
-						#variable_string = "[prev.GetName]"
-						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
-						variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
-					}
+					fleet_event = { id = kiyo_trade_manual_event.50 }
 				}
 			}
 		}
@@ -179,7 +159,7 @@ country_event = {
 		}
 		event_target:kiyo_trade_end@from = {
 			create_message = {
-				target = prev
+				target = root
 				type = EVENT_MESSAGE_TYPE
 				localization = kiyo_trade_orbit_event.12.desc
 				days = 30
@@ -252,14 +232,7 @@ fleet_event = {
 			event_target:kiyo_trade_start@root = {
 				event_target:kiyo_trade_end@root = {
 					root = {
-						set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
-						set_name = {
-							key = "roci_cargo_ships_fleetname"
-							variable_string = "[prevprev.GetName]"
-							variable_string = "[prev.GetName]"
-							variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
-							variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
-						}
+						fleet_event = { id = kiyo_trade_manual_event.50 }
 					}
 				}
 			}
@@ -282,14 +255,7 @@ fleet_event = {
 			event_target:kiyo_trade_start@root = {
 				event_target:kiyo_trade_end@root = {
 					root = {
-						set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
-						set_name = {
-							key = "roci_cargo_ships_fleetname_going"
-							variable_string = "[prevprev.GetName]"
-							variable_string = "[prev.GetName]"
-							variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
-							variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
-						}
+						fleet_event = { id = kiyo_trade_manual_event.50 }
 					}
 				}
 			}

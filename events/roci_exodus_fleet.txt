@@ -39,7 +39,7 @@ country_event = {
 									1 = { #Collapse. Add some stuff to make it "lived in", pick between a Tomb World and a Relic World for the home planet, terraform a planet or 2
 										random_list = { #Tomb World or Relic World
 											1 = {
-												change_pc = pc_tomb
+												change_pc = pc_nuked
 											}
 											1 = {
 												change_pc = pc_relic
@@ -96,7 +96,7 @@ country_event = {
 												}
 												every_system_planet = {
 													limit = {
-														is_colonizeable = yes
+														colonizable_planet = yes
 													}
 													create_colony = {
 														owner = event_target:exodus_parent
@@ -112,7 +112,7 @@ country_event = {
 													}
 													every_system_planet = {
 														limit = {
-															is_colonizeable = yes
+															colonizable_planet = yes
 														}
 														create_colony = {
 															owner = event_target:exodus_parent
@@ -408,33 +408,10 @@ country_event = {
 			}
 		}
 		
-		#Remove pops, add some Robots, add stasis pods
-		capital_scope = { #26 pops is normal
-			while = {
-				count = 22
-				add_deposit = b_exodus_stasis
-				random_owned_pop = {
-					limit = {
-						is_same_species = owner
-					}
-					kill_pop = yes
-				}
-			}
-			owner = {
-				create_built_robot_species = yes
-			}
-			while = {
-				count = 8
-				create_pop = {
-					species = last_created_species
-				}
-			}
-		}
-		
-		
 		#Planet modifiers and deposits
 		capital_scope = {
 			change_pc = pc_gaia
+			reroll_deposits = yes
 			add_deposit = d_black_soil
 			add_deposit = d_black_soil
 			add_deposit = d_rich_mountain
@@ -479,21 +456,21 @@ country_event = {
 								}
 								change_variable = { which = ExodusModifiers value = -1 }
 							}
-							1 = {
-								modifier = {
-									factor = 0
-									has_planet_modifier = pm_extensive_moon_system
-								}
-								modifier = {
-									factor = 0
-									check_variable = { which = ExodusModifiers value < 2 }
-								}
-								add_modifier = {
-									modifier = extensive_moon_system
-									days = -1
-								}
-								change_variable = { which = ExodusModifiers value = -2 }
-							}
+							#1 = {
+							#	modifier = {
+							#		factor = 0
+							#		has_planet_modifier = pm_extensive_moon_system
+							#	}
+							#	modifier = {
+							#		factor = 0
+							#		check_variable = { which = ExodusModifiers value < 2 }
+							#	}
+							#	add_modifier = {
+							#		modifier = extensive_moon_system
+							#		days = -1
+							#	}
+							#	change_variable = { which = ExodusModifiers value = -2 }
+							#}
 							1 = {
 								modifier = {
 									factor = 0
@@ -594,21 +571,21 @@ country_event = {
 						}
 						change_variable = { which = ExodusModifiers value = -1 }
 					}
-					1 = {
-						modifier = {
-							factor = 0
-							has_planet_modifier = pm_extensive_moon_system
-						}
-						modifier = {
-							factor = 0
-							check_variable = { which = ExodusModifiers value < 2 }
-						}
-						add_modifier = {
-							modifier = extensive_moon_system
-							days = -1
-						}
-						change_variable = { which = ExodusModifiers value = -2 }
-					}
+					#1 = {
+					#	modifier = {
+					#		factor = 0
+					#		has_planet_modifier = pm_extensive_moon_system
+					#	}
+					#	modifier = {
+					#		factor = 0
+					#		check_variable = { which = ExodusModifiers value < 2 }
+					#	}
+					#	add_modifier = {
+					#		modifier = extensive_moon_system
+					#		days = -1
+					#	}
+					#	change_variable = { which = ExodusModifiers value = -2 }
+					#}
 					1 = {
 						modifier = {
 							factor = 0
@@ -688,37 +665,72 @@ country_event = {
 			}
 		}
 		
+		#Remove pops, add some Robots, add stasis pods
+		capital_scope = {
+			while = {
+				count = 44
+				add_deposit = b_exodus_stasis
+				random_owned_pop_group = {
+					limit = {
+						is_same_species = owner
+					}
+					kill_pop_group = {
+						pop_group = this
+						amount = 100
+					}
+				}
+			}
+			owner = {
+				create_built_robot_species = yes
+			}
+			while = {
+				count = 9
+				create_pop = {
+					species = last_created_species
+					ethos = random
+					size = 50
+				}
+			}
+		}
+		
 		#Remake homeworld starting stuffs
-		autofab_game_start = yes
 		capital_scope = {
 			remove_all_districts = yes
 			remove_all_buildings = yes
+			add_autofab = yes
+			remove_zone = {
+				district = district_city
+				zone = zone_research_unity
+				zone_slot = 1
+				all = no
+			}
+			add_zone = {
+				district = district_city
+				zone = zone_foundry
+				zone_slot = 1
+			}
 			add_building = building_capital
 			add_building = building_robot_assembly_plant
-			add_building = building_research_lab_1
+			add_building = building_foundry_1
+			remove_district = district_city
 			add_district = district_farming
-			add_district = district_mining
 			add_district = district_mining
 			add_district = district_generator
 			
-			add_autofab = yes
-			add_deposit = autofab_foundry
-			change_variable = { which = autofab_foundry value = 1 }
-			add_deposit = autofab_power
-			change_variable = { which = autofab_power value = 1 }
-			if = {
-				limit = {
-					owner = {
-						OR = {
-							NOT = {
-								has_ethic = ethic_gestalt_consciousness
-							}
-							has_civic = civic_machine_servitor
-						}
-					}
-				}
-				add_deposit = autofab_factory
-				change_variable = { which = autofab_factory value = 1 }
+			add_building = {
+				district = district_mining
+				zone = zone_minerals
+				building = building_autofab_uplink_2
+			}
+			add_building = {
+				district = district_generator
+				zone = zone_energy
+				building = building_autofab_uplink_2
+			}
+			add_building = {
+				district = district_farming
+				zone = zone_food
+				building = building_autofab_uplink_2
 			}
 		}
 	}

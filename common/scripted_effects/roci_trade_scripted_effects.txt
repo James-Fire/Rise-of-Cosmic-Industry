@@ -1,3 +1,16 @@
+roci_trade_set_inital_variables = {
+	set_variable = { which = kiyo_trade_minerals value = 0 }
+	set_variable = { which = kiyo_trade_energy value = 0 }
+	set_variable = { which = kiyo_trade_food value = 0 }
+	set_variable = { which = kiyo_trade_unity value = 0 }
+	set_variable = { which = kiyo_trade_consumer_goods value = 0 }
+	set_variable = { which = kiyo_trade_alloys value = 0 }
+	set_variable = { which = kiyo_trade_physics_research value = 0 }
+	set_variable = { which = kiyo_trade_society_research value = 0 }
+	set_variable = { which = kiyo_trade_engineering_research value = 0 }
+	set_variable = { which = kiyo_trade_trade_value value = 0 }
+}
+
 pay_trade_cargo_expansion = {
 	if = {
 		limit = {
@@ -23,16 +36,10 @@ pay_trade_cargo_expansion = {
 #Make sure the fleet has the correct upkeep modifier
 #THIS = FLEET
 kiyo_correct_fleet_upkeep = {
-	if = {
-		limit = {
-			NOT = { check_variable = { which = kiyo_trade_modifier value = kiyo_trade_max_cargo_ships_per_fleet } }
-		}
-		remove_modifier = kiyo_trade_cargo_fleet_2
-		add_modifier = {
-			modifier = kiyo_trade_cargo_fleet_2 days = -1
-			mult = kiyo_trade_max_cargo_ships_per_fleet
-		}
-		set_variable = { which = kiyo_trade_modifier value = kiyo_trade_max_cargo_ships_per_fleet }
+	remove_modifier = kiyo_trade_cargo_fleet_2
+	add_modifier = {
+		modifier = kiyo_trade_cargo_fleet_2 days = -1
+		mult = kiyo_trade_max_cargo_ships_per_fleet
 	}
 }
 
@@ -40,33 +47,10 @@ kiyo_correct_fleet_upkeep = {
 # THIS = FLEET
 kiyo_trade_calculate_resources = {
 	#Add intel and opinion modifiers to both parties. Opinion does not stack, intel does.
-	event_target:kiyo_trade_start@root = {
-	}
-	event_target:kiyo_trade_end@root = {
+	fleet_event = { id = kiyo_trade_manual_event.51 }
 	
-	}
-	random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_end@PREV } }
-		owner = {
-			remove_opinion_modifier = { modifier = opinion_kiyo_mod_trade_trade_routes who = prevprev.owner }
-			add_intel = { amount = 1 who = prevprev.owner }
-			prevprev.owner = {
-				remove_opinion_modifier = { modifier = opinion_kiyo_mod_trade_trade_routes who = prev }
-				add_intel = { amount = 1 who = prev }
-				every_owned_fleet = {
-					limit = { kiyo_mod_trade_opinion_modifier_valid = yes }
-					
-					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value = kiyo_trade_max_cargo_ships_per_fleet }
-					
-					while = { limit = { check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value > 0 } }
-						prevprev = { add_opinion_modifier = { who = root.owner modifier = opinion_kiyo_mod_trade_trade_routes } }
-						root.owner = { add_opinion_modifier = { who = prevprevprev modifier = opinion_kiyo_mod_trade_trade_routes } }
-						subtract_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value = 1 }
-					}
-				}
-			}
-		}
-	}
-	kiyo_correct_fleet_upkeep = yes #Ensure the fleet has the correct upkeep
+	#Ensure the fleet has the correct upkeep
+	kiyo_correct_fleet_upkeep = yes
 	
 	#When the fleet arrives at a planet, we first zero out the existing variables, 
 	orbit = {
@@ -169,9 +153,15 @@ kiyo_trade_calculate_resources = {
 			variable = kiyo_production_unity
 			rounded = yes
 		}
-		
-		export_modifier_to_variable = { modifier = trade_value_add variable = kiyo_production_trade_value }
-		multiply_variable = { which = kiyo_trade_trade_value value = modifier:trade_value_mult }
+		export_trigger_value_to_variable = {
+			trigger = planet_resource_compare
+			parameters = {
+				resource = trade
+				type = produces
+			}
+			variable = kiyo_production_trade_value
+			rounded = yes
+		}
 	}
 	
 	#then unload its cargo, and attribute it according to who owns the fleet
@@ -180,15 +170,6 @@ kiyo_trade_calculate_resources = {
 			owner = {
 				is_same_value = prev.orbit.owner
 			}
-		}
-		#Also in here do an AI thing where the cargo fleet is expanded if they can afford it
-		if = {
-			limit = {
-				is_ai = yes
-				can_afford_trade_cargo_expansion = yes
-				check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
-			}
-			kiyo_trade_manual_event_11 = yes
 		}
 		#And then back to cargo calculation
 		
@@ -335,44 +316,23 @@ kiyo_trade_calculate_resources = {
 	
 	orbit = {
 		if = { limit = { NOT = { has_deposit = d_kiyo_mod_trade } } add_deposit = d_kiyo_mod_trade }
-		
-		# Check for Hive Mind/Machine Intelligence
-		if = { 
-			limit = { exists = owner }
-			owner = {
-				switch = { 
-					trigger = has_authority
-					auth_hive_mind = {
-						prev = {
-							divide_variable = { which = kiyo_trade_trade_value value = 2 }
-							change_variable = { which = kiyo_trade_minerals value = kiyo_trade_trade_value }
-							change_variable = { which = kiyo_trade_food value = kiyo_trade_trade_value }
-							set_variable = { which = kiyo_trade_trade_value value = 0 }
-							
-							divide_variable = { which = kiyo_trade_consumer_goods value = 2 }
-							change_variable = { which = kiyo_trade_minerals value = kiyo_trade_consumer_goods }
-							change_variable = { which = kiyo_trade_food value = kiyo_trade_consumer_goods }
-							set_variable = { which = kiyo_trade_consumer_goods value = 0 }
-						}
-					}
-					auth_machine_intelligence = {
-						prev = {
-							divide_variable = { which = kiyo_trade_trade_value value = 2 }
-							change_variable = { which = kiyo_trade_minerals value = kiyo_trade_trade_value }
-							change_variable = { which = kiyo_trade_energy value = kiyo_trade_trade_value }
-							set_variable = { which = kiyo_trade_trade_value value = 0 }
-							
-							divide_variable = { which = kiyo_trade_consumer_goods value = 2 }
-							change_variable = { which = kiyo_trade_minerals value = kiyo_trade_consumer_goods }
-							change_variable = { which = kiyo_trade_energy value = kiyo_trade_consumer_goods }
-							set_variable = { which = kiyo_trade_consumer_goods value = 0 }
-						}
-					}
-				}
-			}
-		}
 	}
 	
+	#Expand the fleet if allowed
+	if = {
+		limit = {
+			check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value < Owner.kiyo_trade_max_cargo_ships_per_fleet }
+			owner = {
+				OR = {
+					has_country_flag = auto_expand_cargo_fleets
+					is_ai = yes
+				}
+				can_afford_trade_cargo_expansion = yes
+			}
+		}
+		owner = { pay_trade_cargo_expansion = yes }
+		roci_expand_trade_fleet = yes
+	}
 }
 
 # Set timed fleet flag for how long a trade route should last
@@ -395,65 +355,8 @@ kiyo_mod_trade_set_num_trade_routes = {
 	}
 }
 
-# TO USE ONLY IN kiyo_trade_manual_event.11
 # THIS = FLEET
-kiyo_trade_manual_event_11 = {
-	random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start }
-	random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_end@PREV } } save_event_target_as = kiyo_trade_end }
-	
-	if = { limit = { has_fleet_flag = kiyo_event_trade_expired_cargo }
-		set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 0 }
-		set_fleet_flag = kiyo_trade_ending
-		queue_actions = { orbit_planet = event_target:kiyo_trade_start }
-	}
-	
+roci_expand_trade_fleet = {
 	change_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = 1 }
-	
-	kiyo_mod_trade_set_route_time = yes
-	
-	if = { limit = { exists = event_target:kiyo_trade_end }
-		event_target:kiyo_trade_start = {
-			owner = {
-				event_target:kiyo_trade_end = {
-					owner = {
-						remove_opinion_modifier = { modifier = opinion_kiyo_mod_trade_trade_routes who = prevprev }
-						prevprev = {
-							every_owned_fleet = {
-								limit = { kiyo_mod_trade_opinion_modifier_valid = yes }
-								
-								set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value = kiyo_trade_max_cargo_ships_per_fleet }
-								
-								while = { limit = { check_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value > 0 } }
-								
-									prevprev = { add_opinion_modifier = { who = prevprev modifier = opinion_kiyo_mod_trade_trade_routes } }
-									subtract_variable = { which = kiyo_trade_max_cargo_ships_per_fleet_looper value = 1 }
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	if = {
-		limit = {
-			has_fleet_flag = kiyo_trade_has_trade_route
-		}
-		set_name = {
-			key = "roci_cargo_ships_fleetname"
-			variable_string = "\\[event_target:kiyo_trade_start.GetName]"
-			variable_string = "\\[event_target:kiyo_trade_end.GetName]"
-			variable_string = "\\[This.kiyo_trade_max_cargo_ships_per_fleet]"
-			variable_string = "\\[This.Owner.kiyo_trade_max_cargo_ships_per_fleet]"
-		}
-	}
-	else = {
-		set_name = {
-			key = "roci_cargo_ships_fleetname_no_target_upgrade"
-			variable_string = "\\[kiyo_trade_start.GetName]"
-			#variable_string = "\\[kiyo_trade_end.GetName]"
-			variable_string = "\\[This.kiyo_trade_max_cargo_ships_per_fleet]"
-			variable_string = "\\[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
-		}
-	}
+	fleet_event = { id = kiyo_trade_manual_event.50 }
 }

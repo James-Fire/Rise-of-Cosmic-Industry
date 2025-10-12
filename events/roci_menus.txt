@@ -15,7 +15,9 @@ event = {
 		set_global_flag = exploit_speed_difficulty
 		set_global_flag = orbital_ring_overwrite
 		set_global_flag = no_exploit #Exploit is disabled because of overlap with 3.9 Habitats
-		#set_global_flag = no_shipping
+		set_global_flag = no_shipping
+		#set_global_flag = no_fe_buildings
+		set_global_flag = no_orbital_infra
 		#set_global_flag = no_trade_routes
 		event_target:global_event_country = {
 			set_variable = { which = shipping_scale value = 1 }
@@ -70,19 +72,7 @@ country_event = {
 						is_country_type = default
 					}
 					log = "ROCI trigger orbital on game start for [This.GetRealName]"
-					country_event = { id = orbitalinfra.1000 }
-				}
-			}
-			if = { #Do Shipping Game start stuff if it's allowed.
-				limit = {
-					NOT = { has_global_flag = no_shipping }
-				}
-				country_event = { id = shipping.0 }
-				every_country = {
-					limit = {
-						is_country_type = default
-					}
-					country_event = { id = shipping.5 }
+					#country_event = { id = orbitalinfra.1000 }
 				}
 			}
 			if = { #Do Trade Route Game start stuff if it's allowed.
@@ -121,7 +111,7 @@ country_event = {
 						NOT = { has_origin = roci_origin_exodus_fleet }
 					}
 					log = "ROCI trigger exploit on game start for [This.GetRealName]"
-					country_event = { id = spaceexploit.37 }
+					#country_event = { id = spaceexploit.37 }
 				}
 			}
 			if = { #Do Autofab Game start stuff if it's allowed.
@@ -256,33 +246,6 @@ country_event = {
 							}
 							force_add_civic = civic_private_prospectors
 						}
-					}
-				}
-			}
-			every_country = {
-				limit = {
-					OR = {
-						has_global_flag = no_autofab
-						has_global_flag = no_exploit
-					}
-				}
-				every_owned_planet = {
-					limit = {
-						OR = {
-							has_autofab = yes
-							is_capital = yes
-						}
-					}
-					while = {
-						count = 5
-						add_deposit = roci_cheat_deposit
-					}
-					planet_event = { id = roci_menu.41 }
-					every_deposit = {
-						limit = {
-							is_deposit_type = roci_cheat_deposit
-						}
-						remove_deposit = yes
 					}
 				}
 			}

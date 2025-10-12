@@ -4,8 +4,8 @@ tech_roci_affluence_center = {
 	tier = 5
 	is_rare = yes
 	prerequisites = { "tech_luxuries_2" "tech_consumer_good_refinement_2" }
-	category = { industry }	
-	weight = @tier4weight2
+	category = { industry }
+	weight = 0
 	
 	weight_modifier = {
 		modifier = {
@@ -17,22 +17,10 @@ tech_roci_affluence_center = {
 	ai_weight = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_curator"
-			}
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_spark_of_genius"
-			}
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_maniacal"
-			}				
+			has_trait_in_council = { TRAIT = leader_trait_expertise_industry }
+			has_trait_in_council = { TRAIT = leader_trait_curator }
+			has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+			has_trait_in_council = { TRAIT = leader_trait_maniacal }				
 			
 		}
 	}
@@ -57,22 +45,10 @@ tech_roci_nourishment_center = {
 	ai_weight = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_curator"
-			}
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_spark_of_genius"
-			}
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_maniacal"
-			}				
+			has_trait_in_council = { TRAIT = leader_trait_expertise_biology }
+			has_trait_in_council = { TRAIT = leader_trait_curator }
+			has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+			has_trait_in_council = { TRAIT = leader_trait_maniacal }				
 			
 		}
 	}
@@ -97,22 +73,10 @@ tech_roci_singularity_power = {
 	ai_weight = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_field_manipulation"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_curator"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_spark_of_genius"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_maniacal"
-			}				
+			has_trait_in_council = { TRAIT = leader_trait_expertise_field_manipulation }
+			has_trait_in_council = { TRAIT = leader_trait_curator }
+			has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+			has_trait_in_council = { TRAIT = leader_trait_maniacal }				
 			
 		}
 	}
@@ -124,8 +88,8 @@ tech_roci_auto_forge = {
 	tier = 5
 	prerequisites = { "tech_alloys_2" "tech_advanced_metallurgy_2" }
 	is_rare = yes
-	category = { industry }	
-	weight = @tier4weight2
+	category = { industry }
+	weight = 0
 	
 	weight_modifier = {
 		modifier = {
@@ -135,22 +99,10 @@ tech_roci_auto_forge = {
 		modifier = {
 			factor = 1.25
 			NOR = {
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_expertise_industry"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_curator"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_spark_of_genius"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_maniacal"
-				}				
+				has_trait_in_council = { TRAIT = leader_trait_expertise_industry }
+				has_trait_in_council = { TRAIT = leader_trait_curator }
+				has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+				has_trait_in_council = { TRAIT = leader_trait_maniacal }				
 			}
 		}	
 	}
@@ -158,22 +110,10 @@ tech_roci_auto_forge = {
 	ai_weight = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_curator"
-			}
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_spark_of_genius"
-			}
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_maniacal"
-			}
+			has_trait_in_council = { TRAIT = leader_trait_expertise_industry }
+			has_trait_in_council = { TRAIT = leader_trait_curator }
+			has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+			has_trait_in_council = { TRAIT = leader_trait_maniacal }
 		}
 	}
 }
@@ -195,22 +135,10 @@ tech_roci_dimensional_fabricator = {
 		modifier = {
 			factor = 1.25
 			NOR = {
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_expertise_field_manipulation"
-				}
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_curator"
-				}
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_spark_of_genius"
-				}
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_maniacal"
-				}				
+				has_trait_in_council = { TRAIT = leader_trait_expertise_field_manipulation }
+				has_trait_in_council = { TRAIT = leader_trait_curator }
+				has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+				has_trait_in_council = { TRAIT = leader_trait_maniacal }				
 			}
 		}	
 	}	
@@ -218,14 +146,8 @@ tech_roci_dimensional_fabricator = {
 	ai_weight = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_psionics"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_curator"
-			}
+			has_trait_in_council = { TRAIT = leader_trait_expertise_psionics }
+			has_trait_in_council = { TRAIT = leader_trait_curator }
 		}
 	}
 }
@@ -237,7 +159,7 @@ tech_roci_archival_records = {
 	prerequisites = { "tech_administrative_ai" }
 	is_rare = yes
 	category = { computing }	
-	weight = @tier4weight2
+	weight = 0
 	
 	weight_modifier = {
 		modifier = {
@@ -247,22 +169,10 @@ tech_roci_archival_records = {
 		modifier = {
 			factor = 1.25
 			NOR = {
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_expertise_industry"
-				}
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_curator"
-				}
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_spark_of_genius"
-				}
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_maniacal"
-				}				
+				has_trait_in_council = { TRAIT = leader_trait_expertise_industry }
+				has_trait_in_council = { TRAIT = leader_trait_curator }
+				has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+				has_trait_in_council = { TRAIT = leader_trait_maniacal }				
 			}
 		}	
 	}
@@ -270,22 +180,10 @@ tech_roci_archival_records = {
 	ai_weight = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_industry"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_curator"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_spark_of_genius"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_maniacal"
-			}
+			has_trait_in_council = { TRAIT = leader_trait_expertise_industry }
+			has_trait_in_council = { TRAIT = leader_trait_curator }
+			has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+			has_trait_in_council = { TRAIT = leader_trait_maniacal }
 		}
 	}
 }
@@ -296,7 +194,7 @@ tech_roci_sky_dome = {
 	tier = 5
 	is_rare = yes
 	category = { field_manipulation }	
-	weight = @tier4weight2
+	weight = 0
 	
 	weight_modifier = {
 		modifier = {
@@ -312,22 +210,10 @@ tech_roci_sky_dome = {
 	ai_weight = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_industry"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_curator"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_spark_of_genius"
-			}
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_maniacal"
-			}				
+			has_trait_in_council = { TRAIT = leader_trait_expertise_industry }
+			has_trait_in_council = { TRAIT = leader_trait_curator }
+			has_trait_in_council = { TRAIT = leader_trait_spark_of_genius }
+			has_trait_in_council = { TRAIT = leader_trait_maniacal }				
 			
 		}
 	}

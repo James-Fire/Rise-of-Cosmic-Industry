@@ -59,6 +59,20 @@ country_has_megastructures_building = {
 	check_variable = { which = realdev_building_megas value > 0 }
 }
 country_has_minor_colonies_building = {
-	check_variable = { which = exploit_minor_colonies_building value > 0 }
 	roci_exploit_module_active = yes
+	check_variable = { which = exploit_minor_colonies_building value > 0 }
+}
+
+log_realdev = {
+	OR = {
+		has_global_flag = realdev_logging
+		AND = {
+			is_scope_type = country
+			has_country_flag = realdev_logging
+		}
+		AND = {
+			is_scope_type = planet
+			has_planet_flag = realdev_logging
+		}
+	}
 }

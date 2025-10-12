@@ -1,11 +1,38 @@
+
+
+
 # Opinions of Number of Trade Routes
 opinion_kiyo_mod_trade_trade_routes = {
-	opinion = { base = 3 }
-	
-	accumulative = yes
-}
-opinion_kiyo_mod_trade_trade_routes = {
-	opinion = { base = 1 }
-	
+	opinion = {
+		base = 5
+		modifier = {
+			add = 3
+			FROM = { is_megacorp = yes }
+		}
+		modifier = {
+			add = 1
+			is_megacorp = yes
+		}
+		modifier = {
+			add = 1
+			has_commercial_pact = FROM
+		}
+		modifier = {
+			add = 1
+			OR = {
+				is_egalitarian = yes
+				is_xenophile = yes
+				is_pacifist = yes
+			}
+		}
+		modifier = {
+			add = 1
+			AND = {
+				is_egalitarian = yes
+				is_xenophile = yes
+				is_pacifist = yes
+			}
+		}
+	}
 	accumulative = yes
 }

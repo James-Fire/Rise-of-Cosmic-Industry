@@ -96,6 +96,16 @@ country_event = {
 	}
 	
 	option = {
+		name = "Auto-expand trade fleets"
+		trigger = { NOT = { has_country_flag = auto_expand_cargo_fleets } }
+		set_country_flag = auto_expand_cargo_fleets
+	}
+	option = {
+		name = "Halt auto-expanding trade fleets"
+		trigger = { has_country_flag = auto_expand_cargo_fleets }
+		remove_country_flag = auto_expand_cargo_fleets
+	}
+	option = {
 		name = kiyo_trade_manual_event.11.a
 		trigger = { exists = event_target:kiyo_trade_cargo_fleet_1 }
 		allow = {
@@ -111,7 +121,7 @@ country_event = {
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_1 = {
-				kiyo_trade_manual_event_11 = yes
+				roci_expand_trade_fleet = yes
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -133,7 +143,7 @@ country_event = {
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_2 = {
-				kiyo_trade_manual_event_11 = yes
+				roci_expand_trade_fleet = yes
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -155,7 +165,7 @@ country_event = {
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_3 = {
-				kiyo_trade_manual_event_11 = yes
+				roci_expand_trade_fleet = yes
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -176,7 +186,7 @@ country_event = {
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_4 = {
-				kiyo_trade_manual_event_11 = yes
+				roci_expand_trade_fleet = yes
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -198,7 +208,7 @@ country_event = {
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_5 = {
-				kiyo_trade_manual_event_11 = yes
+				roci_expand_trade_fleet = yes
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -220,7 +230,7 @@ country_event = {
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_6 = {
-				kiyo_trade_manual_event_11 = yes
+				roci_expand_trade_fleet = yes
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -242,7 +252,7 @@ country_event = {
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_7 = {
-				kiyo_trade_manual_event_11 = yes
+				roci_expand_trade_fleet = yes
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -264,7 +274,7 @@ country_event = {
 		
 		hidden_effect = {
 			event_target:kiyo_trade_cargo_fleet_8 = {
-				kiyo_trade_manual_event_11 = yes
+				roci_expand_trade_fleet = yes
 			}
 			remove_country_flag = kiyo_trade_add_cargo_window
 		}
@@ -564,3 +574,80 @@ country_event = {
 		name = OK
 	}
 }
+
+#Universal rename event
+fleet_event = {
+	id = kiyo_trade_manual_event.50
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { exists = event_target:kiyo_trade_start@this }
+	
+	immediate = {
+		if = {
+			limit = {
+				exists = event_target:kiyo_trade_end@this
+			}
+			event_target:kiyo_trade_end@this = {
+				event_target:kiyo_trade_start@prev = {
+					ROOT = {
+						set_name = {
+							key = "roci_cargo_ships_fleetname"
+							variable_string = "[Prev.GetName]"
+							variable_string = "[PrevPrev.GetName]"
+							variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+							variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+						}
+					}
+				}
+			}
+		}
+		else = {
+			event_target:kiyo_trade_start@this = {
+				ROOT = {
+					set_name = {
+						key = "roci_cargo_ships_fleetname_no_target"
+						variable_string = "[PrevPrev.GetName]"
+						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
+						variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
+					}
+				}
+			}
+		}
+	}
+}
+
+#Universal opinion event
+fleet_event = {
+	id = kiyo_trade_manual_event.51
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = event_target:kiyo_trade_start@this
+		exists = event_target:kiyo_trade_end@this
+	}
+	
+	immediate = {
+		event_target:kiyo_trade_start@root = { owner = { save_event_target_as = fleet_owner } }
+		event_target:kiyo_trade_end@root = { owner = { save_event_target_as = fleet_destination_owner } }
+		event_target:fleet_owner = {
+			remove_opinion_modifier = { modifier = opinion_kiyo_mod_trade_trade_routes who = event_target:fleet_destination_owner }
+			add_intel = { amount = 2 who = event_target:fleet_destination_owner }
+			while = { 
+				count = root.kiyo_trade_max_cargo_ships_per_fleet
+				add_opinion_modifier = { who = event_target:fleet_destination_owner modifier = opinion_kiyo_mod_trade_trade_routes }
+			}
+		}
+		event_target:fleet_destination_owner = {
+			remove_opinion_modifier = { modifier = opinion_kiyo_mod_trade_trade_routes who = event_target:fleet_owner }
+			add_intel = { amount = 2 who = event_target:fleet_owner }
+			while = { 
+				count = root.kiyo_trade_max_cargo_ships_per_fleet
+				add_opinion_modifier = { who = event_target:fleet_owner modifier = opinion_kiyo_mod_trade_trade_routes }
+			}
+		}
+	}
+}
+						
+						

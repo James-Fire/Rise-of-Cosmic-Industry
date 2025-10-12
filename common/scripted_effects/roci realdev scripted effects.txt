@@ -23,7 +23,7 @@ set_realdev_target = {
 	}
 	if = {
 		limit = {
-			has_global_flag = realdev_logging
+			log_realdev = yes
 		}
 		log = "Realdev set Target at [this.realdev_ip_target] on [This.GetName] for [Owner.GetName]"
 	}
@@ -34,7 +34,26 @@ set_realdev_planet_variables = {
 	set_variable = { which = realdev_industry_planet_ratio value = 0.8 }
 	set_variable = { which = realdev_industry_construction_ratio value = 0.8 }
 	set_variable = { which = realdev_take_ratio value = 0 }
-	set_variable = { which = realdev_assembly_cap value = 200 }
+	#Include adjustment
+	switch = {
+		trigger = has_global_flag
+		roci_realdev_build_adjustment_none_flag = {
+			set_variable = { which = realdev_assembly_cap value = 200 }
+		}
+		roci_realdev_build_adjustment_small_flag = {
+			set_variable = { which = realdev_assembly_cap value = 225 }
+		}
+		roci_realdev_build_adjustment_medium_flag = {
+			set_variable = { which = realdev_assembly_cap value = 250 }
+		
+		}
+		roci_realdev_build_adjustment_large_flag = {
+			set_variable = { which = realdev_assembly_cap value = 275 }
+		}
+		roci_realdev_build_adjustment_full_flag = {
+			set_variable = { which = realdev_assembly_cap value = 300 }
+		}
+	}
 	set_planet_flag = realdev_variables_set
 	set_planet_flag = realdev_target_country
 	set_variable = { which = realdev_ip_target_display value = realdev_ip_target }
@@ -61,7 +80,6 @@ set_realdev_country_variables = {
 	set_variable = { which = realdev_ship_build_speed_tech_bonus value = 10 }
 	set_variable = { which = realdev_building_megas value = 0 }
 	set_variable = { which = realdev_upgrading_megas value = 0 }
-	set_variable = { which = realdev_ip_target value = 100 }
 	set_country_flag = realdev_variables_set
 	set_country_flag = realdev_target_auto
 	add_modifier = { modifier = realdev_no_build_cap }
@@ -89,4 +107,8 @@ set_realdev_country_variables = {
 	else = {
 		set_country_flag = realdev_production
 	}
+}
+
+log_realdev_variables = {
+
 }

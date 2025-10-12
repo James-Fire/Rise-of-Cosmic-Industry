@@ -1,21 +1,21 @@
-autofab_construction_module = {
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
+#autofab_construction_module = {
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}
 
 autofab = {
 	use_for_min_max_adjustments = yes
@@ -25,9 +25,61 @@ autofab = {
 	resources = {
 		category = planet_autofab
 		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_active_tradition = tr_autofab_commercial_connections
+				}
+			}
+			trade = 0.5
+			mult = value:count_any_districts
 		}		
 	}
 	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_autofab_infrastructure_support
+			}
+		}
+		modifier = {
+			planet_max_districts_add = 2
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_autofab_environmental_studies
+			}
+		}
+		modifier = {
+			pop_environment_tolerance = 0.05
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_autofab_optimization
+			}
+		}
+		modifier = {
+			bonus_automated_workforce_mult = 0.05
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_autofab_finish
+			}
+		}
+		modifier = {
+			bonus_automated_workforce_mult = 0.25
+		}
+	}
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -37,17 +89,6 @@ autofab = {
 		}
 		modifier = {
 			planet_crime_no_happiness_mult = -0.05
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_autofab_factory_housing
-			}
-		}
-		modifier = {
-			pop_housing_usage_mult = -0.05
 		}
 	}
 	triggered_planet_modifier = {
@@ -86,16 +127,7 @@ autofab = {
 			}
 		}
 		modifier = {
-			planet_autofab_produces_mult = 0.4
-			planet_autofab_generator_produces_mult = 0.4
-			planet_autofab_farm_produces_mult = 0.4
-			planet_autofab_mine_produces_mult = 0.4
-			planet_autofab_metallurgists_produces_mult = 0.4
-			planet_autofab_factory_produces_mult = 0.4
-			planet_autofab_motes_produces_mult = 0.4
-			planet_autofab_gases_produces_mult = 0.4
-			planet_autofab_crystals_produces_mult = 0.4
-			planet_autofab_srs_produces_mult = 0.4
+			bonus_automated_workforce_mult = 0.3
 		}
 	}
 	triggered_planet_modifier = {
@@ -107,16 +139,7 @@ autofab = {
 			}
 		}
 		modifier = {
-			planet_autofab_upkeep_mult = -0.1
-			planet_autofab_generator_upkeep_mult = -0.1
-			planet_autofab_farm_upkeep_mult = -0.1
-			planet_autofab_mine_upkeep_mult = -0.1
-			planet_autofab_metallurgists_upkeep_mult = -0.1
-			planet_autofab_factory_upkeep_mult = -0.1
-			planet_autofab_motes_upkeep_mult = -0.1
-			planet_autofab_gases_upkeep_mult = -0.1
-			planet_autofab_crystals_upkeep_mult = -0.1
-			planet_autofab_srs_upkeep_mult = -0.1
+			bonus_automated_workforce_mult = 0.1
 		}
 	}
 	
@@ -133,15 +156,6 @@ autofab = {
 		}
 		modifier = {
 			planet_autofab_upkeep_mult = -0.1
-			planet_autofab_generator_upkeep_mult = -0.1
-			planet_autofab_farm_upkeep_mult = -0.1
-			planet_autofab_mine_upkeep_mult = -0.1
-			planet_autofab_metallurgists_upkeep_mult = -0.1
-			planet_autofab_factory_upkeep_mult = -0.1
-			planet_autofab_motes_upkeep_mult = -0.1
-			planet_autofab_gases_upkeep_mult = -0.1
-			planet_autofab_crystals_upkeep_mult = -0.1
-			planet_autofab_srs_upkeep_mult = -0.1
 		}
 	}
 	triggered_planet_modifier = {
@@ -156,33 +170,6 @@ autofab = {
 		}
 		modifier = {
 			planet_autofab_upkeep_mult = -0.1
-			planet_autofab_generator_upkeep_mult = -0.1
-			planet_autofab_farm_upkeep_mult = -0.1
-			planet_autofab_mine_upkeep_mult = -0.1
-			planet_autofab_metallurgists_upkeep_mult = -0.1
-			planet_autofab_factory_upkeep_mult = -0.1
-			planet_autofab_motes_upkeep_mult = -0.1
-			planet_autofab_gases_upkeep_mult = -0.1
-			planet_autofab_crystals_upkeep_mult = -0.1
-			planet_autofab_srs_upkeep_mult = -0.1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_housing_1 }
-		}
-		modifier = {
-			planet_max_districts_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_housing_2 }
-		}
-		modifier = {
-			planet_max_districts_add = 1
 		}
 	}
 	
@@ -199,1219 +186,1219 @@ autofab = {
 	}
 }
 
-autofab_power = {
-	use_for_min_max_adjustments = yes
-	category = deposit_cat_energy
-	
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	resources = {
-		category = planet_autofab_generator
-		produces = {
-			energy = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
-		}
-		upkeep = {
-			energy = 1
-		}
-		upkeep = {
-			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
-		}
-		
-		#Different Planet Types
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = ring_world }
-			}
-			rare_crystals = 2
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			alloys = 0.2
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_autofab_commercial_connections }
-		}
-		modifier = {
-			trade_value_add = 2
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			uses_district_set = standard
-		}
-		modifier = {
-			district_generator_max = -1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			uses_district_set = habitat
-		}
-		modifier = {
-			district_hab_energy_max = -1
-		}
-	}
-	
-	
-	country_modifier = {
-		empire_size_add = 1
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
-
-autofab_farm = {
-	use_for_min_max_adjustments = yes
-	category = deposit_cat_food
-	
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	resources = {
-		category = planet_autofab_farm
-		produces = {
-			food = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|food|	
-		}
-		produces = {
-			energy = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|energy|
-		}
-		produces = {
-			exotic_gases = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|exotic_gases|
-		}
-		upkeep = {
-			energy = 3
-		}
-		upkeep = {
-			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|energy|
-		}
-		upkeep = {
-			energy = 2
-			mult = value:roci_autofab_basic_jobs
-		}
-		
-		#Different Planet Types
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = ring_world }
-			}
-			energy = 4
-			volatile_motes = 2
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_autofab_commercial_connections }
-		}
-		modifier = {
-			trade_value_add = 2
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_edict = farming_subsidies
-			}
-		}
-		modifier = {
-			planet_autofab_energy_upkeep_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			uses_district_set = standard
-		}
-		modifier = {
-			district_farming_max = -1
-		}
-	}
-	
-	country_modifier = {
-		empire_size_add = 1
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
-
-autofab_mine = {
-	use_for_min_max_adjustments = yes
-	category = deposit_cat_minerals
-	
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	resources = {
-		category = planet_autofab_mine
-		produces = {
-			minerals = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|minerals|
-		}
-		upkeep = {
-			energy = 3
-		}
-		upkeep = {
-			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|energy|
-		}
-		upkeep = {
-			energy = 2
-			mult = value:roci_autofab_basic_jobs
-		}
-		
-		upkeep = {
-			trigger = {
-				exists = owner
-				 planet = { owner = {
-					has_edict = mining_subsidies
-				} }
-			}
-			energy = 1
-			mult = value:roci_autofab_basic_jobs
-		}
-		#Strategic Resources
-		produces = {
-			trigger = {
-				exists = owner
-				planet = { 
-					owner = {
-						has_technology = tech_mine_volatile_motes
-					}
-				}
-			}
-			volatile_motes = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|volatile_motes|
-		}
-		produces = {
-			trigger = {
-				exists = owner
-				planet = { 
-					owner = {
-						has_technology = tech_mine_exotic_gases
-					}
-				}
-			}
-			exotic_gases = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|exotic_gases|
-		}
-		produces = {
-			trigger = {
-				exists = owner
-				planet = { 
-					owner = {
-						has_technology = tech_mine_rare_crystals
-					}
-				}
-			}
-			rare_crystals = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|rare_crystals|
-		}
-		
-		#Different Planet Types
-		produces = {
-			trigger = {
-				planet = { uses_district_set = shattered_ring_world }
-			}
-			alloys = 4
-			minerals = -4
-			mult = value:roci_autofab_basic_jobs
-		}
-		
-		#Boosting Building Stuff
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_mineral_purification_plant
-				}
-			}
-			minerals = 1
-			mult = value:roci_autofab_basic_jobs
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_active_building = building_mineral_purification_hub
-				}
-			}
-			minerals = 2
-			mult = value:roci_autofab_basic_jobs
-		}
-		#FE Buildings Stuff
-		produces = {
-			trigger = {
-				planet = { has_active_building = building_roci_dimensional_fabricator_mod }
-			}
-			minerals = 4
-			mult = value:roci_autofab_basic_jobs
-		}
-		upkeep = {
-			trigger = {
-				planet = { has_active_building = building_roci_dimensional_fabricator_mod }
-			}
-			energy = 2
-			mult = value:roci_autofab_basic_jobs
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			alloys = 0.2
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_autofab_commercial_connections }
-		}
-		modifier = {
-			trade_value_add = 2
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			uses_district_set = standard
-		}
-		modifier = {
-			district_mining_max = -1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			uses_district_set = habitat
-		}
-		modifier = {
-			district_hab_mining_max = -1
-		}
-	}
-	
-	country_modifier = {
-		empire_size_add = 1
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
-
-autofab_foundry = {
-	use_for_min_max_adjustments = yes
-	category = deposit_cat_alloys
-	
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	resources = {
-		category = planet_autofab_foundry
-		produces = {
-			alloys = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|alloys|
-		}
-		upkeep = {
-			energy = 4
-		}
-		upkeep = {
-			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|energy|
-		}
-		upkeep = {
-			energy = 2
-			mult = value:roci_autofab_advanced_jobs
-		}
-		
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = { is_catalytic_empire = no }
-			}
-			minerals = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|minerals|
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = { is_catalytic_empire = yes }
-			}
-			food = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|food|
-		}
-		
-		#Different Planet Types
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = city_world }
-			}
-			energy = 6
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = ring_world }
-			}
-			energy = 19
-			volatile_motes = 2
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			alloys = 0.2
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_autofab_commercial_connections }
-		}
-		modifier = {
-			trade_value_add = 2
-		}
-	}
-	
-	country_modifier = {
-		empire_size_add = 1
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
-
-autofab_factory = {
-	use_for_min_max_adjustments = yes
-	category = deposit_cat_consumer_goods
-	
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	resources = {
-		category = planet_autofab_factory
-		produces = {
-			consumer_goods = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisans|resource|consumer_goods|
-		}
-		upkeep = {
-			minerals = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisans|resource|minerals|
-		}
-		upkeep = {
-			energy = 4
-		}
-		upkeep = {
-			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisans|resource|energy|
-		}
-		upkeep = {
-			energy = 2
-			mult = value:roci_autofab_advanced_jobs
-		}
-		
-		#Different Planet Types
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = city_world }
-			}
-			energy = 6
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = ring_world }
-			}
-			energy = 19
-			rare_crystals = 2
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			alloys = 0.2
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_autofab_commercial_connections }
-		}
-		modifier = {
-			trade_value_add = 2
-		}
-	}
-	
-	country_modifier = {
-		empire_size_add = 1
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
-
-autofab_motes_refinery = {
-	use_for_min_max_adjustments = yes
-	category = deposit_cat_rare_resources
-	
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	resources = {
-		category = planet_autofab_motes
-		produces = {
-			volatile_motes = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|volatile_motes|
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = { is_catalytic_empire = no }
-			}
-			minerals = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|minerals|
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = { is_catalytic_empire = yes }
-			}
-			food = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|food|
-		}
-		upkeep = {
-			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|energy|
-		}
-		upkeep = {
-			energy = 6
-		}
-		upkeep = {
-			energy = 2
-			mult = value:roci_autofab_advanced_jobs
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			alloys = 0.2
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_autofab_commercial_connections }
-		}
-		modifier = {
-			trade_value_add = 2
-		}
-	}
-	
-	country_modifier = {
-		empire_size_add = 1
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
-
-autofab_gases_refinery = {
-	use_for_min_max_adjustments = yes
-	category = deposit_cat_rare_resources
-	
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	resources = {
-		category = planet_autofab_gases
-		produces = {
-			exotic_gases = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|exotic_gases|
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = { is_catalytic_empire = no }
-			}
-			minerals = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|minerals|
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = { is_catalytic_empire = yes }
-			}
-			food = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|food|
-		}
-		upkeep = {
-			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|energy|
-		}
-		upkeep = {
-			energy = 6
-		}
-		upkeep = {
-			energy = 2
-			mult = value:roci_autofab_advanced_jobs
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			alloys = 0.2
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_autofab_commercial_connections }
-		}
-		modifier = {
-			trade_value_add = 2
-		}
-	}
-	
-	country_modifier = {
-		empire_size_add = 1
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
-
-autofab_crystals_refinery = {
-	use_for_min_max_adjustments = yes
-	category = deposit_cat_rare_resources
-	
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	resources = {
-		category = planet_autofab_crystals
-		produces = {
-			rare_crystals = 1
-			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|rare_crystals|
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = { is_catalytic_empire = no }
-			}
-			minerals = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|minerals|
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = { is_catalytic_empire = yes }
-			}
-			food = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|food|
-		}
-		upkeep = {
-			energy = 1
-			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|energy|
-		}
-		upkeep = {
-			energy = 6
-		}
-		upkeep = {
-			energy = 2
-			mult = value:roci_autofab_advanced_jobs
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			alloys = 0.2
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_autofab_commercial_connections }
-		}
-		modifier = {
-			trade_value_add = 2
-		}
-	}
-	
-	country_modifier = {
-		empire_size_add = 1
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
-
-autofab_refinery_extractor = {
-	use_for_min_max_adjustments = yes
-	category = deposit_cat_rare_resources
-	
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { uses_infinite_space_district_set = yes }
-		}
-		modifier = {
-			planet_max_districts_add = -1
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_betharian_deposit count > 0 }
-			exists = owner
-			owner = { has_technology = tech_mine_betharian }
-		}
-		modifier = {
-			planet_autofab_generator_energy_produces_mult = 0.25
-			planet_autofab_generator_energy_produces_add = 1
-			building_betharian_power_plant_max = -1
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_betharian_deposit count > 1 }
-			exists = owner
-			owner = { has_technology = tech_mine_betharian }
-		}
-		modifier = {
-			planet_autofab_generator_energy_produces_mult = 0.25
-			planet_autofab_generator_energy_produces_add = 1
-			building_betharian_power_plant_max = -1
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_betharian_deposit count > 2 }
-			exists = owner
-			owner = { has_technology = tech_mine_betharian }
-		}
-		modifier = {
-			planet_autofab_generator_energy_produces_mult = 0.25
-			planet_autofab_generator_energy_produces_add = 1
-			building_betharian_power_plant_max = -1
-		}
-	}
-	
-	resources = {
-		category = planet_autofab_srs
-		produces = {
-		}
-		upkeep = {
-			trigger = {
-				planet = { uses_district_set = habitat }
-			}
-			alloys = 0.2
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_autofab_commercial_connections }
-		}
-		modifier = {
-			trade_value_add = 2
-		}
-	}
-	
-	country_modifier = {
-		empire_size_add = 1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_industrial_sector count > 0 }
-		}
-		modifier = {
-			building_crystal_mines_max = -2
-			building_gas_extractors_max = -2
-			building_mote_harvesters_max = -2
-			planet_autofab_rare_crystals_produces_add = 4
-			planet_autofab_energy_upkeep_add = 18
-			planet_autofab_exotic_gases_produces_add = 4
-			planet_autofab_volatile_motes_produces_add = 4
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_crystalline_caverns count > 0 }
-		}
-		modifier = {
-			building_crystal_mines_max = -1
-			planet_autofab_rare_crystals_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_crystalline_caverns count > 1 }
-		}
-		modifier = {
-			building_crystal_mines_max = -1
-			planet_autofab_rare_crystals_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_crystalline_caverns count > 2 }
-		}
-		modifier = {
-			building_crystal_mines_max = -1
-			planet_autofab_rare_crystals_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_crystal_forest count > 0 }
-		}
-		modifier = {
-			building_crystal_mines_max = -2
-			planet_autofab_rare_crystals_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_crystal_forest count > 1 }
-		}
-		modifier = {
-			building_crystal_mines_max = -2
-			planet_autofab_rare_crystals_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_crystal_forest count > 2 }
-		}
-		modifier = {
-			building_crystal_mines_max = -2
-			planet_autofab_rare_crystals_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_crystal_reef count > 0 }
-		}
-		modifier = {
-			building_crystal_mines_max = -2
-			planet_autofab_rare_crystals_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_crystal_reef count > 1 }
-		}
-		modifier = {
-			building_crystal_mines_max = -2
-			planet_autofab_rare_crystals_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_crystal_reef count > 2 }
-		}
-		modifier = {
-			building_crystal_mines_max = -2
-			planet_autofab_rare_crystals_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_bubbling_swamp count > 0 }
-		}
-		modifier = {
-			building_gas_extractors_max = -1
-			planet_autofab_exotic_gases_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_bubbling_swamp count > 1 }
-		}
-		modifier = {
-			building_gas_extractors_max = -1
-			planet_autofab_exotic_gases_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_bubbling_swamp count > 2 }
-		}
-		modifier = {
-			building_gas_extractors_max = -1
-			planet_autofab_exotic_gases_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_fuming_bog count > 0 }
-		}
-		modifier = {
-			building_gas_extractors_max = -2
-			planet_autofab_exotic_gases_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_fuming_bog count > 1 }
-		}
-		modifier = {
-			building_gas_extractors_max = -2
-			planet_autofab_exotic_gases_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_fuming_bog count > 2 }
-		}
-		modifier = {
-			building_gas_extractors_max = -2
-			planet_autofab_exotic_gases_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_dust_desert count > 0 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -2
-			planet_autofab_volatile_motes_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_dust_desert count > 1 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -2
-			planet_autofab_volatile_motes_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_dust_desert count > 2 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -2
-			planet_autofab_volatile_motes_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_dust_caverns count > 0 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -1
-			planet_autofab_volatile_motes_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_dust_caverns count > 1 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -1
-			planet_autofab_volatile_motes_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_dust_caverns count > 2 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -1
-			planet_autofab_volatile_motes_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}
-	
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_mote_1 count > 0 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -1
-			planet_autofab_volatile_motes_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_mote_2 count > 0 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -2
-			planet_autofab_volatile_motes_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_mote_3 count > 0 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -3
-			planet_autofab_volatile_motes_produces_add = 6
-			planet_autofab_energy_upkeep_add = 9
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_mote_4 count > 0 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -4
-			planet_autofab_volatile_motes_produces_add = 8
-			planet_autofab_energy_upkeep_add = 12
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_mote_5 count > 0 }
-		}
-		modifier = {
-			building_mote_harvesters_max = -5
-			planet_autofab_volatile_motes_produces_add = 10
-			planet_autofab_energy_upkeep_add = 15
-		}
-	}
-	
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_gas_1 count > 0 }
-		}
-		modifier = {
-			building_gas_extractors_max = -1
-			planet_autofab_exotic_gases_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_gas_2 count > 0 }
-		}
-		modifier = {
-			building_gas_extractors_max = -2
-			planet_autofab_exotic_gases_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_gas_3 count > 0 }
-		}
-		modifier = {
-			building_gas_extractors_max = -3
-			planet_autofab_exotic_gases_produces_add = 6
-			planet_autofab_energy_upkeep_add = 9
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_gas_4 count > 0 }
-		}
-		modifier = {
-			building_gas_extractors_max = -4
-			planet_autofab_exotic_gases_produces_add = 8
-			planet_autofab_energy_upkeep_add = 12
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_gas_5 count > 0 }
-		}
-		modifier = {
-			building_gas_extractors_max = -5
-			planet_autofab_exotic_gases_produces_add = 10
-			planet_autofab_energy_upkeep_add = 15
-		}
-	}
-	
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_crystal_1 count > 0 }
-		}
-		modifier = {
-			building_crystal_mines_max = -1
-			planet_autofab_rare_crystals_produces_add = 2
-			planet_autofab_energy_upkeep_add = 3
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_crystal_2 count > 0 }
-		}
-		modifier = {
-			building_crystal_mines_max = -2
-			planet_autofab_rare_crystals_produces_add = 4
-			planet_autofab_energy_upkeep_add = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_crystal_3 count > 0 }
-		}
-		modifier = {
-			building_crystal_mines_max = -3
-			planet_autofab_rare_crystals_produces_add = 6
-			planet_autofab_energy_upkeep_add = 9
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_crystal_4 count > 0 }
-		}
-		modifier = {
-			building_crystal_mines_max = -4
-			planet_autofab_rare_crystals_produces_add = 8
-			planet_autofab_energy_upkeep_add = 12
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			count_deposits = { type = d_hab_crystal_5 count > 0 }
-		}
-		modifier = {
-			building_crystal_mines_max = -5
-			planet_autofab_rare_crystals_produces_add = 10
-			planet_autofab_energy_upkeep_add = 15
-		}
-	}
-	
-	potential = {
-		always = yes
-	}
-	
-	drop_weight = {
-		weight = 0
-	}
-}
+#autofab_power = {
+#	use_for_min_max_adjustments = yes
+#	category = deposit_cat_energy
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	resources = {
+#		category = planet_autofab_generator
+#		produces = {
+#			energy = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
+#		}
+#		upkeep = {
+#			energy = 1
+#		}
+#		upkeep = {
+#			energy = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
+#		}
+#		
+#		#Different Planet Types
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = ring_world }
+#			}
+#			rare_crystals = 2
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = habitat }
+#			}
+#			alloys = 0.2
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = { has_active_tradition = tr_autofab_commercial_connections }
+#		}
+#		modifier = {
+#			trade_value_add = 2
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			uses_district_set = standard
+#		}
+#		modifier = {
+#			district_generator_max = -1
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			uses_district_set = habitat
+#		}
+#		modifier = {
+#			district_hab_energy_max = -1
+#		}
+#	}
+#	
+#	
+#	country_modifier = {
+#		empire_size_add = 1
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}
+#
+#autofab_farm = {
+#	use_for_min_max_adjustments = yes
+#	category = deposit_cat_food
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	resources = {
+#		category = planet_autofab_farm
+#		produces = {
+#			food = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|food|	
+#		}
+#		produces = {
+#			energy = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|energy|
+#		}
+#		produces = {
+#			exotic_gases = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|exotic_gases|
+#		}
+#		upkeep = {
+#			energy = 3
+#		}
+#		upkeep = {
+#			energy = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|farmers|resource|energy|
+#		}
+#		upkeep = {
+#			energy = 2
+#			mult = value:roci_autofab_basic_jobs
+#		}
+#		
+#		#Different Planet Types
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = ring_world }
+#			}
+#			energy = 4
+#			volatile_motes = 2
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = { has_active_tradition = tr_autofab_commercial_connections }
+#		}
+#		modifier = {
+#			trade_value_add = 2
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = {
+#				has_edict = farming_subsidies
+#			}
+#		}
+#		modifier = {
+#			planet_autofab_energy_upkeep_add = 1
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			uses_district_set = standard
+#		}
+#		modifier = {
+#			district_farming_max = -1
+#		}
+#	}
+#	
+#	country_modifier = {
+#		empire_size_add = 1
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}
+#
+#autofab_mine = {
+#	use_for_min_max_adjustments = yes
+#	category = deposit_cat_minerals
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	resources = {
+#		category = planet_autofab_mine
+#		produces = {
+#			minerals = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|minerals|
+#		}
+#		upkeep = {
+#			energy = 3
+#		}
+#		upkeep = {
+#			energy = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|energy|
+#		}
+#		upkeep = {
+#			energy = 2
+#			mult = value:roci_autofab_basic_jobs
+#		}
+#		
+#		upkeep = {
+#			trigger = {
+#				exists = owner
+#				 planet = { owner = {
+#					has_edict = mining_subsidies
+#				} }
+#			}
+#			energy = 1
+#			mult = value:roci_autofab_basic_jobs
+#		}
+#		#Strategic Resources
+#		produces = {
+#			trigger = {
+#				exists = owner
+#				planet = { 
+#					owner = {
+#						has_technology = tech_mine_volatile_motes
+#					}
+#				}
+#			}
+#			volatile_motes = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|volatile_motes|
+#		}
+#		produces = {
+#			trigger = {
+#				exists = owner
+#				planet = { 
+#					owner = {
+#						has_technology = tech_mine_exotic_gases
+#					}
+#				}
+#			}
+#			exotic_gases = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|exotic_gases|
+#		}
+#		produces = {
+#			trigger = {
+#				exists = owner
+#				planet = { 
+#					owner = {
+#						has_technology = tech_mine_rare_crystals
+#					}
+#				}
+#			}
+#			rare_crystals = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|miners|resource|rare_crystals|
+#		}
+#		
+#		#Different Planet Types
+#		produces = {
+#			trigger = {
+#				planet = { uses_district_set = shattered_ring_world }
+#			}
+#			alloys = 4
+#			minerals = -4
+#			mult = value:roci_autofab_basic_jobs
+#		}
+#		
+#		#Boosting Building Stuff
+#		produces = {
+#			trigger = {
+#				planet = {
+#					has_active_building = building_mineral_purification_plant
+#				}
+#			}
+#			minerals = 1
+#			mult = value:roci_autofab_basic_jobs
+#		}
+#		produces = {
+#			trigger = {
+#				planet = {
+#					has_active_building = building_mineral_purification_hub
+#				}
+#			}
+#			minerals = 2
+#			mult = value:roci_autofab_basic_jobs
+#		}
+#		#FE Buildings Stuff
+#		produces = {
+#			trigger = {
+#				planet = { has_active_building = building_roci_dimensional_fabricator_mod }
+#			}
+#			minerals = 4
+#			mult = value:roci_autofab_basic_jobs
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { has_active_building = building_roci_dimensional_fabricator_mod }
+#			}
+#			energy = 2
+#			mult = value:roci_autofab_basic_jobs
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = habitat }
+#			}
+#			alloys = 0.2
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = { has_active_tradition = tr_autofab_commercial_connections }
+#		}
+#		modifier = {
+#			trade_value_add = 2
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			uses_district_set = standard
+#		}
+#		modifier = {
+#			district_mining_max = -1
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			uses_district_set = habitat
+#		}
+#		modifier = {
+#			district_hab_mining_max = -1
+#		}
+#	}
+#	
+#	country_modifier = {
+#		empire_size_add = 1
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}
+#
+#autofab_foundry = {
+#	use_for_min_max_adjustments = yes
+#	category = deposit_cat_alloys
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	resources = {
+#		category = planet_autofab_foundry
+#		produces = {
+#			alloys = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|alloys|
+#		}
+#		upkeep = {
+#			energy = 4
+#		}
+#		upkeep = {
+#			energy = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|energy|
+#		}
+#		upkeep = {
+#			energy = 2
+#			mult = value:roci_autofab_advanced_jobs
+#		}
+#		
+#		upkeep = {
+#			trigger = {
+#				exists = owner
+#				owner = { is_catalytic_empire = no }
+#			}
+#			minerals = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|minerals|
+#		}
+#		upkeep = {
+#			trigger = {
+#				exists = owner
+#				owner = { is_catalytic_empire = yes }
+#			}
+#			food = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|metallurgists|resource|food|
+#		}
+#		
+#		#Different Planet Types
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = city_world }
+#			}
+#			energy = 6
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = ring_world }
+#			}
+#			energy = 19
+#			volatile_motes = 2
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = habitat }
+#			}
+#			alloys = 0.2
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = { has_active_tradition = tr_autofab_commercial_connections }
+#		}
+#		modifier = {
+#			trade_value_add = 2
+#		}
+#	}
+#	
+#	country_modifier = {
+#		empire_size_add = 1
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}
+#
+#autofab_factory = {
+#	use_for_min_max_adjustments = yes
+#	category = deposit_cat_consumer_goods
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	resources = {
+#		category = planet_autofab_factory
+#		produces = {
+#			consumer_goods = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisans|resource|consumer_goods|
+#		}
+#		upkeep = {
+#			minerals = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisans|resource|minerals|
+#		}
+#		upkeep = {
+#			energy = 4
+#		}
+#		upkeep = {
+#			energy = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|artisans|resource|energy|
+#		}
+#		upkeep = {
+#			energy = 2
+#			mult = value:roci_autofab_advanced_jobs
+#		}
+#		
+#		#Different Planet Types
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = city_world }
+#			}
+#			energy = 6
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = ring_world }
+#			}
+#			energy = 19
+#			rare_crystals = 2
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = habitat }
+#			}
+#			alloys = 0.2
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = { has_active_tradition = tr_autofab_commercial_connections }
+#		}
+#		modifier = {
+#			trade_value_add = 2
+#		}
+#	}
+#	
+#	country_modifier = {
+#		empire_size_add = 1
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}
+#
+#autofab_motes_refinery = {
+#	use_for_min_max_adjustments = yes
+#	category = deposit_cat_rare_resources
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	resources = {
+#		category = planet_autofab_motes
+#		produces = {
+#			volatile_motes = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|volatile_motes|
+#		}
+#		upkeep = {
+#			trigger = {
+#				exists = owner
+#				owner = { is_catalytic_empire = no }
+#			}
+#			minerals = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|minerals|
+#		}
+#		upkeep = {
+#			trigger = {
+#				exists = owner
+#				owner = { is_catalytic_empire = yes }
+#			}
+#			food = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|food|
+#		}
+#		upkeep = {
+#			energy = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|chemist|resource|energy|
+#		}
+#		upkeep = {
+#			energy = 6
+#		}
+#		upkeep = {
+#			energy = 2
+#			mult = value:roci_autofab_advanced_jobs
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = habitat }
+#			}
+#			alloys = 0.2
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = { has_active_tradition = tr_autofab_commercial_connections }
+#		}
+#		modifier = {
+#			trade_value_add = 2
+#		}
+#	}
+#	
+#	country_modifier = {
+#		empire_size_add = 1
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}
+#
+#autofab_gases_refinery = {
+#	use_for_min_max_adjustments = yes
+#	category = deposit_cat_rare_resources
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	resources = {
+#		category = planet_autofab_gases
+#		produces = {
+#			exotic_gases = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|exotic_gases|
+#		}
+#		upkeep = {
+#			trigger = {
+#				exists = owner
+#				owner = { is_catalytic_empire = no }
+#			}
+#			minerals = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|minerals|
+#		}
+#		upkeep = {
+#			trigger = {
+#				exists = owner
+#				owner = { is_catalytic_empire = yes }
+#			}
+#			food = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|food|
+#		}
+#		upkeep = {
+#			energy = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|gas_refiner|resource|energy|
+#		}
+#		upkeep = {
+#			energy = 6
+#		}
+#		upkeep = {
+#			energy = 2
+#			mult = value:roci_autofab_advanced_jobs
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = habitat }
+#			}
+#			alloys = 0.2
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = { has_active_tradition = tr_autofab_commercial_connections }
+#		}
+#		modifier = {
+#			trade_value_add = 2
+#		}
+#	}
+#	
+#	country_modifier = {
+#		empire_size_add = 1
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}
+#
+#autofab_crystals_refinery = {
+#	use_for_min_max_adjustments = yes
+#	category = deposit_cat_rare_resources
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	resources = {
+#		category = planet_autofab_crystals
+#		produces = {
+#			rare_crystals = 1
+#			mult = value:roci_autofab_job_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|rare_crystals|
+#		}
+#		upkeep = {
+#			trigger = {
+#				exists = owner
+#				owner = { is_catalytic_empire = no }
+#			}
+#			minerals = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|minerals|
+#		}
+#		upkeep = {
+#			trigger = {
+#				exists = owner
+#				owner = { is_catalytic_empire = yes }
+#			}
+#			food = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|food|
+#		}
+#		upkeep = {
+#			energy = 1
+#			mult = value:roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_advanced_jobs|job|translucer|resource|energy|
+#		}
+#		upkeep = {
+#			energy = 6
+#		}
+#		upkeep = {
+#			energy = 2
+#			mult = value:roci_autofab_advanced_jobs
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = habitat }
+#			}
+#			alloys = 0.2
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = { has_active_tradition = tr_autofab_commercial_connections }
+#		}
+#		modifier = {
+#			trade_value_add = 2
+#		}
+#	}
+#	
+#	country_modifier = {
+#		empire_size_add = 1
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}
+#
+#autofab_refinery_extractor = {
+#	use_for_min_max_adjustments = yes
+#	category = deposit_cat_rare_resources
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			NOT = { uses_infinite_space_district_set = yes }
+#		}
+#		modifier = {
+#			planet_max_districts_add = -1
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_betharian_deposit count > 0 }
+#			exists = owner
+#			owner = { has_technology = tech_mine_betharian }
+#		}
+#		modifier = {
+#			planet_autofab_generator_energy_produces_mult = 0.25
+#			planet_autofab_generator_energy_produces_add = 1
+#			building_betharian_power_plant_max = -1
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_betharian_deposit count > 1 }
+#			exists = owner
+#			owner = { has_technology = tech_mine_betharian }
+#		}
+#		modifier = {
+#			planet_autofab_generator_energy_produces_mult = 0.25
+#			planet_autofab_generator_energy_produces_add = 1
+#			building_betharian_power_plant_max = -1
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_betharian_deposit count > 2 }
+#			exists = owner
+#			owner = { has_technology = tech_mine_betharian }
+#		}
+#		modifier = {
+#			planet_autofab_generator_energy_produces_mult = 0.25
+#			planet_autofab_generator_energy_produces_add = 1
+#			building_betharian_power_plant_max = -1
+#		}
+#	}
+#	
+#	resources = {
+#		category = planet_autofab_srs
+#		produces = {
+#		}
+#		upkeep = {
+#			trigger = {
+#				planet = { uses_district_set = habitat }
+#			}
+#			alloys = 0.2
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = { has_active_tradition = tr_autofab_commercial_connections }
+#		}
+#		modifier = {
+#			trade_value_add = 2
+#		}
+#	}
+#	
+#	country_modifier = {
+#		empire_size_add = 1
+#	}
+#
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_industrial_sector count > 0 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -2
+#			building_gas_extractors_max = -2
+#			building_mote_harvesters_max = -2
+#			planet_autofab_rare_crystals_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 18
+#			planet_autofab_exotic_gases_produces_add = 4
+#			planet_autofab_volatile_motes_produces_add = 4
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_crystalline_caverns count > 0 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -1
+#			planet_autofab_rare_crystals_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_crystalline_caverns count > 1 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -1
+#			planet_autofab_rare_crystals_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_crystalline_caverns count > 2 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -1
+#			planet_autofab_rare_crystals_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_crystal_forest count > 0 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -2
+#			planet_autofab_rare_crystals_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_crystal_forest count > 1 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -2
+#			planet_autofab_rare_crystals_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_crystal_forest count > 2 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -2
+#			planet_autofab_rare_crystals_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_crystal_reef count > 0 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -2
+#			planet_autofab_rare_crystals_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_crystal_reef count > 1 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -2
+#			planet_autofab_rare_crystals_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_crystal_reef count > 2 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -2
+#			planet_autofab_rare_crystals_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_bubbling_swamp count > 0 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -1
+#			planet_autofab_exotic_gases_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_bubbling_swamp count > 1 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -1
+#			planet_autofab_exotic_gases_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_bubbling_swamp count > 2 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -1
+#			planet_autofab_exotic_gases_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_fuming_bog count > 0 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -2
+#			planet_autofab_exotic_gases_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_fuming_bog count > 1 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -2
+#			planet_autofab_exotic_gases_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_fuming_bog count > 2 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -2
+#			planet_autofab_exotic_gases_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_dust_desert count > 0 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -2
+#			planet_autofab_volatile_motes_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_dust_desert count > 1 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -2
+#			planet_autofab_volatile_motes_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_dust_desert count > 2 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -2
+#			planet_autofab_volatile_motes_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_dust_caverns count > 0 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -1
+#			planet_autofab_volatile_motes_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_dust_caverns count > 1 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -1
+#			planet_autofab_volatile_motes_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_dust_caverns count > 2 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -1
+#			planet_autofab_volatile_motes_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}
+#	
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_mote_1 count > 0 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -1
+#			planet_autofab_volatile_motes_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_mote_2 count > 0 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -2
+#			planet_autofab_volatile_motes_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_mote_3 count > 0 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -3
+#			planet_autofab_volatile_motes_produces_add = 6
+#			planet_autofab_energy_upkeep_add = 9
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_mote_4 count > 0 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -4
+#			planet_autofab_volatile_motes_produces_add = 8
+#			planet_autofab_energy_upkeep_add = 12
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_mote_5 count > 0 }
+#		}
+#		modifier = {
+#			building_mote_harvesters_max = -5
+#			planet_autofab_volatile_motes_produces_add = 10
+#			planet_autofab_energy_upkeep_add = 15
+#		}
+#	}
+#	
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_gas_1 count > 0 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -1
+#			planet_autofab_exotic_gases_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_gas_2 count > 0 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -2
+#			planet_autofab_exotic_gases_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_gas_3 count > 0 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -3
+#			planet_autofab_exotic_gases_produces_add = 6
+#			planet_autofab_energy_upkeep_add = 9
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_gas_4 count > 0 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -4
+#			planet_autofab_exotic_gases_produces_add = 8
+#			planet_autofab_energy_upkeep_add = 12
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_gas_5 count > 0 }
+#		}
+#		modifier = {
+#			building_gas_extractors_max = -5
+#			planet_autofab_exotic_gases_produces_add = 10
+#			planet_autofab_energy_upkeep_add = 15
+#		}
+#	}
+#	
+#	
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_crystal_1 count > 0 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -1
+#			planet_autofab_rare_crystals_produces_add = 2
+#			planet_autofab_energy_upkeep_add = 3
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_crystal_2 count > 0 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -2
+#			planet_autofab_rare_crystals_produces_add = 4
+#			planet_autofab_energy_upkeep_add = 6
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_crystal_3 count > 0 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -3
+#			planet_autofab_rare_crystals_produces_add = 6
+#			planet_autofab_energy_upkeep_add = 9
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_crystal_4 count > 0 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -4
+#			planet_autofab_rare_crystals_produces_add = 8
+#			planet_autofab_energy_upkeep_add = 12
+#		}
+#	}
+#	triggered_planet_modifier = {
+#		potential = {
+#			count_deposits = { type = d_hab_crystal_5 count > 0 }
+#		}
+#		modifier = {
+#			building_crystal_mines_max = -5
+#			planet_autofab_rare_crystals_produces_add = 10
+#			planet_autofab_energy_upkeep_add = 15
+#		}
+#	}
+#	
+#	potential = {
+#		always = yes
+#	}
+#	
+#	drop_weight = {
+#		weight = 0
+#	}
+#}

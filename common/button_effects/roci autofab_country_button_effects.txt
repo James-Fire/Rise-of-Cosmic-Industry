@@ -1,850 +1,851 @@
-autofab_country_tooltip = {
-	potential = { }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { custom_tooltip = "autofab_country_tooltip" }
-}
 
-open_autofab_manager = {
-	potential = { hidden_trigger = { can_use_autofab = yes } } #has_exploit_mod = yes
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		country_event = { id = autofab_menu.1 }
-		hidden_effect = {
-			factory_reset_all_country_flags = yes
-			document_factory_country = yes
-			factory_set_default_queue = yes
-		}
-	}
-}
-
-open_autofab_manager_side = {
-	potential = { hidden_trigger = { can_use_autofab = yes } } #has_exploit_mod = no
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		country_event = { id = autofab_menu.1 }
-		hidden_effect = {
-			factory_reset_all_country_flags = yes
-			document_factory_country = yes
-			factory_set_default_queue = yes
-		}
-	}
-}
-
-hidden_button_on = {
-	potential = { NOT = { has_country_flag = easter_egg } }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { set_country_flag = easter_egg }
-}
-hidden_button = {
-	potential = { has_country_flag = easter_egg }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { }
-}
-hidden_button_off = {
-	potential = { has_country_flag = easter_egg }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = easter_egg }
-}
-
-
-factory_automation_desc = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_automation_desc"
-	}
-}
-factory_automation_off = {
-	potential = { has_country_flag = autofab_automation }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = autofab_automation set_country_flag = autofab_automation_off }
-}
-factory_automation_on = {
-	potential = { has_country_flag = autofab_automation_off }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		#custom_tooltip = "Automation is not available right now."
-		set_country_flag = autofab_automation remove_country_flag = autofab_automation_off
-	}
-}
-factory_automation_settings = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		#custom_tooltip = "Automation is not available right now."
-		hidden_effect = {
-			country_event = { id = autofab_menu.2 }
-			autofab_floor_automation_variables = yes
-		}
-	}
-}
-
-factory_vanilla_swapping_desc = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_vanilla_swapping_desc"
-	}
-}
-factory_vanilla_swapping_fire_country = {
-	potential = { has_country_flag = factory_vanilla_swapping }
-	allow = {
-		custom_tooltip = "swapping_country_tooltip"
-		hidden_trigger = { any_owned_planet = { has_vanilla_swap_candidate = yes NOT = { has_planet_flag = autofab_ignore_vanilla } } }
-	}
-	effect = {
-		custom_tooltip = "swapping_country_effects_tooltip"
-		hidden_effect = {
-			every_owned_planet = {
-				limit = {
-					has_vanilla_swap_candidate = yes
-					NOT = { has_planet_flag = autofab_ignore_vanilla }
-				}
-				planet_event = { id = autofab.21 }
-			}
-		}
-	}
-}
-factory_vanilla_swapping_off = {
-	potential = { has_country_flag = factory_vanilla_swapping }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_vanilla_swapping set_country_flag = autofab_ignore_vanilla }
-}
-factory_vanilla_swapping_on = {
-	potential = { has_country_flag = autofab_ignore_vanilla }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { set_country_flag = factory_vanilla_swapping remove_country_flag = autofab_ignore_vanilla }
-}
-
-factory_fallback_desc = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_fallback_desc"
-	}
-}
-factory_fallback_off = {
-	potential = { has_country_flag = factory_fallback }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_fallback set_country_flag = factory_fallback_off }
-}
-factory_fallback_on = {
-	potential = { has_country_flag = factory_fallback_off }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { set_country_flag = factory_fallback remove_country_flag = factory_fallback_off }
-}
-
-factory_autofab_construction_desc = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_autofab_construction_desc"
-	}
-}
-factory_autofab_construction_off = {
-	potential = { has_country_flag = factory_autofab_construction_on }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_autofab_construction_on set_country_flag = factory_autofab_construction_off }
-}
-factory_autofab_construction_on = {
-	potential = { has_country_flag = factory_autofab_construction_off }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { set_country_flag = factory_autofab_construction_on remove_country_flag = factory_autofab_construction_off hidden_effect = { set_variable = { which = autofab_queue value = 0 } } }
-}
-
-###Tooltips!
-
-factory_planets = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_autofab_tooltip"
-	}
-}
-factory_generator = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_generator_tooltip"
-	}
-}
-factory_mine = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_mine_tooltip"
-	}
-}
-factory_farm = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_farm_tooltip"
-	}
-}
-factory_foundry = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_foundry_tooltip"
-	}
-}
-factory_factory = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_factory_tooltip"
-	}
-}
-factory_motes = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_motes_tooltip"
-	}
-}
-factory_gases = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_gases_tooltip"
-	}
-}
-factory_crystals = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_crystals_tooltip"
-	}
-}
-factory_extractor = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "factory_extractor_tooltip"
-	}
-}
-
-###Number Looping
-
-factory_queue_1 = {
-	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_1 set_country_flag = factory_queue_2 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 1 } } }
-}
-factory_queue_2 = {
-	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_2 set_country_flag = factory_queue_3 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 2 } } }
-}
-factory_queue_3 = {
-	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_3 set_country_flag = factory_queue_4 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 3 } } }
-}
-factory_queue_4 = {
-	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_4 set_country_flag = factory_queue_5 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 4 } } }
-}
-factory_queue_5 = {
-	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_queue_5 set_country_flag = factory_queue_1 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 5 } } }
-}
-
-factory_generator_queue_1 = {
-	potential = { has_country_flag = factory_generator_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_generator_queue_1 set_country_flag = factory_generator_queue_2 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 1 } } }
-}
-factory_generator_queue_2 = {
-	potential = { has_country_flag = factory_generator_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_generator_queue_2 set_country_flag = factory_generator_queue_3 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 2 } } }
-}
-factory_generator_queue_3 = {
-	potential = { has_country_flag = factory_generator_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_generator_queue_3 set_country_flag = factory_generator_queue_4 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 3 } } }
-}
-factory_generator_queue_4 = {
-	potential = { has_country_flag = factory_generator_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_generator_queue_4 set_country_flag = factory_generator_queue_5 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 4 } } }
-}
-factory_generator_queue_5 = {
-	potential = { has_country_flag = factory_generator_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_generator_queue_5 set_country_flag = factory_generator_queue_1 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 5 } } }
-}
-
-factory_mine_queue_1 = {
-	potential = { has_country_flag = factory_mine_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_mine_queue_1 set_country_flag = factory_mine_queue_2 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 1 } } }
-}
-factory_mine_queue_2 = {
-	potential = { has_country_flag = factory_mine_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_mine_queue_2 set_country_flag = factory_mine_queue_3 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 2 } } }
-}
-factory_mine_queue_3 = {
-	potential = { has_country_flag = factory_mine_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_mine_queue_3 set_country_flag = factory_mine_queue_4 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 3 } } }
-}
-factory_mine_queue_4 = {
-	potential = { has_country_flag = factory_mine_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_mine_queue_4 set_country_flag = factory_mine_queue_5 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 4 } } }
-}
-factory_mine_queue_5 = {
-	potential = { has_country_flag = factory_mine_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_mine_queue_5 set_country_flag = factory_mine_queue_1 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 5 } } }
-}
-
-factory_farm_queue_1 = {
-	potential = { has_country_flag = factory_farm_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_farm_queue_1 set_country_flag = factory_farm_queue_2 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 1 } } }
-}
-factory_farm_queue_2 = {
-	potential = { has_country_flag = factory_farm_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_farm_queue_2 set_country_flag = factory_farm_queue_3 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 2 } } }
-}
-factory_farm_queue_3 = {
-	potential = { has_country_flag = factory_farm_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_farm_queue_3 set_country_flag = factory_farm_queue_4 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 3 } } }
-}
-factory_farm_queue_4 = {
-	potential = { has_country_flag = factory_farm_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_farm_queue_4 set_country_flag = factory_farm_queue_5 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 4 } } }
-}
-factory_farm_queue_5 = {
-	potential = { has_country_flag = factory_farm_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_farm_queue_5 set_country_flag = factory_farm_queue_1 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 5 } } }
-}
-
-factory_foundry_queue_1 = {
-	potential = { has_country_flag = factory_foundry_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_foundry_queue_1 set_country_flag = factory_foundry_queue_2 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 1 } } }
-}
-factory_foundry_queue_2 = {
-	potential = { has_country_flag = factory_foundry_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_foundry_queue_2 set_country_flag = factory_foundry_queue_3 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 2 } } }
-}
-factory_foundry_queue_3 = {
-	potential = { has_country_flag = factory_foundry_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_foundry_queue_3 set_country_flag = factory_foundry_queue_4 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 3 } } }
-}
-factory_foundry_queue_4 = {
-	potential = { has_country_flag = factory_foundry_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_foundry_queue_4 set_country_flag = factory_foundry_queue_5 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 4 } } }
-}
-factory_foundry_queue_5 = {
-	potential = { has_country_flag = factory_foundry_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_foundry_queue_5 set_country_flag = factory_foundry_queue_1 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 5 } } }
-}
-
-factory_factory_queue_1 = {
-	potential = { has_country_flag = factory_factory_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_factory_queue_1 set_country_flag = factory_factory_queue_2 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 1 } } }
-}
-factory_factory_queue_2 = {
-	potential = { has_country_flag = factory_factory_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_factory_queue_2 set_country_flag = factory_factory_queue_3 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 2 } } }
-}
-factory_factory_queue_3 = {
-	potential = { has_country_flag = factory_factory_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_factory_queue_3 set_country_flag = factory_factory_queue_4 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 3 } } }
-}
-factory_factory_queue_4 = {
-	potential = { has_country_flag = factory_factory_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_factory_queue_4 set_country_flag = factory_factory_queue_5 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 4 } } }
-}
-factory_factory_queue_5 = {
-	potential = { has_country_flag = factory_factory_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_factory_queue_5 set_country_flag = factory_factory_queue_1 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 5 } } }
-}
-
-factory_motes_queue_1 = {
-	potential = { has_country_flag = factory_motes_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_motes_queue_1 set_country_flag = factory_motes_queue_2 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 1 } } }
-}
-factory_motes_queue_2 = {
-	potential = { has_country_flag = factory_motes_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_motes_queue_2 set_country_flag = factory_motes_queue_3 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 2 } } }
-}
-factory_motes_queue_3 = {
-	potential = { has_country_flag = factory_motes_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_motes_queue_3 set_country_flag = factory_motes_queue_4 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 3 } } }
-}
-factory_motes_queue_4 = {
-	potential = { has_country_flag = factory_motes_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_motes_queue_4 set_country_flag = factory_motes_queue_5 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 4 } } }
-}
-factory_motes_queue_5 = {
-	potential = { has_country_flag = factory_motes_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_motes_queue_5 set_country_flag = factory_motes_queue_1 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 5 } } }
-}
-
-factory_gases_queue_1 = {
-	potential = { has_country_flag = factory_gases_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_gases_queue_1 set_country_flag = factory_gases_queue_2 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 1 } } }
-}
-factory_gases_queue_2 = {
-	potential = { has_country_flag = factory_gases_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_gases_queue_2 set_country_flag = factory_gases_queue_3 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 2 } } }
-}
-factory_gases_queue_3 = {
-	potential = { has_country_flag = factory_gases_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_gases_queue_3 set_country_flag = factory_gases_queue_4 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 3 } } }
-}
-factory_gases_queue_4 = {
-	potential = { has_country_flag = factory_gases_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_gases_queue_4 set_country_flag = factory_gases_queue_5 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 4 } } }
-}
-factory_gases_queue_5 = {
-	potential = { has_country_flag = factory_gases_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_gases_queue_5 set_country_flag = factory_gases_queue_1 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 5 } } }
-}
-
-factory_crystals_queue_1 = {
-	potential = { has_country_flag = factory_crystals_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_crystals_queue_1 set_country_flag = factory_crystals_queue_2 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 1 } } }
-}
-factory_crystals_queue_2 = {
-	potential = { has_country_flag = factory_crystals_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_crystals_queue_2 set_country_flag = factory_crystals_queue_3 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 2 } } }
-}
-factory_crystals_queue_3 = {
-	potential = { has_country_flag = factory_crystals_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_crystals_queue_3 set_country_flag = factory_crystals_queue_4 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 3 } } }
-}
-factory_crystals_queue_4 = {
-	potential = { has_country_flag = factory_crystals_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_crystals_queue_4 set_country_flag = factory_crystals_queue_5 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 4 } } }
-}
-factory_crystals_queue_5 = {
-	potential = { has_country_flag = factory_crystals_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_crystals_queue_5 set_country_flag = factory_crystals_queue_1 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 5 } } }
-}
-
-factory_extractor_queue_1 = {
-	potential = { always = no has_country_flag = factory_extractor_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_extractor_queue_1 set_country_flag = factory_extractor_queue_2 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 1 } } }
-}
-factory_extractor_queue_2 = {
-	potential = { always = no has_country_flag = factory_extractor_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_extractor_queue_2 set_country_flag = factory_extractor_queue_3 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 2 } } }
-}
-factory_extractor_queue_3 = {
-	potential = { always = no has_country_flag = factory_extractor_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_extractor_queue_3 set_country_flag = factory_extractor_queue_4 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 3 } } }
-}
-factory_extractor_queue_4 = {
-	potential = { always = no has_country_flag = factory_extractor_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_extractor_queue_4 set_country_flag = factory_extractor_queue_5 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 4 } } }
-}
-factory_extractor_queue_5 = {
-	potential = { always = no has_country_flag = factory_extractor_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_country_flag = factory_extractor_queue_5 set_country_flag = factory_extractor_queue_1 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 5 } } }
-}
-
-###Factory Queueing
-
-factory_increase_queue = {
-	potential = { has_country_flag = factory_autofab_construction_on }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_enough_available"
-			fail_text = "autofab_not_enough_available"
-			check_variable = { which = autofabs_available value >= factory_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_autofab_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_queue value = factory_queue_apply_value }
-		}
-	}
-}
-factory_decrease_queue = {
-	potential = { has_country_flag = factory_autofab_construction_on }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_enough_queued"
-			fail_text = "autofab_not_enough_queued"
-			check_variable = { which = autofab_queue value >= factory_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_autofab_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_queue value = factory_queue_apply_value }
-		}
-	}
-}
-
-factory_generator_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_energy_avail value >= factory_generator_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_generator_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_energy_queue value = factory_generator_queue_apply_value }
-			subtract_variable = { which = autofab_energy_avail value = factory_generator_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_generator_queue_apply_value }
-		}
-	}
-}
-factory_generator_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_generator_queue_apply_value value <= value:factory_generator_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_generator_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_energy_queue value = factory_generator_queue_apply_value }
-			change_variable = { which = autofab_energy_avail value = factory_generator_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_generator_queue_apply_value }
-		}
-	}
-}
-
-factory_mine_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_minerals_avail value >= factory_mine_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_mine_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_mineral_queue value = factory_mine_queue_apply_value }
-			subtract_variable = { which = autofab_minerals_avail value = factory_mine_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_mine_queue_apply_value }
-		}
-	}
-}
-factory_mine_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_mine_queue_apply_value value <= value:factory_mine_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_mine_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_mineral_queue value = factory_mine_queue_apply_value }
-			change_variable = { which = autofab_minerals_avail value = factory_mine_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_mine_queue_apply_value }
-		}
-	}
-}
-
-factory_farm_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_food_avail value >= factory_farm_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_farm_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_food_queue value = factory_farm_queue_apply_value }
-			subtract_variable = { which = autofab_food_avail value = factory_farm_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_farm_queue_apply_value }
-		}
-	}
-}
-factory_farm_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_farm_queue_apply_value value <= value:factory_farm_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_farm_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_food_queue value = factory_farm_queue_apply_value }
-			change_variable = { which = autofab_food_avail value = factory_farm_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_farm_queue_apply_value }
-		}
-	}
-}
-
-factory_foundry_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_foundry_available value >= factory_foundry_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_foundry_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_alloys_queue value = factory_foundry_queue_apply_value }
-			subtract_variable = { which = autofab_foundry_available value = factory_foundry_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_foundry_queue_apply_value }
-		}
-	}
-}
-factory_foundry_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_foundry_queue_apply_value value <= value:factory_foundry_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_foundry_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_alloys_queue value = factory_foundry_queue_apply_value }
-			change_variable = { which = autofab_foundry_available value = factory_foundry_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_foundry_queue_apply_value }
-		}
-	}
-}
-
-factory_factory_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_factory_available value >= factory_factory_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_factory_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_congoods_queue value = factory_factory_queue_apply_value }
-			subtract_variable = { which = autofab_factory_available value = factory_factory_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_factory_queue_apply_value }
-		}
-	}
-}
-factory_factory_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_factory_queue_apply_value value <= value:factory_factory_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_factory_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_congoods_queue value = factory_factory_queue_apply_value }
-			change_variable = { which = autofab_factory_available value = factory_factory_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_factory_queue_apply_value }
-		}
-	}
-}
-
-factory_motes_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_districts_available value >= factory_motes_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_chemical_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_motes_queue value = factory_motes_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_motes_queue_apply_value }
-		}
-	}
-}
-factory_motes_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_motes_queue_apply_value value <= value:factory_motes_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_chemical_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_motes_queue value = factory_motes_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_motes_queue_apply_value }
-		}
-	}
-}
-
-factory_gases_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_districts_available value >= factory_gases_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_refinery_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_gases_queue value = factory_gases_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_gases_queue_apply_value }
-		}
-	}
-}
-factory_gases_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_gases_queue_apply_value value <= value:factory_gases_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_refinery_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_gases_queue value = factory_gases_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_gases_queue_apply_value }
-		}
-	}
-}
-
-factory_crystals_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_districts_available value >= factory_crystals_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_translucer_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_crystals_queue value = factory_crystals_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_crystals_queue_apply_value }
-		}
-	}
-}
-factory_crystals_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_crystals_queue_apply_value value <= value:factory_crystals_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_translucer_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_crystals_queue value = factory_crystals_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_crystals_queue_apply_value }
-		}
-	}
-}
-
-factory_extractor_increase_queue = {
-	potential = { always = no }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_districts_available value >= factory_extractor_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_extractor_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_extractor_queue value = factory_extractor_queue_apply_value }
-			subtract_variable = { which = autofab_extractor_avail value = factory_extractor_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_extractor_queue_apply_value }
-		}
-	}
-}
-factory_extractor_decrease_queue = {
-	potential = { always = no }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_extractor_queue_apply_value value <= value:factory_extractor_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_extractor_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_extractor_queue value = factory_extractor_queue_apply_value }
-			change_variable = { which = autofab_extractor_avail value = factory_extractor_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_extractor_queue_apply_value }
-		}
-	}
-}
+#autofab_country_tooltip = {
+#	potential = { }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { custom_tooltip = "autofab_country_tooltip" }
+#}
+#
+#open_autofab_manager = {
+#	potential = { hidden_trigger = { can_use_autofab = yes } } #has_exploit_mod = yes
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		country_event = { id = autofab_menu.1 }
+#		hidden_effect = {
+#			factory_reset_all_country_flags = yes
+#			document_factory_country = yes
+#			factory_set_default_queue = yes
+#		}
+#	}
+#}
+#
+#open_autofab_manager_side = {
+#	potential = { hidden_trigger = { can_use_autofab = yes } } #has_exploit_mod = no
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		country_event = { id = autofab_menu.1 }
+#		hidden_effect = {
+#			factory_reset_all_country_flags = yes
+#			document_factory_country = yes
+#			factory_set_default_queue = yes
+#		}
+#	}
+#}
+#
+#hidden_button_on = {
+#	potential = { NOT = { has_country_flag = easter_egg } }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { set_country_flag = easter_egg }
+#}
+#hidden_button = {
+#	potential = { has_country_flag = easter_egg }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { }
+#}
+#hidden_button_off = {
+#	potential = { has_country_flag = easter_egg }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = easter_egg }
+#}
+#
+#
+#factory_automation_desc = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_automation_desc"
+#	}
+#}
+#factory_automation_off = {
+#	potential = { has_country_flag = autofab_automation }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = autofab_automation set_country_flag = autofab_automation_off }
+#}
+#factory_automation_on = {
+#	potential = { has_country_flag = autofab_automation_off }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		#custom_tooltip = "Automation is not available right now."
+#		set_country_flag = autofab_automation remove_country_flag = autofab_automation_off
+#	}
+#}
+#factory_automation_settings = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		#custom_tooltip = "Automation is not available right now."
+#		hidden_effect = {
+#			country_event = { id = autofab_menu.2 }
+#			autofab_floor_automation_variables = yes
+#		}
+#	}
+#}
+#
+#factory_vanilla_swapping_desc = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_vanilla_swapping_desc"
+#	}
+#}
+#factory_vanilla_swapping_fire_country = {
+#	potential = { has_country_flag = factory_vanilla_swapping }
+#	allow = {
+#		custom_tooltip = "swapping_country_tooltip"
+#		hidden_trigger = { any_owned_planet = { has_vanilla_swap_candidate = yes NOT = { has_planet_flag = autofab_ignore_vanilla } } }
+#	}
+#	effect = {
+#		custom_tooltip = "swapping_country_effects_tooltip"
+#		hidden_effect = {
+#			every_owned_planet = {
+#				limit = {
+#					has_vanilla_swap_candidate = yes
+#					NOT = { has_planet_flag = autofab_ignore_vanilla }
+#				}
+#				planet_event = { id = autofab.21 }
+#			}
+#		}
+#	}
+#}
+#factory_vanilla_swapping_off = {
+#	potential = { has_country_flag = factory_vanilla_swapping }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_vanilla_swapping set_country_flag = autofab_ignore_vanilla }
+#}
+#factory_vanilla_swapping_on = {
+#	potential = { has_country_flag = autofab_ignore_vanilla }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { set_country_flag = factory_vanilla_swapping remove_country_flag = autofab_ignore_vanilla }
+#}
+#
+#factory_fallback_desc = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_fallback_desc"
+#	}
+#}
+#factory_fallback_off = {
+#	potential = { has_country_flag = factory_fallback }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_fallback set_country_flag = factory_fallback_off }
+#}
+#factory_fallback_on = {
+#	potential = { has_country_flag = factory_fallback_off }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { set_country_flag = factory_fallback remove_country_flag = factory_fallback_off }
+#}
+#
+#factory_autofab_construction_desc = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_autofab_construction_desc"
+#	}
+#}
+#factory_autofab_construction_off = {
+#	potential = { has_country_flag = factory_autofab_construction_on }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_autofab_construction_on set_country_flag = factory_autofab_construction_off }
+#}
+#factory_autofab_construction_on = {
+#	potential = { has_country_flag = factory_autofab_construction_off }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { set_country_flag = factory_autofab_construction_on remove_country_flag = factory_autofab_construction_off hidden_effect = { set_variable = { which = autofab_queue value = 0 } } }
+#}
+#
+####Tooltips!
+#
+#factory_planets = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_autofab_tooltip"
+#	}
+#}
+#factory_generator = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_generator_tooltip"
+#	}
+#}
+#factory_mine = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_mine_tooltip"
+#	}
+#}
+#factory_farm = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_farm_tooltip"
+#	}
+#}
+#factory_foundry = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_foundry_tooltip"
+#	}
+#}
+#factory_factory = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_factory_tooltip"
+#	}
+#}
+#factory_motes = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_motes_tooltip"
+#	}
+#}
+#factory_gases = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_gases_tooltip"
+#	}
+#}
+#factory_crystals = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_crystals_tooltip"
+#	}
+#}
+#factory_extractor = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "factory_extractor_tooltip"
+#	}
+#}
+#
+####Number Looping
+#
+#factory_queue_1 = {
+#	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_queue_1 set_country_flag = factory_queue_2 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 1 } } }
+#}
+#factory_queue_2 = {
+#	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_queue_2 set_country_flag = factory_queue_3 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 2 } } }
+#}
+#factory_queue_3 = {
+#	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_queue_3 set_country_flag = factory_queue_4 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 3 } } }
+#}
+#factory_queue_4 = {
+#	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_queue_4 set_country_flag = factory_queue_5 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 4 } } }
+#}
+#factory_queue_5 = {
+#	potential = { has_country_flag = factory_autofab_construction_on has_country_flag = factory_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_queue_5 set_country_flag = factory_queue_1 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 5 } } }
+#}
+#
+#factory_generator_queue_1 = {
+#	potential = { has_country_flag = factory_generator_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_generator_queue_1 set_country_flag = factory_generator_queue_2 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 1 } } }
+#}
+#factory_generator_queue_2 = {
+#	potential = { has_country_flag = factory_generator_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_generator_queue_2 set_country_flag = factory_generator_queue_3 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 2 } } }
+#}
+#factory_generator_queue_3 = {
+#	potential = { has_country_flag = factory_generator_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_generator_queue_3 set_country_flag = factory_generator_queue_4 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 3 } } }
+#}
+#factory_generator_queue_4 = {
+#	potential = { has_country_flag = factory_generator_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_generator_queue_4 set_country_flag = factory_generator_queue_5 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 4 } } }
+#}
+#factory_generator_queue_5 = {
+#	potential = { has_country_flag = factory_generator_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_generator_queue_5 set_country_flag = factory_generator_queue_1 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 5 } } }
+#}
+#
+#factory_mine_queue_1 = {
+#	potential = { has_country_flag = factory_mine_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_mine_queue_1 set_country_flag = factory_mine_queue_2 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 1 } } }
+#}
+#factory_mine_queue_2 = {
+#	potential = { has_country_flag = factory_mine_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_mine_queue_2 set_country_flag = factory_mine_queue_3 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 2 } } }
+#}
+#factory_mine_queue_3 = {
+#	potential = { has_country_flag = factory_mine_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_mine_queue_3 set_country_flag = factory_mine_queue_4 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 3 } } }
+#}
+#factory_mine_queue_4 = {
+#	potential = { has_country_flag = factory_mine_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_mine_queue_4 set_country_flag = factory_mine_queue_5 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 4 } } }
+#}
+#factory_mine_queue_5 = {
+#	potential = { has_country_flag = factory_mine_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_mine_queue_5 set_country_flag = factory_mine_queue_1 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 5 } } }
+#}
+#
+#factory_farm_queue_1 = {
+#	potential = { has_country_flag = factory_farm_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_farm_queue_1 set_country_flag = factory_farm_queue_2 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 1 } } }
+#}
+#factory_farm_queue_2 = {
+#	potential = { has_country_flag = factory_farm_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_farm_queue_2 set_country_flag = factory_farm_queue_3 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 2 } } }
+#}
+#factory_farm_queue_3 = {
+#	potential = { has_country_flag = factory_farm_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_farm_queue_3 set_country_flag = factory_farm_queue_4 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 3 } } }
+#}
+#factory_farm_queue_4 = {
+#	potential = { has_country_flag = factory_farm_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_farm_queue_4 set_country_flag = factory_farm_queue_5 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 4 } } }
+#}
+#factory_farm_queue_5 = {
+#	potential = { has_country_flag = factory_farm_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_farm_queue_5 set_country_flag = factory_farm_queue_1 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 5 } } }
+#}
+#
+#factory_foundry_queue_1 = {
+#	potential = { has_country_flag = factory_foundry_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_foundry_queue_1 set_country_flag = factory_foundry_queue_2 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 1 } } }
+#}
+#factory_foundry_queue_2 = {
+#	potential = { has_country_flag = factory_foundry_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_foundry_queue_2 set_country_flag = factory_foundry_queue_3 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 2 } } }
+#}
+#factory_foundry_queue_3 = {
+#	potential = { has_country_flag = factory_foundry_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_foundry_queue_3 set_country_flag = factory_foundry_queue_4 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 3 } } }
+#}
+#factory_foundry_queue_4 = {
+#	potential = { has_country_flag = factory_foundry_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_foundry_queue_4 set_country_flag = factory_foundry_queue_5 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 4 } } }
+#}
+#factory_foundry_queue_5 = {
+#	potential = { has_country_flag = factory_foundry_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_foundry_queue_5 set_country_flag = factory_foundry_queue_1 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 5 } } }
+#}
+#
+#factory_factory_queue_1 = {
+#	potential = { has_country_flag = factory_factory_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_factory_queue_1 set_country_flag = factory_factory_queue_2 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 1 } } }
+#}
+#factory_factory_queue_2 = {
+#	potential = { has_country_flag = factory_factory_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_factory_queue_2 set_country_flag = factory_factory_queue_3 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 2 } } }
+#}
+#factory_factory_queue_3 = {
+#	potential = { has_country_flag = factory_factory_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_factory_queue_3 set_country_flag = factory_factory_queue_4 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 3 } } }
+#}
+#factory_factory_queue_4 = {
+#	potential = { has_country_flag = factory_factory_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_factory_queue_4 set_country_flag = factory_factory_queue_5 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 4 } } }
+#}
+#factory_factory_queue_5 = {
+#	potential = { has_country_flag = factory_factory_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_factory_queue_5 set_country_flag = factory_factory_queue_1 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 5 } } }
+#}
+#
+#factory_motes_queue_1 = {
+#	potential = { has_country_flag = factory_motes_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_motes_queue_1 set_country_flag = factory_motes_queue_2 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 1 } } }
+#}
+#factory_motes_queue_2 = {
+#	potential = { has_country_flag = factory_motes_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_motes_queue_2 set_country_flag = factory_motes_queue_3 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 2 } } }
+#}
+#factory_motes_queue_3 = {
+#	potential = { has_country_flag = factory_motes_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_motes_queue_3 set_country_flag = factory_motes_queue_4 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 3 } } }
+#}
+#factory_motes_queue_4 = {
+#	potential = { has_country_flag = factory_motes_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_motes_queue_4 set_country_flag = factory_motes_queue_5 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 4 } } }
+#}
+#factory_motes_queue_5 = {
+#	potential = { has_country_flag = factory_motes_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_motes_queue_5 set_country_flag = factory_motes_queue_1 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 5 } } }
+#}
+#
+#factory_gases_queue_1 = {
+#	potential = { has_country_flag = factory_gases_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_gases_queue_1 set_country_flag = factory_gases_queue_2 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 1 } } }
+#}
+#factory_gases_queue_2 = {
+#	potential = { has_country_flag = factory_gases_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_gases_queue_2 set_country_flag = factory_gases_queue_3 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 2 } } }
+#}
+#factory_gases_queue_3 = {
+#	potential = { has_country_flag = factory_gases_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_gases_queue_3 set_country_flag = factory_gases_queue_4 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 3 } } }
+#}
+#factory_gases_queue_4 = {
+#	potential = { has_country_flag = factory_gases_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_gases_queue_4 set_country_flag = factory_gases_queue_5 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 4 } } }
+#}
+#factory_gases_queue_5 = {
+#	potential = { has_country_flag = factory_gases_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_gases_queue_5 set_country_flag = factory_gases_queue_1 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 5 } } }
+#}
+#
+#factory_crystals_queue_1 = {
+#	potential = { has_country_flag = factory_crystals_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_crystals_queue_1 set_country_flag = factory_crystals_queue_2 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 1 } } }
+#}
+#factory_crystals_queue_2 = {
+#	potential = { has_country_flag = factory_crystals_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_crystals_queue_2 set_country_flag = factory_crystals_queue_3 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 2 } } }
+#}
+#factory_crystals_queue_3 = {
+#	potential = { has_country_flag = factory_crystals_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_crystals_queue_3 set_country_flag = factory_crystals_queue_4 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 3 } } }
+#}
+#factory_crystals_queue_4 = {
+#	potential = { has_country_flag = factory_crystals_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_crystals_queue_4 set_country_flag = factory_crystals_queue_5 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 4 } } }
+#}
+#factory_crystals_queue_5 = {
+#	potential = { has_country_flag = factory_crystals_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_crystals_queue_5 set_country_flag = factory_crystals_queue_1 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 5 } } }
+#}
+#
+#factory_extractor_queue_1 = {
+#	potential = { always = no has_country_flag = factory_extractor_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_extractor_queue_1 set_country_flag = factory_extractor_queue_2 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 1 } } }
+#}
+#factory_extractor_queue_2 = {
+#	potential = { always = no has_country_flag = factory_extractor_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_extractor_queue_2 set_country_flag = factory_extractor_queue_3 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 2 } } }
+#}
+#factory_extractor_queue_3 = {
+#	potential = { always = no has_country_flag = factory_extractor_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_extractor_queue_3 set_country_flag = factory_extractor_queue_4 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 3 } } }
+#}
+#factory_extractor_queue_4 = {
+#	potential = { always = no has_country_flag = factory_extractor_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_extractor_queue_4 set_country_flag = factory_extractor_queue_5 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 4 } } }
+#}
+#factory_extractor_queue_5 = {
+#	potential = { always = no has_country_flag = factory_extractor_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_country_flag = factory_extractor_queue_5 set_country_flag = factory_extractor_queue_1 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 5 } } }
+#}
+#
+####Factory Queueing
+#
+#factory_increase_queue = {
+#	potential = { has_country_flag = factory_autofab_construction_on }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_enough_available"
+#			fail_text = "autofab_not_enough_available"
+#			check_variable = { which = autofabs_available value >= factory_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_autofab_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_queue value = factory_queue_apply_value }
+#		}
+#	}
+#}
+#factory_decrease_queue = {
+#	potential = { has_country_flag = factory_autofab_construction_on }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_enough_queued"
+#			fail_text = "autofab_not_enough_queued"
+#			check_variable = { which = autofab_queue value >= factory_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_autofab_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_queue value = factory_queue_apply_value }
+#		}
+#	}
+#}
+#
+#factory_generator_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_energy_avail value >= factory_generator_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_generator_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_energy_queue value = factory_generator_queue_apply_value }
+#			subtract_variable = { which = autofab_energy_avail value = factory_generator_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_generator_queue_apply_value }
+#		}
+#	}
+#}
+#factory_generator_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_generator_queue_apply_value value <= value:factory_generator_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_generator_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_energy_queue value = factory_generator_queue_apply_value }
+#			change_variable = { which = autofab_energy_avail value = factory_generator_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_generator_queue_apply_value }
+#		}
+#	}
+#}
+#
+#factory_mine_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_minerals_avail value >= factory_mine_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_mine_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_mineral_queue value = factory_mine_queue_apply_value }
+#			subtract_variable = { which = autofab_minerals_avail value = factory_mine_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_mine_queue_apply_value }
+#		}
+#	}
+#}
+#factory_mine_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_mine_queue_apply_value value <= value:factory_mine_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_mine_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_mineral_queue value = factory_mine_queue_apply_value }
+#			change_variable = { which = autofab_minerals_avail value = factory_mine_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_mine_queue_apply_value }
+#		}
+#	}
+#}
+#
+#factory_farm_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_food_avail value >= factory_farm_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_farm_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_food_queue value = factory_farm_queue_apply_value }
+#			subtract_variable = { which = autofab_food_avail value = factory_farm_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_farm_queue_apply_value }
+#		}
+#	}
+#}
+#factory_farm_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_farm_queue_apply_value value <= value:factory_farm_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_farm_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_food_queue value = factory_farm_queue_apply_value }
+#			change_variable = { which = autofab_food_avail value = factory_farm_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_farm_queue_apply_value }
+#		}
+#	}
+#}
+#
+#factory_foundry_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_foundry_available value >= factory_foundry_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_foundry_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_alloys_queue value = factory_foundry_queue_apply_value }
+#			subtract_variable = { which = autofab_foundry_available value = factory_foundry_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_foundry_queue_apply_value }
+#		}
+#	}
+#}
+#factory_foundry_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_foundry_queue_apply_value value <= value:factory_foundry_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_foundry_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_alloys_queue value = factory_foundry_queue_apply_value }
+#			change_variable = { which = autofab_foundry_available value = factory_foundry_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_foundry_queue_apply_value }
+#		}
+#	}
+#}
+#
+#factory_factory_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_factory_available value >= factory_factory_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_factory_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_congoods_queue value = factory_factory_queue_apply_value }
+#			subtract_variable = { which = autofab_factory_available value = factory_factory_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_factory_queue_apply_value }
+#		}
+#	}
+#}
+#factory_factory_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_factory_queue_apply_value value <= value:factory_factory_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_factory_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_congoods_queue value = factory_factory_queue_apply_value }
+#			change_variable = { which = autofab_factory_available value = factory_factory_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_factory_queue_apply_value }
+#		}
+#	}
+#}
+#
+#factory_motes_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_districts_available value >= factory_motes_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_chemical_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_motes_queue value = factory_motes_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_motes_queue_apply_value }
+#		}
+#	}
+#}
+#factory_motes_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_motes_queue_apply_value value <= value:factory_motes_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_chemical_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_motes_queue value = factory_motes_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_motes_queue_apply_value }
+#		}
+#	}
+#}
+#
+#factory_gases_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_districts_available value >= factory_gases_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_refinery_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_gases_queue value = factory_gases_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_gases_queue_apply_value }
+#		}
+#	}
+#}
+#factory_gases_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_gases_queue_apply_value value <= value:factory_gases_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_refinery_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_gases_queue value = factory_gases_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_gases_queue_apply_value }
+#		}
+#	}
+#}
+#
+#factory_crystals_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_districts_available value >= factory_crystals_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_translucer_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_crystals_queue value = factory_crystals_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_crystals_queue_apply_value }
+#		}
+#	}
+#}
+#factory_crystals_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_crystals_queue_apply_value value <= value:factory_crystals_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_translucer_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_crystals_queue value = factory_crystals_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_crystals_queue_apply_value }
+#		}
+#	}
+#}
+#
+#factory_extractor_increase_queue = {
+#	potential = { always = no }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_districts_available value >= factory_extractor_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_extractor_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_extractor_queue value = factory_extractor_queue_apply_value }
+#			subtract_variable = { which = autofab_extractor_avail value = factory_extractor_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_extractor_queue_apply_value }
+#		}
+#	}
+#}
+#factory_extractor_decrease_queue = {
+#	potential = { always = no }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_extractor_queue_apply_value value <= value:factory_extractor_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_extractor_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_extractor_queue value = factory_extractor_queue_apply_value }
+#			change_variable = { which = autofab_extractor_avail value = factory_extractor_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_extractor_queue_apply_value }
+#		}
+#	}
+#}

@@ -1,8 +1,7 @@
 on_game_start = {
 	events = {
 		roci_menu.1
-		autofab_dmm.1		# New Dynamic Mod Menu support.
-		exploit_dmm.1		# New Dynamic Mod Menu support.
+		#exploit_dmm.1		# New Dynamic Mod Menu support.
 	}
 }
 on_game_start_country = {
@@ -17,40 +16,32 @@ on_press_begin = {
 }
 on_single_player_save_game_load = {
 	events = {
-		autofab_dmm.1		# New Dynamic Mod Menu support.
-		exploit_dmm.1		# New Dynamic Mod Menu support.
+		#exploit_dmm.1		# New Dynamic Mod Menu support.
 	}
 }
 dmm_mod_selected = {
 	events = {
-		autofab_dmm.2		# New Dynamic Mod Menu support.
-		exploit_dmm.2		# New Dynamic Mod Menu support.
+		#exploit_dmm.2		# New Dynamic Mod Menu support.
 	}
 }
 on_yearly_pulse = {
 	events = {
-		spaceexploitAI.10000
-		spaceexploit.41
+		#spaceexploitAI.10000
+		#spaceexploit.41
 		
-		orbitalinfra.4
-		
-		autofab_automation.0
-		autofab.30
-		autofab_queue.0
+		#orbitalinfra.4
 	}
 }
 on_yearly_pulse_country = {
-	events = {
-		autofab.5
-		
+	events = {		
 		kiyo_trade_triggered_event.8
 	}
 }
 on_monthly_pulse = {
 	events = {
-		spaceexploitAI.1000
+		#spaceexploitAI.1000
 		
-		orbitalinfra.3
+		#orbitalinfra.3
 		
 		kiyo_trade_triggered_event.2
 	}
@@ -60,11 +51,9 @@ on_monthly_pulse_country = {
 	events = {
 		realdev.100
 		
-		spaceexploitAI.11
+		#spaceexploitAI.11
 		
 		realdev.92
-		
-		shipping.5
 	
 		exodus_fleet.10
 	}
@@ -98,7 +87,7 @@ on_ruler_set = {
 # This = Country
 on_tech_increased = {
 	events = {
-		orbitalinfra.1
+		#orbitalinfra.1
 		
 		realdev.8
 		
@@ -106,33 +95,29 @@ on_tech_increased = {
 	}
 }
 on_district_complete = {
-	events = {
-		autofab.20
-		
-		orbitalinfra.2
+	events = {		
+		#orbitalinfra.2
 		#orbitalinfra.20
 	}
 }
 on_district_demolished = {
 	events = {
-		orbitalinfra.2
+		#orbitalinfra.2
 	}
 }
 on_building_upgraded = {
 	events = {
-		orbitalinfra.7
+		#orbitalinfra.7
 	}
 }
 on_building_complete = {
 	events = {
-		orbitalinfra.7
-		
-		autofab.20
+		#orbitalinfra.7
 	}
 }
 on_ship_designed = {
 	events = {
-		orbitalinfra.8
+		#orbitalinfra.8
 	}
 }
 
@@ -162,7 +147,7 @@ on_war_beginning = {
 # FromFromFrom = fleet 2
 on_space_battle_won = {
 	events = {
-		orbitalinfra.5
+		#orbitalinfra.5
 	}
 }
 # A Megastructure has begun to be upgraded
@@ -189,7 +174,6 @@ on_megastructure_upgraded = {
 # Scope = Planet
 on_colonized = {
 	events = {
-		shipping.1
 	}
 }
 
@@ -198,10 +182,7 @@ on_colonized = {
 # From = Terraforming country
 on_terraforming_complete = {
 	events = {
-		autofab.5
 		autofab.30
-		
-		shipping.1
 	}
 }
 
@@ -277,20 +258,18 @@ on_fleet_enter_orbit = {
 #Country Scope, no predefined scopes
 exploit_apply_queue = {
 	events = {
-		spaceexploitAI.10001
+		#spaceexploitAI.10001
 	}
 }
 #Country Scope, no predefined scopes
 autofab_apply_queue = {
 	events = {
-		autofab_queue.1
 	}
 }
 #Planet Scope, no predefined scopes
 #from = owner
 autofab_apply_planet_queue = {
 	events = {
-		autofab_queue.8
 	}
 }
 #Planet Scope, no predefined scopes
@@ -302,7 +281,6 @@ on_autofab_module_started = {
 #Planet Scope, no predefined scopes
 on_autofab_module_completed = {
 	events = {
-		autofab_queue.8
 	}
 }
 #Planet Scope, no predefined scopes
@@ -314,7 +292,6 @@ on_autofab_retool_started = {
 #Planet Scope, no predefined scopes
 on_autofab_retool_completed = {
 	events = {
-		autofab_queue.8
 	}
 }
 #Planet Scope

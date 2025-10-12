@@ -1,37 +1,38 @@
-factory_expansion_always = {
-	potential = { has_country_flag = autofab_always_expand }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { custom_tooltip = "autofab_automation_always" }
-}
-factory_expansion_space = {
-	potential = { NOT = { has_country_flag = autofab_always_expand } }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { custom_tooltip = "autofab_automation_space" }
-}
-factory_expansion_swap = {
-	potential = { }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		if = {
-			limit = {
-				has_country_flag = autofab_always_expand
-			}
-			remove_country_flag = autofab_always_expand
-		}
-		else = {
-			set_country_flag = autofab_always_expand
-		}
-	}
-}
 
-automation_targets_tooltip = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { custom_tooltip = "automation_targets_tooltip" }
-}
-
-minimum_stockpile_tooltip = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { custom_tooltip = "minimum_stockpile_tooltip" }
-}
+#factory_expansion_always = {
+#	potential = { has_country_flag = autofab_always_expand }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { custom_tooltip = "autofab_automation_always" }
+#}
+#factory_expansion_space = {
+#	potential = { NOT = { has_country_flag = autofab_always_expand } }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { custom_tooltip = "autofab_automation_space" }
+#}
+#factory_expansion_swap = {
+#	potential = { }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		if = {
+#			limit = {
+#				has_country_flag = autofab_always_expand
+#			}
+#			remove_country_flag = autofab_always_expand
+#		}
+#		else = {
+#			set_country_flag = autofab_always_expand
+#		}
+#	}
+#}
+#
+#automation_targets_tooltip = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { custom_tooltip = "automation_targets_tooltip" }
+#}
+#
+#minimum_stockpile_tooltip = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { custom_tooltip = "minimum_stockpile_tooltip" }
+#}

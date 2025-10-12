@@ -39,7 +39,7 @@
 # 		trigger = count_owned_planet
 # 		trigger_scope = owner 		#Lets you get the result of the trigger on a different scope. Default is "this"
 # 		parameters = { 				#Stick any further information necessary in here, like you'd do within the {} of the trigger normally
-# 			limit = { num_pops > 10 }
+# 			limit = { sapient_pop_amount > 10 }00
 # 		}
 # 		mode = add 					#Allows all numerical operations
 # 		mult = 5 					#Multiplies the outcome by this. In this example, this means adding 5 for each planet with more than 10 pops
@@ -56,15 +56,14 @@
 roci_trade_route_value = {
 	base = 0
 	
-	modifier = {
- 		owner = { is_regular_empire = yes }	#Only applied if this trigger is true
-		add = modifier:trade_value_add
- 	}
-	 modifier = {
-		  owner = { is_regular_empire = yes }	#Only applied if this trigger is true
-		 mult = modifier:trade_value_mult
-	  }
-	
+	complex_trigger_modifier = {
+		trigger = planet_resource_compare
+		parameters = {
+			resource = trade
+			type = produces
+		}
+		mode = add
+	}
 	complex_trigger_modifier = {
 		trigger = planet_resource_compare
 		parameters = {
@@ -138,345 +137,366 @@ roci_trade_route_value = {
 		mode = add
 	}
 	
-	add = trigger:num_pops
+	add = trigger:sapient_pop_amount
 }
 
 ###Autofab
 
 #Planet Scope
+autofab_uplink_upkeep = {
+	base = 3
+	modifier = {
+ 		AND = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_autofab_adopt
+			}
+		}
+		subtract = 1
+ 	}
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = any
+		}
+		mode = multiply
+	}
+}
+
+#Planet Scope
 #Total calculation for how much production a module should have. Calculate per job first, then multiply by number of jobs.
-roci_autofab_job_multiplier = {
-	base = 0
-	
-	#Some sort of check to see what job was passed, so I can add the base production
-	set = @roci_$job$_$resource$_base_production
-	modifier = {
- 		owner = { is_machine_empire = yes }
-		add = @roci_$job$_$resource$_machine_production
- 	}
-	modifier = {
- 		owner = { is_hive_empire = yes }
-		add = @roci_$job$_hive_production
- 	}
-	
-	#Check the total added production of the relevant job
-	complex_trigger_modifier = {
-		trigger = check_modifier_value
-		parameters = {
-			modifier = planet_$job$_$resource$_produces_add
-		}
-		mode = add
-	}
-	
-	#How many jobs it replaces, pull from cached variable
-	multiply = $basic_or_adv$
-}
-#roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
-
-#Planet Scope
-#Total calculation for how much upkeep a module should have. Calculate per job first, then multiply by number of jobs.
-roci_autofab_job_upkeep_multiplier = {
-	base = 0
-	
-	#Some sort of check to see what job was passed, so I can add the base upkeep
-	add = @roci_$job$_base_$resource$_upkeep
-	#modifier = {
- 	#	owner = { is_machine_empire = yes }
-	#	add = @roci_$job$_machine_$resource$_upkeep
- 	#}
-	#modifier = {
- 	#	owner = { is_hive_empire = yes }
-	#	add = @roci_$job$_hive_$resource$_upkeep
- 	#}
-	
-	#Check the total added production of the relevant job
-	complex_trigger_modifier = {
-		trigger = check_modifier_value
-		parameters = {
-			modifier = planet_$job$_$resource$_upkeep_add
-		}
-		mode = add
-	}
-	
-	#How many jobs it replaces, pull from cached variable
-	multiply = $basic_or_adv$
-}
-#roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
-
-#How many jobs does a module replace, because Hives exist
-#Planet Scope, cached as a variable on the planet on terraforming and when the autofab is built
-roci_autofab_basic_jobs = {
-	base = 1
-	modifier = {
- 		uses_base_district_set = yes
-		multiply = 2
- 	}
-	modifier = {
- 		uses_habitat_district_set = yes
-		multiply = 3
- 	}
-	modifier = {
- 		uses_city_district_set = yes
-		multiply = 6
- 	}
-	modifier = {
- 		uses_ringworld_district_set = yes
-		multiply = 10
- 	}
-	modifier = {
- 		uses_infinite_space_district_set = yes
-		multiply = 2
- 	}
-	modifier = {
- 		owner = { is_hive_empire = yes }
-		multiply = 1.5
- 	}
-}
-#How many jobs does a module replace
-#Planet Scope, cached as a variable on the planet on terraforming and when the autofab is built
-roci_autofab_advanced_jobs = {
-	base = 1
-	modifier = {
- 		uses_base_district_set = yes
-		multiply = 2
- 	}
-	modifier = {
- 		uses_habitat_district_set = yes
-		multiply = 3
- 	}
-	modifier = {
- 		uses_city_district_set = yes
-		multiply = 6
- 	}
-	modifier = {
- 		uses_ringworld_district_set = yes
-		multiply = 10
- 	}
-	modifier = {
- 		uses_infinite_space_district_set = yes
-		multiply = 2
- 	}
-}
-
-roci_autofab_districts = {
-	base = 0
-	modifier = {
- 		is_variable_set = autofab_energy_queue
-		add = autofab_energy_queue
- 	}
-	modifier = {
- 		is_variable_set = autofab_mineral_queue
-		add = autofab_mineral_queue
- 	}
-	modifier = {
- 		is_variable_set = autofab_food_queue
-		add = autofab_food_queue
- 	}
-	modifier = {
- 		is_variable_set = autofab_alloys_queue
-		add = autofab_alloys_queue
- 	}
-	modifier = {
- 		is_variable_set = autofab_congoods_queue
-		add = autofab_congoods_queue
- 	}
-	modifier = {
- 		is_variable_set = autofab_motes_queue
-		add = autofab_motes_queue
- 	}
-	modifier = {
- 		is_variable_set = autofab_gases_queue
-		add = autofab_gases_queue
- 	}
-	modifier = {
- 		is_variable_set = autofab_crystals_queue
-		add = autofab_crystals_queue
- 	}
-	modifier = {
- 		is_variable_set = autofab_extractor_queue
-		add = autofab_extractor_queue
- 	}
-}
-
-autofab_module_progress = {
-	base = 30
-	multiply = autofab_module_build_speed
-}
-projected_autofab_construction_time = {
-	add = autofab_module_construction_time
-	multiply = autofab_module_build_speed
-}
-autofab_queue_time = {
-	base = @factory_construction_time
-	multiply = autofab_districts_queued
-	add = autofab_module_construction_time
-}
-projected_autofab_queue_time = {
-	add = value:autofab_queue_time
-	multiply = autofab_module_build_speed
-}
-
-factory_generator_queue_value = {
-	add = autofab_energy_queue
-	add = autofab_power
-}
-factory_mine_queue_value = {
-	add = autofab_mineral_queue
-	add = autofab_mine
-}
-factory_farm_queue_value = {
-	add = autofab_food_queue
-	add = autofab_farm
-}
-factory_foundry_queue_value = {
-	add = autofab_alloys_queue
-	add = autofab_foundry
-}
-factory_factory_queue_value = {
-	add = autofab_congoods_queue
-	add = autofab_factory
-}
-factory_motes_queue_value = {
-	add = autofab_motes_queue
-	add = autofab_chemical
-}
-factory_gases_queue_value = {
-	add = autofab_gases_queue
-	add = autofab_refinery
-}
-factory_crystals_queue_value = {
-	add = autofab_crystals_queue
-	add = autofab_translucer
-}
-factory_extractor_queue_value = {
-	add = autofab_extractor_queue
-	add = autofab_extractor
-}
-	
-
-###Orbital
-orbital_district_count = {
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_city
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_industrial
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_research
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_refinery
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_shipyard
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_military
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_solar_array
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_commercial
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_mining
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_farming
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_orbital_platform_admin
-		}
-		mode = add
-	}
-}
-orbital_district_upkeep = {
-	base = 1
-	add = modifier:planet_orbital_districts_upkeep_mult
-}
-orbital_spaceport_motes_mult = {
-	add = orbitalinfra_farming
-	add = orbitalinfra_mining
-	add = orbitalinfra_industry
-	add = orbitalinfra_shipyard
-	add = orbitalinfra_military
-}
-orbital_spaceport_gas_mult = {
-	add = orbitalinfra_research
-	add = orbitalinfra_solar
-}
-orbital_spaceport_crystals_mult = {
-	add = orbitalinfra_cities
-	add = orbitalinfra_commercial
-	add = orbitalinfra_admin
-}
-
-#Planet Scope
-orbital_space_total = {
-	base = 0
-	modifier = {
- 		has_active_building = building_roci_space_elevator
-		add = 10
-	}
-	modifier = {
- 		has_active_building = building_roci_space_elevator_2
-		add = 25
-	}
-	modifier = {
- 		has_active_building = building_roci_space_elevator_3
-		add = 25
-	}
-	modifier = {
- 		has_active_building = building_roci_space_elevator_3
-		add = trigger:planet_size
-	}
-
-}
-
+#roci_autofab_job_multiplier = {
+#	base = 0
+#	
+#	#Some sort of check to see what job was passed, so I can add the base production
+#	set = @roci_$job$_$resource$_base_production
+#	modifier = {
+# 		owner = { is_machine_empire = yes }
+#		add = @roci_$job$_$resource$_machine_production
+# 	}
+#	modifier = {
+# 		owner = { is_hive_empire = yes }
+#		add = @roci_$job$_hive_production
+# 	}
+#	
+#	#Check the total added production of the relevant job
+#	complex_trigger_modifier = {
+#		trigger = check_modifier_value
+#		parameters = {
+#			modifier = planet_$job$_$resource$_produces_add
+#		}
+#		mode = add
+#	}
+#	
+#	#How many jobs it replaces, pull from cached variable
+#	multiply = $basic_or_adv$
+#}
+##roci_autofab_job_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
+#
+##Planet Scope
+##Total calculation for how much upkeep a module should have. Calculate per job first, then multiply by number of jobs.
+#roci_autofab_job_upkeep_multiplier = {
+#	base = 0
+#	
+#	#Some sort of check to see what job was passed, so I can add the base upkeep
+#	add = @roci_$job$_base_$resource$_upkeep
+#	#modifier = {
+# 	#	owner = { is_machine_empire = yes }
+#	#	add = @roci_$job$_machine_$resource$_upkeep
+# 	#}
+#	#modifier = {
+# 	#	owner = { is_hive_empire = yes }
+#	#	add = @roci_$job$_hive_$resource$_upkeep
+# 	#}
+#	
+#	#Check the total added production of the relevant job
+#	complex_trigger_modifier = {
+#		trigger = check_modifier_value
+#		parameters = {
+#			modifier = planet_$job$_$resource$_upkeep_add
+#		}
+#		mode = add
+#	}
+#	
+#	#How many jobs it replaces, pull from cached variable
+#	multiply = $basic_or_adv$
+#}
+##roci_autofab_job_upkeep_multiplier|basic_or_adv|roci_autofab_basic_jobs|job|technician|resource|energy|
+#
+##How many jobs does a module replace, because Hives exist
+##Planet Scope, cached as a variable on the planet on terraforming and when the autofab is built
+#roci_autofab_basic_jobs = {
+#	base = 1
+#	modifier = {
+# 		uses_base_district_set = yes
+#		multiply = 2
+# 	}
+#	modifier = {
+# 		uses_habitat_district_set = yes
+#		multiply = 3
+# 	}
+#	modifier = {
+# 		uses_city_district_set = yes
+#		multiply = 6
+# 	}
+#	modifier = {
+# 		uses_ringworld_district_set = yes
+#		multiply = 10
+# 	}
+#	modifier = {
+# 		uses_infinite_space_district_set = yes
+#		multiply = 2
+# 	}
+#	modifier = {
+# 		owner = { is_hive_empire = yes }
+#		multiply = 1.5
+# 	}
+#}
+##How many jobs does a module replace
+##Planet Scope, cached as a variable on the planet on terraforming and when the autofab is built
+#roci_autofab_advanced_jobs = {
+#	base = 1
+#	modifier = {
+# 		uses_base_district_set = yes
+#		multiply = 2
+# 	}
+#	modifier = {
+# 		uses_habitat_district_set = yes
+#		multiply = 3
+# 	}
+#	modifier = {
+# 		uses_city_district_set = yes
+#		multiply = 6
+# 	}
+#	modifier = {
+# 		uses_ringworld_district_set = yes
+#		multiply = 10
+# 	}
+#	modifier = {
+# 		uses_infinite_space_district_set = yes
+#		multiply = 2
+# 	}
+#}
+#
+#roci_autofab_districts = {
+#	base = 0
+#	modifier = {
+# 		is_variable_set = autofab_energy_queue
+#		add = autofab_energy_queue
+# 	}
+#	modifier = {
+# 		is_variable_set = autofab_mineral_queue
+#		add = autofab_mineral_queue
+# 	}
+#	modifier = {
+# 		is_variable_set = autofab_food_queue
+#		add = autofab_food_queue
+# 	}
+#	modifier = {
+# 		is_variable_set = autofab_alloys_queue
+#		add = autofab_alloys_queue
+# 	}
+#	modifier = {
+# 		is_variable_set = autofab_congoods_queue
+#		add = autofab_congoods_queue
+# 	}
+#	modifier = {
+# 		is_variable_set = autofab_motes_queue
+#		add = autofab_motes_queue
+# 	}
+#	modifier = {
+# 		is_variable_set = autofab_gases_queue
+#		add = autofab_gases_queue
+# 	}
+#	modifier = {
+# 		is_variable_set = autofab_crystals_queue
+#		add = autofab_crystals_queue
+# 	}
+#	modifier = {
+# 		is_variable_set = autofab_extractor_queue
+#		add = autofab_extractor_queue
+# 	}
+#}
+#
+#autofab_module_progress = {
+#	base = 30
+#	multiply = autofab_module_build_speed
+#}
+#projected_autofab_construction_time = {
+#	add = autofab_module_construction_time
+#	multiply = autofab_module_build_speed
+#}
+#autofab_queue_time = {
+#	base = @factory_construction_time
+#	multiply = autofab_districts_queued
+#	add = autofab_module_construction_time
+#}
+#projected_autofab_queue_time = {
+#	add = value:autofab_queue_time
+#	multiply = autofab_module_build_speed
+#}
+#
+#factory_generator_queue_value = {
+#	add = autofab_energy_queue
+#	add = autofab_power
+#}
+#factory_mine_queue_value = {
+#	add = autofab_mineral_queue
+#	add = autofab_mine
+#}
+#factory_farm_queue_value = {
+#	add = autofab_food_queue
+#	add = autofab_farm
+#}
+#factory_foundry_queue_value = {
+#	add = autofab_alloys_queue
+#	add = autofab_foundry
+#}
+#factory_factory_queue_value = {
+#	add = autofab_congoods_queue
+#	add = autofab_factory
+#}
+#factory_motes_queue_value = {
+#	add = autofab_motes_queue
+#	add = autofab_chemical
+#}
+#factory_gases_queue_value = {
+#	add = autofab_gases_queue
+#	add = autofab_refinery
+#}
+#factory_crystals_queue_value = {
+#	add = autofab_crystals_queue
+#	add = autofab_translucer
+#}
+#factory_extractor_queue_value = {
+#	add = autofab_extractor_queue
+#	add = autofab_extractor
+#}
+#	
+#
+####Orbital
+#orbital_district_count = {
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_city
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_industrial
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_research
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_refinery
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_shipyard
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_military
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_solar_array
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_commercial
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_mining
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_farming
+#		}
+#		mode = add
+#	}
+#	complex_trigger_modifier = {
+#		trigger = num_districts
+#		parameters = {
+#			type = district_orbital_platform_admin
+#		}
+#		mode = add
+#	}
+#}
+#orbital_district_upkeep = {
+#	base = 1
+#	add = modifier:planet_orbital_districts_upkeep_mult
+#}
+#orbital_spaceport_motes_mult = {
+#	add = orbitalinfra_farming
+#	add = orbitalinfra_mining
+#	add = orbitalinfra_industry
+#	add = orbitalinfra_shipyard
+#	add = orbitalinfra_military
+#}
+#orbital_spaceport_gas_mult = {
+#	add = orbitalinfra_research
+#	add = orbitalinfra_solar
+#}
+#orbital_spaceport_crystals_mult = {
+#	add = orbitalinfra_cities
+#	add = orbitalinfra_commercial
+#	add = orbitalinfra_admin
+#}
+#
+##Planet Scope
+#orbital_space_total = {
+#	base = 0
+#	modifier = {
+# 		has_active_building = building_roci_space_elevator
+#		add = 10
+#	}
+#	modifier = {
+# 		has_active_building = building_roci_space_elevator_2
+#		add = 25
+#	}
+#	modifier = {
+# 		has_active_building = building_roci_space_elevator_3
+#		add = 25
+#	}
+#	modifier = {
+# 		has_active_building = building_roci_space_elevator_3
+#		add = trigger:planet_size
+#	}
+#
+#}
+#
 ###Realdev
 
 #Country Scope
@@ -582,172 +602,227 @@ realdev_ruler_jobs = {
 	multiply = 10
 }
 
-realdev_pops_industry = {
+realdev_buildings = {
+	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = num_buildings
 		parameters = {
-			limit = {
-				is_enslaved = yes
-			}
+			type = building_automation_1
 		}
 		mode = add
+		mult = 250
 	}
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = num_buildings
 		parameters = {
-			limit = {
-				owner = { has_technology = tech_powered_exoskeletons }
-			}
+			type = building_automation_2
 		}
 		mode = add
+		mult = 500
 	}
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = num_buildings
 		parameters = {
-			limit = {
-				owner = { has_technology = tech_mega_assembly }
-			}
+			type = building_automation_city_1
 		}
 		mode = add
+		mult = 250
 	}
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = num_buildings
 		parameters = {
-			limit = {
-				OR = {
-					has_trait = trait_robot_efficient_processors
-					has_trait = trait_latent_psionic
-					has_trait = trait_cybernetic
-					has_trait = trait_robust
-					AND = {
-						has_trait = trait_mechanical
-						NOR = {	owner = {
-							has_technology = tech_droid_workers
-							has_technology = tech_synthetic_workers
-						} }
-					}
-				}
-			}
+			type = building_automation_city_2
 		}
 		mode = add
+		mult = 500
 	}
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = num_buildings
 		parameters = {
-			limit = {
-				OR = {
-					has_trait = trait_enigmatic_intelligence
-					AND = {
-						has_trait = trait_mechanical
-						owner = { has_technology = tech_droid_workers }
-					}
-				}
-			}
+			type = building_autofab_uplink_1
 		}
 		mode = add
-		mult = 2
+		mult = 250
 	}
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = num_buildings
 		parameters = {
-			limit = {
-				OR = {
-					has_trait = trait_psionic
-					has_trait = trait_erudite
-					AND = {
-						has_trait = trait_mechanical
-						owner = { has_technology = tech_synthetic_workers }
-					}
-				}
-			}
+			type = building_autofab_uplink_2
 		}
 		mode = add
-		mult = 3
+		mult = 500
+	}
+	complex_trigger_modifier = {
+		trigger = num_buildings
+		parameters = {
+			type = building_autofab_uplink_3
+		}
+		mode = add
+		mult = 750
+	}
+	complex_trigger_modifier = {
+		trigger = num_buildings
+		parameters = {
+			type = building_roci_nourishment_center_mod
+		}
+		mode = add
+		mult = 500
+	}
+	complex_trigger_modifier = {
+		trigger = num_buildings
+		parameters = {
+			type = building_roci_dimensional_fabricator_mod
+		}
+		mode = add
+		mult = 500
+	}
+	complex_trigger_modifier = {
+		trigger = num_buildings
+		parameters = {
+			type = building_roci_class_4_singularity_mod
+		}
+		mode = add
+		mult = 500
+	}
+	complex_trigger_modifier = {
+		trigger = num_buildings
+		parameters = {
+			type = building_roci_nano_forge_mod
+		}
+		mode = add
+		mult = 500
+	}
+	complex_trigger_modifier = {
+		trigger = num_buildings
+		parameters = {
+			type = building_roci_affluence_center_mod
+		}
+		mode = add
+		mult = 500
 	}
 }
+
+#Pop Group Scope
+realdev_pops_industry = {
+	add = trigger:pop_group_size
+	modifier = {
+		is_pop_category = slave
+		add = trigger:pop_group_size
+	}
+	modifier = {
+		owner = { has_technology = tech_powered_exoskeletons }
+		add = trigger:pop_group_size
+	}
+	modifier = {
+		owner = { has_technology = tech_mega_assembly }
+		add = trigger:pop_group_size
+	}
+	modifier = {
+		OR = {
+			has_trait = trait_robot_efficient_processors
+			has_trait = trait_latent_psionic
+			has_trait = trait_cybernetic
+			has_trait = trait_robust
+			AND = {
+				has_trait = trait_mechanical
+				NOR = {	
+					owner = {
+						has_technology = tech_droid_workers
+						has_technology = tech_synthetic_workers
+					} 
+				}
+			}
+		}
+		add = trigger:pop_group_size
+	}
+	modifier = {
+		OR = {
+			has_trait = trait_enigmatic_intelligence
+			AND = {
+				has_trait = trait_mechanical
+				owner = { has_technology = tech_droid_workers }
+			}
+		}
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
+	}
+	modifier = {
+		OR = {
+			has_trait = trait_psionic
+			has_trait = trait_erudite
+			AND = {
+				has_trait = trait_mechanical
+				owner = { has_technology = tech_synthetic_workers }
+			}
+		}
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
+	}
+	divide = 100
+}
+
+#Pop Group Scope
 realdev_pops_industry_cap = {
-	complex_trigger_modifier = {
-		trigger = count_owned_pop
-		mode = add
-		mult = 2
+	add = trigger:pop_group_size
+	add = trigger:pop_group_size
+	modifier = {
+		owner = { has_technology = tech_powered_exoskeletons }
+		add = trigger:pop_group_size
 	}
-	complex_trigger_modifier = {
-		trigger = count_owned_pop
-		parameters = {
-			limit = {
-				owner = { has_technology = tech_powered_exoskeletons }
-			}
-		}
-		mode = add
+	modifier = {
+		owner = { has_technology = tech_mega_assembly }
+		add = trigger:pop_group_size
 	}
-	complex_trigger_modifier = {
-		trigger = count_owned_pop
-		parameters = {
-			limit = {
-				owner = { has_technology = tech_mega_assembly }
-			}
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = count_owned_pop
-		parameters = {
-			limit = {
-				OR = {
-					has_trait = trait_robot_efficient_processors
-					has_trait = trait_latent_psionic
-					has_trait = trait_cybernetic
-					has_trait = trait_robust
-					AND = {
-						has_trait = trait_mechanical
-						NOR = {	owner = {
-							has_technology = tech_droid_workers
-							has_technology = tech_synthetic_workers
-						} }
-					}
+	modifier = {
+		OR = {
+			has_trait = trait_robot_efficient_processors
+			has_trait = trait_latent_psionic
+			has_trait = trait_cybernetic
+			has_trait = trait_robust
+			AND = {
+				has_trait = trait_mechanical
+				NOR = {	
+					owner = {
+						has_technology = tech_droid_workers
+						has_technology = tech_synthetic_workers
+					} 
 				}
 			}
 		}
-		mode = add
-		mult = 2
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
 	}
-	complex_trigger_modifier = {
-		trigger = count_owned_pop
-		parameters = {
-			limit = {
-				OR = {
-					has_trait = trait_enigmatic_intelligence
-					AND = {
-						has_trait = trait_mechanical
-						owner = { has_technology = tech_droid_workers }
-					}
-				}
+	modifier = {
+		OR = {
+			has_trait = trait_enigmatic_intelligence
+			AND = {
+				has_trait = trait_mechanical
+				owner = { has_technology = tech_droid_workers }
 			}
 		}
-		mode = add
-		mult = 4
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
 	}
-	complex_trigger_modifier = {
-		trigger = count_owned_pop
-		parameters = {
-			limit = {
-				OR = {
-					has_trait = trait_psionic
-					has_trait = trait_erudite
-					AND = {
-						has_trait = trait_mechanical
-						owner = { has_technology = tech_synthetic_workers }
-					}
-				}
+	modifier = {
+		OR = {
+			has_trait = trait_psionic
+			has_trait = trait_erudite
+			AND = {
+				has_trait = trait_mechanical
+				owner = { has_technology = tech_synthetic_workers }
 			}
 		}
-		mode = add
-		mult = 6
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
+		add = trigger:pop_group_size
 	}
+	divide = 100
 }
 
 realdev_autofab_modules = {
@@ -792,193 +867,4 @@ realdev_amenities_multiplier = {
 	}
 	round_to = 100
 	divide = 100
-}
-
-###Shipping
-
-shipping_cost = {
-	base = 0
-	add = $balance$
-	multiply = $shipping_cost$
-	multiply = event_target:global_event_country.shipping_scale
-}
-#shipping_cost|balance|10|shipping_cost|@base_shipping_cost|
-
-###Currently unused
-
-exploit_colony_energy_cost = {
-	base = 50
-	#is_base_planet
-	modifier = {
-		OR = {
-			is_difficult_planet = yes
-			is_vacuum_planet = yes
-		}
-		multiply = 2
-	}
-}
-exploit_colony_minerals_cost = {
-	base = 50
-	modifier = {
-		is_difficult_planet = yes
-		multiply = 2
-	}
-}
-exploit_colony_alloys_cost = {
-	base = 100
-	modifier = {
-		is_difficult_planet = yes
-		multiply = 2
-	}
-}
-exploit_colony_srs_cost = {
-	base = 0
-}
-
-
-
-
-roci_autofab_available_districts = {
-	base = 0
-}
-roci_autofab_available_autofab = {
-	base = 0
-}
-
-autofab_autofab_energy_cost = {
-	base = 300
-}
-autofab_autofab_minerals_cost = {
-	base = 300
-}
-autofab_autofab_alloys_cost = {
-	base = 150
-}
-
-autofab_module_minerals_cost = {
-	base = 300
-}
-autofab_module_alloys_cost = {
-	base = 50
-}
-
-autofab_produces_mult = {
-	base = 1
-	modifier = {
-		owner = { has_tradition = tr_autofab_optimization }
-		add = 0.05
-	}
-}
-autofab_upkeep_mult = {
-	base = 1
-	modifier = {
-		owner = { has_tradition = tr_autofab_optimization }
-		subtract = 0.05
-	}
-}
-
-autofab_power_produces_mult = {
-	base = 1
-	
-	complex_trigger_modifier = { #Include Orbital Districts
- 		trigger = num_districts
- 		parameters = { 				#Stick any further information necessary in here, like you'd do within the {} of the trigger normally
- 			type = district_orbital_platform_solar_array
- 		}
- 		mode = add 					#Allows all numerical operations
- 		mult = 5 					#Multiplies the outcome by this. In this example, this means adding 5 for each planet with more than 10 pops
- 	}
-	modifier = { #Include FE Building
-		has_active_building = building_roci_class_4_singularity_mod
-		add = 4
-	}
-	
-	modifier = { #Include FE Building
-		has_active_building = building_roci_class_4_singularity_mod
-		add = 4
-	}
-	
-	multiply = value:autofab_produces_mult #General multiplier to all Autofab Output
-}
-autofab_power_upkeep_mult = {
-	base = 1
-	
-	multiply = value:autofab_upkeep_mult #General multiplier to all Autofab Output
-}
-
-autofab_minerals_produces_mult = {
-	base = 1
-	
-	multiply = value:autofab_produces_mult #General multiplier to all Autofab Output
-}
-autofab_minerals_upkeep_mult = {
-	base = 1
-	
-	multiply = value:autofab_upkeep_mult #General multiplier to all Autofab Output
-}
-
-autofab_food_produces_mult = {
-	base = 1
-	
-	multiply = value:autofab_produces_mult #General multiplier to all Autofab Output
-}
-autofab_food_upkeep_mult = {
-	base = 1
-	
-	multiply = value:autofab_upkeep_mult #General multiplier to all Autofab Output
-}
-
-autofab_alloys_produces_mult = {
-	base = 1
-	
-	multiply = value:autofab_produces_mult #General multiplier to all Autofab Output
-}
-autofab_alloys_upkeep_mult = {
-	base = 1
-	
-	multiply = value:autofab_upkeep_mult #General multiplier to all Autofab Output
-}
-
-autofab_motes_produces_mult = {
-	base = 1
-	
-	multiply = value:autofab_produces_mult #General multiplier to all Autofab Output
-}
-autofab_motes_upkeep_mult = {
-	base = 1
-	
-	multiply = value:autofab_upkeep_mult #General multiplier to all Autofab Output
-}
-
-autofab_gases_produces_mult = {
-	base = 1
-	
-	multiply = value:autofab_produces_mult #General multiplier to all Autofab Output
-}
-autofab_gases_upkeep_mult = {
-	base = 1
-	
-	multiply = value:autofab_upkeep_mult #General multiplier to all Autofab Output
-}
-
-autofab_crystals_produces_mult = {
-	base = 1
-	
-	multiply = value:autofab_produces_mult #General multiplier to all Autofab Output
-}
-autofab_crystals_upkeep_mult = {
-	base = 1
-	
-	multiply = value:autofab_upkeep_mult #General multiplier to all Autofab Output
-}
-
-autofab_extractor_produces_mult = {
-	base = 1
-	
-	multiply = value:autofab_produces_mult #General multiplier to all Autofab Output
-}
-autofab_extractor_upkeep_mult = {
-	base = 1
-	
-	multiply = value:autofab_upkeep_mult #General multiplier to all Autofab Output
 }

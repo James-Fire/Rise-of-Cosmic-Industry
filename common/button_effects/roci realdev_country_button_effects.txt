@@ -46,6 +46,7 @@ realdev_target_mode_swap = {
 	effect = {
 		custom_tooltip = "realdev_target_desc"
 		hidden_effect = {
+			set_variable = { which = realdev_ip_target_display value = realdev_ip_target }
 			if = {
 				limit = {
 					has_country_flag = realdev_target_auto

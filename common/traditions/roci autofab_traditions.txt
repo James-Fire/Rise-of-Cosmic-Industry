@@ -1,49 +1,30 @@
 
 tr_autofab_adopt = {
-	modifier = {
-		planet_autofab_energy_upkeep_mult = -0.05
-		planet_autofab_generator_energy_upkeep_mult = -0.05
-		planet_autofab_farm_energy_upkeep_mult = -0.05
-		planet_autofab_mine_energy_upkeep_mult = -0.05
-		planet_autofab_foundry_energy_upkeep_mult = -0.05
-		planet_autofab_factory_energy_upkeep_mult = -0.05
-		planet_autofab_motes_energy_upkeep_mult = -0.05
-		planet_autofab_gases_energy_upkeep_mult = -0.05
-		planet_autofab_crystals_energy_upkeep_mult = -0.05
-		planet_autofab_srs_energy_upkeep_mult = -0.05
-	}
+	custom_tooltip = "tr_autofab_adopt_desc"
 }
 
 tr_autofab_finish = {
+	custom_tooltip_with_modifiers = tr_autofab_finish_desc
 	modifier = {
 		ascension_perks_add = 1
 	}
 }
 
-
 tr_autofab_infrastructure_support = {
-	modifier = {
-		planet_max_buildings_add = 1
-	}
-
+	custom_tooltip = "tr_autofab_infrastructure_support_desc"
 	ai_weight = {
 		factor = 10000
 	}
 }
 
 tr_autofab_environmental_studies = {
-
-	modifier = {
-		pop_environment_tolerance = 0.05
-	}
+	custom_tooltip = "tr_autofab_environmental_studies_desc"
 	tradition_swap = {
 		name = tr_autofab_networking
 		trigger = {
 			is_machine_empire = yes
 		}
-		modifier = {
-			#Effect is on the Autofab
-		}
+		custom_tooltip = "tr_autofab_networking_desc"
 		weight = {
 			factor = 1
 		}
@@ -58,21 +39,7 @@ tr_autofab_commercial_connections = {
 	possible = {
 		has_tradition = tr_autofab_infrastructure_support
 	}
-	modifier = {
-		#Each Module adds 2 trade value.
-	}
-	tradition_swap = {
-		name = tr_autofab_factory_housing
-		trigger = {
-			is_gestalt = yes
-		}
-		modifier = {
-			#Effect is on the Autofab
-		}
-		weight = {
-			factor = 1
-		}
-	}
+	custom_tooltip = "tr_autofab_commercial_connections_desc"
 	ai_weight = {
 		factor = 5000
 	}
@@ -82,17 +49,13 @@ tr_autofab_pride = {
 	possible = {
 		has_tradition = tr_autofab_environmental_studies
 	}
-	modifier = {
-		#pop_happiness = 0.05	#The Autofab gives this
-	}
+	custom_tooltip = "tr_autofab_pride_desc"
 	tradition_swap = {
 		name = tr_autofab_services
 		trigger = {
 			is_gestalt = yes
 		}
-		modifier = {
-			#planet_amenities_no_happiness_mult = 0.05 #the Autofab gives this too.
-		}
+		custom_tooltip = "tr_autofab_services_desc"
 		weight = {
 			factor = 1
 		}
@@ -110,27 +73,7 @@ tr_autofab_optimization = {
 	}
 
 	modifier = {
-		planet_autofab_upkeep_mult = -0.05
-		planet_autofab_generator_upkeep_mult = -0.05
-		planet_autofab_farm_upkeep_mult = -0.05
-		planet_autofab_mine_upkeep_mult = -0.05
-		planet_autofab_foundry_upkeep_mult = -0.05
-		planet_autofab_factory_upkeep_mult = -0.05
-		planet_autofab_motes_upkeep_mult = -0.05
-		planet_autofab_gases_upkeep_mult = -0.05
-		planet_autofab_crystals_upkeep_mult = -0.05
-		planet_autofab_srs_upkeep_mult = -0.05
-		
-		planet_autofab_produces_mult = 0.05
-		planet_autofab_generator_produces_mult = 0.05
-		planet_autofab_farm_produces_mult = 0.05
-		planet_autofab_mine_produces_mult = 0.05
-		planet_autofab_foundry_produces_mult = 0.05
-		planet_autofab_factory_produces_mult = 0.05
-		planet_autofab_motes_produces_mult = 0.05
-		planet_autofab_gases_produces_mult = 0.05
-		planet_autofab_crystals_produces_mult = 0.05
-		planet_autofab_srs_produces_mult = 0.05
+		planet_autofab_uplink_upkeep_mult = -0.05
 	}
 
 	ai_weight = {

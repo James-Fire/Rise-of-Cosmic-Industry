@@ -1,7 +1,6 @@
 building_roci_infrastructure_construction = {
 	base_buildtime = 180
-
-	category = pop_assembly
+	category = manufacturing
 
 	potential = {
 		NOT = { has_global_flag = no_realdev }
@@ -96,7 +95,7 @@ building_roci_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			job_realdev_foreman_add = 1
+			job_realdev_foreman_add = 100
 		}
 	}
 	
@@ -108,7 +107,7 @@ building_roci_infrastructure_construction = {
 			}
 		}
 		modifier = {
-			job_realdev_foreman_gestalt_add = 1
+			job_realdev_foreman_gestalt_add = 100
 		}
 	}
 
@@ -160,7 +159,7 @@ building_roci_infrastructure_construction = {
 building_roci_infrastructure_construction_2 = {
 	base_buildtime = 180
 	can_build = no
-	category = pop_assembly
+	category = manufacturing
 
 	potential = {
 		NOT = { has_global_flag = no_realdev }
@@ -227,7 +226,7 @@ building_roci_infrastructure_construction_2 = {
 			}
 		}
 		modifier = {
-			job_realdev_foreman_add = 2
+			job_realdev_foreman_add = 200
 		}
 	}
 	
@@ -239,7 +238,7 @@ building_roci_infrastructure_construction_2 = {
 			}
 		}
 		modifier = {
-			job_realdev_foreman_gestalt_add = 2
+			job_realdev_foreman_gestalt_add = 200
 		}
 	}
 
@@ -293,7 +292,7 @@ building_roci_infrastructure_construction_2 = {
 building_roci_infrastructure_construction_3 = {
 	base_buildtime = 180
 	can_build = no
-	category = pop_assembly
+	category = manufacturing
 
 	potential = {
 		NOT = { has_global_flag = no_realdev }
@@ -360,7 +359,7 @@ building_roci_infrastructure_construction_3 = {
 			}
 		}
 		modifier = {
-			job_realdev_foreman_add = 3
+			job_realdev_foreman_add = 300
 		}
 	}
 	
@@ -372,7 +371,7 @@ building_roci_infrastructure_construction_3 = {
 			}
 		}
 		modifier = {
-			job_realdev_foreman_gestalt_add = 3
+			job_realdev_foreman_gestalt_add = 300
 		}
 	}
 
@@ -422,8 +421,9 @@ building_roci_infrastructure_construction_3 = {
 }
 
 building_corporate_construction = {
-	#icon = "building_tiberium_spike"
+	icon = "building_resource_silo"
 	base_buildtime = 480
+	category = manufacturing
 	
 	owner_type = corporate
 	
@@ -463,8 +463,9 @@ building_corporate_construction = {
 }
 
 building_corporate_construction_criminal = {
-	#icon = "building_tiberium_spike"
+	icon = "building_resource_silo"
 	base_buildtime = 480
+	category = manufacturing
 	
 	owner_type = corporate
 	

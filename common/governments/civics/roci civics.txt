@@ -79,9 +79,8 @@ roci_origin_autofab = {
 	}
 	random_weight = { base = 0 }
 	modifier = {
-		pop_growth_speed_reduction = 0.4
+		logistic_growth_mult = -0.4
 		planet_pop_assembly_reduction = 0.4
-		planet_pop_assembly_organic_reduction = 0.4
 	}
 }
 
@@ -112,17 +111,8 @@ roci_civic_autofab = {
 	}
 	random_weight = { base = 0 }
 	modifier = {
-		planet_jobs_produces_mult = -0.3
-		planet_autofab_produces_mult = 0.5
-		planet_autofab_generator_produces_mult = 0.5
-		planet_autofab_farm_produces_mult = 0.5
-		planet_autofab_mine_produces_mult = 0.5
-		planet_autofab_foundry_produces_mult = 0.5
-		planet_autofab_factory_produces_mult = 0.5
-		planet_autofab_motes_produces_mult = 0.5
-		planet_autofab_gases_produces_mult = 0.5
-		planet_autofab_crystals_produces_mult = 0.5
-		planet_autofab_srs_produces_mult = 0.5
+		pop_cat_worker_happiness = -0.3
+		bonus_automated_workforce_mult = 0.15
 	}
 }
 roci_civic_autofab_machine = {
@@ -145,17 +135,8 @@ roci_civic_autofab_machine = {
 	}
 	random_weight = { base = 0 }
 	modifier = {
-		planet_jobs_produces_mult = -0.3
-		planet_autofab_produces_mult = 0.5
-		planet_autofab_generator_produces_mult = 0.5
-		planet_autofab_farm_produces_mult = 0.5
-		planet_autofab_mine_produces_mult = 0.5
-		planet_autofab_foundry_produces_mult = 0.5
-		planet_autofab_factory_produces_mult = 0.5
-		planet_autofab_motes_produces_mult = 0.5
-		planet_autofab_gases_produces_mult = 0.5
-		planet_autofab_crystals_produces_mult = 0.5
-		planet_autofab_srs_produces_mult = 0.5
+		pop_cat_worker_happiness = -0.3
+		bonus_automated_workforce_mult = 0.15
 	}
 }
 roci_civic_autofab_hive = {
@@ -178,17 +159,8 @@ roci_civic_autofab_hive = {
 	}
 	random_weight = { base = 0 }
 	modifier = {
-		planet_jobs_produces_mult = -0.3
-		planet_autofab_produces_mult = 0.5
-		planet_autofab_generator_produces_mult = 0.5
-		planet_autofab_farm_produces_mult = 0.5
-		planet_autofab_mine_produces_mult = 0.5
-		planet_autofab_foundry_produces_mult = 0.5
-		planet_autofab_factory_produces_mult = 0.5
-		planet_autofab_motes_produces_mult = 0.5
-		planet_autofab_gases_produces_mult = 0.5
-		planet_autofab_crystals_produces_mult = 0.5
-		planet_autofab_srs_produces_mult = 0.5
+		pop_cat_worker_happiness = -0.3
+		bonus_automated_workforce_mult = 0.15
 	}
 }
 roci_civic_autofab_megacorp = {
@@ -220,16 +192,7 @@ roci_civic_autofab_megacorp = {
 	}
 	random_weight = { base = 0 }
 	modifier = {
-		planet_jobs_produces_mult = -0.3
-		planet_autofab_produces_mult = 0.5
-		planet_autofab_generator_produces_mult = 0.5
-		planet_autofab_farm_produces_mult = 0.5
-		planet_autofab_mine_produces_mult = 0.5
-		planet_autofab_foundry_produces_mult = 0.5
-		planet_autofab_factory_produces_mult = 0.5
-		planet_autofab_motes_produces_mult = 0.5
-		planet_autofab_gases_produces_mult = 0.5
-		planet_autofab_crystals_produces_mult = 0.5
-		planet_autofab_srs_produces_mult = 0.5
+		pop_cat_worker_happiness = -0.3
+		bonus_automated_workforce_mult = 0.15
 	}
 }

@@ -12,9 +12,6 @@ ap_autofab = {
 
 	on_enabled = {
 		custom_tooltip = "can_use_autofab"
-		hidden_effect = {
-			autofab_game_start = yes
-		}
 	}
 
 	modifier = {

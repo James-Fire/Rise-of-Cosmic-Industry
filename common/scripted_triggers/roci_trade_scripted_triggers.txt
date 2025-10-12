@@ -54,6 +54,15 @@ kiyo_mod_trade_opinion_modifier_valid = {
 roci_can_trade_with_country = {
 	#Can only trade with normal countries. No FEs, Marauders, or other special empires
 	is_country_type = default
+	#Check some obvious things, like you can't trade with those you're currently at war with
+	NOT = {
+		is_country = prev.owner
+		has_closed_borders = prev.owner
+		is_at_war_with = prev.owner
+		prev.owner = {
+			has_closed_borders = prev
+		}
+	}
 	OR = {
 		#Check if the opinion is high enough, either on its own, or with improving relations from either side
 		custom_tooltip = {
@@ -88,15 +97,6 @@ roci_can_trade_with_country = {
 		custom_tooltip = {
 			text = "roci_trade_routes_federation"
 			is_in_federation_with = prev.owner
-		}
-	}
-	#Check some obvious things, like you can't trade with those you're currently at war with
-	NOT = {
-		is_country = prev.owner
-		has_closed_borders = prev.owner
-		is_at_war_with = prev.owner
-		prev.owner = {
-			has_closed_borders = prev
 		}
 	}
 }

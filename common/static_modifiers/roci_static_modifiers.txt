@@ -48,7 +48,7 @@ realdev_planet_speed = {
 }
 realdev_planet_assembly = {
 	planet_pop_assembly_mult = 0.01
-	planet_pop_assembly_organic_mult = 0.01
+	bonus_pop_growth_mult = 0.01
 }
 realdev_planet_job_output = {
 	planet_jobs_productive_upkeep_mult = 0.005

@@ -422,7 +422,10 @@ roci_orbital_on = {
 }
 roci_orbital_off = {
 	potential = { has_global_flag = no_orbital_infra }
-	allow = { hidden_trigger = { always = yes } }
+	allow = {
+		custom_tooltip = "roci_orbital_infra_disabled"
+		hidden_trigger = { always = no }
+	}
 	effect = { remove_global_flag = no_orbital_infra }
 }
 roci_orbital_ring = {
@@ -433,12 +436,12 @@ roci_orbital_ring = {
 roci_orbital_ring_on = {
 	potential = { has_global_flag = orbital_ring_overwrite }
 	allow = { hidden_trigger = { always = yes } }
-	effect = { set_global_flag = orbital_ring_overwrite }
+	effect = { remove_global_flag = orbital_ring_overwrite }
 }
 roci_orbital_ring_off = {
 	potential = { NOT = { has_global_flag = orbital_ring_overwrite } }
 	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_global_flag = orbital_ring_overwrite }
+	effect = { set_global_flag = orbital_ring_overwrite }
 }
 
 roci_realdev_thumb = {
@@ -579,7 +582,11 @@ roci_fe_buildings_on = {
 }
 roci_fe_buildings_off = {
 	potential = { has_global_flag = no_fe_buildings }
-	allow = { hidden_trigger = { always = yes } }
+	allow = {
+		always = yes
+		#custom_tooltip = "roci_fe_buildings_disabled"
+		#hidden_trigger = { always = no }
+	}
 	effect = { remove_global_flag = no_fe_buildings }
 }
 

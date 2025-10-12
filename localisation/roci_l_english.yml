@@ -3,32 +3,13 @@
  ###Autofab
  
   #Decisions
-    decision_build_autofab:0 " Build Factory"
-    decision_build_autofab_desc:0 "Start construction of a Factory on this World."
-    decision_add_autoforge:0 " Add Factory Forge"
-    decision_add_autoforge_desc:0 "Construct a Factory Forge on this world."
-    decision_add_autoindustry:0 " Add Factory Industry"
-    decision_add_autoindustry_desc:0 "Construct Factory Industry on this world."
-    decision_add_autorefinery:0 " Add Factory Refinery"
-    decision_add_autorefinery_desc:0 "Construct a Factory Refinery on this world."
-    decision_add_autorefinery_extractor:0 " Add Factory Extractor"
-    decision_add_autorefinery_extractor_desc:0 "Construct a Factory Extractor on this world."
-    decision_add_generator:0 " Add Factory Generator"
-    decision_add_generator_desc:0 "Construct a Factory Generator on this world."
-    decision_add_mine:0 " Add Factory Mine"
-    decision_add_mine_desc:0 "Construct a Factory Mine on this world."
-    decision_add_farm:0 " Add Factory Farm"
-    decision_add_farm_desc:0 "Construct a Factory Farm on this world."
-    decision_add_auto_crystals_refinery:0 "Add Factory Translucer"
-    decision_add_auto_crystals_refinery_desc:0 "Construct a Factory Translucer on this world."
-    decision_add_auto_gases_refinery:0 "Add Factory Gas Refinery"
-    decision_add_auto_gases_refinery_desc:0 "Construct a Factory Gas Refinery on this world."
-    decision_add_auto_motes_refinery:0 "Add Factory Chemical Plant"
-    decision_add_auto_motes_refinery_desc:0 "Construct a Factory Chemical Plant on this world."
-    decision_upgrade_autoforge:0 " Factory Upgrade Forge"
-    decision_upgrade_autoforge_desc:0 "Upgrade a Factory Forge on this world."
-    decision_upgrade_autoindustry:0 " Factory Upgrade Industry"
-    decision_upgrade_autoindustry_desc:0 "Upgrade a Factory Industry on this world."
+    decision_build_autofab: "Build Automatic Factory Hub"
+    decision_dismantle_autofab: "Dismantle Automatic Factory Hub"
+    
+    edict_autofab_build_all: "Build All Automatic Factory Hubs"
+    edict_autofab_build_all_desc: "Queue an Automatic Factory Hub to be built on every planet we own that doesn't have one already."
+    edict_autofab_dismantle_all: "Dismantle All Automatic Factory Hubs"
+    edict_autofab_dismantle_all_desc: "Queue dismantling all Automatic Factory Hubs on every planet we own that has one."
     
     decision_manage_factory:0 "  Factory: Manage"
     decision_manage_factory_desc:0 "Openb/Close the Factory Management menu. Also collapses all sub menus."
@@ -50,35 +31,6 @@
     decision_autofab_automation_off:0 " Factory: Disable Automation"
     decision_autofab_automation_off_desc:0 "Toggles the Factory on this planet to expand on its own, based on a set of logical parameters designed to minimize wasted production."
     
-    decision_enable_retooling:0 " Factory: Retooling"
-    decision_enable_retooling_desc:0 "Opens/Closes up decisions for Retooling the Factory, in case we don't need some of the production built here anymore."
-    decision_retool_generator:0 "Retool Factory Generator"
-    decision_retool_generator_desc:0 "Retool a Generator on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_mine:0 "Retool Factory Mine"
-    decision_retool_mine_desc:0 "Retool a Mine on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_farm:0 "Retool Factory Farm"
-    decision_retool_farm_desc:0 "Retool a Farm on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_foundry:0 "Retool Factory Foundry"
-    decision_retool_foundry_desc:0 "Retool a Foundry on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_foundry_2:0 "Retool Factory Foundry 2"
-    decision_retool_foundry_2_desc:0 "Retool a Foundry 2 on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_foundry_3:0 "Retool Factory Foundry 3"
-    decision_retool_foundry_3_desc:0 "Retool a Foundry 3 on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_factory:0 "Retool Factory Industry"
-    decision_retool_factory_desc:0 "Retool a Industry on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_factory_2:0 "Retool Factory Industry 2"
-    decision_retool_factory_2_desc:0 "Retool a Industry 2 on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_factory_3:0 "Retool Factory Industry 3"
-    decision_retool_factory_3_desc:0 "Retool a Industry 3 on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_refinery:0 "Retool Factory Refinery"
-    decision_retool_refinery_desc:0 "Retool a Gas Refinery on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_translucer:0 "Retool Factory Translucer"
-    decision_retool_translucer_desc:0 "Retool a Translucer on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_chemical:0 "Retool Factory Chemical Plant"
-    decision_retool_chemical_desc:0 "Retool a Chemical Plant on this planet. The Alloys cost is refunded, Minerals are not."
-    decision_retool_extractor:0 "Retool Factory Extractor"
-    decision_retool_extractor_desc:0 "Retool the Extractor on this planet. The Alloys cost is refunded, Minerals are not."
-    
     
     edict_autofab_advisor:0 "Factory Advisor"
     edict_autofab_advisor_desc:0 "Open up interaction with the Factory Advisor."
@@ -92,6 +44,9 @@
     not_ignoring:0 "New Vanilla construction is being converted."
     
   #Resource Production
+    
+    planet_autofab_uplink: "Automatic Factory Uplinks"
+    mod_planet_autofab_uplink_upkeep_mult: "Automatic Factory Uplink Upkeep"
     
     planet_autofab:0 "Automatic Factory"
     mod_planet_autofab_produces_mult:0 "Autofab Production"
@@ -189,23 +144,21 @@
     tradition_autofab_desc: "As our civilization grows, so too will the capability of our Factories."
     
     tr_autofab_adopt: "Automation"
-    tr_autofab_adopt_desc: "Factory Energy Upkeep: §G-5%§!"
-    tr_autofab_finish_desc: "§G-50%§! build time for Factory Modules \nAscension Perks Unlocked: §G+1§!"
+    tr_autofab_adopt_desc: "Factory Uplink Building Upkeep Per District: §G-1§! £energy£ Energy"
+    tr_autofab_finish_desc: "§G+25%§! Automation Bonus Workforce from Automatic Factory Deposit \n§G+25%§! Automation Workforce from level 3 Automatic Factory Uplinks"
     
     tr_autofab_infrastructure_support: "Infrastructure"
+    tr_autofab_infrastructure_support_desc: "The Automatic Factory deposit provides §G+2§! district slots."
     tr_autofab_infrastructure_support_delayed: "The Factory is capable of supporting some critical colony infrastructure. We should use this."
     tr_autofab_environmental_studies: "Environmentalist"
-    tr_autofab_environmental_studies_desc: "§Y$MOD_POP_ENVIRONMENT_TOLERANCE$§! on  planets with an Autofab increased by §G+5%§!."
+    tr_autofab_environmental_studies_desc: "§Y$MOD_POP_ENVIRONMENT_TOLERANCE$§! on planets with an Autofab increased by §G+5%§!."
     tr_autofab_environmental_studies_delayed: "Keeping the environment in mind when constructing our Factories has made planets with a Factory more liveable than those without."
     tr_autofab_networking: "Factory Network"
     tr_autofab_networking_desc: "§Y$MOD_PLANET_CRIME_NO_HAPPINESS_ADD$§! is reduced by §G5%§! on planets with an Autofab."
     tr_autofab_networking_delayed: "Using Factory facilities to expand our network reduces deviant behaviour in nearby drones."
-    tr_autofab_commercial_connections: "Factory Commerce"
-    tr_autofab_commercial_connections_desc: "§G+2§! £trade_value£ Trade Value from each Factory Module"
-    tr_autofab_commercial_connections_delayed: "Using the Factory to produce luxury goods, and offering tours of the extensive Modules gives a small income stream on the side."
-    tr_autofab_factory_housing: "Housing Efficiency"
-    tr_autofab_factory_housing_desc: "£pop£ $PLANET_HOUSING_TITLE$ £housing£ usage on Planets with an Autofab: §G-5%§!"
-    tr_autofab_factory_housing_delayed: "The Factory is capable of making housing our population more efficient, through better methods that reduce the footprint of everyone."
+    tr_autofab_commercial_connections: "Factory Logistics"
+    tr_autofab_commercial_connections_desc: "§G+0.5§! £trade_value£ Trade Value per district on a planet with an Automatic Factory"
+    tr_autofab_commercial_connections_delayed: "Using the Factory to optimize and take over some of our logistics is bound to result in efficiencies."
     tr_autofab_pride: "Pride"
     tr_autofab_pride_desc: "£pop£ §Y$pop_citizen_happiness$§! on Planets with an Autofab: §G+5%§!"
     tr_autofab_pride_delayed: "Our people take pride in the achievement of the Factories, improving happiness where they exist."
@@ -213,11 +166,28 @@
     tr_autofab_services_desc: "§G+5%§! £mod_pop_amenities_usage_no_happiness_mult£ Amenities on planets with an Autofab"
     tr_autofab_services_delayed: "Using the Factory to provide some essential services can relieve the burden of normal service providers."
     tr_autofab_optimization: "Factory Optimization"
-    tr_autofab_optimization_desc: "Factory Output: §G+5%§!\nFactory Upkeep: §G-5%§!"
+    tr_autofab_optimization_desc: "Automated Bonus Workforce From Autofab: §G+5%§!\nFactory Uplinks Upkeep: §G-5%§!"
     tr_autofab_optimization_delayed: "Optimizing the input/output of the Factory can save large amounts of resources, and increase production."
+    
+    tech_roci_autofab_uplinks: "Automatic Factory Uplinks"
+
   #Deposits
     autofab:0 "Automatic Factory"
-    autofab_desc:0 "This planet's Automated Factory. Allows building Factory Modules."
+    autofab_desc:0 "This planet's Automated Factory. Allows building Factory Uplinks."
+    building_autofab_uplink_1: "Automatic Factory Connection"
+    building_autofab_uplink_1_desc: "A link to the Automatic Factory, allowing it to interface and operate some of the infrastructure of this zone."
+    building_autofab_uplink_2: "Automatic Factory Uplink"
+    building_autofab_uplink_2_desc: "A stronger connection to the Automatic Factory, increasing how much of the zone's infrastructure can be automated."
+    building_autofab_uplink_3: "Automatic Factory Core"
+    building_autofab_uplink_3_desc: "A complete connection to the Automatic Factory, allowing maximum automation of this zone."
+    building_autofab_uplink_1_city: "Automatic Factory Connection"
+    building_autofab_uplink_1_city_desc: "A link to the Automatic Factory, allowing it to interface and operate some of the infrastructure of this zone."
+    building_autofab_uplink_2_city: "Automatic Factory Uplink"
+    building_autofab_uplink_2_city_desc: "A stronger connection to the Automatic Factory, increasing how much of the zone's infrastructure can be automated."
+    building_autofab_uplink_3_city: "Automatic Factory Core"
+    building_autofab_uplink_3_city_desc: "A complete connection to the Automatic Factory, allowing maximum automation of this zone."
+    
+    
     autofab_refinery_extractor:0 "Factory Extractor"
     autofab_refinery_extractor_desc:0 "The Factory extracts rare resources from the planet in this area."
     autofab_power:0 "Factory Generator"
@@ -258,20 +228,19 @@
    
   #Origin and Civic
     origin_autofab_tooltip_1:0 "The living standards of your main species will be set to a high standard. Ethic specific ones are used first, then Social Welfare."
-    origin_autofab_tooltip_2:0 "You start with an Automatic Factory deposit, that replaces physical resource production."
+    origin_autofab_tooltip_2:0 "You start with an Automatic Factory deposit, and Level 2 Automatic Factory Uplink Buildings in each of the basic resource zones."
     origin_autofab_tooltip_3:0 "You start with less £pop£ Pops, those that would have been working physical resource jobs removed. To compensate for needing more district space, your homeworld minimum size is £planetsize£ §Y25§!."
     origin_autofab_tooltip_4:0 "£pop£ Pop Growth is slower, due to massive societal changes from living a life of luxury."
-    origin_autofab_tooltip_5:0 "Using this in combination with the Civic gives a -10% upkeep cost to Factory Modules."
+    origin_autofab_tooltip_5:0 "Using this in combination with the Civic makes the Automatic Factory deposit give a §G10%§! bonus to automated workforce."
     roci_origin_autofab:0 "Factory Automation"
     roci_origin_autofab_desc:0 "Ever since the Industrial Revolution, this species has been obsessed with increasing automation in their factories. Achieving fully automatic factories, in operation and expansion, has allowed them to greatly reduce the labour required by their species, and catapult themselves to spacefaring before the expected population levels."
     origin_tooltip_autofab_effects:0 "- $origin_autofab_tooltip_1$ \n- $origin_autofab_tooltip_2$ \n- $origin_autofab_tooltip_3$ \n- $origin_autofab_tooltip_4$ \n- $origin_autofab_tooltip_5$\n- $autofab_script_replace$"
     
-    roci_civic_autofab_tooltip_1:0 "Normal jobs produce less, as the population is ready to transfer production over to Automatic Factory Modules."
-    roci_civic_autofab_tooltip_2:0 "You start with an Automatic Factory deposit, and 1 of each resource module, if they are used by your Empire."
-    roci_civic_autofab_tooltip_3:0 "Using this in combination with the Origin gives a §G-10%§! upkeep cost to Factory Modules."
-    roci_civic_autofab_tooltip_4:0 "The §R-30%§! job production malus also applies to the factory. This means that the §G+50%§! production bonus is actually only a §G+20%§! bonus overall."
-    civic_tooltip_autofab_effects:0 "- $roci_civic_autofab_tooltip_1$ \n- $roci_civic_autofab_tooltip_2$ \n- $roci_civic_autofab_tooltip_3$\n- $roci_civic_autofab_tooltip_4$\n- $autofab_script_replace$"
-    roci_civic_autofab_desc: "Having recently achieved Automated Factory production, our society is read to give up their burden."
+    roci_civic_autofab_tooltip_1:0 "Workers are unhappy in their occupation, as the population is ready to transfer production over to Automatic Factory Modules."
+    roci_civic_autofab_tooltip_2:0 "You start with an Automatic Factory deposit, and Level 1 Automatic Factory Uplink Buildings in each of the basic resource zones."
+    roci_civic_autofab_tooltip_3:0 "Using this in combination with the Origin makes the Automatic Factory deposit give a §G10%§! bonus to automated workforce."
+    civic_tooltip_autofab_effects:0 "- $roci_civic_autofab_tooltip_1$ \n- $roci_civic_autofab_tooltip_2$ \n- $roci_civic_autofab_tooltip_3$\n- $autofab_script_replace$"
+    roci_civic_autofab_desc: "Having recently achieved Automated Factory production, our society is ready to give up their burden."
     roci_civic_autofab:0 "Factory Automation"
     
     roci_civic_autofab_machine: "$roci_civic_autofab$"
@@ -282,9 +251,9 @@
     roci_civic_autofab_megacorp_desc: "$roci_civic_autofab_desc$"
     
     ap_autofab:0 "Automation Revolution"
-    ap_autofab_desc:0 "Our society has progressed to the point where our population expects certain things, and is unwilling to do it themselves. Automated Factories can handle the required tasks."
+    ap_autofab_desc:0 "Our society has progressed to the point where our population expects certain things, and are unwilling to do it themselves. Automated Factories can handle the required tasks."
     
-    can_use_autofab:0 "Unlock the ability to build Automated Factories on your planets, reducing your reliance on labour from people and machines. \nIf you have the Origin or Civic, this gives +40% factory production instead."
+    can_use_autofab:0 "Unlock the ability to build Automated Factories on your planets, reducing your reliance on labour from people and machines. \nIf you have the Origin or Civic, this makes the Automatic Factory deposit give §G+30%§! automated workforce efficiency instead."
     
     autofab_script_replace: "§RThis Origin or Civic is replaced by script if Autofab is disabled after game start.§!"
     
@@ -1195,8 +1164,8 @@
     job_realdev_foreman_gestalt_desc:0 "A manager of construction. Increases Industrial Production Capacity by 20."
     mod_job_realdev_foreman_gestalt_add:0 "Construction Drone"
     
-    job_realdev_foreman_effect_desc: "$job_realdev_foreman_plural$ Produce 20 §YIndustrial Production Capacity§! for the planet they are on."
-    job_realdev_foreman_gestalt_effect_desc: "$job_realdev_foreman_gestalt_plural$ Produce 20 §YIndustrial Production Capacity§! for the planet they are on."
+    #job_realdev_foreman_effect_desc: "$job_realdev_foreman_plural$ Produce 20 §YIndustrial Production Capacity§! for the planet they are on."
+    #job_realdev_foreman_gestalt_effect_desc: "$job_realdev_foreman_gestalt_plural$ Produce 20 §YIndustrial Production Capacity§! for the planet they are on."
     
     blub: "Industrial Production Capacity: §G$+20$§!"
     
@@ -1307,17 +1276,17 @@
     realdev_country_take_display: "[This.realdev_planet_stockpile_display]"
     
     realdev_current_pop_display: "From Pops: [This.realdev_industry_pops_display]"
-    realdev_current_pop_display_tooltip: "Pops produce 1 Industrial Production base. The techs Powered Exoskeletons and Mega-Assembly Systems makes each pop produce an additional IP each. Pops that are enslaved produce an additional IP.\n\nThe following traits provide 1 IP each: Proles, Nerve Stapled, Latent Psionic, Cybernetic, Robust, and Efficient Processors.\n\nThe following traits provide 2 IP each: Enigmatic Intelligence.\n\nThe following traits provide 3 IP each: Erudite and Psionic.\n\nThe Mechanical trait is special. It starts by giving 1 IP. This is upgraded by 1 each upon getting the Droids and Synthetics techs.\n\nPops employed as Maintenance Drones produce 1 additonal IP."
+    realdev_current_pop_display_tooltip: "Pops produce 0.01 Industrial Production base. The techs Powered Exoskeletons and Mega-Assembly Systems makes each pop produce an additional 0.01 IP each. Pops that are enslaved produce an additional 0.01 IP.\n\nThe following traits provide 0.01 IP each: Proles, Nerve Stapled, Latent Psionic, Cybernetic, Robust, and Efficient Processors.\n\nThe following traits provide 0.02 IP each: Enigmatic Intelligence.\n\nThe following traits provide 0.03 IP each: Erudite and Psionic.\n\nThe Mechanical trait is special. It starts by giving 0.01 IP. This is upgraded by 0.01 each upon getting the Droids and Synthetics techs.\n\nPops employed as Maintenance Drones produce 0.01 additonal IP."
     realdev_current_pop_cap_display: "From Pops: [This.realdev_industry_pops_cap_display]"
-    realdev_current_pop_cap_display_tooltip: "Pops provide 2 Industrial Production Capacity base. The techs Powered Exoskeletons and Mega-Assembly Systems makes each pop produce an additional IP Cap each.\n\nThe following traits provide 2 IP Cap each: Latent Psionic, Cybernetic, Robust, and Efficient Processors.\n\nThe following traits provide 4 IP Cap each: Enigmatic Intelligence.\n\nThe following traits provide 6 IP Cap each: Erudite and Psionic.\n\nThe Mechanical trait is special. It starts by giving 2 IP Cap. This is upgraded by 2 each upon getting the Droids and Synthetics techs."
+    realdev_current_pop_cap_display_tooltip: "Pops provide 0.02 Industrial Production Capacity base. The techs Powered Exoskeletons and Mega-Assembly Systems makes each pop produce an additional 0.01 IP Cap each.\n\nThe following traits provide 0.02 IP Cap each: Latent Psionic, Cybernetic, Robust, and Efficient Processors.\n\nThe following traits provide 0.04 IP Cap each: Enigmatic Intelligence.\n\nThe following traits provide 0.06 IP Cap each: Erudite and Psionic.\n\nThe Mechanical trait is special. It starts by giving 0.02 IP Cap. This is upgraded by 0.02 each upon getting the Droids and Synthetics techs."
     
     realdev_current_building_display: "From Buildings: [This.realdev_building_display]"
-    realdev_current_building_display_tooltip: "Capital Planets get 20 Industrial Production for being the Capital.\n\nCapital Buildings provide 10 Industrial Production per level past the first, with the Reassembled Ship Shelter providing 5.\n\nEquipment Factories produce 20 Industrial Production per level.\n\nAutofab Factory Modules provide 2 IP per module."
+    realdev_current_building_display_tooltip: "Capital Planets get 20 Industrial Production for being the Capital.\n\nCapital Buildings provide 10 Industrial Production per level past the first, with the Reassembled Ship Shelter providing 5.\n\nEquipment Factories produce 20 Industrial Production per level.\n\nAutomation structures provide 5 Industrial Production per 1% automated workforce. Every 10 districts on the planet repeats this effect."
     realdev_current_building_cap_display: "From Buildings: [This.realdev_building_cap_display]"
-    realdev_current_building_cap_display_tooltip: "Capital Planets get 20 Industrial Production Cap for being the Capital.\n\nCapital Buildings provide 10 Industrial Production Cap per level past the first, with the Reassembled Ship Shelter providing 5."
+    realdev_current_building_cap_display_tooltip: "Capital Planets get 20 Industrial Production Cap for being the Capital.\n\nCapital Buildings provide 10 Industrial Production Cap per level past the first, with the Reassembled Ship Shelter providing 5.\n\nAutomation structures provide 1 Industrial Production Capacity per 1% automated workforce. Every 10 districts on the planet repeats this effect."
     
     realdev_current_job_cap_display: "From Jobs: [This.realdev_industry_cap_rulers_display]"
-    realdev_current_job_cap_display_tooltip: "All Ruler jobs provide 10 Industrial Production Cap. Foremen provide 20."
+    realdev_current_job_cap_display_tooltip: "All Ruler jobs provide 10 Industrial Production Cap per 100 jobs. Foremen provide 20 IPC per 100 jobs."
     
     realdev_current_alloys_display: "From Alloys: [This.realdev_alloy_production_display]"
     realdev_current_alloys_display_tooltip: "Alloys provide 1 Industrial Production per 3 alloys produced on the planet."
@@ -1331,7 +1300,7 @@
     realdev_current_multiplier_display: "Multiplier: [This.realdev_industry_multiplier_bonus_display]%"
     realdev_current_multiplier_display_tooltip: "All sources of this multiplier are added together, then applied to Industrial Production and Industrial Production Capacity. Sources are:\n\nLeaders: Planet and Sector Governors provides 2% per level, while Rulers provide 0.5% per level.\n\nCapital Production Techs provide their resource output bonus"
     realdev_current_amenities_display: "Amenities: [This.realdev_industry_multiplier_bonus_2_display]%"
-    realdev_current_amenities_display_tooltip: "A -100% to a +100% multipler to Industrial Production and Industrial Production Capacity (After the other multiplier) is applied based on amenities being -100 to +100." 
+    realdev_current_amenities_display_tooltip: "A -100% to a +100% multipler to Industrial Production and Industrial Production Capacity (After the other multiplier) is applied based on amenities being -10000 to +10000." 
     
     realdev_planet_speed_title: "Planet"
     realdev_planet_ratio_title: "Industrial Production Split"
@@ -1437,18 +1406,17 @@
     kiyo_trade:0 "§WCargo Ship§!"
     kiyo_trade_plural:0 "§WCargo Ships§!"
     
-    opinion_kiyo_mod_trade_trade_routes:0 "Foreign Trade"
+    opinion_kiyo_mod_trade_trade_routes:0 "Trade Route"
     
-    planet_kiyo_mod_trader:0 "Foreign Trade"
-    planet_kiyo_mod_trader_produces_add:0 "Foreign Trade Output"
+    planet_kiyo_mod_trader:0 "Trade Route"
+    planet_kiyo_mod_trader_produces_add:0 "Trade Route Output"
     campaign_kiyo_mod_trade:0 "Cargo Ship Cost"
     campaign_kiyo_mod_trade_energy_upkeep_add:0 "Cargo Ship Energy Upkeep"
     
-    roci_cargo_ships_fleetname_no_target: "[Prev.GetName] Cargo Fleet (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
-    roci_cargo_ships_fleetname_no_target_upgrade: "[kiyo_trade_start.GetName] Cargo Fleet (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
-    roci_cargo_ships_fleetname: "[prevprev.GetName] - [prev.GetName] Cargo (To [prevprev.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
-    roci_cargo_ships_fleetname_going: "[prevprev.GetName] - [prev.GetName] Cargo (To [prev.GetName]) (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
-    roci_cargo_ships_name_no_target: "[Prev.GetName] (Cargo Size: [This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet])"
+    
+    #Can't use references to other locc entries, *must* be in this one for loc commands to resolve
+    roci_cargo_ships_fleetname: "([This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet]) [Prev.GetName]/[PrevPrev.GetName]"
+    roci_cargo_ships_fleetname_no_target: "([This.kiyo_trade_max_cargo_ships_per_fleet]/[Owner.kiyo_trade_max_cargo_ships_per_fleet]) [Prev.GetName]/No Destination"
     
   #Components
  
@@ -1546,17 +1514,6 @@
     roci_trade_routes_federation: "Both countries must be in the same Federation."
     cargo_fleet_maxxed: "This Cargo Fleet already has the max number of ships"
     
- ###Shipping
- 
-  #General Shipping
-    shipping: "Shipping"
-    shipping_desc: "Capital Planets and Habitats that are built over the capital, or a moon of the capital, get 50% off shipping."
-    shipping_cost: "Shipping Cost"
-    shipping_cost_desc: "This planet requires shipping in resources from other planets. \n\nShipping Cost Breakdown (As of last calculation):\n\nEnergy: [This.shipping_energy_balance]\nMinerals: [This.shipping_minerals_balance]\nFood: [This.shipping_food_balance]\nAlloys: [This.shipping_alloys_balance]\nConsumer Goods: [This.shipping_consumer_goods_balance]\nMinor Artifacts: [This.shipping_minor_artifacts_balance]\nVolatile Motes: [This.shipping_volatile_motes_balance]\nExotic Gases: [This.shipping_exotic_gases_balance]\nRare Crystals: [This.shipping_rare_crystals_balance]\nLiving Metal: [This.shipping_sr_living_metal_balance]\nZro: [This.shipping_sr_zro_balance]\nDark Matter: [This.shipping_sr_dark_matter_balance]\nNanites: [This.shipping_nanites_balance]"
-    
-    mod_shipping_energy_upkeep_add: "Shipping £energy£ Cost"
-    mod_shipping_energy_upkeep_mult: "Shipping £energy£ Cost"
- 
  ###Exodus Fleet
     
     exodus_governing: "Exodus Support"
@@ -1564,7 +1521,7 @@
     
     b_exodus_stasis: "Stasis Pods"
     b_exodus_stasis_desc: "We still have people in stasis from our Exodus. We should work on expanding our living space and support infrastructure to bring them out as soon as possible."
-    b_exodus_stasis_effect_tooltip: "§Y1§! £pop£ Pop is created"
+    b_exodus_stasis_effect_tooltip: "§Y100§! £pop£ Pops are created"
     
     roci_origin_exodus_fleet: "Exodus Fleet"
     roci_origin_exodus_fleet_desc: "A mysterious figure from the fractured homeworld offered to take anyone willing to a new planet to build a better society, enough people signed up, but with a lack of construction ability, it might be a while before everyone gets to come out of stasis.\nThey chose a resource-rich system, with 2 good planets to settle in, which should help kickstart the new society."    
@@ -1573,7 +1530,7 @@
     roci_origin_exodus_fleet_effects_1: "Starts with a Chosen One ruler."
     roci_origin_exodus_fleet_effects_2: "Start with a size £planetsize£ §Y30§! gaia world, with §Y2-3§! §Gpositive§! modifiers, rich in resources."
     roci_origin_exodus_fleet_effects_3: "Your new home system is rich in deposits, and contains a size £planetsize£ §Y20§! planet of your ideal planet class, with §Y1-2§! §Gpositive§! modifiers."
-    roci_origin_exodus_fleet_effects_4: "You start with very few £pop£ pops. Robots and some Autofab Modules make up a large portion of your starting prodution. You can bring more £pop£ pops out of stasis by clearing the blockers."
+    roci_origin_exodus_fleet_effects_4: "You start with very few £pop£ pops. Robots and some Autofab Automation make up a large portion of your starting prodution. You can bring more £pop£ pops out of stasis by clearing the blockers."
     roci_origin_exodus_fleet_effects_5: "Start with a selection of extra techs, including blocker clearing tech based on the climate of your homeworld."
     roci_origin_exodus_fleet_effects_6: "Start with no mining or research stations, and no Orbital Infrastructure. Your home planet has some bare-bones infrastructure."
     roci_origin_exodus_fleet_effects_7: "A large Governing Ethics Attraction boost. Also a temporary Governing Ethics Attraction and Happiness boost, that decays over time. It takes longer to decay, and can even stop decaying after a certain amount, the happier your people are."
@@ -1623,7 +1580,7 @@
     
     roci_exploit: "Space Exploitation"
     roci_exploit_desc: "The Space Exploitation module provides ['concept_minor_colony'], a mechanic you can use to build more resource production on uninhabitable planets for collection by Mining or Research stations. It has an Empire level UI, accessible from an edict."
-    roci_exploit_disabled: "Space Exploitation is disabled because of clashing with 3.9 Habitats."
+    roci_exploit_disabled: "Space Exploitation is disabled pending a rework so it doesn't clash with 3.9 Habitats."
     roci_exploit_uninhabitables_size: "Uninhabitable Sizes"
     roci_exploit_uninhabitables_size_desc: "When a planet has a valid terrform available, it shows the planet size. This setting controls terraform options for all Uninhabitable Planets, so that their size can be shown. A side effect of this is that they will always show as having a terraform option available.\n\nThis option is placed under Space Exploitation, but it can be toggled even if Space Exploitation is off."
     roci_exploit_starting_loops: "Starting Loops"
@@ -1633,7 +1590,7 @@
     roci_orbital_desc: "The Orbital Infrastructure module provides ['concept_orbital_districts'], a mechanic to increase a planet's production without increasing pop count. It has districts and a building: The Spaceport."
     roci_orbital_ring: "Planetary Ring Overwrite"
     roci_orbital_ring_desc: "The planetary ring from Overlord can be overwritten to be able to be placed on all habitable planets. This setting can be toggled separately from the Orbital Infrastructure module."
-   
+    roci_orbital_infra_disabled: "Orbital Infrastructure is disabled pending a rework for 4.0"
    
     roci_realdev: "Realistic Development"
     roci_realdev_desc: "The Realistic Development module provides ['concept_industrial_production'], a mechanic to simulate limited industrial ability, and your distribution of it. It adds a building; Equipment Factory. It has Planet and Empire level UI, accessible from a decision and edict respectively."
@@ -1652,6 +1609,7 @@
     
     roci_fe_buildings: "Fallen Empire Buildings"
     roci_fe_buildings_desc: "This module adds another tier of Buff Buildings, like the Energy Nexus, based on Fallen Empire tech. These buildings are powerful on their own, and provide a large buff to their appropriate job output on the planet."
+    roci_fe_buildings_disabled: "Fallen Empire Buildings is disabled pending a rework for 4.0"
     
     roci_trade_routes: "Cargo Ships"
     roci_trade_routes_desc: "This module adds Cargo Ships, which can be used to set up trade routes with other empires, benefitting both target planets.\nThis module has 2 Edicts and 2 Decisions, and does not show up until Colonial Centralization is researched."

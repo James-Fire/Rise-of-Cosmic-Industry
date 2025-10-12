@@ -2,6 +2,20 @@
 
 
 
+*Made trade route opinion from multiple trade routes stack, instead of being set to the level of the most recent one
+
+*Fixed trade fleets being stuck on a planet if the empire closes their borders to you
+
+*Added a toggle for country level IP users.
+
+*Fixed Realdev not putting IP towards planet construction speed in months where the construction project finishes and switches to a new one.
+
+*Added 3 levels of autofab uplink buildings (25%, 50%, 75%) that take 5/10/15 energy per district in the automated zone
+
+*Autofab Tradition Factory Commerce now makes the autofab uplink buildings also produce small amounts of Trade Value for each district in their zone.
+
+*Updated Orbital Infrastructure to 4.1
+
 *Fixed Assembly Boost not being malused if you're not giving it IP.
 
 *Added a value to the realdev planet UI about how much IP it is changing the empire IP by.
@@ -10,18 +24,12 @@
 
 *Fixed the Current and Capacity values in the planet UI not being centered in their thing.
 
-*Hyper Relays now decrease shipping cost.
-
-*Added some techs to decrease shipping cost. Or overwrite relevant vanilla ones
-
 *Orbital Defense Platform now has modifiers saying what it does.
 
 
 
 
 
-
-*Updated the Autofab Automation Settings window, so now it doesn't need to close and reopen to update numbers.
 
 *Realdev now calculates the current stuff for 3 calcs out, instead of next calc.
 
@@ -41,8 +49,6 @@ This cap applies during splitting, so Planet Build Speed will get any IP over th
 *Added a value for how many Equipment Factories you have to the Realdev Planet UI.
 
 *Made autofab retooling respect Realdev.
-
-*Autofab Modules are now Districts.
 
 *Orbital "Districts" are now deposits.
 

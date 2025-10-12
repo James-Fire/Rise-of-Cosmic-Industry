@@ -2,226 +2,124 @@
 # Fallen Empire buildings #
 ###########################
 
-building_roci_affluence_center_mod = {
-	base_buildtime = @b4_time
-	can_build = no
-	can_demolish = yes
-	#icon = building_hyper_entertainment_forum
-	
-	potential = {
-		NOT = { has_global_flag = no_fe_buildings }
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
-		}
-		upkeep = {
-			energy = 10
-			rare_crystals = 2
-		}
-	}
-	
-	planet_modifier = {
-		planet_artisans_consumer_goods_produces_add = 6
-		planet_artisans_energy_upkeep_add = 3
-		planet_artisans_minerals_upkeep_add = 6
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_crafter_empire = no
-			}
-		}
-		modifier = {
-			job_artisan_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_crafter_empire = yes
-			}
-		}
-		modifier = {
-			job_artificer_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		modifier = {
-			job_artisan_drone_add = @b1_jobs
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_crafter_empire = no
-			}
-		}
-		text = job_artisan_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_crafter_empire = yes
-			}
-		}
-		text = job_artificer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_artisan_drone_effect_desc
-	}
-
-	prerequisites = {
-		"tech_roci_affluence_center"
-	}
-	
-	on_built = {	
-	
-	}
-	
-	upgrades = {
-	}
-}
-
 building_roci_nourishment_center_mod = {
 	base_buildtime = @b4_time
 	can_build = no
 	can_demolish = yes
 	#icon = building_food_processing_center
+	category = resource
+
+	building_sets = {
+		farming
+	}
 	
 	potential = {
 		NOT = { has_global_flag = no_fe_buildings }
+		owner = { is_wilderness_empire = no } # see 'building_massive_growth_4'
+	}
+	
+	allow = {
+		exists = owner
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				OR = {
+					AND = {
+						is_ai = yes
+						country_uses_food = no
+					}
+					is_wilderness_empire = yes
+				}
+			}
+			AND = {
+				owner = { is_ai = yes }
+				has_any_farming_district_or_building = no
+			}
+			is_planet_class = pc_machine
+			has_modifier = resort_colony
+		}
 	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
 			minerals = @b4_minerals
+			exotic_gases = @b2_rare_cost
 		}
 		upkeep = {
 			energy = 10
-			volatile_motes = 2
+			exotic_gases = 2
+		}
+		
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			minerals = 900
+			exotic_gases = 200
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			energy = 2
+			exotic_gases = @b2_rare_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			energy = 5
+			exotic_gases = 3
 		}
 	}
 	
 	planet_modifier = {
-		planet_farmers_food_produces_add = 6
-		planet_farmers_energy_upkeep_add = 3
+		planet_farmers_produces_mult = 0.20
+		planet_farmers_food_produces_add = 4
+		planet_farmers_energy_upkeep_add = 2
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				OR = {
-					is_anglers_empire = no
-					AND = {
-						is_anglers_empire = yes
-						NOT = { PREV = { planet = { is_wet = yes } } }
-					}
-				}
-			}
+			has_ringworld_output_boost = yes
 		}
 		modifier = {
-			job_farmer_add = 2
+			planet_farmers_food_produces_add = 2
 		}
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
+			has_autofab = no
 		}
 		modifier = {
-			job_fe_acolyte_farm_add = 2
+			district_automated_workforce = 0.5
 		}
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
+			has_autofab = yes
 		}
 		modifier = {
-			job_agri_drone_add = 2
+			bonus_automated_workforce_mult = 0.25
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		modifier = {
-			job_angler_add = 2
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_agri_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_farmer_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_farm_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_fallen_empire_spiritualist = no
-				is_anglers_empire = yes
-				PREV = { planet = { is_wet = yes } }
-			}
-		}
-		text = job_aqu_angler_effect_desc
+	show_tech_unlock_if = {
+		is_wilderness_empire = no
 	}
 
 	prerequisites = {
@@ -232,342 +130,105 @@ building_roci_nourishment_center_mod = {
 	}
 }
 
-
-building_roci_class_4_singularity_mod = {
-	base_buildtime = @b4_time
-	can_build = no
-	can_demolish = yes
-	#icon = building_class_4_singularity
-	
-	potential = {
-		NOT = { has_global_flag = no_fe_buildings }
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
-		}
-		upkeep = {
-			exotic_gases = 2
-		}
-	}
-	
-	planet_modifier = {
-		planet_technician_energy_produces_add = 4
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				OR = {
-					is_robot_empire = yes
-					AND = {
-						has_ethics_bug = yes
-						is_bugged_functional_architecture = yes
-					}
-				}
-			}
-			NOR = {
-				is_planet_class = pc_habitat
-				is_planet_class = pc_machine
-				is_planet_class = pc_hive
-				is_planet_class = pc_city
-			}
-		}
-		modifier = {
-			district_generator_max = 6
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		modifier = {
-			job_technician_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		modifier = {
-			job_fe_acolyte_generator_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_technician_drone_add = 2
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_technician_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_technician_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_generator_effect_desc
-	}
-		
-	upgrades = {
-	}
-
-	prerequisites = {
-		"tech_roci_singularity_power"
-	}
-}
-
-building_roci_nano_forge_mod = {
-	base_buildtime = @b4_time
-	can_build = no
-	can_demolish = yes
-	#icon = building_nano_forge
-	
-	potential = {
-		NOT = { has_global_flag = no_fe_buildings }
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
-		}
-		upkeep = {
-			energy = 10
-			volatile_motes = 2
-		}
-	}
-	
-	planet_modifier = {
-		planet_metallurgists_alloys_produces_add = 3
-		planet_metallurgists_energy_upkeep_add = 3
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_catalytic_empire = no
-			}
-		}
-		modifier = {
-			planet_metallurgists_minerals_upkeep_add = 6
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = no
-			}
-		}
-		modifier = {
-			job_foundry_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = yes
-			}
-		}
-		modifier = {
-			planet_metallurgists_food_upkeep_add = 12
-			job_catalytic_technician_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_hive_empire = yes
-				is_catalytic_empire = no
-			}
-		}
-		modifier = {
-			job_alloy_drone_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_machine_empire = yes
-				is_catalytic_empire = no
-			}
-		}
-		modifier = {
-			job_fabricator_add = @b1_jobs
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-				is_catalytic_empire = yes
-			}
-		}
-		modifier = {
-			planet_metallurgists_food_upkeep_add = 12
-			job_catalytic_drone_add = @b1_jobs
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = no
-			}
-		}
-		text = job_foundry_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_catalytic_empire = yes
-			}
-		}
-		text = job_catalytic_technician_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_hive_empire = yes
-				is_catalytic_empire = no
-			}
-		}
-		text = job_alloy_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_machine_empire = yes
-				is_catalytic_empire = no
-			}
-		}
-		text = job_fabricator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-				is_catalytic_empire = yes
-			}
-		}
-		text = job_catalytic_drone_effect_desc
-	}
-		
-	upgrades = {
-	}
-
-	prerequisites = {
-		"tech_roci_auto_forge"
-	}
-}
-
 building_roci_dimensional_fabricator_mod = {
 	base_buildtime = @b4_time
 	can_build = no
 	can_demolish = yes
 	#icon = building_nanite_transmuter
-	
-	potential = {
-		NOT = { has_global_flag = no_fe_buildings }
+	category = resource
+
+	building_sets = {
+		mining
 	}
 
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+		exists = owner
+		owner = { is_wilderness_empire = no } # see 'building_churning_tunnels_4'
+		OR = {
+			owner = { is_ai = no }
+			has_any_mining_district_or_building = yes
+		}
+	}
+	allow = {
+		has_upgraded_capital = yes
+		NOT = { has_modifier = resort_colony }
+	}
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = { is_ai = yes }
+				has_any_mining_district_or_building = no
+			}
+		}
+	}
+	
 	resources = {
 		category = planet_buildings
 		cost = {
 			minerals = @b4_minerals
+			volatile_motes = @b2_rare_cost
 		}
 		upkeep = {
 			energy = 10
 			volatile_motes = 2
 		}
+		
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			minerals = @b2_minerals
+			volatile_motes = @b2_rare_cost
+		}
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			minerals = 900
+			volatile_motes = 200
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			energy = 2
+			volatile_motes = @b2_rare_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			energy = 5
+			volatile_motes = 3
+		}
 	}
 	
 	planet_modifier = {
+		planet_miners_produces_mult = 0.20
 		planet_miners_energy_upkeep_add = 2
-		
-		planet_chemists_volatile_motes_produces_add = 2
-		planet_chemists_energy_upkeep_add = 4
-		
-		planet_refiners_exotic_gases_produces_add = 2
-		planet_refiners_energy_upkeep_add = 4
-		
-		planet_translucers_rare_crystals_produces_add = 2
-		planet_translucers_energy_upkeep_add = 4
 	}
+
 	triggered_planet_modifier = {
 		potential = {
-			exists = owner
-			owner = { is_catalytic_empire = no }
+			has_autofab = no
 		}
 		modifier = {
-			planet_chemists_minerals_upkeep_add = 10
-			planet_refiners_minerals_upkeep_add = 10
-			planet_translucers_minerals_upkeep_add = 10
+			district_automated_workforce = 0.5
 		}
 	}
+
 	triggered_planet_modifier = {
 		potential = {
-			exists = owner
-			owner = { is_catalytic_empire = yes }
+			has_autofab = yes
 		}
 		modifier = {
-			planet_chemists_food_upkeep_add = 20
-			planet_refiners_food_upkeep_add = 20
-			planet_translucers_food_upkeep_add = 20
+			bonus_automated_workforce_mult = 0.25
 		}
 	}
+	
 	triggered_planet_modifier = {
 		potential = {
 			NOT = { is_planet_class = pc_shattered_ring_habitable }
@@ -586,130 +247,14 @@ building_roci_dimensional_fabricator_mod = {
 			planet_miners_alloys_produces_add = 1
 		}
 	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				OR = {
-					is_robot_empire = yes
-					AND = {
-						has_ethics_bug = yes
-						is_bugged_functional_architecture = yes
-					}
-				}
-			}
-			NOR = {
-				is_planet_class = pc_habitat
-				is_planet_class = pc_machine
-				is_planet_class = pc_hive
-				is_planet_class = pc_city
-				is_planet_class = pc_shattered_ring_habitable
-			}
-		}
-		modifier = {
-			district_mining_max = 6
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		modifier = {
-			job_miner_add = 2
-		}
-	}
 
 	triggered_planet_modifier = {
 		potential = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
+			has_ringworld_output_boost = yes
 		}
 		modifier = {
-			job_fe_acolyte_mine_add = 2
+			planet_miners_minerals_produces_add = 2
 		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_mining_drone_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_scrap_miner_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_scrap_miner_drone_add = 2
-		}
-	}
-	triggered_desc = {
-		trigger = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_mining_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_miner_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			NOT = { is_planet_class = pc_shattered_ring_habitable }
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_mine_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_scrap_miner_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			is_planet_class = pc_shattered_ring_habitable
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_scrap_miner_effect_desc
 	}
 
 	prerequisites = {
@@ -720,12 +265,357 @@ building_roci_dimensional_fabricator_mod = {
 	}
 }
 
+building_roci_class_4_singularity_mod = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = yes
+	#icon = building_class_4_singularity
+	category = resource
+
+	building_sets = {
+		generator
+	}
+
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+		NOT = { has_modifier = resort_colony }
+		exists = owner
+		owner = { is_wilderness_empire = no }
+		OR = {
+			owner = { is_ai = no }
+			has_any_generator_district_or_building = yes
+		}
+	}
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			AND = {
+				exists = owner
+				owner = { is_ai = yes }
+				has_any_generator_district_or_building = no
+			}
+			AND = {
+				exists = owner
+				owner = { is_wilderness_empire = yes } # see 'building_bioelectric_stimulator_4'
+			}
+		}
+	}
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+		}
+		upkeep = {
+			exotic_gases = 2
+		}
+		
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			minerals = @b2_minerals
+			rare_crystals = @b2_rare_cost
+		}
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			minerals = 900
+			rare_crystals = 200
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			energy = 2
+			rare_crystals = @b2_rare_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			energy = 5
+			rare_crystals = 3
+		}
+	}
+	
+	planet_modifier = {
+		planet_technician_produces_mult = 0.20
+		planet_technician_energy_produces_add = 4
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_autofab = no
+		}
+		modifier = {
+			district_automated_workforce = 0.5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_autofab = yes
+		}
+		modifier = {
+			bonus_automated_workforce_mult = 0.25
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			has_ringworld_output_boost = yes
+		}
+		modifier = {
+			planet_technician_energy_produces_add = 2
+		}
+	}
+		
+	upgrades = {
+	}
+
+	prerequisites = {
+		"tech_roci_singularity_power"
+	}
+}
+
+building_roci_nano_forge_mod = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = yes
+	#icon = building_nano_forge
+	category = manufacturing
+	
+	building_sets = {
+		foundry
+		industrial
+	}
+
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+		exists = owner
+		owner = { is_wilderness_empire = no } # see 'building_natural_furnace_3'
+		is_special_colony_type = no
+	}
+	allow = {
+	}
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			owner = { is_wilderness_empire = yes }
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+		}
+		upkeep = {
+			energy = 10
+			volatile_motes = 2
+		}
+		
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			minerals = @b3_minerals
+			volatile_motes = @b4_rare_cost
+		}
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			minerals = 1500
+			volatile_motes = 600
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			energy = @b3_upkeep
+			volatile_motes = @b4_rare_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			energy = 15
+			volatile_motes = 8
+		}
+	}
+	
+	planet_modifier = {
+		planet_metallurgists_alloys_produces_add = 1
+		planet_metallurgists_energy_upkeep_add = 1
+		planet_metallurgists_minerals_upkeep_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_autofab = no
+		}
+		modifier = {
+			district_automated_workforce = 0.5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_autofab = yes
+		}
+		modifier = {
+			bonus_automated_workforce_mult = 0.25
+		}
+	}
+
+	inline_script = {
+		script = jobs/foundry_add
+		AMOUNT = @building_static_jobs_very_high
+	}
+	
+	upgrades = {
+	}
+
+	prerequisites = {
+		"tech_roci_auto_forge"
+	}
+}
+
+building_roci_affluence_center_mod = {
+	base_buildtime = @b4_time
+	can_build = no
+	can_demolish = yes
+	#icon = building_hyper_entertainment_forum
+	category = manufacturing
+	
+	building_sets = {
+		factory
+		industrial
+	}
+
+	allow = {
+	}
+
+	potential = {
+		NOT = { has_global_flag = no_fe_buildings }
+		exists = owner
+		owner = {
+			country_uses_consumer_goods = yes
+		}
+		NOT = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+
+			AND = {
+				exists = owner
+				owner = { country_uses_consumer_goods = no }
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b4_minerals
+		}
+		upkeep = {
+			energy = 10
+			rare_crystals = 2
+		}
+		
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			minerals = @b3_minerals
+			rare_crystals = @b4_rare_cost
+		}
+		cost = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			minerals = 1500
+			rare_crystals = 600
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = no
+			}
+			energy = @b3_upkeep
+			rare_crystals = @b4_rare_upkeep
+		}
+		upkeep = {
+			trigger = {
+				has_ringworld_output_boost = yes
+			}
+			energy = 15
+			rare_crystals = 8
+		}
+	}
+	
+	planet_modifier = {
+		planet_artisans_consumer_goods_produces_add = 2
+		planet_artisans_energy_upkeep_add = 1
+		planet_artisans_minerals_upkeep_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_autofab = no
+		}
+		modifier = {
+			district_automated_workforce = 0.5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_autofab = yes
+		}
+		modifier = {
+			bonus_automated_workforce_mult = 0.25
+		}
+	}
+
+	inline_script = {
+		script = jobs/factory_add
+		AMOUNT = @building_static_jobs_very_high
+	}
+
+	prerequisites = {
+		"tech_roci_affluence_center"
+	}
+	
+	on_built = {	
+	
+	}
+	
+	upgrades = {
+	}
+}
+
 building_roci_master_archive_mod = {
 	base_buildtime = @b4_time
 	can_build = yes
 	can_demolish = yes
 	base_cap_amount = 1
 	#icon = building_master_archive
+	category = research
 	
 	potential = {
 		NOT = { has_global_flag = no_fe_buildings }
@@ -748,6 +638,25 @@ building_roci_master_archive_mod = {
 		planet_researchers_engineering_research_produces_add = 4
 		planet_researchers_energy_upkeep_add = 4
 	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_autofab = no
+		}
+		modifier = {
+			district_automated_workforce = 0.5
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_autofab = yes
+		}
+		modifier = {
+			bonus_automated_workforce_mult = 0.25
+		}
+	}
+	
 	triggered_planet_modifier = {
 		potential = {
 			owner = {
@@ -784,35 +693,5 @@ building_roci_master_archive_mod = {
 	}
 		
 	upgrades = {
-	}
-}
-
-building_roci_fe_dome_mod = {
-	base_buildtime = @b4_time
-	can_build = no
-	icon = building_paradise_dome
-	
-	potential = {
-		NOT = { has_global_flag = no_fe_buildings }
-		always = no
-	}
-	
-	planet_modifier = {
-		planet_housing_add = 20
-		planet_amenities_add = 20
-	}
-	
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
-		}
-		upkeep = {
-			energy = 10
-		}
-	}
-
-	prerequisites = {
-		"tech_roci_sky_dome"
 	}
 }

@@ -1,0 +1,12 @@
+
+#tech_roci_autofab_uplinks = {
+#	cost = 0
+#	area = engineering
+#	tier = 0
+#	start_tech = yes
+#	category = { industry }
+#	
+#	ai_weight = {
+#		factor = 4
+#	}
+#}

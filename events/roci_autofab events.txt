@@ -74,137 +74,130 @@ country_event = {
 			limit = {
 				can_use_autofab = yes
 			}
-			autofab_game_start = yes
-			#country_event = { id = autofab_menu.20 }
-			switch = {
-				trigger = has_ethic
-				ethic_fanatic_authoritarian = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_fanatic_egalitarian = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_utopian cooldown = no }
-					}
-				}
-				ethic_fanatic_xenophobe = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_fanatic_xenophile = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_fanatic_militarist = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_fanatic_pacifist = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_fanatic_spiritualist = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_fanatic_materialist = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_academic_privilege cooldown = no }
-					}
-				}
-				ethic_authoritarian = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_egalitarian = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_utopian cooldown = no }
-					}
-				}
-				ethic_xenophobe = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_xenophile = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_militarist = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_pacifist = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_spiritualist = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
-					}
-				}
-				ethic_materialist = {
-					species = {
-						set_living_standard = { country = ROOT type = living_standard_academic_privilege cooldown = no }
-					}
-				}
-				ethic_gestalt_consciousness = { }
+			capital_scope = {
+				add_autofab = yes
 			}
 			if = {
 				limit = {
-					has_autofab_civic = yes
+					has_origin = roci_origin_autofab
+				}
+				switch = {
+					trigger = has_ethic
+					ethic_fanatic_authoritarian = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_fanatic_egalitarian = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_utopian cooldown = no }
+						}
+					}
+					ethic_fanatic_xenophobe = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_fanatic_xenophile = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_fanatic_militarist = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_fanatic_pacifist = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_fanatic_spiritualist = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_fanatic_materialist = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_academic_privilege cooldown = no }
+						}
+					}
+					ethic_authoritarian = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_egalitarian = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_utopian cooldown = no }
+						}
+					}
+					ethic_xenophobe = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_xenophile = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_militarist = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_pacifist = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_spiritualist = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_good cooldown = no }
+						}
+					}
+					ethic_materialist = {
+						species = {
+							set_living_standard = { country = ROOT type = living_standard_academic_privilege cooldown = no }
+						}
+					}
+					ethic_gestalt_consciousness = { }
 				}
 				capital_scope = {
+					set_planet_size = 25
 					add_autofab = yes
-					if = {
+					add_building = {
+						district = district_mining
+						zone = zone_minerals
+						building = building_autofab_uplink_2
+					}
+					add_building = {
+						district = district_generator
+						zone = zone_energy
+						building = building_autofab_uplink_2
+					}
+					add_building = {
+						district = district_farming
+						zone = zone_food
+						building = building_autofab_uplink_2
+					}
+					every_owned_pop_group = {
 						limit = {
-							owner = {
-								is_regular_empire = yes
+							OR = {
+								is_pop_category = simple_drone
+								is_pop_category = worker
 							}
 						}
-						add_deposit = autofab_factory
-						change_variable = { which = autofab_factory value = 1 }
-					}
-					while = {
-						count = 1
-						add_deposit = autofab_mine
-						change_variable = { which = autofab_mine value = 1 }
-					}
-					
-					while = {
-						count = 1
-						limit = {
-							has_food_available = yes
-							owner = {
-								country_uses_food = yes
-							}
+						kill_pop_group = {
+							pop_group = this
+							percentage = 50
 						}
-						add_deposit = autofab_farm
-						change_variable = { which = autofab_farm value = 1 }
-					}
-					while = {
-						count = 1
-						add_deposit = autofab_power
-						change_variable = { which = autofab_power value = 1 }
-					}
-					while = {
-						count = 1
-						add_deposit = autofab_foundry
-						change_variable = { which = autofab_foundry value = 1 }
 					}
 				}
 			}
-			if = {
+			else_if = {
 				limit = {
 					has_origin = origin_void_dwellers
 				}
@@ -214,297 +207,78 @@ country_event = {
 							limit = {
 								is_colony = yes
 							}
-							every_owned_pop = {
-								limit = {
-									OR = {
-										has_job = clerk
-										has_job = miner
-										#has_job = farmer
-										has_job = technician
-										has_job = mining_drone
-										#has_job = agri_drone
-										has_job = technician_drone
-										#has_job = artisan
-										has_job = artisan_drone
-										has_job = fabricator
-										has_job = alloy_drone
-										has_job = foundry
-									}
-								}
-								kill_pop = yes
-							}
-							remove_district = district_hab_commercial
 							add_autofab = yes
-						}
-						every_system_planet = {
-							limit = {
-								has_planet_flag = energy_habitat
-							}
-							add_deposit = autofab_power
-							change_variable = { which = autofab_power value = 1 }
-							while = {
-								limit = {
-									#always = no
-									OR = {
-										num_districts = { type = district_hab_energy value > 0 }
-									}
-								}
-								remove_district = district_hab_energy
-								add_deposit = autofab_power
-								change_variable = { which = autofab_power value = 1 }
-							}	
-						}
-						every_system_planet = {
-							limit = {
-								has_planet_flag = mining_habitat
-							}
-							while = {
-								limit = {
-									#always = no
-									OR = {
-										num_districts = { type = district_hab_mining value > 0 }
-									}
-								}
-								remove_district = district_hab_mining
-								add_deposit = autofab_mine
-								change_variable = { which = autofab_mine value = 1 }
-							}
-							
-						}
-						every_system_planet = {
-							limit = {
-								has_planet_flag = research_habitat
-							}
 							if = {
 								limit = {
 									owner = {
-										OR = {
-											NOT = {
-												has_ethic = ethic_gestalt_consciousness
-											}
-											has_civic = civic_machine_servitor
-										}
+										has_autofab_civic = yes
 									}
 								}
-								while = {
-									limit = {
-										#always = no
-										num_districts = { type = district_hab_industrial value > 1 }
-									}
-									remove_district = district_hab_industrial
-									remove_district = district_hab_industrial
-									add_deposit = autofab_foundry
-									change_variable = { which = autofab_foundry value = 1 }
-									add_deposit = autofab_factory
-									change_variable = { which = autofab_factory value = 1 }
+								add_building = {
+									district = district_mining
+									zone = zone_minerals
+									building = building_autofab_uplink_1
+								}
+								add_building = {
+									district = district_generator
+									zone = zone_energy
+									building = building_autofab_uplink_1
+								}
+								add_building = {
+									district = district_farming
+									zone = zone_food
+									building = building_autofab_uplink_1
 								}
 							}
-							while = {
-								limit = {
-									#always = no
-									num_districts = { type = district_hab_industrial value > 0 }
-								}
-								remove_district = district_hab_industrial
-								add_deposit = autofab_foundry
-								change_variable = { which = autofab_foundry value = 1 }
-							}
-
 						}
 					}
 				}
 			}
 			else_if = {
 				limit = {
-					has_origin = origin_birch
+					has_autofab_civic = yes
 				}
 				capital_scope = {
-					add_autofab = yes
-				}
-			}
-			else_if = {
-				limit = {
-					NOR = {
-						has_origin = roci_origin_autofab
-						has_origin = origin_void_dwellers
-						has_origin = origin_birch
+					add_building = {
+						district = district_mining
+						zone = zone_minerals
+						building = building_autofab_uplink_1
 					}
-				}
-				capital_scope = {
-					if = {
-						limit = {
-							has_supported_district_set = yes
-							NOT = { has_autofab = yes }
-						}
-						add_autofab = yes
+					add_building = {
+						district = district_generator
+						zone = zone_energy
+						building = building_autofab_uplink_1
+					}
+					add_building = {
+						district = district_farming
+						zone = zone_food
+						building = building_autofab_uplink_1
 					}
 				}
 			}
-			else_if = {
-				limit = {
-					has_origin = roci_origin_autofab
-				}
-				capital_scope = {
-					if = {
-						limit = {
-							has_supported_district_set = yes
-						}
-						set_planet_size = 25
-						if = {
-							limit = {
-								owner = {
-									is_hive_empire = yes
-								}
-							}
-							remove_building = building_hive_node
-							remove_building = building_hive_warren
-							remove_building = building_spawning_pool
-						}
-						if = {
-							limit = {
-								owner = { is_machine_empire = yes }
-							}
-							remove_building = building_uplink_node
-							add_district = district_nexus
-						}
-						every_owned_pop = {
-							limit = {
-								OR = {
-									has_job = miner
-									has_job = farmer
-									has_job = technician
-									has_job = mining_drone
-									has_job = agri_drone
-									has_job = technician_drone
-									has_job = artisan
-									has_job = artisan_drone
-									has_job = fabricator
-									has_job = alloy_drone
-									has_job = foundry
-								}
-							}
-							kill_pop = yes
-						}
-						add_autofab = yes
-						while = {
-							count = 1
-							add_deposit = autofab_mine
-							change_variable = { which = autofab_mine value = 1 }
-						}
-						while = {
-							count = 2
-							add_deposit = autofab_power
-							change_variable = { which = autofab_power value = 1 }
-						}
-						while = {
-							limit = {
-								owner = { is_machine_empire = yes }
-							}
-							count = 1
-							add_deposit = autofab_foundry
-							change_variable = { which = autofab_foundry value = 1 }
-						}
-						if = {
-							limit = {
-								owner = {
-									OR = {
-										NOT = {
-											has_ethic = ethic_gestalt_consciousness
-										}
-										has_civic = civic_machine_servitor
-									}
-								}
-							}
-							add_deposit = autofab_factory
-							change_variable = { which = autofab_factory value = 1 }
-						}
-						while = {
-							limit = {
-								#always = no
-								OR = {
-									num_districts = { type = district_mining value > 0 }
-									num_districts = { type = district_mining_uncapped value > 0 }
-								}
-							}
-							remove_district = district_mining
-							remove_district = district_mining_uncapped
-							add_deposit = autofab_mine
-							change_variable = { which = autofab_mine value = 1 }
-						}
-						while = {
-							limit = {
-								#always = no
-								OR = {
-									num_districts = { type = district_farming value > 0 }
-									num_districts = { type = district_farming_uncapped value > 0 }
-								}
-							}
-							remove_district = district_farming
-							remove_district = district_farming_uncapped
-							add_deposit = autofab_farm
-							change_variable = { which = autofab_farm value = 1 }
-						}
-						while = {
-							limit = {
-								#always = no
-								OR = {
-									num_districts = { type = district_generator value > 0 }
-									num_districts = { type = district_generator_uncapped value > 0 }
-								}
-							}
-							remove_district = district_generator
-							remove_district = district_generator_uncapped
-							add_deposit = autofab_power
-							change_variable = { which = autofab_power value = 1 }
-						}
-						while = {
-							limit = {
-								#always = no
-								num_districts = { type = district_industrial value > 0 }
-							}
-							remove_district = district_industrial
-							add_deposit = autofab_foundry
-							change_variable = { which = autofab_foundry value = 1 }
-						}
-						if = {
-							limit = {
-								owner = {
-									is_hive_empire = yes
-								}
-							}
-							add_building = building_spawning_pool
-						}
-						planet_event = { id = autofab.31 days = 2 }
-						every_owned_pop = { clear_pop_category = yes }
-					}
-					else = {
-						planet_event = { id = autofab.11 }
-					}
-				}
-			}
-			document_factory_country = yes
 		}
 	}	
 }
-country_event = {
-	id = autofab.5
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		NOT = { has_global_flag = no_autofab }
-		can_use_autofab = yes
-	}
-
-	immediate = {
-		every_owned_planet = {
-			limit = {
-				has_autofab = yes
-			}
-			set_variable = { which = roci_autofab_basic_jobs value = value:roci_autofab_basic_jobs }
-			set_variable = { which = roci_autofab_advanced_jobs value = value:roci_autofab_advanced_jobs }
-		}
-	}	
-}
+#country_event = {
+#	id = autofab.5
+#	is_triggered_only = yes
+#	hide_window = yes
+#	
+#	trigger = {
+#		NOT = { has_global_flag = no_autofab }
+#		can_use_autofab = yes
+#	}
+#
+#	immediate = {
+#		every_owned_planet = {
+#			limit = {
+#				has_autofab = yes
+#			}
+#			set_variable = { which = roci_autofab_basic_jobs value = value:roci_autofab_basic_jobs }
+#			set_variable = { which = roci_autofab_advanced_jobs value = value:roci_autofab_advanced_jobs }
+#		}
+#	}	
+#}
 planet_event = {
 	id = autofab.11
 	is_triggered_only = yes
@@ -521,324 +295,324 @@ planet_event = {
 	}	
 }
 
-#Vanilla Swapping
-planet_event = {
-	id = autofab.20
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		NOT = { has_global_flag = no_autofab }
-	}
-	
-	immediate = {
-		if = {
-			limit = {
-				exists = owner
-				owner = {
-					can_use_autofab = yes
-				}
-				OR = {
-					has_planet_flag = factory_vanilla_swapping
-					AND = {
-						owner = { has_country_flag = factory_vanilla_swapping }
-						NOT = {
-							has_planet_flag = autofab_ignore_vanilla
-						}
-					}
-				}
-				NOR = {
-					owner = { has_country_flag = autofab_ignore_vanilla }
-					has_planet_flag = autofab_ignore_vanilla
-				}
-				has_autofab = yes
-			}
-			switch = {
-				trigger = last_district_changed
-				district_generator = {
-					remove_district = district_generator
-					add_deposit = autofab_power
-					change_variable = { which = autofab_power value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_generator_uncapped = {
-					remove_district = district_generator_uncapped
-					add_deposit = autofab_power
-					change_variable = { which = autofab_power value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_rw_generator = {
-					remove_district = district_rw_generator
-					add_deposit = autofab_power
-					change_variable = { which = autofab_power value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_hab_energy = {
-					remove_district = district_hab_energy
-					add_deposit = autofab_power
-					change_variable = { which = autofab_power value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_farming = {
-					remove_district = district_farming
-					add_deposit = autofab_farm
-					change_variable = { which = autofab_farm value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_farming_uncapped = {
-					remove_district = district_farming_uncapped
-					add_deposit = autofab_farm
-					change_variable = { which = autofab_farm value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_rw_farming = {
-					remove_district = district_rw_farming
-					add_deposit = autofab_farm
-					change_variable = { which = autofab_farm value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_mining = {
-					remove_district = district_mining
-					add_deposit = autofab_mine
-					change_variable = { which = autofab_mine value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_mining_uncapped = {
-					remove_district = district_mining_uncapped
-					add_deposit = autofab_mine
-					change_variable = { which = autofab_mine value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_hab_mining = {
-					remove_district = district_hab_mining
-					add_deposit = autofab_mine
-					change_variable = { which = autofab_mine value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_industrial = {
-					remove_district = district_industrial
-					if = {
-						limit = {
-							owner = {
-								resource_income_compare = { resource = consumer_goods value < 10 }
-								is_regular_empire = yes
-							}
-						}
-						add_deposit = autofab_factory
-						change_variable = { which = autofab_factory value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-					else = {
-						add_deposit = autofab_foundry
-						change_variable = { which = autofab_foundry value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-				}
-				district_rw_industrial = {
-					remove_district = district_rw_industrial
-					if = {
-						limit = {
-							owner = {
-								resource_income_compare = { resource = consumer_goods value < 10 }
-								is_regular_empire = yes
-							}
-						}
-						add_deposit = autofab_factory
-						change_variable = { which = autofab_factory value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-					else = {
-						add_deposit = autofab_foundry
-						change_variable = { which = autofab_foundry value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-				}
-				district_hab_industrial = {
-					remove_district = district_hab_industrial
-					if = {
-						limit = {
-							owner = {
-								resource_income_compare = { resource = consumer_goods value < 10 }
-								is_regular_empire = yes
-							}
-						}
-						add_deposit = autofab_factory
-						change_variable = { which = autofab_factory value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-					else = {
-						add_deposit = autofab_foundry
-						change_variable = { which = autofab_foundry value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-				}
-				district_arcology_arms_industry = {
-					remove_district = district_arcology_arms_industry
-					add_deposit = autofab_foundry
-					change_variable = { which = autofab_foundry value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_arcology_civilian_industry = {
-					remove_district = district_arcology_civilian_industry
-					add_deposit = autofab_factory
-					change_variable = { which = autofab_factory value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-			}
-			owner = { pay_for_swapping = yes }
-		}
-	}
-}
-planet_event = {
-	id = autofab.21
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		NOT = { has_global_flag = no_autofab }
-	}
-	
-	immediate = {
-		while = {
-			limit = {
-				has_vanilla_swap_candidate = yes
-			}
-			switch = {
-				trigger = has_district
-				district_generator = {
-					remove_district = district_generator
-					add_deposit = autofab_power
-					change_variable = { which = autofab_power value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_generator_uncapped = {
-					remove_district = district_generator_uncapped
-					add_deposit = autofab_power
-					change_variable = { which = autofab_power value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_rw_generator = {
-					remove_district = district_rw_generator
-					add_deposit = autofab_power
-					change_variable = { which = autofab_power value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_hab_energy = {
-					remove_district = district_hab_energy
-					add_deposit = autofab_power
-					change_variable = { which = autofab_power value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_farming = {
-					remove_district = district_farming
-					add_deposit = autofab_farm
-					change_variable = { which = autofab_farm value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_farming_uncapped = {
-					remove_district = district_farming_uncapped
-					add_deposit = autofab_farm
-					change_variable = { which = autofab_farm value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_rw_farming = {
-					remove_district = district_rw_farming
-					add_deposit = autofab_farm
-					change_variable = { which = autofab_farm value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_mining = {
-					remove_district = district_mining
-					add_deposit = autofab_mine
-					change_variable = { which = autofab_mine value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_mining_uncapped = {
-					remove_district = district_mining_uncapped
-					add_deposit = autofab_mine
-					change_variable = { which = autofab_mine value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_hab_mining = {
-					remove_district = district_hab_mining
-					add_deposit = autofab_mine
-					change_variable = { which = autofab_mine value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_industrial = {
-					remove_district = district_industrial
-					if = {
-						limit = {
-							owner = {
-								resource_income_compare = { resource = consumer_goods value < 10 }
-								is_regular_empire = yes
-							}
-						}
-						add_deposit = autofab_factory
-						change_variable = { which = autofab_factory value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-					else = {
-						add_deposit = autofab_foundry
-						change_variable = { which = autofab_foundry value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-				}
-				district_rw_industrial = {
-					remove_district = district_rw_industrial
-					if = {
-						limit = {
-							owner = {
-								resource_income_compare = { resource = consumer_goods value < 10 }
-								is_regular_empire = yes
-							}
-						}
-						add_deposit = autofab_factory
-						change_variable = { which = autofab_factory value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-					else = {
-						add_deposit = autofab_foundry
-						change_variable = { which = autofab_foundry value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-				}
-				district_hab_industrial = {
-					remove_district = district_hab_industrial
-					if = {
-						limit = {
-							owner = {
-								resource_income_compare = { resource = consumer_goods value < 10 }
-								is_regular_empire = yes
-							}
-						}
-						add_deposit = autofab_factory
-						change_variable = { which = autofab_factory value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-					else = {
-						add_deposit = autofab_foundry
-						change_variable = { which = autofab_foundry value = 1 }
-						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-					}
-				}
-				district_arcology_arms_industry = {
-					remove_district = district_arcology_arms_industry
-					add_deposit = autofab_foundry
-					change_variable = { which = autofab_foundry value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-				district_arcology_civilian_industry = {
-					remove_district = district_arcology_civilian_industry
-					add_deposit = autofab_factory
-					change_variable = { which = autofab_factory value = 1 }
-					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
-				}
-			}
-		}
-		owner = { pay_for_swapping = yes }
-	}
-}
+##Vanilla Swapping
+#planet_event = {
+#	id = autofab.20
+#	is_triggered_only = yes
+#	hide_window = yes
+#	
+#	trigger = {
+#		NOT = { has_global_flag = no_autofab }
+#	}
+#	
+#	immediate = {
+#		if = {
+#			limit = {
+#				exists = owner
+#				owner = {
+#					can_use_autofab = yes
+#				}
+#				OR = {
+#					has_planet_flag = factory_vanilla_swapping
+#					AND = {
+#						owner = { has_country_flag = factory_vanilla_swapping }
+#						NOT = {
+#							has_planet_flag = autofab_ignore_vanilla
+#						}
+#					}
+#				}
+#				NOR = {
+#					owner = { has_country_flag = autofab_ignore_vanilla }
+#					has_planet_flag = autofab_ignore_vanilla
+#				}
+#				has_autofab = yes
+#			}
+#			switch = {
+#				trigger = last_district_changed
+#				district_generator = {
+#					remove_district = district_generator
+#					add_deposit = autofab_power
+#					change_variable = { which = autofab_power value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_generator_uncapped = {
+#					remove_district = district_generator_uncapped
+#					add_deposit = autofab_power
+#					change_variable = { which = autofab_power value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_rw_generator = {
+#					remove_district = district_rw_generator
+#					add_deposit = autofab_power
+#					change_variable = { which = autofab_power value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_hab_energy = {
+#					remove_district = district_hab_energy
+#					add_deposit = autofab_power
+#					change_variable = { which = autofab_power value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_farming = {
+#					remove_district = district_farming
+#					add_deposit = autofab_farm
+#					change_variable = { which = autofab_farm value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_farming_uncapped = {
+#					remove_district = district_farming_uncapped
+#					add_deposit = autofab_farm
+#					change_variable = { which = autofab_farm value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_rw_farming = {
+#					remove_district = district_rw_farming
+#					add_deposit = autofab_farm
+#					change_variable = { which = autofab_farm value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_mining = {
+#					remove_district = district_mining
+#					add_deposit = autofab_mine
+#					change_variable = { which = autofab_mine value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_mining_uncapped = {
+#					remove_district = district_mining_uncapped
+#					add_deposit = autofab_mine
+#					change_variable = { which = autofab_mine value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_hab_mining = {
+#					remove_district = district_hab_mining
+#					add_deposit = autofab_mine
+#					change_variable = { which = autofab_mine value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_industrial = {
+#					remove_district = district_industrial
+#					if = {
+#						limit = {
+#							owner = {
+#								resource_income_compare = { resource = consumer_goods value < 10 }
+#								is_regular_empire = yes
+#							}
+#						}
+#						add_deposit = autofab_factory
+#						change_variable = { which = autofab_factory value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#					else = {
+#						add_deposit = autofab_foundry
+#						change_variable = { which = autofab_foundry value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#				}
+#				district_rw_industrial = {
+#					remove_district = district_rw_industrial
+#					if = {
+#						limit = {
+#							owner = {
+#								resource_income_compare = { resource = consumer_goods value < 10 }
+#								is_regular_empire = yes
+#							}
+#						}
+#						add_deposit = autofab_factory
+#						change_variable = { which = autofab_factory value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#					else = {
+#						add_deposit = autofab_foundry
+#						change_variable = { which = autofab_foundry value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#				}
+#				district_hab_industrial = {
+#					remove_district = district_hab_industrial
+#					if = {
+#						limit = {
+#							owner = {
+#								resource_income_compare = { resource = consumer_goods value < 10 }
+#								is_regular_empire = yes
+#							}
+#						}
+#						add_deposit = autofab_factory
+#						change_variable = { which = autofab_factory value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#					else = {
+#						add_deposit = autofab_foundry
+#						change_variable = { which = autofab_foundry value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#				}
+#				district_arcology_arms_industry = {
+#					remove_district = district_arcology_arms_industry
+#					add_deposit = autofab_foundry
+#					change_variable = { which = autofab_foundry value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_arcology_civilian_industry = {
+#					remove_district = district_arcology_civilian_industry
+#					add_deposit = autofab_factory
+#					change_variable = { which = autofab_factory value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#			}
+#			owner = { pay_for_swapping = yes }
+#		}
+#	}
+#}
+#planet_event = {
+#	id = autofab.21
+#	is_triggered_only = yes
+#	hide_window = yes
+#	
+#	trigger = {
+#		NOT = { has_global_flag = no_autofab }
+#	}
+#	
+#	immediate = {
+#		while = {
+#			limit = {
+#				has_vanilla_swap_candidate = yes
+#			}
+#			switch = {
+#				trigger = has_district
+#				district_generator = {
+#					remove_district = district_generator
+#					add_deposit = autofab_power
+#					change_variable = { which = autofab_power value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_generator_uncapped = {
+#					remove_district = district_generator_uncapped
+#					add_deposit = autofab_power
+#					change_variable = { which = autofab_power value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_rw_generator = {
+#					remove_district = district_rw_generator
+#					add_deposit = autofab_power
+#					change_variable = { which = autofab_power value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_hab_energy = {
+#					remove_district = district_hab_energy
+#					add_deposit = autofab_power
+#					change_variable = { which = autofab_power value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_farming = {
+#					remove_district = district_farming
+#					add_deposit = autofab_farm
+#					change_variable = { which = autofab_farm value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_farming_uncapped = {
+#					remove_district = district_farming_uncapped
+#					add_deposit = autofab_farm
+#					change_variable = { which = autofab_farm value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_rw_farming = {
+#					remove_district = district_rw_farming
+#					add_deposit = autofab_farm
+#					change_variable = { which = autofab_farm value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_mining = {
+#					remove_district = district_mining
+#					add_deposit = autofab_mine
+#					change_variable = { which = autofab_mine value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_mining_uncapped = {
+#					remove_district = district_mining_uncapped
+#					add_deposit = autofab_mine
+#					change_variable = { which = autofab_mine value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_hab_mining = {
+#					remove_district = district_hab_mining
+#					add_deposit = autofab_mine
+#					change_variable = { which = autofab_mine value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_industrial = {
+#					remove_district = district_industrial
+#					if = {
+#						limit = {
+#							owner = {
+#								resource_income_compare = { resource = consumer_goods value < 10 }
+#								is_regular_empire = yes
+#							}
+#						}
+#						add_deposit = autofab_factory
+#						change_variable = { which = autofab_factory value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#					else = {
+#						add_deposit = autofab_foundry
+#						change_variable = { which = autofab_foundry value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#				}
+#				district_rw_industrial = {
+#					remove_district = district_rw_industrial
+#					if = {
+#						limit = {
+#							owner = {
+#								resource_income_compare = { resource = consumer_goods value < 10 }
+#								is_regular_empire = yes
+#							}
+#						}
+#						add_deposit = autofab_factory
+#						change_variable = { which = autofab_factory value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#					else = {
+#						add_deposit = autofab_foundry
+#						change_variable = { which = autofab_foundry value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#				}
+#				district_hab_industrial = {
+#					remove_district = district_hab_industrial
+#					if = {
+#						limit = {
+#							owner = {
+#								resource_income_compare = { resource = consumer_goods value < 10 }
+#								is_regular_empire = yes
+#							}
+#						}
+#						add_deposit = autofab_factory
+#						change_variable = { which = autofab_factory value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#					else = {
+#						add_deposit = autofab_foundry
+#						change_variable = { which = autofab_foundry value = 1 }
+#						owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#					}
+#				}
+#				district_arcology_arms_industry = {
+#					remove_district = district_arcology_arms_industry
+#					add_deposit = autofab_foundry
+#					change_variable = { which = autofab_foundry value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#				district_arcology_civilian_industry = {
+#					remove_district = district_arcology_civilian_industry
+#					add_deposit = autofab_factory
+#					change_variable = { which = autofab_factory value = 1 }
+#					owner = { change_variable = { which = autofab_alloy_debt value = @factoryalloycost } }
+#				}
+#			}
+#		}
+#		owner = { pay_for_swapping = yes }
+#	}
+#}
 
 event = {
 	id = autofab.30
@@ -858,230 +632,224 @@ event = {
 			every_owned_planet = {
 				limit = {
 					has_planet_flag = has_autofab
+					NOT = {
+						has_deposit = autofab
+					}
 				}
-				planet_event = { id = autofab.31 }
+				add_deposit = autofab
 			}
 		}
 	}
 }
 
-planet_event = {
-	id = autofab.31
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		NOT = { has_global_flag = no_autofab }
-	}
-	
-	immediate = {
-		#reset_factory_part_1 = yes
-		set_unset_variables = yes
-		reset_autofab_scale_variables = yes
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_farm } count < autofab_farm }
-			has_food_available = yes
-		}
-		add_deposit = autofab_farm
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_farm } count > autofab_farm }
-		}
-		remove_deposit = autofab_farm
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_mine } count < autofab_mine }
-			has_minerals_available = yes
-		}
-		add_deposit = autofab_mine
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_mine } count > autofab_mine }
-		}
-		remove_deposit = autofab_mine
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_power } count < autofab_power }
-			has_energy_available = yes
-		}
-		add_deposit = autofab_power
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_power } count > autofab_power }
-		}
-		remove_deposit = autofab_power
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_foundry } count < autofab_foundry }
-		}
-		add_deposit = autofab_foundry
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_foundry } count > autofab_foundry }
-		}
-		remove_deposit = autofab_foundry
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_factory } count < autofab_factory }
-		}
-		add_deposit = autofab_factory
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_factory } count > autofab_factory }
-		}
-		remove_deposit = autofab_factory
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count < autofab_chemical }
-		}
-		add_deposit = autofab_motes_refinery
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count > autofab_chemical }
-		}
-		remove_deposit = autofab_motes_refinery
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count < autofab_refinery }
-		}
-		add_deposit = autofab_gases_refinery
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count > autofab_refinery }
-		}
-		remove_deposit = autofab_gases_refinery
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count < autofab_translucer }
-		}
-		add_deposit = autofab_crystals_refinery
-	}
-	while = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count > autofab_translucer }
-		}
-		remove_deposit = autofab_crystals_refinery
-	}
-	if = {
-		limit = {
-			has_planet_flag = has_autofab
-			NOT = {
-				has_deposit = autofab
-			}
-		}
-		add_deposit = autofab
-	}
-	if = {
-		limit = {
-			has_planet_flag = has_autofab_extractor
-			NOT = {
-				has_deposit = autofab_refinery_extractor
-			}
-		}
-		if = {
-			limit = {
-				has_rare_resource_deposit = yes
-			}
-			add_deposit = autofab_refinery_extractor
-		}
-		else = {
-			remove_planet_flag = has_autofab_extractor
-		}
-	}
-	if = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_farm } count < autofab_farm }
-		}
-		export_trigger_value_to_variable = {
-			trigger = count_deposit
-			parameters = { limit = { is_deposit_type = autofab_farm } }
-			variable = autofab_farm
-		}
-	}
-	if = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_mine } count < autofab_mine }
-		}
-		export_trigger_value_to_variable = {
-			trigger = count_deposit
-			parameters = { limit = { is_deposit_type = autofab_mine } }
-			variable = autofab_mine
-		}
-	}
-	if = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_power } count < autofab_power }
-		}
-		export_trigger_value_to_variable = {
-			trigger = count_deposit
-			parameters = { limit = { is_deposit_type = autofab_power } }
-			variable = autofab_power
-		}
-	}
-	if = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_foundry } count < autofab_foundry }
-		}
-		export_trigger_value_to_variable = {
-			trigger = count_deposit
-			parameters = { limit = { is_deposit_type = autofab_foundry } }
-			variable = autofab_foundry
-		}
-	}
-	if = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_factory } count < autofab_factory }
-		}
-		export_trigger_value_to_variable = {
-			trigger = count_deposit
-			parameters = { limit = { is_deposit_type = autofab_factory } }
-			variable = autofab_factory
-		}
-	}
-	if = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count < autofab_chemical }
-		}
-		export_trigger_value_to_variable = {
-			trigger = count_deposit
-			parameters = { limit = { is_deposit_type = autofab_motes_refinery } }
-			variable = autofab_chemical
-		}
-	}
-	if = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count < autofab_refinery }
-		}
-		export_trigger_value_to_variable = {
-			trigger = count_deposit
-			parameters = { limit = { is_deposit_type = autofab_gases_refinery } }
-			variable = autofab_refinery
-		}
-	}
-	if = {
-		limit = {
-			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count < autofab_translucer }
-		}
-		export_trigger_value_to_variable = {
-			trigger = count_deposit
-			parameters = { limit = { is_deposit_type = autofab_crystals_refinery } }
-			variable = autofab_translucer
-		}
-	}
-	}
-}
+#planet_event = {
+#	id = autofab.31
+#	is_triggered_only = yes
+#	hide_window = yes
+#	
+#	trigger = {
+#		NOT = { has_global_flag = no_autofab }
+#	}
+#	
+#	immediate = {
+#		#reset_factory_part_1 = yes
+#		set_unset_variables = yes
+#		reset_autofab_scale_variables = yes
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_farm } count < autofab_farm }
+#			has_food_available = yes
+#		}
+#		add_deposit = autofab_farm
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_farm } count > autofab_farm }
+#		}
+#		remove_deposit = autofab_farm
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_mine } count < autofab_mine }
+#			has_minerals_available = yes
+#		}
+#		add_deposit = autofab_mine
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_mine } count > autofab_mine }
+#		}
+#		remove_deposit = autofab_mine
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_power } count < autofab_power }
+#			has_energy_available = yes
+#		}
+#		add_deposit = autofab_power
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_power } count > autofab_power }
+#		}
+#		remove_deposit = autofab_power
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_foundry } count < autofab_foundry }
+#		}
+#		add_deposit = autofab_foundry
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_foundry } count > autofab_foundry }
+#		}
+#		remove_deposit = autofab_foundry
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_factory } count < autofab_factory }
+#		}
+#		add_deposit = autofab_factory
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_factory } count > autofab_factory }
+#		}
+#		remove_deposit = autofab_factory
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count < autofab_chemical }
+#		}
+#		add_deposit = autofab_motes_refinery
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count > autofab_chemical }
+#		}
+#		remove_deposit = autofab_motes_refinery
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count < autofab_refinery }
+#		}
+#		add_deposit = autofab_gases_refinery
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count > autofab_refinery }
+#		}
+#		remove_deposit = autofab_gases_refinery
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count < autofab_translucer }
+#		}
+#		add_deposit = autofab_crystals_refinery
+#	}
+#	while = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count > autofab_translucer }
+#		}
+#		remove_deposit = autofab_crystals_refinery
+#	}
+#	if = {
+#		limit = {
+#			has_planet_flag = has_autofab_extractor
+#			NOT = {
+#				has_deposit = autofab_refinery_extractor
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_rare_resource_deposit = yes
+#			}
+#			add_deposit = autofab_refinery_extractor
+#		}
+#		else = {
+#			remove_planet_flag = has_autofab_extractor
+#		}
+#	}
+#	if = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_farm } count < autofab_farm }
+#		}
+#		export_trigger_value_to_variable = {
+#			trigger = count_deposit
+#			parameters = { limit = { is_deposit_type = autofab_farm } }
+#			variable = autofab_farm
+#		}
+#	}
+#	if = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_mine } count < autofab_mine }
+#		}
+#		export_trigger_value_to_variable = {
+#			trigger = count_deposit
+#			parameters = { limit = { is_deposit_type = autofab_mine } }
+#			variable = autofab_mine
+#		}
+#	}
+#	if = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_power } count < autofab_power }
+#		}
+#		export_trigger_value_to_variable = {
+#			trigger = count_deposit
+#			parameters = { limit = { is_deposit_type = autofab_power } }
+#			variable = autofab_power
+#		}
+#	}
+#	if = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_foundry } count < autofab_foundry }
+#		}
+#		export_trigger_value_to_variable = {
+#			trigger = count_deposit
+#			parameters = { limit = { is_deposit_type = autofab_foundry } }
+#			variable = autofab_foundry
+#		}
+#	}
+#	if = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_factory } count < autofab_factory }
+#		}
+#		export_trigger_value_to_variable = {
+#			trigger = count_deposit
+#			parameters = { limit = { is_deposit_type = autofab_factory } }
+#			variable = autofab_factory
+#		}
+#	}
+#	if = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_motes_refinery } count < autofab_chemical }
+#		}
+#		export_trigger_value_to_variable = {
+#			trigger = count_deposit
+#			parameters = { limit = { is_deposit_type = autofab_motes_refinery } }
+#			variable = autofab_chemical
+#		}
+#	}
+#	if = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_gases_refinery } count < autofab_refinery }
+#		}
+#		export_trigger_value_to_variable = {
+#			trigger = count_deposit
+#			parameters = { limit = { is_deposit_type = autofab_gases_refinery } }
+#			variable = autofab_refinery
+#		}
+#	}
+#	if = {
+#		limit = {
+#			count_deposit = { limit = { is_deposit_type = autofab_crystals_refinery } count < autofab_translucer }
+#		}
+#		export_trigger_value_to_variable = {
+#			trigger = count_deposit
+#			parameters = { limit = { is_deposit_type = autofab_crystals_refinery } }
+#			variable = autofab_translucer
+#		}
+#	}
+#	}
+#}

@@ -6,9 +6,9 @@
 @factoryalloycost = 50
 
 @autofab_cost = 400
-@autofab_construction_time = 1080
+@autofab_construction_time = 360
 @factory_construction_time = 480
-@factory_retool_time = 180
+@factory_retool_time = 60
 @autofaballoycost = 150
 
 @Negdistrictcost = -300

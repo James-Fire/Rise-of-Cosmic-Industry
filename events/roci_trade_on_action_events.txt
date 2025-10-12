@@ -133,7 +133,7 @@ country_event = {
 	
 	immediate = {
 		random_owned_planet = { limit = { root.fromfrom = { has_fleet_flag = kiyo_trade_start@PREV } }
-			kiyo_mod_trade_clear_trade_modifiers = yes
+			roci_trade_set_inital_variables = yes
 			
 			if = { limit = { root.fromfrom = { NOT = { has_fleet_flag = kiyo_trade_start_expired } } }
 				set_variable = { which = kiyo_trade_minerals_start value = prev.fromfrom.kiyo_trade_minerals_start }
@@ -159,13 +159,11 @@ country_event = {
 				subtract_variable = { which = kiyo_trade_trade_value value = kiyo_trade_trade_value_start }
 			}
 			
-			kiyo_trade_add_trade_value_modifier = yes
-			
 			root.fromfrom = { remove_fleet_flag = kiyo_trade_start@PREV }
 			kiyo_mod_trade_check_trade_route_exist = yes
 		}
 		random_galaxy_planet = { limit = { root.fromfrom = { has_fleet_flag = kiyo_trade_end@PREV } }
-			kiyo_mod_trade_clear_trade_modifiers = yes
+			roci_trade_set_inital_variables = yes
 			
 			if = { limit = { root.fromfrom = { NOT = { has_fleet_flag = kiyo_trade_end_expired } } }
 				set_variable = { which = kiyo_trade_minerals_end value = prev.fromfrom.kiyo_trade_minerals_end }
@@ -190,8 +188,6 @@ country_event = {
 				subtract_variable = { which = kiyo_trade_engineering_research value = kiyo_trade_engineering_research_end }
 				subtract_variable = { which = kiyo_trade_trade_value value = kiyo_trade_trade_value_end }
 			}
-			
-			kiyo_trade_add_trade_value_modifier = yes
 			root.fromfrom = { remove_fleet_flag = kiyo_trade_end@PREV }
 			kiyo_mod_trade_check_trade_route_exist = yes
 		}
@@ -267,13 +263,7 @@ country_event = {
 				owner = { random_owned_planet = { limit = { prevprev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start } }
 				random_galaxy_planet = { limit = { prev = { has_fleet_flag = kiyo_trade_end@PREV } } save_event_target_as = kiyo_trade_end }
 				
-				set_name = {
-					key = "roci_cargo_ships_fleetname"
-					variable_string = "[kiyo_trade_start.GetName]"
-					variable_string = "[kiyo_trade_end.GetName]"
-					variable_string = "[This.trigger:num_ships]"
-					variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
-				}
+				fleet_event = { id = kiyo_trade_manual_event.50 }
 			}
 		}
 		random_galaxy_planet = {
@@ -309,7 +299,7 @@ country_event = {
 	
 	immediate = {
 		random_owned_planet = { limit = { root.from = { has_fleet_flag = kiyo_trade_start@PREV } }
-			kiyo_mod_trade_clear_trade_modifiers = yes
+			roci_trade_set_inital_variables = yes
 			
 			if = { limit = { root.from = { NOT = { has_fleet_flag = kiyo_trade_start_expired } } }
 				set_variable = { which = kiyo_trade_minerals_start value = prev.from.kiyo_trade_minerals_start }
@@ -334,13 +324,11 @@ country_event = {
 				subtract_variable = { which = kiyo_trade_engineering_research value = kiyo_trade_engineering_research_start }
 				subtract_variable = { which = kiyo_trade_trade_value value = kiyo_trade_trade_value_start }
 			}
-			
-			kiyo_trade_add_trade_value_modifier = yes
 			save_event_target_as = kiyo_trade_start
 			kiyo_mod_trade_check_trade_route_exist = yes
 		}
 		random_galaxy_planet = { limit = { root.from = { has_fleet_flag = kiyo_trade_end@PREV } }
-			kiyo_mod_trade_clear_trade_modifiers = yes
+			roci_trade_set_inital_variables = yes
 			
 			if = { limit = { root.from = { NOT = { has_fleet_flag = kiyo_trade_end_expired } } }
 				set_variable = { which = kiyo_trade_minerals_end value = prev.from.kiyo_trade_minerals_end }
@@ -365,8 +353,6 @@ country_event = {
 				subtract_variable = { which = kiyo_trade_engineering_research value = kiyo_trade_engineering_research_end }
 				subtract_variable = { which = kiyo_trade_trade_value value = kiyo_trade_trade_value_end }
 			}
-			
-			kiyo_trade_add_trade_value_modifier = yes
 			kiyo_mod_trade_check_trade_route_exist = yes
 		}
 		
@@ -477,6 +463,7 @@ country_event = {
 	}
 	
 	immediate = {
+		#Recount fleets
 		set_variable = { which = kiyo_trade_num_trade_routes value = 0 }
 		every_owned_fleet = {
 			limit = {
@@ -484,66 +471,17 @@ country_event = {
 			}
 			owner = { change_variable = { which = kiyo_trade_num_trade_routes value = 1 } }
 		}
+		#Get fleets back on the path, or if this is an AI and they don't have a path, get them a path
 		if = {
 			limit = {
 				any_owned_fleet = {
 					any_owned_ship = { is_ship_size = kiyo_trade }
+					is_fleet_idle = yes
 					OR = {
 						owner = { is_ai = yes }
 						has_fleet_flag = kiyo_trade_has_trade_route
 					}
-					OR = {
-						is_fleet_idle = yes
-						AND = {
-							has_fleet_flag = kiyo_trade_starting
-							orbit = { root = { has_fleet_flag = kiyo_trade_end@PREV } }
-						}
-						AND = {
-							has_fleet_flag = kiyo_trade_ending
-							orbit = { root = { has_fleet_flag = kiyo_trade_start@PREV } }
-						}
-					}
 				}
-			}
-			every_owned_fleet = {
-				limit = {
-					any_owned_ship = { is_ship_size = kiyo_trade }
-					is_fleet_idle = yes
-					owner = { is_ai = yes }
-				}
-				prev = { random_owned_planet = { limit = { prevprev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start } }
-				#Find the planet in the galaxy that has the best trade route value that can be traded with
-				ordered_galaxy_planet = {
-					limit = { exists = owner owner = { roci_can_trade_with_country = yes } }
-					position = 0
-					order_by = value:roci_trade_route_value
-					save_event_target_as = kiyo_trade_start
-				}
-				if = {
-					limit = {
-						exists = event_target:kiyo_trade_start
-						OR = {
-							has_fleet_flag = kiyo_trade_ending
-							has_fleet_flag = kiyo_event_trade_expired_cargo
-						}
-					}
-					queue_actions = { orbit_planet = event_target:kiyo_trade_start }
-				}
-				else_if = {
-					limit = {
-						exists = event_target:kiyo_trade_end
-						event_target:kiyo_trade_end = {
-							prev = {
-								OR = {
-									has_fleet_flag = kiyo_trade_going@PREV
-									has_fleet_flag = kiyo_trade_end@PREV
-								}
-							}
-						}
-					}
-					queue_actions = { orbit_planet = event_target:kiyo_trade_end }
-				}
-				else = { delete_fleet = this }
 			}
 			every_owned_fleet = {
 				limit = {
@@ -552,6 +490,36 @@ country_event = {
 					has_fleet_flag = kiyo_trade_has_trade_route
 				}
 				fleet_event = { id = kiyo_trade_orbit_event.2 }
+			}
+			every_owned_fleet = {
+				limit = {
+					any_owned_ship = { is_ship_size = kiyo_trade }
+					is_fleet_idle = yes
+					owner = { is_ai = yes }
+				}
+				prev = { random_owned_planet = { limit = { prevprev = { has_fleet_flag = kiyo_trade_start@PREV } } save_event_target_as = kiyo_trade_start } }
+				
+				
+				
+				if = {
+					limit = {
+						NOT = { exists = event_target:kiyo_trade_start }
+					}
+					#Find the planet in the galaxy that has the best trade route value that can be traded with
+					ordered_galaxy_planet = {
+						limit = { exists = owner owner = { roci_can_trade_with_country = yes } }
+						position = 0
+						order_by = value:roci_trade_route_value
+						save_event_target_as = kiyo_trade_start
+					}
+				}
+				else_if = {
+					limit = {
+						exists = event_target:kiyo_trade_start
+					}
+					queue_actions = { orbit_planet = event_target:kiyo_trade_start }
+				}
+				else = { delete_fleet = this }
 			}
 		}
 	}
@@ -599,7 +567,7 @@ country_event = {
 	
 	immediate = {
 		FROMFROM = {
-			kiyo_mod_trade_clear_trade_modifiers = yes
+			roci_trade_set_inital_variables = yes
 			clear_orders = yes
 			fleet_event = { id = kiyo_trade_triggered_event.10 }
 			random_galaxy_planet = {
@@ -653,7 +621,7 @@ country_event = {
 					}
 				}
 			}
-			kiyo_mod_trade_clear_trade_modifiers = yes
+			roci_trade_set_inital_variables = yes
 			clear_orders = yes
 			fleet_event = { id = kiyo_trade_triggered_event.10 }
 			random_galaxy_planet = {

@@ -17,7 +17,7 @@ decision_kiyo_mod_trade_setup_trade_route = {
 			owner = { check_variable = { which = kiyo_trade_num_trade_routes value < kiyo_trade_max_trade_routes } }
 		}
 		num_buildings = { type = any value >= 3 }
-		num_pops > 19
+		sapient_pop_amount > 1900
 		OR = {
 			owner = {
 				is_ai = no
@@ -80,13 +80,8 @@ decision_kiyo_mod_trade_setup_trade_route = {
 						upgradable = yes
 					}
 					set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = trigger:num_ships }
-					set_name = {
-						key = "roci_cargo_ships_fleetname_no_target"
-						variable_string = "[Prev.GetName]"
-						#variable_string = "[kiyo_trade_end.GetName]"
-						variable_string = "[This.kiyo_trade_max_cargo_ships_per_fleet]"
-						variable_string = "[Owner.kiyo_trade_max_cargo_ships_per_fleet]"
-					}
+					roci_trade_set_inital_variables = yes
+					fleet_event = { id = kiyo_trade_manual_event.50 }
 					set_owner = prev.owner
 					set_location = {
 						target = prev
@@ -119,7 +114,7 @@ decision_kiyo_mod_trade_setup_trade_route = {
 				}
 			}
 		
-			# Add 1 to number of current trade routes
+			#Add 1 to number of current trade routes
 			owner = { change_variable = { which = kiyo_trade_num_trade_routes value = 1 } }
 		}
 	}

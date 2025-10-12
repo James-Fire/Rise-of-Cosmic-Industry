@@ -1,796 +1,797 @@
-planet_hidden_button = {
-	potential = { NOT = { has_planet_flag = easter_egg } }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { set_planet_flag = easter_egg }
-}
-planet_hidden_button_off = {
-	potential = { has_planet_flag = easter_egg }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = easter_egg }
-}
 
-
-open_planet_manager = {
-	potential = { hidden_trigger = { always = yes } }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "autofab_factory_manage"
-		hidden_effect = {
-			document_factory_planet = yes
-			factory_reset_all_planet_flags = yes
-			factory_set_default_queue_planet = yes
-		}
-		planet_event = { id = autofab_menu.10 }
-	}
-}
-
-autofab_planet_tooltip = {
-	potential = { }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { custom_tooltip = "autofab_planet_tooltip" }
-}
-
-
-planet_factory_automation_desc = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "planet_factory_automation_desc"
-	}
-}
-planet_factory_automation_off = {
-	potential = { has_planet_flag = autofab_automation_off }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = autofab_automation_off }
-}
-planet_factory_automation_country = {
-	potential = { NOR = { has_planet_flag = autofab_automation has_planet_flag = autofab_automation_off } }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { 
-		custom_tooltip = "autofab_country_default"
-		set_planet_flag = autofab_automation
-	}
-}
-planet_factory_automation_on = {
-	potential = { has_planet_flag = autofab_automation }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = autofab_automation set_planet_flag = autofab_automation_off }
-}
-
-planet_factory_vanilla_swapping_desc = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "planet_factory_vanilla_swapping_desc"
-	}
-}
-factory_vanilla_swapping_fire_planet = {
-	potential = { NOT = { has_planet_flag = autofab_ignore_vanilla } OR = { has_planet_flag = factory_vanilla_swapping owner = { has_country_flag = factory_vanilla_swapping } } }
-	allow = {
-		custom_tooltip = "swapping_planet_tooltip"
-		hidden_trigger = { has_vanilla_swap_candidate = yes }
-	}
-	effect = {
-		custom_tooltip = "swapping_planet_effects_tooltip"
-		hidden_effect = {
-			if = {
-				limit = {
-					has_vanilla_swap_candidate = yes
-					NOT = { has_planet_flag = autofab_ignore_vanilla }
-				}
-				planet_event = { id = autofab.21 }
-			}
-		}
-	}
-}
-planet_factory_vanilla_swapping_off = {
-	potential = { has_planet_flag = autofab_ignore_vanilla }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = autofab_ignore_vanilla }
-}
-planet_factory_vanilla_swapping_country = {
-	potential = { NOR = { has_planet_flag = factory_vanilla_swapping has_planet_flag = autofab_ignore_vanilla } }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		set_planet_flag = factory_vanilla_swapping
-		custom_tooltip = "autofab_country_default"
-	}
-}
-planet_factory_vanilla_swapping_on = {
-	potential = { has_planet_flag = factory_vanilla_swapping }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_vanilla_swapping set_planet_flag = autofab_ignore_vanilla }
-}
-
-planet_factory_fallback_desc = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "planet_factory_fallback_desc"
-	}
-}
-planet_factory_fallback_off = {
-	potential = { has_planet_flag = factory_fallback_off }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_fallback_off }
-}
-planet_factory_fallback_country = {
-	potential = { NOR = { has_planet_flag = factory_fallback_off has_planet_flag = factory_fallback } }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		set_planet_flag = factory_fallback
-		custom_tooltip = "autofab_country_default"
-	}
-}
-planet_factory_fallback_on = {
-	potential = { has_planet_flag = factory_fallback }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { set_planet_flag = factory_fallback_off remove_planet_flag = factory_fallback }
-}
-
-planet_factory_autofab_construction_desc = {
-	potential = { always = yes }
-	allow = { hidden_trigger = { always = yes } }
-	effect = {
-		custom_tooltip = "planet_factory_autofab_construction_desc"
-	}
-}
-planet_factory_autofab_construction_off = {
-	potential = { has_planet_flag = factory_autofab_construction_off }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_autofab_construction_off }
-}
-planet_factory_autofab_construction_country = {
-	potential = { NOR = { has_planet_flag = factory_autofab_construction_off has_planet_flag = factory_autofab_construction_on } }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { 
-		custom_tooltip = "autofab_country_default"
-		set_planet_flag = factory_autofab_construction_on
-	}
-}
-planet_factory_autofab_construction_on = {
-	potential = { has_planet_flag = factory_autofab_construction_on }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { set_planet_flag = factory_autofab_construction_off remove_planet_flag = factory_autofab_construction_on }
-}
-
-###Number Looping
-
-planet_factory_queue_1 = {
-	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_queue_1 set_planet_flag = factory_queue_2 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 1 } } }
-}
-planet_factory_queue_2 = {
-	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_queue_2 set_planet_flag = factory_queue_3 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 2 } } }
-}
-planet_factory_queue_3 = {
-	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_queue_3 set_planet_flag = factory_queue_4 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 3 } } }
-}
-planet_factory_queue_4 = {
-	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_queue_4 set_planet_flag = factory_queue_5 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 4 } } }
-}
-planet_factory_queue_5 = {
-	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_queue_5 set_planet_flag = factory_queue_1 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 5 } } }
-}
-
-planet_factory_generator_queue_1 = {
-	potential = { has_planet_flag = factory_generator_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_generator_queue_1 set_planet_flag = factory_generator_queue_2 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 1 } } }
-}
-planet_factory_generator_queue_2 = {
-	potential = { has_planet_flag = factory_generator_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_generator_queue_2 set_planet_flag = factory_generator_queue_3 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 2 } } }
-}
-planet_factory_generator_queue_3 = {
-	potential = { has_planet_flag = factory_generator_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_generator_queue_3 set_planet_flag = factory_generator_queue_4 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 3 } } }
-}
-planet_factory_generator_queue_4 = {
-	potential = { has_planet_flag = factory_generator_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_generator_queue_4 set_planet_flag = factory_generator_queue_5 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 4 } } }
-}
-planet_factory_generator_queue_5 = {
-	potential = { has_planet_flag = factory_generator_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_generator_queue_5 set_planet_flag = factory_generator_queue_1 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 5 } } }
-}
-
-planet_factory_mine_queue_1 = {
-	potential = { has_planet_flag = factory_mine_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_mine_queue_1 set_planet_flag = factory_mine_queue_2 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 1 } } }
-}
-planet_factory_mine_queue_2 = {
-	potential = { has_planet_flag = factory_mine_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_mine_queue_2 set_planet_flag = factory_mine_queue_3 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 2 } } }
-}
-planet_factory_mine_queue_3 = {
-	potential = { has_planet_flag = factory_mine_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_mine_queue_3 set_planet_flag = factory_mine_queue_4 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 3 } } }
-}
-planet_factory_mine_queue_4 = {
-	potential = { has_planet_flag = factory_mine_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_mine_queue_4 set_planet_flag = factory_mine_queue_5 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 4 } } }
-}
-planet_factory_mine_queue_5 = {
-	potential = { has_planet_flag = factory_mine_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_mine_queue_5 set_planet_flag = factory_mine_queue_1 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 5 } } }
-}
-
-planet_factory_farm_queue_1 = {
-	potential = { has_planet_flag = factory_farm_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_farm_queue_1 set_planet_flag = factory_farm_queue_2 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 1 } } }
-}
-planet_factory_farm_queue_2 = {
-	potential = { has_planet_flag = factory_farm_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_farm_queue_2 set_planet_flag = factory_farm_queue_3 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 2 } } }
-}
-planet_factory_farm_queue_3 = {
-	potential = { has_planet_flag = factory_farm_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_farm_queue_3 set_planet_flag = factory_farm_queue_4 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 3 } } }
-}
-planet_factory_farm_queue_4 = {
-	potential = { has_planet_flag = factory_farm_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_farm_queue_4 set_planet_flag = factory_farm_queue_5 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 4 } } }
-}
-planet_factory_farm_queue_5 = {
-	potential = { has_planet_flag = factory_farm_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_farm_queue_5 set_planet_flag = factory_farm_queue_1 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 5 } } }
-}
-
-planet_factory_foundry_queue_1 = {
-	potential = { has_planet_flag = factory_foundry_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_foundry_queue_1 set_planet_flag = factory_foundry_queue_2 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 1 } } }
-}
-planet_factory_foundry_queue_2 = {
-	potential = { has_planet_flag = factory_foundry_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_foundry_queue_2 set_planet_flag = factory_foundry_queue_3 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 2 } } }
-}
-planet_factory_foundry_queue_3 = {
-	potential = { has_planet_flag = factory_foundry_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_foundry_queue_3 set_planet_flag = factory_foundry_queue_4 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 3 } } }
-}
-planet_factory_foundry_queue_4 = {
-	potential = { has_planet_flag = factory_foundry_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_foundry_queue_4 set_planet_flag = factory_foundry_queue_5 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 4 } } }
-}
-planet_factory_foundry_queue_5 = {
-	potential = { has_planet_flag = factory_foundry_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_foundry_queue_5 set_planet_flag = factory_foundry_queue_1 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 5 } } }
-}
-
-planet_factory_factory_queue_1 = {
-	potential = { has_planet_flag = factory_factory_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_factory_queue_1 set_planet_flag = factory_factory_queue_2 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 1 } } }
-}
-planet_factory_factory_queue_2 = {
-	potential = { has_planet_flag = factory_factory_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_factory_queue_2 set_planet_flag = factory_factory_queue_3 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 2 } } }
-}
-planet_factory_factory_queue_3 = {
-	potential = { has_planet_flag = factory_factory_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_factory_queue_3 set_planet_flag = factory_factory_queue_4 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 3 } } }
-}
-planet_factory_factory_queue_4 = {
-	potential = { has_planet_flag = factory_factory_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_factory_queue_4 set_planet_flag = factory_factory_queue_5 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 4 } } }
-}
-planet_factory_factory_queue_5 = {
-	potential = { has_planet_flag = factory_factory_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_factory_queue_5 set_planet_flag = factory_factory_queue_1 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 5 } } }
-}
-
-planet_factory_motes_queue_1 = {
-	potential = { has_planet_flag = factory_motes_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_motes_queue_1 set_planet_flag = factory_motes_queue_2 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 1 } } }
-}
-planet_factory_motes_queue_2 = {
-	potential = { has_planet_flag = factory_motes_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_motes_queue_2 set_planet_flag = factory_motes_queue_3 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 2 } } }
-}
-planet_factory_motes_queue_3 = {
-	potential = { has_planet_flag = factory_motes_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_motes_queue_3 set_planet_flag = factory_motes_queue_4 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 3 } } }
-}
-planet_factory_motes_queue_4 = {
-	potential = { has_planet_flag = factory_motes_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_motes_queue_4 set_planet_flag = factory_motes_queue_5 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 4 } } }
-}
-planet_factory_motes_queue_5 = {
-	potential = { has_planet_flag = factory_motes_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_motes_queue_5 set_planet_flag = factory_motes_queue_1 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 5 } } }
-}
-
-planet_factory_gases_queue_1 = {
-	potential = { has_planet_flag = factory_gases_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_gases_queue_1 set_planet_flag = factory_gases_queue_2 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 1 } } }
-}
-planet_factory_gases_queue_2 = {
-	potential = { has_planet_flag = factory_gases_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_gases_queue_2 set_planet_flag = factory_gases_queue_3 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 2 } } }
-}
-planet_factory_gases_queue_3 = {
-	potential = { has_planet_flag = factory_gases_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_gases_queue_3 set_planet_flag = factory_gases_queue_4 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 3 } } }
-}
-planet_factory_gases_queue_4 = {
-	potential = { has_planet_flag = factory_gases_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_gases_queue_4 set_planet_flag = factory_gases_queue_5 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 4 } } }
-}
-planet_factory_gases_queue_5 = {
-	potential = { has_planet_flag = factory_gases_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_gases_queue_5 set_planet_flag = factory_gases_queue_1 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 5 } } }
-}
-
-planet_factory_crystals_queue_1 = {
-	potential = { has_planet_flag = factory_crystals_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_crystals_queue_1 set_planet_flag = factory_crystals_queue_2 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 1 } } }
-}
-planet_factory_crystals_queue_2 = {
-	potential = { has_planet_flag = factory_crystals_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_crystals_queue_2 set_planet_flag = factory_crystals_queue_3 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 2 } } }
-}
-planet_factory_crystals_queue_3 = {
-	potential = { has_planet_flag = factory_crystals_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_crystals_queue_3 set_planet_flag = factory_crystals_queue_4 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 3 } } }
-}
-planet_factory_crystals_queue_4 = {
-	potential = { has_planet_flag = factory_crystals_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_crystals_queue_4 set_planet_flag = factory_crystals_queue_5 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 4 } } }
-}
-planet_factory_crystals_queue_5 = {
-	potential = { has_planet_flag = factory_crystals_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_crystals_queue_5 set_planet_flag = factory_crystals_queue_1 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 5 } } }
-}
-
-planet_factory_extractor_queue_1 = {
-	potential = { always = no has_planet_flag = factory_extractor_queue_1 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_extractor_queue_1 set_planet_flag = factory_extractor_queue_2 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 1 } } }
-}
-planet_factory_extractor_queue_2 = {
-	potential = { always = no has_planet_flag = factory_extractor_queue_2 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_extractor_queue_2 set_planet_flag = factory_extractor_queue_3 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 2 } } }
-}
-planet_factory_extractor_queue_3 = {
-	potential = { always = no has_planet_flag = factory_extractor_queue_3 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_extractor_queue_3 set_planet_flag = factory_extractor_queue_4 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 3 } } }
-}
-planet_factory_extractor_queue_4 = {
-	potential = { always = no has_planet_flag = factory_extractor_queue_4 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_extractor_queue_4 set_planet_flag = factory_extractor_queue_5 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 4 } } }
-}
-planet_factory_extractor_queue_5 = {
-	potential = { always = no has_planet_flag = factory_extractor_queue_5 }
-	allow = { hidden_trigger = { always = yes } }
-	effect = { remove_planet_flag = factory_extractor_queue_5 set_planet_flag = factory_extractor_queue_1 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 5 } } }
-}
-
-###Factory Queueing
-
-planet_factory_increase_queue = {
-	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_enough_available"
-			fail_text = "autofab_not_enough_available"
-			check_variable = { which = autofabs_available value >= factory_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_autofab_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_queue value = factory_queue_apply_value }
-		}
-	}
-}
-planet_factory_decrease_queue = {
-	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_enough_queued"
-			fail_text = "autofab_not_enough_queued"
-			check_variable = { which = autofab_queue value >= factory_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_autofab_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_queue value = factory_queue_apply_value }
-		}
-	}
-}
-
-planet_factory_generator_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_energy_avail value >= factory_generator_queue_apply_value }
-			check_variable = { which = autofab_districts_available value >= factory_generator_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_generator_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_energy_queue value = factory_generator_queue_apply_value }
-			subtract_variable = { which = autofab_energy_avail value = factory_generator_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_generator_queue_apply_value }
-		}
-	}
-}
-planet_factory_generator_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_generator_queue_apply_value value <= value:factory_generator_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_generator_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_energy_queue value = factory_generator_queue_apply_value }
-			change_variable = { which = autofab_energy_avail value = factory_generator_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_generator_queue_apply_value }
-		}
-	}
-}
-
-planet_factory_mine_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_minerals_avail value >= factory_mine_queue_apply_value }
-			check_variable = { which = autofab_districts_available value >= factory_mine_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_mine_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_mineral_queue value = factory_mine_queue_apply_value }
-			subtract_variable = { which = autofab_minerals_avail value = factory_mine_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_mine_queue_apply_value }
-		}
-	}
-}
-planet_factory_mine_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_mine_queue_apply_value value <= value:factory_mine_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_mine_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_mineral_queue value = factory_mine_queue_apply_value }
-			change_variable = { which = autofab_minerals_avail value = factory_mine_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_mine_queue_apply_value }
-		}
-	}
-}
-
-planet_factory_farm_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_food_avail value >= factory_farm_queue_apply_value }
-			check_variable = { which = autofab_districts_available value >= factory_farm_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_farm_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_food_queue value = factory_farm_queue_apply_value }
-			subtract_variable = { which = autofab_food_avail value = factory_farm_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_farm_queue_apply_value }
-		}
-	}
-}
-planet_factory_farm_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_farm_queue_apply_value value <= value:factory_farm_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_farm_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_food_queue value = factory_farm_queue_apply_value }
-			change_variable = { which = autofab_food_avail value = factory_farm_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_farm_queue_apply_value }
-		}
-	}
-}
-
-planet_factory_foundry_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_foundry_available value >= factory_foundry_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_foundry_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_alloys_queue value = factory_foundry_queue_apply_value }
-			subtract_variable = { which = autofab_foundry_available value = factory_foundry_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_foundry_queue_apply_value }
-		}
-	}
-}
-planet_factory_foundry_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_foundry_queue_apply_value value <= value:factory_foundry_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_foundry_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_alloys_queue value = factory_foundry_queue_apply_value }
-			change_variable = { which = autofab_foundry_available value = factory_foundry_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_foundry_queue_apply_value }
-		}
-	}
-}
-
-planet_factory_factory_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_factory_available value >= factory_factory_queue_apply_value }
-			check_variable = { which = autofab_districts_available value >= factory_factory_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_factory_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_congoods_queue value = factory_factory_queue_apply_value }
-			subtract_variable = { which = autofab_factory_available value = factory_factory_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_factory_queue_apply_value }
-		}
-	}
-}
-planet_factory_factory_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_factory_queue_apply_value value <= value:factory_factory_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_factory_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_congoods_queue value = factory_factory_queue_apply_value }
-			change_variable = { which = autofab_factory_available value = factory_factory_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_factory_queue_apply_value }
-		}
-	}
-}
-
-planet_factory_motes_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_districts_available value >= factory_motes_queue_apply_value }
-		}
-		custom_tooltip = {
-			fail_text = "MISSING_TECH_AREA|TECH|tech_volatile_motes|"
-			owner = { has_technology = tech_volatile_motes }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_chemical_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_motes_queue value = factory_motes_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_motes_queue_apply_value }
-		}
-	}
-}
-planet_factory_motes_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_motes_queue_apply_value value <= value:factory_motes_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_chemical_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_motes_queue value = factory_motes_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_motes_queue_apply_value }
-		}
-	}
-}
-
-planet_factory_gases_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_districts_available value >= factory_gases_queue_apply_value }
-		}
-		custom_tooltip = {
-			fail_text = "MISSING_TECH_AREA|TECH|tech_exotic_gases|"
-			owner = { has_technology = tech_exotic_gases }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_refinery_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_gases_queue value = factory_gases_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_gases_queue_apply_value }
-		}
-	}
-}
-planet_factory_gases_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_gases_queue_apply_value value <= value:factory_gases_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_refinery_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_gases_queue value = factory_gases_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_gases_queue_apply_value }
-		}
-	}
-}
-
-planet_factory_crystals_increase_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_districts_available value >= factory_crystals_queue_apply_value }
-		}
-		custom_tooltip = {
-			fail_text = "MISSING_TECH_AREA|TECH|tech_rare_crystals|"
-			owner = { has_technology = tech_rare_crystals }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_translucer_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_crystals_queue value = factory_crystals_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_crystals_queue_apply_value }
-		}
-	}
-}
-planet_factory_crystals_decrease_queue = {
-	potential = { }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_crystals_queue_apply_value value <= value:factory_crystals_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_translucer_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_crystals_queue value = factory_crystals_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_crystals_queue_apply_value }
-		}
-	}
-}
-
-planet_factory_extractor_increase_queue = {
-	potential = { always = no }
-	allow = {
-		always = no
-		custom_tooltip = {
-			success_text = "autofab_module_enough_available"
-			fail_text = "autofab_module_not_enough_available"
-			check_variable = { which = autofab_districts_available value >= factory_extractor_queue_apply_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_extractor_queue"
-		hidden_effect = {
-			change_variable = { which = autofab_extractor_queue value = factory_extractor_queue_apply_value }
-			subtract_variable = { which = autofab_extractor_avail value = factory_extractor_queue_apply_value }
-			subtract_variable = { which = autofab_districts_available value = factory_extractor_queue_apply_value }
-		}
-	}
-}
-planet_factory_extractor_decrease_queue = {
-	potential = { always = no }
-	allow = {
-		custom_tooltip = {
-			success_text = "autofab_module_enough_queued"
-			fail_text = "autofab_module_not_enough_queued"
-			check_variable = { which = factory_extractor_queue_apply_value value <= value:factory_extractor_queue_value }
-		}
-	}
-	effect = {
-		custom_tooltip = "factory_extractor_unqueue"
-		hidden_effect = {
-			subtract_variable = { which = autofab_extractor_queue value = factory_extractor_queue_apply_value }
-			change_variable = { which = autofab_extractor_avail value = factory_extractor_queue_apply_value }
-			change_variable = { which = autofab_districts_available value = factory_extractor_queue_apply_value }
-		}
-	}
-}
+#planet_hidden_button = {
+#	potential = { NOT = { has_planet_flag = easter_egg } }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { set_planet_flag = easter_egg }
+#}
+#planet_hidden_button_off = {
+#	potential = { has_planet_flag = easter_egg }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = easter_egg }
+#}
+#
+#
+#open_planet_manager = {
+#	potential = { hidden_trigger = { always = yes } }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "autofab_factory_manage"
+#		hidden_effect = {
+#			document_factory_planet = yes
+#			factory_reset_all_planet_flags = yes
+#			factory_set_default_queue_planet = yes
+#		}
+#		planet_event = { id = autofab_menu.10 }
+#	}
+#}
+#
+#autofab_planet_tooltip = {
+#	potential = { }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { custom_tooltip = "autofab_planet_tooltip" }
+#}
+#
+#
+#planet_factory_automation_desc = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "planet_factory_automation_desc"
+#	}
+#}
+#planet_factory_automation_off = {
+#	potential = { has_planet_flag = autofab_automation_off }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = autofab_automation_off }
+#}
+#planet_factory_automation_country = {
+#	potential = { NOR = { has_planet_flag = autofab_automation has_planet_flag = autofab_automation_off } }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { 
+#		custom_tooltip = "autofab_country_default"
+#		set_planet_flag = autofab_automation
+#	}
+#}
+#planet_factory_automation_on = {
+#	potential = { has_planet_flag = autofab_automation }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = autofab_automation set_planet_flag = autofab_automation_off }
+#}
+#
+#planet_factory_vanilla_swapping_desc = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "planet_factory_vanilla_swapping_desc"
+#	}
+#}
+#factory_vanilla_swapping_fire_planet = {
+#	potential = { NOT = { has_planet_flag = autofab_ignore_vanilla } OR = { has_planet_flag = factory_vanilla_swapping owner = { has_country_flag = factory_vanilla_swapping } } }
+#	allow = {
+#		custom_tooltip = "swapping_planet_tooltip"
+#		hidden_trigger = { has_vanilla_swap_candidate = yes }
+#	}
+#	effect = {
+#		custom_tooltip = "swapping_planet_effects_tooltip"
+#		hidden_effect = {
+#			if = {
+#				limit = {
+#					has_vanilla_swap_candidate = yes
+#					NOT = { has_planet_flag = autofab_ignore_vanilla }
+#				}
+#				planet_event = { id = autofab.21 }
+#			}
+#		}
+#	}
+#}
+#planet_factory_vanilla_swapping_off = {
+#	potential = { has_planet_flag = autofab_ignore_vanilla }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = autofab_ignore_vanilla }
+#}
+#planet_factory_vanilla_swapping_country = {
+#	potential = { NOR = { has_planet_flag = factory_vanilla_swapping has_planet_flag = autofab_ignore_vanilla } }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		set_planet_flag = factory_vanilla_swapping
+#		custom_tooltip = "autofab_country_default"
+#	}
+#}
+#planet_factory_vanilla_swapping_on = {
+#	potential = { has_planet_flag = factory_vanilla_swapping }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_vanilla_swapping set_planet_flag = autofab_ignore_vanilla }
+#}
+#
+#planet_factory_fallback_desc = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "planet_factory_fallback_desc"
+#	}
+#}
+#planet_factory_fallback_off = {
+#	potential = { has_planet_flag = factory_fallback_off }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_fallback_off }
+#}
+#planet_factory_fallback_country = {
+#	potential = { NOR = { has_planet_flag = factory_fallback_off has_planet_flag = factory_fallback } }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		set_planet_flag = factory_fallback
+#		custom_tooltip = "autofab_country_default"
+#	}
+#}
+#planet_factory_fallback_on = {
+#	potential = { has_planet_flag = factory_fallback }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { set_planet_flag = factory_fallback_off remove_planet_flag = factory_fallback }
+#}
+#
+#planet_factory_autofab_construction_desc = {
+#	potential = { always = yes }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = {
+#		custom_tooltip = "planet_factory_autofab_construction_desc"
+#	}
+#}
+#planet_factory_autofab_construction_off = {
+#	potential = { has_planet_flag = factory_autofab_construction_off }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_autofab_construction_off }
+#}
+#planet_factory_autofab_construction_country = {
+#	potential = { NOR = { has_planet_flag = factory_autofab_construction_off has_planet_flag = factory_autofab_construction_on } }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { 
+#		custom_tooltip = "autofab_country_default"
+#		set_planet_flag = factory_autofab_construction_on
+#	}
+#}
+#planet_factory_autofab_construction_on = {
+#	potential = { has_planet_flag = factory_autofab_construction_on }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { set_planet_flag = factory_autofab_construction_off remove_planet_flag = factory_autofab_construction_on }
+#}
+#
+####Number Looping
+#
+#planet_factory_queue_1 = {
+#	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_queue_1 set_planet_flag = factory_queue_2 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 1 } } }
+#}
+#planet_factory_queue_2 = {
+#	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_queue_2 set_planet_flag = factory_queue_3 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 2 } } }
+#}
+#planet_factory_queue_3 = {
+#	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_queue_3 set_planet_flag = factory_queue_4 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 3 } } }
+#}
+#planet_factory_queue_4 = {
+#	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_queue_4 set_planet_flag = factory_queue_5 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 4 } } }
+#}
+#planet_factory_queue_5 = {
+#	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } has_planet_flag = factory_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_queue_5 set_planet_flag = factory_queue_1 hidden_effect = { set_variable = { which = factory_queue_apply_value value = 5 } } }
+#}
+#
+#planet_factory_generator_queue_1 = {
+#	potential = { has_planet_flag = factory_generator_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_generator_queue_1 set_planet_flag = factory_generator_queue_2 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 1 } } }
+#}
+#planet_factory_generator_queue_2 = {
+#	potential = { has_planet_flag = factory_generator_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_generator_queue_2 set_planet_flag = factory_generator_queue_3 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 2 } } }
+#}
+#planet_factory_generator_queue_3 = {
+#	potential = { has_planet_flag = factory_generator_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_generator_queue_3 set_planet_flag = factory_generator_queue_4 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 3 } } }
+#}
+#planet_factory_generator_queue_4 = {
+#	potential = { has_planet_flag = factory_generator_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_generator_queue_4 set_planet_flag = factory_generator_queue_5 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 4 } } }
+#}
+#planet_factory_generator_queue_5 = {
+#	potential = { has_planet_flag = factory_generator_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_generator_queue_5 set_planet_flag = factory_generator_queue_1 hidden_effect = { set_variable = { which = factory_generator_queue_apply_value value = 5 } } }
+#}
+#
+#planet_factory_mine_queue_1 = {
+#	potential = { has_planet_flag = factory_mine_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_mine_queue_1 set_planet_flag = factory_mine_queue_2 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 1 } } }
+#}
+#planet_factory_mine_queue_2 = {
+#	potential = { has_planet_flag = factory_mine_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_mine_queue_2 set_planet_flag = factory_mine_queue_3 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 2 } } }
+#}
+#planet_factory_mine_queue_3 = {
+#	potential = { has_planet_flag = factory_mine_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_mine_queue_3 set_planet_flag = factory_mine_queue_4 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 3 } } }
+#}
+#planet_factory_mine_queue_4 = {
+#	potential = { has_planet_flag = factory_mine_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_mine_queue_4 set_planet_flag = factory_mine_queue_5 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 4 } } }
+#}
+#planet_factory_mine_queue_5 = {
+#	potential = { has_planet_flag = factory_mine_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_mine_queue_5 set_planet_flag = factory_mine_queue_1 hidden_effect = { set_variable = { which = factory_mine_queue_apply_value value = 5 } } }
+#}
+#
+#planet_factory_farm_queue_1 = {
+#	potential = { has_planet_flag = factory_farm_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_farm_queue_1 set_planet_flag = factory_farm_queue_2 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 1 } } }
+#}
+#planet_factory_farm_queue_2 = {
+#	potential = { has_planet_flag = factory_farm_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_farm_queue_2 set_planet_flag = factory_farm_queue_3 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 2 } } }
+#}
+#planet_factory_farm_queue_3 = {
+#	potential = { has_planet_flag = factory_farm_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_farm_queue_3 set_planet_flag = factory_farm_queue_4 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 3 } } }
+#}
+#planet_factory_farm_queue_4 = {
+#	potential = { has_planet_flag = factory_farm_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_farm_queue_4 set_planet_flag = factory_farm_queue_5 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 4 } } }
+#}
+#planet_factory_farm_queue_5 = {
+#	potential = { has_planet_flag = factory_farm_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_farm_queue_5 set_planet_flag = factory_farm_queue_1 hidden_effect = { set_variable = { which = factory_farm_queue_apply_value value = 5 } } }
+#}
+#
+#planet_factory_foundry_queue_1 = {
+#	potential = { has_planet_flag = factory_foundry_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_foundry_queue_1 set_planet_flag = factory_foundry_queue_2 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 1 } } }
+#}
+#planet_factory_foundry_queue_2 = {
+#	potential = { has_planet_flag = factory_foundry_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_foundry_queue_2 set_planet_flag = factory_foundry_queue_3 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 2 } } }
+#}
+#planet_factory_foundry_queue_3 = {
+#	potential = { has_planet_flag = factory_foundry_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_foundry_queue_3 set_planet_flag = factory_foundry_queue_4 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 3 } } }
+#}
+#planet_factory_foundry_queue_4 = {
+#	potential = { has_planet_flag = factory_foundry_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_foundry_queue_4 set_planet_flag = factory_foundry_queue_5 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 4 } } }
+#}
+#planet_factory_foundry_queue_5 = {
+#	potential = { has_planet_flag = factory_foundry_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_foundry_queue_5 set_planet_flag = factory_foundry_queue_1 hidden_effect = { set_variable = { which = factory_foundry_queue_apply_value value = 5 } } }
+#}
+#
+#planet_factory_factory_queue_1 = {
+#	potential = { has_planet_flag = factory_factory_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_factory_queue_1 set_planet_flag = factory_factory_queue_2 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 1 } } }
+#}
+#planet_factory_factory_queue_2 = {
+#	potential = { has_planet_flag = factory_factory_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_factory_queue_2 set_planet_flag = factory_factory_queue_3 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 2 } } }
+#}
+#planet_factory_factory_queue_3 = {
+#	potential = { has_planet_flag = factory_factory_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_factory_queue_3 set_planet_flag = factory_factory_queue_4 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 3 } } }
+#}
+#planet_factory_factory_queue_4 = {
+#	potential = { has_planet_flag = factory_factory_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_factory_queue_4 set_planet_flag = factory_factory_queue_5 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 4 } } }
+#}
+#planet_factory_factory_queue_5 = {
+#	potential = { has_planet_flag = factory_factory_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_factory_queue_5 set_planet_flag = factory_factory_queue_1 hidden_effect = { set_variable = { which = factory_factory_queue_apply_value value = 5 } } }
+#}
+#
+#planet_factory_motes_queue_1 = {
+#	potential = { has_planet_flag = factory_motes_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_motes_queue_1 set_planet_flag = factory_motes_queue_2 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 1 } } }
+#}
+#planet_factory_motes_queue_2 = {
+#	potential = { has_planet_flag = factory_motes_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_motes_queue_2 set_planet_flag = factory_motes_queue_3 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 2 } } }
+#}
+#planet_factory_motes_queue_3 = {
+#	potential = { has_planet_flag = factory_motes_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_motes_queue_3 set_planet_flag = factory_motes_queue_4 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 3 } } }
+#}
+#planet_factory_motes_queue_4 = {
+#	potential = { has_planet_flag = factory_motes_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_motes_queue_4 set_planet_flag = factory_motes_queue_5 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 4 } } }
+#}
+#planet_factory_motes_queue_5 = {
+#	potential = { has_planet_flag = factory_motes_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_motes_queue_5 set_planet_flag = factory_motes_queue_1 hidden_effect = { set_variable = { which = factory_motes_queue_apply_value value = 5 } } }
+#}
+#
+#planet_factory_gases_queue_1 = {
+#	potential = { has_planet_flag = factory_gases_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_gases_queue_1 set_planet_flag = factory_gases_queue_2 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 1 } } }
+#}
+#planet_factory_gases_queue_2 = {
+#	potential = { has_planet_flag = factory_gases_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_gases_queue_2 set_planet_flag = factory_gases_queue_3 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 2 } } }
+#}
+#planet_factory_gases_queue_3 = {
+#	potential = { has_planet_flag = factory_gases_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_gases_queue_3 set_planet_flag = factory_gases_queue_4 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 3 } } }
+#}
+#planet_factory_gases_queue_4 = {
+#	potential = { has_planet_flag = factory_gases_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_gases_queue_4 set_planet_flag = factory_gases_queue_5 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 4 } } }
+#}
+#planet_factory_gases_queue_5 = {
+#	potential = { has_planet_flag = factory_gases_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_gases_queue_5 set_planet_flag = factory_gases_queue_1 hidden_effect = { set_variable = { which = factory_gases_queue_apply_value value = 5 } } }
+#}
+#
+#planet_factory_crystals_queue_1 = {
+#	potential = { has_planet_flag = factory_crystals_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_crystals_queue_1 set_planet_flag = factory_crystals_queue_2 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 1 } } }
+#}
+#planet_factory_crystals_queue_2 = {
+#	potential = { has_planet_flag = factory_crystals_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_crystals_queue_2 set_planet_flag = factory_crystals_queue_3 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 2 } } }
+#}
+#planet_factory_crystals_queue_3 = {
+#	potential = { has_planet_flag = factory_crystals_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_crystals_queue_3 set_planet_flag = factory_crystals_queue_4 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 3 } } }
+#}
+#planet_factory_crystals_queue_4 = {
+#	potential = { has_planet_flag = factory_crystals_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_crystals_queue_4 set_planet_flag = factory_crystals_queue_5 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 4 } } }
+#}
+#planet_factory_crystals_queue_5 = {
+#	potential = { has_planet_flag = factory_crystals_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_crystals_queue_5 set_planet_flag = factory_crystals_queue_1 hidden_effect = { set_variable = { which = factory_crystals_queue_apply_value value = 5 } } }
+#}
+#
+#planet_factory_extractor_queue_1 = {
+#	potential = { always = no has_planet_flag = factory_extractor_queue_1 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_extractor_queue_1 set_planet_flag = factory_extractor_queue_2 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 1 } } }
+#}
+#planet_factory_extractor_queue_2 = {
+#	potential = { always = no has_planet_flag = factory_extractor_queue_2 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_extractor_queue_2 set_planet_flag = factory_extractor_queue_3 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 2 } } }
+#}
+#planet_factory_extractor_queue_3 = {
+#	potential = { always = no has_planet_flag = factory_extractor_queue_3 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_extractor_queue_3 set_planet_flag = factory_extractor_queue_4 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 3 } } }
+#}
+#planet_factory_extractor_queue_4 = {
+#	potential = { always = no has_planet_flag = factory_extractor_queue_4 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_extractor_queue_4 set_planet_flag = factory_extractor_queue_5 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 4 } } }
+#}
+#planet_factory_extractor_queue_5 = {
+#	potential = { always = no has_planet_flag = factory_extractor_queue_5 }
+#	allow = { hidden_trigger = { always = yes } }
+#	effect = { remove_planet_flag = factory_extractor_queue_5 set_planet_flag = factory_extractor_queue_1 hidden_effect = { set_variable = { which = factory_extractor_queue_apply_value value = 5 } } }
+#}
+#
+####Factory Queueing
+#
+#planet_factory_increase_queue = {
+#	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_enough_available"
+#			fail_text = "autofab_not_enough_available"
+#			check_variable = { which = autofabs_available value >= factory_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_autofab_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_queue value = factory_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_decrease_queue = {
+#	potential = { NOT = { has_planet_flag = factory_autofab_construction_off } OR = { has_planet_flag = factory_autofab_construction_on owner = { has_country_flag = factory_autofab_construction_on } } }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_enough_queued"
+#			fail_text = "autofab_not_enough_queued"
+#			check_variable = { which = autofab_queue value >= factory_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_autofab_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_queue value = factory_queue_apply_value }
+#		}
+#	}
+#}
+#
+#planet_factory_generator_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_energy_avail value >= factory_generator_queue_apply_value }
+#			check_variable = { which = autofab_districts_available value >= factory_generator_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_generator_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_energy_queue value = factory_generator_queue_apply_value }
+#			subtract_variable = { which = autofab_energy_avail value = factory_generator_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_generator_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_generator_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_generator_queue_apply_value value <= value:factory_generator_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_generator_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_energy_queue value = factory_generator_queue_apply_value }
+#			change_variable = { which = autofab_energy_avail value = factory_generator_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_generator_queue_apply_value }
+#		}
+#	}
+#}
+#
+#planet_factory_mine_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_minerals_avail value >= factory_mine_queue_apply_value }
+#			check_variable = { which = autofab_districts_available value >= factory_mine_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_mine_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_mineral_queue value = factory_mine_queue_apply_value }
+#			subtract_variable = { which = autofab_minerals_avail value = factory_mine_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_mine_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_mine_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_mine_queue_apply_value value <= value:factory_mine_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_mine_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_mineral_queue value = factory_mine_queue_apply_value }
+#			change_variable = { which = autofab_minerals_avail value = factory_mine_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_mine_queue_apply_value }
+#		}
+#	}
+#}
+#
+#planet_factory_farm_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_food_avail value >= factory_farm_queue_apply_value }
+#			check_variable = { which = autofab_districts_available value >= factory_farm_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_farm_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_food_queue value = factory_farm_queue_apply_value }
+#			subtract_variable = { which = autofab_food_avail value = factory_farm_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_farm_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_farm_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_farm_queue_apply_value value <= value:factory_farm_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_farm_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_food_queue value = factory_farm_queue_apply_value }
+#			change_variable = { which = autofab_food_avail value = factory_farm_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_farm_queue_apply_value }
+#		}
+#	}
+#}
+#
+#planet_factory_foundry_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_foundry_available value >= factory_foundry_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_foundry_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_alloys_queue value = factory_foundry_queue_apply_value }
+#			subtract_variable = { which = autofab_foundry_available value = factory_foundry_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_foundry_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_foundry_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_foundry_queue_apply_value value <= value:factory_foundry_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_foundry_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_alloys_queue value = factory_foundry_queue_apply_value }
+#			change_variable = { which = autofab_foundry_available value = factory_foundry_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_foundry_queue_apply_value }
+#		}
+#	}
+#}
+#
+#planet_factory_factory_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_factory_available value >= factory_factory_queue_apply_value }
+#			check_variable = { which = autofab_districts_available value >= factory_factory_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_factory_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_congoods_queue value = factory_factory_queue_apply_value }
+#			subtract_variable = { which = autofab_factory_available value = factory_factory_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_factory_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_factory_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_factory_queue_apply_value value <= value:factory_factory_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_factory_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_congoods_queue value = factory_factory_queue_apply_value }
+#			change_variable = { which = autofab_factory_available value = factory_factory_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_factory_queue_apply_value }
+#		}
+#	}
+#}
+#
+#planet_factory_motes_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_districts_available value >= factory_motes_queue_apply_value }
+#		}
+#		custom_tooltip = {
+#			fail_text = "MISSING_TECH_AREA|TECH|tech_volatile_motes|"
+#			owner = { has_technology = tech_volatile_motes }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_chemical_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_motes_queue value = factory_motes_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_motes_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_motes_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_motes_queue_apply_value value <= value:factory_motes_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_chemical_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_motes_queue value = factory_motes_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_motes_queue_apply_value }
+#		}
+#	}
+#}
+#
+#planet_factory_gases_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_districts_available value >= factory_gases_queue_apply_value }
+#		}
+#		custom_tooltip = {
+#			fail_text = "MISSING_TECH_AREA|TECH|tech_exotic_gases|"
+#			owner = { has_technology = tech_exotic_gases }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_refinery_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_gases_queue value = factory_gases_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_gases_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_gases_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_gases_queue_apply_value value <= value:factory_gases_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_refinery_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_gases_queue value = factory_gases_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_gases_queue_apply_value }
+#		}
+#	}
+#}
+#
+#planet_factory_crystals_increase_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_districts_available value >= factory_crystals_queue_apply_value }
+#		}
+#		custom_tooltip = {
+#			fail_text = "MISSING_TECH_AREA|TECH|tech_rare_crystals|"
+#			owner = { has_technology = tech_rare_crystals }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_translucer_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_crystals_queue value = factory_crystals_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_crystals_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_crystals_decrease_queue = {
+#	potential = { }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_crystals_queue_apply_value value <= value:factory_crystals_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_translucer_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_crystals_queue value = factory_crystals_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_crystals_queue_apply_value }
+#		}
+#	}
+#}
+#
+#planet_factory_extractor_increase_queue = {
+#	potential = { always = no }
+#	allow = {
+#		always = no
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_available"
+#			fail_text = "autofab_module_not_enough_available"
+#			check_variable = { which = autofab_districts_available value >= factory_extractor_queue_apply_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_extractor_queue"
+#		hidden_effect = {
+#			change_variable = { which = autofab_extractor_queue value = factory_extractor_queue_apply_value }
+#			subtract_variable = { which = autofab_extractor_avail value = factory_extractor_queue_apply_value }
+#			subtract_variable = { which = autofab_districts_available value = factory_extractor_queue_apply_value }
+#		}
+#	}
+#}
+#planet_factory_extractor_decrease_queue = {
+#	potential = { always = no }
+#	allow = {
+#		custom_tooltip = {
+#			success_text = "autofab_module_enough_queued"
+#			fail_text = "autofab_module_not_enough_queued"
+#			check_variable = { which = factory_extractor_queue_apply_value value <= value:factory_extractor_queue_value }
+#		}
+#	}
+#	effect = {
+#		custom_tooltip = "factory_extractor_unqueue"
+#		hidden_effect = {
+#			subtract_variable = { which = autofab_extractor_queue value = factory_extractor_queue_apply_value }
+#			change_variable = { which = autofab_extractor_avail value = factory_extractor_queue_apply_value }
+#			change_variable = { which = autofab_districts_available value = factory_extractor_queue_apply_value }
+#		}
+#	}
+#}

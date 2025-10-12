@@ -1,0 +1,278 @@
+@Lv1 = 1
+@Lv2 = 2
+@Lv3 = 3
+
+building_autofab_uplink_1 = {
+	base_buildtime = @b1_time
+	district_limit = 1
+	category = pop_assembly
+
+	building_sets = {
+		generator
+		mining
+		farming
+		urban
+	}
+
+	potential = {
+		has_autofab = yes
+	}
+
+	upgrades = {
+		building_autofab_uplink_2
+	}
+
+	allow = {
+	}
+
+
+	planet_modifier = {
+		district_automated_workforce = 0.25
+	}
+
+	resources = {
+		category = planet_autofab_uplink
+		cost = {
+			minerals = 300
+			energy = 100
+			alloys = 100
+		}
+		upkeep = {
+			energy = @Lv1
+			mult = value:autofab_uplink_upkeep
+		}
+	}
+}
+
+building_autofab_uplink_2 = {
+	base_buildtime = @b2_time
+	category = pop_assembly
+	can_build = no
+
+	building_sets = {
+		generator
+		mining
+		farming
+		urban
+	}
+
+	potential = {
+		has_autofab = yes
+	}
+
+	upgrades = {
+		building_autofab_uplink_3
+	}
+
+	allow = {
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { is_wilderness_empire = yes }
+	}
+
+	planet_modifier = {
+		district_automated_workforce = 0.5
+	}
+
+	resources = {
+		category = planet_autofab_uplink
+		cost = {
+			minerals = 300
+			energy = 150
+			alloys = 100
+		}
+		upkeep = {
+			energy = @Lv2
+			mult = value:count_any_districts
+		}
+	}
+}
+
+building_autofab_uplink_3 = {
+	base_buildtime = @b3_time
+	category = pop_assembly
+	can_build = no
+
+	building_sets = {
+		generator
+		mining
+		farming
+		urban
+	}
+
+	potential = {
+		has_autofab = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { is_wilderness_empire = yes }
+	}
+
+	planet_modifier = {
+		district_automated_workforce = 0.75
+	}
+
+	resources = {
+		category = planet_autofab_uplink
+		cost = {
+			minerals = 300
+			energy = 200
+			alloys = 200
+		}
+		upkeep = {
+			energy = @Lv3
+			mult = value:count_any_districts
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_autofab_finish
+			}
+		}
+		modifier = {
+			district_automated_workforce = 0.25
+		}
+	}
+}
+
+building_autofab_uplink_1_city = {
+	base_buildtime = @b1_time
+	district_limit = 1
+	category = pop_assembly
+	icon = building_autofab_uplink_1
+
+	building_sets = {
+		government
+		urban_automation
+	}
+
+	potential = {
+		has_autofab = yes
+	}
+
+	upgrades = {
+		building_autofab_uplink_2_city
+	}
+
+	allow = {
+	}
+
+
+	planet_modifier = {
+		district_automated_workforce = 0.125
+	}
+
+	resources = {
+		category = planet_autofab_uplink
+		cost = {
+			minerals = 300
+			energy = 100
+			alloys = 100
+		}
+		upkeep = {
+			energy = @Lv1
+			mult = value:autofab_uplink_upkeep
+		}
+	}
+}
+
+building_autofab_uplink_2_city = {
+	base_buildtime = @b2_time
+	category = pop_assembly
+	can_build = no
+	icon = building_autofab_uplink_2
+
+	building_sets = {
+		government
+		urban_automation
+	}
+
+	potential = {
+		has_autofab = yes
+	}
+
+	upgrades = {
+		building_autofab_uplink_3_city
+	}
+
+	allow = {
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { is_wilderness_empire = yes }
+	}
+
+	planet_modifier = {
+		district_automated_workforce = 0.25
+	}
+
+	resources = {
+		category = planet_autofab_uplink
+		cost = {
+			minerals = 300
+			energy = 150
+			alloys = 100
+		}
+		upkeep = {
+			energy = @Lv2
+			mult = value:count_any_districts
+		}
+	}
+}
+
+building_autofab_uplink_3_city = {
+	base_buildtime = @b3_time
+	category = pop_assembly
+	can_build = no
+	icon = building_autofab_uplink_3
+
+	building_sets = {
+		government
+		urban_automation
+	}
+
+	potential = {
+		has_autofab = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		owner = { is_wilderness_empire = yes }
+	}
+
+	planet_modifier = {
+		district_automated_workforce = 0.375
+	}
+
+	resources = {
+		category = planet_autofab_uplink
+		cost = {
+			minerals = 300
+			energy = 200
+			alloys = 200
+		}
+		upkeep = {
+			energy = @Lv3
+			mult = value:count_any_districts
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_autofab_finish
+			}
+		}
+		modifier = {
+			district_automated_workforce = 0.125
+		}
+	}
+}
