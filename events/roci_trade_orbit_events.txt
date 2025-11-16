@@ -154,9 +154,6 @@ country_event = {
 	trigger = { NOT = { has_global_flag = no_trade_routes } }
 	
 	immediate = {
-		from = {
-			kiyo_mod_trade_set_route_time = yes
-		}
 		event_target:kiyo_trade_end@from = {
 			create_message = {
 				target = root

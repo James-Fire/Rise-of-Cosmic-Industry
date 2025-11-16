@@ -702,6 +702,18 @@ country_event = {
 			}
 			PREV = { change_variable = { which = realdev_shipyard_count value = prev.realdev_shipyard_count } }
 		}
+		every_owned_megastructure = {
+			limit = {
+				OR = {
+					is_megastructure_type = mega_shipyard_1
+					is_megastructure_type = mega_shipyard_2
+					is_megastructure_type = mega_shipyard_3
+				}
+			}
+			log = "Hi I'm a megastructure"
+			export_modifier_to_variable = { modifier = starbase_shipyard_capacity_add variable = realdev_shipyard_count }
+			PREV = { change_variable = { which = realdev_shipyard_count value = prev.realdev_shipyard_count } }
+		}
 		set_variable = { which = realdev_shipyard_display value = realdev_shipyard_count }
 		#change_variable = { which = realdev_shipyard_bonus value = realdev_shipyard_count }
 		#multiply_variable = { which = realdev_shipyard_bonus value = 5 }		

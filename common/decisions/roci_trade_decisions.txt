@@ -43,14 +43,14 @@ decision_kiyo_mod_trade_setup_trade_route = {
 	resources = {
 		category = campaign_kiyo_mod_trade
 		cost = {
-			trigger = { owner = { is_ai = no is_gestalt = no } }
+			trigger = { owner = { is_ai = no country_uses_consumer_goods = yes } }
 			energy = 750
 			consumer_goods = 750
 		}
 		cost = {
-			trigger = { owner = { is_ai = no is_gestalt = yes } }
-			energy = 750
-			minerals = 2000
+			trigger = { owner = { is_ai = no country_uses_consumer_goods = no } }
+			energy = 1000
+			minerals = 1000
 		}
 		cost = {
 			trigger = { owner = { is_ai = yes } }
@@ -120,7 +120,7 @@ decision_kiyo_mod_trade_setup_trade_route = {
 	}
 	
 	ai_weight = {
-		weight = 20
+		weight = 2000
 		modifier = {
 			factor = 0
 			NOT = {

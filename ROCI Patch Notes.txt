@@ -1,5 +1,4 @@
-
-
+*Trade routes now get 10% more cargo for each *empire* that has a trade route on the planet
 
 
 *Made trade route opinion from multiple trade routes stack, instead of being set to the level of the most recent one
@@ -69,8 +68,6 @@ FE Buildings now make the job they affect have appropriate SR upkeep as well.*
 
 
 
-*Merged the Exploit Minimum Stockpile menu with the Autofab Automation Settings window. Exploit probably won't come back
-
 Moved the Trade Value provided by completed exploit constructions to the minor colonies.* Exploit probably won't come back
 
 Fixed Exploit starting Minor Colonies sometimes having incompatible loops on them.* Kinda annoying to do, Exploit probably won't come back
@@ -89,21 +86,13 @@ Made planets that are being colonized not get shipping costs.*
 
 Overhauled Orbital Infrastructure so that it conflicts (Thematically and mechanically) much less with the Planetary Ring.*
 
-Added a block to the Autofab Planet UI to show current "time" remaining on the current construction, total "time" for the entire Queue, and the current build speed modifier.*
-
-Reduced FE buildings Flat production bonus, gave them a % production bonus, to work better with Orbital Districts.*
-
 Realdev Assembly Speed Cap is now affected by select techs and APs.*
-
-Added a "Deconstruct all" button to the Planet Autofab UI.*
 
 
 
 Added the Strategic Production module, that deals with the production of SRs, and how it's currently terrible in vanilla.*
 
 Added the Subterannean Infrastructure module, dealing with construction projects beneath the surface.*
-
-Simplified autofab loop events. This should reduce the performance impact of lots of colonies building at once.*
 
 Added a collection of effects that can be called to log autofab trigger values on things.*
 
@@ -126,8 +115,6 @@ Added an effect that can be called to log realdev values on things.*
 Added an effect that can be called to log trade values on things.*
 
 Optimized detection events for when Cargo Ships have Sudden Dissapearance Syndrome, or other circumstances in which a trade route is cancelled.*
-
-Changed trade routes to never expire. Instead, they are cancelled if you have the trade fleet do something else.*
 
 Scripted more complex AI triggers involving all orbital platforms, so maybe they'll stop spamming specific ones in situations they don't belong.*
 

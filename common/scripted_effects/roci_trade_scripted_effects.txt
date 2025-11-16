@@ -33,6 +33,79 @@ pay_trade_cargo_expansion = {
 	}
 }
 
+#Fleet Scope
+cancel_trade_route = {
+	clear_orders = yes
+	#Remove flags, event targets
+	event_target:kiyo_trade_end@THIS = {
+		prev = {
+			remove_fleet_flag = kiyo_trade_end@PREV
+		}
+	}
+	remove_fleet_flag = kiyo_trade_starting
+	remove_fleet_flag = kiyo_trade_ending
+	remove_fleet_flag = kiyo_trade_has_trade_route
+	#Update both planets
+	event_target:kiyo_trade_start@THIS = {
+		kiyo_mod_trade_check_trade_route_exist = yes
+	}
+	event_target:kiyo_trade_end@THIS = {
+		kiyo_mod_trade_check_trade_route_exist = yes
+	}
+	clear_global_event_target = kiyo_trade_end@THIS
+	create_fleet = {
+		name = "Jeff wants you to report this to James"
+		effect = {
+			event_target:kiyo_trade_start@PREV = { save_global_event_target_as = kiyo_trade_start@prev }
+			set_owner = prev.owner
+			set_location = {
+				target = prev
+				distance = 5
+				angle = random
+			}
+			create_ship = {
+				name = "Cargo Ship"
+				random_existing_design = kiyo_trade
+				prefix = yes
+				upgradable = yes
+			}
+			set_variable = { which = kiyo_trade_max_cargo_ships_per_fleet value = prev.kiyo_trade_max_cargo_ships_per_fleet }
+			roci_trade_set_inital_variables = yes
+			fleet_event = { id = kiyo_trade_manual_event.50 }
+			set_owner = prev.owner
+			set_location = {
+				target = prev
+				distance = 0
+				angle = random
+			}
+			set_fleet_stance = passive
+			set_fleet_flag = kiyo_trade_fleet
+			event_target:kiyo_trade_start@this = { PREV = { set_fleet_flag = kiyo_trade_start@PREV } }
+			
+			#Find the planet in the galaxy that has the best trade route value that can be traded with if AI
+			if = { limit = { owner = { is_ai = yes } }
+				ordered_galaxy_planet = {
+					limit = { owner = { roci_can_trade_with_country = yes } }
+					position = 0
+					order_by = value:roci_trade_route_value
+					save_event_target_as = kiyo_trade_partner
+				}
+				queue_actions = { orbit_planet = event_target:kiyo_trade_partner }
+				event_target:kiyo_trade_partner = { prev = { set_fleet_flag = kiyo_trade_going@PREV } }
+			}
+		}
+		settings = {
+			can_upgrade = no
+			can_disband = no
+			can_change_composition = no
+			can_change_leader = no
+			spawn_debris = yes
+		}
+	}
+	clear_global_event_target = kiyo_trade_start@THIS
+	delete_fleet = this
+}
+
 #Make sure the fleet has the correct upkeep modifier
 #THIS = FLEET
 kiyo_correct_fleet_upkeep = {
@@ -268,38 +341,18 @@ kiyo_trade_calculate_resources = {
 	multiply_variable = { which = kiyo_trade_engineering_research value = kiyo_trade_max_cargo_ships_per_fleet }
 	multiply_variable = { which = kiyo_trade_trade_value value = kiyo_trade_max_cargo_ships_per_fleet }
 	
-	
-	# 3/4 Cargo if getting cargo from origin to destination
-	if = {
-		limit = {
-			owner = {
-				is_same_value = prev.orbit.owner
-			}
-		}
-		multiply_variable = { which = kiyo_trade_minerals value = 0.75 }
-		multiply_variable = { which = kiyo_trade_energy value = 0.75 }
-		multiply_variable = { which = kiyo_trade_food value = 0.75 }
-		multiply_variable = { which = kiyo_trade_unity value = 0.75 }
-		multiply_variable = { which = kiyo_trade_consumer_goods value = 0.75 }
-		multiply_variable = { which = kiyo_trade_alloys value = 0.75 }
-		multiply_variable = { which = kiyo_trade_physics_research value = 0.75 }
-		multiply_variable = { which = kiyo_trade_society_research value = 0.75 }
-		multiply_variable = { which = kiyo_trade_engineering_research value = 0.75 }
-		multiply_variable = { which = kiyo_trade_trade_value value = 0.75 }
-	}
-	
-	# 1.5x Cargo if fleet owner is corporate authority
-	if = { limit = { owner = { is_megacorp = yes } }
-		multiply_variable = { which = kiyo_trade_minerals value = 1.5 }
-		multiply_variable = { which = kiyo_trade_energy value = 1.5 }
-		multiply_variable = { which = kiyo_trade_food value = 1.5 }
-		multiply_variable = { which = kiyo_trade_unity value = 1.5 }
-		multiply_variable = { which = kiyo_trade_consumer_goods value = 1.5 }
-		multiply_variable = { which = kiyo_trade_alloys value = 1.5 }
-		multiply_variable = { which = kiyo_trade_physics_research value = 1.5 }
-		multiply_variable = { which = kiyo_trade_society_research value = 1.5 }
-		multiply_variable = { which = kiyo_trade_engineering_research value = 1.5 }
-		multiply_variable = { which = kiyo_trade_trade_value value = 1.5 }
+	# 1.25x Cargo if there is a branch office on the planet
+	if = { limit = { orbit = { has_branch_office = yes } }
+		multiply_variable = { which = kiyo_trade_minerals value = 1.25 }
+		multiply_variable = { which = kiyo_trade_energy value = 1.25 }
+		multiply_variable = { which = kiyo_trade_food value = 1.25 }
+		multiply_variable = { which = kiyo_trade_unity value = 1.25 }
+		multiply_variable = { which = kiyo_trade_consumer_goods value = 1.25 }
+		multiply_variable = { which = kiyo_trade_alloys value = 1.25 }
+		multiply_variable = { which = kiyo_trade_physics_research value = 1.25 }
+		multiply_variable = { which = kiyo_trade_society_research value = 1.25 }
+		multiply_variable = { which = kiyo_trade_engineering_research value = 1.25 }
+		multiply_variable = { which = kiyo_trade_trade_value value = 1.25 }
 	}
 	
 	#Make it 5% of production
@@ -313,6 +366,26 @@ kiyo_trade_calculate_resources = {
 	multiply_variable = { which = kiyo_trade_society_research value = 0.05 }
 	multiply_variable = { which = kiyo_trade_engineering_research value = 0.05 }
 	multiply_variable = { which = kiyo_trade_trade_value value = 0.05 }
+	
+	#Halve all non-trade resources, then add them to trade
+	multiply_variable = { which = kiyo_trade_minerals value = 0.5 }
+	multiply_variable = { which = kiyo_trade_energy value = 0.5 }
+	multiply_variable = { which = kiyo_trade_food value = 0.5 }
+	multiply_variable = { which = kiyo_trade_unity value = 0.5 }
+	multiply_variable = { which = kiyo_trade_consumer_goods value = 0.5 }
+	multiply_variable = { which = kiyo_trade_alloys value = 0.5 }
+	multiply_variable = { which = kiyo_trade_physics_research value = 0.5 }
+	multiply_variable = { which = kiyo_trade_society_research value = 0.5 }
+	multiply_variable = { which = kiyo_trade_engineering_research value = 0.5 }
+	change_variable = { which = kiyo_trade_trade_value value = kiyo_trade_minerals }
+	change_variable = { which = kiyo_trade_trade_value value = kiyo_trade_energy }
+	change_variable = { which = kiyo_trade_trade_value value = kiyo_trade_food }
+	change_variable = { which = kiyo_trade_trade_value value = kiyo_trade_unity }
+	change_variable = { which = kiyo_trade_trade_value value = kiyo_trade_consumer_goods }
+	change_variable = { which = kiyo_trade_trade_value value = kiyo_trade_alloys }
+	change_variable = { which = kiyo_trade_trade_value value = kiyo_trade_physics_research }
+	change_variable = { which = kiyo_trade_trade_value value = kiyo_trade_society_research }
+	change_variable = { which = kiyo_trade_trade_value value = kiyo_trade_engineering_research }
 	
 	orbit = {
 		if = { limit = { NOT = { has_deposit = d_kiyo_mod_trade } } add_deposit = d_kiyo_mod_trade }
@@ -333,13 +406,6 @@ kiyo_trade_calculate_resources = {
 		owner = { pay_trade_cargo_expansion = yes }
 		roci_expand_trade_fleet = yes
 	}
-}
-
-# Set timed fleet flag for how long a trade route should last
-# THIS = FLEET
-kiyo_mod_trade_set_route_time = {
-	remove_fleet_flag = kiyo_event_trade_expired_cargo
-	set_timed_fleet_flag = { flag = kiyo_event_trade_cargo_time days = 5400 }
 }
 
 # THIS = PLANET
